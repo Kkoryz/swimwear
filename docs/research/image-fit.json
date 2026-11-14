@@ -1641,6 +1641,566 @@
         "fits"
       ],
       "at": "2026-11-14T09:49:44.489Z"
+    },
+    "1c153294ad6193d06437df6ca9d74cc8fbcad727c41d381f97f3604a411d34e6|swimwear manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "524b653b64ac29a5ebec586d32fbc848d3a6ee1a59d6b35c469c0e470dca76f6|one-piece swimsuit manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "c0ae612cc2ba67fb4c271ec9fd72c286f21e15a134b50b592a9d721141e47a49|men's swimwear manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6|men's swimwear manufacturer": {
+      "label": "wrong_subject",
+      "model": "gpt-6-astra",
+      "reads": [
+        "wrong_subject"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208|teen swimwear manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180|children's swimwear manufacturer": {
+      "label": "wrong_subject",
+      "model": "gpt-6-astra",
+      "reads": [
+        "wrong_subject"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6|teen swimwear manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "5d6edb073c62831c5d39295f702c803ed091f91a72d3cb47909c75d97a8d5043|baby swimwear manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "29c07194988bc365f190a5984c9bc0d2de570fa3d8c57bc721d29ad7fe5e8f34|modest swimwear manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6|baby swimwear manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "dd96d1badad5ad5a48ccba4155ce6449ba515c1778a4c55b4c929854ed669309|modest swimwear manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180|modest swimwear manufacturer": {
+      "label": "wrong_subject",
+      "model": "gpt-6-astra",
+      "reads": [
+        "wrong_subject"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "3ea8d5930e5b648648922f901036a5facd342dab611a68938255133216b98fb7|burkini manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "082c67545e2c76767e4e2cd0e71e96f0324db9b631cc872a94d5dcb851fbb6a8|watersports apparel manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "c6d0844b30087396cff9f7da59d2ec3d63b8cd8f01621bd2f290205612271564|rash guard manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "e61ad15c7ef709d2b6117ddb4d26bfc41a0b63bd9c34c9ad3342b13739f59ab3|rash guard manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208|rash guard manufacturer": {
+      "label": "wrong_subject",
+      "model": "gpt-6-astra",
+      "reads": [
+        "wrong_subject"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6|resort wear manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180|resort wear manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "d220a31d0861de9a2bd6cb034fd2d38ac9993be821059fb428e921bcb691eaf4|cover-up manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6|swimwear embroidery": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208|swimwear embroidery": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180|swimwear embroidery": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6|swimwear consulting": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "1c153294ad6193d06437df6ca9d74cc8fbcad727c41d381f97f3604a411d34e6|swimwear consulting": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "8e5d27bb06bbbecbff4904bb38ca74ec0f65f93cbd2bd42322be8bc65bd45c89|swimwear development": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208|swimwear development": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bf4617420574069f67eb18654d2edc21e831a4a526818f54f29448c8f5851c02|swimwear development": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6|swimwear packaging": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180|swimwear packaging": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6|swimwear printing": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208|swimwear printing": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180|swimwear printing": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "96fea4e03c42e94368510098b4a65710bc242909dedd979c5a6ea10891cb5169|swimwear printing": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6|swimwear hardware": {
+      "label": "wrong_subject",
+      "model": "gpt-6-astra",
+      "reads": [
+        "wrong_subject"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "1890478cf7c047e6ca856563a55b7c69ee68ba2c736515b98aba108afdc4cc5a|swimwear hardware": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "1c153294ad6193d06437df6ca9d74cc8fbcad727c41d381f97f3604a411d34e6|swimwear fabric": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6|swimwear fabric": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208|swimwear fabric": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180|swimwear fabric": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "2f602ba855c5fb275fc646ec048d9288dae5a5985732ab5fd1f0a6dd74f501b2|swimwear brand launch": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bf4617420574069f67eb18654d2edc21e831a4a526818f54f29448c8f5851c02|swimwear fabric": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208|swimwear brand launch": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "9f06e41f4bf879fb623875865095daf53f9cdabf9254335157bf29312a76ed3e|swimwear brand launch": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6|About Us": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "8e5d27bb06bbbecbff4904bb38ca74ec0f65f93cbd2bd42322be8bc65bd45c89|About Us": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180|About Us": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208|About Us": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "96fea4e03c42e94368510098b4a65710bc242909dedd979c5a6ea10891cb5169|About Us": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "b84b3a253337c57c7d3d00bca3b341517285d1e428e537302e9e3cbdb2c9be47|Contact Us": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "1c153294ad6193d06437df6ca9d74cc8fbcad727c41d381f97f3604a411d34e6|Contact Us": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bf4617420574069f67eb18654d2edc21e831a4a526818f54f29448c8f5851c02|FAQ": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180|FAQ": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208|FAQ": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "2f602ba855c5fb275fc646ec048d9288dae5a5985732ab5fd1f0a6dd74f501b2|FAQ": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "9f06e41f4bf879fb623875865095daf53f9cdabf9254335157bf29312a76ed3e|Case Studies": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "8e5d27bb06bbbecbff4904bb38ca74ec0f65f93cbd2bd42322be8bc65bd45c89|Sustainability": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "96fea4e03c42e94368510098b4a65710bc242909dedd979c5a6ea10891cb5169|Sustainability": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "b84b3a253337c57c7d3d00bca3b341517285d1e428e537302e9e3cbdb2c9be47|Sustainability": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "1c153294ad6193d06437df6ca9d74cc8fbcad727c41d381f97f3604a411d34e6|Privacy Policy": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bf4617420574069f67eb18654d2edc21e831a4a526818f54f29448c8f5851c02|Terms and Conditions": {
+      "label": "wrong_subject",
+      "model": "gpt-6-astra",
+      "reads": [
+        "wrong_subject"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "72d0df4cca281fffe143d7eee7c15c66b81e07ba8b0054ef1f18073231c4d716|plus-size swimwear manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "2f602ba855c5fb275fc646ec048d9288dae5a5985732ab5fd1f0a6dd74f501b2|Request a Quote": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "f7073a1cc891a17288d293b841fa355b03fefc3a5915ea64705a0a8d076544f4|couples matching swimsuit manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180|plus-size swimwear manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6|couples matching swimsuit manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208|couples matching swimsuit manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180|couples matching swimsuit manufacturer": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "8e5d27bb06bbbecbff4904bb38ca74ec0f65f93cbd2bd42322be8bc65bd45c89|Blog": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
+    },
+    "9f06e41f4bf879fb623875865095daf53f9cdabf9254335157bf29312a76ed3e|Blog": {
+      "label": "fits",
+      "model": "gpt-6-astra",
+      "reads": [
+        "fits"
+      ],
+      "at": "2026-11-14T11:21:08.599Z"
     }
   },
   "pages": [
@@ -1738,9 +2298,17 @@
         },
         {
           "src": "/media/photos/general-lifestyle-5-960.webp",
+          "alt": "A woman in dusty pink swimwear and an open wrap leans against a cream stucco wall with her eyes closed.",
+          "section": "",
+          "image_sha256": "b84b3a253337c57c7d3d00bca3b341517285d1e428e537302e9e3cbdb2c9be47",
+          "fit": "fits",
+          "fit_model": "gpt-6-astra"
+        },
+        {
+          "src": "/media/photos/general-lifestyle-6-960.webp",
           "alt": "",
           "section": "Send Your Enquiry Straight to the Factory",
-          "image_sha256": "b84b3a253337c57c7d3d00bca3b341517285d1e428e537302e9e3cbdb2c9be47",
+          "image_sha256": "1c153294ad6193d06437df6ca9d74cc8fbcad727c41d381f97f3604a411d34e6",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -1790,9 +2358,9 @@
         },
         {
           "src": "/media/photos/one-piece-swimsuit-product-construction-bust-support-and-trim-details-960.webp",
-          "alt": "A woman in a green and cream swimsuit and straw hat hugs her knees beside terracotta garden pots.",
+          "alt": "A woman in a coral floral swimsuit and open overshirt sits among dune grass beside a terracotta jug.",
           "section": "Construction, Bust Support and Trim Details",
-          "image_sha256": "74b91b9edd33f3d941e00c8a58b6629162c9e78db8b8bf4a0ef986570128a664",
+          "image_sha256": "524b653b64ac29a5ebec586d32fbc848d3a6ee1a59d6b35c469c0e470dca76f6",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -1834,9 +2402,9 @@
         },
         {
           "src": "/media/photos/general-process-1-960.webp",
-          "alt": "A worker inspects a black swimsuit with dark green trim beside stacks of swimwear on a factory table.",
+          "alt": "A worker inspects a heather grey swimsuit with dark green binding beside folded garments on a factory table.",
           "section": "Our Own Men's Swimwear Factory in Guangzhou, China",
-          "image_sha256": "15a4a86246856e1d6a21a78573feb6281cb8d56cd7ef3fb580a4ed09db45859a",
+          "image_sha256": "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6",
           "fit": "wrong_subject",
           "fit_model": "gpt-6-astra"
         },
@@ -1845,6 +2413,14 @@
           "alt": "A man in palm-print swim briefs and an olive overshirt lifts his hair on a stone terrace overlooking the sea.",
           "section": "",
           "image_sha256": "15aaae3db8fbd1a3d772042f21642ac0f7dad907867d658a4a2c5596f706e1ec",
+          "fit": "fits",
+          "fit_model": "gpt-6-astra"
+        },
+        {
+          "src": "/media/photos/men-s-swimwear-lifestyle-2-960.webp",
+          "alt": "A man in white swim shorts sits on a stone step with his hands clasped between his knees.",
+          "section": "",
+          "image_sha256": "c0ae612cc2ba67fb4c271ec9fd72c286f21e15a134b50b592a9d721141e47a49",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -1915,11 +2491,11 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-3-960.webp",
-          "alt": "A worker inspects a red and navy checked bikini at a factory table stacked with matching swimwear.",
+          "src": "/media/photos/general-process-2-960.webp",
+          "alt": "A worker sews navy swimwear at a sewing machine in a bright workshop.",
           "section": "Our Own Children's Swimwear Factory in Guangzhou, China",
-          "image_sha256": "f1249662adcd72e0a854519e2559bd7490d8e068ca9e432b612276596f7e677c",
-          "fit": "fits",
+          "image_sha256": "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180",
+          "fit": "wrong_subject",
           "fit_model": "gpt-6-astra"
         },
         {
@@ -1953,18 +2529,18 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-2-960.webp",
-          "alt": "A worker sews grey swimwear at a sewing machine in a bright workshop.",
+          "src": "/media/photos/general-process-3-960.webp",
+          "alt": "A worker inspects an orange-print bikini top with lace trim beside stacks of folded swimwear.",
           "section": "OEM Teen Swimwear Pattern Drafting, Grading and Design",
-          "image_sha256": "e8696db8d182183c7b7e147597b7b4d49aadb13c05874a134f55ace052fbb9cb",
+          "image_sha256": "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
           "src": "/media/photos/general-process-1-960.webp",
-          "alt": "A worker inspects a black swimsuit with dark green trim beside stacks of swimwear on a factory table.",
+          "alt": "A worker inspects a heather grey swimsuit with dark green binding beside folded garments on a factory table.",
           "section": "Our Own Teen Swimwear Factory in Guangzhou, China",
-          "image_sha256": "15a4a86246856e1d6a21a78573feb6281cb8d56cd7ef3fb580a4ed09db45859a",
+          "image_sha256": "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -1984,9 +2560,9 @@
       "images": [
         {
           "src": "/media/photos/baby-swimwear-hero-1-960.webp",
-          "alt": "Baby swimsuits, sun suits and swim nappies in solid colours and strawberry prints against a sage-green background.",
+          "alt": "Colourful baby swimsuits, sun suits and swim nappies arranged on pale oak with open space to the right.",
           "section": "Baby Swimwear Manufacturer for Custom and Private Label Orders",
-          "image_sha256": "4590d0e9e839daf63a2cba9f2c8c60a0b8896c1d53301d3b35000afc300331dd",
+          "image_sha256": "5d6edb073c62831c5d39295f702c803ed091f91a72d3cb47909c75d97a8d5043",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2000,9 +2576,9 @@
         },
         {
           "src": "/media/photos/general-process-1-960.webp",
-          "alt": "A worker inspects a black swimsuit with dark green trim beside stacks of swimwear on a factory table.",
+          "alt": "A worker inspects a heather grey swimsuit with dark green binding beside folded garments on a factory table.",
           "section": "Fabrics and Construction That Keep Baby Swimsuits in Shape",
-          "image_sha256": "15a4a86246856e1d6a21a78573feb6281cb8d56cd7ef3fb580a4ed09db45859a",
+          "image_sha256": "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2036,25 +2612,25 @@
       "images": [
         {
           "src": "/media/photos/modest-swimwear-hero-1-960.webp",
-          "alt": "A woman in beige modest swimwear reclines beside a weathered green door with her eyes closed.",
+          "alt": "A woman in cobalt blue modest swimwear sits hugging her knees on a sandy beach beside shallow water.",
           "section": "Modest Swimwear Manufacturer for Full-Coverage Swim Sets",
-          "image_sha256": "8bfbc59163701c7fefbdc1c5d0994f4f908dafab47542f565b965af6047a3820",
+          "image_sha256": "29c07194988bc365f190a5984c9bc0d2de570fa3d8c57bc721d29ad7fe5e8f34",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
           "src": "/media/photos/modest-swimwear-product-wholesale-stock-and-ready-made-modest-designs-960.webp",
-          "alt": "A woman in shell-print modest swimwear leans against a stone pillar on a terrace overlooking the sea.",
+          "alt": "A woman in cobalt blue modest swimwear sits on a limestone windowsill with one knee raised.",
           "section": "Wholesale Stock and Ready-Made Modest Designs",
-          "image_sha256": "5a8c52abc31ad37c55cb04500100d87a69dce342093556ebf44faa71561e54fe",
+          "image_sha256": "dd96d1badad5ad5a48ccba4155ce6449ba515c1778a4c55b4c929854ed669309",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-3-960.webp",
-          "alt": "A worker inspects a red and navy checked bikini at a factory table stacked with matching swimwear.",
+          "src": "/media/photos/general-process-2-960.webp",
+          "alt": "A worker sews navy swimwear at a sewing machine in a bright workshop.",
           "section": "Our Own Modest Swimwear Factory in Guangzhou, China",
-          "image_sha256": "f1249662adcd72e0a854519e2559bd7490d8e068ca9e432b612276596f7e677c",
+          "image_sha256": "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180",
           "fit": "wrong_subject",
           "fit_model": "gpt-6-astra"
         },
@@ -2087,6 +2663,14 @@
           "image_sha256": "66f2bb311d46629bfbd1cc5d234da1b57971c5b6030f962ba64ff97913b99ff8",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
+        },
+        {
+          "src": "/media/photos/burkini-lifestyle-2-960.webp",
+          "alt": "A woman in a striped blue burkini sits in a sunlit garden holding half an orange and leather sandals.",
+          "section": "",
+          "image_sha256": "3ea8d5930e5b648648922f901036a5facd342dab611a68938255133216b98fb7",
+          "fit": "fits",
+          "fit_model": "gpt-6-astra"
         }
       ]
     },
@@ -2095,10 +2679,10 @@
       "pageSubject": "watersports apparel manufacturer",
       "images": [
         {
-          "src": "/media/photos/general-hero-1-960.webp",
-          "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
+          "src": "/media/photos/watersports-apparel-hero-1-960.webp",
+          "alt": "A grey-haired woman in a cream rash guard sits on a wooden chair beside geraniums and a woven tote.",
           "section": "Watersports Apparel Manufacturer for Your Brand",
-          "image_sha256": "324ba7e69b074a26e7467766f1f95c9954da35b3d152d80af88a2e8ac84824e9",
+          "image_sha256": "082c67545e2c76767e4e2cd0e71e96f0324db9b631cc872a94d5dcb851fbb6a8",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2126,26 +2710,26 @@
       "images": [
         {
           "src": "/media/photos/rash-guard-hero-1-960.webp",
-          "alt": "A grey-haired woman in a cream rash guard holds a fig beside a woven tote and a weathered green door.",
+          "alt": "A woman in a coral leaf-print rash guard holds bougainvillea beside a stone bench in a sunlit courtyard.",
           "section": "Rash Guard Manufacturer for Custom and OEM Ranges",
-          "image_sha256": "505c9c49e2b736cfae3cfbe3df237135e6cc1d62ed68720c161a2ad137667615",
+          "image_sha256": "c6d0844b30087396cff9f7da59d2ec3d63b8cd8f01621bd2f290205612271564",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
           "src": "/media/photos/rash-guard-lifestyle-1-960.webp",
-          "alt": "A woman in a coral leaf-print rash guard holds lavender near her nose on a terrace overlooking the sea.",
+          "alt": "A blonde woman in a floral rash guard lifts her hair on a sunlit terracotta terrace.",
           "section": "",
-          "image_sha256": "c1438015bc456a6a161a7ec4a14757f093d302d5cff51fdb2541524fd7ff3e2d",
+          "image_sha256": "e61ad15c7ef709d2b6117ddb4d26bfc41a0b63bd9c34c9ad3342b13739f59ab3",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-2-960.webp",
+          "src": "/media/photos/general-process-3-960.webp",
           "alt": "",
           "section": "Rinse in fresh water",
-          "image_sha256": "e8696db8d182183c7b7e147597b7b4d49aadb13c05874a134f55ace052fbb9cb",
-          "fit": "fits",
+          "image_sha256": "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208",
+          "fit": "wrong_subject",
           "fit_model": "gpt-6-astra"
         }
       ]
@@ -2163,10 +2747,10 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-3-960.webp",
-          "alt": "A worker inspects a red and navy checked bikini at a factory table stacked with matching swimwear.",
+          "src": "/media/photos/general-process-1-960.webp",
+          "alt": "A worker inspects a heather grey swimsuit with dark green binding beside folded garments on a factory table.",
           "section": "Our Own Resort Wear Factory in Guangzhou, China",
-          "image_sha256": "f1249662adcd72e0a854519e2559bd7490d8e068ca9e432b612276596f7e677c",
+          "image_sha256": "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2180,9 +2764,9 @@
         },
         {
           "src": "/media/photos/general-process-2-960.webp",
-          "alt": "A worker sews grey swimwear at a sewing machine in a bright workshop.",
+          "alt": "A worker sews navy swimwear at a sewing machine in a bright workshop.",
           "section": "",
-          "image_sha256": "e8696db8d182183c7b7e147597b7b4d49aadb13c05874a134f55ace052fbb9cb",
+          "image_sha256": "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2193,10 +2777,10 @@
       "pageSubject": "cover-up manufacturer",
       "images": [
         {
-          "src": "/media/photos/cover-up-hero-1-960.webp",
-          "alt": "A woman in a strawberry-print cover-up reclines in a hammock among lemon trees and terracotta pots.",
+          "src": "/media/photos/general-hero-1-960.webp",
+          "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
           "section": "Cover-Up Manufacturer for Private Label and Stock Styles",
-          "image_sha256": "02e772f552c10a86ba5e24313255080cd6dc0790f3896fa973d6f3e36e494b28",
+          "image_sha256": "324ba7e69b074a26e7467766f1f95c9954da35b3d152d80af88a2e8ac84824e9",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2210,9 +2794,9 @@
         },
         {
           "src": "/media/photos/cover-up-lifestyle-2-960.webp",
-          "alt": "A blonde woman in an olive patterned cover-up holds a cup while seated on a stone step beside the sea.",
+          "alt": "A woman in a tiger-striped cover-up sits on a stone step beside a terracotta jug overlooking a bay.",
           "section": "",
-          "image_sha256": "16cc455bb5a08d55fa88cb9fd955bbc1fa87a936580b6cde46cbfd0671fd517d",
+          "image_sha256": "d220a31d0861de9a2bd6cb034fd2d38ac9993be821059fb428e921bcb691eaf4",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2232,9 +2816,9 @@
         },
         {
           "src": "/media/photos/general-process-1-960.webp",
-          "alt": "A worker inspects a black swimsuit with dark green trim beside stacks of swimwear on a factory table.",
+          "alt": "A worker inspects a heather grey swimsuit with dark green binding beside folded garments on a factory table.",
           "section": "Branding from Small Tags to Full Garments, Made in Our Own Factory",
-          "image_sha256": "15a4a86246856e1d6a21a78573feb6281cb8d56cd7ef3fb580a4ed09db45859a",
+          "image_sha256": "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2247,18 +2831,18 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-2-960.webp",
-          "alt": "A worker sews grey swimwear at a sewing machine in a bright workshop.",
+          "src": "/media/photos/general-process-3-960.webp",
+          "alt": "A worker inspects an orange-print bikini top with lace trim beside stacks of folded swimwear.",
           "section": "Artwork Digitising and Saved DST Stitch Files",
-          "image_sha256": "e8696db8d182183c7b7e147597b7b4d49aadb13c05874a134f55ace052fbb9cb",
+          "image_sha256": "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-3-960.webp",
-          "alt": "A worker inspects a red and navy checked bikini at a factory table stacked with matching swimwear.",
+          "src": "/media/photos/general-process-2-960.webp",
+          "alt": "A worker sews navy swimwear at a sewing machine in a bright workshop.",
           "section": "Working from Your Existing Embroidery Files",
-          "image_sha256": "f1249662adcd72e0a854519e2559bd7490d8e068ca9e432b612276596f7e677c",
+          "image_sha256": "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2294,9 +2878,9 @@
         },
         {
           "src": "/media/photos/general-process-1-960.webp",
-          "alt": "A worker inspects a black swimsuit with dark green trim beside stacks of swimwear on a factory table.",
+          "alt": "A worker inspects a heather grey swimsuit with dark green binding beside folded garments on a factory table.",
           "section": "Senior Consultants Backed by Our Own Factory",
-          "image_sha256": "15a4a86246856e1d6a21a78573feb6281cb8d56cd7ef3fb580a4ed09db45859a",
+          "image_sha256": "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2325,10 +2909,10 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-lifestyle-1-960.webp",
+          "src": "/media/photos/general-lifestyle-6-960.webp",
           "alt": "",
           "section": "Start a Conversation About Your Consulting Project",
-          "image_sha256": "bf4617420574069f67eb18654d2edc21e831a4a526818f54f29448c8f5851c02",
+          "image_sha256": "1c153294ad6193d06437df6ca9d74cc8fbcad727c41d381f97f3604a411d34e6",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2342,7 +2926,7 @@
           "src": "/media/photos/general-hero-4-960.webp",
           "alt": "",
           "section": "Swimwear Development from Your Idea to an Approved Sample",
-          "image_sha256": "9901867b40bed3751b33d6ca74433a89213121fdaf33130a050372ffab33e7db",
+          "image_sha256": "8e5d27bb06bbbecbff4904bb38ca74ec0f65f93cbd2bd42322be8bc65bd45c89",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2355,10 +2939,18 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-2-960.webp",
-          "alt": "A worker sews grey swimwear at a sewing machine in a bright workshop.",
+          "src": "/media/photos/general-process-3-960.webp",
+          "alt": "A worker inspects an orange-print bikini top with lace trim beside stacks of folded swimwear.",
           "section": "",
-          "image_sha256": "e8696db8d182183c7b7e147597b7b4d49aadb13c05874a134f55ace052fbb9cb",
+          "image_sha256": "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208",
+          "fit": "fits",
+          "fit_model": "gpt-6-astra"
+        },
+        {
+          "src": "/media/photos/general-lifestyle-1-960.webp",
+          "alt": "A woman in green gingham swimwear and an open overshirt holds a woven bag of lemons on a sunlit terrace.",
+          "section": "",
+          "image_sha256": "bf4617420574069f67eb18654d2edc21e831a4a526818f54f29448c8f5851c02",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2371,14 +2963,6 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-lifestyle-3-960.webp",
-          "alt": "A woman in beige swimwear sits cross-legged on a linen throw, writing in a notebook beside the sea.",
-          "section": "",
-          "image_sha256": "9f06e41f4bf879fb623875865095daf53f9cdabf9254335157bf29312a76ed3e",
-          "fit": "fits",
-          "fit_model": "gpt-6-astra"
-        },
-        {
           "src": "/media/photos/general-product-starting-with-samples-before-bulk-960.webp",
           "alt": "A woman in a green and yellow gathered swimsuit sits on a stone patio beneath a leafy pergola.",
           "section": "Starting With Samples Before Bulk",
@@ -2387,10 +2971,10 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-lifestyle-4-960.webp",
+          "src": "/media/photos/general-lifestyle-3-960.webp",
           "alt": "",
           "section": "Ready to Discuss Your Project?",
-          "image_sha256": "96fea4e03c42e94368510098b4a65710bc242909dedd979c5a6ea10891cb5169",
+          "image_sha256": "9f06e41f4bf879fb623875865095daf53f9cdabf9254335157bf29312a76ed3e",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2409,10 +2993,10 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-3-960.webp",
-          "alt": "A worker inspects a red and navy checked bikini at a factory table stacked with matching swimwear.",
+          "src": "/media/photos/general-process-1-960.webp",
+          "alt": "A worker inspects a heather grey swimsuit with dark green binding beside folded garments on a factory table.",
           "section": "Packed and Labelled in Our Own Guangzhou Factory",
-          "image_sha256": "f1249662adcd72e0a854519e2559bd7490d8e068ca9e432b612276596f7e677c",
+          "image_sha256": "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2425,10 +3009,10 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-1-960.webp",
-          "alt": "A worker inspects a black swimsuit with dark green trim beside stacks of swimwear on a factory table.",
+          "src": "/media/photos/general-process-2-960.webp",
+          "alt": "A worker sews navy swimwear at a sewing machine in a bright workshop.",
           "section": "Embroidered Logos for Stretch Swim Fabrics",
-          "image_sha256": "15a4a86246856e1d6a21a78573feb6281cb8d56cd7ef3fb580a4ed09db45859a",
+          "image_sha256": "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2455,42 +3039,42 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-3-960.webp",
-          "alt": "A worker inspects a red and navy checked bikini at a factory table stacked with matching swimwear.",
+          "src": "/media/photos/general-process-1-960.webp",
+          "alt": "A worker inspects a heather grey swimsuit with dark green binding beside folded garments on a factory table.",
           "section": "Factory-Direct Sublimation Printing from Guangzhou",
-          "image_sha256": "f1249662adcd72e0a854519e2559bd7490d8e068ca9e432b612276596f7e677c",
+          "image_sha256": "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6",
+          "fit": "fits",
+          "fit_model": "gpt-6-astra"
+        },
+        {
+          "src": "/media/photos/general-process-3-960.webp",
+          "alt": "A worker inspects an orange-print bikini top with lace trim beside stacks of folded swimwear.",
+          "section": "Artwork Files, Repeats and Design Support",
+          "image_sha256": "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
           "src": "/media/photos/general-process-2-960.webp",
-          "alt": "A worker sews grey swimwear at a sewing machine in a bright workshop.",
-          "section": "Artwork Files, Repeats and Design Support",
-          "image_sha256": "e8696db8d182183c7b7e147597b7b4d49aadb13c05874a134f55ace052fbb9cb",
+          "alt": "A worker sews navy swimwear at a sewing machine in a bright workshop.",
+          "section": "Pantone Colour Matching for Your Prints",
+          "image_sha256": "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-1-960.webp",
-          "alt": "A worker inspects a black swimsuit with dark green trim beside stacks of swimwear on a factory table.",
-          "section": "Pantone Colour Matching for Your Prints",
-          "image_sha256": "15a4a86246856e1d6a21a78573feb6281cb8d56cd7ef3fb580a4ed09db45859a",
+          "src": "/media/photos/general-lifestyle-4-960.webp",
+          "alt": "Floral and solid-colour swimwear with ecru lace trim displayed against a sage plaster wall.",
+          "section": "",
+          "image_sha256": "96fea4e03c42e94368510098b4a65710bc242909dedd979c5a6ea10891cb5169",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
           "src": "/media/photos/general-lifestyle-5-960.webp",
-          "alt": "A woman in dusty pink swimwear and an open wrap leans against a cream stucco wall with her eyes closed.",
-          "section": "",
-          "image_sha256": "b84b3a253337c57c7d3d00bca3b341517285d1e428e537302e9e3cbdb2c9be47",
-          "fit": "fits",
-          "fit_model": "gpt-6-astra"
-        },
-        {
-          "src": "/media/photos/general-lifestyle-1-960.webp",
           "alt": "",
           "section": "Ready to Start Your Swimwear Print Project?",
-          "image_sha256": "bf4617420574069f67eb18654d2edc21e831a4a526818f54f29448c8f5851c02",
+          "image_sha256": "b84b3a253337c57c7d3d00bca3b341517285d1e428e537302e9e3cbdb2c9be47",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2509,18 +3093,18 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-3-960.webp",
-          "alt": "A worker inspects a red and navy checked bikini at a factory table stacked with matching swimwear.",
+          "src": "/media/photos/general-process-1-960.webp",
+          "alt": "A worker inspects a heather grey swimsuit with dark green binding beside folded garments on a factory table.",
           "section": "Our Own Factory in Guangzhou",
-          "image_sha256": "f1249662adcd72e0a854519e2559bd7490d8e068ca9e432b612276596f7e677c",
-          "fit": "fits",
+          "image_sha256": "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6",
+          "fit": "wrong_subject",
           "fit_model": "gpt-6-astra"
         },
         {
           "src": "/media/photos/swimwear-hardware-lifestyle-1-960.webp",
-          "alt": "Charcoal swimwear with green stitching and gold rings, sliders, clasps and hooks on sunlit wooden decking.",
+          "alt": "Gold-toned rings, sliders, clasps and hooks with burgundy fabric and a drawcord lie on off-white plaster.",
           "section": "",
-          "image_sha256": "e1068d38019f26180410068eb892630a0894a23fd8f238b7c3dc74c4c78a9526",
+          "image_sha256": "1890478cf7c047e6ca856563a55b7c69ee68ba2c736515b98aba108afdc4cc5a",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2555,18 +3139,18 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-lifestyle-2-960.webp",
-          "alt": "A woman in a fig-print swimsuit and olive wrap holds herbs near her face on coastal dunes in golden light.",
+          "src": "/media/photos/general-lifestyle-6-960.webp",
+          "alt": "Bikinis, one-piece swimsuits, trunks and a tiger-striped wrap against a beige wall with palm shadows.",
           "section": "",
-          "image_sha256": "2f602ba855c5fb275fc646ec048d9288dae5a5985732ab5fd1f0a6dd74f501b2",
+          "image_sha256": "1c153294ad6193d06437df6ca9d74cc8fbcad727c41d381f97f3604a411d34e6",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
           "src": "/media/photos/general-process-1-960.webp",
-          "alt": "A worker inspects a black swimsuit with dark green trim beside stacks of swimwear on a factory table.",
+          "alt": "A worker inspects a heather grey swimsuit with dark green binding beside folded garments on a factory table.",
           "section": "Our Own Guangzhou Factory for Fabric Sourcing",
-          "image_sha256": "15a4a86246856e1d6a21a78573feb6281cb8d56cd7ef3fb580a4ed09db45859a",
+          "image_sha256": "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2579,26 +3163,26 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-2-960.webp",
-          "alt": "A worker sews grey swimwear at a sewing machine in a bright workshop.",
-          "section": "Wet Opacity, Linings and Fabric Care",
-          "image_sha256": "e8696db8d182183c7b7e147597b7b4d49aadb13c05874a134f55ace052fbb9cb",
-          "fit": "fits",
-          "fit_model": "gpt-6-astra"
-        },
-        {
           "src": "/media/photos/general-process-3-960.webp",
-          "alt": "A worker inspects a red and navy checked bikini at a factory table stacked with matching swimwear.",
-          "section": "Chlorine Resistance and Fabric Testing",
-          "image_sha256": "f1249662adcd72e0a854519e2559bd7490d8e068ca9e432b612276596f7e677c",
+          "alt": "A worker inspects an orange-print bikini top with lace trim beside stacks of folded swimwear.",
+          "section": "Wet Opacity, Linings and Fabric Care",
+          "image_sha256": "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-lifestyle-3-960.webp",
+          "src": "/media/photos/general-process-2-960.webp",
+          "alt": "A worker sews navy swimwear at a sewing machine in a bright workshop.",
+          "section": "Chlorine Resistance and Fabric Testing",
+          "image_sha256": "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180",
+          "fit": "fits",
+          "fit_model": "gpt-6-astra"
+        },
+        {
+          "src": "/media/photos/general-lifestyle-1-960.webp",
           "alt": "",
           "section": "Start Your Swim Fabric Sourcing Enquiry",
-          "image_sha256": "9f06e41f4bf879fb623875865095daf53f9cdabf9254335157bf29312a76ed3e",
+          "image_sha256": "bf4617420574069f67eb18654d2edc21e831a4a526818f54f29448c8f5851c02",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2617,26 +3201,26 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-lifestyle-4-960.webp",
-          "alt": "Floral and solid-colour swimwear with ecru lace trim displayed against a sage plaster wall.",
+          "src": "/media/photos/general-lifestyle-2-960.webp",
+          "alt": "A woman in a fig-print swimsuit and olive wrap holds herbs near her face on coastal dunes in golden light.",
           "section": "",
-          "image_sha256": "96fea4e03c42e94368510098b4a65710bc242909dedd979c5a6ea10891cb5169",
+          "image_sha256": "2f602ba855c5fb275fc646ec048d9288dae5a5985732ab5fd1f0a6dd74f501b2",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-2-960.webp",
-          "alt": "A worker sews grey swimwear at a sewing machine in a bright workshop.",
+          "src": "/media/photos/general-process-3-960.webp",
+          "alt": "A worker inspects an orange-print bikini top with lace trim beside stacks of folded swimwear.",
           "section": "An Online Store Ready on Launch Day",
-          "image_sha256": "e8696db8d182183c7b7e147597b7b4d49aadb13c05874a134f55ace052fbb9cb",
+          "image_sha256": "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-lifestyle-5-960.webp",
+          "src": "/media/photos/general-lifestyle-3-960.webp",
           "alt": "",
           "section": "Tell Us About Your Brand Launch",
-          "image_sha256": "b84b3a253337c57c7d3d00bca3b341517285d1e428e537302e9e3cbdb2c9be47",
+          "image_sha256": "9f06e41f4bf879fb623875865095daf53f9cdabf9254335157bf29312a76ed3e",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2650,39 +3234,39 @@
           "src": "/media/photos/general-hero-4-960.webp",
           "alt": "",
           "section": "About Us: Strandmill's Own Guangzhou Factory",
-          "image_sha256": "9901867b40bed3751b33d6ca74433a89213121fdaf33130a050372ffab33e7db",
+          "image_sha256": "8e5d27bb06bbbecbff4904bb38ca74ec0f65f93cbd2bd42322be8bc65bd45c89",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
           "src": "/media/photos/general-process-1-960.webp",
-          "alt": "A worker inspects a black swimsuit with dark green trim beside stacks of swimwear on a factory table.",
+          "alt": "A worker inspects a heather grey swimsuit with dark green binding beside folded garments on a factory table.",
           "section": "Our Story: One Guangzhou Factory Since 2011",
-          "image_sha256": "15a4a86246856e1d6a21a78573feb6281cb8d56cd7ef3fb580a4ed09db45859a",
+          "image_sha256": "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
           "src": "/media/photos/general-process-2-960.webp",
-          "alt": "A worker sews grey swimwear at a sewing machine in a bright workshop.",
+          "alt": "A worker sews navy swimwear at a sewing machine in a bright workshop.",
           "section": "Everything Under One Roof, From Pattern to Carton",
-          "image_sha256": "e8696db8d182183c7b7e147597b7b4d49aadb13c05874a134f55ace052fbb9cb",
+          "image_sha256": "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
           "src": "/media/photos/general-process-3-960.webp",
-          "alt": "A worker inspects a red and navy checked bikini at a factory table stacked with matching swimwear.",
+          "alt": "A worker inspects an orange-print bikini top with lace trim beside stacks of folded swimwear.",
           "section": "Order Minimums for Small and Growing Labels",
-          "image_sha256": "f1249662adcd72e0a854519e2559bd7490d8e068ca9e432b612276596f7e677c",
+          "image_sha256": "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-lifestyle-1-960.webp",
+          "src": "/media/photos/general-lifestyle-4-960.webp",
           "alt": "",
           "section": "Let's Talk About Your Next Collection",
-          "image_sha256": "bf4617420574069f67eb18654d2edc21e831a4a526818f54f29448c8f5851c02",
+          "image_sha256": "96fea4e03c42e94368510098b4a65710bc242909dedd979c5a6ea10891cb5169",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2693,18 +3277,18 @@
       "pageSubject": "Contact Us",
       "images": [
         {
-          "src": "/media/photos/general-lifestyle-2-960.webp",
-          "alt": "A woman in a fig-print swimsuit and olive wrap holds herbs near her face on coastal dunes in golden light.",
+          "src": "/media/photos/general-lifestyle-5-960.webp",
+          "alt": "A woman in dusty pink swimwear and an open wrap leans against a cream stucco wall with her eyes closed.",
           "section": "Send an enquiry",
-          "image_sha256": "2f602ba855c5fb275fc646ec048d9288dae5a5985732ab5fd1f0a6dd74f501b2",
+          "image_sha256": "b84b3a253337c57c7d3d00bca3b341517285d1e428e537302e9e3cbdb2c9be47",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-lifestyle-3-960.webp",
+          "src": "/media/photos/general-lifestyle-6-960.webp",
           "alt": "",
           "section": "Bring Your Idea. We'll Quote First.",
-          "image_sha256": "9f06e41f4bf879fb623875865095daf53f9cdabf9254335157bf29312a76ed3e",
+          "image_sha256": "1c153294ad6193d06437df6ca9d74cc8fbcad727c41d381f97f3604a411d34e6",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2723,10 +3307,10 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-lifestyle-4-960.webp",
-          "alt": "Floral and solid-colour swimwear with ecru lace trim displayed against a sage plaster wall.",
+          "src": "/media/photos/general-lifestyle-1-960.webp",
+          "alt": "A woman in green gingham swimwear and an open overshirt holds a woven bag of lemons on a sunlit terrace.",
           "section": "",
-          "image_sha256": "96fea4e03c42e94368510098b4a65710bc242909dedd979c5a6ea10891cb5169",
+          "image_sha256": "bf4617420574069f67eb18654d2edc21e831a4a526818f54f29448c8f5851c02",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2739,26 +3323,26 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-1-960.webp",
-          "alt": "A worker inspects a black swimsuit with dark green trim beside stacks of swimwear on a factory table.",
-          "section": "Customs & Export Documents",
-          "image_sha256": "15a4a86246856e1d6a21a78573feb6281cb8d56cd7ef3fb580a4ed09db45859a",
-          "fit": "fits",
-          "fit_model": "gpt-6-astra"
-        },
-        {
           "src": "/media/photos/general-process-2-960.webp",
-          "alt": "A worker sews grey swimwear at a sewing machine in a bright workshop.",
-          "section": "Dispatch & Delivery to Your Door",
-          "image_sha256": "e8696db8d182183c7b7e147597b7b4d49aadb13c05874a134f55ace052fbb9cb",
+          "alt": "A worker sews navy swimwear at a sewing machine in a bright workshop.",
+          "section": "Customs & Export Documents",
+          "image_sha256": "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-lifestyle-5-960.webp",
+          "src": "/media/photos/general-process-3-960.webp",
+          "alt": "A worker inspects an orange-print bikini top with lace trim beside stacks of folded swimwear.",
+          "section": "Dispatch & Delivery to Your Door",
+          "image_sha256": "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208",
+          "fit": "fits",
+          "fit_model": "gpt-6-astra"
+        },
+        {
+          "src": "/media/photos/general-lifestyle-2-960.webp",
           "alt": "",
           "section": "Send Us Your Enquiry",
-          "image_sha256": "b84b3a253337c57c7d3d00bca3b341517285d1e428e537302e9e3cbdb2c9be47",
+          "image_sha256": "2f602ba855c5fb275fc646ec048d9288dae5a5985732ab5fd1f0a6dd74f501b2",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2777,10 +3361,10 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-lifestyle-1-960.webp",
+          "src": "/media/photos/general-lifestyle-3-960.webp",
           "alt": "",
           "section": "Talk to Our Factory About Your Brand",
-          "image_sha256": "bf4617420574069f67eb18654d2edc21e831a4a526818f54f29448c8f5851c02",
+          "image_sha256": "9f06e41f4bf879fb623875865095daf53f9cdabf9254335157bf29312a76ed3e",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2794,23 +3378,23 @@
           "src": "/media/photos/general-hero-4-960.webp",
           "alt": "",
           "section": "Sustainability at Strandmill",
-          "image_sha256": "9901867b40bed3751b33d6ca74433a89213121fdaf33130a050372ffab33e7db",
+          "image_sha256": "8e5d27bb06bbbecbff4904bb38ca74ec0f65f93cbd2bd42322be8bc65bd45c89",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-lifestyle-2-960.webp",
-          "alt": "A woman in a fig-print swimsuit and olive wrap holds herbs near her face on coastal dunes in golden light.",
+          "src": "/media/photos/general-lifestyle-4-960.webp",
+          "alt": "Floral and solid-colour swimwear with ecru lace trim displayed against a sage plaster wall.",
           "section": "",
-          "image_sha256": "2f602ba855c5fb275fc646ec048d9288dae5a5985732ab5fd1f0a6dd74f501b2",
+          "image_sha256": "96fea4e03c42e94368510098b4a65710bc242909dedd979c5a6ea10891cb5169",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-lifestyle-3-960.webp",
+          "src": "/media/photos/general-lifestyle-5-960.webp",
           "alt": "",
           "section": "Ready to Start Your Sustainable Collection?",
-          "image_sha256": "9f06e41f4bf879fb623875865095daf53f9cdabf9254335157bf29312a76ed3e",
+          "image_sha256": "b84b3a253337c57c7d3d00bca3b341517285d1e428e537302e9e3cbdb2c9be47",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2821,10 +3405,10 @@
       "pageSubject": "Privacy Policy",
       "images": [
         {
-          "src": "/media/photos/general-lifestyle-4-960.webp",
+          "src": "/media/photos/general-lifestyle-6-960.webp",
           "alt": "",
           "section": "Send an enquiry to our factory",
-          "image_sha256": "96fea4e03c42e94368510098b4a65710bc242909dedd979c5a6ea10891cb5169",
+          "image_sha256": "1c153294ad6193d06437df6ca9d74cc8fbcad727c41d381f97f3604a411d34e6",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2835,11 +3419,11 @@
       "pageSubject": "Terms and Conditions",
       "images": [
         {
-          "src": "/media/photos/general-lifestyle-5-960.webp",
+          "src": "/media/photos/general-lifestyle-1-960.webp",
           "alt": "",
           "section": "Send Your Enquiry to Strandmill",
-          "image_sha256": "b84b3a253337c57c7d3d00bca3b341517285d1e428e537302e9e3cbdb2c9be47",
-          "fit": "fits",
+          "image_sha256": "bf4617420574069f67eb18654d2edc21e831a4a526818f54f29448c8f5851c02",
+          "fit": "wrong_subject",
           "fit_model": "gpt-6-astra"
         }
       ]
@@ -2857,10 +3441,10 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-lifestyle-1-960.webp",
+          "src": "/media/photos/general-lifestyle-2-960.webp",
           "alt": "",
           "section": "Send Your Design Brief to Strandmill",
-          "image_sha256": "bf4617420574069f67eb18654d2edc21e831a4a526818f54f29448c8f5851c02",
+          "image_sha256": "2f602ba855c5fb275fc646ec048d9288dae5a5985732ab5fd1f0a6dd74f501b2",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2909,10 +3493,10 @@
       "pageSubject": "plus-size swimwear manufacturer",
       "images": [
         {
-          "src": "/media/photos/general-hero-1-960.webp",
-          "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
+          "src": "/media/photos/plus-size-swimwear-hero-1-960.webp",
+          "alt": "A woman in cream floral swimwear and a rust wrap sits on seaside stone steps beside a terracotta jug.",
           "section": "Plus-Size Swimwear Manufacturer for Supportive, Private-Label Styles",
-          "image_sha256": "324ba7e69b074a26e7467766f1f95c9954da35b3d152d80af88a2e8ac84824e9",
+          "image_sha256": "72d0df4cca281fffe143d7eee7c15c66b81e07ba8b0054ef1f18073231c4d716",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2925,10 +3509,10 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-3-960.webp",
+          "src": "/media/photos/general-process-2-960.webp",
           "alt": "",
           "section": "Position artwork digitally",
-          "image_sha256": "f1249662adcd72e0a854519e2559bd7490d8e068ca9e432b612276596f7e677c",
+          "image_sha256": "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2940,17 +3524,17 @@
       "images": [
         {
           "src": "/media/photos/couples-matching-swimsuit-hero-1-960.webp",
-          "alt": "A blonde woman in a cream swimsuit with green trim reclines beside a straw hat in a sunlit garden.",
+          "alt": "Adults in coral swimwear kneel in a sunlit cottage garden beside roses and fruit trees.",
           "section": "Couples Matching Swimsuit Manufacturer for His-and-Hers Lines",
-          "image_sha256": "7fef92d7cdcdb3af1e1e93a9e75c6b7e173fa8e1692db75a5eb847e2e1be724b",
+          "image_sha256": "f7073a1cc891a17288d293b841fa355b03fefc3a5915ea64705a0a8d076544f4",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
           "src": "/media/photos/general-process-1-960.webp",
-          "alt": "A worker inspects a black swimsuit with dark green trim beside stacks of swimwear on a factory table.",
+          "alt": "A worker inspects a heather grey swimsuit with dark green binding beside folded garments on a factory table.",
           "section": "Our Own Swimsuit Factory in China",
-          "image_sha256": "15a4a86246856e1d6a21a78573feb6281cb8d56cd7ef3fb580a4ed09db45859a",
+          "image_sha256": "bdf3f66574bb09ea172b52cc2fa9194f17c3baeae08d570cb69c3b906467a9a6",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
@@ -2963,18 +3547,18 @@
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-2-960.webp",
-          "alt": "A worker sews grey swimwear at a sewing machine in a bright workshop.",
+          "src": "/media/photos/general-process-3-960.webp",
+          "alt": "A worker inspects an orange-print bikini top with lace trim beside stacks of folded swimwear.",
           "section": "Custom Prints Matched Across Different Fabrics",
-          "image_sha256": "e8696db8d182183c7b7e147597b7b4d49aadb13c05874a134f55ace052fbb9cb",
+          "image_sha256": "c01535f3e151f691b0005bd315fc3849384e930b1f080f96b856e972c98d1208",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         },
         {
-          "src": "/media/photos/general-process-3-960.webp",
-          "alt": "A worker inspects a red and navy checked bikini at a factory table stacked with matching swimwear.",
+          "src": "/media/photos/general-process-2-960.webp",
+          "alt": "A worker sews navy swimwear at a sewing machine in a bright workshop.",
           "section": "Keeping Colour Consistent Between His and Hers Pieces",
-          "image_sha256": "f1249662adcd72e0a854519e2559bd7490d8e068ca9e432b612276596f7e677c",
+          "image_sha256": "2a2941e577a066ae8d7fd496f1edf5a5d7c01b6f6f8d148d21fef576a2632180",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }
@@ -2985,10 +3569,18 @@
       "pageSubject": "Blog",
       "images": [
         {
-          "src": "/media/photos/general-lifestyle-2-960.webp",
+          "src": "/media/photos/general-hero-4-960.webp",
+          "alt": "",
+          "section": "The Strandmill Blog",
+          "image_sha256": "8e5d27bb06bbbecbff4904bb38ca74ec0f65f93cbd2bd42322be8bc65bd45c89",
+          "fit": "fits",
+          "fit_model": "gpt-6-astra"
+        },
+        {
+          "src": "/media/photos/general-lifestyle-3-960.webp",
           "alt": "",
           "section": "How to Send Your Enquiry Straight to Our Team",
-          "image_sha256": "2f602ba855c5fb275fc646ec048d9288dae5a5985732ab5fd1f0a6dd74f501b2",
+          "image_sha256": "9f06e41f4bf879fb623875865095daf53f9cdabf9254335157bf29312a76ed3e",
           "fit": "fits",
           "fit_model": "gpt-6-astra"
         }

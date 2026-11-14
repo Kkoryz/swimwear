@@ -218,10 +218,10 @@
   },
   "image-fit": {
     "status": "passed",
-    "hash": "a91ff61614e48cf3",
-    "at": "2026-11-14T10:22:21.459Z",
-    "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/image-fit.log"
+    "hash": "e87c14d2d4f29a42",
+    "at": "2026-11-14T11:21:08.719Z",
+    "seconds": 201,
+    "log": ".pipeline/logs/2026-11-14T10-49-24-604Z/image-fit.log"
   },
   "image-refit": {
     "status": "passed",
