@@ -29,30 +29,7 @@
           "[Placeholder] Factory and team. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
         "mediaKind": "process",
-        "variant": "single"
-      },
-      {
-        "id": "key-figures",
-        "type": "stats",
-        "heading": "[Placeholder] Order figures, each stated verbatim in an approved fact: minimum order, lead time and founding year first, capacity last; left out when fewer than three facts give one",
-        "items": [
-          {
-            "value": "[Placeholder] Figure",
-            "label": "[Placeholder] Fact 1"
-          },
-          {
-            "value": "[Placeholder] Figure",
-            "label": "[Placeholder] Fact 2"
-          },
-          {
-            "value": "[Placeholder] Figure",
-            "label": "[Placeholder] Fact 3"
-          },
-          {
-            "value": "[Placeholder] Figure",
-            "label": "[Placeholder] Fact 4"
-          }
-        ]
+        "variant": "tinted"
       },
       {
         "id": "quality-1",
@@ -62,16 +39,7 @@
           "[Placeholder] Quality control and certifications stated in facts. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
         "mediaKind": "process",
-        "variant": "tinted"
-      },
-      {
-        "id": "intro",
-        "type": "intro",
-        "heading": "[Placeholder] Who we are and what we make",
-        "paragraphs": [
-          "[Placeholder] Who we are and what we make. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-        ],
-        "mediaKind": "product"
+        "variant": "single"
       },
       {
         "id": "capabilities",
@@ -103,7 +71,40 @@
             ]
           }
         ],
-        "variant": "columns"
+        "variant": "outline-numbered"
+      },
+      {
+        "id": "key-figures",
+        "type": "stats",
+        "heading": "[Placeholder] Order figures, each stated verbatim in an approved fact: minimum order, lead time and founding year first, capacity last; left out when fewer than three facts give one",
+        "items": [
+          {
+            "value": "[Placeholder] Figure",
+            "label": "[Placeholder] Fact 1"
+          },
+          {
+            "value": "[Placeholder] Figure",
+            "label": "[Placeholder] Fact 2"
+          },
+          {
+            "value": "[Placeholder] Figure",
+            "label": "[Placeholder] Fact 3"
+          },
+          {
+            "value": "[Placeholder] Figure",
+            "label": "[Placeholder] Fact 4"
+          }
+        ],
+        "variant": "tiles"
+      },
+      {
+        "id": "intro",
+        "type": "intro",
+        "heading": "[Placeholder] Who we are and what we make",
+        "paragraphs": [
+          "[Placeholder] Who we are and what we make. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+        ],
+        "mediaKind": "product"
       },
       {
         "id": "process",
@@ -149,7 +150,8 @@
             "question": "[Placeholder] Buyer question 4?",
             "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
           }
-        ]
+        ],
+        "variant": "two-column"
       },
       {
         "id": "cta",
@@ -164,332 +166,6 @@
         },
         "links": [],
         "variant": "image-band"
-      }
-    ]
-  },
-  {
-    "id": "products",
-    "route": "/products/",
-    "pageType": "products_hub",
-    "status": "placeholder",
-    "seo": {
-      "title": "Products",
-      "description": "[Placeholder] Site Factory has not authored this page yet.",
-      "canonical": "/products/"
-    },
-    "jsonLd": [],
-    "hero": {
-      "heading": "Products",
-      "lead": [
-        "[Placeholder] Hero subtitle. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-      ],
-      "cta": {
-        "label": "Contact",
-        "href": "/contact-us/"
-      }
-    },
-    "blocks": [
-      {
-        "id": "intro",
-        "type": "intro",
-        "heading": "[Placeholder] What the product range covers",
-        "paragraphs": [
-          "[Placeholder] What the product range covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-        ],
-        "mediaKind": "product"
-      },
-      {
-        "id": "children",
-        "type": "gallery",
-        "heading": "[Placeholder] Every page in this section, each card linking to it",
-        "items": [
-          {
-            "caption": "Women's Swimwear",
-            "href": "/women-s-swimwear-manufacturer/"
-          },
-          {
-            "caption": "Men's Swimwear",
-            "href": "/men-s-swimwear-manufacturer/"
-          },
-          {
-            "caption": "Children's Swimwear",
-            "href": "/children-s-swimwear-manufacturer/"
-          },
-          {
-            "caption": "Modest Swimwear",
-            "href": "/modest-swimwear-manufacturer/"
-          },
-          {
-            "caption": "Watersports Apparel",
-            "href": "/watersports-apparel-manufacturer/"
-          },
-          {
-            "caption": "Resort Wear",
-            "href": "/resort-wear-manufacturer/"
-          },
-          {
-            "caption": "Swimwear Accessories",
-            "href": "/swimwear-accessories/"
-          },
-          {
-            "caption": "Couples Matching Swimsuits",
-            "href": "/couples-matching-swimsuit-manufacturer/"
-          }
-        ]
-      },
-      {
-        "id": "key-figures",
-        "type": "stats",
-        "heading": "[Placeholder] Order figures, each stated verbatim in an approved fact",
-        "items": [
-          {
-            "value": "[Placeholder] Figure",
-            "label": "[Placeholder] Fact 1"
-          },
-          {
-            "value": "[Placeholder] Figure",
-            "label": "[Placeholder] Fact 2"
-          },
-          {
-            "value": "[Placeholder] Figure",
-            "label": "[Placeholder] Fact 3"
-          },
-          {
-            "value": "[Placeholder] Figure",
-            "label": "[Placeholder] Fact 4"
-          }
-        ]
-      },
-      {
-        "id": "comparison",
-        "type": "table",
-        "heading": "[Placeholder] Options or choices compared side by side",
-        "columns": [
-          "[Placeholder] Option",
-          "[Placeholder] Best for",
-          "[Placeholder] What changes"
-        ],
-        "rows": [
-          [
-            "[Placeholder] Option 1",
-            "[Placeholder] Use",
-            "[Placeholder] Effect"
-          ],
-          [
-            "[Placeholder] Option 2",
-            "[Placeholder] Use",
-            "[Placeholder] Effect"
-          ],
-          [
-            "[Placeholder] Option 3",
-            "[Placeholder] Use",
-            "[Placeholder] Effect"
-          ],
-          [
-            "[Placeholder] Option 4",
-            "[Placeholder] Use",
-            "[Placeholder] Effect"
-          ]
-        ]
-      },
-      {
-        "id": "faq",
-        "type": "faq",
-        "heading": "[Placeholder] Buyer questions, each answered in its first sentence",
-        "items": [
-          {
-            "question": "[Placeholder] Buyer question 1?",
-            "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "question": "[Placeholder] Buyer question 2?",
-            "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "question": "[Placeholder] Buyer question 3?",
-            "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "question": "[Placeholder] Buyer question 4?",
-            "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          }
-        ]
-      },
-      {
-        "id": "cta",
-        "type": "cta",
-        "heading": "[Placeholder] Closing call to action; the related links come from the site plan",
-        "paragraphs": [
-          "[Placeholder] Closing text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-        ],
-        "cta": {
-          "label": "Contact",
-          "href": "/contact-us/"
-        },
-        "links": []
-      }
-    ]
-  },
-  {
-    "id": "solutions",
-    "route": "/solutions/",
-    "pageType": "solutions_hub",
-    "status": "placeholder",
-    "seo": {
-      "title": "Solutions",
-      "description": "[Placeholder] Site Factory has not authored this page yet.",
-      "canonical": "/solutions/"
-    },
-    "jsonLd": [],
-    "hero": {
-      "heading": "Solutions",
-      "lead": [
-        "[Placeholder] Hero subtitle. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-      ],
-      "cta": {
-        "label": "Contact",
-        "href": "/contact-us/"
-      }
-    },
-    "blocks": [
-      {
-        "id": "intro",
-        "type": "intro",
-        "heading": "[Placeholder] What the services cover",
-        "paragraphs": [
-          "[Placeholder] What the services cover. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-        ],
-        "mediaKind": "product"
-      },
-      {
-        "id": "children",
-        "type": "gallery",
-        "heading": "[Placeholder] Every page in this section, each card linking to it",
-        "items": [
-          {
-            "caption": "Embroidery",
-            "href": "/swimwear-embroidery/"
-          },
-          {
-            "caption": "Consulting",
-            "href": "/swimwear-consulting/"
-          },
-          {
-            "caption": "Development",
-            "href": "/development/"
-          },
-          {
-            "caption": "Swimwear Packaging & Custom Brand Labels",
-            "href": "/swimwear-packaging-custom-brand-labels/"
-          },
-          {
-            "caption": "Custom Printing",
-            "href": "/custom-swimwear-printing/"
-          },
-          {
-            "caption": "Swimwear Hardware",
-            "href": "/swimwear-hardware/"
-          },
-          {
-            "caption": "Swimwear Fabrics & Sourcing",
-            "href": "/swimwear-fabrics-sourcing/"
-          },
-          {
-            "caption": "Launch",
-            "href": "/swimwear-launch-services/"
-          }
-        ]
-      },
-      {
-        "id": "key-figures",
-        "type": "stats",
-        "heading": "[Placeholder] Order figures, each stated verbatim in an approved fact",
-        "items": [
-          {
-            "value": "[Placeholder] Figure",
-            "label": "[Placeholder] Fact 1"
-          },
-          {
-            "value": "[Placeholder] Figure",
-            "label": "[Placeholder] Fact 2"
-          },
-          {
-            "value": "[Placeholder] Figure",
-            "label": "[Placeholder] Fact 3"
-          },
-          {
-            "value": "[Placeholder] Figure",
-            "label": "[Placeholder] Fact 4"
-          }
-        ]
-      },
-      {
-        "id": "comparison",
-        "type": "table",
-        "heading": "[Placeholder] Options or choices compared side by side",
-        "columns": [
-          "[Placeholder] Option",
-          "[Placeholder] Best for",
-          "[Placeholder] What changes"
-        ],
-        "rows": [
-          [
-            "[Placeholder] Option 1",
-            "[Placeholder] Use",
-            "[Placeholder] Effect"
-          ],
-          [
-            "[Placeholder] Option 2",
-            "[Placeholder] Use",
-            "[Placeholder] Effect"
-          ],
-          [
-            "[Placeholder] Option 3",
-            "[Placeholder] Use",
-            "[Placeholder] Effect"
-          ],
-          [
-            "[Placeholder] Option 4",
-            "[Placeholder] Use",
-            "[Placeholder] Effect"
-          ]
-        ]
-      },
-      {
-        "id": "faq",
-        "type": "faq",
-        "heading": "[Placeholder] Buyer questions, each answered in its first sentence",
-        "items": [
-          {
-            "question": "[Placeholder] Buyer question 1?",
-            "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "question": "[Placeholder] Buyer question 2?",
-            "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "question": "[Placeholder] Buyer question 3?",
-            "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "question": "[Placeholder] Buyer question 4?",
-            "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          }
-        ]
-      },
-      {
-        "id": "cta",
-        "type": "cta",
-        "heading": "[Placeholder] Closing call to action; the related links come from the site plan",
-        "paragraphs": [
-          "[Placeholder] Closing text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-        ],
-        "cta": {
-          "label": "Contact",
-          "href": "/contact-us/"
-        },
-        "links": []
       }
     ]
   },
@@ -696,7 +372,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -903,7 +580,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -1110,7 +788,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -1317,7 +996,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -1524,7 +1204,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -1731,7 +1412,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -1938,7 +1620,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -2145,7 +1828,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -2352,7 +2036,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -2559,7 +2244,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -2766,7 +2452,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -2973,7 +2660,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -3180,7 +2868,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -3387,7 +3076,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -3594,7 +3284,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -3801,7 +3492,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -3827,6 +3519,62 @@
       }
     },
     "blocks": [
+      {
+        "id": "options",
+        "type": "featureGrid",
+        "heading": "[Placeholder] Service options",
+        "items": [
+          {
+            "heading": "[Placeholder] Item 1",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 2",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 3",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 4",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          }
+        ],
+        "variant": "cards"
+      },
+      {
+        "id": "process",
+        "type": "process",
+        "heading": "[Placeholder] How an order runs, step by step",
+        "steps": [
+          {
+            "heading": "[Placeholder] Step 1",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 2",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 3",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 4",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          }
+        ],
+        "variant": "list"
+      },
       {
         "id": "intro",
         "type": "intro",
@@ -3860,46 +3608,13 @@
         ]
       },
       {
-        "id": "options",
-        "type": "featureGrid",
-        "heading": "[Placeholder] Service options",
-        "items": [
-          {
-            "heading": "[Placeholder] Item 1",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 2",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 3",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 4",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          }
-        ],
-        "variant": "numbered"
-      },
-      {
         "id": "scope-1",
         "type": "splitMedia",
         "heading": "[Placeholder] What the service covers",
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "scope-2",
@@ -3908,8 +3623,7 @@
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "comparison",
@@ -3953,29 +3667,6 @@
         "mediaKind": "material"
       },
       {
-        "id": "process",
-        "type": "process",
-        "heading": "[Placeholder] How an order runs, step by step",
-        "steps": [
-          {
-            "heading": "[Placeholder] Step 1",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 2",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 3",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 4",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          }
-        ]
-      },
-      {
         "id": "faq",
         "type": "faq",
         "heading": "[Placeholder] Buyer questions, each answered in its first sentence",
@@ -3996,7 +3687,8 @@
             "question": "[Placeholder] Buyer question 4?",
             "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
           }
-        ]
+        ],
+        "variant": "bars"
       },
       {
         "id": "cta",
@@ -4036,6 +3728,62 @@
     },
     "blocks": [
       {
+        "id": "options",
+        "type": "featureGrid",
+        "heading": "[Placeholder] Service options",
+        "items": [
+          {
+            "heading": "[Placeholder] Item 1",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 2",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 3",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 4",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          }
+        ],
+        "variant": "cards"
+      },
+      {
+        "id": "process",
+        "type": "process",
+        "heading": "[Placeholder] How an order runs, step by step",
+        "steps": [
+          {
+            "heading": "[Placeholder] Step 1",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 2",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 3",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 4",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          }
+        ],
+        "variant": "list"
+      },
+      {
         "id": "intro",
         "type": "intro",
         "heading": "[Placeholder] What the service is and who it is for",
@@ -4068,46 +3816,13 @@
         ]
       },
       {
-        "id": "options",
-        "type": "featureGrid",
-        "heading": "[Placeholder] Service options",
-        "items": [
-          {
-            "heading": "[Placeholder] Item 1",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 2",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 3",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 4",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          }
-        ],
-        "variant": "numbered"
-      },
-      {
         "id": "scope-1",
         "type": "splitMedia",
         "heading": "[Placeholder] What the service covers",
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "scope-2",
@@ -4116,8 +3831,7 @@
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "comparison",
@@ -4161,29 +3875,6 @@
         "mediaKind": "material"
       },
       {
-        "id": "process",
-        "type": "process",
-        "heading": "[Placeholder] How an order runs, step by step",
-        "steps": [
-          {
-            "heading": "[Placeholder] Step 1",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 2",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 3",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 4",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          }
-        ]
-      },
-      {
         "id": "faq",
         "type": "faq",
         "heading": "[Placeholder] Buyer questions, each answered in its first sentence",
@@ -4204,7 +3895,8 @@
             "question": "[Placeholder] Buyer question 4?",
             "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
           }
-        ]
+        ],
+        "variant": "bars"
       },
       {
         "id": "cta",
@@ -4244,6 +3936,62 @@
     },
     "blocks": [
       {
+        "id": "options",
+        "type": "featureGrid",
+        "heading": "[Placeholder] Service options",
+        "items": [
+          {
+            "heading": "[Placeholder] Item 1",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 2",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 3",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 4",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          }
+        ],
+        "variant": "cards"
+      },
+      {
+        "id": "process",
+        "type": "process",
+        "heading": "[Placeholder] How an order runs, step by step",
+        "steps": [
+          {
+            "heading": "[Placeholder] Step 1",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 2",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 3",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 4",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          }
+        ],
+        "variant": "list"
+      },
+      {
         "id": "intro",
         "type": "intro",
         "heading": "[Placeholder] What the service is and who it is for",
@@ -4276,46 +4024,13 @@
         ]
       },
       {
-        "id": "options",
-        "type": "featureGrid",
-        "heading": "[Placeholder] Service options",
-        "items": [
-          {
-            "heading": "[Placeholder] Item 1",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 2",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 3",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 4",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          }
-        ],
-        "variant": "numbered"
-      },
-      {
         "id": "scope-1",
         "type": "splitMedia",
         "heading": "[Placeholder] What the service covers",
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "scope-2",
@@ -4324,8 +4039,7 @@
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "comparison",
@@ -4369,29 +4083,6 @@
         "mediaKind": "material"
       },
       {
-        "id": "process",
-        "type": "process",
-        "heading": "[Placeholder] How an order runs, step by step",
-        "steps": [
-          {
-            "heading": "[Placeholder] Step 1",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 2",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 3",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 4",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          }
-        ]
-      },
-      {
         "id": "faq",
         "type": "faq",
         "heading": "[Placeholder] Buyer questions, each answered in its first sentence",
@@ -4412,7 +4103,8 @@
             "question": "[Placeholder] Buyer question 4?",
             "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
           }
-        ]
+        ],
+        "variant": "bars"
       },
       {
         "id": "cta",
@@ -4452,6 +4144,62 @@
     },
     "blocks": [
       {
+        "id": "options",
+        "type": "featureGrid",
+        "heading": "[Placeholder] Service options",
+        "items": [
+          {
+            "heading": "[Placeholder] Item 1",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 2",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 3",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 4",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          }
+        ],
+        "variant": "cards"
+      },
+      {
+        "id": "process",
+        "type": "process",
+        "heading": "[Placeholder] How an order runs, step by step",
+        "steps": [
+          {
+            "heading": "[Placeholder] Step 1",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 2",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 3",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 4",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          }
+        ],
+        "variant": "list"
+      },
+      {
         "id": "intro",
         "type": "intro",
         "heading": "[Placeholder] What the service is and who it is for",
@@ -4484,46 +4232,13 @@
         ]
       },
       {
-        "id": "options",
-        "type": "featureGrid",
-        "heading": "[Placeholder] Service options",
-        "items": [
-          {
-            "heading": "[Placeholder] Item 1",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 2",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 3",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 4",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          }
-        ],
-        "variant": "numbered"
-      },
-      {
         "id": "scope-1",
         "type": "splitMedia",
         "heading": "[Placeholder] What the service covers",
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "scope-2",
@@ -4532,8 +4247,7 @@
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "comparison",
@@ -4577,29 +4291,6 @@
         "mediaKind": "material"
       },
       {
-        "id": "process",
-        "type": "process",
-        "heading": "[Placeholder] How an order runs, step by step",
-        "steps": [
-          {
-            "heading": "[Placeholder] Step 1",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 2",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 3",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 4",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          }
-        ]
-      },
-      {
         "id": "faq",
         "type": "faq",
         "heading": "[Placeholder] Buyer questions, each answered in its first sentence",
@@ -4620,7 +4311,8 @@
             "question": "[Placeholder] Buyer question 4?",
             "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
           }
-        ]
+        ],
+        "variant": "bars"
       },
       {
         "id": "cta",
@@ -4660,6 +4352,62 @@
     },
     "blocks": [
       {
+        "id": "options",
+        "type": "featureGrid",
+        "heading": "[Placeholder] Service options",
+        "items": [
+          {
+            "heading": "[Placeholder] Item 1",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 2",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 3",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 4",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          }
+        ],
+        "variant": "cards"
+      },
+      {
+        "id": "process",
+        "type": "process",
+        "heading": "[Placeholder] How an order runs, step by step",
+        "steps": [
+          {
+            "heading": "[Placeholder] Step 1",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 2",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 3",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 4",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          }
+        ],
+        "variant": "list"
+      },
+      {
         "id": "intro",
         "type": "intro",
         "heading": "[Placeholder] What the service is and who it is for",
@@ -4692,46 +4440,13 @@
         ]
       },
       {
-        "id": "options",
-        "type": "featureGrid",
-        "heading": "[Placeholder] Service options",
-        "items": [
-          {
-            "heading": "[Placeholder] Item 1",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 2",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 3",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 4",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          }
-        ],
-        "variant": "numbered"
-      },
-      {
         "id": "scope-1",
         "type": "splitMedia",
         "heading": "[Placeholder] What the service covers",
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "scope-2",
@@ -4740,8 +4455,7 @@
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "comparison",
@@ -4785,29 +4499,6 @@
         "mediaKind": "material"
       },
       {
-        "id": "process",
-        "type": "process",
-        "heading": "[Placeholder] How an order runs, step by step",
-        "steps": [
-          {
-            "heading": "[Placeholder] Step 1",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 2",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 3",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 4",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          }
-        ]
-      },
-      {
         "id": "faq",
         "type": "faq",
         "heading": "[Placeholder] Buyer questions, each answered in its first sentence",
@@ -4828,7 +4519,8 @@
             "question": "[Placeholder] Buyer question 4?",
             "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
           }
-        ]
+        ],
+        "variant": "bars"
       },
       {
         "id": "cta",
@@ -4868,6 +4560,62 @@
     },
     "blocks": [
       {
+        "id": "options",
+        "type": "featureGrid",
+        "heading": "[Placeholder] Service options",
+        "items": [
+          {
+            "heading": "[Placeholder] Item 1",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 2",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 3",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 4",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          }
+        ],
+        "variant": "cards"
+      },
+      {
+        "id": "process",
+        "type": "process",
+        "heading": "[Placeholder] How an order runs, step by step",
+        "steps": [
+          {
+            "heading": "[Placeholder] Step 1",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 2",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 3",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 4",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          }
+        ],
+        "variant": "list"
+      },
+      {
         "id": "intro",
         "type": "intro",
         "heading": "[Placeholder] What the service is and who it is for",
@@ -4900,46 +4648,13 @@
         ]
       },
       {
-        "id": "options",
-        "type": "featureGrid",
-        "heading": "[Placeholder] Service options",
-        "items": [
-          {
-            "heading": "[Placeholder] Item 1",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 2",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 3",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 4",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          }
-        ],
-        "variant": "numbered"
-      },
-      {
         "id": "scope-1",
         "type": "splitMedia",
         "heading": "[Placeholder] What the service covers",
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "scope-2",
@@ -4948,8 +4663,7 @@
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "comparison",
@@ -4993,29 +4707,6 @@
         "mediaKind": "material"
       },
       {
-        "id": "process",
-        "type": "process",
-        "heading": "[Placeholder] How an order runs, step by step",
-        "steps": [
-          {
-            "heading": "[Placeholder] Step 1",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 2",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 3",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 4",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          }
-        ]
-      },
-      {
         "id": "faq",
         "type": "faq",
         "heading": "[Placeholder] Buyer questions, each answered in its first sentence",
@@ -5036,7 +4727,8 @@
             "question": "[Placeholder] Buyer question 4?",
             "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
           }
-        ]
+        ],
+        "variant": "bars"
       },
       {
         "id": "cta",
@@ -5076,6 +4768,62 @@
     },
     "blocks": [
       {
+        "id": "options",
+        "type": "featureGrid",
+        "heading": "[Placeholder] Service options",
+        "items": [
+          {
+            "heading": "[Placeholder] Item 1",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 2",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 3",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 4",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          }
+        ],
+        "variant": "cards"
+      },
+      {
+        "id": "process",
+        "type": "process",
+        "heading": "[Placeholder] How an order runs, step by step",
+        "steps": [
+          {
+            "heading": "[Placeholder] Step 1",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 2",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 3",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 4",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          }
+        ],
+        "variant": "list"
+      },
+      {
         "id": "intro",
         "type": "intro",
         "heading": "[Placeholder] What the service is and who it is for",
@@ -5108,46 +4856,13 @@
         ]
       },
       {
-        "id": "options",
-        "type": "featureGrid",
-        "heading": "[Placeholder] Service options",
-        "items": [
-          {
-            "heading": "[Placeholder] Item 1",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 2",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 3",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 4",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          }
-        ],
-        "variant": "numbered"
-      },
-      {
         "id": "scope-1",
         "type": "splitMedia",
         "heading": "[Placeholder] What the service covers",
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "scope-2",
@@ -5156,8 +4871,7 @@
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "comparison",
@@ -5201,29 +4915,6 @@
         "mediaKind": "material"
       },
       {
-        "id": "process",
-        "type": "process",
-        "heading": "[Placeholder] How an order runs, step by step",
-        "steps": [
-          {
-            "heading": "[Placeholder] Step 1",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 2",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 3",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 4",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          }
-        ]
-      },
-      {
         "id": "faq",
         "type": "faq",
         "heading": "[Placeholder] Buyer questions, each answered in its first sentence",
@@ -5244,7 +4935,8 @@
             "question": "[Placeholder] Buyer question 4?",
             "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
           }
-        ]
+        ],
+        "variant": "bars"
       },
       {
         "id": "cta",
@@ -5284,6 +4976,62 @@
     },
     "blocks": [
       {
+        "id": "options",
+        "type": "featureGrid",
+        "heading": "[Placeholder] Service options",
+        "items": [
+          {
+            "heading": "[Placeholder] Item 1",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 2",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 3",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          },
+          {
+            "heading": "[Placeholder] Item 4",
+            "paragraphs": [
+              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+            ]
+          }
+        ],
+        "variant": "cards"
+      },
+      {
+        "id": "process",
+        "type": "process",
+        "heading": "[Placeholder] How an order runs, step by step",
+        "steps": [
+          {
+            "heading": "[Placeholder] Step 1",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 2",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 3",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          },
+          {
+            "heading": "[Placeholder] Step 4",
+            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
+          }
+        ],
+        "variant": "list"
+      },
+      {
         "id": "intro",
         "type": "intro",
         "heading": "[Placeholder] What the service is and who it is for",
@@ -5316,46 +5064,13 @@
         ]
       },
       {
-        "id": "options",
-        "type": "featureGrid",
-        "heading": "[Placeholder] Service options",
-        "items": [
-          {
-            "heading": "[Placeholder] Item 1",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 2",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 3",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          },
-          {
-            "heading": "[Placeholder] Item 4",
-            "paragraphs": [
-              "[Placeholder] Card text. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-            ]
-          }
-        ],
-        "variant": "numbered"
-      },
-      {
         "id": "scope-1",
         "type": "splitMedia",
         "heading": "[Placeholder] What the service covers",
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "scope-2",
@@ -5364,8 +5079,7 @@
         "paragraphs": [
           "[Placeholder] What the service covers. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
         ],
-        "mediaKind": "process",
-        "variant": "single"
+        "mediaKind": "process"
       },
       {
         "id": "comparison",
@@ -5409,29 +5123,6 @@
         "mediaKind": "material"
       },
       {
-        "id": "process",
-        "type": "process",
-        "heading": "[Placeholder] How an order runs, step by step",
-        "steps": [
-          {
-            "heading": "[Placeholder] Step 1",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 2",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 3",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          },
-          {
-            "heading": "[Placeholder] Step 4",
-            "text": "[Placeholder] Step description. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
-          }
-        ]
-      },
-      {
         "id": "faq",
         "type": "faq",
         "heading": "[Placeholder] Buyer questions, each answered in its first sentence",
@@ -5452,7 +5143,8 @@
             "question": "[Placeholder] Buyer question 4?",
             "answer": "[Placeholder] Answer. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here. Authored copy of this length will render here."
           }
-        ]
+        ],
+        "variant": "bars"
       },
       {
         "id": "cta",
@@ -5643,11 +5335,6 @@
     },
     "blocks": [
       {
-        "id": "channels",
-        "type": "contactChannels",
-        "mediaKind": null
-      },
-      {
         "id": "form",
         "type": "form",
         "heading": "Send an enquiry",
@@ -5695,6 +5382,12 @@
         "endpoint": "/api/leads",
         "status": "not-connected",
         "submitLabel": "Send enquiry"
+      },
+      {
+        "id": "channels",
+        "type": "contactChannels",
+        "mediaKind": null,
+        "variant": "cards"
       },
       {
         "id": "faq",
@@ -6166,7 +5859,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -6373,7 +6067,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   },
@@ -6580,7 +6275,8 @@
           "label": "Contact",
           "href": "/contact-us/"
         },
-        "links": []
+        "links": [],
+        "variant": "inline"
       }
     ]
   }

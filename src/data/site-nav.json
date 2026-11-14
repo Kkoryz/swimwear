@@ -5,7 +5,7 @@
   "header": [
     {
       "label": "Products",
-      "route": "/products/",
+      "route": null,
       "children": [
         {
           "label": "Women's Swimwear",
@@ -112,7 +112,7 @@
     },
     {
       "label": "Solutions",
-      "route": "/solutions/",
+      "route": null,
       "children": [
         {
           "label": "Embroidery",

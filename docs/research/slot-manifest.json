@@ -42,20 +42,8 @@
             "kind": "process",
             "count": 1
           },
-          "variant": "single",
-          "module": "splitMedia:single"
-        },
-        {
-          "id": "key-figures",
-          "block": "stats",
-          "fill": "structured",
-          "field": "key_figures",
-          "purpose": "Order figures, each stated verbatim in an approved fact: minimum order, lead time and founding year first, capacity last; left out when fewer than three facts give one",
-          "items": [
-            3,
-            5
-          ],
-          "module": "stats:default"
+          "variant": "tinted",
+          "module": "splitMedia:tinted"
         },
         {
           "id": "quality",
@@ -80,8 +68,8 @@
             "kind": "process",
             "count": 1
           },
-          "variant": "tinted",
-          "module": "splitMedia:tinted"
+          "variant": "single",
+          "module": "splitMedia:single"
         },
         {
           "id": "logos",
@@ -90,6 +78,75 @@
           "required": false,
           "purpose": "Client or certification logos the owner can show (real, with permission)",
           "module": "logos:default"
+        },
+        {
+          "id": "capabilities",
+          "block": "featureGrid",
+          "fill": "copy",
+          "purpose": "Core capabilities",
+          "items": [
+            2,
+            4
+          ],
+          "itemWords": {
+            "title": [
+              2,
+              6
+            ],
+            "text": [
+              15,
+              40
+            ]
+          },
+          "variant": "outline-numbered",
+          "module": "featureGrid:outline-numbered"
+        },
+        {
+          "id": "categories",
+          "block": "gallery",
+          "fill": "plan",
+          "source": "children:products_hub",
+          "purpose": "Product categories, each card linking to its page",
+          "items": [
+            4,
+            8
+          ],
+          "media": {
+            "kind": "product",
+            "count": 1
+          },
+          "variant": "grid",
+          "module": "gallery:grid"
+        },
+        {
+          "id": "key-figures",
+          "block": "stats",
+          "fill": "structured",
+          "field": "key_figures",
+          "purpose": "Order figures, each stated verbatim in an approved fact: minimum order, lead time and founding year first, capacity last; left out when fewer than three facts give one",
+          "items": [
+            3,
+            5
+          ],
+          "variant": "tiles",
+          "module": "stats:tiles"
+        },
+        {
+          "id": "solutions",
+          "block": "gallery",
+          "fill": "plan",
+          "source": "children:solutions_hub",
+          "purpose": "Services, each card linking to its page",
+          "items": [
+            2,
+            6
+          ],
+          "media": {
+            "kind": "lifestyle",
+            "count": 1
+          },
+          "variant": "product-cards",
+          "module": "gallery:product-cards"
         },
         {
           "id": "intro",
@@ -153,45 +210,6 @@
           "module": "iconList:default"
         },
         {
-          "id": "categories",
-          "block": "gallery",
-          "fill": "plan",
-          "source": "children:products_hub",
-          "purpose": "Product categories, each card linking to its page",
-          "items": [
-            4,
-            8
-          ],
-          "media": {
-            "kind": "product",
-            "count": 1
-          },
-          "variant": "mosaic",
-          "module": "gallery:mosaic"
-        },
-        {
-          "id": "capabilities",
-          "block": "featureGrid",
-          "fill": "copy",
-          "purpose": "Core capabilities",
-          "items": [
-            2,
-            4
-          ],
-          "itemWords": {
-            "title": [
-              2,
-              6
-            ],
-            "text": [
-              15,
-              40
-            ]
-          },
-          "variant": "columns",
-          "module": "featureGrid:columns"
-        },
-        {
           "id": "process",
           "block": "process",
           "fill": "structured",
@@ -202,22 +220,6 @@
             6
           ],
           "module": "process:default"
-        },
-        {
-          "id": "solutions",
-          "block": "gallery",
-          "fill": "plan",
-          "source": "children:solutions_hub",
-          "purpose": "Services, each card linking to its page",
-          "items": [
-            2,
-            6
-          ],
-          "media": {
-            "kind": "lifestyle",
-            "count": 1
-          },
-          "module": "gallery:mosaic"
         },
         {
           "id": "factory",
@@ -262,7 +264,8 @@
               45
             ]
           },
-          "module": "faq:accordion"
+          "variant": "two-column",
+          "module": "faq:two-column"
         },
         {
           "id": "testimonials",
@@ -463,14 +466,6 @@
       },
       "slots": [
         {
-          "id": "channels",
-          "block": "contactChannels",
-          "fill": "site",
-          "purpose": "Ways to reach us, from the company's own contact details (email, phone, WhatsApp, address, hours); the template renders them with an icon and a link each",
-          "media": "none",
-          "module": "contactChannels:default"
-        },
-        {
           "id": "form",
           "block": "form",
           "fill": "copy",
@@ -480,6 +475,15 @@
             8
           ],
           "module": "form:default"
+        },
+        {
+          "id": "channels",
+          "block": "contactChannels",
+          "fill": "site",
+          "purpose": "Ways to reach us, from the company's own contact details (email, phone, WhatsApp, address, hours); the template renders them with an icon and a link each",
+          "media": "none",
+          "variant": "cards",
+          "module": "contactChannels:cards"
         },
         {
           "id": "faq",
@@ -501,14 +505,6 @@
             ]
           },
           "module": "faq:accordion"
-        },
-        {
-          "id": "logos",
-          "block": "logos",
-          "fill": "owner",
-          "required": false,
-          "purpose": "Client or certification logos the owner can show (real, with permission)",
-          "module": "logos:default"
         }
       ]
     },
@@ -1096,7 +1092,8 @@
             2,
             6
           ],
-          "module": "cta:band"
+          "variant": "inline",
+          "module": "cta:inline"
         }
       ]
     },
@@ -1311,6 +1308,41 @@
       },
       "slots": [
         {
+          "id": "options",
+          "block": "featureGrid",
+          "fill": "copy",
+          "purpose": "Service options",
+          "items": [
+            2,
+            4
+          ],
+          "itemWords": {
+            "title": [
+              2,
+              6
+            ],
+            "text": [
+              15,
+              40
+            ]
+          },
+          "variant": "cards",
+          "module": "featureGrid:cards"
+        },
+        {
+          "id": "process",
+          "block": "process",
+          "fill": "structured",
+          "field": "process_steps",
+          "purpose": "How an order runs, step by step",
+          "items": [
+            4,
+            6
+          ],
+          "variant": "list",
+          "module": "process:list"
+        },
+        {
           "id": "intro",
           "block": "intro",
           "fill": "copy",
@@ -1344,28 +1376,6 @@
           "module": "stats:default"
         },
         {
-          "id": "options",
-          "block": "featureGrid",
-          "fill": "copy",
-          "purpose": "Service options",
-          "items": [
-            2,
-            4
-          ],
-          "itemWords": {
-            "title": [
-              2,
-              6
-            ],
-            "text": [
-              15,
-              40
-            ]
-          },
-          "variant": "numbered",
-          "module": "featureGrid:numbered"
-        },
-        {
           "id": "scope",
           "block": "splitMedia",
           "fill": "copy",
@@ -1388,8 +1398,7 @@
             "kind": "process",
             "count": 1
           },
-          "variant": "single",
-          "module": "splitMedia:single"
+          "module": "splitMedia:wide > single > single"
         },
         {
           "id": "comparison",
@@ -1429,18 +1438,6 @@
           "module": "proof:band"
         },
         {
-          "id": "process",
-          "block": "process",
-          "fill": "structured",
-          "field": "process_steps",
-          "purpose": "How an order runs, step by step",
-          "items": [
-            4,
-            6
-          ],
-          "module": "process:default"
-        },
-        {
           "id": "testimonials",
           "block": "testimonials",
           "fill": "owner",
@@ -1475,7 +1472,8 @@
               80
             ]
           },
-          "module": "faq:accordion"
+          "variant": "bars",
+          "module": "faq:bars"
         },
         {
           "id": "cta",
