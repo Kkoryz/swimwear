@@ -102,9 +102,9 @@
         "height": 640
       }
     },
-    "/media/photos/burkini-hero-1-960.webp": {
+    "/media/photos/modest-swimwear-hero-1-960.webp": {
       "0.70": {
-        "src": "/media/photos/burkini-hero-1-960-phone-70.webp",
+        "src": "/media/photos/modest-swimwear-hero-1-960-phone-70.webp",
         "width": 448,
         "height": 640
       }
@@ -123,16 +123,18 @@
         "height": 640
       }
     },
+    "/media/photos/cover-up-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/cover-up-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    },
     "/media/photos/general-hero-2-960.webp": {
       "0.45": {
         "src": "/media/photos/general-hero-2-960-phone-45.webp",
         "width": 288,
         "height": 640
-      },
-      "0.71": {
-        "src": "/media/photos/general-hero-2-960-phone-71.webp",
-        "width": 454,
-        "height": 639
       }
     },
     "/media/photos/general-hero-3-960.webp": {
@@ -147,11 +149,37 @@
         "src": "/media/photos/general-hero-4-960-phone-45.webp",
         "width": 288,
         "height": 640
+      },
+      "0.71": {
+        "src": "/media/photos/general-hero-4-960-phone-71.webp",
+        "width": 454,
+        "height": 639
+      }
+    },
+    "/media/photos/swimwear-packaging-brand-labels-hero-1-960.webp": {
+      "0.45": {
+        "src": "/media/photos/swimwear-packaging-brand-labels-hero-1-960-phone-45.webp",
+        "width": 288,
+        "height": 640
+      }
+    },
+    "/media/photos/swimwear-hardware-hero-1-960.webp": {
+      "0.45": {
+        "src": "/media/photos/swimwear-hardware-hero-1-960-phone-45.webp",
+        "width": 288,
+        "height": 640
       }
     },
     "/media/photos/swimwear-accessories-hero-1-960.webp": {
       "0.70": {
         "src": "/media/photos/swimwear-accessories-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    },
+    "/media/photos/couples-matching-swimsuit-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/couples-matching-swimsuit-hero-1-960-phone-70.webp",
         "width": 448,
         "height": 640
       }
@@ -171,14 +199,18 @@
     "/media/photos/teen-swimwear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
     "/media/photos/baby-swimwear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
     "/media/photos/toddler-swimwear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
-    "/media/photos/burkini-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/modest-swimwear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
     "/media/photos/rash-guard-hero-1-960-phone-70.webp (448px wide, from 960x640)",
     "/media/photos/resort-wear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/cover-up-hero-1-960-phone-70.webp (448px wide, from 960x640)",
     "/media/photos/general-hero-2-960-phone-45.webp (288px wide, from 960x640)",
-    "/media/photos/general-hero-2-960-phone-71.webp (454px wide, from 960x640)",
     "/media/photos/general-hero-3-960-phone-45.webp (288px wide, from 960x640)",
     "/media/photos/general-hero-4-960-phone-45.webp (288px wide, from 960x640)",
-    "/media/photos/swimwear-accessories-hero-1-960-phone-70.webp (448px wide, from 960x640)"
+    "/media/photos/general-hero-4-960-phone-71.webp (454px wide, from 960x640)",
+    "/media/photos/swimwear-packaging-brand-labels-hero-1-960-phone-45.webp (288px wide, from 960x640)",
+    "/media/photos/swimwear-hardware-hero-1-960-phone-45.webp (288px wide, from 960x640)",
+    "/media/photos/swimwear-accessories-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/couples-matching-swimsuit-hero-1-960-phone-70.webp (448px wide, from 960x640)"
   ],
   "unfocused": []
 }

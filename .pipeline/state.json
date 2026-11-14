@@ -183,10 +183,10 @@
   },
   "phone-heroes": {
     "status": "passed",
-    "hash": "558f77e8f7d2a606",
-    "at": "2026-11-14T09:04:34.410Z",
+    "hash": "d517ed93ae46113b",
+    "at": "2026-11-14T09:45:26.931Z",
     "seconds": 1,
-    "log": ".pipeline/logs/2026-11-14T07-38-16-013Z/phone-heroes.log"
+    "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/phone-heroes.log"
   },
   "page-figures": {
     "status": "passed",

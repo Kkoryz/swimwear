@@ -39,9 +39,9 @@
     "x": 0.34,
     "y": 0.45
   },
-  "/media/photos/burkini-hero-1-960.webp": {
-    "x": 0.62,
-    "y": 0.32
+  "/media/photos/modest-swimwear-hero-1-960.webp": {
+    "x": 0.72,
+    "y": 0.26
   },
   "/media/photos/rash-guard-hero-1-960.webp": {
     "x": 0.62,
@@ -50,6 +50,10 @@
   "/media/photos/resort-wear-hero-1-960.webp": {
     "x": 0.77,
     "y": 0.31
+  },
+  "/media/photos/cover-up-hero-1-960.webp": {
+    "x": 0.56,
+    "y": 0.37
   },
   "/media/photos/general-hero-2-960.webp": {
     "x": 0.8,
@@ -63,9 +67,21 @@
     "x": 0.235,
     "y": 0.21
   },
+  "/media/photos/swimwear-packaging-brand-labels-hero-1-960.webp": {
+    "x": 0.4,
+    "y": 0.47
+  },
+  "/media/photos/swimwear-hardware-hero-1-960.webp": {
+    "x": 0.34,
+    "y": 0.52
+  },
   "/media/photos/swimwear-accessories-hero-1-960.webp": {
     "x": 0.36,
     "y": 0.48
+  },
+  "/media/photos/couples-matching-swimsuit-hero-1-960.webp": {
+    "x": 0.52,
+    "y": 0.5
   },
   "/media/photos/general-product-1-960.webp": {
     "x": 0.53,
@@ -222,6 +238,26 @@
   "/media/photos/cover-up-lifestyle-2-960.webp": {
     "x": 0.68,
     "y": 0.18
+  },
+  "/media/photos/swimwear-packaging-brand-labels-lifestyle-1-960.webp": {
+    "x": 0.5,
+    "y": 0.45
+  },
+  "/media/photos/swimwear-packaging-brand-labels-lifestyle-2-960.webp": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "/media/photos/swimwear-hardware-lifestyle-1-960.webp": {
+    "x": 0.43,
+    "y": 0.52
+  },
+  "/media/photos/swimwear-hardware-lifestyle-2-960.webp": {
+    "x": 0.5,
+    "y": 0.52
+  },
+  "/media/photos/swimwear-hardware-lifestyle-3-960.webp": {
+    "x": 0.5,
+    "y": 0.45
   },
   "/media/photos/swimwear-accessories-material-1-960.webp": {
     "x": 0.75,
