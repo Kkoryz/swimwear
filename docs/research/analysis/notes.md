@@ -150,3 +150,10 @@ module; nothing faked in CSS):
   `--font-ui`). The brand monogram and the round social icons have no slot.
 - **Manufacturer details**: the italic sublines under headings and the centred button pairs under the text.
 - **Fonts**: see "Font substitution" above (`Maison` and `Maison Book` are not keys of the substitute table).
+- **Process band button centred** (`action_detached`, desktop: /swimwear-embroidery/ intro-1-steps and
+  splitMedia-3-steps, /swimwear-consulting/ faq-steps, /development/ splitMedia-1-steps,
+  /swimwear-packaging-custom-brand-labels/ proof-1-steps and splitMedia-1-steps, /swimwear-launch-services/
+  overview-steps): patterns.css centres `.process__cta` under steps whose text is set from the left, so the button
+  stands away from the text it ends on any site using the band with its button. The treatment sets it under the first
+  step of the last row (reference.css); the template's default would do better to follow `headingAlign` and the last
+  row's start.

@@ -219,6 +219,19 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
 /* Steps: the solution page's numbered columns over a hairline on navy (small numbers, no filled marker). */
 .block--process { --size-subheading: 1.0625rem; }
 .block--process[data-variant="band"] { --process-marker-bg: transparent; --process-marker-text: var(--text-inverse); }
+/* The band's enquiry button stays in the steps' flow: under the first step of their last row (this site's headings
+   start on the content's left edge), not centred under steps set from the left. A short last row the template centres
+   starts some tracks in (gridPlan --tracks, --start), and the button with it. */
+.block--process[data-variant="band"] .process__cta { justify-content: flex-start; }
+@media (min-width: 1024px) {
+  .process:has(> .process-steps[style*="--tracks: 6"]) > .process__cta { --steps-tracks: 6; }
+  .process:has(> .process-steps[style*="--tracks: 8"]) > .process__cta { --steps-tracks: 8; }
+  .process:has(> .process-steps[style*="--tracks: 10"]) > .process__cta { --steps-tracks: 10; }
+  .process:has(> .process-steps > [style*="--start: 2"]) > .process__cta { --steps-skip: 1; }
+  .process:has(> .process-steps > [style*="--start: 3"]) > .process__cta { --steps-skip: 2; }
+  .process:has(> .process-steps > [style*="--start: 4"]) > .process__cta { --steps-skip: 3; }
+  .block--process[data-variant="band"] .process__cta { padding-inline-start: calc(var(--steps-skip, 0) * ((100% - (var(--steps-tracks, 1) - 1) * var(--grid-gap)) / var(--steps-tracks, 1) + var(--grid-gap))); }
+}
 
 /* FAQ: navy Maison Neue 700 15px questions on hairline rows, the mark at the right (home); separate rounded bars
    (solution). */
@@ -231,6 +244,10 @@ main[data-page-type="home"] .block--faq { --size-display: clamp(2rem, 3.611vw, 3
 .block--faq:is([data-variant="accordion"], [data-variant="two-column"], [data-variant="open-list"]) .faq__item summary { padding: 1.25rem 0; }
 .block--faq:is([data-variant="accordion"], [data-variant="two-column"], [data-variant="open-list"]) .faq__item p { padding: 0 0 1.25rem; }
 .block--faq[data-variant="bars"] .faq__item { border-radius: var(--radius-card); }
+
+/* Inline close (manufacturer pages): heading, text and button one under the other, the button under the text it ends
+   (the template's wrapping row set it beside the 70ch paragraph). */
+.block--cta[data-variant="inline"] .cta__content { flex-direction: column; align-items: flex-start; }
 
 /* Closing photo band: the copy on the darker left of the photo, white-outlined pills, h2 60/84. */
 [data-variant="image-band"] .cta { min-height: clamp(320px, 42vw, 614px); --cta-overlay: rgb(0 0 0 / 0.55); }
