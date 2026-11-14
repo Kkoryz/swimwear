@@ -217,11 +217,11 @@
     "log": ".pipeline/logs/2026-11-14T19-05-22-205Z/build.log"
   },
   "image-fit": {
-    "status": "passed",
-    "hash": "44823d8598f56021",
-    "at": "2026-11-14T12:59:58.461Z",
-    "seconds": 193,
-    "log": ".pipeline/logs/2026-11-14T12-44-35-176Z/image-fit.log"
+    "status": "failed",
+    "hash": "95396f71bff64cdc",
+    "at": "2026-11-14T19:05:31.723Z",
+    "seconds": 3,
+    "log": ".pipeline/logs/2026-11-14T19-05-22-205Z/image-fit.log"
   },
   "image-refit": {
     "status": "passed",
