@@ -1,9 +1,9 @@
 {
   "schema_version": "sf/handoff-report/v1",
   "handoff_sha256": "0bf60a3c66db726143f36946159837af68fdf06499f330911837bc7f02fd3415",
-  "made_at": "2026-11-14T19:36:11.070Z",
+  "made_at": "2026-11-14T19:37:38.955Z",
   "template": {
-    "commit": "3253435b577027b7d9a85ffd3dca0a0dcf87bfad",
+    "commit": "614abe28683517b96955a8bb29ac0c089e2dd962",
     "block_kinds_sha256": "172172d23deb91683258878752b49f6ddfd74104ce3453803435d34562dc4c28"
   },
   "pages": [
