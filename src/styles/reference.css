@@ -209,10 +209,16 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
    template's); a lead on the band takes the title's alignment. */
 .blog-hub-hero h1 { font-weight: 700; }
 .blog-hub-hero[data-header="banner"] h1 { text-transform: none; }
-.blog-hub-hero[data-header="banner"] .blog-hub-hero__lead { margin-inline: auto; text-align: center; }
+.blog-hub-hero[data-header="banner"] .blog-hub-hero__lead { margin-inline: auto; }
+/* Title and lead on the band share one alignment (centred) at every width. */
+.blog-hub-hero[data-header="banner"] :is(.blog-hub-hero__copy, h1, .blog-hub-hero__lead) { text-align: center; }
 
 /* Text sections: plain text on the page (the competitor's text sections carry no panel). */
 .block--proof[data-variant="band"] .text-block { padding: 0; border-radius: 0; background: transparent; }
+/* A text section going on from the one before it (no heading of its own) keeps the section rhythm above its first line
+   (half the section space on each side, from the blocks' own padding), not the cards' gap of a continued grid. */
+.block:has(+ .block--proof[data-variant="band"][data-continues]) { padding-bottom: calc(var(--section-space) / 2); }
+.block--proof[data-variant="band"][data-continues] { padding-top: calc(var(--section-space) / 2); }
 
 /* Order cases: the competitor's 1px grey outline, no accent rule. */
 .order-case { border: 1px solid #979797; }
@@ -221,6 +227,9 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
    keeps to a reading line: the table holds about 70 characters of text beside its label columns, from the heading's
    left edge. A chart panel's scroll shade takes the panel's own colour. */
 .prose__table th, .prose__table td { border: 0; border-bottom: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent); }
+/* The table blocks part their rows on the same light hairline, the header rule too (no heavy black rules). */
+.block--table { --border-table: color-mix(in srgb, var(--text-primary) 18%, transparent); }
+.block--table .table-block thead th { border-bottom-width: 1px; }
 .block--table .table-block__scroll { max-width: calc(70ch + 20rem); }
 /* A row's label keeps to one line beside the long column on desktops (two-word labels broke over two lines). */
 @media (min-width: 900px) { .block--table .table-block :is(th, td):first-child { white-space: nowrap; } }
@@ -300,6 +309,12 @@ main[data-page-type="solution"] [data-variant="outlined"] .feature-card { border
   border-radius: 0;
   background: var(--surface-band-blush);
 }
+/* Phones: the blush panel and its photo run to the band's edges (no frame of the section's tint around them), the
+   panel's text on the content's edge. */
+@media (max-width: 899px) {
+  .block--split[data-variant="panel"] .split { margin-inline: calc(-1 * var(--gutter)); }
+  .block--split[data-variant="panel"] .split__copy { padding-inline: var(--gutter); }
+}
 
 /* Figures: navy tiles with 20px corners and aqua figures (home MOQ band); the timeline bar's values over a hairline. */
 .block--stats[data-variant="tiles"] .stats__item { --heading-color: var(--accent); --text-primary: var(--text-inverse); --link: var(--text-inverse); border-radius: 20px; background: var(--surface-dark); color: var(--text-inverse); }
@@ -310,6 +325,8 @@ main[data-page-type="solution"] [data-variant="outlined"] .feature-card { border
 .block--stats[data-variant="trust-bar"] .stats__label { font-family: var(--font-ui); font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; }
 /* Trust bar under the hero: a figure balances its lines and stands directly over its label, from the top of its cell. */
 .trust-bar__value, .block--stats[data-variant="trust-bar"] .stats__value { text-wrap: balance; }
+/* A label breaks into even lines, never one word left alone. */
+.trust-bar__label, .block--stats[data-variant="trust-bar"] .stats__label { text-wrap: balance; }
 .trust-bar__item { align-content: start; }
 
 /* Steps: bold step titles over regular text (the competitor's sub-heads are Maison 700). */
@@ -321,14 +338,18 @@ main[data-page-type="solution"] [data-variant="outlined"] .feature-card { border
 .block--process .point-list__items[data-numbered] > .point-list__item { position: relative; padding-block: 1rem; padding-left: 3.5rem; border-top: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent); counter-increment: step; }
 .block--process .point-list__items[data-numbered] > .point-list__item::before { content: counter(step, decimal-leading-zero); position: absolute; top: 1rem; left: 0; font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1; color: var(--accent-text); }
 /* The list's intro stays in view beside the longer steps; an intro without a heading of its own is set as the steps'
-   lead, in the heading face at the sub-heading size, so the column reads as their heading, not a stray caption. */
+   lead, in the heading face a size step over the step titles (the card-heading size), so the column reads as their
+   heading, not a stray caption or one more step title. */
 @media (min-width: 900px) { .block--process .point-list__intro { position: sticky; top: 6rem; } }
 .block--process .point-list__intro:not(:has(h2)) > .block__lead,
-.block--process[data-variant="timeline"] .process:not(:has(> .process__heading)) > .block__lead { font-family: var(--font-display); font-size: var(--size-subheading); font-weight: var(--weight-heading); line-height: 1.3; color: var(--heading-color, var(--text-primary)); }
+.block--process[data-variant="timeline"] .process:not(:has(> .process__heading)) > .block__lead { font-family: var(--font-display); font-size: var(--size-card-heading); font-weight: var(--weight-heading); line-height: 1.3; color: var(--heading-color, var(--text-primary)); }
 /* The timeline starts on the content's left edge under its heading; its rows part on the light hairline of the FAQ
    rows and tables, not a black rule. */
 body[data-heading-align="start"] .block--process .process-timeline { margin-inline: 0; }
 .block--process .process-timeline__row { border-bottom-color: color-mix(in srgb, var(--text-primary) 18%, transparent); }
+/* A step's name keeps to one line beside its text: the name's track takes a share of the row (a third), not a fixed
+   14rem that broke "Correct pattern and grading" while the text column stood half empty. */
+@media (min-width: 768px) { .block--process .process-timeline__row { grid-template-columns: minmax(14rem, 1fr) minmax(0, 2fr); } }
 /* The band's numbers start on the step titles' edge; its button stands clear of the last step's text. */
 .block--process[data-variant="band"] { --process-marker-bg: transparent; --process-marker-text: var(--text-inverse); }
 .block--process[data-variant="band"] .process-step__marker { width: auto; place-items: center start; }
@@ -359,7 +380,11 @@ body[data-heading-align="start"] .block--process .process-timeline { margin-inli
    (solution). The questions take the template's sub-heading size, a step over their answers. */
 main[data-page-type="home"] .block--faq { --size-display: clamp(2rem, 3.611vw, 3.25rem); }
 .block--faq:not([data-variant="dark-cards"]) .faq__item h3 { font-family: var(--font-hero); font-weight: 700; line-height: 1.4; color: var(--surface-dark); }
-.block--faq:not([data-variant="dark-cards"]) .faq__item summary::after { color: var(--surface-dark); }
+/* The open/close mark plainly visible at the row's end: larger, heavier, in the light-surface blue (the competitor's
+   accent-blue +). */
+.block--faq:not([data-variant="dark-cards"]) .faq__item summary::after { font-size: 1.5rem; font-weight: 600; color: var(--accent-text); }
+/* Manufacturer: the questions a level under the 500-weight section heading beside them, not heavier than it. */
+main[data-page-type="product_manufacturer"] .block--faq:not([data-variant="dark-cards"]) .faq__item h3 { font-weight: 500; }
 /* A question runs along its row up to the mark (balanced, a two-line question left half the row empty before it). */
 .block--faq .faq__item summary h3 { flex: 1 1 auto; text-wrap: pretty; }
 .block--faq:is([data-variant="accordion"], [data-variant="two-column"], [data-variant="open-list"]) .faq__items { gap: 0; }
@@ -442,6 +467,8 @@ main[data-page-type="home"] .block--faq { --size-display: clamp(2rem, 3.611vw, 3
 .logos-marquee:not([data-marquee-run]) .logos-marquee__row { flex: 1 1 auto; justify-content: space-between; padding-right: 0; }
 .logos-marquee .logos-marquee__row .logos__item { flex: 0 0 auto; min-width: var(--logos-item-width, 10rem); }
 .logos-marquee .logos__name { white-space: nowrap; }
+/* The line under a brand name at a readable size, in the muted text colour (5.3:1 on white). */
+.logos__note { font-size: 0.875rem; color: var(--text-muted); }
 /* Testimonials: the quote cards take the template's card fill (the beige on white, white inside a tinted band), so a
    card's inset reads as a panel; when every card is in view they share the row. */
 .testimonials[data-variant="carousel"] .track[data-fits] .track__item { flex-grow: 1; }

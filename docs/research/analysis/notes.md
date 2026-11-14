@@ -177,6 +177,11 @@ module; nothing faked in CSS):
 - **Testimonial parts level across the row, again** (`/`, owner-testimonials, design-polish repair P2): the asked subgrid
   (`grid-template-rows` on the track, `grid-row: span 2` on each card) sets a grid's rows and an item's span, which are
   the template's, on a carousel track that is a flex row. Still the template's to give the cards shared row tracks.
+- **Testimonial parts level across the row, third time** (`/`, owner-testimonials, design-gate repair P2): the same
+  subgrid fix (`grid-template-rows` on the track, `grid-row: span 2` / subgrid on each card). The testimonials are the
+  carousel variant (`.track__items` is a flex row), so the cards have no shared rows to take; setting a grid's rows and
+  an item's span is the template's. The template has to give the testimonial cards row tracks (as `--card-rows` does
+  for feature cards).
 
 ## Asked against the site rules
 
@@ -231,3 +236,22 @@ Design-polish repair (2026-11-14):
 - `/swimwear-accessories/` m6 (desktop, P2), the part that asks the table to take the full content width: the table is
   held to 70ch of text beside its label columns (`.table-block__scroll`, treatment practice, Measure). Repaired: the row
   labels keep to one line on desktops.
+
+Design-gate repair, second pass (2026-11-14):
+
+- `/swimwear-consulting/` m8 (desktop, P2), raised again: setting the list steps' titles (`.point-list__title`, an
+  `h3`) "about 1.125–1.25rem" is a font-size on a heading. Headings are sized by the template, and no rule sets their
+  size. (Their weight 700 and accent numerals stay.)
+- `/custom-swimwear-printing/` splitMedia-1 (mobile, P2), raised again: `aspect-ratio: 4 / 3` on the wide row's photo
+  copies the competitor's frame shape. The template sets frame ratios from the photos, and a 2.3:1 photo in a 4:3 frame
+  would show under 60% of itself (`heavy_crop`).
+- `/contact-us/` overview and faq (desktop, P2), and `/watersports-apparel-manufacturer/` overview and cta (desktop,
+  P2), raised again: the intro, the answers and the closing text are `p` elements and already hold to
+  `max-width: 70ch` (every `.block p`), the value each fix asks for. The audit's `long_measure` passes them. The
+  reviewer counts letters, and DM Sans's wide "0" puts about 90 letters in 70ch. A narrower measure would fall well
+  under the practice's "about 70ch", so it stays at 70ch.
+- `/watersports-apparel-manufacturer/` overview-charts (mobile, P2): `margin-bottom: calc(var(--section-space) / 2)`
+  on the charts block would add 36px to a boundary the audit already measures at 146px on phones (charts →
+  splitMedia), which makes 182px, over `--authoring-max-boundary-gap` (176px). The other option, a white panel with a
+  hairline border, adds a border the competitor does not have. The beige panel over a beige band comes from the
+  template's surface alternation, which tints splitMedia-1 (a template finding on this page).
