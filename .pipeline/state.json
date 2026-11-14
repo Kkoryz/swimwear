@@ -68,5 +68,12 @@
     "at": "2026-11-14T07:03:35.808Z",
     "seconds": 119,
     "log": ".pipeline/logs/2026-11-14T06-27-25-372Z/modules.log"
+  },
+  "template-gaps": {
+    "status": "waiting",
+    "hash": "a873b2b9d00c5d32",
+    "at": "2026-11-14T07:03:36.423Z",
+    "seconds": 0,
+    "log": ".pipeline/logs/2026-11-14T06-27-25-372Z/template-gaps.log"
   }
 }

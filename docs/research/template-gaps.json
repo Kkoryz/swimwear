@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "seo-site-template-gaps-v1",
+  "sites": [
+    "site13-strandmill"
+  ],
+  "onBacklog": {
+    "sites": 2,
+    "pagesOnOneSite": 3
+  },
+  "ranked": [
+    {
+      "kind": "video",
+      "sites": [
+        "site13-strandmill"
+      ],
+      "pages": 2,
+      "blocking": 0,
+      "onBacklog": false,
+      "examples": [
+        "site13-strandmill home section 1: GAP: the hero plays a background mp4 and the template shows only the still. Full-bleed photo with a dark gradient on the left third, eyebrow",
+        "site13-strandmill home section 2: GAP: the media is an embedded video (black box in the capture). Full-width cream band, eyebrow, h2 and paragraph on the left, video on the r",
+        "site13-strandmill product_manufacturer section 6: GAP: no split row with an embedded video; a video player (black box) on the left, text and link on the right, white ground"
+      ]
+    },
+    {
+      "kind": "layout",
+      "sites": [
+        "site13-strandmill"
+      ],
+      "pages": 2,
+      "blocking": 0,
+      "onBacklog": false,
+      "examples": [
+        "site13-strandmill home section 3: GAP: under the text sits a cream rounded card (h3, a row of five figures, arrow link), and no split nests a stats card in its copy; the righ",
+        "site13-strandmill home section 9: GAP: the text column sits beside the figure cards, two side by side and a wide text-only card under them, and no stats variant has that arra",
+        "site13-strandmill home section 11: GAP: one composite section: two-tone h2, a white price card joined to a photo, a navy 'every price includes' check-list panel, a small-print"
+      ]
+    },
+    {
+      "kind": "tabs",
+      "sites": [
+        "site13-strandmill"
+      ],
+      "pages": 1,
+      "blocking": 0,
+      "onBacklog": false,
+      "examples": [
+        "site13-strandmill home section 4: GAP: the right column is a row of pill tabs (active one filled black) switching panels of fabric-swatch images. Light-blue band; text column"
+      ]
+    },
+    {
+      "kind": "lightbox",
+      "sites": [
+        "site13-strandmill"
+      ],
+      "pages": 1,
+      "blocking": 0,
+      "onBacklog": false,
+      "examples": [
+        "site13-strandmill home section 8: GAP: each photo opens a lightbox (prev, next, close, counter). A black pill button, then six lifestyle photos of equal height in one row"
+      ]
+    },
+    {
+      "kind": "other",
+      "sites": [
+        "site13-strandmill"
+      ],
+      "pages": 1,
+      "blocking": 0,
+      "onBacklog": false,
+      "examples": [
+        "site13-strandmill solution section 2: GAP: no per-card panel colour; two equal text-only panels on a cream band, the first white, the second dark navy with white text",
+        "site13-strandmill solution section 3: GAP: no button pair per row and no navy 'Good to know' note box under the intro; eyebrow, heading and lead in a left column, three large blu"
+      ]
+    }
+  ],
+  "skipped": [],
+  "holdShare": 0.15,
+  "large": [
+    {
+      "site": "site13-strandmill",
+      "pageType": "home",
+      "index": 11,
+      "module": "gallery:product-cards",
+      "why": "GAP: one composite section: two-tone h2, a white price card joined to a photo, a navy 'every price includes' check-list panel, a small-print check list, then four example-price cards (photo half beside an aqua, steel, light-blue or navy body with prices). The photos of the two lower cards never loaded in the capture",
+      "height": 2106,
+      "share": 0.2,
+      "decision": null,
+      "note": null
+    },
+    {
+      "site": "site13-strandmill",
+      "pageType": "solution",
+      "index": 6,
+      "module": "featureGrid:boxed",
+      "why": "GAP: no joined bordered two-panel comparison of tall images, and no two-column text-and-button row under it; eyebrow, heading and lead, then two navy title bars over a handover sheet and a mock-up photo set",
+      "height": 1516,
+      "share": 0.19,
+      "decision": null,
+      "note": null
+    }
+  ]
+}
