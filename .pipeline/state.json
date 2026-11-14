@@ -246,9 +246,9 @@
   },
   "design-shots": {
     "status": "passed",
-    "hash": "2d9acc983251b394",
-    "at": "2026-11-14T11:42:20.376Z",
-    "seconds": 90,
+    "hash": "d740aa48c7650e3d",
+    "at": "2026-11-14T11:55:50.180Z",
+    "seconds": 92,
     "log": ".pipeline/logs/2026-11-14T10-49-24-604Z/design-shots.log"
   },
   "design-review": {
