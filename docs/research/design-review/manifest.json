@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-shots-v1",
-  "id": "7eb7a948a91b15e2",
+  "id": "7ba657b84d7ddf15",
   "pages": [
     {
       "key": "home",
@@ -10,9 +10,9 @@
       "words": 2180,
       "route": "/",
       "status": "authored",
-      "source": "5840e2f9910673ba247003b5",
+      "source": "4ad3280a2d7f5012ed789e5d",
       "rules": "896e2a6360c1caaa",
-      "shots": "2b5c80967ee9e7eee1d6e047",
+      "shots": "f1ee92da329d27181b8f001a",
       "images": [
         "docs/research/design-review/home-desktop-1.png",
         "docs/research/design-review/home-desktop-2.png",
@@ -803,9 +803,9 @@
       "words": 1362,
       "route": "/about-us/",
       "status": "authored",
-      "source": "e51802145d1e563d3fe5e866",
+      "source": "e9bbbfe7591fcd743d9866d7",
       "rules": "896e2a6360c1caaa",
-      "shots": "d81142e3b508252605871ba8",
+      "shots": "26164d6581bff45c33533879",
       "images": [
         "docs/research/design-review/about-desktop-1.png",
         "docs/research/design-review/about-desktop-2.png",
@@ -1226,7 +1226,7 @@
       "words": 1907,
       "route": "/faq/",
       "status": "authored",
-      "source": "23e4c0065f8fe1a054c043d3",
+      "source": "02a1c351f7a20d2a3e0ab7ef",
       "rules": "896e2a6360c1caaa",
       "shots": "339d159e05e00bb4ce1ac129",
       "images": [
@@ -1941,7 +1941,7 @@
       "words": 983,
       "route": "/case-studies/",
       "status": "authored",
-      "source": "1916a0be203c839d98c091e7",
+      "source": "457510f5acb23380f79763df",
       "rules": "896e2a6360c1caaa",
       "shots": "a27124d059e578b77c0ca0ca",
       "images": [
@@ -2231,7 +2231,7 @@
       "words": 701,
       "route": "/terms-and-conditions/",
       "status": "authored",
-      "source": "59738cb86d59b2b7babdc1e2",
+      "source": "7fc7e835c117304fb0232496",
       "rules": "896e2a6360c1caaa",
       "shots": "f9ecc4c33d8ce2f683727d57",
       "images": [
@@ -2545,7 +2545,7 @@
       "words": 132,
       "route": "/privacy-policy/",
       "status": "authored",
-      "source": "1f019b8199b70cda7a6501f3",
+      "source": "145a719760a79f3053ee7d65",
       "rules": "896e2a6360c1caaa",
       "shots": "18b29668dcce80470222c20c",
       "images": [
@@ -2726,7 +2726,7 @@
       "words": 496,
       "route": "/blog/",
       "status": "authored",
-      "source": "81e6ceac0728c99c9d99f4ca",
+      "source": "735a361ad2524c156049279c",
       "rules": "896e2a6360c1caaa",
       "shots": "03e6853e2ef996047ee1df6e",
       "images": [
@@ -2931,7 +2931,7 @@
       "words": 715,
       "route": "/contact-us/",
       "status": "authored",
-      "source": "d42ae6278b8b1b96516044f2",
+      "source": "6142bd7d737a47e040818eb1",
       "rules": "896e2a6360c1caaa",
       "shots": "474223e70aa5ce494015e579",
       "images": [
@@ -3217,7 +3217,7 @@
       "words": 2468,
       "route": "/swimwear-accessories/",
       "status": "authored",
-      "source": "10d8c165a22c3acb61193c77",
+      "source": "fc9b70e8b50ef5d23750c68b",
       "rules": "896e2a6360c1caaa",
       "shots": "f95b743a0a8c92fc1552f723",
       "images": [
@@ -3835,7 +3835,7 @@
       "words": 918,
       "route": "/watersports-apparel-manufacturer/",
       "status": "authored",
-      "source": "2bf22de09ffa71fb8d4c4ae3",
+      "source": "83673a004405993ec18ba4fb",
       "rules": "896e2a6360c1caaa",
       "shots": "058f0b879c8f86dad76ca7b6",
       "images": [
@@ -4169,7 +4169,7 @@
       "words": 2812,
       "route": "/swimwear-consulting/",
       "status": "authored",
-      "source": "e4cda0ede04c2262a86471ea",
+      "source": "db068f7b118eb2822cef03ef",
       "rules": "896e2a6360c1caaa",
       "shots": "54626b26e44aabf5cdff15b2",
       "images": [
@@ -4850,7 +4850,7 @@
       "words": 1684,
       "route": "/custom-swimwear-printing/",
       "status": "authored",
-      "source": "353dced9ba153f19b21fa748",
+      "source": "83df6ba33ddd18a6f34ca6e7",
       "rules": "896e2a6360c1caaa",
       "shots": "91cfd822ac3744013653d437",
       "images": [
