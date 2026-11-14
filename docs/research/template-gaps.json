@@ -9,6 +9,48 @@
   },
   "ranked": [
     {
+      "kind": "other",
+      "sites": [
+        "site13-strandmill"
+      ],
+      "pages": 10,
+      "blocking": 8,
+      "onBacklog": true,
+      "examples": [
+        "site13-strandmill solution section 2: GAP: no per-card panel colour; two equal text-only panels on a cream band, the first white, the second dark navy with white text",
+        "site13-strandmill solution section 3: GAP: no button pair per row and no navy 'Good to know' note box under the intro; eyebrow, heading and lead in a left column, three large blu",
+        "site13-strandmill board--contactChannels-cards channels (mobile): On phones the four channel cards stack one per row at full width, so each card is about 230 px tall and the section runs to about 1030 px, m"
+      ]
+    },
+    {
+      "kind": "layout",
+      "sites": [
+        "site13-strandmill"
+      ],
+      "pages": 6,
+      "blocking": 2,
+      "onBacklog": true,
+      "examples": [
+        "site13-strandmill home section 3: GAP: under the text sits a cream rounded card (h3, a row of five figures, arrow link), and no split nests a stats card in its copy; the righ",
+        "site13-strandmill home section 9: GAP: the text column sits beside the figure cards, two side by side and a wide text-only card under them, and no stats variant has that arra",
+        "site13-strandmill home section 11: GAP: one composite section: two-tone h2, a white price card joined to a photo, a navy 'every price includes' check-list panel, a small-print"
+      ]
+    },
+    {
+      "kind": "unclassified",
+      "sites": [
+        "site13-strandmill"
+      ],
+      "pages": 3,
+      "blocking": 6,
+      "onBacklog": false,
+      "examples": [
+        "site13-strandmill board--featureGrid-cards m2 (desktop): The section heading \"Rash Guard Fabrics, UPF Ratings and Certifications\" is centred over the column, while the intro paragraph and the card ",
+        "site13-strandmill board--featureGrid-cards m2 (mobile): On phones the section heading is also centred over a left-aligned intro paragraph and left-aligned cards.",
+        "site13-strandmill board--process-band splitMedia-1-steps (desktop): The band's button sits only a few pixels under the step-05 text (\"and trimming.\") and is pushed part-way across the section, neither on the "
+      ]
+    },
+    {
       "kind": "video",
       "sites": [
         "site13-strandmill"
@@ -20,20 +62,6 @@
         "site13-strandmill home section 1: GAP: the hero plays a background mp4 and the template shows only the still. Full-bleed photo with a dark gradient on the left third, eyebrow",
         "site13-strandmill home section 2: GAP: the media is an embedded video (black box in the capture). Full-width cream band, eyebrow, h2 and paragraph on the left, video on the r",
         "site13-strandmill product_manufacturer section 6: GAP: no split row with an embedded video; a video player (black box) on the left, text and link on the right, white ground"
-      ]
-    },
-    {
-      "kind": "layout",
-      "sites": [
-        "site13-strandmill"
-      ],
-      "pages": 2,
-      "blocking": 0,
-      "onBacklog": false,
-      "examples": [
-        "site13-strandmill home section 3: GAP: under the text sits a cream rounded card (h3, a row of five figures, arrow link), and no split nests a stats card in its copy; the righ",
-        "site13-strandmill home section 9: GAP: the text column sits beside the figure cards, two side by side and a wide text-only card under them, and no stats variant has that arra",
-        "site13-strandmill home section 11: GAP: one composite section: two-tone h2, a white price card joined to a photo, a navy 'every price includes' check-list panel, a small-print"
       ]
     },
     {
@@ -61,7 +89,7 @@
       ]
     },
     {
-      "kind": "other",
+      "kind": "carousel",
       "sites": [
         "site13-strandmill"
       ],
@@ -69,8 +97,7 @@
       "blocking": 0,
       "onBacklog": false,
       "examples": [
-        "site13-strandmill solution section 2: GAP: no per-card panel colour; two equal text-only panels on a cream band, the first white, the second dark navy with white text",
-        "site13-strandmill solution section 3: GAP: no button pair per row and no navy 'Good to know' note box under the intro; eyebrow, heading and lead in a left column, three large blu"
+        "site13-strandmill board--testimonials-carousel owner-testimonials (desktop): With only two testimonials, the carousel keeps the three-card width and leaves the right third of the row empty."
       ]
     }
   ],
