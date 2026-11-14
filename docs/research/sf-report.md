@@ -4,32 +4,13 @@
 
 ## 要 SF 改的问题
 
-- / hero：design_finding（design-review）：The hero photo still has another banner's text printed into it ("Swim for Sunlit Days", "and summer-ready prints" and the outlines of "Shop Swimwear" and "Explore the Collection" buttons), and our H1, lead and Request a quote button sit right on top of it, so two sets of text overlap at 1440 px (the phone crop hides it).
-- / trustBar：design_finding（design-review）：Two trust figures still read as broken fragments ("65 that / SAMPLING TEAM", "55 custom / DAILY SAMPLES"), and "100,000 pieces" has its unit in the value, so on phones it wraps to two lines and its label drops out of line with "FOUNDED".
-- / featureGrid-7：design_finding（design-review）：The card sets featureGrid-4 (private label and logo), featureGrid-7 (quotation to sampling), featureGrid-9 (MOQ and fees) and featureGrid-1 (only a lead sentence) still have no heading, so the page jumps from m3's "OEM Swimwear Production" to packaging, ordering and payment terms with nothing to show the topic has changed.
-- /about-us/ trustBar：design_finding（design-review）：Two of the four figures are still cut-off phrases ('65 that' over 'SAMPLING TEAM', '55 custom' over 'DAILY SAMPLES'), so the bar reads as broken copy at both widths.
-- /blog/ overview-steps：design_finding（design-review）：The section has no heading. Its only intro is the body-size caption "Quality checks at every stage of an order.", so the left column is a single small line beside a long list, between two bold H2 sections.
-- /watersports-apparel-manufacturer/ hero：design_finding（design-review）：The desktop hero photo has its own headline ('Swim for Sunlit Days'), lead and two buttons printed into the picture; they compete with the real H1 below it, and the frame's bottom edge cuts the second printed button in half.
-- /swimwear-consulting/ faq-steps：design_finding（design-review）：The navy step band has no heading in the page at all (no heading in the markup), so after the FAQ it reads as five loose figures with a button.
-- /custom-swimwear-printing/ hero：design_finding（design-review）：The hero photo (general-hero-1) has its own headline 'Swim for Sunlit Days', a subline and two buttons ('Shop Swimwear', 'Explore the Collection') printed into the image, and they show through faintly behind our H1, lead and button, so the hero reads as two layers of overlapping text and dead buttons.
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
-- /blog/：unplaced_copy（layout-audit）
+- / hero：design_finding（design-review）：At 1440 px the hero photo still has another banner's text baked into it ("Swim for Sunlit Days", "and summer-ready prints", and the outlines of "Shop Swimwear" and "Explore the Collection" buttons), and our H1, lead and Request a quote button sit on top of it, so two sets of text overlap (the phone crop hides it).
+- / trustBar：design_finding（design-review）：Two trust figures still read as broken fragments ("65 that / SAMPLING TEAM", "55 custom / DAILY SAMPLES"), and "100,000 pieces" carries its unit inside the value, so on phones it wraps to two lines while the other figures take one and the 2×2 grid's first row goes uneven.
+- / featureGrid-7：design_finding（design-review）：The card sets featureGrid-4 (private label and logo), featureGrid-7 (quotation to sampling), featureGrid-9 (MOQ and fees) and featureGrid-1 (a lead sentence only) still have no heading. The page jumps from m3's "OEM Swimwear Production" to packaging, ordering and payment terms with nothing to mark the change of topic.
+- / overview-steps：design_finding（design-review）：The process sections overview-steps and cta-steps still have no heading. Their intro line ("Quality checks at every stage of an order", "From your enquiry to your sample") is set only at card-heading size, far under the page's other section headings, and on desktop their left column is an almost empty strip with that one small line at the top.
+- /blog/ overview-steps：design_finding（design-review）：Still open from the last review: the process section still has no H2. Its left column holds only the lead 'Quality checks at every stage of an order.', now set at card-heading size, between H2 sections above and below, and leaves most of the column empty beside the five steps.
+- /swimwear-consulting/ faq-steps：design_finding（design-review）：Still not fixed in the current shots: the navy step band has no heading. After the FAQ it reads as five loose figures and a button under an empty strip of navy padding (same at 390 px, where about 70px of bare navy comes before step 01).
+- /custom-swimwear-printing/ hero：design_finding（design-review）：The desktop hero photo still has lettering printed into it ('…Sunlit Days', 'and summer-ready prints', and 'Shop Swimwear' / 'Explore the Collection' pills), which shows behind our live H1, lead and button, and the trust bar cuts off the last pill. The hero reads as two overlapping layers of text with dead buttons under the live one (reported before; unchanged in these shots).
 - /women-s-swimwear-manufacturer/ m5：section_heading_lines（layout-plan）：mobile: "Custom Swimwear Embellishment: Rhinestones, Beads and Trims": 4 lines
 - /cover-up-manufacturer/ iconList-1：section_heading_lines（layout-plan）：mobile: "Wholesale Cover-Up Orders: Samples, Lead Times, Payment and Shipping": 4 lines
 
