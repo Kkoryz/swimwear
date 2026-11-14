@@ -79,9 +79,9 @@
   "treatment": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T07:26:01.334Z",
+    "at": "2026-11-14T07:38:31.352Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T07-25-54-662Z/treatment.log"
+    "log": ".pipeline/logs/2026-11-14T07-38-16-013Z/treatment.log"
   },
   "fonts": {
     "status": "passed",
@@ -113,10 +113,10 @@
   },
   "feasibility": {
     "status": "passed",
-    "hash": "b63ff5555115e53d",
-    "at": "2026-11-14T07:25:43.727Z",
+    "hash": "5bb9cdb778561554",
+    "at": "2026-11-14T07:38:31.836Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T07-25-36-409Z/feasibility.log"
+    "log": ".pipeline/logs/2026-11-14T07-38-16-013Z/feasibility.log"
   },
   "layout-plan": {
     "status": "passed",

@@ -1,7 +1,7 @@
 {
   "schema_version": "sf/handoff-report/v1",
   "handoff_sha256": "0bf60a3c66db726143f36946159837af68fdf06499f330911837bc7f02fd3415",
-  "made_at": "2026-11-14T07:25:43.668Z",
+  "made_at": "2026-11-14T07:38:31.780Z",
   "template": {
     "commit": "f8f324ffacc629da7e65bccfcf1ab4c7d0334017",
     "block_kinds_sha256": "172172d23deb91683258878752b49f6ddfd74104ce3453803435d34562dc4c28"
@@ -10,7 +10,7 @@
     {
       "page_id": "home",
       "route": "/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -28,7 +28,7 @@
     {
       "page_id": "c-a0d1d7027027:product",
       "route": "/women-s-swimwear-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -45,7 +45,7 @@
     {
       "page_id": "c-705b55f5501e:product",
       "route": "/one-piece-swimsuit-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -64,7 +64,7 @@
     {
       "page_id": "c-0a2f4a960a8b:product",
       "route": "/bikini-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -81,7 +81,7 @@
     {
       "page_id": "c-6e0b54e5523e:product",
       "route": "/men-s-swimwear-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -100,7 +100,7 @@
     {
       "page_id": "inferred:product:5",
       "route": "/boardshorts-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -117,7 +117,7 @@
     {
       "page_id": "inferred:product:13",
       "route": "/swim-trunks-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -134,7 +134,7 @@
     {
       "page_id": "c-3d3fc0c8dc39:product",
       "route": "/children-s-swimwear-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -153,7 +153,7 @@
     {
       "page_id": "inferred:product:6",
       "route": "/teen-swimwear-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -171,7 +171,7 @@
     {
       "page_id": "inferred:product:7",
       "route": "/baby-swimwear-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -189,7 +189,7 @@
     {
       "page_id": "inferred:product:8",
       "route": "/toddler-swimwear-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -205,7 +205,7 @@
     {
       "page_id": "inferred:product:10",
       "route": "/modest-swimwear-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -224,7 +224,7 @@
     {
       "page_id": "inferred:product:3",
       "route": "/burkini-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -240,7 +240,7 @@
     {
       "page_id": "group:watersports-apparel",
       "route": "/watersports-apparel-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -255,7 +255,7 @@
     {
       "page_id": "inferred:product:1",
       "route": "/rash-guard-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -273,7 +273,7 @@
     {
       "page_id": "c-0cc45987ac6b:product",
       "route": "/resort-wear-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -292,7 +292,7 @@
     {
       "page_id": "inferred:product:11",
       "route": "/cover-up-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -309,7 +309,7 @@
     {
       "page_id": "c-8404f8cb0b07:service",
       "route": "/swimwear-embroidery/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -329,7 +329,7 @@
     {
       "page_id": "c-c48d984954c3:service",
       "route": "/swimwear-consulting/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -347,7 +347,7 @@
     {
       "page_id": "c-05134426bcd1:service",
       "route": "/development/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -366,7 +366,7 @@
     {
       "page_id": "c-fe2ba46d3673:service",
       "route": "/swimwear-packaging-custom-brand-labels/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -385,7 +385,7 @@
     {
       "page_id": "c-2cd070a4fc87:service",
       "route": "/custom-swimwear-printing/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -404,7 +404,7 @@
     {
       "page_id": "c-fb5b6b828f5b:service",
       "route": "/swimwear-hardware/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -423,7 +423,7 @@
     {
       "page_id": "c-3055c652c816:service",
       "route": "/swimwear-fabrics-sourcing/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -444,7 +444,7 @@
     {
       "page_id": "c-f7c91fefc9c3:service",
       "route": "/swimwear-launch-services/",
-      "rendered": false,
+      "rendered": true,
       "status": "hold",
       "components": [
         "intro",
@@ -462,7 +462,7 @@
     {
       "page_id": "site:about",
       "route": "/about-us/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -480,7 +480,7 @@
     {
       "page_id": "site:contact",
       "route": "/contact-us/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -495,7 +495,7 @@
     {
       "page_id": "site:faq",
       "route": "/faq/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -512,7 +512,7 @@
     {
       "page_id": "site:case_studies_portfolio",
       "route": "/case-studies/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -526,7 +526,7 @@
     {
       "page_id": "site:sustainability",
       "route": "/sustainability/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "featureGrid",
@@ -540,7 +540,7 @@
     {
       "page_id": "site:privacy",
       "route": "/privacy-policy/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -552,7 +552,7 @@
     {
       "page_id": "site:terms",
       "route": "/terms-and-conditions/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -567,7 +567,7 @@
     {
       "page_id": "site:inquiry",
       "route": "/request-a-quote/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -582,7 +582,7 @@
     {
       "page_id": "c-2bdd0c3dd288:product",
       "route": "/swimwear-accessories/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -601,7 +601,7 @@
     {
       "page_id": "c-ac87783a1afd:product",
       "route": "/plus-size-swimwear-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -618,7 +618,7 @@
     {
       "page_id": "c-6343e1f14c58:product",
       "route": "/couples-matching-swimsuit-manufacturer/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
@@ -635,7 +635,7 @@
     {
       "page_id": "blog",
       "route": "/blog/",
-      "rendered": false,
+      "rendered": true,
       "status": "authored",
       "components": [
         "intro",
