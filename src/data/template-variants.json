@@ -174,12 +174,12 @@
           "category": "resort wear"
         },
         "/cover-up-manufacturer/": {
-          "src": "/media/photos/general-hero-1-960.webp",
-          "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
+          "src": "/media/photos/cover-up-hero-1-960.webp",
+          "srcset": "/media/photos/cover-up-hero-1-480.webp 480w, /media/photos/cover-up-hero-1-960.webp 960w, /media/photos/cover-up-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in navy swimwear holds a lily on a garden terrace beside a stone fountain.",
-          "category": "general"
+          "alt": "A woman in a floral wrap holds a straw hat and tucks a pink flower behind her ear beside sunlit stone steps.",
+          "category": "cover up"
         },
         "/swimwear-embroidery/": {
           "src": "/media/photos/general-hero-2-960.webp",
@@ -418,7 +418,7 @@
             "srcset": "/media/photos/general-process-1-480.webp 480w, /media/photos/general-process-1-960.webp 960w, /media/photos/general-process-1-1536.webp 1536w",
             "width": 960,
             "height": 640,
-            "alt": "A worker inspects a white swimsuit with dark green binding at a factory table stacked with garments.",
+            "alt": "A worker inspects an olive-green bikini top with dark green trim at a table stacked with swimwear.",
             "category": "general"
           },
           {
@@ -426,7 +426,7 @@
             "srcset": "/media/photos/general-process-2-480.webp 480w, /media/photos/general-process-2-960.webp 960w, /media/photos/general-process-2-1536.webp 1536w",
             "width": 960,
             "height": 640,
-            "alt": "A worker sews olive green swimwear at a sewing machine in a bright workshop.",
+            "alt": "A worker sews beige swimwear at a sewing machine in a bright workshop.",
             "category": "general"
           },
           {
@@ -434,7 +434,7 @@
             "srcset": "/media/photos/general-process-3-480.webp 480w, /media/photos/general-process-3-960.webp 960w, /media/photos/general-process-3-1536.webp 1536w",
             "width": 960,
             "height": 640,
-            "alt": "A worker inspects a coral patterned bikini top with lace trim beside stacks of swimwear on a factory table.",
+            "alt": "A worker inspects an orange-print bikini top at a table stacked with swimwear.",
             "category": "general"
           }
         ],
@@ -593,7 +593,7 @@
               "srcset": "/media/photos/boardshorts-lifestyle-1-480.webp 480w, /media/photos/boardshorts-lifestyle-1-960.webp 960w, /media/photos/boardshorts-lifestyle-1-1536.webp 1536w",
               "width": 960,
               "height": 640,
-              "alt": "A woman in cheetah-print boardshorts and an olive overshirt rests one knee on a stool on a sunny terrace.",
+              "alt": "A man in blue floral boardshorts sits on a wooden stool among plants in a sunlit orangery.",
               "category": "boardshorts"
             }
           ]

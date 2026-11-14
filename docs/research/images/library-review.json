@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-library-review-v1",
-  "reviewedAt": "2026-11-14T12:52:58.976Z",
+  "reviewedAt": "2026-11-14T19:27:56.752Z",
   "photos": [
     {
       "number": 1,
@@ -240,74 +240,70 @@
     },
     {
       "number": 60,
-      "id": "cover-up-hero-1"
-    },
-    {
-      "number": 61,
       "id": "cover-up-lifestyle-1"
     },
     {
-      "number": 62,
+      "number": 61,
       "id": "cover-up-lifestyle-2"
     },
     {
-      "number": 63,
+      "number": 62,
       "id": "swimwear-packaging-brand-labels-hero-1"
     },
     {
-      "number": 64,
+      "number": 63,
       "id": "swimwear-packaging-brand-labels-lifestyle-1"
     },
     {
-      "number": 65,
+      "number": 64,
       "id": "swimwear-packaging-brand-labels-lifestyle-2"
     },
     {
-      "number": 66,
+      "number": 65,
       "id": "swimwear-hardware-hero-1"
     },
     {
-      "number": 67,
+      "number": 66,
       "id": "swimwear-hardware-lifestyle-1"
     },
     {
-      "number": 68,
+      "number": 67,
       "id": "swimwear-hardware-lifestyle-2"
     },
     {
-      "number": 69,
+      "number": 68,
       "id": "swimwear-hardware-lifestyle-3"
     },
     {
-      "number": 70,
+      "number": 69,
       "id": "swimwear-accessories-hero-1"
     },
     {
-      "number": 71,
+      "number": 70,
       "id": "swimwear-accessories-material-1"
     },
     {
-      "number": 72,
+      "number": 71,
       "id": "swimwear-accessories-lifestyle-1"
     },
     {
-      "number": 73,
+      "number": 72,
       "id": "swimwear-accessories-lifestyle-2"
     },
     {
-      "number": 74,
+      "number": 73,
       "id": "plus-size-swimwear-hero-1"
     },
     {
-      "number": 75,
+      "number": 74,
       "id": "plus-size-swimwear-lifestyle-1"
     },
     {
-      "number": 76,
+      "number": 75,
       "id": "couples-matching-swimsuit-hero-1"
     },
     {
-      "number": 77,
+      "number": 76,
       "id": "couples-matching-swimsuit-lifestyle-1"
     }
   ],
@@ -316,30 +312,10 @@
       {
         "photos": [
           13,
+          14,
           15
         ],
-        "reason": "same seated sewing-room worker, same dark top, same framing over garments on a table"
-      },
-      {
-        "photos": [
-          47,
-          48
-        ],
-        "reason": "same cobalt hooded burkini, same seated pose with arms on raised knee, same three-quarter framing"
-      },
-      {
-        "photos": [
-          61,
-          62
-        ],
-        "reason": "same V-neck kaftan cover-up, same seated pose against a sea backdrop, same framing; only the blue shade differs"
-      },
-      {
-        "photos": [
-          50,
-          51
-        ],
-        "reason": "same hooded burkini model with an arm raised over the head, same outdoor terrace light and composition"
+        "reason": "Same woman seated at the same sewing-room table with the same grey apron and a similar framing; a visitor would read these as one shot repeated"
       }
     ],
     "samePerson": [
@@ -349,42 +325,20 @@
           14,
           15
         ]
-      },
-      {
-        "photos": [
-          47,
-          48
-        ]
-      },
-      {
-        "photos": [
-          60,
-          61
-        ]
-      },
-      {
-        "photos": [
-          50,
-          51
-        ]
       }
     ],
     "wrongColour": [
       {
-        "photo": 2,
-        "seen": "white/cream printed top with a red wrap, not heather grey"
-      },
-      {
         "photo": 12,
-        "seen": "navy and yellow printed swimsuit, not forest green"
+        "seen": "yellow and navy striped swimsuit, no forest green"
       },
       {
-        "photo": 43,
-        "seen": "pink, red, white and olive suits on hangers; navy only appears as thin stripes"
+        "photo": 25,
+        "seen": "flat lay of white, olive, pink and red pieces; no sky blue garment stands out"
       },
       {
         "photo": 45,
-        "seen": "olive, pink floral, red, yellow and striped pieces; no navy garment visible"
+        "seen": "olive, floral pink, red, yellow and striped kids' pieces; no navy garment is the lead"
       }
     ],
     "factoryScene": [
@@ -394,43 +348,23 @@
     ],
     "weakSubject": [
       {
-        "photo": 1,
-        "seen": "website hero screenshot with headline text and buttons burned in over the left of the frame; model and garment pushed to the edge"
-      },
-      {
         "photo": 49,
-        "seen": "model cropped at the frame edge with head partly cut off; plain beige garment blends into sand and rocks, most of the frame is rocky ground"
+        "seen": "the model is pushed to the frame edge with her face cropped, most of the frame is rocks and sand, and the beige garment barely reads"
       }
     ]
   },
   "rejected": [
     {
-      "id": "general-process-3",
-      "reason": "looks like photo 13: same seated sewing-room worker, same dark top, same framing over garments on a table"
-    },
-    {
-      "id": "cover-up-lifestyle-2",
-      "reason": "looks like photo 61: same V-neck kaftan cover-up, same seated pose against a sea backdrop, same framing; only the blue shade differs"
-    },
-    {
       "id": "general-process-2",
-      "reason": "same person as photo 13"
+      "reason": "looks like photo 13: Same woman seated at the same sewing-room table with the same grey apron and a similar framing; a visitor would read these as one shot repeated"
     },
     {
-      "id": "cover-up-hero-1",
-      "reason": "same person as photo 61"
-    },
-    {
-      "id": "baby-swimwear-hero-1",
-      "reason": "main colour is not navy blue: pink, red, white and olive suits on hangers; navy only appears as thin stripes"
+      "id": "general-process-3",
+      "reason": "looks like photo 13: Same woman seated at the same sewing-room table with the same grey apron and a similar framing; a visitor would read these as one shot repeated"
     },
     {
       "id": "general-process-1",
       "reason": "staged in a factory, workshop or warehouse"
-    },
-    {
-      "id": "general-hero-1",
-      "reason": "does not show its subject: website hero screenshot with headline text and buttons burned in over the left of the frame; model and garment pushed to the edge"
     }
   ]
 }

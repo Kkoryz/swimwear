@@ -192,7 +192,11 @@
         "height": 640
       },
       "reviewNote": "does not show its subject: website hero screenshot with headline text and buttons burned in over the left of the frame; model and garment pushed to the edge",
-      "coverUp": true
+      "coverUp": true,
+      "libraryReview": {
+        "passed": true,
+        "at": "2026-11-14T19:27:56.747Z"
+      }
     },
     {
       "id": "general-hero-2",
@@ -1212,7 +1216,7 @@
       "index": 1,
       "size": "1536x1024",
       "subject": "a garment factory worker sewing swimwear on an industrial sewing machine, close-up of hands and fabric",
-      "colour": "white",
+      "colour": "olive green",
       "scene": "Empty sewing floor with rows of industrial sewing and overlock machines, thread cones and stacked teal fabric; wide banner with the centred white page title laid over its middle",
       "styleRefs": [
         "docs/research/reference-pages/about/reference-assets/921805b737ed407e06a7.webp"
@@ -1221,45 +1225,44 @@
       "triedScenes": [
         "docs/research/reference-pages/manufacturer/reference-assets/691a2910b8c6c7961e6f.webp"
       ],
-      "shotShift": 55,
+      "shotShift": 66,
       "status": "generated",
       "products": "bikinis, one-piece swimsuits, swim trunks and cover-ups",
-      "detail": "contrast dark forest-green binding on every edge",
+      "detail": "Contrast piped seams in dark forest green",
       "imageType": "worker at work documentary photo",
       "imageShows": "making",
-      "backdrop": "pale limestone flagstones in low sun with long soft shadows",
+      "backdrop": "a deep olive-green painted wall in shade with a soft golden flare at the edge",
       "master": "docs/research/images/masters/general-process-1.png",
-      "sha256": "7d1b624a6a1b88e063a518b56e203c117409b25baa643abbdea1f9f02c483fda",
-      "dhash": "0110011100100100101001100100101011000111111001100100010001010011",
+      "sha256": "fc7147a286a3f8eda73ab3e4a60b9da337dcf5fbd2bc666f2e7a253c1f7e91c7",
+      "dhash": "0111001011110010111000100101001000011011110010100101000101001000",
       "masterSize": "1536x1024",
       "similarity": {
-        "nearestReference": "docs/research/reference-assets/24fca0584319aea101df.webp",
-        "distance": 23,
+        "nearestReference": "docs/research/reference-assets/0cd5c8b0477ef258e93c.jpg",
+        "distance": 22,
         "threshold": 10
       },
       "nearestInLibrary": {
-        "id": "boardshorts-product-sublimation-prints-and-colour-matching",
-        "distance": 22,
+        "id": "teen-swimwear-hero-1",
+        "distance": 20,
         "threshold": 14
       },
       "styleCheck": {
-        "colourfulness": 26,
-        "brightness": 121,
-        "contrast": 52,
+        "colourfulness": 25,
+        "brightness": 110,
+        "contrast": 51,
         "inRange": false,
         "off": [
-          "colourfulness 26 outside 35-35",
-          "brightness 121 outside 109-109"
+          "colourfulness 25 outside 35-35"
         ]
       },
       "origin": {
         "tool": "codex image_gen",
         "digitalSourceType": "trainedAlgorithmicMedia"
       },
-      "generatedAt": "2026-11-14T12:53:54.269Z",
-      "prompt": "Use your built-in image generation tool (not a CLI fallback). Pass the description below to it as written: do not expand or reword it.\nMake ONE new landscape image (1536x1024), filling the whole frame with no borders or letterbox bars, of this kind: worker at work documentary photo. How this kind is made (recompose it for the landscape frame where it describes another shape): A horizontal medium shot of a real worker from the waist up, handling finished garments at a work table. Product stacks sit in the foreground and the blurred production floor is behind. Light is the factory's own even, cool overhead light with a neutral, unretouched grade. Placed next to process copy as proof of in-house production and quality control.\nThe 1 attached images are the reference website's images of this kind: take their light, colour, camera language and kind of place (the working production floor they show) from them, never their exact layout, people or garments.\nSetting: pale limestone flagstones in low sun with long soft shadows, nothing else in the frame: no view, scenery, furniture or props.\nIt shows our swimwear being made.\nThe swimwear (bikinis, one-piece swimsuits, swim trunks and cover-ups): a new design of our own in the reference site's product language, never a copy of one of its garments, cut with standard coverage: fabrics Smooth, matte-to-soft-satin stretch swim jersey (nylon/elastane look), with a clean, fully lined feel. Some solids have a fine all-over shimmer or glitter sheen (the pink). Others have a subtle crinkle or rib texture (the red) or a slightly textured crepe/piqué-like surface (the white one-piece). The olive pieces are a dense, flat matte knit. The printed fabrics have a soft, slightly glossy finish.. Main colour white. Detail: contrast dark forest-green binding on every edge.\nPerson: a Chinese factory worker in everyday work clothes, busy with the task and not posing; nobody wears the garment.\nPhotorealistic: a real photograph someone could have taken in the moment on a real camera, not a render, an illustration or an advertisement. The light comes from the place itself and falls the same way on the subject and the background; natural depth of field, slight film grain, nothing oversharpened.\nThe person looks like a real person, not a retouched model: skin dry and matte, with visible pores, fine lines, faint freckles and natural unevenness, no shine on the face; hair with loose strands; a relaxed, unposed expression; natural hands and proportions. No airbrushing or glamour retouching.\nFabric with real weave, stitching, slight creases and the way it sits on the body or surface; small everyday imperfections left in.\nConstraints: photorealistic; landscape 1536x1024; no text, no logos, no watermarks, no brand marks or labels on garments; no certificates or signage.\nSave the final image into this workspace as docs/research/images/masters/general-process-1.png (copy it there from the generated_images folder).\nFinish by replying with only this JSON on one line, alt text in English: {\"file\": \"docs/research/images/masters/general-process-1.png\", \"alt\": \"<one factual English sentence of 10 to 125 characters describing only what is visible; no 'image of' or 'photo of', no brand, price, quantity, lead time or other claim>\"}",
+      "generatedAt": "2026-11-14T19:28:48.817Z",
+      "prompt": "Use your built-in image generation tool (not a CLI fallback). Pass the description below to it as written: do not expand or reword it.\nMake ONE new landscape image (1536x1024), filling the whole frame with no borders or letterbox bars, of this kind: worker at work documentary photo. How this kind is made (recompose it for the landscape frame where it describes another shape): A horizontal medium shot of a real worker from the waist up, handling finished garments at a work table. Product stacks sit in the foreground and the blurred production floor is behind. Light is the factory's own even, cool overhead light with a neutral, unretouched grade. Placed next to process copy as proof of in-house production and quality control.\nThe 1 attached images are the reference website's images of this kind: take their light, colour, camera language and kind of place (the working production floor they show) from them, never their exact layout, people or garments.\nSetting: a deep olive-green painted wall in shade with a soft golden flare at the edge, nothing else in the frame: no view, scenery, furniture or props.\nIt shows our swimwear being made.\nThe swimwear (bikinis, one-piece swimsuits, swim trunks and cover-ups): a new design of our own in the reference site's product language, never a copy of one of its garments, cut with standard coverage: fabrics Smooth, matte-to-soft-satin stretch swim jersey (nylon/elastane look), with a clean, fully lined feel. Some solids have a fine all-over shimmer or glitter sheen (the pink). Others have a subtle crinkle or rib texture (the red) or a slightly textured crepe/piqué-like surface (the white one-piece). The olive pieces are a dense, flat matte knit. The printed fabrics have a soft, slightly glossy finish.. Main colour olive green. Detail: Contrast piped seams in dark forest green.\nPerson: a Chinese factory worker in everyday work clothes, busy with the task and not posing; nobody wears the garment.\nPhotorealistic: a real photograph someone could have taken in the moment on a real camera, not a render, an illustration or an advertisement. The light comes from the place itself and falls the same way on the subject and the background; natural depth of field, slight film grain, nothing oversharpened.\nThe person looks like a real person, not a retouched model: skin dry and matte, with visible pores, fine lines, faint freckles and natural unevenness, no shine on the face; hair with loose strands; a relaxed, unposed expression; natural hands and proportions. No airbrushing or glamour retouching.\nFabric with real weave, stitching, slight creases and the way it sits on the body or surface; small everyday imperfections left in.\nConstraints: photorealistic; landscape 1536x1024; no text, no logos, no watermarks, no brand marks or labels on garments; no certificates or signage.\nSave the final image into this workspace as docs/research/images/masters/general-process-1.png (copy it there from the generated_images folder).\nFinish by replying with only this JSON on one line, alt text in English: {\"file\": \"docs/research/images/masters/general-process-1.png\", \"alt\": \"<one factual English sentence of 10 to 125 characters describing only what is visible; no 'image of' or 'photo of', no brand, price, quantity, lead time or other claim>\"}",
       "review": "style-drift",
-      "alt": "A worker inspects a white swimsuit with dark green binding at a factory table stacked with garments.",
+      "alt": "A worker inspects an olive-green bikini top with dark green trim at a table stacked with swimwear.",
       "altCheck": "ok",
       "web": {
         "src": "/media/photos/general-process-1-960.webp",
@@ -1276,7 +1279,7 @@
       "index": 2,
       "size": "1536x1024",
       "subject": "fabric being cut for swimwear on a large cutting table in a clean, bright factory",
-      "colour": "olive green",
+      "colour": "sand beige",
       "scene": "Worker in a beige hijab hanging a white swimsuit on a wooden hanger at a finishing table stacked with hangers",
       "styleRefs": [
         "docs/research/reference-pages/manufacturer/reference-assets/691a2910b8c6c7961e6f.webp"
@@ -1285,45 +1288,45 @@
       "triedScenes": [
         "docs/research/reference-pages/about/reference-assets/921805b737ed407e06a7.webp"
       ],
-      "shotShift": 55,
+      "shotShift": 66,
       "status": "generated",
       "products": "bikinis, one-piece swimsuits, swim trunks and cover-ups",
-      "detail": "short brass zip with a round black cord loop puller",
+      "detail": "Small antique-silver metal snap fasteners",
       "imageType": "empty workshop interior",
       "imageShows": "making",
-      "backdrop": "a rough porous coral-stone wall in hard direct sun",
+      "backdrop": "a mottled ochre-and-grey plaster wall in dusky shade with a warm haze of sunlight",
       "master": "docs/research/images/masters/general-process-2.png",
-      "sha256": "756a40e53628c1176342ed695ce9ad30db51465519f00934a5dea77f818b1ae4",
-      "dhash": "0011011110110111101100110011100000110010011001100110011100110010",
+      "sha256": "869eb6c4ba26adc0b6042e10f6ad9218194700d0123862b6b5cc03676f4f7e35",
+      "dhash": "0100011011011000010110101011100010011101110111101000110111100011",
       "masterSize": "1536x1024",
       "similarity": {
-        "nearestReference": "docs/research/reference-assets/9908d8c850e3b25f1d28.jpg",
-        "distance": 20,
+        "nearestReference": "docs/research/reference-pages/solution/reference-assets/5de26ce436af9711e48a.webp",
+        "distance": 24,
         "threshold": 10
       },
       "nearestInLibrary": {
-        "id": "cover-up-lifestyle-1",
-        "distance": 20,
+        "id": "plus-size-swimwear-lifestyle-1",
+        "distance": 23,
         "threshold": 14
       },
       "styleCheck": {
-        "colourfulness": 25,
-        "brightness": 123,
-        "contrast": 53,
+        "colourfulness": 31,
+        "brightness": 136,
+        "contrast": 50,
         "inRange": false,
         "off": [
-          "colourfulness 25 outside 35-35",
-          "brightness 123 outside 109-109"
+          "colourfulness 31 outside 35-35",
+          "brightness 136 outside 109-109"
         ]
       },
       "origin": {
         "tool": "codex image_gen",
         "digitalSourceType": "trainedAlgorithmicMedia"
       },
-      "generatedAt": "2026-11-14T12:54:57.831Z",
-      "prompt": "Use your built-in image generation tool (not a CLI fallback). Pass the description below to it as written: do not expand or reword it.\nMake ONE new landscape image (1536x1024), filling the whole frame with no borders or letterbox bars, of this kind: empty workshop interior. How this kind is made (recompose it for the landscape frame where it describes another shape): An eye-level photo of the production floor with no people, looking down rows of machines into the distance. One machine station sits sharp in the foreground. The space is bright and clean, lit by even fluorescent light mixed with window daylight, with little shadow. Shot both as a very wide banner and as a vertical crop of the same scene for a supporting image beside text.\nThe 2 attached images are the reference website's images of this kind: take their light, colour, camera language and kind of place (the working production floor they show) from them, never their exact layout, people or garments.\nSetting: a rough porous coral-stone wall in hard direct sun, nothing else in the frame: no view, scenery, furniture or props.\nIt shows our swimwear being made.\nThe swimwear (bikinis, one-piece swimsuits, swim trunks and cover-ups): a new design of our own in the reference site's product language, never a copy of one of its garments, cut with standard coverage: fabrics Smooth, matte-to-soft-satin stretch swim jersey (nylon/elastane look), with a clean, fully lined feel. Some solids have a fine all-over shimmer or glitter sheen (the pink). Others have a subtle crinkle or rib texture (the red) or a slightly textured crepe/piqué-like surface (the white one-piece). The olive pieces are a dense, flat matte knit. The printed fabrics have a soft, slightly glossy finish.. Main colour olive green. Detail: short brass zip with a round black cord loop puller.\nPerson: a Chinese factory worker in everyday work clothes, busy with the task and not posing; nobody wears the garment.\nPhotorealistic: a real photograph someone could have taken in the moment on a real camera, not a render, an illustration or an advertisement. The light comes from the place itself and falls the same way on the subject and the background; natural depth of field, slight film grain, nothing oversharpened.\nThe person looks like a real person, not a retouched model: skin dry and matte, with visible pores, fine lines, faint freckles and natural unevenness, no shine on the face; hair with loose strands; a relaxed, unposed expression; natural hands and proportions. No airbrushing or glamour retouching.\nFabric with real weave, stitching, slight creases and the way it sits on the body or surface; small everyday imperfections left in.\nConstraints: photorealistic; landscape 1536x1024; no text, no logos, no watermarks, no brand marks or labels on garments; no certificates or signage.\nSave the final image into this workspace as docs/research/images/masters/general-process-2.png (copy it there from the generated_images folder).\nFinish by replying with only this JSON on one line, alt text in English: {\"file\": \"docs/research/images/masters/general-process-2.png\", \"alt\": \"<one factual English sentence of 10 to 125 characters describing only what is visible; no 'image of' or 'photo of', no brand, price, quantity, lead time or other claim>\"}",
+      "generatedAt": "2026-11-14T19:29:03.243Z",
+      "prompt": "Use your built-in image generation tool (not a CLI fallback). Pass the description below to it as written: do not expand or reword it.\nMake ONE new landscape image (1536x1024), filling the whole frame with no borders or letterbox bars, of this kind: empty workshop interior. How this kind is made (recompose it for the landscape frame where it describes another shape): An eye-level photo of the production floor with no people, looking down rows of machines into the distance. One machine station sits sharp in the foreground. The space is bright and clean, lit by even fluorescent light mixed with window daylight, with little shadow. Shot both as a very wide banner and as a vertical crop of the same scene for a supporting image beside text.\nThe 2 attached images are the reference website's images of this kind: take their light, colour, camera language and kind of place (the working production floor they show) from them, never their exact layout, people or garments.\nSetting: a mottled ochre-and-grey plaster wall in dusky shade with a warm haze of sunlight, nothing else in the frame: no view, scenery, furniture or props.\nIt shows our swimwear being made.\nThe swimwear (bikinis, one-piece swimsuits, swim trunks and cover-ups): a new design of our own in the reference site's product language, never a copy of one of its garments, cut with standard coverage: fabrics Smooth, matte-to-soft-satin stretch swim jersey (nylon/elastane look), with a clean, fully lined feel. Some solids have a fine all-over shimmer or glitter sheen (the pink). Others have a subtle crinkle or rib texture (the red) or a slightly textured crepe/piqué-like surface (the white one-piece). The olive pieces are a dense, flat matte knit. The printed fabrics have a soft, slightly glossy finish.. Main colour sand beige. Detail: Small antique-silver metal snap fasteners.\nPerson: a Chinese factory worker in everyday work clothes, busy with the task and not posing; nobody wears the garment.\nPhotorealistic: a real photograph someone could have taken in the moment on a real camera, not a render, an illustration or an advertisement. The light comes from the place itself and falls the same way on the subject and the background; natural depth of field, slight film grain, nothing oversharpened.\nThe person looks like a real person, not a retouched model: skin dry and matte, with visible pores, fine lines, faint freckles and natural unevenness, no shine on the face; hair with loose strands; a relaxed, unposed expression; natural hands and proportions. No airbrushing or glamour retouching.\nFabric with real weave, stitching, slight creases and the way it sits on the body or surface; small everyday imperfections left in.\nConstraints: photorealistic; landscape 1536x1024; no text, no logos, no watermarks, no brand marks or labels on garments; no certificates or signage.\nSave the final image into this workspace as docs/research/images/masters/general-process-2.png (copy it there from the generated_images folder).\nFinish by replying with only this JSON on one line, alt text in English: {\"file\": \"docs/research/images/masters/general-process-2.png\", \"alt\": \"<one factual English sentence of 10 to 125 characters describing only what is visible; no 'image of' or 'photo of', no brand, price, quantity, lead time or other claim>\"}",
       "review": "style-drift",
-      "alt": "A worker sews olive green swimwear at a sewing machine in a bright workshop.",
+      "alt": "A worker sews beige swimwear at a sewing machine in a bright workshop.",
       "altCheck": "ok",
       "web": {
         "src": "/media/photos/general-process-2-960.webp",
@@ -1331,7 +1334,7 @@
         "width": 960,
         "height": 640
       },
-      "reviewNote": "same person as photo 13"
+      "reviewNote": "looks like photo 13: Same woman seated at the same sewing-room table with the same grey apron and a similar framing; a visitor would read these as one shot repeated"
     },
     {
       "id": "general-process-3",
@@ -1340,52 +1343,51 @@
       "index": 3,
       "size": "1536x1024",
       "subject": "a quality inspector checking finished swimwear on a well-lit inspection table",
-      "colour": "sand beige",
-      "scene": "Worker in a beige hijab hanging a white swimsuit on a wooden hanger at a finishing table stacked with hangers",
+      "colour": "heather grey",
+      "scene": "Sewing room with industrial sewing machines on white tables, a wooden chair and thread stands under strip lights; portrait mobile banner with the page title over its middle",
       "styleRefs": [
+        "docs/research/reference-pages/about/reference-assets/8ae4ec5601f3bfc7542f.webp",
         "docs/research/reference-pages/manufacturer/reference-assets/691a2910b8c6c7961e6f.webp"
       ],
-      "brief": "a quality inspector checking finished swimwear on a well-lit inspection table | olive green | 691a2910b8c6c7961e6f.webp",
-      "triedScenes": [
-        "docs/research/reference-pages/about/reference-assets/8ae4ec5601f3bfc7542f.webp"
-      ],
-      "shotShift": 55,
+      "brief": "a quality inspector checking finished swimwear on a well-lit inspection table | black | 8ae4ec5601f3bfc7542f.webp | 691a2910b8c6c7961e6f.webp",
       "status": "generated",
       "products": "bikinis, one-piece swimsuits, swim trunks and cover-ups",
-      "print": "small marbled ink swirls in coral and rose",
-      "detail": "ecru crochet lace tape set into a seam line",
+      "print": "Small dabbed oranges and orange blossom in tangerine and cream with deep green leaves",
+      "detail": "Flat ecru cotton drawcords tipped with brushed gold metal aglets",
       "imageType": "worker at work documentary photo",
       "imageShows": "making",
-      "backdrop": "a pitted sandstone block wall in strong raking sun",
+      "backdrop": "a weathered pale sage plaster wall in soft open shade",
       "master": "docs/research/images/masters/general-process-3.png",
-      "sha256": "d865c994a9951a984063ce429a6e54297c4fcd26d4e9cc3f2e75fcd95370b55c",
-      "dhash": "1010000101100100011001001110000011011011001001100110010000100110",
+      "sha256": "23fce70c0907b197b914f27077fc0906373221028322d9001f606b8f982cb143",
+      "dhash": "0010010101101101001010110110001101101001111000111010001110100011",
       "masterSize": "1536x1024",
       "similarity": {
-        "nearestReference": "docs/research/reference-assets/45cdc1ae2eb985e75f14.webp",
-        "distance": 22,
+        "nearestReference": "docs/research/reference-pages/contact/reference-assets/f36fd0474c6de2c56d3f.jpg",
+        "distance": 21,
         "threshold": 10
       },
       "nearestInLibrary": {
-        "id": "boardshorts-lifestyle-1",
+        "id": "men-s-swimwear-lifestyle-1",
         "distance": 21,
         "threshold": 14
       },
       "styleCheck": {
-        "colourfulness": 33,
-        "brightness": 112,
+        "colourfulness": 30,
+        "brightness": 113,
         "contrast": 53,
-        "inRange": true,
-        "off": []
+        "inRange": false,
+        "off": [
+          "colourfulness 30 outside 35-35"
+        ]
       },
       "origin": {
         "tool": "codex image_gen",
         "digitalSourceType": "trainedAlgorithmicMedia"
       },
-      "generatedAt": "2026-11-14T12:54:40.738Z",
-      "prompt": "Use your built-in image generation tool (not a CLI fallback). Pass the description below to it as written: do not expand or reword it.\nMake ONE new landscape image (1536x1024), filling the whole frame with no borders or letterbox bars, of this kind: worker at work documentary photo. How this kind is made (recompose it for the landscape frame where it describes another shape): A horizontal medium shot of a real worker from the waist up, handling finished garments at a work table. Product stacks sit in the foreground and the blurred production floor is behind. Light is the factory's own even, cool overhead light with a neutral, unretouched grade. Placed next to process copy as proof of in-house production and quality control.\nThe 1 attached images are the reference website's images of this kind: take their light, colour, camera language and kind of place (the working production floor they show) from them, never their exact layout, people or garments.\nSetting: a pitted sandstone block wall in strong raking sun, nothing else in the frame: no view, scenery, furniture or props.\nIt shows our swimwear being made.\nThe swimwear (bikinis, one-piece swimsuits, swim trunks and cover-ups): a new design of our own in the reference site's product language, never a copy of one of its garments, cut with standard coverage: fabrics Smooth, matte-to-soft-satin stretch swim jersey (nylon/elastane look), with a clean, fully lined feel. Some solids have a fine all-over shimmer or glitter sheen (the pink). Others have a subtle crinkle or rib texture (the red) or a slightly textured crepe/piqué-like surface (the white one-piece). The olive pieces are a dense, flat matte knit. The printed fabrics have a soft, slightly glossy finish.. Print: small marbled ink swirls in coral and rose, on a sand beige ground. Detail: ecru crochet lace tape set into a seam line.\nPerson: a Chinese factory worker in everyday work clothes, busy with the task and not posing; nobody wears the garment.\nPhotorealistic: a real photograph someone could have taken in the moment on a real camera, not a render, an illustration or an advertisement. The light comes from the place itself and falls the same way on the subject and the background; natural depth of field, slight film grain, nothing oversharpened.\nThe person looks like a real person, not a retouched model: skin dry and matte, with visible pores, fine lines, faint freckles and natural unevenness, no shine on the face; hair with loose strands; a relaxed, unposed expression; natural hands and proportions. No airbrushing or glamour retouching.\nFabric with real weave, stitching, slight creases and the way it sits on the body or surface; small everyday imperfections left in.\nConstraints: photorealistic; landscape 1536x1024; no text, no logos, no watermarks, no brand marks or labels on garments; no certificates or signage.\nSave the final image into this workspace as docs/research/images/masters/general-process-3.png (copy it there from the generated_images folder).\nFinish by replying with only this JSON on one line, alt text in English: {\"file\": \"docs/research/images/masters/general-process-3.png\", \"alt\": \"<one factual English sentence of 10 to 125 characters describing only what is visible; no 'image of' or 'photo of', no brand, price, quantity, lead time or other claim>\"}",
-      "review": "pending",
-      "alt": "A worker inspects a coral patterned bikini top with lace trim beside stacks of swimwear on a factory table.",
+      "generatedAt": "2026-11-14T19:29:44.336Z",
+      "prompt": "Use your built-in image generation tool (not a CLI fallback). Pass the description below to it as written: do not expand or reword it.\nMake ONE new landscape image (1536x1024), filling the whole frame with no borders or letterbox bars, of this kind: worker at work documentary photo. How this kind is made (recompose it for the landscape frame where it describes another shape): A horizontal medium shot of a real worker from the waist up, handling finished garments at a work table. Product stacks sit in the foreground and the blurred production floor is behind. Light is the factory's own even, cool overhead light with a neutral, unretouched grade. Placed next to process copy as proof of in-house production and quality control.\nThe 1 attached images are the reference website's images of this kind: take their light, colour, camera language and kind of place (the working production floor they show) from them, never their exact layout, people or garments.\nSetting: a weathered pale sage plaster wall in soft open shade, nothing else in the frame: no view, scenery, furniture or props.\nIt shows our swimwear being made.\nThe swimwear (bikinis, one-piece swimsuits, swim trunks and cover-ups): a new design of our own in the reference site's product language, never a copy of one of its garments, cut with standard coverage: fabrics Smooth, matte-to-soft-satin stretch swim jersey (nylon/elastane look), with a clean, fully lined feel. Some solids have a fine all-over shimmer or glitter sheen (the pink). Others have a subtle crinkle or rib texture (the red) or a slightly textured crepe/piqué-like surface (the white one-piece). The olive pieces are a dense, flat matte knit. The printed fabrics have a soft, slightly glossy finish.. Print: Small dabbed oranges and orange blossom in tangerine and cream with deep green leaves, on a heather grey ground. Detail: Flat ecru cotton drawcords tipped with brushed gold metal aglets.\nPerson: a Chinese factory worker in everyday work clothes, busy with the task and not posing; nobody wears the garment.\nPhotorealistic: a real photograph someone could have taken in the moment on a real camera, not a render, an illustration or an advertisement. The light comes from the place itself and falls the same way on the subject and the background; natural depth of field, slight film grain, nothing oversharpened.\nThe person looks like a real person, not a retouched model: skin dry and matte, with visible pores, fine lines, faint freckles and natural unevenness, no shine on the face; hair with loose strands; a relaxed, unposed expression; natural hands and proportions. No airbrushing or glamour retouching.\nFabric with real weave, stitching, slight creases and the way it sits on the body or surface; small everyday imperfections left in.\nConstraints: photorealistic; landscape 1536x1024; no text, no logos, no watermarks, no brand marks or labels on garments; no certificates or signage.\nSave the final image into this workspace as docs/research/images/masters/general-process-3.png (copy it there from the generated_images folder).\nFinish by replying with only this JSON on one line, alt text in English: {\"file\": \"docs/research/images/masters/general-process-3.png\", \"alt\": \"<one factual English sentence of 10 to 125 characters describing only what is visible; no 'image of' or 'photo of', no brand, price, quantity, lead time or other claim>\"}",
+      "review": "style-drift",
+      "alt": "A worker inspects an orange-print bikini top at a table stacked with swimwear.",
       "altCheck": "ok",
       "web": {
         "src": "/media/photos/general-process-3-960.webp",
@@ -1393,7 +1395,8 @@
         "width": 960,
         "height": 640
       },
-      "reviewNote": "looks like photo 13: same seated sewing-room worker, same dark top, same framing over garments on a table"
+      "reviewNote": "looks like photo 13: Same woman seated at the same sewing-room table with the same grey apron and a similar framing; a visitor would read these as one shot repeated",
+      "shotShift": 11
     },
     {
       "id": "general-material-1",
@@ -3012,50 +3015,51 @@
       "index": 1,
       "size": "1536x1024",
       "subject": "a model wearing boardshorts, with some open space on one side for a headline",
-      "colour": "sky blue",
-      "casting": "in their twenties, Hispanic, with a warm olive complexion and long wavy dark hair",
-      "scene": "Woman in a pink floral bikini reclining on a white wrought-iron garden chair beside a basket of lemons and ferns; wide banner whose darker left half held the closing call-to-action text",
+      "colour": "cream",
+      "casting": "in their thirties, white, with fair skin and straight blonde hair",
+      "scene": "Three women in bikinis by a white vintage convertible on a sunny beach, one in a white bandeau set in front; left third darkened by a baked-in gradient made for the headline",
       "styleRefs": [
-        "docs/research/reference-assets/7ff7399c52aa60c6c4b7.webp",
+        "docs/research/reference-assets/24fca0584319aea101df.webp",
         "docs/research/reference-assets/752b39987d27ddfbcae1.webp"
       ],
-      "brief": "a model wearing boardshorts, with some open space on one side for a headline | burgundy | in their thirties, white, with light skin, freckles and auburn hair | 7ff7399c52aa60c6c4b7.webp | 752b39987d27ddfbcae1.webp",
+      "brief": "a model wearing boardshorts, with some open space on one side for a headline | forest green | in their forties, Black, with a medium brown complexion and natural curly hair | 24fca0584319aea101df.webp | 752b39987d27ddfbcae1.webp",
       "triedScenes": [
         "docs/research/reference-assets/9908d8c850e3b25f1d28.jpg",
         "docs/research/reference-assets/de658c2c718e5eb14783.webp",
         "docs/research/reference-assets/45cdc1ae2eb985e75f14.webp",
-        "docs/research/reference-assets/5f729d94bb79df03c7b8.webp"
+        "docs/research/reference-assets/5f729d94bb79df03c7b8.webp",
+        "docs/research/reference-assets/7ff7399c52aa60c6c4b7.webp"
       ],
-      "shotShift": 88,
+      "shotShift": 110,
       "status": "rejected-duplicate",
       "products": "men's boardshorts",
-      "detail": "ruched seam gathered over an inner elastic channel",
+      "detail": "Short metal zips with small matte-gold ring pulls",
       "imageType": "multi-model campaign hero with text gradient",
       "imageShows": "worn",
       "shot": {
-        "framing": "Close wide horizontal shot from slightly above the seated model: frame from the head to the knees, with the body stretched diagonally across the full frame width",
-        "pose": "The model leans one shoulder on a wall with the arms loosely crossed and the head resting against the wall, giving a calm direct look into the lens"
+        "framing": "Three-quarter shot at eye level from about 2 m: frame the model from the top of the head to mid-thigh, with the body filling most of the frame height",
+        "pose": "The model walks away from the camera and turns the head back, a single stem of lavender held at the side"
       },
       "prop": "a striped cotton beach towel",
-      "place": "a wide dune beach with marram grass near the water's edge, in low golden sun with long shadows",
+      "place": "wide sand dunes with tufts of marram grass, lit by long golden evening sun",
       "master": "docs/research/images/masters/boardshorts-hero-1.png",
-      "sha256": "fc9def5db5755a22363ec94fc0e70c1650b907d61009c55e588a888ab5bd855f",
-      "dhash": "0000110000001100000011000000110000001100000010000000110000001100",
+      "sha256": "6eeb3aea9d3fdbd60a3a235bac03cf14e6ef1a7fef40ae538a930ff3ee474528",
+      "dhash": "0000100100001101000010000000100100001011000101110000001100001011",
       "masterSize": "1536x1024",
       "similarity": {
-        "nearestReference": "docs/research/reference-assets/24fca0584319aea101df.webp",
-        "distance": 16,
+        "nearestReference": "docs/research/reference-assets/747327905f847dec6365.webp",
+        "distance": 21,
         "threshold": 10
       },
       "nearestInLibrary": {
-        "id": "general-hero-1",
+        "id": "swim-trunks-hero-1",
         "distance": 11,
         "threshold": 14
       },
       "styleCheck": {
-        "colourfulness": 42,
-        "brightness": 111,
-        "contrast": 64,
+        "colourfulness": 43,
+        "brightness": 100,
+        "contrast": 58,
         "inRange": true,
         "off": []
       },
@@ -3063,9 +3067,9 @@
         "tool": "codex image_gen",
         "digitalSourceType": "trainedAlgorithmicMedia"
       },
-      "generatedAt": "2026-11-14T12:55:35.689Z",
-      "prompt": "Use your built-in image generation tool (not a CLI fallback). Pass the description below to it as written: do not expand or reword it.\nMake ONE new landscape image (1536x1024), filling the whole frame with no borders or letterbox bars, of this kind: multi-model campaign hero with text gradient. How this kind is made (recompose it for the landscape frame where it describes another shape): A very wide landscape hero with two or three models in different styles, cropped around the thighs and grouped in the right two-thirds of the frame. They are seen from the front or the back, interacting casually with one large scene element in a vivid outdoor location. Light is bright hard midday sun with saturated colour. A dark gradient overlay fades the left third to near-solid so the headline and buttons can sit on it.\nThe 2 attached images are the reference website's images of this kind: take only their light, colour and camera language from them, never their place, props, people or garments.\nSetting: a wide dune beach with marram grass near the water's edge, in low golden sun with long shadows.\nPose: The model leans one shoulder on a wall with the arms loosely crossed and the head resting against the wall, giving a calm direct look into the lens\nProp: a striped cotton beach towel, used naturally where it belongs in the scene (held, worn or set nearby), never posed for show.\nThe model wears our boardshorts.\nThe boardshorts (men's boardshorts): a new design of our own in the reference site's product language, never a copy of one of its garments, cut with standard coverage: fabrics Smooth, matte-to-soft-satin stretch swim jersey (nylon/elastane look), with a clean, fully lined feel. Some solids have a fine all-over shimmer or glitter sheen (the pink). Others have a subtle crinkle or rib texture (the red) or a slightly textured crepe/piqué-like surface (the white one-piece). The olive pieces are a dense, flat matte knit. The printed fabrics have a soft, slightly glossy finish.. Main colour sky blue. Detail: ruched seam gathered over an inner elastic channel.\nModel: one adult in their twenties, Hispanic, with a warm olive complexion and long wavy dark hair, of the gender that wears it.\nPhotorealistic: a real photograph someone could have taken in the moment on a real camera, not a render, an illustration or an advertisement. The light comes from the place itself and falls the same way on the subject and the background; natural depth of field, slight film grain, nothing oversharpened.\nThe person looks like a real person, not a retouched model: skin dry and matte, with visible pores, fine lines, faint freckles and natural unevenness, no shine on the face; hair with loose strands; a relaxed, unposed expression; natural hands and proportions. No airbrushing or glamour retouching.\nThe place is real and in use: surfaces weathered and uneven (worn paint, weather stains, sand, dust, small cracks), things left where they are, a little haze in the distance; no studio or cinematic lighting.\nFabric with real weave, stitching, slight creases and the way it sits on the body or surface; small everyday imperfections left in.\nConstraints: photorealistic; landscape 1536x1024; tasteful and non-suggestive; no text, no logos, no watermarks, no brand marks or labels on garments; no certificates or signage; never staged in a factory, workshop, sewing room or warehouse.\nSave the final image into this workspace as docs/research/images/masters/boardshorts-hero-1.png (copy it there from the generated_images folder).\nFinish by replying with only this JSON on one line, alt text in English: {\"file\": \"docs/research/images/masters/boardshorts-hero-1.png\", \"alt\": \"<one factual English sentence of 10 to 125 characters describing only what is visible; no 'image of' or 'photo of', no brand, price, quantity, lead time or other claim>\"}",
-      "duplicateOf": "general-hero-1"
+      "generatedAt": "2026-11-14T19:30:22.764Z",
+      "prompt": "Use your built-in image generation tool (not a CLI fallback). Pass the description below to it as written: do not expand or reword it.\nMake ONE new landscape image (1536x1024), filling the whole frame with no borders or letterbox bars, of this kind: multi-model campaign hero with text gradient. How this kind is made (recompose it for the landscape frame where it describes another shape): A very wide landscape hero with two or three models in different styles, cropped around the thighs and grouped in the right two-thirds of the frame. They are seen from the front or the back, interacting casually with one large scene element in a vivid outdoor location. Light is bright hard midday sun with saturated colour. A dark gradient overlay fades the left third to near-solid so the headline and buttons can sit on it.\nThe 2 attached images are the reference website's images of this kind: take only their light, colour and camera language from them, never their place, props, people or garments.\nSetting: wide sand dunes with tufts of marram grass, lit by long golden evening sun.\nPose: The model walks away from the camera and turns the head back, a single stem of lavender held at the side\nProp: a striped cotton beach towel, used naturally where it belongs in the scene (held, worn or set nearby), never posed for show.\nThe model wears our boardshorts.\nThe boardshorts (men's boardshorts): a new design of our own in the reference site's product language, never a copy of one of its garments, cut with standard coverage: fabrics Smooth, matte-to-soft-satin stretch swim jersey (nylon/elastane look), with a clean, fully lined feel. Some solids have a fine all-over shimmer or glitter sheen (the pink). Others have a subtle crinkle or rib texture (the red) or a slightly textured crepe/piqué-like surface (the white one-piece). The olive pieces are a dense, flat matte knit. The printed fabrics have a soft, slightly glossy finish.. Main colour cream. Detail: Short metal zips with small matte-gold ring pulls.\nModel: one adult in their thirties, white, with fair skin and straight blonde hair, of the gender that wears it.\nPhotorealistic: a real photograph someone could have taken in the moment on a real camera, not a render, an illustration or an advertisement. The light comes from the place itself and falls the same way on the subject and the background; natural depth of field, slight film grain, nothing oversharpened.\nThe person looks like a real person, not a retouched model: skin dry and matte, with visible pores, fine lines, faint freckles and natural unevenness, no shine on the face; hair with loose strands; a relaxed, unposed expression; natural hands and proportions. No airbrushing or glamour retouching.\nThe place is real and in use: surfaces weathered and uneven (worn paint, weather stains, sand, dust, small cracks), things left where they are, a little haze in the distance; no studio or cinematic lighting.\nFabric with real weave, stitching, slight creases and the way it sits on the body or surface; small everyday imperfections left in.\nConstraints: photorealistic; landscape 1536x1024; tasteful and non-suggestive; no text, no logos, no watermarks, no brand marks or labels on garments; no certificates or signage; never staged in a factory, workshop, sewing room or warehouse.\nSave the final image into this workspace as docs/research/images/masters/boardshorts-hero-1.png (copy it there from the generated_images folder).\nFinish by replying with only this JSON on one line, alt text in English: {\"file\": \"docs/research/images/masters/boardshorts-hero-1.png\", \"alt\": \"<one factual English sentence of 10 to 125 characters describing only what is visible; no 'image of' or 'photo of', no brand, price, quantity, lead time or other claim>\"}",
+      "duplicateOf": "swim-trunks-hero-1"
     },
     {
       "id": "boardshorts-product-sublimation-prints-and-colour-matching",
@@ -3154,82 +3158,48 @@
       "index": 1,
       "size": "1536x1024",
       "subject": "a model wearing boardshorts in a relaxed everyday moment",
-      "colour": "sand beige",
-      "casting": "in their thirties, Hispanic, with a tan complexion and dark curly hair",
-      "scene": "Woman with daisies in her hair holding a red apple, wearing a peach floral triangle bikini top with green binding",
+      "colour": "cobalt blue",
+      "casting": "in their twenties, Black, with a light brown complexion and a short textured haircut",
+      "scene": "Woman in a peach floral triangle bikini with dark green binding holding a flowering stem among tall grass; portrait mobile banner, face cropped at the top edge",
       "styleRefs": [
-        "docs/research/reference-assets/f1c21c7dfc0f2f6184bb.webp",
+        "docs/research/reference-assets/752b39987d27ddfbcae1.webp",
         "docs/research/reference-assets/aec819f0cc185d6764c1.webp"
       ],
-      "brief": "a model wearing boardshorts in a relaxed everyday moment | olive green | in their thirties, white, with fair skin and straight blonde hair | f1c21c7dfc0f2f6184bb.webp | aec819f0cc185d6764c1.webp",
-      "status": "rejected-review",
-      "products": "printed boardshorts for surf and resort",
-      "print": "small-scale painterly cheetah spots in espresso brown and tan",
-      "detail": "Contrast forest-green topstitching along all seams",
+      "brief": "a model wearing boardshorts in a relaxed everyday moment | cobalt blue | in their twenties, Black, with a light brown complexion and a short textured haircut | 752b39987d27ddfbcae1.webp | aec819f0cc185d6764c1.webp",
+      "triedScenes": [
+        "docs/research/reference-assets/f1c21c7dfc0f2f6184bb.webp"
+      ],
+      "shotShift": 44,
+      "fitRemakes": 1,
+      "status": "generated",
+      "products": "men's boardshorts",
+      "print": "Medium-scale blurred camellias in candy pink and peach with olive leaf accents",
+      "detail": "Woven sage-green cotton hanging loop at the back fixed with a small gold rivet",
       "imageType": "on-model lifestyle shot",
       "imageShows": "worn",
       "shot": {
-        "framing": "Wide full-body shot from a slightly high angle, the model small in the right third with the props and garden set filling the rest of the frame",
-        "pose": "The model stands beside a stool with one knee resting on the seat and both hands on the knee, looking into the camera"
+        "framing": "Three-quarter shot from the head to the knees or mid-thigh, camera at or just above chest height, the model filling most of the frame",
+        "pose": "The model sits on a wooden stool leaning forward with the elbows on the knees and the chin in one hand, looking into the camera"
       },
-      "place": "a sun-drenched terracotta-tiled terrace with potted lemon trees, whitewashed balustrades and trailing bougainvillea in crisp late-afternoon shadows",
-      "refusals": [
-        {
-          "at": "2026-11-14T08:16:14.456Z",
-          "shot": {
-            "framing": "Full-body shot with the camera lowered to the model's seated or floor level, the model filling most of the frame",
-            "pose": "The model kneels beside a low table with the arms folded on its top and the cheek resting on them, eyes half-closed"
-          },
-          "productOnly": false,
-          "reply": "{\"file\": null, \"alt\": \"\", \"error\": \"The image generation tool rejected the request under its safety filter. No image was saved.\"}"
-        },
-        {
-          "at": "2026-11-14T08:17:46.740Z",
-          "shot": {
-            "framing": "Full-body shot with the camera lowered to the model's seated or floor level, the model filling most of the frame",
-            "pose": "The model kneels beside a low table with the arms folded on its top and the cheek resting on them, eyes half-closed"
-          },
-          "productOnly": false,
-          "reply": "{\"file\": null, \"alt\": null, \"error\": \"老大，内置图像生成工具拒绝了此次请求，未生成或保存图片。\"}"
-        },
-        {
-          "at": "2026-11-14T08:49:19.009Z",
-          "shot": {
-            "framing": "Three-quarter shot from the head to the knees or mid-thigh, camera at or just above chest height, the model filling most of the frame",
-            "pose": "The model leans one shoulder against a post with one hand raised to the collarbone, chin tipped up toward the sun"
-          },
-          "productOnly": false,
-          "reply": "{\"file\": null, \"alt\": \"\", \"error\": \"The image generation tool rejected the request through its safety system. No image was generated or saved.\"}"
-        },
-        {
-          "at": "2026-11-14T08:51:13.495Z",
-          "shot": {
-            "framing": "Three-quarter shot from the head to the knees or mid-thigh, camera at or just above chest height, the model filling most of the frame",
-            "pose": "The model leans one shoulder against a post with one hand raised to the collarbone, chin tipped up toward the sun"
-          },
-          "productOnly": false,
-          "reply": "{\"file\":null,\"alt\":\"\",\"error\":\"老大，内置图像生成工具拒绝了此次生成请求，未生成或保存图片。\"}"
-        }
-      ],
-      "shotShift": 33,
+      "place": "an overgrown orangery with tall arched windows, potted palms and banana plants, in hazy golden afternoon light",
       "master": "docs/research/images/masters/boardshorts-lifestyle-1.png",
-      "sha256": "1b20ac89b015dd9f5bf3bd3ea267ad2e989ffa352c2379f4e1eb575fc60977ef",
-      "dhash": "1010011101100110011001100110011001110011011000110111001101101011",
+      "sha256": "9c8f9a7ae53d890c77cda9f7bac2afae231c5190082d4852c8189efe21e50880",
+      "dhash": "0001100000011000001110101011101110101001011100110111010001100100",
       "masterSize": "1536x1024",
       "similarity": {
         "nearestReference": "docs/research/reference-pages/contact/reference-assets/f36fd0474c6de2c56d3f.jpg",
-        "distance": 19,
+        "distance": 24,
         "threshold": 10
       },
       "nearestInLibrary": {
-        "id": "general-process-1",
-        "distance": 20,
+        "id": "burkini-lifestyle-1",
+        "distance": 18,
         "threshold": 14
       },
       "styleCheck": {
-        "colourfulness": 46,
-        "brightness": 117,
-        "contrast": 48,
+        "colourfulness": 43,
+        "brightness": 111,
+        "contrast": 44,
         "inRange": true,
         "off": []
       },
@@ -3237,10 +3207,10 @@
         "tool": "codex image_gen",
         "digitalSourceType": "trainedAlgorithmicMedia"
       },
-      "generatedAt": "2026-11-14T08:52:04.364Z",
-      "prompt": "Use your built-in image generation tool (not a CLI fallback). Pass the description below to it as written: do not expand or reword it.\nMake ONE new landscape image (1536x1024), filling the whole frame with no borders or letterbox bars, of this kind: on-model lifestyle shot. How this kind is made (recompose it for the landscape frame where it describes another shape): A single model wearing the product in a styled outdoor or resort-like setting. Usually vertical, cropped from the head to the bust, mid-thigh or upper thigh; sometimes horizontal and close to full body. The model is seated, leaning, reclining or moving, and either looks into the lens or has her face turned up with eyes closed. The background is softly blurred and at most one or two props echo the product's colours. Light is soft warm daylight or bright side sun, with a warm film-like grade. Some versions darken the background for a moodier, low-key look. Used as a single image in a card or beside a block of copy.\nSetting: a sun-drenched terracotta-tiled terrace with potted lemon trees, whitewashed balustrades and trailing bougainvillea in crisp late-afternoon shadows.\nPose: The model stands beside a stool with one knee resting on the seat and both hands on the knee, looking into the camera\nThe model wears our boardshorts.\nThe boardshorts (printed boardshorts for surf and resort): a new design of our own in the reference site's product language, never a copy of one of its garments, cut with standard coverage: fabrics Smooth, matte-to-soft-satin stretch swim jersey (nylon/elastane look), with a clean, fully lined feel. Some solids have a fine all-over shimmer or glitter sheen (the pink). Others have a subtle crinkle or rib texture (the red) or a slightly textured crepe/piqué-like surface (the white one-piece). The olive pieces are a dense, flat matte knit. The printed fabrics have a soft, slightly glossy finish.. Print: small-scale painterly cheetah spots in espresso brown and tan, on a sand beige ground. Detail: Contrast forest-green topstitching along all seams.\nA more covering version of the same garment, its print and colours unchanged: a higher neckline, wider straps or sleeves and more length.\nModel: one adult in their thirties, Hispanic, with a tan complexion and dark curly hair, of the gender that wears it.\nStyled with a loose open-front overshirt or wrap in a coordinating print or colour over it, the garment still clearly visible.\nPhotorealistic: a real photograph someone could have taken in the moment on a real camera, not a render, an illustration or an advertisement. The light comes from the place itself and falls the same way on the subject and the background; natural depth of field, slight film grain, nothing oversharpened.\nThe person looks like a real person, not a retouched model: skin dry and matte, with visible pores, fine lines, faint freckles and natural unevenness, no shine on the face; hair with loose strands; a relaxed, unposed expression; natural hands and proportions. No airbrushing or glamour retouching.\nThe place is real and in use: surfaces weathered and uneven (worn paint, weather stains, sand, dust, small cracks), things left where they are, a little haze in the distance; no studio or cinematic lighting.\nFabric with real weave, stitching, slight creases and the way it sits on the body or surface; small everyday imperfections left in.\nConstraints: photorealistic; landscape 1536x1024; tasteful and non-suggestive; no text, no logos, no watermarks, no brand marks or labels on garments; no certificates or signage; never staged in a factory, workshop, sewing room or warehouse.\nSave the final image into this workspace as docs/research/images/masters/boardshorts-lifestyle-1.png (copy it there from the generated_images folder).\nFinish by replying with only this JSON on one line, alt text in English: {\"file\": \"docs/research/images/masters/boardshorts-lifestyle-1.png\", \"alt\": \"<one factual English sentence of 10 to 125 characters describing only what is visible; no 'image of' or 'photo of', no brand, price, quantity, lead time or other claim>\"}",
+      "generatedAt": "2026-11-14T19:25:11.922Z",
+      "prompt": "Use your built-in image generation tool (not a CLI fallback). Pass the description below to it as written: do not expand or reword it.\nMake ONE new landscape image (1536x1024), filling the whole frame with no borders or letterbox bars, of this kind: on-model lifestyle shot. How this kind is made (recompose it for the landscape frame where it describes another shape): A single model wearing the product in a styled outdoor or resort-like setting. Usually vertical, cropped from the head to the bust, mid-thigh or upper thigh; sometimes horizontal and close to full body. The model is seated, leaning, reclining or moving, and either looks into the lens or has her face turned up with eyes closed. The background is softly blurred and at most one or two props echo the product's colours. Light is soft warm daylight or bright side sun, with a warm film-like grade. Some versions darken the background for a moodier, low-key look. Used as a single image in a card or beside a block of copy.\nThe 2 attached images are the reference website's images of this kind: take only their light, colour and camera language from them, never their place, props, people or garments.\nSetting: an overgrown orangery with tall arched windows, potted palms and banana plants, in hazy golden afternoon light.\nPose: The model sits on a wooden stool leaning forward with the elbows on the knees and the chin in one hand, looking into the camera\nThe model wears our boardshorts.\nThe boardshorts (men's boardshorts): a new design of our own in the reference site's product language, never a copy of one of its garments, cut with standard coverage: fabrics Smooth, matte-to-soft-satin stretch swim jersey (nylon/elastane look), with a clean, fully lined feel. Some solids have a fine all-over shimmer or glitter sheen (the pink). Others have a subtle crinkle or rib texture (the red) or a slightly textured crepe/piqué-like surface (the white one-piece). The olive pieces are a dense, flat matte knit. The printed fabrics have a soft, slightly glossy finish.. Print: Medium-scale blurred camellias in candy pink and peach with olive leaf accents, on a cobalt blue ground. Detail: Woven sage-green cotton hanging loop at the back fixed with a small gold rivet.\nModel: one adult in their twenties, Black, with a light brown complexion and a short textured haircut, of the gender that wears it.\nPhotorealistic: a real photograph someone could have taken in the moment on a real camera, not a render, an illustration or an advertisement. The light comes from the place itself and falls the same way on the subject and the background; natural depth of field, slight film grain, nothing oversharpened.\nThe person looks like a real person, not a retouched model: skin dry and matte, with visible pores, fine lines, faint freckles and natural unevenness, no shine on the face; hair with loose strands; a relaxed, unposed expression; natural hands and proportions. No airbrushing or glamour retouching.\nThe place is real and in use: surfaces weathered and uneven (worn paint, weather stains, sand, dust, small cracks), things left where they are, a little haze in the distance; no studio or cinematic lighting.\nFabric with real weave, stitching, slight creases and the way it sits on the body or surface; small everyday imperfections left in.\nConstraints: photorealistic; landscape 1536x1024; tasteful and non-suggestive; no text, no logos, no watermarks, no brand marks or labels on garments; no certificates or signage; never staged in a factory, workshop, sewing room or warehouse.\nSave the final image into this workspace as docs/research/images/masters/boardshorts-lifestyle-1.png (copy it there from the generated_images folder).\nFinish by replying with only this JSON on one line, alt text in English: {\"file\": \"docs/research/images/masters/boardshorts-lifestyle-1.png\", \"alt\": \"<one factual English sentence of 10 to 125 characters describing only what is visible; no 'image of' or 'photo of', no brand, price, quantity, lead time or other claim>\"}",
       "review": "pending",
-      "alt": "A woman in cheetah-print boardshorts and an olive overshirt rests one knee on a stool on a sunny terrace.",
+      "alt": "A man in blue floral boardshorts sits on a wooden stool among plants in a sunlit orangery.",
       "altCheck": "ok",
       "web": {
         "src": "/media/photos/boardshorts-lifestyle-1-960.webp",
@@ -3248,14 +3218,10 @@
         "width": 960,
         "height": 640
       },
-      "reviewNote": "image-fit: not the subject of /boardshorts-manufacturer/",
-      "coverUp": true,
-      "modestCut": true,
       "libraryReview": {
         "passed": true,
-        "at": "2026-11-14T09:32:09.228Z"
-      },
-      "fitRemakes": 1
+        "at": "2026-11-14T19:27:56.747Z"
+      }
     },
     {
       "id": "swim-trunks-hero-1",
@@ -3787,7 +3753,11 @@
         "width": 960,
         "height": 640
       },
-      "reviewNote": "main colour is not navy blue: pink, red, white and olive suits on hangers; navy only appears as thin stripes"
+      "reviewNote": "main colour is not navy blue: pink, red, white and olive suits on hangers; navy only appears as thin stripes",
+      "libraryReview": {
+        "passed": true,
+        "at": "2026-11-14T19:27:56.747Z"
+      }
     },
     {
       "id": "baby-swimwear-lifestyle-1",
@@ -4918,59 +4888,61 @@
       "index": 1,
       "size": "1536x1024",
       "subject": "a model wearing cover up, with some open space on one side for a headline",
-      "colour": "dusty pink",
-      "casting": "in their twenties, Hispanic, with light skin and wavy brown hair",
-      "scene": "Three women in bikinis by a white vintage convertible on a sunny beach, one in a white bandeau set in front; left third darkened by a baked-in gradient made for the headline",
+      "colour": "charcoal",
+      "casting": "in their twenties, Black, with a deep brown complexion and short natural hair",
+      "scene": "Woman in a pink floral bikini reclining on a white wrought-iron garden chair beside a basket of lemons and ferns; wide banner whose darker left half held the closing call-to-action text",
       "styleRefs": [
-        "docs/research/reference-assets/24fca0584319aea101df.webp",
+        "docs/research/reference-assets/7ff7399c52aa60c6c4b7.webp",
         "docs/research/reference-pages/manufacturer/reference-assets/8b29f10bedff27d34759.webp"
       ],
-      "brief": "a model wearing cover up, with some open space on one side for a headline | cobalt blue | in their forties, white, with light skin and grey-streaked hair | 24fca0584319aea101df.webp | 8b29f10bedff27d34759.webp",
+      "brief": "a model wearing cover up, with some open space on one side for a headline | charcoal | in their twenties, Black, with a deep brown complexion and short natural hair | 7ff7399c52aa60c6c4b7.webp | 8b29f10bedff27d34759.webp",
       "triedScenes": [
         "docs/research/reference-pages/contact/reference-assets/f36fd0474c6de2c56d3f.jpg",
         "docs/research/reference-assets/5f729d94bb79df03c7b8.webp",
-        "docs/research/reference-assets/de658c2c718e5eb14783.webp"
+        "docs/research/reference-assets/de658c2c718e5eb14783.webp",
+        "docs/research/reference-assets/24fca0584319aea101df.webp"
       ],
-      "shotShift": 88,
-      "status": "rejected-duplicate",
+      "shotShift": 99,
+      "status": "generated",
       "products": "kaftans, sarongs and kimono cover-ups",
-      "detail": "contrast dark forest-green binding on every edge",
+      "detail": "Contrast piped seams in dark forest green",
       "imageType": "multi-model campaign hero with text gradient",
       "imageShows": "worn",
       "shot": {
         "framing": "Three-quarter shot at eye level from about 2 m: frame the model from the top of the head to mid-thigh, with the body filling most of the frame height",
-        "pose": "The model sits on the ground with both legs stretched out and the ankles crossed, leaning back on both hands, face turned up to the sun with eyes closed"
+        "pose": "The model stands with the head bowed, tucking a small flower behind one ear"
       },
       "prop": "a wide-brimmed straw sun hat",
-      "place": "a sun-bleached whitewashed stairway between plaster houses in hard late-afternoon sun with crisp shadows",
+      "place": "a sun-baked stone stairway between whitewashed houses with a cascade of bougainvillea, under hard afternoon sun",
       "refusals": [
         {
-          "at": "2026-11-14T12:50:36.497Z",
+          "at": "2026-11-14T19:29:44.998Z",
           "shot": {
-            "framing": "Close wide horizontal shot from slightly above the seated model: frame from the head to the knees, with the body stretched diagonally across the full frame width",
-            "pose": "The model stands with one knee resting on a stool and one hand on the thigh, looking over at the camera"
+            "framing": "Three-quarter shot at eye level from about 2 m: frame the model from the top of the head to mid-thigh, with the body filling most of the frame height",
+            "pose": "The model stands with the head bowed, tucking a small flower behind one ear"
           },
           "productOnly": false,
-          "reply": "{\"file\": null, \"alt\": \"\", \"error\": \"The image generation tool rejected the request through its safety filter. No image was generated or saved.\"}"
+          "reply": "{\"file\": null, \"alt\": \"\", \"error\": \"Image generation was blocked by the tool’s safety system; no image was saved.\"}"
         }
       ],
+      "coverUp": true,
       "master": "docs/research/images/masters/cover-up-hero-1.png",
-      "sha256": "52375b361c4c4b2545c8fe2b2fdfb6f7d12e5d5e30e2ae7a62f1c2a065f0b832",
-      "dhash": "0000100000000110001001000000010000001110000011100000110000000000",
+      "sha256": "2079424a7f0589ae5d720cd3a859186ab4b30b7d8fd600b4db7f9752eb0bbfb6",
+      "dhash": "0000100000011001000110000000110001011001010010010000110100011100",
       "masterSize": "1536x1024",
       "similarity": {
-        "nearestReference": "docs/research/reference-assets/747327905f847dec6365.webp",
-        "distance": 19,
+        "nearestReference": "docs/research/reference-assets/24fca0584319aea101df.webp",
+        "distance": 18,
         "threshold": 10
       },
       "nearestInLibrary": {
-        "id": "resort-wear-hero-1",
-        "distance": 13,
+        "id": "swim-trunks-hero-1",
+        "distance": 16,
         "threshold": 14
       },
       "styleCheck": {
         "colourfulness": 48,
-        "brightness": 98,
+        "brightness": 106,
         "contrast": 57,
         "inRange": true,
         "off": []
@@ -4979,19 +4951,17 @@
         "tool": "codex image_gen",
         "digitalSourceType": "trainedAlgorithmicMedia"
       },
-      "generatedAt": "2026-11-14T12:55:54.084Z",
-      "prompt": "Use your built-in image generation tool (not a CLI fallback). Pass the description below to it as written: do not expand or reword it.\nMake ONE new landscape image (1536x1024), filling the whole frame with no borders or letterbox bars, of this kind: multi-model campaign hero with text gradient. How this kind is made (recompose it for the landscape frame where it describes another shape): A very wide landscape hero with two or three models in different styles, cropped around the thighs and grouped in the right two-thirds of the frame. They are seen from the front or the back, interacting casually with one large scene element in a vivid outdoor location. Light is bright hard midday sun with saturated colour. A dark gradient overlay fades the left third to near-solid so the headline and buttons can sit on it.\nThe 2 attached images are the reference website's images of this kind: take only their light, colour and camera language from them, never their place, props, people or garments.\nSetting: a sun-bleached whitewashed stairway between plaster houses in hard late-afternoon sun with crisp shadows.\nPose: The model sits on the ground with both legs stretched out and the ankles crossed, leaning back on both hands, face turned up to the sun with eyes closed\nProp: a wide-brimmed straw sun hat, used naturally where it belongs in the scene (held, worn or set nearby), never posed for show.\nThe model wears our cover up.\nThe cover up (kaftans, sarongs and kimono cover-ups): a new design of our own in the reference site's product language, never a copy of one of its garments, cut with standard coverage: fabrics Smooth, matte-to-soft-satin stretch swim jersey (nylon/elastane look), with a clean, fully lined feel. Some solids have a fine all-over shimmer or glitter sheen (the pink). Others have a subtle crinkle or rib texture (the red) or a slightly textured crepe/piqué-like surface (the white one-piece). The olive pieces are a dense, flat matte knit. The printed fabrics have a soft, slightly glossy finish.. Main colour dusty pink. Detail: contrast dark forest-green binding on every edge.\nModel: one adult in their twenties, Hispanic, with light skin and wavy brown hair, of the gender that wears it.\nPhotorealistic: a real photograph someone could have taken in the moment on a real camera, not a render, an illustration or an advertisement. The light comes from the place itself and falls the same way on the subject and the background; natural depth of field, slight film grain, nothing oversharpened.\nThe person looks like a real person, not a retouched model: skin dry and matte, with visible pores, fine lines, faint freckles and natural unevenness, no shine on the face; hair with loose strands; a relaxed, unposed expression; natural hands and proportions. No airbrushing or glamour retouching.\nThe place is real and in use: surfaces weathered and uneven (worn paint, weather stains, sand, dust, small cracks), things left where they are, a little haze in the distance; no studio or cinematic lighting.\nFabric with real weave, stitching, slight creases and the way it sits on the body or surface; small everyday imperfections left in.\nConstraints: photorealistic; landscape 1536x1024; tasteful and non-suggestive; no text, no logos, no watermarks, no brand marks or labels on garments; no certificates or signage; never staged in a factory, workshop, sewing room or warehouse.\nSave the final image into this workspace as docs/research/images/masters/cover-up-hero-1.png (copy it there from the generated_images folder).\nFinish by replying with only this JSON on one line, alt text in English: {\"file\": \"docs/research/images/masters/cover-up-hero-1.png\", \"alt\": \"<one factual English sentence of 10 to 125 characters describing only what is visible; no 'image of' or 'photo of', no brand, price, quantity, lead time or other claim>\"}",
+      "generatedAt": "2026-11-14T19:30:32.204Z",
+      "prompt": "Use your built-in image generation tool (not a CLI fallback). Pass the description below to it as written: do not expand or reword it.\nMake ONE new landscape image (1536x1024), filling the whole frame with no borders or letterbox bars, of this kind: multi-model campaign hero with text gradient. How this kind is made (recompose it for the landscape frame where it describes another shape): A very wide landscape hero with two or three models in different styles, cropped around the thighs and grouped in the right two-thirds of the frame. They are seen from the front or the back, interacting casually with one large scene element in a vivid outdoor location. Light is bright hard midday sun with saturated colour. A dark gradient overlay fades the left third to near-solid so the headline and buttons can sit on it.\nSetting: a sun-baked stone stairway between whitewashed houses with a cascade of bougainvillea, under hard afternoon sun.\nPose: The model stands with the head bowed, tucking a small flower behind one ear\nProp: a wide-brimmed straw sun hat, used naturally where it belongs in the scene (held, worn or set nearby), never posed for show.\nThe model wears our cover up.\nThe cover up (kaftans, sarongs and kimono cover-ups): a new design of our own in the reference site's product language, never a copy of one of its garments, cut with standard coverage: fabrics Smooth, matte-to-soft-satin stretch swim jersey (nylon/elastane look), with a clean, fully lined feel. Some solids have a fine all-over shimmer or glitter sheen (the pink). Others have a subtle crinkle or rib texture (the red) or a slightly textured crepe/piqué-like surface (the white one-piece). The olive pieces are a dense, flat matte knit. The printed fabrics have a soft, slightly glossy finish.. Main colour charcoal. Detail: Contrast piped seams in dark forest green.\nModel: one adult in their twenties, Black, with a deep brown complexion and short natural hair, of the gender that wears it.\nStyled with a loose open-front overshirt or wrap in a coordinating print or colour over it, the garment still clearly visible.\nPhotorealistic: a real photograph someone could have taken in the moment on a real camera, not a render, an illustration or an advertisement. The light comes from the place itself and falls the same way on the subject and the background; natural depth of field, slight film grain, nothing oversharpened.\nThe person looks like a real person, not a retouched model: skin dry and matte, with visible pores, fine lines, faint freckles and natural unevenness, no shine on the face; hair with loose strands; a relaxed, unposed expression; natural hands and proportions. No airbrushing or glamour retouching.\nThe place is real and in use: surfaces weathered and uneven (worn paint, weather stains, sand, dust, small cracks), things left where they are, a little haze in the distance; no studio or cinematic lighting.\nFabric with real weave, stitching, slight creases and the way it sits on the body or surface; small everyday imperfections left in.\nConstraints: photorealistic; landscape 1536x1024; tasteful and non-suggestive; no text, no logos, no watermarks, no brand marks or labels on garments; no certificates or signage; never staged in a factory, workshop, sewing room or warehouse.\nSave the final image into this workspace as docs/research/images/masters/cover-up-hero-1.png (copy it there from the generated_images folder).\nFinish by replying with only this JSON on one line, alt text in English: {\"file\": \"docs/research/images/masters/cover-up-hero-1.png\", \"alt\": \"<one factual English sentence of 10 to 125 characters describing only what is visible; no 'image of' or 'photo of', no brand, price, quantity, lead time or other claim>\"}",
       "review": "pending",
-      "alt": "A woman in a cobalt blue cover-up and printed wrap holds a straw hat beside weathered white stairs.",
+      "alt": "A woman in a floral wrap holds a straw hat and tucks a pink flower behind her ear beside sunlit stone steps.",
       "altCheck": "ok",
       "web": {
         "src": "/media/photos/cover-up-hero-1-960.webp",
         "srcset": "/media/photos/cover-up-hero-1-480.webp 480w, /media/photos/cover-up-hero-1-960.webp 960w, /media/photos/cover-up-hero-1-1536.webp 1536w",
         "width": 960,
         "height": 640
-      },
-      "reviewNote": "same person as photo 61",
-      "duplicateOf": "resort-wear-hero-1"
+      }
     },
     {
       "id": "cover-up-lifestyle-1",
@@ -5127,7 +5097,11 @@
         "width": 960,
         "height": 640
       },
-      "reviewNote": "looks like photo 61: same V-neck kaftan cover-up, same seated pose against a sea backdrop, same framing; only the blue shade differs"
+      "reviewNote": "looks like photo 61: same V-neck kaftan cover-up, same seated pose against a sea backdrop, same framing; only the blue shade differs",
+      "libraryReview": {
+        "passed": true,
+        "at": "2026-11-14T19:27:56.747Z"
+      }
     },
     {
       "id": "swimwear-packaging-brand-labels-hero-1",
