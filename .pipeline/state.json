@@ -238,11 +238,11 @@
     "log": ".pipeline/logs/2026-11-14T07-38-16-013Z/content.log"
   },
   "audits": {
-    "status": "failed",
-    "hash": "f0e1080538497665",
-    "at": "2026-11-14T10:48:18.250Z",
-    "seconds": 116,
-    "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/audits.log"
+    "status": "passed",
+    "hash": "ff221eb66d430815",
+    "at": "2026-11-14T11:23:03.424Z",
+    "seconds": 114,
+    "log": ".pipeline/logs/2026-11-14T10-49-24-604Z/audits.log"
   },
   "design-shots": {
     "status": "passed",
