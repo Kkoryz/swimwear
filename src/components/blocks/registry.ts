@@ -48,13 +48,30 @@ const withVariant = ({ block, variant }: BlockContext) => ({ block, variant });
 const withMedia = ({ block, media }: BlockContext) => ({ block, media });
 const withMediaAndVariant = ({ block, media, variant }: BlockContext) => ({ block, media, variant });
 const withFirstMedia = ({ block, media, variant }: BlockContext) => ({ block, media: media[0] ?? null, variant });
-const withHeroCta = ({ block, media, variant, page }: BlockContext) => ({ block, variant, media, cta: page.hero.cta ?? null });
+// The cards of a set shown before this grid (a set going on in grids of its own: continues), so its numbers go on from
+// them instead of starting at 01 again (swimwear's home 2026-11-15: 01 three times in a row inside one set on phones).
+const cardsBefore = (page: AuthoringPage, block: Block) => {
+  const goesOn = (item: Block) => (item as { continues?: string }).continues;
+  const head = (item: Block) => {
+    let at = item;
+    for (let step = 0; goesOn(at) && step < page.blocks.length; step += 1) at = page.blocks.find((other) => other.id === goesOn(at)) ?? at;
+    return at.id;
+  };
+  const own = head(block);
+  let count = 0;
+  for (const item of page.blocks) {
+    if (item.id === block.id) return count;
+    if (item.type === 'featureGrid' && head(item) === own) count += item.items.length;
+  }
+  return 0;
+};
+const withHeroCta =({ block, media, variant, page }: BlockContext) => ({ block, variant, media, cta: page.hero.cta ?? null });
 
 export const BLOCKS = {
   intro: { component: TextBlock, props: withMediaAndVariant },
   proof: { component: TextBlock, props: withMediaAndVariant },
   splitMedia: { component: SplitMediaBlock, props: ({ block, media, variant, page, splitIndex }) => ({ block, index: splitIndex, media, variant, cta: page.hero.cta ?? null, pageType: page.pageType }) },
-  featureGrid: { component: FeatureGridBlock, props: withMediaAndVariant },
+  featureGrid: { component: FeatureGridBlock, props: ({ block, media, variant, page }) => ({ block, media, variant, start: cardsBefore(page, block) }) },
   gallery: { component: GalleryBlock, props: withHeroCta },
   process: { component: ProcessBlock, props: withHeroCta },
   faq: { component: FaqBlock, props: withVariant },

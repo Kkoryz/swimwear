@@ -15,8 +15,9 @@ import InlineText from '../blog/InlineText.astro';
 import MediaFigure from './MediaFigure.astro';
 import TextFlow from './TextFlow.astro';
 
-interface Props { block: FeatureGridBlock; media?: Media[]; variant?: string }
-const { block, media = [], variant } = Astro.props;
+// start: the cards of its set shown before this grid (registry.ts cardsBefore): a set's numbers go on across its grids.
+interface Props { block: FeatureGridBlock; media?: Media[]; variant?: string; start?: number }
+const { block, media = [], variant, start = 0 } = Astro.props;
 const pattern = variant ?? (media.length ? 'media' : 'cards');
 // One frame ratio for the grid, following the photos' orientation (lib/media-ratio.mjs).
 const ratio = fitRatio(usualRatio('featureGrid'), media);
@@ -60,11 +61,11 @@ const Item = numbered ? 'li' : 'article';
     <Eyebrow text={block.eyebrow} />
     {block.heading && <h2 class="feature-grid__heading">{block.heading}</h2>}
     {block.paragraphs?.map((paragraph) => <p class="block__lead"><InlineText text={paragraph} /></p>)}
-    <List class="feature-grid" data-layout="equal-grid" data-columns={tracks?.ownColumns} data-density={density(words)} style={`${tracks?.style}; --card-rows: ${cardRows}`}>
+    <List class="feature-grid" start={numbered && start ? start + 1 : undefined} data-layout="equal-grid" data-columns={tracks?.ownColumns} data-density={density(words)} style={`${tracks?.style}; --card-rows: ${cardRows}`}>
       {block.items.map((item, index) => (
         <Item class="feature-card" data-explicit-span={block.span ? 'true' : undefined} style={block.span ? `grid-column: span ${block.span}` : block.continues ? undefined : tracks?.itemStyle(index)}>
           {media[index] && <MediaFigure media={media[index]} ratio={ratio} class="feature-card__media" />}
-          {numbered && <span class="feature-card__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>}
+          {numbered && <span class="feature-card__number" aria-hidden="true">{String(start + index + 1).padStart(2, '0')}</span>}
           {pattern === 'icon-cards' && <span class="feature-card__mark" aria-hidden="true"></span>}
           {/* A card without an icon keeps the icon row empty, so the titles of a row stay level. */}
           {icons.some(Boolean) && <span class="feature-card__icon" aria-hidden="true">{icons[index] && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false" set:html={icons[index]} />}</span>}

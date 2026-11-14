@@ -201,6 +201,10 @@ body[data-heading-align="start"] .page-hero[data-variant="media-banner"] { --ban
 /* Block rhythm: every block owns half of the gap on each side, so two neighbours never add up. */
 .block { padding-block: calc(var(--section-space) / 2); }
 .page-hero + .block { padding-top: var(--section-space); }
+/* A hero whose copy ends its box (banner, plain) followed by no block (the trust bar, breadcrumbs) keeps half a section's
+   space under its button itself: the button stood on the trust bar on 22 of swimwear's 38 pages and 18 of hotel-rm's 20
+   (2026-11-15), the space under a hero being the next block's. */
+.page-hero:is([data-variant="media-banner"], [data-variant="plain"]):not(:has(+ .block)) .page-hero__inner { padding-bottom: calc(var(--section-space) / 2); }
 .block:last-child { padding-bottom: var(--section-space); }
 /* A section going on in a block of its own (data-continues: a card set in grids of four) is one section: the grids
    part by the cards' own gap, not a section's (the hotel hub's thirteen entry cards read as four sections). */

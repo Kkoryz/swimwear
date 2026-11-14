@@ -34,7 +34,11 @@ test('a section\'s visuals place themselves: steps follow as the process module,
     { id: 'c', type: 'intro', heading: 'No ask', paragraphs: ['z'] },
   ], { process: 'circles' });
   assert.deepEqual(blocks.map((block) => `${block.id}:${block.type}`), ['a:splitMedia', 'a-steps:process', 'b:splitMedia', 'c:intro']);
-  assert.deepEqual(blocks[1], { id: 'a-steps', type: 'process', paragraphs: ['Caption'], steps: [{ heading: 'Brief', text: 'Send styles.' }, 'Sample', { heading: 'Bulk', text: 'Usually 35 to 40 days.' }], variant: 'circles', continues: 'a' });
+  // The caption names the steps: their heading, as written (swimwear 2026-11-15); a sentence-long one leads them.
+  assert.deepEqual(blocks[1], { id: 'a-steps', type: 'process', heading: 'Caption', steps: [{ heading: 'Brief', text: 'Send styles.' }, 'Sample', { heading: 'Bulk', text: 'Usually 35 to 40 days.' }], variant: 'circles', continues: 'a' });
+  const sentence = 'Every order runs through the same five steps, from the brief you send to the shipment we book for you.';
+  const [, long] = withSectionVisuals([{ id: 'a', type: 'splitMedia', heading: 'Order steps', paragraphs: ['x'], visuals: [{ ...steps, caption: sentence }] }], { process: 'circles' });
+  assert.deepEqual([long.heading, long.paragraphs], [undefined, [sentence]]);
   // The steps block is a valid page block; the row with data gets no photo; the asked photo takes the row's position.
   assert.deepEqual(validateAuthoringPages([{ id: 'p', route: '/p/', pageType: 'product_manufacturer', status: 'authored', seo: { title: 'T', description: 'D', canonical: '/p/' }, jsonLd: [], hero: { heading: 'H' }, blocks: [blocks[1]] }]), []);
   // Steps shown without a photo (circles) leave the row its own; steps over a photo of the work (photo-cards) take it.

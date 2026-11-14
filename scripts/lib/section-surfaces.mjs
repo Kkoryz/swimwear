@@ -6,14 +6,17 @@
 // testimonials a treatment sets on a band) ends a run; within a run of plain sections every second one is tinted, and
 // the last of a run is left white when the section after it is a band of its own (two grey bands would run together).
 
-// The sections that part a page by themselves: a photo, a band, the closing call, the testimonials, a wall, and steps
-// laid over a photo (process photo-cards: hotel-rm 2026-11-14). A split row with its photo beside the copy and the
-// enquiry form sit on the page's own white like any plain section and alternate with them (motel 2026-11-14: the review
-// saw a white split row after a white grid, and form, channels and closing call as three white sections, as one column).
-const PARTS = new Set(['figure', 'gallery', 'cta', 'testimonials']);
-// Of those, the ones on a grey band of their own: the testimonials a treatment usually sets on one, and a split row of
-// the tinted variant (hotel-rm 2026-11-14: a tinted split under a tinted grid read as one grey surface).
-const banded = (block, variant) => block.type === 'testimonials' || (block.type === 'splitMedia' && variant === 'tinted');
+// The sections that part a page by themselves: a photo, a band, the closing call, a wall, and steps laid over a photo
+// (process photo-cards: hotel-rm 2026-11-14). A split row with its photo beside the copy and the enquiry form sit on the
+// page's own white like any plain section and alternate with them (motel 2026-11-14: the review saw a white split row
+// after a white grid, and form, channels and closing call as three white sections, as one column). The testimonials are
+// a plain section too: they were taken for a band a treatment sets, and none of three sites' treatments set one
+// (swimwear, hotel-rm and motel 2026-11-15: each left them white, and white sections met on both sides of them on 33
+// of swimwear's 38 pages: m4-2, testimonials, related).
+const PARTS = new Set(['figure', 'gallery', 'cta']);
+// Of those, the ones on a grey band of their own: a split row of the tinted variant (hotel-rm 2026-11-14: a tinted split
+// under a tinted grid read as one grey surface).
+const banded = (block, variant) => block.type === 'splitMedia' && variant === 'tinted';
 const parts = (block, variant) => PARTS.has(block.type) || String(block.id).startsWith('media-module-') || (block.type === 'process' && variant === 'photo-cards');
 
 // The hero's lead opening the page under the hero (PageView, BlogHubView: a lead much longer than the competitor's) is

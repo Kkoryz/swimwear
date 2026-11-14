@@ -202,10 +202,15 @@ const askedPhoto = (block) => (TEXT_SECTIONS.has(block.type) && !block.continues
 // A section's steps in order (data of shape sequence) follow it as the site's own process module, in the style the
 // competitor's process takes (components.process), else numbered cards over a photo of the work (owner 2026-10-30:
 // the competitor's styles, a generated photo behind, the words the page's own text).
+// The data's caption names the steps ("From your enquiry to your sample"): it is their heading, as written; a caption of
+// more than CAPTION_HEADING_WORDS words is a sentence and leads them (swimwear 2026-11-15: five step sections stood
+// without a heading, the caption a small line in an empty column).
+const CAPTION_HEADING_WORDS = 12;
+const captionOf = (caption) => (!caption?.trim() ? {} : caption.trim().split(/\s+/).length <= CAPTION_HEADING_WORDS ? { heading: caption.trim() } : { paragraphs: [caption.trim()] });
 const stepsOf = (block, components, pageType) => (block.visuals ?? []).filter((visual) => visual.type === 'data' && visual.data?.shape === 'sequence').map((visual, index) => ({
   id: `${block.id}-steps${index ? `-${index + 1}` : ''}`,
   type: 'process',
-  ...(visual.caption ? { paragraphs: [visual.caption] } : {}),
+  ...captionOf(visual.caption),
   steps: visual.data.items.map((item) => (item.detail ? { heading: item.label, text: item.detail } : item.label)),
   variant: stepsVariant(components.pageTypes?.[pageType]?.process ?? components.process ?? 'photo-cards', visual.data.items.length),
   ...(block.type === 'cta' ? {} : { continues: block.id }),

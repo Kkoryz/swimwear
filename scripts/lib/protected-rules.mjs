@@ -8,10 +8,10 @@ import { PLAN_ASSERTIONS } from './plan-assertions.mjs';
 // (template_rule_overridden) and goes to the site-CSS repair, which takes it out.
 
 // A selector whose rule styles a plain section itself (its rightmost part is the section, .block--<type>, of a type the
-// template alternates white and tinted: not a photo, band, closing call, form, split row or testimonials, which carry
-// their own surface). The hotel site's repairs tinted sections by their neighbours (".block--gallery +
-// .block--icon-list"), and two grey sections met where the template's alternation had one.
-const OWN_SURFACE = /^(cta|testimonials|gallery|split|band|figure|form|charts|page-lead)$/;
+// template alternates white and tinted: not a photo, band, closing call, form or split row, which carry their own
+// surface; the testimonials alternate since 2026-11-15). The hotel site's repairs tinted sections by their neighbours
+// (".block--gallery + .block--icon-list"), and two grey sections met where the template's alternation had one.
+const OWN_SURFACE = /^(cta|gallery|split|band|figure|form|charts|page-lead)$/;
 const topLevel = (text, separator) => {
   const parts = [];
   let depth = 0;
