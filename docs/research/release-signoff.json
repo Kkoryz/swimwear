@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "seo-site-release-signoff-v1",
+  "items": [
+    {
+      "id": "sf-OT-supply-32c093c2",
+      "description": "Site Factory: 提供并确认真实联系资料 | contact.email: sales@strandmill.com",
+      "status": "pending"
+    },
+    {
+      "id": "sf-OT-supply-d05d7c7c",
+      "description": "Site Factory: 提供并确认真实联系资料 | contact.phone: ",
+      "status": "pending"
+    },
+    {
+      "id": "sf-OT-supply-31249e96",
+      "description": "Site Factory: 提供并确认真实联系资料 | contact.address: Guangzhou, Guangdong, China",
+      "status": "pending"
+    },
+    {
+      "id": "sf-OT-supply-be83e346",
+      "description": "Site Factory: 提供并确认真实联系资料 | contact.hours: Monday to Saturday, 9:00-18:00 China Standard Time",
+      "status": "pending"
+    },
+    {
+      "id": "sf-OT-confirm-1987a402",
+      "description": "Site Factory: 逐条确认、替换或删除硬信息总表里的事实（价格、资质、规模、时限、合同条款） (see the handoff's owner/evidence/hard_info.md)",
+      "status": "pending"
+    }
+  ]
+}

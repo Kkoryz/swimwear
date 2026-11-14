@@ -89,5 +89,12 @@
     "at": "2026-11-14T07:19:59.737Z",
     "seconds": 0,
     "log": ".pipeline/logs/2026-11-14T07-19-53-295Z/fonts.log"
+  },
+  "proof": {
+    "status": "passed",
+    "hash": "15ff8e2b879057ee",
+    "at": "2026-11-14T07:20:00.574Z",
+    "seconds": 0,
+    "log": ".pipeline/logs/2026-11-14T07-19-53-295Z/proof.log"
   }
 }
