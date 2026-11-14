@@ -126,10 +126,10 @@
     "log": ".pipeline/logs/2026-11-14T07-25-36-409Z/layout-plan.log"
   },
   "plan-gate": {
-    "status": "failed",
-    "hash": "44ee1e2919dc933f",
-    "at": "2026-11-14T07:20:04.863Z",
+    "status": "passed",
+    "hash": "7f2ef432be658183",
+    "at": "2026-11-14T07:25:45.136Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T07-19-53-295Z/plan-gate.log"
+    "log": ".pipeline/logs/2026-11-14T07-25-36-409Z/plan-gate.log"
   }
 }
