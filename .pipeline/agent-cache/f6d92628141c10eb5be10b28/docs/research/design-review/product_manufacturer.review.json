@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "f95b743a0a8c92fc1552f723",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "product_manufacturer",
+  "route": "/swimwear-accessories/",
+  "findings": [
+    {
+      "block": "iconList-1",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The check-list item titles ('Standalone orders', 'Focused first range' …) are set in a light 400 weight, so under the 500-weight section heading they read as large body text rather than sub-headings; the same treatment runs through iconList-2, m3 and m10 at both widths.",
+      "reference": "The competitor sets every sub-heading under a section heading bold ('Pricing Custom Swimwear Designs', 'Ready Designs', 'Custom Designs' in its MOQs block).",
+      "fix": "In src/styles/reference.css give the iconList item title (h3) font-weight: 600–700 and line-height ~1.25, leaving its size to the template."
+    },
+    {
+      "block": "m3",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "On phones the check-list item titles ('Exposure and finish', 'Custom mould fee', 'Hardware ordering' …) are fitted to about 26px, almost the size of the section heading 'Custom Metal Hardware, Charms and Finishes' above them, so the two heading levels look the same (also in iconList-1, iconList-2 and m10).",
+      "reference": "The competitor keeps each heading level clearly smaller than the one above (its bold sub-heads sit just above body size under a larger h2).",
+      "fix": "In the shared heading-fit step, cap an item (h3) heading's fitted size below its section h2's size (e.g. at most ~0.75 of the h2), so a short item title can no longer grow to the h2's size on phones."
+    },
+    {
+      "block": "featureGrid-1",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "Each point's title ('Production standards', 'Direct factory control', 'In-house development', 'Contact our team') is in regular weight and smaller than the paragraph under it, with plain black disc bullets, so the list reads as one run of text with the hierarchy inverted; m9 has the same treatment at both widths.",
+      "reference": "The competitor's sub-heads are bold and at or above body size ('Pricing Custom Swimwear Designs', 'Ready Designs'), so each item can be scanned on its own.",
+      "fix": "In src/styles/reference.css set .point-list__title to the heading face at weight 700 with a font-size at least equal to the item text, and restyle the [data-pattern=\"bullets\"] markers with the accent check (as iconList uses) instead of the default disc."
+    },
+    {
+      "block": "process-1",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The step titles ('Brief and fees', 'Sample review', 'Bulk production', 'Final inspection') are the same size and weight as the step text under them, so the four steps have no visible heading over their details (same on mobile).",
+      "reference": "The competitor's sub-heads over a block of text are bold ('Pricing Custom Swimwear Designs', 'Ready Designs').",
+      "fix": "In src/styles/reference.css set the .block--process step title to font-weight 700 (leaving its size to the template)."
+    },
+    {
+      "block": "iconList-1",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The check marks are thin pale-aqua strokes that nearly vanish on the beige tint (and on white in iconList-2, m3 and m10), so the list's marker barely registers.",
+      "reference": "The competitor uses its deep blue for accents on light grounds (its links #1670a8) and keeps pale aqua for filled shapes, not thin strokes.",
+      "fix": "In src/styles/reference.css colour the iconList check icon with the darker accent (var(--accent-text) / #1670a8) or thicken its stroke to reach 3:1 against both white and the tint."
+    },
+    {
+      "block": "faq-charts",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The cost chart draws a full black grid around every cell (the m5 strap table does too), while the m6 table on the same page uses only light row rules, so the page has two table styles and the boxed one looks heavy.",
+      "reference": "The competitor sets its tabular facts (the MOQs block, the costing handover) without boxed cell grids; its rules are single hairlines.",
+      "fix": "In src/styles/reference.css give the charts and splitMedia panel tables the m6 table's treatment: no vertical cell borders and row rules in a light colour (e.g. color-mix of --text-primary at ~18%) instead of --border-color #000."
+    },
+    {
+      "block": "m6",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The 'Specification and use' column spans about 1,100px, so its cells run single lines of 150–180 characters ('Transparent elastic tape stops slipping inside waistbands, chest lines and leg openings…'), far past a readable measure.",
+      "reference": "The competitor keeps its body copy to lines of about 75–90 characters (its centred text column is about 930px at a 15px size).",
+      "fix": "In src/styles/reference.css cap the table's width (e.g. .block--table table { max-inline-size: 70rem; }) or the cell text (td { max-inline-size: 75ch; }) so its lines stay near 75–90 characters."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The three quote cards stop about 100px short of the content's right edge, which every other section (the related links below, the cards above) reaches, so the row looks cut short.",
+      "reference": "The competitor's card rows run the full content width with even gutters (its three outlined cards in a row).",
+      "fix": "In src/styles/reference.css let the testimonials grid columns stretch to the content width (grid-template-columns: repeat(3, 1fr) / no max card width) on desktop."
+    },
+    {
+      "block": "m2",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Card titles that wrap ('Additional / personalisation', and 'Composting / and recycling' in m8-2) use a line spacing of about 1.6, so their two lines drift apart and read as separate lines.",
+      "reference": "The competitor's card titles are set tight (Maison 700 22px/33px ≈ 1.5 at most, its multi-line headings at ~1.4 or less).",
+      "fix": "In src/styles/reference.css set the feature-card title (.feature-card__title) line-height to about 1.25."
+    },
+    {
+      "block": "trustBar",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "In the two-by-two trust bar the first value breaks as '2 to 3 working / days', leaving 'days' alone on a centred second line while the other three values keep to one line.",
+      "reference": "The competitor's short figures stay on one line each.",
+      "fix": "In src/styles/reference.css let the trust-bar value balance its lines (text-wrap: balance) or keep a figure and its unit together (white-space: nowrap on the value with a slightly smaller value size on phones)."
+    },
+    {
+      "block": "hero",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The hero button 'Request a quote for swimwear accessories' wraps to two lines on a full-width black bar (the same button closes the cta block), which looks clumsy for a single action.",
+      "reference": "The competitor's buttons carry two- or three-word labels ('Request Price', 'Book a Call') that sit on one line on phones.",
+      "fix": "Shorten the button label in the page copy (e.g. 'Request a quote') so it keeps to one line at 390px."
+    },
+    {
+      "block": "footer",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "In the footer's brand column the STRANDMILL wordmark is set left while the email, phone, address, hours and page links under it are centred, so the column has two alignments.",
+      "reference": "The competitor's footer brand column centres 'STAY CONNECTED', its icons and links on one axis.",
+      "fix": "In src/styles/reference.css centre .site-footer__brand (text-align / justify-self) to match the centred lines under it."
+    },
+    {
+      "block": "footer",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones the STRANDMILL wordmark starts on the left edge while every contact line and page link under it is centred.",
+      "reference": "The competitor's phone footer centres 'STAY CONNECTED' and its links.",
+      "fix": "Same change as on desktop: centre .site-footer__brand in src/styles/reference.css."
+    }
+  ]
+}

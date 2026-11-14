@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "339d159e05e00bb4ce1ac129",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "general",
+  "route": "/faq/",
+  "findings": [
+    {
+      "block": "overview-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The steps companion renders as a bare ordered list: plain '1.'–'6.' numerals, each step title ('Brief or tech pack') set smaller than and no bolder than its own description, under a body-size caption ('How a typical order runs') floating alone in an otherwise empty left half, so the steps read as unstyled text.",
+      "reference": "The competitor's numbered-steps module (solution page, process:list) sets each step with a blue 01–03 numeral and a heading-weight title above its text.",
+      "fix": "In the shared steps component (.prose__steps), give the item title the subheading size/weight above its description (never below it) and style the marker as the accent numeral used by process steps; keep the list-beside-caption arrangement."
+    },
+    {
+      "block": "m8-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Same bare-list rendering as overview-steps: 'Sign off sample and specs' and the other step titles are smaller than their descriptions and the same weight, with plain '1.'–'4.' numerals under a body-size caption.",
+      "reference": "The competitor numbers steps 01–03 in blue with a heading-weight title above the text.",
+      "fix": "Same component fix as overview-steps (.prose__steps item title hierarchy and accent numerals)."
+    },
+    {
+      "block": "overview-steps",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "On phones the caption 'How a typical order runs' is followed by an empty band of about 50px before the list starts (m8-steps shows the same gap), so the caption reads as detached from its steps.",
+      "reference": "The competitor's step lists follow their heading at the normal heading-to-content gap.",
+      "fix": "In the stacked (single-column) layout of .prose__steps, drop the side-by-side row gap and use the heading-to-content gap between caption and list."
+    },
+    {
+      "block": "process-1",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Each step's title ('Agree commercial details', 'Confirm production details'…) is set at the same 17px regular weight as the description under it, so the titles do not stand out from the text. Desktop shows the same at its smaller size.",
+      "reference": "The competitor's step and card titles are set in its bold weight (Maison 700) above regular body text.",
+      "fix": "Set font-weight: 700 (var(--font-ui)) on .block--process .process-step title in reference.css; leave its size to the template."
+    },
+    {
+      "block": "m6",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "Two check lists of the same shape stand one under the other: m3 'Stock Styles & Wholesale Buying' and m6 'Pricing & Quotes' both set their items as a list beside their heading, so the page shows the same arrangement twice in a row.",
+      "reference": "Site rule: of two neighbouring sections of rows of short items, the template sets only one as a list beside its heading.",
+      "fix": "Have the template give m6 (or m3) the other iconList arrangement (items under the heading in columns) when two iconList sections are neighbours."
+    },
+    {
+      "block": "m3",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The check marks before each list item are a pale aqua on the beige tint (and on white in m6/m7/m9), at roughly 1.5:1 contrast, so they barely show at either width.",
+      "reference": "The competitor's check list and icons use its navy/steel blue on light grounds; non-text graphics need 3:1.",
+      "fix": "Set the iconList checks variant marker colour (the icon's color/stroke in .block--iconList) to the dark accent (#1f5a7a / #306180) in reference.css."
+    },
+    {
+      "block": "m6",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The list item titles ('Individual style pricing', 'Construction and materials'…) are set in a light regular weight at nearly the section heading's size, so they read as loose large text, not titles, unlike the bold card titles in m2 directly above.",
+      "reference": "The competitor's item and card titles are Maison 700, the same weight as its headings.",
+      "fix": "Set font-weight: 700 on the iconList item title in reference.css (all iconList blocks), matching .featureGrid card titles; the size stays the template's."
+    },
+    {
+      "block": "proof-7",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "This block has no heading and continues m11, but its first paragraph ('We measure your packed cartons…') takes the larger lead size, while proof-5 and proof-6 just before it do not. One paragraph in the middle of the section grows for no reason (also on mobile).",
+      "reference": "The competitor's text sections keep one body size through their paragraphs (Maison Book 17px/25.5px).",
+      "fix": "Apply the lead style only to the first paragraph under a section heading, never to the first paragraph of a headless continuation block."
+    },
+    {
+      "block": "m5-charts",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The fee chart draws three identical full-width bars for Sample fee, Design fee and Courier delivery (all $50), which compares nothing. The timing chart's two range bars float on tracks with no axis or scale.",
+      "reference": "The competitor shows figures only where they add information (a fabric chart figure, stats tiles with big numbers and captions).",
+      "fix": "Have Site Factory give these figures as a stats row or short list (three $50 fees; 10–15 and 5–7 days) rather than bar charts of equal values."
+    },
+    {
+      "block": "related",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The single related link 'Case Studies' is drawn as one outlined bar across the full ~1400px container, with its label at the far left and its arrow at the far right, so it looks like an empty input field.",
+      "reference": "The competitor's link rows (contact channel rows, toggle rows) are sized to a column, not stretched across the page.",
+      "fix": "Cap the width of the relatedPages links list in reference.css (e.g. grid with repeat(auto-fill, minmax(18rem, 1fr)) or a max-width on .related items) so a lone link stays at one column."
+    },
+    {
+      "block": "related",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The heading 'Related products and services' sits over a single link to 'Case Studies', which is neither a product nor a service.",
+      "reference": "n/a (copy).",
+      "fix": "Have Site Factory either link related product/solution pages here or retitle the section to match its link."
+    },
+    {
+      "block": "footer",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "In the brand column the STRANDMILL wordmark is left-aligned while the email, phone, address, hours and links under it are centred, so the column has two alignments. Mobile shows the same.",
+      "reference": "The competitor's footer brand column (monogram, STAY CONNECTED, icons, links) is centred as a whole, on desktop and on phones.",
+      "fix": "Add text-align: center (or align-self: center) to .site-footer__brand in reference.css so the wordmark follows --footer-brand-align: center."
+    },
+    {
+      "block": "footer",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The thin rule meant to separate the brand column from the link columns does not show: it is drawn in rgb(0 0 0 / 0.3) on the #003049 navy.",
+      "reference": "The competitor separates its brand column from the four link columns with a visible thin vertical rule.",
+      "fix": "Change the border-right colour on .site-footer__brand-column (reference.css, min-width 1024px) to a light rule such as rgb(255 255 255 / 0.3)."
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "058f0b879c8f86dad76ca7b6",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "product_manufacturer--shortest",
+  "route": "/watersports-apparel-manufacturer/",
+  "findings": [
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "content",
+      "issue": "The desktop hero photo has its own headline ('Swim for Sunlit Days'), lead and two buttons printed into the picture; they compete with the real H1 below it, and the frame's bottom edge cuts the second printed button in half.",
+      "reference": "The competitor's hero is a clean photo with no text on it; the H1, lead and two black buttons stand under the photo.",
+      "fix": "Replace the hero photo with one that carries no text or buttons (Site Factory photo choice); keep the H1 and button under the photo as they are."
+    },
+    {
+      "block": "splitMedia-2",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "splitMedia-1, splitMedia-2 and its steps block splitMedia-2-steps all have the same beige tint, so tinted sections run one under the other instead of alternating white and tinted (the same on mobile).",
+      "reference": "The competitor alternates white sections with its pink-tinted Sampling panel; no two tinted modules touch.",
+      "fix": "The template's background alternation should count splitMedia-1 and splitMedia-2 as neighbouring plain sections and set splitMedia-2 (with its steps) on white, so the tint goes white / tint / white."
+    },
+    {
+      "block": "splitMedia-2-steps",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "Each step's title ('Brief or tech pack', 'Quote and price agreed' …) has the same weight and size as its description, so the seven steps read as fourteen equal lines (the same on desktop).",
+      "reference": "The competitor sets each item's short title in bold above its regular-weight description (MOQs: 'Custom Designs' / 'Ready Designs').",
+      "fix": "In reference.css, give the process list's step title (.process-step__title or the list item's title element) font-weight 600 so it stands apart from its description."
+    },
+    {
+      "block": "splitMedia-2-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The section heading 'How a typical order runs from brief to shipment.' is set at about the step text's size and in regular weight, so it reads as a caption rather than a heading next to the list.",
+      "reference": "The competitor's section headings ('MOQs', 'Sampling') are clearly bigger than the body text, in a medium weight.",
+      "fix": "The template should fit this heading to its own words at section-heading level like the page's other H2s (it is now smaller than they are); no font-size set in reference.css."
+    },
+    {
+      "block": "footer",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "In the brand column, the STRANDMILL name sits on the column's left edge while the email, phone, address, hours and links under it are centred (the same on mobile).",
+      "reference": "The competitor centres its whole 'Stay connected' column: title, icons and links on one axis.",
+      "fix": "In template.css, remove `justify-self: start` (and `align-self: start`) from .site-footer__brand, or make it `justify-self: stretch`, so the name follows .site-footer__brand-column's text-align (--footer-brand-align)."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The three testimonial cards fill only the first three columns of a four-column grid, leaving an empty column on the right of the band.",
+      "reference": "The competitor fills the content width with each row of its modules; there is no empty column at the end.",
+      "fix": "Lay out the testimonials grid from its card count (three equal columns, or auto-fit instead of auto-fill) so three cards span the content width."
+    },
+    {
+      "block": "splitMedia-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The white 'Sample fee / Design fee' chart card is stretched well below its content, leaving an empty white band of about a third of its height above the payment-terms card.",
+      "reference": "The competitor's media column holds its picture at its own height with no empty frame.",
+      "fix": "Let the chart cards in the split's media column take their content height (align-content/align-self: start on the chart set) instead of stretching to a shared row height."
+    },
+    {
+      "block": "trustBar",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "In the 2×2 trust bar, '80/20 nylon-spandex' breaks over two lines while '50 pieces' takes one, so the two labels in the first row ('CORE FABRIC BLEND', 'MINIMUM PER STYLE') sit at different heights.",
+      "reference": "The competitor's short fact rows keep each row's parts level.",
+      "fix": "Align the trust-bar items' labels on a shared line (the items as a subgrid, or align-content: end on .stats__item) so each row's labels line up."
+    },
+    {
+      "block": "overview",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The intro paragraphs run about 800px wide, roughly 95–100 characters a line, well past the ~70ch measure (the cta copy is just as wide).",
+      "reference": "treatment-practice.md holds running text to about 70ch.",
+      "fix": "Give the intro's (and cta's) text column a max-width of about 70ch in reference.css, starting on the heading's left edge."
+    },
+    {
+      "block": "related",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "The seven related-page tiles run 4 + 3, and the short last row of three starts on the left instead of being centred under the full row.",
+      "reference": "Site rule: only a grid's own short last row is centred; the competitor has no left-hanging short rows.",
+      "fix": "Centre the related grid's short last row in the template, as it does for other card grids."
+    }
+  ]
+}

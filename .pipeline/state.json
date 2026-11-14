@@ -250,5 +250,12 @@
     "at": "2026-11-14T10:01:22.668Z",
     "seconds": 89,
     "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/design-shots.log"
+  },
+  "design-review": {
+    "status": "done",
+    "hash": "e3b0c44298fc1c14",
+    "at": "2026-11-14T10:08:18.427Z",
+    "seconds": 413,
+    "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/design-review.log"
   }
 }
