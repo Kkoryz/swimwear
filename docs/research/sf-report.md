@@ -1,6 +1,6 @@
 # 08 给 Site Factory 的回报（2026-11-14）
 
-交接包：D:/korey_seo/site13-strandmill/inputs/freeze/s07-361a8152f4；模板 f8f324ffacc629da7e65bccfcf1ab4c7d0334017；页面 37 个，已构建 37 个。
+交接包：D:/korey_seo/site13-strandmill/inputs/freeze/s07-361a8152f4；模板 dfa374b8bf87b9e04331b761d98193beafea9cdf；页面 37 个，已构建 37 个。
 
 ## 要 SF 改的问题
 

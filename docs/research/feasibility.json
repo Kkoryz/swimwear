@@ -1,11 +1,11 @@
 {
   "schemaVersion": "seo-site-layout-plan-v1",
-  "madeAt": "2026-11-14T07:38:31.669Z",
+  "madeAt": "2026-11-14T09:21:04.540Z",
   "maxWalls": 12,
-  "headingModel": "none (no layout audit yet: section heading lines not predicted)",
+  "headingModel": "the site's layout audit (882 headings)",
   "context": {
     "serviceCards": false,
-    "phoneHeroes": false,
+    "phoneHeroes": true,
     "maxWalls": 12
   },
   "pages": [
@@ -16,7 +16,7 @@
         "variant": "media-overlay",
         "photo": true,
         "framed": false,
-        "phoneFrame": null,
+        "phoneFrame": 0.54,
         "leadBelow": false,
         "title": {
           "text": "Swimwear Manufacturer With Our Own Factory in Guangzhou",
@@ -43,8 +43,8 @@
           },
           "heading": {
             "text": "Our Own Swimwear Factory in China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -129,8 +129,8 @@
           "longestItemChars": 178,
           "heading": {
             "text": "Why Brands Source From Our Own Factory",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -178,8 +178,8 @@
           "cardWords": 46,
           "heading": {
             "text": "Custom Swimwear in Every Style and Size",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -344,8 +344,8 @@
           "cardWords": 41,
           "heading": {
             "text": "OEM Swimwear Production, From Sample to Shipment",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -551,8 +551,8 @@
           },
           "heading": {
             "text": "Wholesale Swimwear, Ready to Brand and Ship",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 2
           }
         },
         {
@@ -610,8 +610,8 @@
           "longestItemWords": 5,
           "heading": {
             "text": "Brands we make for",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -633,8 +633,8 @@
           "longestItemWords": 38,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -654,8 +654,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "blog_hub",
@@ -703,8 +703,8 @@
           "longestItemWords": 78,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -744,8 +744,8 @@
           },
           "heading": {
             "text": "Send Your Enquiry Straight to the Factory",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         }
       ],
@@ -793,7 +793,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Private Label Women's Swimwear Manufacturer for Every Body Type",
@@ -820,8 +820,8 @@
           },
           "heading": {
             "text": "Bikinis, One-Pieces and Tankinis From Our Factory in Guangzhou, China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -866,8 +866,8 @@
           "cardWords": 27,
           "heading": {
             "text": "Inclusive Fits for Every Body: Extended Sizes, Cup Grading and Long Torsos",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -961,8 +961,8 @@
           "longestItemChars": 198,
           "heading": {
             "text": "Performance Features Built for Comfort, Support and Durability",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -1010,8 +1010,8 @@
           "cardWords": 46,
           "heading": {
             "text": "Premium and Recycled Fabrics With Water-Based Digital Prints",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -1061,8 +1061,8 @@
           "cardWords": 36,
           "heading": {
             "text": "Custom Swimwear Embellishment: Rhinestones, Beads and Trims",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 4
           }
         },
         {
@@ -1082,8 +1082,8 @@
           },
           "heading": {
             "text": "Private Label Design, Sampling and Your Own Supplied Materials",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -1108,8 +1108,8 @@
           "longestItemChars": 282,
           "heading": {
             "text": "Wholesale Swimwear Terms: MOQs, Lead Times, Payment and Shipping",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         },
         {
@@ -1131,8 +1131,8 @@
           "longestItemWords": 51,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -1152,8 +1152,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer",
@@ -1186,8 +1186,8 @@
           "longestItemWords": 89,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -1207,8 +1207,8 @@
           },
           "heading": {
             "text": "Start Your Own Women's Swimwear Label Today",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -1256,7 +1256,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Custom One-Piece Swimsuit Manufacturer for Your Brand",
@@ -1283,8 +1283,8 @@
           },
           "heading": {
             "text": "OEM One-Piece Swimsuits and ODM Programs",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -1311,8 +1311,8 @@
           "cardWords": 18,
           "heading": {
             "text": "One-Piece Styles From Our Block Library",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -1360,8 +1360,8 @@
           "longestItemChars": 266,
           "heading": {
             "text": "Our Own Swimwear Factory in Guangzhou, China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -1409,8 +1409,8 @@
           "cardWords": 32,
           "heading": {
             "text": "Private Label One-Piece Orders: MOQ, Samples, Lead Times and Payment",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -1458,8 +1458,8 @@
           "longestItemChars": 253,
           "heading": {
             "text": "Custom One-Piece Design Options: Neckline, Back, Leg Line and Cut-Outs",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         },
         {
@@ -1486,8 +1486,8 @@
           "cardWords": 36,
           "heading": {
             "text": "Shaping Fabrics, Linings and Performance Options",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -1532,8 +1532,8 @@
           },
           "heading": {
             "text": "Construction, Bust Support and Trim Details",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -1553,8 +1553,8 @@
           },
           "heading": {
             "text": "Size Range and Grading Specs from XS to 3XL",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -1576,8 +1576,8 @@
           "longestItemWords": 47,
           "heading": {
             "text": "Long-Torso Fits and Custom Re-Grading",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -1599,8 +1599,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -1620,8 +1620,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer"
@@ -1646,8 +1646,8 @@
           "longestItemWords": 87,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -1667,8 +1667,8 @@
           },
           "heading": {
             "text": "Request a Quote for Your One-Piece Swimsuit Range",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -1716,7 +1716,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Bikini Manufacturer for Every Style and Size",
@@ -1743,8 +1743,8 @@
           },
           "heading": {
             "text": "Bikini Factory in Guangzhou, China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -1766,8 +1766,8 @@
           "longestItemWords": 48,
           "heading": {
             "text": "OEM Bikini Sampling, Lead Times, Payment and Shipping",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -1787,8 +1787,8 @@
           },
           "heading": {
             "text": "Bikini Sets and Separates in Sizes XS to 5XL",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -1815,8 +1815,8 @@
           "cardWords": 44,
           "heading": {
             "text": "Custom Bikini Fabrics, Linings and Support",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -1864,8 +1864,8 @@
           "cardWords": 40,
           "heading": {
             "text": "Bikini Reinforcement, Edge Finishes and Lacing Details",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -1910,8 +1910,8 @@
           "longestItemWords": 46,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -1931,8 +1931,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer",
@@ -1958,8 +1958,8 @@
           "longestItemWords": 118,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -1979,8 +1979,8 @@
           },
           "heading": {
             "text": "Request a Wholesale Bikini Quote",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -2028,7 +2028,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Custom Men's Swimwear Manufacturer in Guangzhou",
@@ -2055,8 +2055,8 @@
           },
           "heading": {
             "text": "A Full Men's Swimwear Range from One Supplier",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -2083,8 +2083,8 @@
           "cardWords": 30,
           "heading": {
             "text": "Men's Swim Trunk Fabrics and Inseam Styles",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -2106,8 +2106,8 @@
           },
           "heading": {
             "text": "Our Own Men's Swimwear Factory in Guangzhou, China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -2150,8 +2150,8 @@
           "longestItemChars": 138,
           "heading": {
             "text": "Wholesale Men's Swimwear MOQ, Trial Runs and Payment",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -2173,8 +2173,8 @@
           "longestItemWords": 34,
           "heading": {
             "text": "From Tech Pack to Delivery: Lead Times and Shipping Terms",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -2194,8 +2194,8 @@
           },
           "heading": {
             "text": "OEM Men's Swimwear Patterns, Samples and Fees",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -2222,8 +2222,8 @@
           "cardWords": 29,
           "heading": {
             "text": "Construction Options: Linings, Waistbands and Trims",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -2292,8 +2292,8 @@
           "longestItemChars": 247,
           "heading": {
             "text": "Shell Fabrics, Linings and Supplied Materials for Men's Swimwear",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         },
         {
@@ -2313,8 +2313,8 @@
           },
           "heading": {
             "text": "Custom Prints and Colour Matching",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -2339,8 +2339,8 @@
           "longestItemChars": 249,
           "heading": {
             "text": "Quality Checks from Approved Sample to Bulk Order",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -2362,8 +2362,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -2383,8 +2383,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer",
@@ -2415,8 +2415,8 @@
           "longestItemWords": 83,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -2436,8 +2436,8 @@
           },
           "heading": {
             "text": "Send Us Your Men's Swimwear Enquiry",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -2485,7 +2485,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Boardshorts Manufacturer for Custom OEM and ODM Orders",
@@ -2512,8 +2512,8 @@
           },
           "heading": {
             "text": "Custom Boardshorts for Surf, Resort and Merchandise Labels",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -2540,8 +2540,8 @@
           "cardWords": 33,
           "heading": {
             "text": "Our Boardshorts Factory in China and the Styles We Make",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -2589,8 +2589,8 @@
           "longestItemChars": 221,
           "heading": {
             "text": "Wholesale Boardshorts: MOQ, Samples, Lead Times and Payment",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -2638,8 +2638,8 @@
           "cardWords": 28,
           "heading": {
             "text": "OEM and ODM Boardshorts Customization",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -2689,8 +2689,8 @@
           "cardWords": 32,
           "heading": {
             "text": "Boardshort Shell Fabrics and Liner Options",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -2715,8 +2715,8 @@
           "longestItemChars": 233,
           "heading": {
             "text": "Waist, Seam, Hem and Pocket Construction",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -2738,8 +2738,8 @@
           },
           "heading": {
             "text": "Sublimation Prints and Colour Matching",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -2784,8 +2784,8 @@
           "cardWords": 38,
           "heading": {
             "text": "Private Label Boardshorts: Logos and Labels",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -2805,8 +2805,8 @@
           },
           "heading": {
             "text": "Preventing Common Boardshort Defects",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -2828,8 +2828,8 @@
           "longestItemWords": 48,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -2849,8 +2849,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer",
@@ -2876,8 +2876,8 @@
           "longestItemWords": 85,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -2897,8 +2897,8 @@
           },
           "heading": {
             "text": "Send Us Your Boardshorts Enquiry",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -2946,7 +2946,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Custom Swim Trunks Manufacturer for Your Brand",
@@ -2973,8 +2973,8 @@
           },
           "heading": {
             "text": "Custom Swim Trunks Built Around Your Range",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -2994,8 +2994,8 @@
           },
           "heading": {
             "text": "Trunk Styles, Waistbands, Sizes and Stock Styles",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -3022,8 +3022,8 @@
           "cardWords": 38,
           "heading": {
             "text": "Our Swim Trunks Factory in China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -3071,8 +3071,8 @@
           "longestItemChars": 270,
           "heading": {
             "text": "OEM Swim Trunks Orders: Quotes, Samples, MOQ, Payment and Shipping",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         },
         {
@@ -3099,8 +3099,8 @@
           "cardWords": 42,
           "heading": {
             "text": "Quick-Dry Shell Fabrics and Liner Options",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -3146,8 +3146,8 @@
           "longestItemChars": 200,
           "heading": {
             "text": "Waistband, Seam and Pocket Construction",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -3174,8 +3174,8 @@
           "cardWords": 44,
           "heading": {
             "text": "Private Label Swim Trunks: Prints and Branding",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -3220,8 +3220,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -3241,8 +3241,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer"
@@ -3267,8 +3267,8 @@
           "longestItemWords": 127,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -3288,8 +3288,8 @@
           },
           "heading": {
             "text": "Send Us Your Swim Trunks Enquiry",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -3337,7 +3337,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Children's Swimwear Manufacturer in Guangzhou",
@@ -3364,8 +3364,8 @@
           },
           "heading": {
             "text": "Kids' Swimwear for Boys, Girls and Tweens",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -3392,8 +3392,8 @@
           "cardWords": 31,
           "heading": {
             "text": "Rash Guard Sets, Sun Suits and Printed Beach Sets",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -3415,8 +3415,8 @@
           },
           "heading": {
             "text": "Our Own Children's Swimwear Factory in Guangzhou, China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -3459,8 +3459,8 @@
           "longestItemChars": 140,
           "heading": {
             "text": "Kids' Wholesale Order Minimums, Trial Runs and Payment",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -3480,8 +3480,8 @@
           },
           "heading": {
             "text": "How Zips and Size Bands Affect Unit Price",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -3527,8 +3527,8 @@
           "longestItemChars": 217,
           "heading": {
             "text": "Sample Lead Time and Fees",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -3550,8 +3550,8 @@
           "longestItemWords": 34,
           "heading": {
             "text": "Bulk Production Lead Time and Order Timeline",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -3576,8 +3576,8 @@
           "longestItemChars": 265,
           "heading": {
             "text": "Shipping Terms and DDP Delivery to Your Door",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -3604,8 +3604,8 @@
           "cardWords": 46,
           "heading": {
             "text": "UPF 50+ Swim Fabrics and Chlorine Resistance",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -3653,8 +3653,8 @@
           "cardWords": 26,
           "heading": {
             "text": "Soft Linings, Seams and Secure Trims for Comfort",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -3702,8 +3702,8 @@
           "longestItemChars": 206,
           "heading": {
             "text": "CPSIA Tracking Labels and Traceability for Kids' Swimwear",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -3728,8 +3728,8 @@
           "longestItemChars": 136,
           "heading": {
             "text": "Children's Size Range from Infant to Tween and Custom Size Spreads",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         },
         {
@@ -3756,8 +3756,8 @@
           "cardWords": 34,
           "heading": {
             "text": "Custom Prints, Logos and Private Label Options",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -3802,8 +3802,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -3823,8 +3823,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer",
@@ -3857,8 +3857,8 @@
           "longestItemWords": 116,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -3878,8 +3878,8 @@
           },
           "heading": {
             "text": "Tell Us About Your Kids' Swimwear Order",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -3927,7 +3927,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Teen Swimwear Manufacturer for Custom Brand Collections",
@@ -3954,8 +3954,8 @@
           },
           "heading": {
             "text": "Custom Teen Swimsuits Sized by Age or Height",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -3977,8 +3977,8 @@
           },
           "heading": {
             "text": "OEM Teen Swimwear Pattern Drafting, Grading and Design",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -4000,8 +4000,8 @@
           },
           "heading": {
             "text": "Our Own Teen Swimwear Factory in Guangzhou, China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -4044,8 +4044,8 @@
           "longestItemChars": 190,
           "heading": {
             "text": "Quotes, Sample Timing and Sample Fees",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -4070,8 +4070,8 @@
           "longestItemChars": 127,
           "heading": {
             "text": "Wholesale Teen Swimwear Orders: MOQ, Trial Runs and Payment",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -4093,8 +4093,8 @@
           "longestItemWords": 30,
           "heading": {
             "text": "Bulk Lead Time and Shipping Terms",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -4121,8 +4121,8 @@
           "cardWords": 20,
           "heading": {
             "text": "Teen Swimsuit Styles We Make",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -4193,8 +4193,8 @@
           "cardWords": 36,
           "heading": {
             "text": "Fabric Performance and Azo-Free Dye Checks",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -4242,8 +4242,8 @@
           "longestItemChars": 317,
           "heading": {
             "text": "Seam Construction and Skin Comfort",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -4270,8 +4270,8 @@
           "cardWords": 28,
           "heading": {
             "text": "Prints and Artwork Scaled Across Sizes",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -4316,8 +4316,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -4337,8 +4337,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer",
@@ -4365,8 +4365,8 @@
           "longestItemWords": 78,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -4386,8 +4386,8 @@
           },
           "heading": {
             "text": "Start Your Private Label Teen Swimwear Order",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -4435,7 +4435,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Baby Swimwear Manufacturer for Custom and Private Label Orders",
@@ -4462,8 +4462,8 @@
           },
           "heading": {
             "text": "OEM, ODM and Private Label Baby Swimwear",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -4483,8 +4483,8 @@
           },
           "heading": {
             "text": "Custom Baby Swimwear Sampling from Your Brief",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -4509,8 +4509,8 @@
           "longestItemChars": 176,
           "heading": {
             "text": "Wholesale MOQ, Lead Times, Payment and Shipping Terms",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -4535,8 +4535,8 @@
           "longestItemChars": 266,
           "heading": {
             "text": "Our Own Baby Swimwear Factory in Guangzhou, China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -4584,8 +4584,8 @@
           "cardWords": 48,
           "heading": {
             "text": "Girls' and Boys' Baby Swim Styles and Size Ranges",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -4605,8 +4605,8 @@
           },
           "heading": {
             "text": "Sun-Protective Fabrics Made for Sensitive Skin",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -4633,8 +4633,8 @@
           "cardWords": 39,
           "heading": {
             "text": "Customization, Decoration and Private Label Branding Options",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -4656,8 +4656,8 @@
           },
           "heading": {
             "text": "Fabrics and Construction That Keep Baby Swimsuits in Shape",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -4679,8 +4679,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -4700,8 +4700,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer",
@@ -4727,8 +4727,8 @@
           "longestItemWords": 75,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -4748,8 +4748,8 @@
           },
           "heading": {
             "text": "Let's Talk About Your Baby Swimwear Order",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -4797,7 +4797,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Toddler Swimwear Manufacturer for Girls' and Boys' Collections",
@@ -4824,8 +4824,8 @@
           },
           "heading": {
             "text": "Toddler Swimwear Made in Our Own Factory in Guangzhou, China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -4845,8 +4845,8 @@
           },
           "heading": {
             "text": "Wholesale Toddler Swimwear: Samples, Payment & Shipping Terms",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -4866,8 +4866,8 @@
           },
           "heading": {
             "text": "Chlorine- and Salt-Resistant Fabrics for Little Swimmers",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -4894,8 +4894,8 @@
           "cardWords": 40,
           "heading": {
             "text": "Soft, Secure Construction for Every Splash",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -4966,8 +4966,8 @@
           "cardWords": 30,
           "heading": {
             "text": "Styles for Girls and Boys",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -4987,8 +4987,8 @@
           },
           "heading": {
             "text": "Toddler Sizes and Custom Size Runs",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -5010,8 +5010,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -5031,8 +5031,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer"
@@ -5057,8 +5057,8 @@
           "longestItemWords": 90,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -5078,8 +5078,8 @@
           },
           "heading": {
             "text": "Start Your Private Label Toddler Swimwear Collection",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         }
       ],
@@ -5127,7 +5127,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Modest Swimwear Manufacturer for Full-Coverage Swim Sets",
@@ -5154,8 +5154,8 @@
           },
           "heading": {
             "text": "Modest Swim Sets and Full-Coverage Styles We Make",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -5182,8 +5182,8 @@
           "cardWords": 29,
           "heading": {
             "text": "Custom Modest Swimwear Styles We Produce",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -5205,8 +5205,8 @@
           },
           "heading": {
             "text": "Wholesale Stock and Ready-Made Modest Designs",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -5233,8 +5233,8 @@
           "cardWords": 35,
           "heading": {
             "text": "Matching Prints Across Tunic, Leggings and Hijab",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -5279,8 +5279,8 @@
           },
           "heading": {
             "text": "Our Own Modest Swimwear Factory in Guangzhou, China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -5323,8 +5323,8 @@
           "longestItemChars": 174,
           "heading": {
             "text": "MOQ, Lead Times and Shipping Terms",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -5349,8 +5349,8 @@
           "longestItemChars": 254,
           "heading": {
             "text": "Sample Timing and Fees",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -5372,8 +5372,8 @@
           "longestItemWords": 24,
           "heading": {
             "text": "How an OEM Order Runs, From Brief to Shipment",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -5400,8 +5400,8 @@
           "cardWords": 29,
           "heading": {
             "text": "Brands, Swim Schools and Teams We Supply",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -5421,8 +5421,8 @@
           },
           "heading": {
             "text": "Coverage Levels, Sleeves and Swim Hijab Constructions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -5449,8 +5449,8 @@
           "cardWords": 51,
           "heading": {
             "text": "Fabric Matched to Pool or Open Water",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -5498,8 +5498,8 @@
           "cardWords": 40,
           "heading": {
             "text": "Construction That Stays Put in the Water",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -5519,8 +5519,8 @@
           },
           "heading": {
             "text": "Size Ranges, Fit Blocks and Grading",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -5542,8 +5542,8 @@
           "longestItemWords": 48,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -5563,8 +5563,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer",
@@ -5596,8 +5596,8 @@
           "longestItemWords": 90,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -5617,8 +5617,8 @@
           },
           "heading": {
             "text": "Start Your Modest Swim Order With Strandmill",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -5666,7 +5666,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Burkini Manufacturer for Two- and Three-Piece Sets",
@@ -5693,8 +5693,8 @@
           },
           "heading": {
             "text": "Burkini Sets and Matching Pieces Made in China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -5721,8 +5721,8 @@
           "cardWords": 42,
           "heading": {
             "text": "Fabrics That Stay Light, Opaque and Sun-Protective in Water",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -5747,8 +5747,8 @@
           "longestItemChars": 250,
           "heading": {
             "text": "Burkini Construction Tested in Motion",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -5791,8 +5791,8 @@
           "longestItemWords": 39,
           "heading": {
             "text": "Lead Times and Seasonal Planning",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -5814,8 +5814,8 @@
           "longestItemWords": 35,
           "heading": {
             "text": "OEM Burkini Design, Sampling and Water Testing",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -5840,8 +5840,8 @@
           "longestItemChars": 186,
           "heading": {
             "text": "Price Factors, Minimums and Order Terms",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -5863,8 +5863,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -5886,8 +5886,8 @@
           "longestItemWords": 96,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -5925,8 +5925,8 @@
           },
           "heading": {
             "text": "Start Your Custom Burkini Order",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -5974,7 +5974,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Watersports Apparel Manufacturer for Your Brand",
@@ -6001,8 +6001,8 @@
           },
           "heading": {
             "text": "Watersports Apparel Made in Our Own Guangzhou Factory",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -6022,8 +6022,8 @@
           },
           "heading": {
             "text": "Custom Watersports Apparel: Sample Fees, Payment and Shipping",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -6102,8 +6102,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -6123,8 +6123,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer",
@@ -6155,8 +6155,8 @@
           "longestItemWords": 233,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -6176,8 +6176,8 @@
           },
           "heading": {
             "text": "Send Us Your Watersports Apparel Enquiry",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -6225,7 +6225,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Rash Guard Manufacturer for Custom and OEM Ranges",
@@ -6252,8 +6252,8 @@
           },
           "heading": {
             "text": "Rash Guards for Women, Men, Swim Schools and Teams",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -6280,8 +6280,8 @@
           "cardWords": 31,
           "heading": {
             "text": "Our Own Rash Guard Factory in Guangzhou, China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -6329,8 +6329,8 @@
           "longestItemChars": 152,
           "heading": {
             "text": "OEM Rash Guard Orders: Minimums, Samples, Lead Times and Payment",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         },
         {
@@ -6357,8 +6357,8 @@
           "cardWords": 34,
           "heading": {
             "text": "Rash Guard Fabrics, UPF Ratings and Certifications",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -6406,8 +6406,8 @@
           "longestItemChars": 165,
           "heading": {
             "text": "Sizes, Sleeve Options, Necklines and Fits You Can Order",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         },
         {
@@ -6448,8 +6448,8 @@
           },
           "heading": {
             "text": "Flatlock and Bonded Seams Built for Board and Water",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -6476,8 +6476,8 @@
           "cardWords": 31,
           "heading": {
             "text": "Custom Rash Guard Printing, Logos and Names",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -6525,8 +6525,8 @@
           "longestItemChars": 225,
           "heading": {
             "text": "Private Label Rash Guards and Design Customisation",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -6569,8 +6569,8 @@
           },
           "heading": {
             "text": "How Sleeves, Details and Seams Shape Your Quote",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -6590,8 +6590,8 @@
           },
           "heading": {
             "text": "Washing and Drying Printed and Bonded Rash Guards",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -6634,8 +6634,8 @@
           "longestItemWords": 40,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -6655,8 +6655,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer"
@@ -6681,8 +6681,8 @@
           "longestItemWords": 87,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -6720,8 +6720,8 @@
           },
           "heading": {
             "text": "Send Us Your Rash Guard Brief",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -6769,7 +6769,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Resort Wear Manufacturer for Private Label Collections",
@@ -6796,8 +6796,8 @@
           },
           "heading": {
             "text": "From Poolside to Evening: Our Full Resort Wear Range",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -6822,8 +6822,8 @@
           "longestItemChars": 202,
           "heading": {
             "text": "Custom Resort Wear Details, Luxury Fabrics and Seam Finishes",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         },
         {
@@ -6891,8 +6891,8 @@
           },
           "heading": {
             "text": "Our Own Resort Wear Factory in Guangzhou, China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -6935,8 +6935,8 @@
           "longestItemChars": 148,
           "heading": {
             "text": "Wholesale Resort Wear Orders: MOQ, Payment and Shipping Terms",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -6961,8 +6961,8 @@
           "longestItemChars": 133,
           "heading": {
             "text": "Quotes First, Then Samples: Timing and Costs",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -6984,8 +6984,8 @@
           "longestItemWords": 28,
           "heading": {
             "text": "OEM Resort Wear Production Timeline and Quality Checks",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -7026,8 +7026,8 @@
           },
           "heading": {
             "text": "Lightweight, Breathable Fabrics Made for Warm Weather",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -7054,8 +7054,8 @@
           "cardWords": 53,
           "heading": {
             "text": "Private Label Resort Wear With Your Own Prints and Branding",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -7075,8 +7075,8 @@
           },
           "heading": {
             "text": "Patterns, Size Grading and Fit Approval Before Bulk",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -7116,8 +7116,8 @@
           "longestItemWords": 53,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -7137,8 +7137,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer",
@@ -7170,8 +7170,8 @@
           "longestItemWords": 124,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -7191,8 +7191,8 @@
           },
           "heading": {
             "text": "Send Us Your Resort Collection Enquiry",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -7240,7 +7240,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Cover-Up Manufacturer for Private Label and Stock Styles",
@@ -7267,8 +7267,8 @@
           },
           "heading": {
             "text": "Our Cover-Up Factory in China for Kaftans, Sarongs and Kimonos",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -7295,8 +7295,8 @@
           "cardWords": 36,
           "heading": {
             "text": "OEM Cover-Up Styles, Silhouettes and Design Details",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -7339,8 +7339,8 @@
           },
           "heading": {
             "text": "Beach Cover-Up Fabrics, GSM Weights and Coverage",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -7427,8 +7427,8 @@
           },
           "heading": {
             "text": "Swimsuit Cover-Up Sizes, Lengths and Fit",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -7455,8 +7455,8 @@
           "cardWords": 25,
           "heading": {
             "text": "Custom Cover-Up Prints, Colours and Trims",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -7504,8 +7504,8 @@
           "longestItemChars": 240,
           "heading": {
             "text": "Private Label Cover-Ups, In-Stock Styles and MOQ",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -7530,8 +7530,8 @@
           "longestItemChars": 166,
           "heading": {
             "text": "Wholesale Cover-Up Orders: Samples, Lead Times, Payment and Shipping",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 4
           }
         },
         {
@@ -7574,8 +7574,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -7595,8 +7595,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer"
@@ -7621,8 +7621,8 @@
           "longestItemWords": 113,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -7642,8 +7642,8 @@
           },
           "heading": {
             "text": "Start Your Cover-Up Collection with Strandmill",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -7691,7 +7691,7 @@
         "variant": "media-overlay",
         "photo": true,
         "framed": false,
-        "phoneFrame": null,
+        "phoneFrame": 0.45,
         "leadBelow": false,
         "title": {
           "text": "Swimwear Embroidery for Stretch Swim Fabrics",
@@ -7718,8 +7718,8 @@
           },
           "heading": {
             "text": "Custom Embroidered Swimwear: Flat, 3D Puff, Appliqué and Patches",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -7741,8 +7741,8 @@
           },
           "heading": {
             "text": "Branding from Small Tags to Full Garments, Made in Our Own Factory",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -7764,8 +7764,8 @@
           },
           "heading": {
             "text": "Which Swim Fabrics Take Embroidery Well",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -7785,8 +7785,8 @@
           },
           "heading": {
             "text": "How We Keep Stitching Flat on Stretch Fabric",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -7831,8 +7831,8 @@
           "cardWords": 33,
           "heading": {
             "text": "Beading, Sequins and Hand-Crochet Embellishments",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -7859,8 +7859,8 @@
           "cardWords": 37,
           "heading": {
             "text": "Embroidery Threads, Pantone Matching and Colourfastness",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -7908,8 +7908,8 @@
           "longestItemChars": 213,
           "heading": {
             "text": "Send Your Own Design or Let Our Team Create One",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -7931,8 +7931,8 @@
           },
           "heading": {
             "text": "Artwork Digitising and Saved DST Stitch Files",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -7972,8 +7972,8 @@
           },
           "heading": {
             "text": "Working from Your Existing Embroidery Files",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -7993,8 +7993,8 @@
           },
           "heading": {
             "text": "Embroidered Logo Techniques and Minimums",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -8016,8 +8016,8 @@
           "longestItemWords": 39,
           "heading": {
             "text": "From Artwork Submission to Inspected Production",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -8042,8 +8042,8 @@
           "longestItemChars": 185,
           "heading": {
             "text": "Lead Times, Sample Fees, Payment and Shipping Terms",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -8070,8 +8070,8 @@
           "cardWords": 40,
           "heading": {
             "text": "Full-Package Programs and Embroidery on Your Finished Garments",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         },
         {
@@ -8114,8 +8114,8 @@
           "longestItemWords": 45,
           "heading": {
             "text": "A recent order",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -8137,8 +8137,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -8158,8 +8158,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "solution",
@@ -8185,8 +8185,8 @@
           "longestItemWords": 99,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -8208,8 +8208,8 @@
           },
           "heading": {
             "text": "Start Your Embroidery Project with Strandmill",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         }
       ],
@@ -8257,7 +8257,7 @@
         "variant": "media-overlay",
         "photo": true,
         "framed": false,
-        "phoneFrame": null,
+        "phoneFrame": 0.45,
         "leadBelow": false,
         "title": {
           "text": "Swimwear Consulting for Brands, From Strategy to Production",
@@ -8284,8 +8284,8 @@
           },
           "heading": {
             "text": "Swimwear Brand Consulting Built on Execution, Not Theory",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -8305,8 +8305,8 @@
           },
           "heading": {
             "text": "What Our Consulting Covers and How It Differs From Design Support",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         },
         {
@@ -8328,8 +8328,8 @@
           },
           "heading": {
             "text": "Senior Consultants Backed by Our Own Factory",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -8356,8 +8356,8 @@
           "cardWords": 35,
           "heading": {
             "text": "Market Sizing, Customer Research and Brand Positioning",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -8405,8 +8405,8 @@
           "longestItemChars": 231,
           "heading": {
             "text": "Line Plans, Target Cost Sheets and Vendor Comparisons",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -8452,8 +8452,8 @@
           "longestItemChars": 260,
           "heading": {
             "text": "Ethical Sourcing Standards and Claim Compliance Reviews",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -8480,8 +8480,8 @@
           "cardWords": 31,
           "heading": {
             "text": "Sales Channels, Online Returns and Wholesale Timing",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -8547,8 +8547,8 @@
           "cardWords": 30,
           "heading": {
             "text": "Financial Models, Margins and Inventory Planning",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -8612,8 +8612,8 @@
           },
           "heading": {
             "text": "Process Improvement and Team Structure",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -8640,8 +8640,8 @@
           "cardWords": 31,
           "heading": {
             "text": "Fixed-Scope Projects and Choosing an Engagement Format",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -8689,8 +8689,8 @@
           "longestItemChars": 169,
           "heading": {
             "text": "Advisory Retainers: Sessions, Billing and Notice",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -8712,8 +8712,8 @@
           "longestItemWords": 34,
           "heading": {
             "text": "How Engagements Start: Inputs, Steps and a Roadmap",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         },
         {
@@ -8759,8 +8759,8 @@
           "longestItemChars": 191,
           "heading": {
             "text": "Samples, Bulk Production, Payment and Shipping Terms",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -8782,8 +8782,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -8803,8 +8803,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "solution",
@@ -8833,8 +8833,8 @@
           "longestItemWords": 75,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -8874,8 +8874,8 @@
           },
           "heading": {
             "text": "Start a Conversation About Your Consulting Project",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         }
       ],
@@ -8923,7 +8923,7 @@
         "variant": "media-overlay",
         "photo": true,
         "framed": false,
-        "phoneFrame": null,
+        "phoneFrame": 0.45,
         "leadBelow": false,
         "title": {
           "text": "Swimwear Development from Your Idea to an Approved Sample",
@@ -8950,8 +8950,8 @@
           },
           "heading": {
             "text": "Ready Design, Custom Design or a Mix?",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -8973,8 +8973,8 @@
           },
           "heading": {
             "text": "Quality Checked at Every Stage of Your Order",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -9019,8 +9019,8 @@
           "cardWords": 31,
           "heading": {
             "text": "What You Can Send Us to Start",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -9047,8 +9047,8 @@
           "cardWords": 36,
           "heading": {
             "text": "Bust Support and Construction Options",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -9070,8 +9070,8 @@
           "longestItemWords": 30,
           "heading": {
             "text": "Pattern Making, Size Grading and Fit Approval",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -9116,8 +9116,8 @@
           "cardWords": 26,
           "heading": {
             "text": "What the Service Covers and Who Owns the Patterns",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -9137,8 +9137,8 @@
           },
           "heading": {
             "text": "Size Ranges and Grading for Every Style",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -9165,8 +9165,8 @@
           "cardWords": 37,
           "heading": {
             "text": "Colours, Custom Prints and Mockups",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -9207,8 +9207,8 @@
           },
           "heading": {
             "text": "Hardware, Labels and Packaging Alongside Your Samples",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -9233,8 +9233,8 @@
           "longestItemChars": 181,
           "heading": {
             "text": "Component Sourcing and Production Preparation",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -9259,8 +9259,8 @@
           "longestItemChars": 168,
           "heading": {
             "text": "What Samples Cost and How Approval Works",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -9303,8 +9303,8 @@
           "longestItemWords": 34,
           "heading": {
             "text": "Fit Sampling, Wet Testing and Approval",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -9326,8 +9326,8 @@
           },
           "heading": {
             "text": "Starting With Samples Before Bulk",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -9352,8 +9352,8 @@
           "longestItemChars": 151,
           "heading": {
             "text": "Minimums, Payment and Shipping Terms",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -9375,8 +9375,8 @@
           "longestItemWords": 24,
           "heading": {
             "text": "Bulk Lead Times and Extra Time for New Moulds or Prints",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         },
         {
@@ -9398,8 +9398,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -9419,8 +9419,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "solution",
@@ -9446,8 +9446,8 @@
           "longestItemWords": 79,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -9469,8 +9469,8 @@
           },
           "heading": {
             "text": "Ready to Discuss Your Project?",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -9518,7 +9518,7 @@
         "variant": "media-overlay",
         "photo": true,
         "framed": false,
-        "phoneFrame": null,
+        "phoneFrame": 0.45,
         "leadBelow": false,
         "title": {
           "text": "Swimwear Packaging & Custom Brand Labels",
@@ -9545,8 +9545,8 @@
           },
           "heading": {
             "text": "Branded and Ready to Sell, or Packed in Your Own Materials",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -9566,8 +9566,8 @@
           },
           "heading": {
             "text": "Branding Add-On Costs and Supplying Your Own Materials",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -9607,8 +9607,8 @@
           },
           "heading": {
             "text": "Packed and Labelled in Our Own Guangzhou Factory",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -9651,8 +9651,8 @@
           "longestItemChars": 253,
           "heading": {
             "text": "Minimum Orders, Trial Runs and Sample Fees",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -9679,8 +9679,8 @@
           "cardWords": 27,
           "heading": {
             "text": "Custom Swimwear Labels, Branded Bags and Lead Times",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -9744,8 +9744,8 @@
           },
           "heading": {
             "text": "Compostable Corn-Starch Garment Bags and Eco Zip-Lock Bags",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -9770,8 +9770,8 @@
           "longestItemChars": 200,
           "heading": {
             "text": "Tagless Heat Transfer Labels Printed Inside Each Piece",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -9798,8 +9798,8 @@
           "cardWords": 23,
           "heading": {
             "text": "DTF Logo Transfers for the Outside of the Suit",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -9844,8 +9844,8 @@
           },
           "heading": {
             "text": "Embroidered Logos for Stretch Swim Fabrics",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -9870,8 +9870,8 @@
           "longestItemChars": 252,
           "heading": {
             "text": "Hang Tag Shapes, Paper Stocks and Finishes",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -9891,8 +9891,8 @@
           },
           "heading": {
             "text": "Kraft Paper, Plastic and Recycled-Content Hygiene Liners",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -9917,8 +9917,8 @@
           "longestItemChars": 202,
           "heading": {
             "text": "Production Timeline, Payment and Shipping Terms",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -9940,8 +9940,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -9961,8 +9961,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "solution"
@@ -9987,8 +9987,8 @@
           "longestItemWords": 96,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -10010,8 +10010,8 @@
           },
           "heading": {
             "text": "Start Your Packaging and Label Project with Strandmill",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         }
       ],
@@ -10059,7 +10059,7 @@
         "variant": "media-overlay",
         "photo": true,
         "framed": false,
-        "phoneFrame": null,
+        "phoneFrame": 0.45,
         "leadBelow": false,
         "title": {
           "text": "Custom Swimwear Printing with In-House Sublimation",
@@ -10086,8 +10086,8 @@
           },
           "heading": {
             "text": "Custom Swimwear Prints Made in Our Own Facility",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -10109,8 +10109,8 @@
           },
           "heading": {
             "text": "Factory-Direct Sublimation Printing from Guangzhou",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -10155,8 +10155,8 @@
           "cardWords": 25,
           "heading": {
             "text": "Printable Swim Fabrics, Including Recycled Options",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -10204,8 +10204,8 @@
           "longestItemChars": 249,
           "heading": {
             "text": "Certified Inks That Resist Chlorine, Salt and Fading",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -10227,8 +10227,8 @@
           },
           "heading": {
             "text": "Artwork Files, Repeats and Design Support",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -10253,8 +10253,8 @@
           "longestItemChars": 162,
           "heading": {
             "text": "Placement Prints and Layout on Every Style",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -10276,8 +10276,8 @@
           },
           "heading": {
             "text": "Pantone Colour Matching for Your Prints",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -10299,8 +10299,8 @@
           "longestItemWords": 43,
           "heading": {
             "text": "Mock-ups, Strike-offs and Sample Approval",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -10325,8 +10325,8 @@
           "longestItemChars": 231,
           "heading": {
             "text": "Print Lead Times, Pricing and Order Terms",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -10353,8 +10353,8 @@
           "cardWords": 30,
           "heading": {
             "text": "Print Themes and Exclusive Print Development",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -10395,8 +10395,8 @@
           },
           "heading": {
             "text": "Minimum Order Quantities and Trial Runs",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -10418,8 +10418,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -10439,8 +10439,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "solution",
@@ -10468,8 +10468,8 @@
           "longestItemWords": 85,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -10491,8 +10491,8 @@
           },
           "heading": {
             "text": "Ready to Start Your Swimwear Print Project?",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         }
       ],
@@ -10540,7 +10540,7 @@
         "variant": "media-overlay",
         "photo": true,
         "framed": false,
-        "phoneFrame": null,
+        "phoneFrame": 0.45,
         "leadBelow": false,
         "title": {
           "text": "Swimwear Hardware: Rings, Sliders, Clasps and Custom Logo Parts",
@@ -10567,8 +10567,8 @@
           },
           "heading": {
             "text": "Swimwear Hardware for Every Strap and Closure",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -10588,8 +10588,8 @@
           },
           "heading": {
             "text": "Swimwear Hardware Types, Sizes and Materials",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -10611,8 +10611,8 @@
           },
           "heading": {
             "text": "Our Own Factory in Guangzhou",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -10657,8 +10657,8 @@
           "cardWords": 30,
           "heading": {
             "text": "Metals, Plating and Surface Finishes",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -10708,8 +10708,8 @@
           "cardWords": 41,
           "heading": {
             "text": "Custom Colours and Logo Branding on Metal Parts",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -10729,8 +10729,8 @@
           },
           "heading": {
             "text": "Pull Strength, Cycle and Temperature Ratings",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -10752,8 +10752,8 @@
           "longestItemWords": 37,
           "heading": {
             "text": "Choosing and Fitting Hardware to Your Design",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -10778,8 +10778,8 @@
           "longestItemChars": 263,
           "heading": {
             "text": "Costing, Sampling and Checks on Supplied Hardware",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -10825,8 +10825,8 @@
           "longestItemChars": 183,
           "heading": {
             "text": "Minimum Orders, Lead Times, Payment and Shipping",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -10853,8 +10853,8 @@
           "cardWords": 45,
           "heading": {
             "text": "Trims, Hardware Minimums and Logo Mould Fees",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -10900,8 +10900,8 @@
           "longestItemChars": 146,
           "heading": {
             "text": "Quality Control and Hardware Testing",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -10923,8 +10923,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -10944,8 +10944,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "solution",
@@ -10973,8 +10973,8 @@
           "longestItemWords": 78,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -10996,8 +10996,8 @@
           },
           "heading": {
             "text": "Discuss Your Swimwear Hardware Project",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         }
       ],
@@ -11045,7 +11045,7 @@
         "variant": "media-overlay",
         "photo": true,
         "framed": false,
-        "phoneFrame": null,
+        "phoneFrame": 0.45,
         "leadBelow": false,
         "title": {
           "text": "Swimwear Fabric and Sourcing from Our Guangzhou Factory",
@@ -11072,8 +11072,8 @@
           },
           "heading": {
             "text": "Swim Fabrics Imported Direct from Italian Mills",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -11121,8 +11121,8 @@
           "cardWords": 52,
           "heading": {
             "text": "Fabric Blends, Branded Fabrics and Mill Minimums",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -11170,8 +11170,8 @@
           "longestItemChars": 155,
           "heading": {
             "text": "Order Minimums, Deposits and Shipping Terms",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -11193,8 +11193,8 @@
           "longestItemWords": 28,
           "heading": {
             "text": "From Sample to Bulk: Our Production Timeline",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -11216,8 +11216,8 @@
           },
           "heading": {
             "text": "Our Own Guangzhou Factory for Fabric Sourcing",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -11244,8 +11244,8 @@
           "cardWords": 32,
           "heading": {
             "text": "80/20 Nylon-Spandex and Our Stock Fabric Options",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -11265,8 +11265,8 @@
           },
           "heading": {
             "text": "Nylon-Spandex Swim Fabrics: Weight, Stretch and Best Use",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -11286,8 +11286,8 @@
           },
           "heading": {
             "text": "Which Fabrics Take Digital Prints",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -11314,8 +11314,8 @@
           "cardWords": 40,
           "heading": {
             "text": "Chlorine, Salt Water and UPF Performance",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -11360,8 +11360,8 @@
           },
           "heading": {
             "text": "Recycled Content and Fabric Certifications",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -11381,8 +11381,8 @@
           },
           "heading": {
             "text": "Swim Fabric Swatch Kits and Samples",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -11409,8 +11409,8 @@
           "cardWords": 28,
           "heading": {
             "text": "Pantone Colour Matching and Custom Dyeing",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -11432,8 +11432,8 @@
           },
           "heading": {
             "text": "Wet Opacity, Linings and Fabric Care",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -11455,8 +11455,8 @@
           },
           "heading": {
             "text": "Chlorine Resistance and Fabric Testing",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -11476,8 +11476,8 @@
           },
           "heading": {
             "text": "What Drives Your Fabric Cost",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -11499,8 +11499,8 @@
           "longestItemWords": 40,
           "heading": {
             "text": "A recent order",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -11522,8 +11522,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -11543,8 +11543,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "solution",
@@ -11573,8 +11573,8 @@
           "longestItemWords": 72,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -11596,8 +11596,8 @@
           },
           "heading": {
             "text": "Start Your Swim Fabric Sourcing Enquiry",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         }
       ],
@@ -11645,7 +11645,7 @@
         "variant": "media-overlay",
         "photo": true,
         "framed": false,
-        "phoneFrame": null,
+        "phoneFrame": 0.45,
         "leadBelow": false,
         "title": {
           "text": "Swimwear Brand Launch Services, From Pattern to Online Store",
@@ -11672,8 +11672,8 @@
           },
           "heading": {
             "text": "Your Designs or Ours, Made and Checked in Our Own Factory",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -11716,8 +11716,8 @@
           "longestItemChars": 231,
           "heading": {
             "text": "Before the Launch: Design, Samples and Certified Production",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         },
         {
@@ -11744,8 +11744,8 @@
           "cardWords": 54,
           "heading": {
             "text": "From Pattern to Bulk: Steps, Timing and Terms",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -11791,8 +11791,8 @@
           "longestItemChars": 253,
           "heading": {
             "text": "Samples First: Lead Time and Fees",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -11819,8 +11819,8 @@
           "cardWords": 33,
           "heading": {
             "text": "Launch Photography Shot From Your Own Samples",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -11891,8 +11891,8 @@
           "cardWords": 26,
           "heading": {
             "text": "Launch Film Cut for Social and Your Store",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -11942,8 +11942,8 @@
           "cardWords": 48,
           "heading": {
             "text": "Brand Identity: Logo Marks, Colours and Typography",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -11965,8 +11965,8 @@
           },
           "heading": {
             "text": "An Online Store Ready on Launch Day",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -11988,8 +11988,8 @@
           "longestItemWords": 46,
           "heading": {
             "text": "Your Launch Step by Step, From Brief to Go-Live",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         },
         {
@@ -12011,8 +12011,8 @@
           "longestItemWords": 87,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -12032,8 +12032,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "solution",
@@ -12059,8 +12059,8 @@
           "longestItemWords": 107,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -12082,8 +12082,8 @@
           },
           "heading": {
             "text": "Tell Us About Your Brand Launch",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -12131,7 +12131,7 @@
         "variant": "media-overlay",
         "photo": true,
         "framed": false,
-        "phoneFrame": null,
+        "phoneFrame": 0.71,
         "leadBelow": false,
         "title": {
           "text": "About Us: Strandmill's Own Guangzhou Factory",
@@ -12158,8 +12158,8 @@
           },
           "heading": {
             "text": "What We Make In-House and How Much Each Month",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -12181,8 +12181,8 @@
           },
           "heading": {
             "text": "Our Story: One Guangzhou Factory Since 2011",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -12209,8 +12209,8 @@
           "cardWords": 28,
           "heading": {
             "text": "The Brands We Work With Directly",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -12255,8 +12255,8 @@
           },
           "heading": {
             "text": "Everything Under One Roof, From Pattern to Carton",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -12278,8 +12278,8 @@
           },
           "heading": {
             "text": "Order Minimums for Small and Growing Labels",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -12301,8 +12301,8 @@
           "longestItemWords": 32,
           "heading": {
             "text": "How an Order Moves From Sample to Shipment",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -12327,8 +12327,8 @@
           "longestItemChars": 229,
           "heading": {
             "text": "How We Check Quality at Every Stage",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -12353,8 +12353,8 @@
           "longestItemChars": 295,
           "heading": {
             "text": "Certifications and Compliance Paperwork",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -12376,8 +12376,8 @@
           "longestItemWords": 5,
           "heading": {
             "text": "Brands we make for",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -12399,8 +12399,8 @@
           "longestItemWords": 51,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -12422,8 +12422,8 @@
           "longestItemWords": 124,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -12445,8 +12445,8 @@
           },
           "heading": {
             "text": "Let's Talk About Your Next Collection",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         }
       ],
@@ -12521,8 +12521,8 @@
           },
           "heading": {
             "text": "The Right Way to Reach Us for Each Request",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -12565,8 +12565,8 @@
           "longestItemChars": 159,
           "heading": {
             "text": "What to Expect Once You Get in Touch",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -12588,8 +12588,8 @@
           "longestItemWords": 127,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -12611,8 +12611,8 @@
           },
           "heading": {
             "text": "Send an enquiry",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -12632,8 +12632,8 @@
           },
           "heading": {
             "text": "Contact details",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -12655,8 +12655,8 @@
           },
           "heading": {
             "text": "Bring Your Idea. We'll Quote First.",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -12707,8 +12707,8 @@
           },
           "heading": {
             "text": "Strandmill at a Glance",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -12746,8 +12746,8 @@
           },
           "heading": {
             "text": "Our Background & How We Sell",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -12790,8 +12790,8 @@
           "cardWords": 31,
           "heading": {
             "text": "OEM, ODM & Design Confidentiality",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -12816,8 +12816,8 @@
           "longestItemChars": 203,
           "heading": {
             "text": "Stock Styles & Wholesale Buying",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -12842,8 +12842,8 @@
           "longestItemChars": 188,
           "heading": {
             "text": "Pricing & Quotes",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -12863,8 +12863,8 @@
           },
           "heading": {
             "text": "Fabrics & Materials",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -12884,8 +12884,8 @@
           },
           "heading": {
             "text": "Samples: Timing, Fees & Delivery",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -12910,8 +12910,8 @@
           "longestItemChars": 266,
           "heading": {
             "text": "Minimum Order Quantities",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -12973,8 +12973,8 @@
           },
           "heading": {
             "text": "Bulk Production Lead Times",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -13014,8 +13014,8 @@
           "longestItemWords": 29,
           "heading": {
             "text": "Order Confirmation & Scheduling",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -13035,8 +13035,8 @@
           },
           "heading": {
             "text": "Priority & Rush Orders",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -13056,8 +13056,8 @@
           },
           "heading": {
             "text": "Repeat Orders & Restocks",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -13082,8 +13082,8 @@
           "longestItemChars": 151,
           "heading": {
             "text": "Quality Control & Inspections",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -13105,8 +13105,8 @@
           },
           "heading": {
             "text": "Test Reports & Certifications",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -13126,8 +13126,8 @@
           },
           "heading": {
             "text": "Payment Terms & Shipping Options",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -13197,8 +13197,8 @@
           },
           "heading": {
             "text": "Customs & Export Documents",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -13220,8 +13220,8 @@
           },
           "heading": {
             "text": "Dispatch & Delivery to Your Door",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -13241,8 +13241,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "general"
@@ -13267,8 +13267,8 @@
           },
           "heading": {
             "text": "Send Us Your Enquiry",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         }
       ],
@@ -13343,8 +13343,8 @@
           },
           "heading": {
             "text": "About Strandmill: Our Own Swim Factory in Guangzhou",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -13384,8 +13384,8 @@
           "longestItemWords": 45,
           "heading": {
             "text": "A recent order",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -13405,8 +13405,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "general",
@@ -13432,8 +13432,8 @@
           "longestItemWords": 313,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -13473,8 +13473,8 @@
           },
           "heading": {
             "text": "Talk to Our Factory About Your Brand",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         }
       ],
@@ -13556,8 +13556,8 @@
           "cardWords": 47,
           "heading": {
             "text": "Recycled Fabrics and Low-Impact Production",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -13603,8 +13603,8 @@
           "longestItemChars": 311,
           "heading": {
             "text": "Our Certifications, Audits and Transaction Certificates",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -13624,8 +13624,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "general"
@@ -13650,8 +13650,8 @@
           "longestItemWords": 117,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -13673,8 +13673,8 @@
           },
           "heading": {
             "text": "Ready to Start Your Sustainable Collection?",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         }
       ],
@@ -13749,8 +13749,8 @@
           },
           "heading": {
             "text": "How We Handle Your Information",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -13770,8 +13770,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "privacy"
@@ -13796,17 +13796,17 @@
           },
           "heading": {
             "text": "Send an enquiry to our factory",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
       "words": 125,
       "estimate": {
-        "heightPx": 1898,
-        "visualAreaPct": 52,
-        "longestTextOnlyPx": 848,
-        "wordsPer1000px": 66
+        "heightPx": 1813,
+        "visualAreaPct": 54.4,
+        "longestTextOnlyPx": 763,
+        "wordsPer1000px": 69
       },
       "band": null,
       "floorExempt": false,
@@ -13848,8 +13848,8 @@
           },
           "heading": {
             "text": "Who We Are and Variances on Stock Styles",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -13874,8 +13874,8 @@
           "longestItemChars": 175,
           "heading": {
             "text": "Quality Claims, Returns and Outside Vendor Liability",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -13900,8 +13900,8 @@
           "longestItemChars": 204,
           "heading": {
             "text": "Samples, Order Confirmations, Shipping and Refunds",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -13955,8 +13955,8 @@
           "longestItemWords": 19,
           "heading": {
             "text": "Trial Runs",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -13976,8 +13976,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "privacy"
@@ -14020,17 +14020,17 @@
           },
           "heading": {
             "text": "Send Your Enquiry to Strandmill",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
       "words": 761,
       "estimate": {
-        "heightPx": 5092,
-        "visualAreaPct": 26.3,
-        "longestTextOnlyPx": 2537,
-        "wordsPer1000px": 149
+        "heightPx": 5007,
+        "visualAreaPct": 26.7,
+        "longestTextOnlyPx": 2452,
+        "wordsPer1000px": 152
       },
       "band": null,
       "floorExempt": false,
@@ -14072,8 +14072,8 @@
           },
           "heading": {
             "text": "Target Dates, Rush Orders and Realistic Timing",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -14098,8 +14098,8 @@
           "longestItemChars": 167,
           "heading": {
             "text": "Minimum Order Quantities, Trial Runs and Lead Times",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -14121,8 +14121,8 @@
           "longestItemWords": 36,
           "heading": {
             "text": "What to Send for a Free, Accurate Quotation",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -14147,8 +14147,8 @@
           "longestItemChars": 225,
           "heading": {
             "text": "Sample Fees, Payment Terms and Shipping Options",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -14168,8 +14168,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "general",
@@ -14195,8 +14195,8 @@
           "longestItemWords": 94,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -14218,8 +14218,8 @@
           },
           "heading": {
             "text": "Send Your Design Brief to Strandmill",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         }
       ],
@@ -14267,7 +14267,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Swimwear Accessories Manufacturer for Your Brand",
@@ -14294,8 +14294,8 @@
           },
           "heading": {
             "text": "OEM Swimwear Accessories from Your Tech Pack, Sample or Sketch",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -14320,8 +14320,8 @@
           "longestItemChars": 179,
           "heading": {
             "text": "Wholesale Accessory Minimums, Trial Runs and Payment Terms",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -14348,8 +14348,8 @@
           "cardWords": 22,
           "heading": {
             "text": "Our Accessories Factory in Guangzhou, China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -14371,8 +14371,8 @@
           "longestItemWords": 36,
           "heading": {
             "text": "Sample Fees, Lead Times and Production Timeline",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -14397,8 +14397,8 @@
           "longestItemChars": 265,
           "heading": {
             "text": "Shipping Terms: FOB, CIF and DDP",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -14446,8 +14446,8 @@
           "cardWords": 32,
           "heading": {
             "text": "Private Label Woven, Satin and Size Labels",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -14472,8 +14472,8 @@
           "longestItemChars": 226,
           "heading": {
             "text": "Custom Metal Hardware, Charms and Finishes",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -14500,8 +14500,8 @@
           "cardWords": 38,
           "heading": {
             "text": "Rhinestones, Crystals and Beads for Swimwear",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -14544,8 +14544,8 @@
           },
           "heading": {
             "text": "Straps and Strings Made to Your Specs",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -14565,8 +14565,8 @@
           },
           "heading": {
             "text": "Cups, Underwires, Boning and Silicone Grip",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -14588,8 +14588,8 @@
           },
           "heading": {
             "text": "Hygienic Liners Printed with Your Logo",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -14616,8 +14616,8 @@
           "cardWords": 36,
           "heading": {
             "text": "Eco Packaging Printed With Your Logo",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -14667,8 +14667,8 @@
           "cardWords": 33,
           "heading": {
             "text": "Bucket Hats, Hair and Beach Accessories",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -14693,8 +14693,8 @@
           "longestItemChars": 258,
           "heading": {
             "text": "Quality Control and Material Safety Testing",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -14737,8 +14737,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -14758,8 +14758,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer",
@@ -14789,8 +14789,8 @@
           "longestItemWords": 107,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -14810,8 +14810,8 @@
           },
           "heading": {
             "text": "Send Us Your Accessories Brief",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         }
       ],
@@ -14859,7 +14859,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Plus-Size Swimwear Manufacturer for Supportive, Private-Label Styles",
@@ -14886,8 +14886,8 @@
           },
           "heading": {
             "text": "OEM and ODM Plus-Size Swimsuits Shaped to Your Design Brief",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -14914,8 +14914,8 @@
           "cardWords": 26,
           "heading": {
             "text": "Wholesale Plus-Size Tankinis, Swim Dresses and 50-Piece Minimums",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -14986,8 +14986,8 @@
           "cardWords": 38,
           "heading": {
             "text": "China Factory Terms: Samples, Lead Times, Payment and Shipping",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -15035,8 +15035,8 @@
           "longestItemChars": 193,
           "heading": {
             "text": "Bust, Tummy and Waistband Support That Stays in Place",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -15063,8 +15063,8 @@
           "cardWords": 38,
           "heading": {
             "text": "Heavier Fabrics, Full Front Linings and Power Mesh",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -15084,8 +15084,8 @@
           },
           "heading": {
             "text": "Your Designs, Size-by-Size Print Placement and Private Label Branding",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 3,
+            "mobile": 3
           }
         },
         {
@@ -15133,8 +15133,8 @@
           "cardWords": 26,
           "heading": {
             "text": "Ready-to-Brand Curvy Collections and Low-MOQ Trend Drops",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -15156,8 +15156,8 @@
           "longestItemWords": 44,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -15177,8 +15177,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer",
@@ -15205,8 +15205,8 @@
           "longestItemWords": 81,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -15244,8 +15244,8 @@
           },
           "heading": {
             "text": "Start Your Plus Size Swimwear Project With Strandmill",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         }
       ],
@@ -15293,7 +15293,7 @@
         "variant": "media-banner",
         "photo": true,
         "framed": true,
-        "phoneFrame": null,
+        "phoneFrame": 0.7,
         "leadBelow": false,
         "title": {
           "text": "Couples Matching Swimsuit Manufacturer for His-and-Hers Lines",
@@ -15320,8 +15320,8 @@
           },
           "heading": {
             "text": "Private Label Matching Sets for Couples",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -15346,8 +15346,8 @@
           "longestItemChars": 209,
           "heading": {
             "text": "Matching Cover-Ups, Resort Shirts and Order Minimums",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -15369,8 +15369,8 @@
           },
           "heading": {
             "text": "Our Own Swimsuit Factory in China",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           }
         },
         {
@@ -15413,8 +15413,8 @@
           "longestItemChars": 220,
           "heading": {
             "text": "Get Your Matching Swimsuit Quote and Sample",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -15460,8 +15460,8 @@
           "longestItemChars": 192,
           "heading": {
             "text": "Bulk Lead Times, Payment Terms and Shipping Options",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -15488,8 +15488,8 @@
           "cardWords": 39,
           "heading": {
             "text": "Design Support and Colour-Matched Fabrics for Each Set",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         },
         {
@@ -15511,8 +15511,8 @@
           },
           "heading": {
             "text": "Custom Prints Matched Across Different Fabrics",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 2
           }
         },
         {
@@ -15552,8 +15552,8 @@
           },
           "heading": {
             "text": "Keeping Colour Consistent Between His and Hers Pieces",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 2,
+            "mobile": 3
           }
         },
         {
@@ -15575,8 +15575,8 @@
           "longestItemWords": 33,
           "heading": {
             "text": "What buyers say",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -15596,8 +15596,8 @@
           },
           "heading": {
             "text": "Related products and services",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 2
           },
           "linksTo": [
             "product_manufacturer",
@@ -15628,8 +15628,8 @@
           "longestItemWords": 127,
           "heading": {
             "text": "Frequently Asked Questions",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 1
           }
         },
         {
@@ -15649,8 +15649,8 @@
           },
           "heading": {
             "text": "Start Your His-and-Hers Swimsuit Enquiry With Strandmill",
-            "desktop": 0,
-            "mobile": 0
+            "desktop": 1,
+            "mobile": 3
           }
         }
       ],
@@ -16444,8 +16444,27 @@
     }
   ],
   "gate": {
-    "items": [],
+    "items": [
+      {
+        "assertion": "section_heading_lines",
+        "owner": "site-factory",
+        "gate": "report",
+        "route": "/women-s-swimwear-manufacturer/",
+        "block": "m5",
+        "viewport": "mobile",
+        "detail": "\"Custom Swimwear Embellishment: Rhinestones, Beads and Trims\": 4 lines"
+      },
+      {
+        "assertion": "section_heading_lines",
+        "owner": "site-factory",
+        "gate": "report",
+        "route": "/cover-up-manufacturer/",
+        "block": "iconList-1",
+        "viewport": "mobile",
+        "detail": "\"Wholesale Cover-Up Orders: Samples, Lead Times, Payment and Shipping\": 4 lines"
+      }
+    ],
     "failed": 0,
-    "reported": 0
+    "reported": 2
   }
 }

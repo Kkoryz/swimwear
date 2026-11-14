@@ -113,10 +113,10 @@
   },
   "feasibility": {
     "status": "passed",
-    "hash": "5bb9cdb778561554",
-    "at": "2026-11-14T07:38:31.836Z",
-    "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T07-38-16-013Z/feasibility.log"
+    "hash": "e33893ccb8e140de",
+    "at": "2026-11-14T09:21:04.717Z",
+    "seconds": 1,
+    "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/feasibility.log"
   },
   "layout-plan": {
     "status": "passed",
