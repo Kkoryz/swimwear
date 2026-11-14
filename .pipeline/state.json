@@ -79,15 +79,15 @@
   "treatment": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T07:19:13.975Z",
-    "seconds": 812,
-    "log": ".pipeline/logs/2026-11-14T07-03-58-499Z/treatment.log"
+    "at": "2026-11-14T07:19:59.364Z",
+    "seconds": 0,
+    "log": ".pipeline/logs/2026-11-14T07-19-53-295Z/treatment.log"
   },
   "fonts": {
-    "status": "failed",
-    "hash": "9e3e070e28daaf1d",
-    "at": "2026-11-14T07:19:14.724Z",
+    "status": "passed",
+    "hash": "25f82dbb92a1cb9a",
+    "at": "2026-11-14T07:19:59.737Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T07-03-58-499Z/fonts.log"
+    "log": ".pipeline/logs/2026-11-14T07-19-53-295Z/fonts.log"
   }
 }
