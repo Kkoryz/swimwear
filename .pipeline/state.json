@@ -103,5 +103,12 @@
     "at": "2026-11-14T07:20:01.927Z",
     "seconds": 1,
     "log": ".pipeline/logs/2026-11-14T07-19-53-295Z/import.log"
+  },
+  "site-media": {
+    "status": "passed",
+    "hash": "e60567c0430e4242",
+    "at": "2026-11-14T07:20:02.701Z",
+    "seconds": 0,
+    "log": ".pipeline/logs/2026-11-14T07-19-53-295Z/site-media.log"
   }
 }
