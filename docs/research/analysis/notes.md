@@ -157,3 +157,28 @@ module; nothing faked in CSS):
   stands away from the text it ends on any site using the band with its button. The treatment sets it under the first
   step of the last row (reference.css); the template's default would do better to follow `headingAlign` and the last
   row's start.
+- **Phone hero portrait** (/swimwear-consulting/, hero, mobile): the review asks for `phoneHeroes` and the copy in the
+  photo's lower half. `phoneHeroes` is a run-script key (apply-reference-analysis.mjs writes it when the heroes have
+  portrait twins, image-plan.mjs plans them); this library has no portrait twins, so setting it would show nothing new,
+  and anchoring the copy low only makes sense over a portrait photo. Left as is.
+- **Tinted band's inner padding** (/privacy-policy/, related, mobile): a tinted section has the block's half section
+  space inside it on each side, the same as a white one, while the first block under the hero has a whole one. The
+  treatment raised the shared `--section-space` floor (36px each side on phones); an equal inset for tinted bands would
+  need the template to mark them (the tint is set by block id, tintStyle).
+- **Contact hours on one line** (/contact-us/, channels, desktop): '9:00-18:00' can only be kept together in the copy (a
+  non-breaking dash) or by a span the component does not have; `white-space: nowrap` on the whole value would overflow
+  the e-mail card. The cards now share the content width, which leaves the hours room for one line at 1440px.
+
+## Asked against the site rules
+
+Design-review findings (site scope) whose fix, or one part of it, would break a site layout rule; that part is not
+repaired:
+
+- / overview-steps and cta-steps, /blog/ overview-steps, /swimwear-consulting/ m8, /custom-swimwear-printing/ m7 and
+  splitMedia-1-steps (process list), /swimwear-accessories/ featureGrid-1 (point list), /contact-us/ m3 (check list): the
+  step and item titles set larger (`--size-subheading`, "one step above the body size", "at least the item text's size",
+  "the subheading scale"). Rule: a title and every heading are sized by the template to their own words; no rule sets
+  their font-size. Their weight, numerals, markers and rules are repaired.
+- /custom-swimwear-printing/ splitMedia-1 (mobile): a fixed 4 / 3 `aspect-ratio` on the wide row's photo on phones.
+  Rule: a split row's photo frame is the template's (aspect-ratio on `.split__media` is protected); a phone frame for
+  the wide row's 16 / 7 banner would be the template's (SplitMediaBlock.astro).

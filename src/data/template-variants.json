@@ -28,7 +28,7 @@
     "form": "media",
     "blog": {
       "hub": {
-        "header": "plain",
+        "header": "banner",
         "card": "bordered"
       },
       "post": {
@@ -949,10 +949,17 @@
         "cta": "image-band"
       },
       "about": {},
+      "general": {
+        "process": "timeline"
+      },
+      "blog_hub": {
+        "table": "cards"
+      },
       "contact": {
         "featureGrid": "columns",
         "form": "media",
-        "contactChannels": "cards"
+        "contactChannels": "cards",
+        "process": "list"
       },
       "product_manufacturer": {
         "splitSequence": [
