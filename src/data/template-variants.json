@@ -4,14 +4,37 @@
   "axes": {},
   "components": {
     "header": {
-      "ctaRoute": null
+      "ctaRoute": null,
+      "layout": "inline",
+      "topBar": false,
+      "dropdown": "list",
+      "carets": true
     },
-    "hero": "plain",
+    "footer": {
+      "layout": "columns",
+      "phoneGroups": "collapsed"
+    },
+    "hero": "media-overlay",
+    "intro": "text",
     "featureGrid": "outlined",
     "splitMedia": "alternate",
     "proof": "band",
-    "faq": "accordion",
-    "cta": "band",
+    "faq": "two-column",
+    "faqFirst": "closed",
+    "cta": "image-band",
+    "testimonials": "carousel",
+    "logos": "marquee",
+    "contactChannels": "cards",
+    "form": "media",
+    "blog": {
+      "hub": {
+        "header": "plain",
+        "card": "bordered"
+      },
+      "post": {
+        "layout": "narrow"
+      }
+    },
     "media": {
       "hero": null,
       "pool": [],
@@ -71,12 +94,18 @@
             "action": true
           }
         ],
-        "featureGrid": "columns",
-        "gallery": "mosaic"
+        "featureGrid": "outline-numbered",
+        "gallery": "grid",
+        "faq": "two-column",
+        "logos": "marquee",
+        "testimonials": "carousel",
+        "cta": "image-band"
       },
       "about": {},
       "contact": {
-        "featureGrid": "columns"
+        "featureGrid": "columns",
+        "form": "media",
+        "contactChannels": "cards"
       },
       "product_manufacturer": {
         "splitSequence": [
@@ -91,7 +120,8 @@
             "at": 0.45,
             "type": "band"
           }
-        ]
+        ],
+        "cta": "inline"
       },
       "solution": {
         "splitSequence": [
@@ -105,7 +135,11 @@
             "type": "band"
           }
         ],
-        "featureGrid": "numbered"
+        "featureGrid": "numbered",
+        "faq": "bars",
+        "process": "band",
+        "gallery": "band",
+        "contactChannels": "list"
       }
     },
     "headingAlign": "start",

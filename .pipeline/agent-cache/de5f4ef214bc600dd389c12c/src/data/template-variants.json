@@ -1,0 +1,154 @@
+{
+  "schemaVersion": "seo-site-template-variants-v1",
+  "sourceUrl": "https://example.com/",
+  "axes": {},
+  "components": {
+    "header": {
+      "ctaRoute": null,
+      "layout": "inline",
+      "topBar": false,
+      "dropdown": "list",
+      "carets": true
+    },
+    "footer": {
+      "layout": "columns",
+      "phoneGroups": "collapsed"
+    },
+    "hero": "media-overlay",
+    "intro": "text",
+    "featureGrid": "outlined",
+    "splitMedia": "alternate",
+    "proof": "band",
+    "faq": "two-column",
+    "faqFirst": "closed",
+    "cta": "image-band",
+    "testimonials": "carousel",
+    "logos": "marquee",
+    "contactChannels": "cards",
+    "form": "media",
+    "blog": {
+      "hub": {
+        "header": "plain",
+        "card": "bordered"
+      },
+      "post": {
+        "layout": "narrow"
+      }
+    },
+    "media": {
+      "hero": null,
+      "pool": [],
+      "origin": "none"
+    },
+    "textRunWords": 317,
+    "densityBands": {
+      "wordsPer1000px": {
+        "max": 206
+      },
+      "visualAreaPct": {
+        "min": 23,
+        "max": 88
+      },
+      "longestTextOnlyPx": {
+        "max": 2663
+      },
+      "pageTypes": {
+        "home": {
+          "wordsPer1000px": {
+            "max": 155
+          },
+          "visualAreaPct": {
+            "min": 33,
+            "max": 59
+          },
+          "longestTextOnlyPx": {
+            "max": 931
+          }
+        }
+      }
+    },
+    "heroByPageType": {
+      "home": "media-overlay",
+      "about": "media-overlay",
+      "contact": "plain",
+      "product_manufacturer": "media-banner",
+      "solution": "media-overlay"
+    },
+    "pageTypes": {
+      "home": {
+        "splitSequence": [
+          "single",
+          "tinted",
+          "tinted",
+          "tinted",
+          "wide"
+        ],
+        "mediaModules": [
+          {
+            "at": 0.38,
+            "type": "mosaic"
+          },
+          {
+            "at": 0.69,
+            "type": "band",
+            "action": true
+          }
+        ],
+        "featureGrid": "outline-numbered",
+        "gallery": "grid",
+        "faq": "two-column",
+        "logos": "marquee",
+        "testimonials": "carousel",
+        "cta": "image-band"
+      },
+      "about": {},
+      "contact": {
+        "featureGrid": "columns",
+        "form": "media",
+        "contactChannels": "cards"
+      },
+      "product_manufacturer": {
+        "splitSequence": [
+          "single",
+          "single",
+          "wide",
+          "wide",
+          "single"
+        ],
+        "mediaModules": [
+          {
+            "at": 0.45,
+            "type": "band"
+          }
+        ],
+        "cta": "inline"
+      },
+      "solution": {
+        "splitSequence": [
+          "wide",
+          "single",
+          "single"
+        ],
+        "mediaModules": [
+          {
+            "at": 0.25,
+            "type": "band"
+          }
+        ],
+        "featureGrid": "numbered",
+        "faq": "bars",
+        "process": "band",
+        "gallery": "band",
+        "contactChannels": "list"
+      }
+    },
+    "headingAlign": "start",
+    "heroText": {
+      "family": "\"Maison Neue\", sans-serif",
+      "textTransform": "uppercase",
+      "chars": 108,
+      "charEm": 0.603,
+      "leadWords": 27
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "step": "treatment",
+  "prompt": "treatment",
+  "key": "de5f4ef214bc600dd389c12c",
+  "at": "2026-11-14T07:19:13.971Z",
+  "files": [
+    "docs/research/analysis/notes.md",
+    "src/data/template-variants.json",
+    "src/styles/reference.css",
+    "docs/research/analysis/treatment.md"
+  ]
+}
