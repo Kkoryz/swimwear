@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-layout-plan-v1",
-  "madeAt": "2026-11-14T07:20:04.217Z",
+  "madeAt": "2026-11-14T07:25:44.327Z",
   "maxWalls": 12,
   "headingModel": "none (no layout audit yet: section heading lines not predicted)",
   "context": {
@@ -163,16 +163,16 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 904,
-            "visualPx": 217,
+            "heightPx": 728,
+            "visualPx": 175,
             "pictured": true,
-            "before": 452,
-            "after": 543
+            "before": 364,
+            "after": 437
           },
-          "items": 4,
+          "items": 3,
           "longestItemWords": 48,
           "pattern": "outline-numbered",
-          "columns": 2,
+          "columns": 3,
           "titleLevel": "h3",
           "set": "m2",
           "cardWords": 46,
@@ -191,16 +191,39 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 638,
-            "visualPx": 153,
+            "heightPx": 618,
+            "visualPx": 148,
             "pictured": true,
-            "before": 319,
-            "after": 383
+            "before": 309,
+            "after": 371
           },
-          "items": 4,
+          "items": 3,
+          "longestItemWords": 43,
+          "pattern": "outline-numbered",
+          "columns": 3,
+          "titleLevel": "h3",
+          "set": "m2",
+          "cardWords": 40
+        },
+        {
+          "id": "m2-3",
+          "type": "featureGrid",
+          "variant": "outline-numbered",
+          "model": "featureGrid:outline-numbered",
+          "continues": "m2",
+          "surface": "white",
+          "slots": [],
+          "estimate": {
+            "heightPx": 454,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 454,
+            "after": 454
+          },
+          "items": 2,
           "longestItemWords": 30,
           "pattern": "outline-numbered",
-          "columns": 2,
+          "columns": 3,
           "titleLevel": "h3",
           "set": "m2",
           "cardWords": 26
@@ -214,16 +237,16 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 1002,
-            "visualPx": 241,
+            "heightPx": 843,
+            "visualPx": 202,
             "pictured": true,
-            "before": 501,
-            "after": 601
+            "before": 421,
+            "after": 506
           },
-          "items": 4,
+          "items": 3,
           "longestItemWords": 45,
           "pattern": "outline-numbered",
-          "columns": 2,
+          "columns": 3,
           "titleLevel": "h3",
           "set": "m2",
           "cardWords": 41
@@ -237,16 +260,39 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 810,
-            "visualPx": 194,
+            "heightPx": 683,
+            "visualPx": 164,
             "pictured": true,
-            "before": 405,
-            "after": 486
+            "before": 342,
+            "after": 410
           },
-          "items": 4,
+          "items": 3,
+          "longestItemWords": 39,
+          "pattern": "outline-numbered",
+          "columns": 3,
+          "titleLevel": "h3",
+          "set": "m2",
+          "cardWords": 35
+        },
+        {
+          "id": "featureGrid-3",
+          "type": "featureGrid",
+          "variant": "outline-numbered",
+          "model": "featureGrid:outline-numbered",
+          "continues": "m2",
+          "surface": "white",
+          "slots": [],
+          "estimate": {
+            "heightPx": 544,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 544,
+            "after": 544
+          },
+          "items": 2,
           "longestItemWords": 42,
           "pattern": "outline-numbered",
-          "columns": 2,
+          "columns": 3,
           "titleLevel": "h3",
           "set": "m2",
           "cardWords": 38
@@ -283,13 +329,13 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 831,
-            "visualPx": 199,
-            "pictured": true,
-            "before": 415,
-            "after": 498
+            "heightPx": 577,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 577,
+            "after": 577
           },
-          "items": 4,
+          "items": 2,
           "longestItemWords": 43,
           "pattern": "outline-numbered",
           "columns": 3,
@@ -303,7 +349,7 @@
           }
         },
         {
-          "id": "featureGrid-3",
+          "id": "m3-2",
           "type": "featureGrid",
           "variant": "outline-numbered",
           "model": "featureGrid:outline-numbered",
@@ -311,19 +357,19 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 671,
-            "visualPx": 161,
-            "pictured": true,
-            "before": 336,
-            "after": 403
+            "heightPx": 512,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 512,
+            "after": 512
           },
-          "items": 4,
-          "longestItemWords": 28,
+          "items": 2,
+          "longestItemWords": 31,
           "pattern": "outline-numbered",
           "columns": 3,
           "titleLevel": "h3",
           "set": "m3",
-          "cardWords": 24
+          "cardWords": 28
         },
         {
           "id": "featureGrid-4",
@@ -334,13 +380,59 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 712,
-            "visualPx": 171,
+            "heightPx": 557,
+            "visualPx": 134,
             "pictured": true,
-            "before": 356,
-            "after": 427
+            "before": 278,
+            "after": 334
           },
           "items": 3,
+          "longestItemWords": 26,
+          "pattern": "outline-numbered",
+          "columns": 3,
+          "titleLevel": "h3",
+          "set": "m3",
+          "cardWords": 24
+        },
+        {
+          "id": "featureGrid-5",
+          "type": "featureGrid",
+          "variant": "outline-numbered",
+          "model": "featureGrid:outline-numbered",
+          "continues": "m3",
+          "surface": "white",
+          "slots": [],
+          "estimate": {
+            "heightPx": 540,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 540,
+            "after": 540
+          },
+          "items": 2,
+          "longestItemWords": 41,
+          "pattern": "outline-numbered",
+          "columns": 3,
+          "titleLevel": "h3",
+          "set": "m3",
+          "cardWords": 38
+        },
+        {
+          "id": "featureGrid-6",
+          "type": "featureGrid",
+          "variant": "outline-numbered",
+          "model": "featureGrid:outline-numbered",
+          "continues": "m3",
+          "surface": "white",
+          "slots": [],
+          "estimate": {
+            "heightPx": 544,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 544,
+            "after": 544
+          },
+          "items": 2,
           "longestItemWords": 42,
           "pattern": "outline-numbered",
           "columns": 3,
@@ -349,7 +441,7 @@
           "cardWords": 39
         },
         {
-          "id": "featureGrid-5",
+          "id": "featureGrid-7",
           "type": "featureGrid",
           "variant": "outline-numbered",
           "model": "featureGrid:outline-numbered",
@@ -372,7 +464,7 @@
           "cardWords": 55
         },
         {
-          "id": "featureGrid-6",
+          "id": "featureGrid-8",
           "type": "featureGrid",
           "variant": "outline-numbered",
           "model": "featureGrid:outline-numbered",
@@ -395,7 +487,7 @@
           "cardWords": 25
         },
         {
-          "id": "featureGrid-7",
+          "id": "featureGrid-9",
           "type": "featureGrid",
           "variant": "outline-numbered",
           "model": "featureGrid:outline-numbered",
@@ -418,7 +510,7 @@
           "cardWords": 30
         },
         {
-          "id": "featureGrid-8",
+          "id": "featureGrid-10",
           "type": "featureGrid",
           "variant": "outline-numbered",
           "model": "featureGrid:outline-numbered",
@@ -572,12 +664,33 @@
           ]
         },
         {
+          "id": "media-module-budget-4",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 720,
+            "visualPx": 619,
+            "pictured": true,
+            "before": 58,
+            "after": 58
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
           "id": "faq",
           "type": "faq",
           "variant": "two-column",
           "model": "faq:two-column",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 448,
@@ -634,6 +747,27 @@
           "longestItemWords": 15
         },
         {
+          "id": "media-module-budget-5",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 720,
+            "visualPx": 619,
+            "pictured": true,
+            "before": 58,
+            "after": 58
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
           "id": "cta",
           "type": "cta",
           "variant": "image-band",
@@ -659,10 +793,10 @@
       ],
       "words": 2086,
       "estimate": {
-        "heightPx": 19779,
-        "visualAreaPct": 37.9,
-        "longestTextOnlyPx": 1006,
-        "wordsPer1000px": 105
+        "heightPx": 22251,
+        "visualAreaPct": 37,
+        "longestTextOnlyPx": 1782,
+        "wordsPer1000px": 94
       },
       "band": {
         "wordsPer1000px": {
@@ -677,19 +811,19 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 3,
+      "budgetWalls": 5,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
         "verdict": "fits_with_walls",
-        "walls": 1,
+        "walls": 3,
         "cap": 6,
         "estimate": {
           "words": 2086,
-          "heightPx": 17619,
-          "visualAreaPct": 32,
-          "wordsPer1000px": 118,
-          "longestTextOnlyPx": 1695
+          "heightPx": 18651,
+          "visualAreaPct": 27.5,
+          "wordsPer1000px": 112,
+          "longestTextOnlyPx": 1782
         },
         "limits": []
       }
@@ -948,22 +1082,22 @@
         {
           "id": "m5",
           "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
           "continues": null,
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 554,
-            "visualPx": 260,
-            "pictured": true,
-            "before": 188,
-            "after": 150
+            "heightPx": 1093,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 1093,
+            "after": 1093
           },
-          "items": 3,
-          "longestItemWords": 38,
-          "pattern": "cards",
-          "columns": 3,
+          "items": 6,
+          "longestItemWords": 40,
+          "pattern": "bullets",
+          "columns": 1,
           "titleLevel": "h3",
           "set": "m5",
           "cardWords": 36,
@@ -972,29 +1106,6 @@
             "desktop": 0,
             "mobile": 0
           }
-        },
-        {
-          "id": "m5-2",
-          "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
-          "continues": "m5",
-          "surface": "white",
-          "slots": [],
-          "estimate": {
-            "heightPx": 460,
-            "visualPx": 216,
-            "pictured": true,
-            "before": 156,
-            "after": 124
-          },
-          "items": 3,
-          "longestItemWords": 40,
-          "pattern": "cards",
-          "columns": 3,
-          "titleLevel": "h3",
-          "set": "m5",
-          "cardWords": 36
         },
         {
           "id": "m6",
@@ -1145,10 +1256,10 @@
       ],
       "words": 1851,
       "estimate": {
-        "heightPx": 12789,
-        "visualAreaPct": 36.9,
+        "heightPx": 12868,
+        "visualAreaPct": 32.9,
         "longestTextOnlyPx": 2322,
-        "wordsPer1000px": 145
+        "wordsPer1000px": 144
       },
       "band": {
         "wordsPer1000px": {
@@ -1172,9 +1283,9 @@
         "cap": 8,
         "estimate": {
           "words": 1851,
-          "heightPx": 12789,
-          "visualAreaPct": 36.9,
-          "wordsPer1000px": 145,
+          "heightPx": 12868,
+          "visualAreaPct": 32.9,
+          "wordsPer1000px": 144,
           "longestTextOnlyPx": 2322
         },
         "limits": []
@@ -1725,53 +1836,30 @@
         {
           "id": "m2",
           "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
           "continues": null,
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 684,
-            "visualPx": 322,
-            "pictured": true,
-            "before": 233,
-            "after": 185
+            "heightPx": 1763,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 1763,
+            "after": 1763
           },
-          "items": 4,
-          "longestItemWords": 39,
-          "pattern": "cards",
+          "items": 8,
+          "longestItemWords": 47,
+          "pattern": "bullets",
           "columns": 2,
           "titleLevel": "h3",
           "set": "m2",
-          "cardWords": 37,
+          "cardWords": 44,
           "heading": {
             "text": "Custom Bikini Fabrics, Linings and Support",
             "desktop": 0,
             "mobile": 0
           }
-        },
-        {
-          "id": "m2-2",
-          "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
-          "continues": "m2",
-          "surface": "tinted",
-          "slots": [],
-          "estimate": {
-            "heightPx": 831,
-            "visualPx": 390,
-            "pictured": true,
-            "before": 282,
-            "after": 224
-          },
-          "items": 4,
-          "longestItemWords": 47,
-          "pattern": "cards",
-          "columns": 2,
-          "titleLevel": "h3",
-          "set": "m2",
-          "cardWords": 44
         },
         {
           "id": "media-module-1",
@@ -1940,10 +2028,10 @@
       ],
       "words": 1348,
       "estimate": {
-        "heightPx": 9564,
-        "visualAreaPct": 48.9,
-        "longestTextOnlyPx": 1368,
-        "wordsPer1000px": 141
+        "heightPx": 9812,
+        "visualAreaPct": 40.4,
+        "longestTextOnlyPx": 1882,
+        "wordsPer1000px": 137
       },
       "band": {
         "wordsPer1000px": {
@@ -1967,10 +2055,10 @@
         "cap": 6,
         "estimate": {
           "words": 1348,
-          "heightPx": 9564,
-          "visualAreaPct": 48.9,
-          "wordsPer1000px": 141,
-          "longestTextOnlyPx": 1368
+          "heightPx": 9812,
+          "visualAreaPct": 40.4,
+          "wordsPer1000px": 137,
+          "longestTextOnlyPx": 1882
         },
         "limits": []
       }
@@ -2574,7 +2662,7 @@
           "variant": null,
           "model": "featureGrid:cards",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 619,
@@ -2602,7 +2690,7 @@
           "variant": null,
           "model": "featureGrid:cards",
           "continues": "m6",
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 379,
@@ -2622,22 +2710,22 @@
         {
           "id": "m2",
           "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
           "continues": null,
-          "surface": "white",
+          "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 770,
-            "visualPx": 362,
-            "pictured": true,
-            "before": 262,
-            "after": 208
+            "heightPx": 1496,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 1496,
+            "after": 1496
           },
-          "items": 4,
+          "items": 7,
           "longestItemWords": 36,
-          "pattern": "cards",
-          "columns": 4,
+          "pattern": "bullets",
+          "columns": 2,
           "titleLevel": "h3",
           "set": "m2",
           "cardWords": 32,
@@ -2648,27 +2736,25 @@
           }
         },
         {
-          "id": "m2-2",
-          "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
-          "continues": "m2",
-          "surface": "white",
-          "slots": [],
+          "id": "media-module-budget-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
           "estimate": {
-            "heightPx": 546,
-            "visualPx": 256,
+            "heightPx": 720,
+            "visualPx": 619,
             "pictured": true,
-            "before": 186,
-            "after": 147
+            "before": 58,
+            "after": 58
           },
-          "items": 3,
-          "longestItemWords": 33,
-          "pattern": "cards",
-          "columns": 4,
-          "titleLevel": "h3",
-          "set": "m2",
-          "cardWords": 31
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
         },
         {
           "id": "m3",
@@ -2881,10 +2967,10 @@
       ],
       "words": 1735,
       "estimate": {
-        "heightPx": 13322,
-        "visualAreaPct": 33.6,
-        "longestTextOnlyPx": 1651,
-        "wordsPer1000px": 130
+        "heightPx": 14222,
+        "visualAreaPct": 31.5,
+        "longestTextOnlyPx": 2100,
+        "wordsPer1000px": 122
       },
       "band": {
         "wordsPer1000px": {
@@ -2899,7 +2985,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 0,
+      "budgetWalls": 1,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
@@ -2908,10 +2994,10 @@
         "cap": 10,
         "estimate": {
           "words": 1735,
-          "heightPx": 13322,
-          "visualAreaPct": 33.6,
-          "wordsPer1000px": 130,
-          "longestTextOnlyPx": 1651
+          "heightPx": 13502,
+          "visualAreaPct": 28.6,
+          "wordsPer1000px": 129,
+          "longestTextOnlyPx": 3115
         },
         "limits": []
       }
@@ -3053,6 +3139,55 @@
           }
         },
         {
+          "id": "media-module-budget-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 720,
+            "visualPx": 619,
+            "pictured": true,
+            "before": 58,
+            "after": 58
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
+          "continues": null,
+          "surface": "white",
+          "slots": [],
+          "estimate": {
+            "heightPx": 1741,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 1741,
+            "after": 1741
+          },
+          "items": 8,
+          "longestItemWords": 45,
+          "pattern": "bullets",
+          "columns": 2,
+          "titleLevel": "h3",
+          "set": "m2",
+          "cardWords": 42,
+          "heading": {
+            "text": "Quick-Dry Shell Fabrics and Liner Options",
+            "desktop": 0,
+            "mobile": 0
+          }
+        },
+        {
           "id": "media-module-1",
           "type": "gallery",
           "variant": "band",
@@ -3072,57 +3207,6 @@
           "wall": "signature",
           "items": 1,
           "longestItemWords": 0
-        },
-        {
-          "id": "m2",
-          "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
-          "continues": null,
-          "surface": "white",
-          "slots": [],
-          "estimate": {
-            "heightPx": 737,
-            "visualPx": 346,
-            "pictured": true,
-            "before": 251,
-            "after": 199
-          },
-          "items": 4,
-          "longestItemWords": 45,
-          "pattern": "cards",
-          "columns": 2,
-          "titleLevel": "h3",
-          "set": "m2",
-          "cardWords": 42,
-          "heading": {
-            "text": "Quick-Dry Shell Fabrics and Liner Options",
-            "desktop": 0,
-            "mobile": 0
-          }
-        },
-        {
-          "id": "m2-2",
-          "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
-          "continues": "m2",
-          "surface": "white",
-          "slots": [],
-          "estimate": {
-            "heightPx": 761,
-            "visualPx": 358,
-            "pictured": true,
-            "before": 259,
-            "after": 206
-          },
-          "items": 4,
-          "longestItemWords": 42,
-          "pattern": "cards",
-          "columns": 2,
-          "titleLevel": "h3",
-          "set": "m2",
-          "cardWords": 40
         },
         {
           "id": "m3",
@@ -3295,10 +3379,10 @@
       ],
       "words": 1840,
       "estimate": {
-        "heightPx": 13128,
-        "visualAreaPct": 37.5,
-        "longestTextOnlyPx": 1812,
-        "wordsPer1000px": 140
+        "heightPx": 14091,
+        "visualAreaPct": 34.3,
+        "longestTextOnlyPx": 1857,
+        "wordsPer1000px": 131
       },
       "band": {
         "wordsPer1000px": {
@@ -3313,7 +3397,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 0,
+      "budgetWalls": 1,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
@@ -3322,10 +3406,10 @@
         "cap": 8,
         "estimate": {
           "words": 1840,
-          "heightPx": 13128,
-          "visualAreaPct": 37.5,
-          "wordsPer1000px": 140,
-          "longestTextOnlyPx": 1812
+          "heightPx": 13371,
+          "visualAreaPct": 31.5,
+          "wordsPer1000px": 138,
+          "longestTextOnlyPx": 3362
         },
         "limits": []
       }
@@ -3560,23 +3644,44 @@
           }
         },
         {
+          "id": "media-module-budget-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 720,
+            "visualPx": 619,
+            "pictured": true,
+            "before": 58,
+            "after": 58
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
           "id": "m2",
           "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
           "continues": null,
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 729,
-            "visualPx": 343,
-            "pictured": true,
-            "before": 248,
-            "after": 197
+            "heightPx": 1720,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 1720,
+            "after": 1720
           },
-          "items": 4,
+          "items": 8,
           "longestItemWords": 49,
-          "pattern": "cards",
+          "pattern": "bullets",
           "columns": 2,
           "titleLevel": "h3",
           "set": "m2",
@@ -3586,29 +3691,6 @@
             "desktop": 0,
             "mobile": 0
           }
-        },
-        {
-          "id": "m2-2",
-          "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
-          "continues": "m2",
-          "surface": "white",
-          "slots": [],
-          "estimate": {
-            "heightPx": 753,
-            "visualPx": 354,
-            "pictured": true,
-            "before": 256,
-            "after": 203
-          },
-          "items": 4,
-          "longestItemWords": 45,
-          "pattern": "cards",
-          "columns": 2,
-          "titleLevel": "h3",
-          "set": "m2",
-          "cardWords": 42
         },
         {
           "id": "media-module-1",
@@ -3887,10 +3969,10 @@
       ],
       "words": 1921,
       "estimate": {
-        "heightPx": 14811,
-        "visualAreaPct": 30.7,
+        "heightPx": 15769,
+        "visualAreaPct": 28.3,
         "longestTextOnlyPx": 2346,
-        "wordsPer1000px": 130
+        "wordsPer1000px": 122
       },
       "band": {
         "wordsPer1000px": {
@@ -3905,7 +3987,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 0,
+      "budgetWalls": 1,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
@@ -3914,10 +3996,10 @@
         "cap": 12,
         "estimate": {
           "words": 1921,
-          "heightPx": 14811,
-          "visualAreaPct": 30.7,
-          "wordsPer1000px": 130,
-          "longestTextOnlyPx": 2346
+          "heightPx": 15049,
+          "visualAreaPct": 25.6,
+          "wordsPer1000px": 128,
+          "longestTextOnlyPx": 2829
         },
         "limits": []
       }
@@ -4586,53 +4668,30 @@
         {
           "id": "m2",
           "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
           "continues": null,
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 794,
-            "visualPx": 373,
-            "pictured": true,
-            "before": 270,
-            "after": 214
+            "heightPx": 1829,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 1829,
+            "after": 1829
           },
-          "items": 4,
+          "items": 8,
           "longestItemWords": 61,
-          "pattern": "cards",
+          "pattern": "bullets",
           "columns": 2,
           "titleLevel": "h3",
           "set": "m2",
-          "cardWords": 43,
+          "cardWords": 48,
           "heading": {
             "text": "Girls' and Boys' Baby Swim Styles and Size Ranges",
             "desktop": 0,
             "mobile": 0
           }
-        },
-        {
-          "id": "m2-2",
-          "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
-          "continues": "m2",
-          "surface": "tinted",
-          "slots": [],
-          "estimate": {
-            "heightPx": 770,
-            "visualPx": 362,
-            "pictured": true,
-            "before": 262,
-            "after": 208
-          },
-          "items": 4,
-          "longestItemWords": 50,
-          "pattern": "cards",
-          "columns": 2,
-          "titleLevel": "h3",
-          "set": "m2",
-          "cardWords": 48
         },
         {
           "id": "m3",
@@ -4801,10 +4860,10 @@
       ],
       "words": 1578,
       "estimate": {
-        "heightPx": 11503,
-        "visualAreaPct": 40.7,
+        "heightPx": 11768,
+        "visualAreaPct": 33.6,
         "longestTextOnlyPx": 2081,
-        "wordsPer1000px": 137
+        "wordsPer1000px": 134
       },
       "band": {
         "wordsPer1000px": {
@@ -4828,9 +4887,9 @@
         "cap": 9,
         "estimate": {
           "words": 1578,
-          "heightPx": 11503,
-          "visualAreaPct": 40.7,
-          "wordsPer1000px": 137,
+          "heightPx": 11768,
+          "visualAreaPct": 33.6,
+          "wordsPer1000px": 134,
           "longestTextOnlyPx": 2081
         },
         "limits": []
@@ -4925,24 +4984,47 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 810,
-            "visualPx": 381,
-            "pictured": true,
-            "before": 275,
-            "after": 219
+            "heightPx": 501,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 501,
+            "after": 501
           },
-          "items": 4,
-          "longestItemWords": 54,
+          "items": 2,
+          "longestItemWords": 43,
           "pattern": "cards",
           "columns": 2,
           "titleLevel": "h3",
           "set": "m3",
-          "cardWords": 51,
+          "cardWords": 40,
           "heading": {
             "text": "Soft, Secure Construction for Every Splash",
             "desktop": 0,
             "mobile": 0
           }
+        },
+        {
+          "id": "m3-2",
+          "type": "featureGrid",
+          "variant": null,
+          "model": "featureGrid:cards",
+          "continues": "m3",
+          "surface": "tinted",
+          "slots": [],
+          "estimate": {
+            "heightPx": 464,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 464,
+            "after": 464
+          },
+          "items": 2,
+          "longestItemWords": 54,
+          "pattern": "cards",
+          "columns": 2,
+          "titleLevel": "h3",
+          "set": "m3",
+          "cardWords": 51
         },
         {
           "id": "media-module-1",
@@ -5108,10 +5190,10 @@
       ],
       "words": 1155,
       "estimate": {
-        "heightPx": 9596,
-        "visualAreaPct": 50.7,
-        "longestTextOnlyPx": 731,
-        "wordsPer1000px": 120
+        "heightPx": 9751,
+        "visualAreaPct": 46,
+        "longestTextOnlyPx": 1084,
+        "wordsPer1000px": 118
       },
       "band": {
         "wordsPer1000px": {
@@ -5135,10 +5217,10 @@
         "cap": 5,
         "estimate": {
           "words": 1155,
-          "heightPx": 9596,
-          "visualAreaPct": 50.7,
-          "wordsPer1000px": 120,
-          "longestTextOnlyPx": 731
+          "heightPx": 9751,
+          "visualAreaPct": 46,
+          "wordsPer1000px": 118,
+          "longestTextOnlyPx": 1084
         },
         "limits": []
       }
@@ -5241,24 +5323,47 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 778,
-            "visualPx": 366,
-            "pictured": true,
-            "before": 264,
-            "after": 210
+            "heightPx": 477,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 477,
+            "after": 477
           },
-          "items": 4,
-          "longestItemWords": 48,
+          "items": 2,
+          "longestItemWords": 38,
           "pattern": "cards",
           "columns": 2,
           "titleLevel": "h3",
           "set": "featureGrid-2",
-          "cardWords": 45,
+          "cardWords": 35,
           "heading": {
             "text": "Matching Prints Across Tunic, Leggings and Hijab",
             "desktop": 0,
             "mobile": 0
           }
+        },
+        {
+          "id": "featureGrid-3",
+          "type": "featureGrid",
+          "variant": null,
+          "model": "featureGrid:cards",
+          "continues": "featureGrid-2",
+          "surface": "tinted",
+          "slots": [],
+          "estimate": {
+            "heightPx": 456,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 456,
+            "after": 456
+          },
+          "items": 2,
+          "longestItemWords": 48,
+          "pattern": "cards",
+          "columns": 2,
+          "titleLevel": "h3",
+          "set": "featureGrid-2",
+          "cardWords": 45
         },
         {
           "id": "splitMedia-2",
@@ -5428,21 +5533,21 @@
         {
           "id": "m3",
           "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
           "continues": null,
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 835,
-            "visualPx": 392,
-            "pictured": true,
-            "before": 284,
-            "after": 225
+            "heightPx": 1780,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 1780,
+            "after": 1780
           },
-          "items": 4,
+          "items": 8,
           "longestItemWords": 54,
-          "pattern": "cards",
+          "pattern": "bullets",
           "columns": 2,
           "titleLevel": "h3",
           "set": "m3",
@@ -5452,29 +5557,6 @@
             "desktop": 0,
             "mobile": 0
           }
-        },
-        {
-          "id": "m3-2",
-          "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
-          "continues": "m3",
-          "surface": "white",
-          "slots": [],
-          "estimate": {
-            "heightPx": 692,
-            "visualPx": 325,
-            "pictured": true,
-            "before": 235,
-            "after": 187
-          },
-          "items": 4,
-          "longestItemWords": 37,
-          "pattern": "cards",
-          "columns": 2,
-          "titleLevel": "h3",
-          "set": "m3",
-          "cardWords": 34
         },
         {
           "id": "media-module-1",
@@ -5500,21 +5582,21 @@
         {
           "id": "m4",
           "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
           "continues": null,
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 774,
-            "visualPx": 364,
-            "pictured": true,
-            "before": 263,
-            "after": 209
+            "heightPx": 1562,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 1562,
+            "after": 1562
           },
-          "items": 4,
+          "items": 8,
           "longestItemWords": 43,
-          "pattern": "cards",
+          "pattern": "bullets",
           "columns": 2,
           "titleLevel": "h3",
           "set": "m4",
@@ -5524,29 +5606,6 @@
             "desktop": 0,
             "mobile": 0
           }
-        },
-        {
-          "id": "m4-2",
-          "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
-          "continues": "m4",
-          "surface": "tinted",
-          "slots": [],
-          "estimate": {
-            "heightPx": 590,
-            "visualPx": 278,
-            "pictured": true,
-            "before": 201,
-            "after": 159
-          },
-          "items": 4,
-          "longestItemWords": 33,
-          "pattern": "cards",
-          "columns": 2,
-          "titleLevel": "h3",
-          "set": "m4",
-          "cardWords": 31
         },
         {
           "id": "m5",
@@ -5670,10 +5729,10 @@
       ],
       "words": 2215,
       "estimate": {
-        "heightPx": 15404,
-        "visualAreaPct": 38.6,
+        "heightPx": 16010,
+        "visualAreaPct": 26.4,
         "longestTextOnlyPx": 2134,
-        "wordsPer1000px": 144
+        "wordsPer1000px": 138
       },
       "band": {
         "wordsPer1000px": {
@@ -5697,9 +5756,9 @@
         "cap": 12,
         "estimate": {
           "words": 2215,
-          "heightPx": 15404,
-          "visualAreaPct": 38.6,
-          "wordsPer1000px": 144,
+          "heightPx": 16010,
+          "visualAreaPct": 26.4,
+          "wordsPer1000px": 138,
           "longestTextOnlyPx": 2134
         },
         "limits": []
@@ -5746,25 +5805,25 @@
         {
           "id": "m2",
           "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
           "continues": null,
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 709,
-            "visualPx": 333,
-            "pictured": true,
-            "before": 241,
-            "after": 191
+            "heightPx": 1393,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 1393,
+            "after": 1393
           },
-          "items": 4,
-          "longestItemWords": 37,
-          "pattern": "cards",
-          "columns": 3,
+          "items": 7,
+          "longestItemWords": 44,
+          "pattern": "bullets",
+          "columns": 2,
           "titleLevel": "h3",
           "set": "m2",
-          "cardWords": 35,
+          "cardWords": 42,
           "heading": {
             "text": "Fabrics That Stay Light, Opaque and Sun-Protective in Water",
             "desktop": 0,
@@ -5772,27 +5831,25 @@
           }
         },
         {
-          "id": "m2-2",
-          "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
-          "continues": "m2",
-          "surface": "tinted",
-          "slots": [],
+          "id": "media-module-budget-2",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
           "estimate": {
-            "heightPx": 529,
-            "visualPx": 249,
+            "heightPx": 720,
+            "visualPx": 619,
             "pictured": true,
-            "before": 180,
-            "after": 143
+            "before": 58,
+            "after": 58
           },
-          "items": 3,
-          "longestItemWords": 44,
-          "pattern": "cards",
-          "columns": 3,
-          "titleLevel": "h3",
-          "set": "m2",
-          "cardWords": 42
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
         },
         {
           "id": "m3",
@@ -5821,29 +5878,6 @@
           }
         },
         {
-          "id": "m4",
-          "type": "process",
-          "variant": null,
-          "model": "process:circles",
-          "continues": null,
-          "surface": "tinted",
-          "slots": [],
-          "estimate": {
-            "heightPx": 901,
-            "visualPx": 631,
-            "pictured": true,
-            "before": 225,
-            "after": 45
-          },
-          "items": 6,
-          "longestItemWords": 39,
-          "heading": {
-            "text": "Lead Times and Seasonal Planning",
-            "desktop": 0,
-            "mobile": 0
-          }
-        },
-        {
           "id": "media-module-1",
           "type": "gallery",
           "variant": "band",
@@ -5865,7 +5899,7 @@
           "longestItemWords": 0
         },
         {
-          "id": "process-1",
+          "id": "m4",
           "type": "process",
           "variant": null,
           "model": "process:circles",
@@ -5873,11 +5907,34 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 847,
-            "visualPx": 593,
+            "heightPx": 901,
+            "visualPx": 631,
             "pictured": true,
-            "before": 212,
-            "after": 42
+            "before": 225,
+            "after": 45
+          },
+          "items": 6,
+          "longestItemWords": 39,
+          "heading": {
+            "text": "Lead Times and Seasonal Planning",
+            "desktop": 0,
+            "mobile": 0
+          }
+        },
+        {
+          "id": "process-1",
+          "type": "process",
+          "variant": "list",
+          "model": "process:list",
+          "continues": null,
+          "surface": "tinted",
+          "slots": [],
+          "estimate": {
+            "heightPx": 847,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 847,
+            "after": 847
           },
           "items": 6,
           "longestItemWords": 35,
@@ -5893,7 +5950,7 @@
           "variant": null,
           "model": "iconList:checks",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 1360,
@@ -6022,10 +6079,10 @@
       ],
       "words": 1388,
       "estimate": {
-        "heightPx": 11249,
-        "visualAreaPct": 41.9,
-        "longestTextOnlyPx": 1521,
-        "wordsPer1000px": 123
+        "heightPx": 12124,
+        "visualAreaPct": 34.2,
+        "longestTextOnlyPx": 2310,
+        "wordsPer1000px": 114
       },
       "band": {
         "wordsPer1000px": {
@@ -6040,7 +6097,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 1,
+      "budgetWalls": 2,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
@@ -6049,10 +6106,10 @@
         "cap": 7,
         "estimate": {
           "words": 1388,
-          "heightPx": 10529,
-          "visualAreaPct": 38.8,
-          "wordsPer1000px": 132,
-          "longestTextOnlyPx": 2490
+          "heightPx": 10684,
+          "visualAreaPct": 27.3,
+          "wordsPer1000px": 130,
+          "longestTextOnlyPx": 3340
         },
         "limits": []
       }
@@ -7123,21 +7180,21 @@
         {
           "id": "m3",
           "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
           "continues": null,
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 749,
-            "visualPx": 352,
-            "pictured": true,
-            "before": 255,
-            "after": 202
+            "heightPx": 1758,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 1758,
+            "after": 1758
           },
-          "items": 4,
+          "items": 8,
           "longestItemWords": 56,
-          "pattern": "cards",
+          "pattern": "bullets",
           "columns": 2,
           "titleLevel": "h3",
           "set": "m3",
@@ -7147,29 +7204,6 @@
             "desktop": 0,
             "mobile": 0
           }
-        },
-        {
-          "id": "m3-2",
-          "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
-          "continues": "m3",
-          "surface": "tinted",
-          "slots": [],
-          "estimate": {
-            "heightPx": 761,
-            "visualPx": 358,
-            "pictured": true,
-            "before": 259,
-            "after": 206
-          },
-          "items": 4,
-          "longestItemWords": 46,
-          "pattern": "cards",
-          "columns": 2,
-          "titleLevel": "h3",
-          "set": "m3",
-          "cardWords": 43
         },
         {
           "id": "m4",
@@ -7311,10 +7345,10 @@
       ],
       "words": 2019,
       "estimate": {
-        "heightPx": 14594,
-        "visualAreaPct": 32.7,
+        "heightPx": 14842,
+        "visualAreaPct": 27.4,
         "longestTextOnlyPx": 2183,
-        "wordsPer1000px": 138
+        "wordsPer1000px": 136
       },
       "band": {
         "wordsPer1000px": {
@@ -7338,9 +7372,9 @@
         "cap": 10,
         "estimate": {
           "words": 2019,
-          "heightPx": 14594,
-          "visualAreaPct": 32.7,
-          "wordsPer1000px": 138,
+          "heightPx": 14842,
+          "visualAreaPct": 27.4,
+          "wordsPer1000px": 136,
           "longestTextOnlyPx": 2183
         },
         "limits": []
@@ -8160,6 +8194,55 @@
           }
         },
         {
+          "id": "media-module-budget-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 720,
+            "visualPx": 619,
+            "pictured": true,
+            "before": 58,
+            "after": 58
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
+          "id": "m4",
+          "type": "featureGrid",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
+          "continues": null,
+          "surface": "white",
+          "slots": [],
+          "estimate": {
+            "heightPx": 1709,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 1709,
+            "after": 1709
+          },
+          "items": 8,
+          "longestItemWords": 44,
+          "pattern": "bullets",
+          "columns": 2,
+          "titleLevel": "h3",
+          "set": "m4",
+          "cardWords": 40,
+          "heading": {
+            "text": "Full-Package Programs and Embroidery on Your Finished Garments",
+            "desktop": 0,
+            "mobile": 0
+          }
+        },
+        {
           "id": "media-module-1",
           "type": "gallery",
           "variant": "band",
@@ -8179,57 +8262,6 @@
           "wall": "signature",
           "items": 1,
           "longestItemWords": 0
-        },
-        {
-          "id": "m4",
-          "type": "featureGrid",
-          "variant": "cards",
-          "model": "featureGrid:cards",
-          "continues": null,
-          "surface": "tinted",
-          "slots": [],
-          "estimate": {
-            "heightPx": 884,
-            "visualPx": 415,
-            "pictured": true,
-            "before": 300,
-            "after": 239
-          },
-          "items": 4,
-          "longestItemWords": 44,
-          "pattern": "cards",
-          "columns": 2,
-          "titleLevel": "h3",
-          "set": "m4",
-          "cardWords": 40,
-          "heading": {
-            "text": "Full-Package Programs and Embroidery on Your Finished Garments",
-            "desktop": 0,
-            "mobile": 0
-          }
-        },
-        {
-          "id": "m4-2",
-          "type": "featureGrid",
-          "variant": "cards",
-          "model": "featureGrid:cards",
-          "continues": "m4",
-          "surface": "tinted",
-          "slots": [],
-          "estimate": {
-            "heightPx": 590,
-            "visualPx": 278,
-            "pictured": true,
-            "before": 201,
-            "after": 159
-          },
-          "items": 4,
-          "longestItemWords": 38,
-          "pattern": "cards",
-          "columns": 2,
-          "titleLevel": "h3",
-          "set": "m4",
-          "cardWords": 35
         },
         {
           "id": "cases",
@@ -8351,10 +8383,10 @@
       ],
       "words": 2166,
       "estimate": {
-        "heightPx": 16698,
-        "visualAreaPct": 29.9,
+        "heightPx": 17653,
+        "visualAreaPct": 27.9,
         "longestTextOnlyPx": 2295,
-        "wordsPer1000px": 130
+        "wordsPer1000px": 123
       },
       "band": {
         "wordsPer1000px": {
@@ -8369,7 +8401,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 0,
+      "budgetWalls": 1,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
@@ -8378,10 +8410,10 @@
         "cap": 12,
         "estimate": {
           "words": 2166,
-          "heightPx": 16698,
-          "visualAreaPct": 29.9,
-          "wordsPer1000px": 130,
-          "longestTextOnlyPx": 2295
+          "heightPx": 16933,
+          "visualAreaPct": 25.4,
+          "wordsPer1000px": 128,
+          "longestTextOnlyPx": 4004
         },
         "limits": []
       }
@@ -8546,7 +8578,7 @@
           }
         },
         {
-          "id": "media-module-budget-2",
+          "id": "media-module-budget-1",
           "type": "gallery",
           "variant": "band",
           "model": "gallery:band",
@@ -8593,27 +8625,48 @@
           }
         },
         {
+          "id": "media-module-budget-3",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 720,
+            "visualPx": 619,
+            "pictured": true,
+            "before": 58,
+            "after": 58
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
           "id": "m4",
           "type": "featureGrid",
           "variant": "cards",
           "model": "featureGrid:cards",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 782,
-            "visualPx": 367,
-            "pictured": true,
-            "before": 266,
-            "after": 211
+            "heightPx": 428,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 428,
+            "after": 428
           },
-          "items": 4,
-          "longestItemWords": 46,
+          "items": 2,
+          "longestItemWords": 34,
           "pattern": "cards",
           "columns": 2,
           "titleLevel": "h3",
           "set": "m4",
-          "cardWords": 42,
+          "cardWords": 31,
           "heading": {
             "text": "Sales Channels, Online Returns and Wholesale Timing",
             "desktop": 0,
@@ -8621,12 +8674,35 @@
           }
         },
         {
+          "id": "m4-2",
+          "type": "featureGrid",
+          "variant": "cards",
+          "model": "featureGrid:cards",
+          "continues": "m4",
+          "surface": "white",
+          "slots": [],
+          "estimate": {
+            "heightPx": 509,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 509,
+            "after": 509
+          },
+          "items": 2,
+          "longestItemWords": 46,
+          "pattern": "cards",
+          "columns": 2,
+          "titleLevel": "h3",
+          "set": "m4",
+          "cardWords": 42
+        },
+        {
           "id": "splitMedia-3",
           "type": "splitMedia",
           "variant": "single",
           "model": "splitMedia:single",
           "continues": "m4",
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 746,
@@ -8642,7 +8718,7 @@
           "variant": "cards",
           "model": "featureGrid:cards",
           "continues": null,
-          "surface": "white",
+          "surface": "tinted",
           "slots": [],
           "estimate": {
             "heightPx": 570,
@@ -8670,7 +8746,7 @@
           "variant": "cards",
           "model": "featureGrid:cards",
           "continues": "m5",
-          "surface": "white",
+          "surface": "tinted",
           "slots": [],
           "estimate": {
             "heightPx": 562,
@@ -8686,27 +8762,6 @@
           "titleLevel": "h3",
           "set": "m5",
           "cardWords": 32
-        },
-        {
-          "id": "m6",
-          "type": "splitMedia",
-          "variant": "single",
-          "model": "splitMedia:single",
-          "continues": null,
-          "surface": "tinted",
-          "slots": [],
-          "estimate": {
-            "heightPx": 736,
-            "visualPx": 191,
-            "pictured": true,
-            "before": 103,
-            "after": 125
-          },
-          "heading": {
-            "text": "Process Improvement and Team Structure",
-            "desktop": 0,
-            "mobile": 0
-          }
         },
         {
           "id": "media-module-1",
@@ -8730,12 +8785,33 @@
           "longestItemWords": 0
         },
         {
+          "id": "m6",
+          "type": "splitMedia",
+          "variant": "single",
+          "model": "splitMedia:single",
+          "continues": null,
+          "surface": "white",
+          "slots": [],
+          "estimate": {
+            "heightPx": 736,
+            "visualPx": 191,
+            "pictured": true,
+            "before": 103,
+            "after": 125
+          },
+          "heading": {
+            "text": "Process Improvement and Team Structure",
+            "desktop": 0,
+            "mobile": 0
+          }
+        },
+        {
           "id": "m7",
           "type": "featureGrid",
           "variant": "cards",
           "model": "featureGrid:cards",
           "continues": null,
-          "surface": "white",
+          "surface": "tinted",
           "slots": [],
           "estimate": {
             "heightPx": 542,
@@ -8763,7 +8839,7 @@
           "variant": "cards",
           "model": "featureGrid:cards",
           "continues": "m7",
-          "surface": "white",
+          "surface": "tinted",
           "slots": [],
           "estimate": {
             "heightPx": 395,
@@ -8786,7 +8862,7 @@
           "variant": null,
           "model": "iconList:checks",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 1006,
@@ -8807,7 +8883,7 @@
           }
         },
         {
-          "id": "media-module-budget-3",
+          "id": "media-module-budget-4",
           "type": "gallery",
           "variant": "band",
           "model": "gallery:band",
@@ -8851,7 +8927,7 @@
           }
         },
         {
-          "id": "media-module-budget-1",
+          "id": "media-module-budget-2",
           "type": "gallery",
           "variant": "band",
           "model": "gallery:band",
@@ -9015,10 +9091,10 @@
       ],
       "words": 2562,
       "estimate": {
-        "heightPx": 20251,
-        "visualAreaPct": 34.1,
-        "longestTextOnlyPx": 1804,
-        "wordsPer1000px": 127
+        "heightPx": 21126,
+        "visualAreaPct": 33.9,
+        "longestTextOnlyPx": 1770,
+        "wordsPer1000px": 121
       },
       "band": {
         "wordsPer1000px": {
@@ -9033,7 +9109,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 3,
+      "budgetWalls": 4,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
@@ -9042,10 +9118,10 @@
         "cap": 12,
         "estimate": {
           "words": 2562,
-          "heightPx": 18091,
-          "visualAreaPct": 27.9,
-          "wordsPer1000px": 142,
-          "longestTextOnlyPx": 4100
+          "heightPx": 18246,
+          "visualAreaPct": 25.7,
+          "wordsPer1000px": 140,
+          "longestTextOnlyPx": 4233
         },
         "limits": []
       }
@@ -10842,22 +10918,22 @@
         {
           "id": "m4",
           "type": "featureGrid",
-          "variant": "cards",
-          "model": "featureGrid:cards",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
           "continues": null,
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 558,
-            "visualPx": 262,
-            "pictured": true,
-            "before": 190,
-            "after": 151
+            "heightPx": 1224,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 1224,
+            "after": 1224
           },
-          "items": 3,
+          "items": 6,
           "longestItemWords": 43,
-          "pattern": "cards",
-          "columns": 3,
+          "pattern": "bullets",
+          "columns": 1,
           "titleLevel": "h3",
           "set": "m4",
           "cardWords": 41,
@@ -10866,29 +10942,6 @@
             "desktop": 0,
             "mobile": 0
           }
-        },
-        {
-          "id": "m4-2",
-          "type": "featureGrid",
-          "variant": "cards",
-          "model": "featureGrid:cards",
-          "continues": "m4",
-          "surface": "white",
-          "slots": [],
-          "estimate": {
-            "heightPx": 554,
-            "visualPx": 260,
-            "pictured": true,
-            "before": 188,
-            "after": 150
-          },
-          "items": 3,
-          "longestItemWords": 43,
-          "pattern": "cards",
-          "columns": 3,
-          "titleLevel": "h3",
-          "set": "m4",
-          "cardWords": 41
         },
         {
           "id": "m3",
@@ -10935,33 +10988,12 @@
           }
         },
         {
-          "id": "media-module-1",
-          "type": "gallery",
-          "variant": "band",
-          "model": "gallery:band",
-          "continues": null,
-          "surface": "own",
-          "slots": [
-            "lifestyle"
-          ],
-          "estimate": {
-            "heightPx": 720,
-            "visualPx": 619,
-            "pictured": true,
-            "before": 58,
-            "after": 58
-          },
-          "wall": "signature",
-          "items": 1,
-          "longestItemWords": 0
-        },
-        {
           "id": "iconList-1",
           "type": "iconList",
           "variant": null,
           "model": "iconList:checks",
           "continues": null,
-          "surface": "white",
+          "surface": "tinted",
           "slots": [],
           "estimate": {
             "heightPx": 1251,
@@ -10982,7 +11014,7 @@
           }
         },
         {
-          "id": "media-module-budget-1",
+          "id": "media-module-1",
           "type": "gallery",
           "variant": "band",
           "model": "gallery:band",
@@ -10998,7 +11030,7 @@
             "before": 58,
             "after": 58
           },
-          "wall": "budget",
+          "wall": "signature",
           "items": 1,
           "longestItemWords": 0
         },
@@ -11029,23 +11061,44 @@
           }
         },
         {
+          "id": "media-module-budget-2",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 720,
+            "visualPx": 619,
+            "pictured": true,
+            "before": 58,
+            "after": 58
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
           "id": "featureGrid-1",
           "type": "featureGrid",
-          "variant": "cards",
-          "model": "featureGrid:cards",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 761,
-            "visualPx": 358,
-            "pictured": true,
-            "before": 259,
-            "after": 206
+            "heightPx": 1578,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 1578,
+            "after": 1578
           },
-          "items": 4,
+          "items": 8,
           "longestItemWords": 49,
-          "pattern": "cards",
+          "pattern": "bullets",
           "columns": 2,
           "titleLevel": "h3",
           "set": "featureGrid-1",
@@ -11057,27 +11110,25 @@
           }
         },
         {
-          "id": "featureGrid-2",
-          "type": "featureGrid",
-          "variant": "cards",
-          "model": "featureGrid:cards",
-          "continues": "featureGrid-1",
-          "surface": "tinted",
-          "slots": [],
+          "id": "media-module-budget-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
           "estimate": {
-            "heightPx": 615,
-            "visualPx": 289,
+            "heightPx": 720,
+            "visualPx": 619,
             "pictured": true,
-            "before": 209,
-            "after": 166
+            "before": 58,
+            "after": 58
           },
-          "items": 4,
-          "longestItemWords": 39,
-          "pattern": "cards",
-          "columns": 2,
-          "titleLevel": "h3",
-          "set": "featureGrid-1",
-          "cardWords": 36
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
         },
         {
           "id": "m7",
@@ -11204,10 +11255,10 @@
       ],
       "words": 2195,
       "estimate": {
-        "heightPx": 15752,
-        "visualAreaPct": 37.8,
-        "longestTextOnlyPx": 1367,
-        "wordsPer1000px": 139
+        "heightPx": 16786,
+        "visualAreaPct": 32.2,
+        "longestTextOnlyPx": 2148,
+        "wordsPer1000px": 131
       },
       "band": {
         "wordsPer1000px": {
@@ -11222,7 +11273,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 1,
+      "budgetWalls": 2,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
@@ -11231,10 +11282,10 @@
         "cap": 12,
         "estimate": {
           "words": 2195,
-          "heightPx": 15032,
-          "visualAreaPct": 35.5,
-          "wordsPer1000px": 146,
-          "longestTextOnlyPx": 2486
+          "heightPx": 15346,
+          "visualAreaPct": 27.1,
+          "wordsPer1000px": 143,
+          "longestTextOnlyPx": 3728
         },
         "limits": []
       }
@@ -11278,21 +11329,42 @@
           }
         },
         {
+          "id": "media-module-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 720,
+            "visualPx": 619,
+            "pictured": true,
+            "before": 58,
+            "after": 58
+          },
+          "wall": "signature",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
           "id": "featureGrid-1",
           "type": "featureGrid",
           "variant": "cards",
           "model": "featureGrid:cards",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 912,
-            "visualPx": 429,
-            "pictured": true,
-            "before": 310,
-            "after": 246
+            "heightPx": 513,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 513,
+            "after": 513
           },
-          "items": 4,
+          "items": 2,
           "longestItemWords": 55,
           "pattern": "cards",
           "columns": 2,
@@ -11306,12 +11378,56 @@
           }
         },
         {
+          "id": "featureGrid-2",
+          "type": "featureGrid",
+          "variant": "cards",
+          "model": "featureGrid:cards",
+          "continues": "featureGrid-1",
+          "surface": "white",
+          "slots": [],
+          "estimate": {
+            "heightPx": 554,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 554,
+            "after": 554
+          },
+          "items": 2,
+          "longestItemWords": 50,
+          "pattern": "cards",
+          "columns": 2,
+          "titleLevel": "h3",
+          "set": "featureGrid-1",
+          "cardWords": 46
+        },
+        {
+          "id": "media-module-budget-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 720,
+            "visualPx": 619,
+            "pictured": true,
+            "before": 58,
+            "after": 58
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
           "id": "iconList-1",
           "type": "iconList",
           "variant": null,
           "model": "iconList:checks",
           "continues": null,
-          "surface": "white",
+          "surface": "tinted",
           "slots": [],
           "estimate": {
             "heightPx": 679,
@@ -11337,7 +11453,7 @@
           "variant": "list",
           "model": "process:list",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 474,
@@ -11360,7 +11476,7 @@
           "variant": "wide",
           "model": "splitMedia:wide",
           "continues": null,
-          "surface": "white",
+          "surface": "tinted",
           "slots": [
             "process"
           ],
@@ -11383,7 +11499,7 @@
           "variant": "cards",
           "model": "featureGrid:cards",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 550,
@@ -11411,7 +11527,7 @@
           "variant": null,
           "model": "table:",
           "continues": null,
-          "surface": "white",
+          "surface": "tinted",
           "slots": [],
           "estimate": {
             "heightPx": 874,
@@ -11432,7 +11548,7 @@
           "variant": "single",
           "model": "splitMedia:single",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 636,
@@ -11453,16 +11569,16 @@
           "variant": "cards",
           "model": "featureGrid:cards",
           "continues": null,
-          "surface": "white",
+          "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 729,
-            "visualPx": 343,
-            "pictured": true,
-            "before": 248,
-            "after": 197
+            "heightPx": 489,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 489,
+            "after": 489
           },
-          "items": 4,
+          "items": 2,
           "longestItemWords": 43,
           "pattern": "cards",
           "columns": 2,
@@ -11476,12 +11592,35 @@
           }
         },
         {
+          "id": "m5-2",
+          "type": "featureGrid",
+          "variant": "cards",
+          "model": "featureGrid:cards",
+          "continues": "m5",
+          "surface": "tinted",
+          "slots": [],
+          "estimate": {
+            "heightPx": 395,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 395,
+            "after": 395
+          },
+          "items": 2,
+          "longestItemWords": 36,
+          "pattern": "cards",
+          "columns": 2,
+          "titleLevel": "h3",
+          "set": "m5",
+          "cardWords": 32
+        },
+        {
           "id": "m6",
           "type": "splitMedia",
           "variant": "single",
           "model": "splitMedia:single",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [
             "material"
           ],
@@ -11504,7 +11643,7 @@
           "variant": "single",
           "model": "splitMedia:single",
           "continues": null,
-          "surface": "white",
+          "surface": "tinted",
           "slots": [],
           "estimate": {
             "heightPx": 739,
@@ -11525,7 +11664,7 @@
           "variant": "cards",
           "model": "featureGrid:cards",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 647,
@@ -11553,7 +11692,7 @@
           "variant": "single",
           "model": "splitMedia:single",
           "continues": null,
-          "surface": "white",
+          "surface": "tinted",
           "slots": [
             "process"
           ],
@@ -11576,7 +11715,7 @@
           "variant": "single",
           "model": "splitMedia:single",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [
             "process"
           ],
@@ -11599,7 +11738,7 @@
           "variant": "band",
           "model": "proof:band",
           "continues": null,
-          "surface": "white",
+          "surface": "tinted",
           "slots": [],
           "estimate": {
             "heightPx": 533,
@@ -11613,27 +11752,6 @@
             "desktop": 0,
             "mobile": 0
           }
-        },
-        {
-          "id": "media-module-1",
-          "type": "gallery",
-          "variant": "band",
-          "model": "gallery:band",
-          "continues": null,
-          "surface": "own",
-          "slots": [
-            "lifestyle"
-          ],
-          "estimate": {
-            "heightPx": 720,
-            "visualPx": 619,
-            "pictured": true,
-            "before": 58,
-            "after": 58
-          },
-          "wall": "signature",
-          "items": 1,
-          "longestItemWords": 0
         },
         {
           "id": "cases",
@@ -11758,10 +11876,10 @@
       ],
       "words": 1776,
       "estimate": {
-        "heightPx": 15050,
-        "visualAreaPct": 37,
-        "longestTextOnlyPx": 1625,
-        "wordsPer1000px": 118
+        "heightPx": 16080,
+        "visualAreaPct": 33.7,
+        "longestTextOnlyPx": 1437,
+        "wordsPer1000px": 110
       },
       "band": {
         "wordsPer1000px": {
@@ -11776,7 +11894,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 0,
+      "budgetWalls": 1,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
@@ -11785,10 +11903,10 @@
         "cap": 12,
         "estimate": {
           "words": 1776,
-          "heightPx": 15050,
-          "visualAreaPct": 37,
-          "wordsPer1000px": 118,
-          "longestTextOnlyPx": 1625
+          "heightPx": 15360,
+          "visualAreaPct": 31.2,
+          "wordsPer1000px": 116,
+          "longestTextOnlyPx": 2504
         },
         "limits": []
       }
@@ -11876,27 +11994,48 @@
           }
         },
         {
+          "id": "media-module-budget-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 720,
+            "visualPx": 619,
+            "pictured": true,
+            "before": 58,
+            "after": 58
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
           "id": "m2",
           "type": "featureGrid",
-          "variant": "cards",
-          "model": "featureGrid:cards",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
           "continues": null,
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 590,
-            "visualPx": 278,
-            "pictured": true,
-            "before": 201,
-            "after": 159
+            "heightPx": 1736,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 1736,
+            "after": 1736
           },
-          "items": 4,
-          "longestItemWords": 32,
-          "pattern": "cards",
+          "items": 8,
+          "longestItemWords": 57,
+          "pattern": "bullets",
           "columns": 2,
           "titleLevel": "h3",
           "set": "m2",
-          "cardWords": 30,
+          "cardWords": 54,
           "heading": {
             "text": "From Pattern to Bulk: Steps, Timing and Terms",
             "desktop": 0,
@@ -11904,27 +12043,25 @@
           }
         },
         {
-          "id": "m2-2",
-          "type": "featureGrid",
-          "variant": "cards",
-          "model": "featureGrid:cards",
-          "continues": "m2",
-          "surface": "white",
-          "slots": [],
+          "id": "media-module-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
           "estimate": {
-            "heightPx": 904,
-            "visualPx": 425,
+            "heightPx": 720,
+            "visualPx": 619,
             "pictured": true,
-            "before": 307,
-            "after": 244
+            "before": 58,
+            "after": 58
           },
-          "items": 4,
-          "longestItemWords": 57,
-          "pattern": "cards",
-          "columns": 2,
-          "titleLevel": "h3",
-          "set": "m2",
-          "cardWords": 54
+          "wall": "signature",
+          "items": 1,
+          "longestItemWords": 0
         },
         {
           "id": "m9",
@@ -11951,27 +12088,6 @@
             "desktop": 0,
             "mobile": 0
           }
-        },
-        {
-          "id": "media-module-1",
-          "type": "gallery",
-          "variant": "band",
-          "model": "gallery:band",
-          "continues": null,
-          "surface": "own",
-          "slots": [
-            "lifestyle"
-          ],
-          "estimate": {
-            "heightPx": 720,
-            "visualPx": 619,
-            "pictured": true,
-            "before": 58,
-            "after": 58
-          },
-          "wall": "signature",
-          "items": 1,
-          "longestItemWords": 0
         },
         {
           "id": "m3",
@@ -12267,10 +12383,10 @@
       ],
       "words": 2042,
       "estimate": {
-        "heightPx": 15008,
-        "visualAreaPct": 31.6,
+        "heightPx": 15970,
+        "visualAreaPct": 29.2,
         "longestTextOnlyPx": 2189,
-        "wordsPer1000px": 136
+        "wordsPer1000px": 128
       },
       "band": {
         "wordsPer1000px": {
@@ -12285,7 +12401,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 0,
+      "budgetWalls": 1,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
@@ -12294,10 +12410,10 @@
         "cap": 10,
         "estimate": {
           "words": 2042,
-          "heightPx": 15008,
-          "visualAreaPct": 31.6,
-          "wordsPer1000px": 136,
-          "longestTextOnlyPx": 2189
+          "heightPx": 15250,
+          "visualAreaPct": 26.5,
+          "wordsPer1000px": 134,
+          "longestTextOnlyPx": 2634
         },
         "limits": []
       }
@@ -13755,21 +13871,21 @@
         {
           "id": "m2",
           "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
           "continues": null,
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 985,
-            "visualPx": 463,
-            "pictured": true,
-            "before": 335,
-            "after": 266
+            "heightPx": 2003,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 2003,
+            "after": 2003
           },
-          "items": 4,
+          "items": 8,
           "longestItemWords": 50,
-          "pattern": "cards",
+          "pattern": "bullets",
           "columns": 2,
           "titleLevel": "h3",
           "set": "m2",
@@ -13781,27 +13897,25 @@
           }
         },
         {
-          "id": "m2-2",
-          "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
-          "continues": "m2",
-          "surface": "white",
-          "slots": [],
+          "id": "media-module-budget-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
           "estimate": {
-            "heightPx": 709,
-            "visualPx": 333,
+            "heightPx": 720,
+            "visualPx": 619,
             "pictured": true,
-            "before": 241,
-            "after": 191
+            "before": 58,
+            "after": 58
           },
-          "items": 4,
-          "longestItemWords": 49,
-          "pattern": "cards",
-          "columns": 2,
-          "titleLevel": "h3",
-          "set": "m2",
-          "cardWords": 46
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
         },
         {
           "id": "m3",
@@ -13809,7 +13923,7 @@
           "variant": null,
           "model": "iconList:checks",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 1681,
@@ -13835,7 +13949,7 @@
           "variant": null,
           "model": "relatedPages:links",
           "continues": null,
-          "surface": "white",
+          "surface": "tinted",
           "slots": [],
           "estimate": {
             "heightPx": 476,
@@ -13859,7 +13973,7 @@
           "variant": null,
           "model": "faq:two-column",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 448,
@@ -13902,10 +14016,10 @@
       ],
       "words": 749,
       "estimate": {
-        "heightPx": 6500,
-        "visualAreaPct": 40.7,
-        "longestTextOnlyPx": 1986,
-        "wordsPer1000px": 115
+        "heightPx": 7529,
+        "visualAreaPct": 32.8,
+        "longestTextOnlyPx": 2116,
+        "wordsPer1000px": 99
       },
       "band": {
         "wordsPer1000px": {
@@ -13920,7 +14034,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 0,
+      "budgetWalls": 1,
       "signatureFloor": 0,
       "signatureBands": 0,
       "feasibility": {
@@ -13929,10 +14043,10 @@
         "cap": 4,
         "estimate": {
           "words": 749,
-          "heightPx": 6500,
-          "visualAreaPct": 40.7,
-          "wordsPer1000px": 115,
-          "longestTextOnlyPx": 1986
+          "heightPx": 6809,
+          "visualAreaPct": 27.1,
+          "wordsPer1000px": 110,
+          "longestTextOnlyPx": 3853
         },
         "limits": []
       }
@@ -14868,25 +14982,25 @@
         {
           "id": "m9",
           "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
+          "variant": "bullets",
+          "model": "featureGrid:bullets",
           "continues": null,
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 578,
-            "visualPx": 272,
-            "pictured": true,
-            "before": 197,
-            "after": 156
+            "heightPx": 1295,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 1295,
+            "after": 1295
           },
-          "items": 4,
-          "longestItemWords": 26,
-          "pattern": "cards",
-          "columns": 4,
+          "items": 7,
+          "longestItemWords": 36,
+          "pattern": "bullets",
+          "columns": 2,
           "titleLevel": "h3",
           "set": "m9",
-          "cardWords": 23,
+          "cardWords": 33,
           "heading": {
             "text": "Bucket Hats, Hair and Beach Accessories",
             "desktop": 0,
@@ -14894,27 +15008,25 @@
           }
         },
         {
-          "id": "m9-2",
-          "type": "featureGrid",
-          "variant": null,
-          "model": "featureGrid:cards",
-          "continues": "m9",
-          "surface": "tinted",
-          "slots": [],
+          "id": "media-module-budget-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
           "estimate": {
-            "heightPx": 586,
-            "visualPx": 276,
+            "heightPx": 720,
+            "visualPx": 619,
             "pictured": true,
-            "before": 199,
-            "after": 158
+            "before": 58,
+            "after": 58
           },
-          "items": 3,
-          "longestItemWords": 36,
-          "pattern": "cards",
-          "columns": 4,
-          "titleLevel": "h3",
-          "set": "m9",
-          "cardWords": 33
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
         },
         {
           "id": "m10",
@@ -15041,10 +15153,10 @@
       ],
       "words": 2109,
       "estimate": {
-        "heightPx": 15862,
-        "visualAreaPct": 32.4,
+        "heightPx": 16713,
+        "visualAreaPct": 31.1,
         "longestTextOnlyPx": 2062,
-        "wordsPer1000px": 133
+        "wordsPer1000px": 126
       },
       "band": {
         "wordsPer1000px": {
@@ -15059,7 +15171,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 0,
+      "budgetWalls": 1,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
@@ -15068,10 +15180,10 @@
         "cap": 12,
         "estimate": {
           "words": 2109,
-          "heightPx": 15862,
-          "visualAreaPct": 32.4,
-          "wordsPer1000px": 133,
-          "longestTextOnlyPx": 2062
+          "heightPx": 15993,
+          "visualAreaPct": 28.7,
+          "wordsPer1000px": 132,
+          "longestTextOnlyPx": 3242
         },
         "limits": []
       }
@@ -15982,7 +16094,21 @@
     },
     {
       "route": "/",
+      "block": "media-module-budget-4",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
+    },
+    {
+      "route": "/",
       "block": "media-module-budget-2",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
+    },
+    {
+      "route": "/",
+      "block": "media-module-budget-5",
       "index": 0,
       "kind": "lifestyle",
       "ratio": "10 / 11"
@@ -16045,10 +16171,24 @@
     },
     {
       "route": "/boardshorts-manufacturer/",
+      "block": "media-module-budget-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
+    },
+    {
+      "route": "/boardshorts-manufacturer/",
       "block": "m4",
       "index": 0,
       "kind": "product",
       "ratio": "1 / 1"
+    },
+    {
+      "route": "/swim-trunks-manufacturer/",
+      "block": "media-module-budget-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
     },
     {
       "route": "/swim-trunks-manufacturer/",
@@ -16063,6 +16203,13 @@
       "index": 0,
       "kind": "process",
       "ratio": "1 / 1"
+    },
+    {
+      "route": "/children-s-swimwear-manufacturer/",
+      "block": "media-module-budget-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
     },
     {
       "route": "/children-s-swimwear-manufacturer/",
@@ -16137,6 +16284,13 @@
     {
       "route": "/modest-swimwear-manufacturer/",
       "block": "media-module-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
+    },
+    {
+      "route": "/burkini-manufacturer/",
+      "block": "media-module-budget-2",
       "index": 0,
       "kind": "lifestyle",
       "ratio": "10 / 11"
@@ -16248,6 +16402,13 @@
     },
     {
       "route": "/swimwear-embroidery/",
+      "block": "media-module-budget-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
+    },
+    {
+      "route": "/swimwear-embroidery/",
       "block": "media-module-1",
       "index": 0,
       "kind": "lifestyle",
@@ -16269,14 +16430,7 @@
     },
     {
       "route": "/swimwear-consulting/",
-      "block": "media-module-budget-2",
-      "index": 0,
-      "kind": "lifestyle",
-      "ratio": "10 / 11"
-    },
-    {
-      "route": "/swimwear-consulting/",
-      "block": "media-module-1",
+      "block": "media-module-budget-1",
       "index": 0,
       "kind": "lifestyle",
       "ratio": "10 / 11"
@@ -16290,7 +16444,21 @@
     },
     {
       "route": "/swimwear-consulting/",
-      "block": "media-module-budget-1",
+      "block": "media-module-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
+    },
+    {
+      "route": "/swimwear-consulting/",
+      "block": "media-module-budget-4",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
+    },
+    {
+      "route": "/swimwear-consulting/",
+      "block": "media-module-budget-2",
       "index": 0,
       "kind": "lifestyle",
       "ratio": "10 / 11"
@@ -16430,6 +16598,13 @@
     },
     {
       "route": "/swimwear-hardware/",
+      "block": "media-module-budget-2",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
+    },
+    {
+      "route": "/swimwear-hardware/",
       "block": "media-module-budget-1",
       "index": 0,
       "kind": "lifestyle",
@@ -16441,6 +16616,20 @@
       "index": 0,
       "kind": "lifestyle",
       "ratio": "4 / 3"
+    },
+    {
+      "route": "/swimwear-fabrics-sourcing/",
+      "block": "media-module-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
+    },
+    {
+      "route": "/swimwear-fabrics-sourcing/",
+      "block": "media-module-budget-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
     },
     {
       "route": "/swimwear-fabrics-sourcing/",
@@ -16472,17 +16661,17 @@
     },
     {
       "route": "/swimwear-fabrics-sourcing/",
-      "block": "media-module-1",
-      "index": 0,
-      "kind": "lifestyle",
-      "ratio": "10 / 11"
-    },
-    {
-      "route": "/swimwear-fabrics-sourcing/",
       "block": "cta",
       "index": 0,
       "kind": "lifestyle",
       "ratio": "4 / 3"
+    },
+    {
+      "route": "/swimwear-launch-services/",
+      "block": "media-module-budget-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
     },
     {
       "route": "/swimwear-launch-services/",
@@ -16605,6 +16794,13 @@
     },
     {
       "route": "/sustainability/",
+      "block": "media-module-budget-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
+    },
+    {
+      "route": "/sustainability/",
       "block": "cta",
       "index": 0,
       "kind": "lifestyle",
@@ -16644,6 +16840,13 @@
       "index": 0,
       "kind": "material",
       "ratio": "1 / 1"
+    },
+    {
+      "route": "/swimwear-accessories/",
+      "block": "media-module-budget-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
     },
     {
       "route": "/plus-size-swimwear-manufacturer/",
@@ -16689,65 +16892,8 @@
     }
   ],
   "gate": {
-    "items": [
-      {
-        "assertion": "orphan_card",
-        "owner": "template",
-        "gate": "fail",
-        "route": "/",
-        "block": "m3",
-        "detail": "4 cards in 3 columns"
-      },
-      {
-        "assertion": "orphan_card",
-        "owner": "template",
-        "gate": "fail",
-        "route": "/",
-        "block": "featureGrid-3",
-        "detail": "4 cards in 3 columns"
-      },
-      {
-        "assertion": "item_rows_adjacent",
-        "owner": "plan",
-        "gate": "fail",
-        "route": "/women-s-swimwear-manufacturer/",
-        "block": "m5",
-        "detail": "m4-2 (featureGrid:cards) and m5 (featureGrid:cards)"
-      },
-      {
-        "assertion": "item_rows_adjacent",
-        "owner": "plan",
-        "gate": "fail",
-        "route": "/boardshorts-manufacturer/",
-        "block": "m2",
-        "detail": "m6-2 (featureGrid:cards) and m2 (featureGrid:cards)"
-      },
-      {
-        "assertion": "orphan_card",
-        "owner": "template",
-        "gate": "fail",
-        "route": "/burkini-manufacturer/",
-        "block": "m2",
-        "detail": "4 cards in 3 columns"
-      },
-      {
-        "assertion": "item_rows_adjacent",
-        "owner": "plan",
-        "gate": "fail",
-        "route": "/swimwear-hardware/",
-        "block": "m4",
-        "detail": "m2-2 (featureGrid:cards) and m4 (featureGrid:cards)"
-      },
-      {
-        "assertion": "item_rows_adjacent",
-        "owner": "plan",
-        "gate": "fail",
-        "route": "/swimwear-accessories/",
-        "block": "m9",
-        "detail": "m8-2 (featureGrid:cards) and m9 (featureGrid:cards)"
-      }
-    ],
-    "failed": 7,
+    "items": [],
+    "failed": 0,
     "reported": 0
   }
 }
