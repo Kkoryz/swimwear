@@ -257,5 +257,12 @@
     "at": "2026-11-14T10:08:18.427Z",
     "seconds": 413,
     "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/design-review.log"
+  },
+  "design-gate": {
+    "status": "passed",
+    "hash": "e3b0c44298fc1c14",
+    "at": "2026-11-14T10:08:19.103Z",
+    "seconds": 0,
+    "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/design-gate.log"
   }
 }
