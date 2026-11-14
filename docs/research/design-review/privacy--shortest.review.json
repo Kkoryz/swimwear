@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "edcfc32665b311d976bcb547",
+  "shots": "2670bb3851eb4c03c119a5b4",
   "rules": "896e2a6360c1caaa",
   "pageType": "privacy--shortest",
   "route": "/privacy-policy/",
@@ -10,27 +10,27 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The text-only hero ends right under its 'CONTACT US' pill with almost no space below it, then the overview adds a wide empty band before 'How We Handle Your Information'. The page's opening has a tight gap followed by a loose one. The same shows on mobile, where the pill sits on the hero's lower edge and the overview heading starts about 70 px further down.",
-      "reference": "The competitor leaves even space above and below the block that follows its hero, so the title area and the first copy read as two separate, evenly spaced parts.",
-      "fix": "In reference.css, give the text-only hero (the hero block with no photo) a padding-bottom equal to the overview's padding-top, or reduce the overview's top padding after a text-only hero, so the gap above the button's lower edge matches the gap below it."
+      "issue": "Still open from the last review: the text-only hero ends right under its 'CONTACT US' pill, which sits almost on the hero's lower edge, and then the overview opens with a wide empty band above 'How We Handle Your Information', so the page opens with a tight gap followed by a loose one; mobile shows the same, with the pill touching the hero's lower edge and the overview heading starting about 70 px further down.",
+      "reference": "The competitor leaves even space above and below the copy block that follows its hero, so the title area and the first copy read as two separate, evenly spaced parts.",
+      "fix": "In reference.css, give the text-only hero (hero without a photo) a padding-bottom equal to the overview's padding-top, or reduce the intro's padding-top when it follows a text-only hero, so the space below the button matches the space above the next heading."
     },
     {
       "block": "related",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "content",
-      "issue": "Still open from the last review: the large heading 'Related products and services' sits over one small link, 'Terms and Conditions', which is neither a product nor a service, so the tinted band promises more than it gives. Mobile shows the same.",
+      "issue": "Still open from the last review: the large heading 'Related products and services' sits over one small link, 'Terms and Conditions', which is neither a product nor a service, so the tinted band promises more than it gives; mobile shows the same.",
       "reference": "The competitor's onward link says where it leads, inline in its closing copy ('Read the full group story, facility details and ethics standards at PT King Trading.').",
-      "fix": "In Site Factory, give the section a heading that fits its link (for example 'Related policies'), or link the product and service pages the heading names."
+      "fix": "In Site Factory, give the section a heading that fits its link (e.g. 'Related policies'), or link the product and service pages the heading names."
     },
     {
       "block": "cta",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "content",
-      "issue": "Still open from the last review: the line under the CTA heading ('Send your enquiry to our factory to tell us about the swimwear you are looking for.') says the heading 'Send an enquiry to our factory' again almost word for word, so it tells the reader nothing new. Mobile shows the same.",
+      "issue": "Still open from the last review: the line under the CTA heading ('Send your enquiry to our factory to tell us about the swimwear you are looking for.') repeats the heading 'Send an enquiry to our factory' almost word for word and adds nothing; mobile shows the same.",
       "reference": "Each line of the competitor's closing copy adds a new fact or a next step ('Manufacturing in Bali since 1993. Read the full group story…'), and none repeats its heading.",
-      "fix": "In Site Factory, rewrite the CTA's body line to give a reason or a next step (what to put in the enquiry, how fast the reply comes) instead of repeating the heading."
+      "fix": "In Site Factory, rewrite the CTA body line to give a reason or a next step (what to include in the enquiry, how fast the reply comes) instead of repeating the heading."
     },
     {
       "block": "cta",
@@ -38,9 +38,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "art-direction",
-      "issue": "Still open from the last review: at 390 px the closing band crops its wide photo to a near-square window on the woman. 'Send an enquiry to our factory' and the lead sit right over her head and upper body. The dark overlay keeps the text readable but hides the subject, and moving object-position cannot clear her inside such a narrow window.",
-      "reference": "On desktop the same band puts its copy over the darker left of the photo and leaves the subject clear on the right. The competitor keeps its title off the main subject of its photo.",
-      "fix": "Give the cta band a separate photo crop for narrow widths (art-direction), with the subject low or to one side, so the heading and lead fall on an empty part of the photo."
+      "issue": "Still open from the last review: at 390 px the closing band crops its wide photo to a near-square window on the woman, so 'Send an enquiry to our factory' and its lead sit right over her head and upper body; the dark overlay keeps the text readable but hides the subject, and no object-position can clear her in such a narrow window.",
+      "reference": "On desktop the same band puts its copy over the darker left of the photo and leaves the subject clear on the right; the competitor keeps its title off the main subject of its photo.",
+      "fix": "Give the cta band a separate crop for narrow widths (art-direction), with the subject low or to one side, so the heading and lead fall on an empty part of the photo."
     }
   ]
 }

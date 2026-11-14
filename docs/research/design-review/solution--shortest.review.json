@@ -1,27 +1,19 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "7dd087add36a0d364f7ed451",
+  "shots": "655b904687b1f572aaf3afa3",
   "rules": "896e2a6360c1caaa",
   "pageType": "solution--shortest",
   "route": "/custom-swimwear-printing/",
   "findings": [
     {
-      "block": "splitMedia-1",
+      "block": "faq-charts",
       "viewport": "mobile",
       "severity": "P2",
-      "scope": "site",
-      "issue": "On phones the wide-variant factory photo still keeps its desktop strip ratio (imageShare 0.17), so it shrinks to a band about 150 px tall under a long run of text. The repair left reference.css:255-259 ('Phones: the wide row's photo … shows in its own shape') as an empty @media (max-width: 767px) block (reported before; unchanged).",
-      "reference": "The competitor's phone photos in text sections (the handover/mock-up image) run full width at a near-square or 4:3 ratio.",
-      "fix": "Fill the empty phone block in reference.css: .block--split[data-variant=\"wide\"] .split__media img { aspect-ratio: 4 / 3; object-fit: cover; } (or the photo's own ratio), so the stacked photo is not the desktop strip."
-    },
-    {
-      "block": "trustBar",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "In the 2×2 phone trust bar, 'up to 3 business days' still wraps to two lines while '300 dpi' stays on one, so in the first row 'SUBLIMATION QUOTE TIME' and 'MINIMUM ARTWORK RESOLUTION' sit at different heights. The new text-wrap: balance on labels does not line them up (reported before; unchanged).",
-      "reference": "The competitor has no trust bar. In its rows of cards and steps, the parts of each item in one row line up.",
-      "fix": "In reference.css at the phone breakpoint, give the trust-bar items a shared row track (grid-template-rows: subgrid over value/label, or align the value to the end of its track) so that each row's values and labels line up."
+      "scope": "template",
+      "gap": "other",
+      "issue": "On phones the four-column comparison table cuts its fourth column off at the right edge ('Pigm… with und…', 'Digi… pigm… prin…'), and 'White or pastel areas' stacks one word per line (reported before; unchanged).",
+      "reference": "On phones the competitor shows comparisons as stacked panels (the 'Plain colours' and 'Prints' cards), with nothing cut off at the side.",
+      "fix": "Give the comparison chart (.chart-comparison) a stacked phone layout: one card per option column, with its rows as label/value pairs, instead of the clipped sideways table."
     },
     {
       "block": "m8",
@@ -29,7 +21,7 @@
       "severity": "P2",
       "scope": "template",
       "gap": "layout",
-      "issue": "Two neighbouring sections of the same shape still stand one under the other: m7 (process) and m8 (iconList) both set their rows of short items as a list beside the heading, which leaves two long empty left-hand columns in a row (about 1,600 px; reported before; unchanged).",
+      "issue": "Two neighbouring sections of the same shape still stand one under the other: m7 (process) and m8 (iconList) both set their rows of short items as a list beside the heading, which leaves two long empty left-hand columns in a row, about 1,600 px in all (reported before; unchanged).",
       "reference": "Site rule: of two neighbouring short-item sections, only one is set as a list beside its heading. The competitor sets its steps as a band of columns under the heading ('Six steps from Costing to delivery').",
       "fix": "When a process list and an iconList are neighbours, have the template set one of them differently: m8 as items in columns under its heading, or m7 in the process 'band' arrangement."
     },
@@ -39,29 +31,36 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "The process step titles ('Scale and trial print', 'A4 approval options', and the same in splitMedia-1-steps) are still set at body size and differ from the text only in weight. They read as smaller than the iconList item titles in m5 and m8 on either side, so one heading level has two sizes on the page at both widths (reported before; unchanged).",
+      "issue": "The process step titles ('Scale and trial print', 'A4 approval options', and 'Consultation and design' in splitMedia-1-steps) are still set at body size and differ from the text under them only in weight. They read as smaller than the iconList item titles in m5 and m8, so one heading level has two sizes on the page, at both widths (reported before; unchanged).",
       "reference": "The competitor's step titles ('Custom Designs', 'Fabrics & Colours') are clearly larger than the step text under them, at the same level as its other card titles.",
-      "fix": "Have the template size process step titles (the numbered point-list item heading) at the same sub-heading level as iconList and featureGrid item titles; no site rule sets the size."
+      "fix": "Have the template size process step titles (the numbered list item heading) at the same sub-heading level as the iconList and featureGrid item titles; no site rule sets the size."
     },
     {
-      "block": "owner-testimonials",
+      "block": "faq",
       "viewport": "desktop",
       "severity": "P2",
-      "scope": "template",
-      "gap": "other",
-      "issue": "After the photo band, m12 (proof), owner-testimonials and related all still sit on white, so three neighbouring plain sections do not alternate at either width (reported before; unchanged).",
-      "reference": "The competitor alternates beige with white or navy from section to section. Site rule: the template alternates white and --section-tint between neighbouring plain sections.",
-      "fix": "Include testimonials and relatedPages blocks in the template's white/tint alternation so the run reads white, tint, white."
+      "scope": "site",
+      "issue": "Each FAQ question runs across the full 1,400 px content width (the first is about 95 characters on one line before it wraps), while the open answer under it stops at about half that width. The question lines are too long to read comfortably, and they don't line up with their own answers.",
+      "reference": "The competitor's FAQ sets its question bars in a narrow column, so each question is a short line with its answer at the same width under it.",
+      "fix": "In reference.css, limit the FAQ question text to the same measure as the answer (max-inline-size in ch on the question label, matching the answer's measure), keeping the +/− icon at the bar's end."
     },
     {
-      "block": "faq-charts",
+      "block": "splitMedia-1",
       "viewport": "mobile",
       "severity": "P2",
-      "scope": "template",
-      "gap": "other",
-      "issue": "On phones the four-column comparison table still cuts its fourth column off at the right edge ('Pigm… with und…', 'Digit… pigm… print…'), and 'White or pastel areas' stacks one word per line. The latest fixed-layout repair covers only tables of up to three columns (reported before; unchanged).",
-      "reference": "On phones the competitor shows comparisons as stacked panels (the 'Plain colours' / 'Prints' cards), with nothing cut off at the side.",
-      "fix": "Give the comparison chart (.chart-comparison) a stacked phone layout: one card per option column, its rows as label/value pairs, instead of the sideways scroll."
+      "scope": "site",
+      "issue": "On phones the wide-variant factory photo still keeps its desktop strip shape (imageShare 0.17), so it shrinks to a band about 150 px tall under a long run of text (reported before; unchanged).",
+      "reference": "The competitor's phone photos in text sections (the handover/mock-up image) run full width at a near-square or 4:3 shape.",
+      "fix": "In reference.css at the phone breakpoint, set .block--split[data-variant=\"wide\"] .split__media img { aspect-ratio: 4 / 3; object-fit: cover; } (or the photo's own ratio), so the stacked photo is not cropped to the desktop strip."
+    },
+    {
+      "block": "trust-bar",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "In the 2×2 phone trust bar, '3 business days' wraps to two lines while '300 dpi' stays on one, so in the first row 'SUBLIMATION QUOTE TIME' sits lower than 'MINIMUM ARTWORK RESOLUTION' (reported before; unchanged).",
+      "reference": "The competitor has no trust bar, but in its rows of cards and steps the parts of each item in one row line up.",
+      "fix": "In reference.css at the phone breakpoint, give the trust-bar items a shared row track (grid-template-rows: subgrid over value and label, or align each value to the end of its track) so each row's values and labels line up."
     },
     {
       "block": "related",
@@ -69,9 +68,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "icon-links",
-      "issue": "The related link cards still name services (Embroidery, Consulting, Swimwear Packaging & Custom Brand Labels, Swimwear Hardware) with only text and an arrow, with no line icon (reported before; unchanged).",
+      "issue": "The related link cards name services (Embroidery, Consulting, Swimwear Packaging & Custom Brand Labels, Swimwear Hardware) with only text and an arrow, and no line icon (reported before; unchanged).",
       "reference": "The competitor's matching link cards (Book a Call-Back, WhatsApp, Email Us, Visit Us) each have a line icon at the left and an arrow at the right. Site rule: cards that name services carry a line icon.",
-      "fix": "Give the relatedPages link cards a line-icon slot before the label, filled per linked service."
+      "fix": "Give the relatedPages link cards a line-icon slot before the label, filled for each linked service."
     },
     {
       "block": "cta",
@@ -79,7 +78,7 @@
       "severity": "P2",
       "scope": "template",
       "gap": "art-direction",
-      "issue": "On phones the wide closing photo is still cropped to the copy's height (about 330 px), so the heading, lead and button cover almost the whole frame. The woman's face is hidden under the heading, and the photo reads as a dark texture (reported before; unchanged).",
+      "issue": "On phones the wide closing photo is still cropped to the copy's height (about 330 px), so the heading, lead and button cover almost the whole frame, the woman's face is hidden under the heading, and the photo reads as a dark texture (reported before; unchanged).",
       "reference": "On phones the competitor keeps each photo's subject in frame (its phone hero switches to a portrait shot), and its closing module has no wide photo squeezed behind text.",
       "fix": "Give the image-band CTA a portrait or square twin photo on phones (as phoneHeroes does for the hero) instead of cropping the wide one to the copy."
     },
@@ -88,9 +87,9 @@
       "viewport": "mobile",
       "severity": "P2",
       "scope": "content",
-      "issue": "On phones the H1 breaks the compound 'In-House' at its hyphen ('Printing with In- / House Sublimation'), so the most prominent line on the page ends on a dangling 'In-'.",
+      "issue": "On phones the H1 still breaks 'In-House' at its hyphen ('Printing with In- / House Sublimation'), so the most prominent line on the page ends on a dangling 'In-' (reported before; unchanged).",
       "reference": "The competitor's phone H1 ('Your first collection, / step by step.') breaks only between whole words.",
-      "fix": "In the hero title copy, write 'In-House' with a non-breaking hyphen (U+2011) so it moves to the next line as one word; the title's size stays as the template fits it."
+      "fix": "In the hero title copy, write 'In-House' with a non-breaking hyphen (U+2011) so it moves to the next line as one word; the template keeps fitting the title's size."
     }
   ]
 }

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "86c3df9a9df8ad8afe35ac43",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "about",
+  "route": "/about-us/",
+  "findings": [
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The hero photo still carries the 30-word lead ('Since 2011 we have run bulk lines…'), centred in four lines under the two-line H1, and the aqua CONTACT US pill under it, which breaks the site rule that a lead much longer than the competitor's goes under the hero.",
+      "reference": "The competitor's About hero is the factory photo with only the centred white H1 on it, with no lead and no button (section-modules: 'no lead, no CTA').",
+      "fix": "In PageHero.astro, make the on-photo lead limit (heroLeadShown(), heroText.leadWords) depend on the page type and set it to 0 words for the about reference. The about lead and its button then go into the block under the hero, and only the H1 stays on the photo."
+    },
+    {
+      "block": "hero",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "On phones the same lead runs to four lines of small centred white text over the sitter's dress and the grass, between the three-line H1 and the large aqua pill, so the lower half of the hero is all text over the picture.",
+      "reference": "The competitor's phone hero carries only the white H1 over its photo, and its text starts under the photo.",
+      "fix": "Use the same per-page-type lead limit in PageHero.astro (heroLeadShown()), so the about lead and its button stand under the hero at every width."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones the quote card in view still has an empty band about 70px tall between its five-line quote and the rule above the attribution. The quote row is sized to the hidden second card's longer quote.",
+      "reference": "The competitor's quote cards put the attribution straight under the quote, with no empty band.",
+      "fix": "In reference.css, apply the `.testimonials[data-variant=\"carousel\"]:not(:has(.testimonial__headline))` subgrid levelling rules only when the cards share a row (inside @media (min-width: 768px), or scoped to `.track[data-fits]`), so a phone card sizes to its own quote."
+    },
+    {
+      "block": "header",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "On /about-us/ the 'About Us' menu item still looks the same as the other items: no menu link gets aria-current, so the treatment's `.site-nav__link[aria-current=\"page\"]` style never applies.",
+      "reference": "The competitor's header shows the current page's item ('About') in a lighter tone.",
+      "fix": "In SiteHeader.astro, set aria-current=\"page\" on the menu link (and the dropdown link) whose route matches the current page."
+    },
+    {
+      "block": "trust-bar",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "Two of the four figures still read as cut-off phrases ('65 that' over 'SAMPLING TEAM', '55 custom' over 'DAILY SAMPLES'). On phones '100,000 pieces' wraps to two lines, so 'MONTHLY CAPACITY' sits lower than 'FOUNDED' beside it.",
+      "reference": "The competitor's figure rows set a short value over a clear uppercase label.",
+      "fix": "Site Factory: rewrite the value/label pairs, e.g. '65' / 'person sampling team', '55' / 'custom samples a day', '100,000' / 'pieces a month'."
+    },
+    {
+      "block": "m4",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The six steps wrap into two rows of three. The connecting line still runs only through markers 01–03 and on past 03 to the column edge, and 04–06 have no line, so the second row looks cut off from the sequence.",
+      "reference": "The competitor's step module puts every step on the same thin line.",
+      "fix": "Draw the process line (`.process-steps::before`) once per row, on that row's marker line, and end it at the row's last marker instead of drawing one line across the whole list."
+    },
+    {
+      "block": "m5",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "m5 ('How We Check Quality at Every Stage') and m6 ('Certifications and Compliance Paperwork') are still both a heading with a check list beside it, one under the other. Only the background tells them apart, and the column under m5's two-line heading is empty for about 600px.",
+      "reference": "The site rule: two sections of the same shape do not stand one under the other, and the template sets only one of them out as a list beside its heading.",
+      "fix": "In the template's layout pass, when two neighbouring iconList sections both have the list-beside-heading shape, lay the second one out differently (e.g. a two-column check grid under its heading)."
+    },
+    {
+      "block": "faq",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The second question still breaks at the hyphen of 'in-house' ('…pattern makers in-' / 'house to develop our styles?'), so the heading reads as a word split across two lines.",
+      "reference": "The competitor's questions keep their words whole on a line.",
+      "fix": "Site Factory: write 'in‑house' with a non-breaking hyphen (U+2011) in this FAQ question, or reword it (e.g. 'in your own studio'), so the word stays on one line."
+    },
+    {
+      "block": "owner-logos",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "'Brands we make for' and the next section's 'What buyers say' are still in sentence case, while every other section heading on the page is in Title Case ('The Brands We Work With Directly', 'Frequently Asked Questions'), so these two look like they come from another page.",
+      "reference": "The competitor uses one capitalisation style for all its section headings.",
+      "fix": "Site Factory / site-proof.json: write the owner-logos and owner-testimonials headings in Title Case ('Brands We Make For', 'What Buyers Say')."
+    }
+  ]
+}

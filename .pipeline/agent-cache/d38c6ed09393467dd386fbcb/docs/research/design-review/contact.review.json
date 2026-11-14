@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "7dd17680d443659baf1653d0",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "contact",
+  "route": "/contact-us/",
+  "findings": [
+    {
+      "block": "channels",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones the cards stack one per row, and each still carries a full-width black label bar at the desktop's 20px bold (.contact-channel__name font-size: 1.25rem at every width), so four heavy black bars dominate the screen (unchanged since the last review).",
+      "reference": "The competitor's phone channel cards keep a compact black pill label in small bold type (about 14px).",
+      "fix": "In reference.css under max-width: 767px, set .contact-channels[data-variant=\"cards\"] .contact-channel__name to font-size about 1rem and padding-block about 0.375rem, keeping the one-column stack."
+    },
+    {
+      "block": "hero",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The centred phone lead still ends in a short stray last line ('is made.') under four full centred lines.",
+      "reference": "The competitor's centred phone lead ends in a line close to the length of the lines above it.",
+      "fix": "In reference.css, add text-wrap: balance to main[data-page-type=\"contact\"] .page-hero__lead (which now sets only line-height) so the centred lines even out."
+    },
+    {
+      "block": "overview-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The step titles ('Send your files', 'We check feasibility', …) are set at body size, much smaller than the item titles of the next list section ('Contact channels', 'Dedicated specialist' in m3) and the FAQ questions, so two neighbouring item lists use two different title levels.",
+      "reference": "The competitor keeps one title level for the items of every card or list module on the page (the channel labels share one size and weight).",
+      "fix": "In reference.css, give .block--process .process-step__title the same font-size as the iconList item titles (the --size-subheading the template uses for .point-list__title), keeping font-weight 700."
+    },
+    {
+      "block": "form",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The consent line still ends '…as described in the privacy policy. Privacy policy', repeating the link's words right after the sentence (the same on mobile).",
+      "reference": "The competitor's form carries no repeated text.",
+      "fix": "End the consent copy before the link (e.g. '…as described in our') or make 'privacy policy' inside the sentence the link."
+    },
+    {
+      "block": "channels",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The headings 'Contact details', 'Send an enquiry' (form) and 'How a free quote moves from your files to a confirmed order' (overview-steps) are in sentence case, while the page's other section headings ('The Right Way to Reach Us for Each Request', 'What to Expect Once You Get in Touch', 'Frequently Asked Questions') are in title case.",
+      "reference": "The competitor sets all its contact-page headings in title case ('Contact Us', 'Have Questions?', 'Email Us').",
+      "fix": "Write the three headings in title case in the page copy ('Contact Details', 'Send an Enquiry', 'How a Free Quote Moves from Your Files to a Confirmed Order')."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "2f0b13069da74d92c80481b5",
+  "shots": "3d6a63b9c860c5bb4a4f4a76",
   "rules": "896e2a6360c1caaa",
   "pageType": "privacy",
   "route": "/terms-and-conditions/",
@@ -10,9 +10,9 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "template",
-      "issue": "Still open from the last review: backgrounds stop alternating after the tinted m3. m2, proof-1, proof-1-charts (only its chart panel is tinted) and proof-2 are four white sections in a row, from 'Samples, Order Confirmations…' down to the tinted 'Trial Runs'. The same shows on mobile.",
+      "issue": "Still open from the last review: backgrounds stop alternating after the tinted m3. m2, proof-1, proof-1-charts (only its inset chart panel is tinted) and proof-2 are four white sections in a row, from 'Samples, Order Confirmations…' down to the tinted 'Trial Runs'. The same shows on mobile.",
       "reference": "The competitor tells neighbouring sections apart by their background.",
-      "fix": "Have the template's alternation treat proof-1, proof-1-charts and proof-2 (text sections that run on from one another) as one plain section and tint that group through --section-tint, so the page reads m3 (tint), m2 (white), proof group (tint), process-1, related, cta-steps alternating from there. Do not tint single sections in reference.css."
+      "fix": "Have the template's alternation treat proof-1, proof-1-charts and proof-2 (text sections that run on from one another) as one plain section and tint that group through --section-tint. The page then reads m3 (tint), m2 (white), proof group (tint), process-1, related and cta-steps, alternating from there. Do not tint single sections in reference.css."
     },
     {
       "block": "m2",
@@ -34,22 +34,40 @@
       "fix": "Add text-wrap: balance to the section h2 in the template's heading fit, so lines break evenly without changing the fitted size."
     },
     {
-      "block": "cta-steps",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "template",
-      "issue": "Still open from the last review: the title 'From your brief to shipment: the typical order path' is still a lead, not the section's h2. It stands at about half the size of the page's other section headings ('Trial Runs', 'Related products and services'), and the left column beside the six steps stays mostly empty. On mobile it also reads smaller than the headings around it.",
-      "reference": "The competitor's step modules put a section heading over the steps, at the level of its other section headings.",
-      "fix": "Have the template render the process list variant's title as the section h2, fitted like the other headings and starting on the content's left edge. The site rule `.block--process .point-list__intro:not(:has(h2)) > .block__lead` then no longer applies."
-    },
-    {
       "block": "hero",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "The hero's 'CONTACT US' pill has its label in the mid-teal accent on a light-teal fill, which reads faint; the cta band's white button with dark text is much clearer.",
+      "issue": "Still open from the last review: the hero's 'CONTACT US' pill has its label in the mid-teal accent on a light-teal fill, which reads faint and falls short of 4.5:1. The desktop shot shows the same; the cta band's white button with dark text is much clearer.",
       "reference": "The competitor's buttons pair a solid fill with a clearly contrasting label.",
       "fix": "In reference.css, set the hero's primary button label to the dark text colour (--text-primary) or darken its fill, so the label reaches 4.5:1 against the pill."
+    },
+    {
+      "block": "process-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The step numbers '01', '02' and '03' are small mid-teal text in light-teal circles on the tinted background. They read faint, with the same low contrast as the hero pill. The same shows on mobile.",
+      "reference": "The competitor pairs its accent fills with clearly contrasting text.",
+      "fix": "In reference.css, set the process circles' number colour to --text-primary (or darken the circle fill) so the numbers reach 4.5:1."
+    },
+    {
+      "block": "proof-1-charts",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The 'Balance before shipment 50%' segment of the bar is a very pale blue that barely separates from the beige chart panel, so half the bar nearly disappears. On mobile it reads as a faint strip.",
+      "reference": "The competitor's accent elements stand clearly off their background.",
+      "fix": "In reference.css, give the chart's second segment (and its legend swatch) a colour of at least 3:1 against the panel, e.g. a mid tone of the accent rather than its lightest tint."
+    },
+    {
+      "block": "proof-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Running text in proof-1 and proof-2 runs about 95 characters a line ('You pay a 50% deposit at confirmation and the other 50% before shipment. Settle sizes, colours,'). That is past the ~70ch measure, while the lists above keep a tighter column.",
+      "reference": "treatment-practice.md holds running text to a column of about 70ch at every width.",
+      "fix": "In reference.css, set max-width: 70ch on the proof block's text column (.block--proof paragraphs)."
     },
     {
       "block": "related",
