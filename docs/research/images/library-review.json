@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-library-review-v1",
-  "reviewedAt": "2026-11-14T11:02:43.641Z",
+  "reviewedAt": "2026-11-14T12:44:16.324Z",
   "photos": [
     {
       "number": 1,
@@ -100,39 +100,39 @@
     },
     {
       "number": 25,
-      "id": "one-piece-swimsuit-hero-1"
+      "id": "women-s-swimwear-lifestyle-2"
     },
     {
       "number": 26,
-      "id": "one-piece-swimsuit-product-construction-bust-support-and-trim-details"
+      "id": "one-piece-swimsuit-hero-1"
     },
     {
       "number": 27,
-      "id": "one-piece-swimsuit-lifestyle-1"
+      "id": "one-piece-swimsuit-product-construction-bust-support-and-trim-details"
     },
     {
       "number": 28,
-      "id": "bikini-hero-1"
+      "id": "one-piece-swimsuit-lifestyle-1"
     },
     {
       "number": 29,
-      "id": "bikini-lifestyle-1"
+      "id": "bikini-hero-1"
     },
     {
       "number": 30,
-      "id": "men-s-swimwear-hero-1"
+      "id": "bikini-lifestyle-1"
     },
     {
       "number": 31,
-      "id": "men-s-swimwear-lifestyle-1"
+      "id": "men-s-swimwear-hero-1"
     },
     {
       "number": 32,
-      "id": "men-s-swimwear-lifestyle-2"
+      "id": "men-s-swimwear-lifestyle-1"
     },
     {
       "number": 33,
-      "id": "boardshorts-hero-1"
+      "id": "men-s-swimwear-lifestyle-2"
     },
     {
       "number": 34,
@@ -240,59 +240,59 @@
     },
     {
       "number": 60,
-      "id": "cover-up-hero-1"
-    },
-    {
-      "number": 61,
       "id": "cover-up-lifestyle-1"
     },
     {
-      "number": 62,
+      "number": 61,
       "id": "cover-up-lifestyle-2"
     },
     {
-      "number": 63,
+      "number": 62,
       "id": "swimwear-packaging-brand-labels-hero-1"
     },
     {
-      "number": 64,
+      "number": 63,
       "id": "swimwear-packaging-brand-labels-lifestyle-1"
     },
     {
-      "number": 65,
+      "number": 64,
       "id": "swimwear-packaging-brand-labels-lifestyle-2"
     },
     {
-      "number": 66,
+      "number": 65,
       "id": "swimwear-hardware-hero-1"
     },
     {
-      "number": 67,
+      "number": 66,
       "id": "swimwear-hardware-lifestyle-1"
     },
     {
-      "number": 68,
+      "number": 67,
       "id": "swimwear-hardware-lifestyle-2"
     },
     {
-      "number": 69,
+      "number": 68,
       "id": "swimwear-hardware-lifestyle-3"
     },
     {
-      "number": 70,
+      "number": 69,
       "id": "swimwear-accessories-hero-1"
     },
     {
-      "number": 71,
+      "number": 70,
       "id": "swimwear-accessories-material-1"
     },
     {
-      "number": 72,
+      "number": 71,
       "id": "swimwear-accessories-lifestyle-1"
     },
     {
-      "number": 73,
+      "number": 72,
       "id": "swimwear-accessories-lifestyle-2"
+    },
+    {
+      "number": 73,
+      "id": "plus-size-swimwear-hero-1"
     },
     {
       "number": 74,
@@ -311,137 +311,69 @@
     "lookAlike": [
       {
         "photos": [
-          67,
+          43,
+          45
+        ],
+        "reason": "Both are top-down flat lays of children's swimwear in the same red, yellow, olive and print pieces, laid in a grid on the same sand-coloured cloth"
+      },
+      {
+        "photos": [
+          62,
           68
         ],
-        "reason": "Both are a black triangle bikini with gold ring hardware, laid flat on warm wood and lit by the same low sun. The colour, framing and props are nearly identical."
-      },
-      {
-        "photos": [
-          13,
-          15
-        ],
-        "reason": "In both, the same woman in a dark top stands in the same bright factory hall holding up a swimsuit at chest height. The composition and background are the same."
-      },
-      {
-        "photos": [
-          64,
-          65
-        ],
-        "reason": "Both are packaging flat lays on sand with a drawstring pouch, hang tags and labels in a similar arrangement. Only the colour changes."
+        "reason": "Both show a row of one-piece swimsuits in white, pink/red and olive laid side by side on a warm sandy surface, framed the same way"
       }
     ],
     "samePerson": [
       {
         "photos": [
-          13,
-          14,
-          15
-        ]
-      },
-      {
-        "photos": [
-          2,
-          4,
-          21,
-          35
-        ]
-      },
-      {
-        "photos": [
           3,
-          50,
-          56,
-          61
-        ]
-      },
-      {
-        "photos": [
-          10,
-          17,
           53,
-          74
-        ]
-      },
-      {
-        "photos": [
-          24,
-          37,
-          57
+          60
         ]
       },
       {
         "photos": [
           9,
           55,
-          62,
-          75
+          57
         ]
       },
       {
         "photos": [
-          5,
-          25
+          21,
+          35,
+          61
+        ]
+      },
+      {
+        "photos": [
+          29,
+          56
+        ]
+      },
+      {
+        "photos": [
+          24,
+          27,
+          37
         ]
       },
       {
         "photos": [
           7,
-          27,
-          58
-        ]
-      },
-      {
-        "photos": [
-          18,
-          26
-        ]
-      },
-      {
-        "photos": [
-          12,
-          19,
-          47,
-          60,
-          76
-        ]
-      },
-      {
-        "photos": [
-          28,
-          34,
-          48,
-          54
-        ]
-      },
-      {
-        "photos": [
-          1,
-          51,
-          59
+          28
         ]
       }
     ],
     "wrongColour": [
       {
-        "photo": 4,
-        "seen": "pink and red floral print, not sand beige"
-      },
-      {
-        "photo": 48,
-        "seen": "peach and coral floral print, not sand beige"
-      },
-      {
-        "photo": 53,
-        "seen": "navy blue rash guard and leggings, not forest green"
-      },
-      {
-        "photo": 59,
-        "seen": "navy and white tie-dye print, not black"
-      },
-      {
         "photo": 43,
-        "seen": "the lead pieces are pink, olive and red; no clear black garment"
+        "seen": "Olive, white, sunflower print, red and yellow children's pieces; no heather grey garment visible"
+      },
+      {
+        "photo": 45,
+        "seen": "Olive, pink floral, red, yellow and striped pieces; no navy blue garment is the main item"
       }
     ],
     "factoryScene": [
@@ -451,95 +383,51 @@
     ],
     "weakSubject": [
       {
-        "photo": 52,
-        "seen": "the model is a thin strip at the right edge and most of the frame is garden path and foliage"
-      },
-      {
         "photo": 49,
-        "seen": "the model is cut off at the left edge and soft, so the beige garment is only partly visible"
+        "seen": "Dim, cropped frame with the model's head cut off; the sand beige garment blends into the rocks and shadow and is hard to read"
       },
       {
-        "photo": 75,
-        "seen": "a couples-swimsuit hero showing one reclining woman whose garment is mostly hidden; there is no matching pair"
-      },
-      {
-        "photo": 33,
-        "seen": "the man lies on a blanket and the cobalt boardshorts are small and partly cut off at the frame edge"
+        "photo": 72,
+        "seen": "The cobalt garment is small and mostly hidden inside a box; packaging and fabric swatches fill most of the frame"
       }
     ]
   },
   "rejected": [
     {
-      "id": "swimwear-hardware-lifestyle-1",
-      "reason": "looks like photo 68: Both are a black triangle bikini with gold ring hardware, laid flat on warm wood and lit by the same low sun. The colour, framing and props are nearly identical."
-    },
-    {
-      "id": "general-process-3",
-      "reason": "looks like photo 13: In both, the same woman in a dark top stands in the same bright factory hall holding up a swimsuit at chest height. The composition and background are the same."
-    },
-    {
-      "id": "general-process-2",
-      "reason": "same person as photo 13"
-    },
-    {
-      "id": "general-hero-4",
-      "reason": "same person as photo 2"
-    },
-    {
-      "id": "burkini-hero-1",
-      "reason": "same person as photo 3"
-    },
-    {
-      "id": "rash-guard-hero-1",
-      "reason": "same person as photo 3"
+      "id": "baby-swimwear-hero-1",
+      "reason": "looks like photo 45: Both are top-down flat lays of children's swimwear in the same red, yellow, olive and print pieces, laid in a grid on the same sand-coloured cloth"
     },
     {
       "id": "watersports-apparel-hero-1",
-      "reason": "same person as photo 10"
+      "reason": "same person as photo 3"
     },
     {
       "id": "rash-guard-lifestyle-1",
-      "reason": "same person as photo 24"
+      "reason": "same person as photo 9"
     },
     {
       "id": "cover-up-lifestyle-2",
-      "reason": "same person as photo 9"
+      "reason": "same person as photo 21"
     },
     {
-      "id": "couples-matching-swimsuit-hero-1",
-      "reason": "same person as photo 9"
+      "id": "rash-guard-hero-1",
+      "reason": "same person as photo 29"
     },
     {
       "id": "one-piece-swimsuit-product-construction-bust-support-and-trim-details",
-      "reason": "same person as photo 18"
-    },
-    {
-      "id": "modest-swimwear-hero-1",
-      "reason": "same person as photo 12"
-    },
-    {
-      "id": "cover-up-hero-1",
-      "reason": "same person as photo 12"
-    },
-    {
-      "id": "modest-swimwear-product-wholesale-stock-and-ready-made-modest-designs",
-      "reason": "same person as photo 28"
-    },
-    {
-      "id": "baby-swimwear-hero-1",
-      "reason": "main colour is not black: the lead pieces are pink, olive and red; no clear black garment"
+      "reason": "same person as photo 24"
     },
     {
       "id": "general-process-1",
       "reason": "staged in a factory, workshop or warehouse"
     },
     {
-      "id": "burkini-lifestyle-2",
-      "reason": "does not show its subject: the model is a thin strip at the right edge and most of the frame is garden path and foliage"
+      "id": "general-process-2",
+      "reason": "staged in a factory, workshop or warehouse"
     },
     {
-      "id": "boardshorts-hero-1",
-      "reason": "does not show its subject: the man lies on a blanket and the cobalt boardshorts are small and partly cut off at the frame edge"
+      "id": "general-process-3",
+      "reason": "staged in a factory, workshop or warehouse"
     }
   ]
 }

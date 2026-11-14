@@ -889,10 +889,6 @@
           [
             "general-lifestyle-5",
             "a photo of the product in use"
-          ],
-          [
-            "general-lifestyle-6",
-            "a photo of the product in use"
           ]
         ]
       },
@@ -905,7 +901,7 @@
         "general-product-2": 1,
         "general-product-3": 0,
         "general-product-5": 1,
-        "general-product-wholesale-swimwear-ready-to-brand-and-ship": 0,
+        "general-product-wholesale-swimwear-ready-to-brand-and-ship": 3,
         "general-product-starting-with-samples-before-bulk": 2,
         "general-process-1": 5,
         "general-process-2": 6,
@@ -913,8 +909,7 @@
         "general-lifestyle-1": 0,
         "general-lifestyle-2": 3,
         "general-lifestyle-3": 0,
-        "general-lifestyle-5": 3,
-        "general-lifestyle-6": 0
+        "general-lifestyle-5": 3
       },
       "slots": {
         "general-hero-1": 4,
@@ -925,7 +920,7 @@
         "general-product-2": 1,
         "general-product-3": 0,
         "general-product-5": 1,
-        "general-product-wholesale-swimwear-ready-to-brand-and-ship": 0,
+        "general-product-wholesale-swimwear-ready-to-brand-and-ship": 3,
         "general-product-starting-with-samples-before-bulk": 2,
         "general-process-1": 5,
         "general-process-2": 6,
@@ -933,8 +928,7 @@
         "general-lifestyle-1": 0,
         "general-lifestyle-2": 3,
         "general-lifestyle-3": 0,
-        "general-lifestyle-5": 3,
-        "general-lifestyle-6": 0
+        "general-lifestyle-5": 3
       }
     },
     "men's swimwear": {
@@ -1584,14 +1578,20 @@
           [
             "women-s-swimwear-lifestyle-1",
             "a photo of the product in use"
+          ],
+          [
+            "women-s-swimwear-lifestyle-2",
+            "a photo of the product in use"
           ]
         ]
       },
       "read": {
-        "women-s-swimwear-lifestyle-1": 0
+        "women-s-swimwear-lifestyle-1": 0,
+        "women-s-swimwear-lifestyle-2": 3
       },
       "slots": {
-        "women-s-swimwear-lifestyle-1": 0
+        "women-s-swimwear-lifestyle-1": 0,
+        "women-s-swimwear-lifestyle-2": 3
       }
     }
   },

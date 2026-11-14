@@ -1,1 +1,1 @@
-{"slots":[{"id":"women-s-swimwear-lifestyle-1","kind":1}]}
+{"slots":[{"id":"women-s-swimwear-lifestyle-1","kind":1},{"id":"women-s-swimwear-lifestyle-2","kind":4}]}
