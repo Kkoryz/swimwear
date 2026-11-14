@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "ca090c25f35fc1408597098c",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "home",
+  "route": "/",
+  "findings": [
+    {
+      "block": "featureGrid-4",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "From m2 to featureGrid-10 the page is still about seventeen outlined three-across card grids in a row, one under the next (about 6,000 px on desktop and far longer on phones), with featureGrid-1, -4, -7 and -9 starting straight under a set of the same shape.",
+      "reference": "The competitor uses its outlined numbered cards once (\"3 Ways To Get Started\") and changes module shape from one section to the next.",
+      "fix": "Apply the template's own rule: where a card set follows another set of the same shape, render the second as a list beside its heading (the iconList or featureGrid list layout) instead of another card grid."
+    },
+    {
+      "block": "featureGrid-7",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "content",
+      "issue": "The card sets featureGrid-4 (private label, logo), featureGrid-7 (quotation to sampling), featureGrid-9 (MOQ, fees) and featureGrid-1 (a lead sentence only) still have no heading, so the page moves from m3's \"OEM Swimwear Production\" through packaging, ordering and payment terms with nothing to mark where one topic ends and the next starts.",
+      "reference": "Every competitor section opens with an eyebrow and a heading (\"How to work with us / 3 Ways To Get Started\", \"Planning your collection / MOQs & Timelines\").",
+      "fix": "Site Factory gives featureGrid-1, -4, -7 and -9 a section heading each (e.g. \"Styles and Fit\", \"Private Label and Packaging\", \"How an Order Runs\", \"Minimums, Fees and Terms\"). The template renders them the way it renders m2 and m3."
+    },
+    {
+      "block": "featureGrid-1",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Every card set from m2 to featureGrid-10 is still white, so neighbouring plain sections never alternate. At both widths featureGrid-1's lead (\"You can choose from triangle, bandeau…\") still sits flush against its top edge, right under m2-3's cards, and reads as part of that set.",
+      "reference": "The competitor alternates its plain sections between white, cream and pale blue (\"We Build Swimwear Brands\" cream, \"Digital Patterns\" white, \"Fabrics in Stock\" blue).",
+      "fix": "Make the template's background alternation treat a set and its continuation grids as one section and tint every other set through --section-tint, so featureGrid-1 and featureGrid-7 take the tint and get full section padding above."
+    },
+    {
+      "block": "m2-2",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Card numbering still restarts at 01 in every grid that continues a set (m2 01–03, m2-2 01–03, m2-3 01–02, and the same in m3/m3-2, featureGrid-1/2/3, -4/5/6, -7/8 and -9/10). On phones, where the cards stack one per screen, the reader sees 01 three times in a row inside one set.",
+      "reference": "The competitor's numbered cards (\"01. Custom Designs\", \"02. Ready Designs\", \"03. Mix n' Match\") count straight through the set.",
+      "fix": "In the featureGrid component, carry the card counter across the grids of one set (a start index or counter-reset value), so m2-2 starts at 04 and m2-3 at 07."
+    },
+    {
+      "block": "m3",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "m3 still centres its two cards (Development service, OEM production) under its heading, while m3-2 directly below starts in the left column, so cards of one set sit about half a card out of line.",
+      "reference": "The competitor's card row starts on the content's left edge, under its heading.",
+      "fix": "In the featureGrid template CSS, centre a short row only in a set's last grid. A first or middle grid that has a continuation (here m3) starts under the first column, like m3-2."
+    },
+    {
+      "block": "splitMedia-1",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "splitMedia-1 and splitMedia-2 continue m4 but stand on white while m4 is cream, so one section splits into a tinted row and two white ones. On phones their copy (\"If you choose designs…\", \"We keep steady stock…\") still starts flush at the section's top edge with no space above.",
+      "reference": "The competitor keeps a section's rows on one background and changes it only between sections.",
+      "fix": "Have a splitMedia continuation take its parent's --section-tint with no fresh top padding cut away (render splitMedia-1 and -2 on m4's cream with the row gap above their copy), and restart the alternation after it."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "splitMedia-2, owner-logos, owner-testimonials and related are plain sections in a row and all still stand on white, so the white/tint alternation stops here and the cream testimonial cards float on white.",
+      "reference": "The competitor sets its testimonials as white shadowed cards on a tinted sage band between white sections.",
+      "fix": "Make the template's alternation tint every other plain section from owner-logos on, so owner-testimonials takes --section-tint as a band and its cards turn white on it, as in the competitor's module."
+    },
+    {
+      "block": "overview-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "content",
+      "issue": "The process sections overview-steps and cta-steps still have no heading. Their only line (\"Quality checks at every stage of an order\", \"From your enquiry to your sample\") is set at card-heading size, and on desktop their left column is an almost empty strip with that one small line at the top.",
+      "reference": "The competitor's numbered module opens with an eyebrow and a full heading (\"How to work with us / 3 Ways To Get Started\") beside the copy.",
+      "fix": "Site Factory gives overview-steps and cta-steps a section heading each (e.g. \"Quality Checks at Every Stage\", \"From Enquiry to Sample\") and keeps the current line as their intro."
+    },
+    {
+      "block": "trustBar",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "content",
+      "issue": "Two trust figures still read as fragments (\"65 that / SAMPLING TEAM\", \"55 custom / DAILY SAMPLES\"), and \"100,000 pieces\" carries its unit in the value, so on phones it wraps to two lines while its neighbour takes one, leaving the 2×2 grid's first row uneven.",
+      "reference": "The competitor's trust line has clean figure-and-label pairs (\"Since 1993 · 300+ independent labels · custom samples in 1 to 3 weeks\").",
+      "fix": "Site Factory gives bare figures with their labels, e.g. \"65\" / \"Sampling team\", \"55\" / \"Custom samples a day\", \"100,000\" / \"Pieces a month\"."
+    },
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The hero lead (about 190 characters in bold, two lines running some 1,200 px across on desktop and four bold lines on phones) is about three times the competitor's one-line lead and still stands on the photo instead of under the hero.",
+      "reference": "The competitor's hero carries only a short one-line lead (\"Specialists in body-sculpting custom swimwear, patterned in-house.\") between the H1 and the buttons.",
+      "fix": "Apply the template's rule for long hero leads: render the lead under the hero, at the start of the section after it, and keep only the H1 and the button on the photo."
+    },
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The hero H1 (\"Swimwear Manufacturer With Our Own Factory in Guangzhou\") is still set a step lighter than the competitor's hero title, so the opening reads softer than the reference at both widths.",
+      "reference": "The competitor's \"Launch Your Swim Label\" is set in a heavy, black-weight display face in the same pale blue.",
+      "fix": "In reference.css raise font-weight on .page-hero h1 to 800 (or the display font's heaviest weight). Leave its size and fit variables untouched."
+    },
+    {
+      "block": "related",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The section is titled \"Related products and services\", but its links are still Blog, Case Studies and Privacy Policy, none of which is a product or service.",
+      "reference": "The competitor links on to its matching service pages (\"Explore Sampling\", \"Explore MOQ & Timelines\").",
+      "fix": "Site Factory points the related links at product or service pages (e.g. Women's Swimwear, Development, Custom Printing), or retitles the block to match the links it keeps."
+    }
+  ]
+}

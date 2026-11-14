@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "a086bb2aa2ff6346877244b0",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "product_manufacturer--shortest",
+  "route": "/watersports-apparel-manufacturer/",
+  "findings": [
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The 'Request a quote for watersports apparel' button still stands right on the tinted trustBar band (a few pixels above it on desktop, touching it at 390px), because the plain hero has no bottom padding; this is still unfixed from the last review.",
+      "reference": "The competitor leaves open white space under its title, lead and two black buttons before its next module ('Built for Swimwear') starts.",
+      "fix": "In template.css, give the plain hero's inner a bottom padding (.page-hero[data-variant=\"plain\"] .page-hero__inner { padding-bottom: calc(var(--section-space) / 2) }), at least when the next block carries a background."
+    },
+    {
+      "block": "splitMedia-2",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "splitMedia-1, splitMedia-2 and splitMedia-2-steps still share one beige tint, so three tinted blocks run one under the other. At 390px splitMedia-2's first line ('We settle the quotation and price agreement') starts right on the block's top edge with no section spacing; this is still unfixed from the last review.",
+      "reference": "The competitor alternates white sections with its single pink-tinted Sampling panel; no two tinted modules touch, and the gaps between modules are even.",
+      "fix": "The template's background alternation should count splitMedia-2 (with its steps) as the next plain section and set it on white, so the run reads tint / white, with the section's top spacing restored above the photo row on desktop and above the copy on mobile."
+    },
+    {
+      "block": "related",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "owner-testimonials and related, two neighbouring plain sections, both stand on white, so the white/tint alternation breaks after the gallery band (testimonials white, related white, faq tint, cta white), at both widths; this is still unfixed from the last review.",
+      "reference": "Site rule: neighbouring plain sections alternate white and tinted backgrounds, set by the template. The competitor never sets two plain modules of the same ground where it uses a tint.",
+      "fix": "Let the template's alternation (through --section-tint) restart after the gallery band, so related takes the tint and faq and cta follow white / tint. Paint no single section in reference.css."
+    },
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "art-direction",
+      "issue": "The wide desktop crop of the hero photo still leaves its left ~40% as a dark, empty stretch of shadowed sea and rock. It is the photo itself, not an overlay (the overlay rule in reference.css is only for media-overlay heroes). The title stands under the photo, so the dark half reads as space meant for text that carries none.",
+      "reference": "The competitor's desktop hero is a wide photo whose subject spans the whole frame, with no dark empty side.",
+      "fix": "Give the banner a wide-format photo for desktop widths (a different source per breakpoint), keeping the current portrait crop on phones; no overlay or height change."
+    },
+    {
+      "block": "related",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "The seven related-page tiles still run 4 + 3, and the short last row of three starts on the left, leaving an empty slot under the fourth column; this is still unfixed from the last review.",
+      "reference": "Site rule: a grid's own short last row is centred. The competitor has no short rows hanging to the left.",
+      "fix": "In the template, centre the related grid's short last row (a flex-wrap row with justify-content: center and a shared tile basis), as for other card grids."
+    },
+    {
+      "block": "splitMedia-2-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "On desktop the steps' intro ('How a typical order runs from brief to shipment.') stands in for the section heading but is set at body size, smaller than the 01–07 numbers beside it and the page's other H2s, so it reads as a caption; at 390px it already reads at heading size, so the two widths disagree.",
+      "reference": "The competitor's section headings ('MOQs', 'Sampling') are clearly larger than body text and item titles, in a regular-to-medium weight.",
+      "fix": "The template should promote a process list's heading-less intro to the section-heading level, fitted to its own words like the page's other H2s (weight 500), at every width. Then drop the site's own sizing of that lead in reference.css."
+    },
+    {
+      "block": "overview-charts",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The beige lead-time chart panel still ends only a short gap (about 30px on desktop, 40px on mobile) above the beige splitMedia-1 band. It nearly merges with that band and reads as a notch of it, not as part of the white overview section.",
+      "reference": "The competitor's figures (the costing handover, the fabric card) sit on the white section, with the normal gap before the next module, and never in the colour of the band that follows.",
+      "fix": "In reference.css, give .block--charts the section's own bottom spacing before the next block (margin-bottom: calc(var(--section-space) / 2)). Or, on a white section, set the panel on white with a hairline border instead of the next band's tint."
+    },
+    {
+      "block": "overview",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The intro paragraphs still run about 800px wide, roughly 95–100 characters a line, and the cta paragraph is just as wide; this is still unfixed from the last review.",
+      "reference": "treatment-practice.md holds running text to about 70ch; the competitor's intro copy runs in a similarly narrow column.",
+      "fix": "In reference.css, cap the text column of .block--intro and .block--cta (the .text-flow / .cta__text elements, not only main[data-authoring-page] .block p) at about 70ch, starting on the heading's left edge."
+    },
+    {
+      "block": "faq",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The open FAQ answer still runs about 760px wide in the right-hand column, about 95 characters a line ('We offer UPF 50+ fabrics. On request, we also offer chlorine-resistant fabrics such as LYCRA Xtra'), past the ~70ch measure.",
+      "reference": "treatment-practice.md holds running text to about 70ch at every width.",
+      "fix": "In reference.css, cap the answer text of .block--faq .faq__item at about 70ch (max-width on the answer's paragraphs), leaving the question rows their full width."
+    },
+    {
+      "block": "trustBar",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "At 390px the 2×2 trust bar's first cell breaks '80/20 nylon–spandex' over two lines while '50 pieces' beside it keeps to one, so the two captions in that row sit at different heights ('CORE FABRIC BLEND' about 24px below 'MINIMUM PER STYLE').",
+      "reference": "The competitor's blocks keep the parts of one row on shared lines; where its figures sit side by side, their labels line up.",
+      "fix": "In reference.css, lay the trustBar items of one row on shared tracks (e.g. .trust-bar__item as a grid with grid-template-rows: subgrid, or align-content: end on the value so captions share a baseline), without changing the values' font size."
+    }
+  ]
+}

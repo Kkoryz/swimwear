@@ -254,9 +254,9 @@
   "design-review": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T12:32:01.688Z",
-    "seconds": 224,
-    "log": ".pipeline/logs/2026-11-14T10-49-24-604Z/design-review.log"
+    "at": "2026-11-14T13:07:53.239Z",
+    "seconds": 268,
+    "log": ".pipeline/logs/2026-11-14T12-44-35-176Z/design-review.log"
   },
   "design-gate": {
     "status": "passed",

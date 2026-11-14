@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "c8c396336c66b67c61090bb0",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "general--shortest",
+  "route": "/case-studies/",
+  "findings": [
+    {
+      "block": "cases",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Still unfixed: the two order-case cards sit in a narrow centred column, about the middle half of the 1440 frame, under 'A recent order', whose heading starts on the content's left edge, so the cards float mid-page with about 350 px of tinted space on each side instead of following their heading.",
+      "reference": "The competitor's content starts on the content's left edge under its heading and fills the content width; outlined cards are not centred in a narrow column.",
+      "fix": "In the shared patterns.css, stop centring `.order-cases` when headings start on the left: under `body[data-heading-align=\"start\"]` set `.order-cases { margin-inline: 0; }`, or better, set the cases side by side in a grid of equal columns that starts at the content's left edge and is sized to the copy rather than to a fixed width."
+    },
+    {
+      "block": "overview-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Still unfixed: the white overview intro is followed by the white overview-steps list, so two plain white sections stand one after the other on both widths, with only a hairline between them.",
+      "reference": "The site's rule is that neighbouring plain sections alternate white and tinted backgrounds; the competitor separates its sections by background rather than by hairlines alone.",
+      "fix": "In the template's section-background sequencing, count process blocks as plain sections, so that overview-steps takes the --section-tint surface when the section before it is white."
+    },
+    {
+      "block": "faq-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Still unfixed: the white faq section is followed by the white faq-steps table, so two plain white sections stand one after the other on both widths, separated only by a hairline.",
+      "reference": "The site's rule is that neighbouring plain sections alternate white and tinted backgrounds; the competitor separates its sections by background.",
+      "fix": "In the template's section-background sequencing, count process blocks as plain sections, so that faq-steps takes the --section-tint surface when the faq before it is white."
+    },
+    {
+      "block": "faq",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "Still unfixed: on phones, the question 'Have you worked with small start-up brands placing their first order, like us?' breaks at the compound's hyphen, so one line ends on 'start-' and the next begins with 'up brands'.",
+      "reference": "The competitor's headings and questions keep each word whole on its line.",
+      "fix": "In Site Factory, write 'start-up' with a non-breaking hyphen (U+2011), or reword it as 'small new brands'."
+    },
+    {
+      "block": "faq",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "Still unfixed: the open first answer is one unbroken paragraph of about 370 words, about 40 lines on a phone and a dense block in the desktop column, covering three client projects, certifications and shipping terms in one run.",
+      "reference": "The competitor's body copy comes in short paragraphs of a few lines each.",
+      "fix": "In Site Factory, split the answer into short paragraphs (one per project, then one for certifications, testing and shipping), or shorten it and point to the cases section."
+    }
+  ]
+}

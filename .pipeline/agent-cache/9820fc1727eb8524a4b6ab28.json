@@ -1,0 +1,19 @@
+{
+  "step": "design-review",
+  "prompt": "design-review",
+  "key": "9820fc1727eb8524a4b6ab28",
+  "at": "2026-11-14T13:07:53.236Z",
+  "files": [
+    "docs/research/design-review/about.review.json",
+    "docs/research/design-review/blog_hub.review.json",
+    "docs/research/design-review/contact.review.json",
+    "docs/research/design-review/general--shortest.review.json",
+    "docs/research/design-review/general.review.json",
+    "docs/research/design-review/home.review.json",
+    "docs/research/design-review/privacy--shortest.review.json",
+    "docs/research/design-review/privacy.review.json",
+    "docs/research/design-review/product_manufacturer--shortest.review.json",
+    "docs/research/design-review/solution--shortest.review.json",
+    "docs/research/design-review/solution.review.json"
+  ]
+}

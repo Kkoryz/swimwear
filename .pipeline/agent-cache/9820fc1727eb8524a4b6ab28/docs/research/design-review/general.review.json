@@ -1,0 +1,144 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "74d148de61c27b622d399cdd",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "general",
+  "route": "/faq/",
+  "findings": [
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The 33-word lead ('Before you write to us, find answers on samples, minimums…') and the aqua ASK US A QUESTION pill are still on the photo under the two-line title. The site rule puts a lead much longer than the competitor's under the hero, and the text runs across the sitter's body.",
+      "reference": "The competitor's page this one follows (About Swimwear Bali) is a factory photo with only the white H1 on it: no lead, no button. Its text starts under the photo.",
+      "fix": "Use the on-photo lead limit of the reference page type for general pages (heroText.leadWords: 0 for the about reference). PageHero.astro's heroLeadShown() then moves the /faq/ lead and its button into the block under the hero, as the about page finding asks."
+    },
+    {
+      "block": "hero",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "On phones the lead runs to four lines of small white text between the three-line title and the large aqua pill, so the lower half of the hero is all text over the photo.",
+      "reference": "The competitor's phone hero carries only the white H1 over the photo, and its text follows under it.",
+      "fix": "Apply the same per-reference lead limit in PageHero.astro (heroLeadShown()) at every width, so the lead and button stand under the phone hero."
+    },
+    {
+      "block": "m2",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The three 'OEM, ODM & Design Confidentiality' cards are white boxes with a 1px dark-grey outline, at both widths. The fill rule at reference.css line 297 applies only under main[data-page-type=\"solution\"], so /faq/ keeps the outline (the same issue as the featureGrid-cards board finding).",
+      "reference": "The competitor's outlined card module sets its cards on a soft filled surface with no dark border.",
+      "fix": "In reference.css line 297, drop the main[data-page-type=\"solution\"] condition so `[data-variant=\"outlined\"] .feature-card` gets border-color: transparent and background: var(--surface-secondary) on every page."
+    },
+    {
+      "block": "overview-steps",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Still there: in the numbered step lists (overview-steps, process-1), each bold step title is smaller than its own description, so 'Brief or tech pack' and 'Agree commercial details' read as captions. Desktop shows the same. The iconList item titles on this page ('Starting minimum', 'In-house quality checks') are larger than their text.",
+      "reference": "The competitor's step modules put a bold title over each step that is at least the size of the text under it.",
+      "fix": "In reference.css, give `.block--process :is(.process-step__title, .point-list__title)` (line 356, which sets only font-weight: 700) the iconList item title size, at least the body size (about 1.125rem)."
+    },
+    {
+      "block": "m6",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "Still there: m3 'Stock Styles & Wholesale Buying' and m6 'Pricing & Quotes' are neighbouring check lists, and both set their items beside the heading. m6 leaves a tall empty column under its one-line heading.",
+      "reference": "Site rule: when two neighbouring sections are rows of short items, the template sets only one of them out as a list beside its heading.",
+      "fix": "When two iconList sections are neighbours, have the template give m6 (or m3) the other arrangement: items in columns under the heading, as iconList-1 shows."
+    },
+    {
+      "block": "iconList-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "Still there: iconList-1 has no heading and shares m7's tint, so it reads as more of 'Minimum Order Quantities'. Yet its six items jump from m7's single right-hand column to two columns that start on the content's left edge.",
+      "reference": "The competitor sets each list of points in one arrangement under its one heading.",
+      "fix": "When an iconList without a heading follows an iconList with the same tint, have the template keep it in the previous list's arrangement and column instead of starting a new grid."
+    },
+    {
+      "block": "m8-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Still there: the four steps from 'Sign off sample and specs' to 'Bulk production' are an unnumbered table between overview-steps' blue 01–06 and process-1's 01–05. It is the only step list on the page without numbers.",
+      "reference": "The competitor's step modules put a number on every step, with a bold title over a thin rule.",
+      "fix": "In the timeline variant of ProcessBlock (.process-timeline__label), show the accent decimal-leading-zero number before each step title, as .point-list__items[data-numbered] does."
+    },
+    {
+      "block": "m8-steps",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Still there: on phones about 55px of empty space separates 'From sign-off to bulk production' from 'Sign off sample and specs', and the first step has no rule above it, so the heading looks cut off from its list.",
+      "reference": "The competitor's step lists follow their heading at the usual gap between a heading and its content.",
+      "fix": "In the single-column .process-timeline, use the heading-to-content gap before the first row and draw the top rule on the first row, as overview-steps' list variant does."
+    },
+    {
+      "block": "process-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Still there: beside its steps, the heading 'Order Confirmation & Scheduling' breaks into three lines with 'Order' alone on the first. m3, m7 and m9 keep their side headings to two balanced lines, and on phones this heading keeps to two.",
+      "reference": "The competitor's section headings keep to one or two lines.",
+      "fix": "Make the template's heading fit size a heading set beside a list to the side column's width, so this one keeps to two lines ('Order Confirmation / & Scheduling')."
+    },
+    {
+      "block": "proof-6",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Still there: untitled text blocks that continue a section open about 100px of section gap above their first paragraph, against about 20px between paragraphs inside one block. 'Payment Terms & Shipping Options' therefore reads as loose bands (m11 → chart → proof-5 → proof-6 → proof-7), and proof-1 → proof-2 shows the same.",
+      "reference": "The competitor keeps the paragraphs of one text section at one paragraph gap under their heading.",
+      "fix": "When a proof/text block has no heading and continues the section above with the same tint, have the template cut its top padding (and the previous block's bottom padding) to the paragraph gap."
+    },
+    {
+      "block": "proof-7",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Still there: proof-7 has no heading and continues m11 after proof-5 and proof-6, which are at body size, yet its first paragraph ('We measure your packed cartons…') is in the larger lead size. Phones show the same.",
+      "reference": "The competitor keeps one body size through all the paragraphs of a text section.",
+      "fix": "Apply .text-flow__lead only to the first paragraph under a section heading, never to the first paragraph of a heading-less block that continues a section."
+    },
+    {
+      "block": "cta",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The closing 'Send Us Your Enquiry' photo band stops about 20px short of the screen edge on each side and reads as a boxed panel inside the gutter. On phones it is inset the same way, and it differs from the full-bleed photo band (media-module-budget-1) higher up the page.",
+      "reference": "The competitor's closing image band runs the full width of the screen (as the cta-image-band board review records).",
+      "fix": "In reference.css, take the `[data-variant=\"image-band\"] .cta` out of the content gutter (full-bleed width, no side margin) at every width; keep the copy on the content's left edge."
+    },
+    {
+      "block": "m5-charts",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "Still there: the fee chart draws three identical full-width bars (Sample fee, Design fee and Courier delivery, each $50) that compare nothing. The two timing bars float at offsets on tracks with no axis. On phones the bars shrink to half the card, away from their values.",
+      "reference": "The competitor shows figures only where they add information.",
+      "fix": "Have Site Factory give these facts as a short stats row or list (three $50 fees; 10–15 and 5–7 days) instead of bar charts of equal values."
+    },
+    {
+      "block": "related",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "Still there: the heading 'Related products and services' sits over a single 'Case Studies' link, which is neither a product nor a service, and it is the only section heading on the page in sentence case.",
+      "reference": "n/a (copy).",
+      "fix": "Have Site Factory link related product or solution pages here, or retitle the section in Title Case to match its link."
+    }
+  ]
+}
