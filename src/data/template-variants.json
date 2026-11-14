@@ -42,7 +42,7 @@
         "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
         "width": 960,
         "height": 640,
-        "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers."
+        "alt": "A woman in navy swimwear holds a lily on a garden terrace beside a stone fountain."
       },
       "heroByRoute": {
         "/": {
@@ -50,7 +50,7 @@
           "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
+          "alt": "A woman in navy swimwear holds a lily on a garden terrace beside a stone fountain.",
           "category": "general"
         },
         "/women-s-swimwear-manufacturer/": {
@@ -90,7 +90,7 @@
           "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
+          "alt": "A woman in navy swimwear holds a lily on a garden terrace beside a stone fountain.",
           "category": "general"
         },
         "/swim-trunks-manufacturer/": {
@@ -122,7 +122,7 @@
           "srcset": "/media/photos/baby-swimwear-hero-1-480.webp 480w, /media/photos/baby-swimwear-hero-1-960.webp 960w, /media/photos/baby-swimwear-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "Colourful baby swimsuits, sun suits and swim nappies arranged on pale oak with open space to the right.",
+          "alt": "Colourful baby swimwear hangs on a clothing rail above sunlit terracotta tiles with patterned shadows.",
           "category": "baby swimwear"
         },
         "/toddler-swimwear-manufacturer/": {
@@ -142,19 +142,19 @@
           "category": "modest swimwear"
         },
         "/burkini-manufacturer/": {
-          "src": "/media/photos/general-hero-1-960.webp",
-          "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
+          "src": "/media/photos/burkini-hero-1-960.webp",
+          "srcset": "/media/photos/burkini-hero-1-480.webp 480w, /media/photos/burkini-hero-1-960.webp 960w, /media/photos/burkini-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
-          "category": "general"
+          "alt": "A woman in a blue patterned burkini reclines on coastal rocks with one arm shading her eyes.",
+          "category": "burkini"
         },
         "/watersports-apparel-manufacturer/": {
           "src": "/media/photos/watersports-apparel-hero-1-960.webp",
           "srcset": "/media/photos/watersports-apparel-hero-1-480.webp 480w, /media/photos/watersports-apparel-hero-1-960.webp 960w, /media/photos/watersports-apparel-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A grey-haired woman in a cream rash guard sits on a wooden chair beside geraniums and a woven tote.",
+          "alt": "A woman in a coral checked long-sleeve swimsuit sits on grass beneath a fig tree beside a coastal stone wall.",
           "category": "watersports apparel"
         },
         "/rash-guard-manufacturer/": {
@@ -162,7 +162,7 @@
           "srcset": "/media/photos/rash-guard-hero-1-480.webp 480w, /media/photos/rash-guard-hero-1-960.webp 960w, /media/photos/rash-guard-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in a coral leaf-print rash guard holds bougainvillea beside a stone bench in a sunlit courtyard.",
+          "alt": "A woman in an orange-print rash guard reclines in a garden chair with an open book resting on her chest.",
           "category": "rash guard"
         },
         "/resort-wear-manufacturer/": {
@@ -178,7 +178,7 @@
           "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
+          "alt": "A woman in navy swimwear holds a lily on a garden terrace beside a stone fountain.",
           "category": "general"
         },
         "/swimwear-embroidery/": {
@@ -218,7 +218,7 @@
           "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
+          "alt": "A woman in navy swimwear holds a lily on a garden terrace beside a stone fountain.",
           "category": "general"
         },
         "/swimwear-hardware/": {
@@ -258,7 +258,7 @@
           "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
+          "alt": "A woman in navy swimwear holds a lily on a garden terrace beside a stone fountain.",
           "category": "general"
         },
         "/faq/": {
@@ -290,7 +290,7 @@
           "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
+          "alt": "A woman in navy swimwear holds a lily on a garden terrace beside a stone fountain.",
           "category": "general"
         },
         "/terms-and-conditions/": {
@@ -418,7 +418,7 @@
             "srcset": "/media/photos/general-process-1-480.webp 480w, /media/photos/general-process-1-960.webp 960w, /media/photos/general-process-1-1536.webp 1536w",
             "width": 960,
             "height": 640,
-            "alt": "A worker inspects a heather grey swimsuit with dark green binding beside folded garments on a factory table.",
+            "alt": "A worker inspects a white swimsuit with dark green binding at a factory table stacked with garments.",
             "category": "general"
           },
           {
@@ -426,7 +426,7 @@
             "srcset": "/media/photos/general-process-2-480.webp 480w, /media/photos/general-process-2-960.webp 960w, /media/photos/general-process-2-1536.webp 1536w",
             "width": 960,
             "height": 640,
-            "alt": "A worker sews navy swimwear at a sewing machine in a bright workshop.",
+            "alt": "A worker sews olive green swimwear at a sewing machine in a bright workshop.",
             "category": "general"
           },
           {
@@ -434,7 +434,7 @@
             "srcset": "/media/photos/general-process-3-480.webp 480w, /media/photos/general-process-3-960.webp 960w, /media/photos/general-process-3-1536.webp 1536w",
             "width": 960,
             "height": 640,
-            "alt": "A worker inspects an orange-print bikini top with lace trim beside stacks of folded swimwear.",
+            "alt": "A worker inspects a coral patterned bikini top with lace trim beside stacks of swimwear on a factory table.",
             "category": "general"
           }
         ],
@@ -509,6 +509,14 @@
               "height": 640,
               "alt": "A woman in a burgundy patterned swimsuit rests against a weathered stool on a pebble beach.",
               "category": "women's swimwear"
+            },
+            {
+              "src": "/media/photos/women-s-swimwear-lifestyle-2-960.webp",
+              "srcset": "/media/photos/women-s-swimwear-lifestyle-2-480.webp 480w, /media/photos/women-s-swimwear-lifestyle-2-960.webp 960w, /media/photos/women-s-swimwear-lifestyle-2-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "Women's swimwear with forest-green trim arranged on pale limestone flagstones in warm sunlight.",
+              "category": "women's swimwear"
             }
           ]
         },
@@ -519,7 +527,7 @@
               "srcset": "/media/photos/one-piece-swimsuit-product-construction-bust-support-and-trim-details-480.webp 480w, /media/photos/one-piece-swimsuit-product-construction-bust-support-and-trim-details-960.webp 960w",
               "width": 960,
               "height": 960,
-              "alt": "A woman in a coral floral swimsuit and open overshirt sits among dune grass beside a terracotta jug.",
+              "alt": "A woman wears a black floral one-piece swimsuit with ecru lace trim and holds olive leaves beside a rocky coast.",
               "category": "one piece swimsuit",
               "topic": "Construction, Bust Support and Trim Details"
             }
@@ -730,7 +738,7 @@
               "srcset": "/media/photos/rash-guard-lifestyle-1-480.webp 480w, /media/photos/rash-guard-lifestyle-1-960.webp 960w, /media/photos/rash-guard-lifestyle-1-1536.webp 1536w",
               "width": 960,
               "height": 640,
-              "alt": "A blonde woman in a floral rash guard lifts her hair on a sunlit terracotta terrace.",
+              "alt": "A woman in a grey rash guard rests on linen beside a striped towel and dune grass in golden beach light.",
               "category": "rash guard"
             }
           ]
@@ -762,7 +770,7 @@
               "srcset": "/media/photos/cover-up-lifestyle-2-480.webp 480w, /media/photos/cover-up-lifestyle-2-960.webp 960w, /media/photos/cover-up-lifestyle-2-1536.webp 1536w",
               "width": 960,
               "height": 640,
-              "alt": "A woman in a tiger-striped cover-up sits on a stone step beside a terracotta jug overlooking a bay.",
+              "alt": "A woman in a dusty pink floral cover-up with ecru lace leans against a weathered column beside a pebbled cove.",
               "category": "cover up"
             }
           ]

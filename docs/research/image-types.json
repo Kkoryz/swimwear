@@ -1578,20 +1578,14 @@
           [
             "women-s-swimwear-lifestyle-1",
             "a photo of the product in use"
-          ],
-          [
-            "women-s-swimwear-lifestyle-2",
-            "a photo of the product in use"
           ]
         ]
       },
       "read": {
-        "women-s-swimwear-lifestyle-1": 0,
-        "women-s-swimwear-lifestyle-2": 3
+        "women-s-swimwear-lifestyle-1": 0
       },
       "slots": {
-        "women-s-swimwear-lifestyle-1": 0,
-        "women-s-swimwear-lifestyle-2": 3
+        "women-s-swimwear-lifestyle-1": 0
       }
     }
   },

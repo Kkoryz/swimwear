@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-library-review-v1",
-  "reviewedAt": "2026-11-14T12:44:16.324Z",
+  "reviewedAt": "2026-11-14T12:52:58.976Z",
   "photos": [
     {
       "number": 1,
@@ -240,70 +240,74 @@
     },
     {
       "number": 60,
-      "id": "cover-up-lifestyle-1"
+      "id": "cover-up-hero-1"
     },
     {
       "number": 61,
-      "id": "cover-up-lifestyle-2"
+      "id": "cover-up-lifestyle-1"
     },
     {
       "number": 62,
-      "id": "swimwear-packaging-brand-labels-hero-1"
+      "id": "cover-up-lifestyle-2"
     },
     {
       "number": 63,
-      "id": "swimwear-packaging-brand-labels-lifestyle-1"
+      "id": "swimwear-packaging-brand-labels-hero-1"
     },
     {
       "number": 64,
-      "id": "swimwear-packaging-brand-labels-lifestyle-2"
+      "id": "swimwear-packaging-brand-labels-lifestyle-1"
     },
     {
       "number": 65,
-      "id": "swimwear-hardware-hero-1"
+      "id": "swimwear-packaging-brand-labels-lifestyle-2"
     },
     {
       "number": 66,
-      "id": "swimwear-hardware-lifestyle-1"
+      "id": "swimwear-hardware-hero-1"
     },
     {
       "number": 67,
-      "id": "swimwear-hardware-lifestyle-2"
+      "id": "swimwear-hardware-lifestyle-1"
     },
     {
       "number": 68,
-      "id": "swimwear-hardware-lifestyle-3"
+      "id": "swimwear-hardware-lifestyle-2"
     },
     {
       "number": 69,
-      "id": "swimwear-accessories-hero-1"
+      "id": "swimwear-hardware-lifestyle-3"
     },
     {
       "number": 70,
-      "id": "swimwear-accessories-material-1"
+      "id": "swimwear-accessories-hero-1"
     },
     {
       "number": 71,
-      "id": "swimwear-accessories-lifestyle-1"
+      "id": "swimwear-accessories-material-1"
     },
     {
       "number": 72,
-      "id": "swimwear-accessories-lifestyle-2"
+      "id": "swimwear-accessories-lifestyle-1"
     },
     {
       "number": 73,
-      "id": "plus-size-swimwear-hero-1"
+      "id": "swimwear-accessories-lifestyle-2"
     },
     {
       "number": 74,
-      "id": "plus-size-swimwear-lifestyle-1"
+      "id": "plus-size-swimwear-hero-1"
     },
     {
       "number": 75,
-      "id": "couples-matching-swimsuit-hero-1"
+      "id": "plus-size-swimwear-lifestyle-1"
     },
     {
       "number": 76,
+      "id": "couples-matching-swimsuit-hero-1"
+    },
+    {
+      "number": 77,
       "id": "couples-matching-swimsuit-lifestyle-1"
     }
   ],
@@ -311,69 +315,76 @@
     "lookAlike": [
       {
         "photos": [
-          43,
-          45
+          13,
+          15
         ],
-        "reason": "Both are top-down flat lays of children's swimwear in the same red, yellow, olive and print pieces, laid in a grid on the same sand-coloured cloth"
+        "reason": "same seated sewing-room worker, same dark top, same framing over garments on a table"
       },
       {
         "photos": [
-          62,
-          68
+          47,
+          48
         ],
-        "reason": "Both show a row of one-piece swimsuits in white, pink/red and olive laid side by side on a warm sandy surface, framed the same way"
+        "reason": "same cobalt hooded burkini, same seated pose with arms on raised knee, same three-quarter framing"
+      },
+      {
+        "photos": [
+          61,
+          62
+        ],
+        "reason": "same V-neck kaftan cover-up, same seated pose against a sea backdrop, same framing; only the blue shade differs"
+      },
+      {
+        "photos": [
+          50,
+          51
+        ],
+        "reason": "same hooded burkini model with an arm raised over the head, same outdoor terrace light and composition"
       }
     ],
     "samePerson": [
       {
         "photos": [
-          3,
-          53,
-          60
+          13,
+          14,
+          15
         ]
       },
       {
         "photos": [
-          9,
-          55,
-          57
+          47,
+          48
         ]
       },
       {
         "photos": [
-          21,
-          35,
+          60,
           61
         ]
       },
       {
         "photos": [
-          29,
-          56
-        ]
-      },
-      {
-        "photos": [
-          24,
-          27,
-          37
-        ]
-      },
-      {
-        "photos": [
-          7,
-          28
+          50,
+          51
         ]
       }
     ],
     "wrongColour": [
       {
+        "photo": 2,
+        "seen": "white/cream printed top with a red wrap, not heather grey"
+      },
+      {
+        "photo": 12,
+        "seen": "navy and yellow printed swimsuit, not forest green"
+      },
+      {
         "photo": 43,
-        "seen": "Olive, white, sunflower print, red and yellow children's pieces; no heather grey garment visible"
+        "seen": "pink, red, white and olive suits on hangers; navy only appears as thin stripes"
       },
       {
         "photo": 45,
-        "seen": "Olive, pink floral, red, yellow and striped pieces; no navy blue garment is the main item"
+        "seen": "olive, pink floral, red, yellow and striped pieces; no navy garment visible"
       }
     ],
     "factoryScene": [
@@ -383,51 +394,43 @@
     ],
     "weakSubject": [
       {
-        "photo": 49,
-        "seen": "Dim, cropped frame with the model's head cut off; the sand beige garment blends into the rocks and shadow and is hard to read"
+        "photo": 1,
+        "seen": "website hero screenshot with headline text and buttons burned in over the left of the frame; model and garment pushed to the edge"
       },
       {
-        "photo": 72,
-        "seen": "The cobalt garment is small and mostly hidden inside a box; packaging and fabric swatches fill most of the frame"
+        "photo": 49,
+        "seen": "model cropped at the frame edge with head partly cut off; plain beige garment blends into sand and rocks, most of the frame is rocky ground"
       }
     ]
   },
   "rejected": [
     {
-      "id": "baby-swimwear-hero-1",
-      "reason": "looks like photo 45: Both are top-down flat lays of children's swimwear in the same red, yellow, olive and print pieces, laid in a grid on the same sand-coloured cloth"
-    },
-    {
-      "id": "watersports-apparel-hero-1",
-      "reason": "same person as photo 3"
-    },
-    {
-      "id": "rash-guard-lifestyle-1",
-      "reason": "same person as photo 9"
+      "id": "general-process-3",
+      "reason": "looks like photo 13: same seated sewing-room worker, same dark top, same framing over garments on a table"
     },
     {
       "id": "cover-up-lifestyle-2",
-      "reason": "same person as photo 21"
+      "reason": "looks like photo 61: same V-neck kaftan cover-up, same seated pose against a sea backdrop, same framing; only the blue shade differs"
     },
     {
-      "id": "rash-guard-hero-1",
-      "reason": "same person as photo 29"
+      "id": "general-process-2",
+      "reason": "same person as photo 13"
     },
     {
-      "id": "one-piece-swimsuit-product-construction-bust-support-and-trim-details",
-      "reason": "same person as photo 24"
+      "id": "cover-up-hero-1",
+      "reason": "same person as photo 61"
+    },
+    {
+      "id": "baby-swimwear-hero-1",
+      "reason": "main colour is not navy blue: pink, red, white and olive suits on hangers; navy only appears as thin stripes"
     },
     {
       "id": "general-process-1",
       "reason": "staged in a factory, workshop or warehouse"
     },
     {
-      "id": "general-process-2",
-      "reason": "staged in a factory, workshop or warehouse"
-    },
-    {
-      "id": "general-process-3",
-      "reason": "staged in a factory, workshop or warehouse"
+      "id": "general-hero-1",
+      "reason": "does not show its subject: website hero screenshot with headline text and buttons burned in over the left of the frame; model and garment pushed to the edge"
     }
   ]
 }

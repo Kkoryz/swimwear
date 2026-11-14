@@ -169,10 +169,10 @@
   },
   "images": {
     "status": "passed",
-    "hash": "bbb8fa5f70477956",
-    "at": "2026-11-14T11:16:40.894Z",
-    "seconds": 1336,
-    "log": ".pipeline/logs/2026-11-14T10-49-24-604Z/images.log"
+    "hash": "f8774a7970d111ca",
+    "at": "2026-11-14T12:56:30.791Z",
+    "seconds": 708,
+    "log": ".pipeline/logs/2026-11-14T12-44-35-176Z/images.log"
   },
   "photo-focus": {
     "status": "done",
