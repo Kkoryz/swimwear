@@ -1,0 +1,328 @@
+{
+  "schemaVersion": "seo-site-design-lock-v1",
+  "sourceUrl": "https://swimwearbali.com/",
+  "capturedAt": "2026-11-14T06:28:15.273Z",
+  "method": "Computed styles read from the captures under docs/research/reference-pages/<page type>/raw/<viewport>.json (seo-site-reference-extraction-v1). Every value below is a computed value of the named element; rgb() values are written as hex. Evidence line numbers are lines of the capture file named in evidence.file.",
+  "roles": {
+    "surfacePrimary": {
+      "token": "--surface-primary",
+      "value": "#ffffff",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 35586, "selector": "body", "property": "background-color", "observed": "rgb(255, 255, 255)" },
+        { "route": "/about-us/", "file": "reference-pages/about/design-references/desktop-1440.png", "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(2)", "property": "background (no own colour; the body shows)", "observed": "transparent over rgb(255, 255, 255)" }
+      ]
+    },
+    "surfaceSecondary": {
+      "token": "--surface-secondary",
+      "value": "#f4eee6",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 130203, "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(2)", "property": "background-color", "observed": "rgb(244, 238, 230)" },
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 228661, "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(11)", "property": "background-color", "observed": "rgb(244, 238, 230)" },
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 296026, "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(16)", "property": "background-color", "observed": "rgb(244, 238, 230)" }
+      ]
+    },
+    "surfaceDark": {
+      "token": "--surface-dark",
+      "value": "#0b2a4a",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 208051, "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(9)", "property": "background-color", "observed": "rgb(11, 42, 74)" },
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 218892, "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(10)", "property": "background-color", "observed": "rgb(11, 42, 74)" },
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 263634, "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(12)", "property": "background-color", "observed": "rgb(11, 42, 74)" }
+      ]
+    },
+    "textPrimary": {
+      "token": "--text-primary",
+      "value": "#000000",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 133085, "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div > p", "property": "color", "observed": "rgb(0, 0, 0)" },
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 192695, "selector": "h2 \"3 Ways To Get Started\" (section:nth-of-type(6))", "property": "color", "observed": "rgb(0, 0, 0)" },
+        { "route": "/swimwear-manufacturer/", "file": "reference-pages/manufacturer/raw/desktop-1440.json", "line": 122351, "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(2) > div > div > div > div:nth-of-type(1) > div > h1", "property": "color", "observed": "rgb(0, 0, 0)" }
+      ]
+    },
+    "textInverse": {
+      "token": "--text-inverse",
+      "value": "#ffffff",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 210049, "selector": "h2 \"MOQs & Timelines\" (section:nth-of-type(9), on #0b2a4a)", "property": "color", "observed": "rgb(255, 255, 255)" },
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 266297, "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(12) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > p", "property": "color", "observed": "rgb(255, 255, 255)" },
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 362949, "selector": "footer#colophon … ul > li:nth-of-type(1) > a > span \"Price Your Designs\"", "property": "color", "observed": "rgb(255, 255, 255)" }
+      ]
+    },
+    "border": {
+      "token": "--border-color",
+      "value": "#000000",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 195360, "selector": "section:nth-of-type(7) card \"01. Custom Designs\" (div.elementor-widget-wrap)", "property": "border", "observed": "1px solid rgb(0, 0, 0)" },
+        { "route": "/contact-us/", "file": "reference-pages/contact/raw/desktop-1440.json", "line": 131713, "selector": "contact form text input", "property": "border", "observed": "1px solid rgb(0, 0, 0)" }
+      ]
+    },
+    "accent": {
+      "token": "--accent",
+      "value": "#8fd6e1",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 127314, "selector": "a.kt-seg__btn.kt-seg__btn--aqua \"Start Up Labels\"", "property": "background-color", "observed": "rgb(143, 214, 225)" },
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 125316, "selector": "h2 \"Launch Your Swim Label\" (hero)", "property": "color", "observed": "rgb(143, 214, 225)" },
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 269167, "selector": "section:nth-of-type(12) button (border 1px solid rgb(0, 0, 0), border-radius 24px)", "property": "background-color", "observed": "rgb(143, 214, 225)" }
+      ]
+    },
+    "accentContrast": {
+      "token": "--accent-contrast",
+      "value": "#1f5a7a",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 127312, "selector": "a.kt-seg__btn.kt-seg__btn--aqua \"Start Up Labels\"", "property": "color", "observed": "rgb(31, 90, 122)" }
+      ]
+    },
+    "link": {
+      "token": "--link",
+      "value": "#08a4ec",
+      "evidence": [
+        { "route": "/about-us/", "file": "reference-pages/about/raw/desktop-1440.json", "line": 121860, "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(2) > div > div > div > div > div > p:nth-of-type(3) > a", "property": "color", "observed": "rgb(8, 164, 236)" }
+      ]
+    },
+    "textMuted": {
+      "token": "--text-muted",
+      "value": "#6e8296",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 231326, "selector": "h2 \"Lower as you grow.\" (section:nth-of-type(11), second line of the pricing heading)", "property": "color", "observed": "rgb(110, 130, 150)" }
+      ]
+    }
+  },
+  "supplementaryRoles": {
+    "headerSurface": {
+      "token": "--surface-header",
+      "value": "#306180",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 38921, "selector": "header#masthead > div > section:nth-of-type(1) > div > div > div > section", "property": "background-color", "observed": "rgb(48, 97, 128)" }
+      ]
+    },
+    "footerSurface": {
+      "token": "--surface-footer",
+      "value": "#003049",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 348517, "selector": "footer#colophon > div > div > section:nth-of-type(1)", "property": "background-color", "observed": "rgb(0, 48, 73)" },
+        { "route": "/swimwear-manufacturer/", "file": "reference-pages/manufacturer/raw/desktop-1440.json", "line": 182522, "selector": "footer#colophon > div > div > section:nth-of-type(1)", "property": "background-color", "observed": "rgb(0, 48, 73)" }
+      ]
+    },
+    "headerShell": {
+      "value": "#003049",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 37808, "selector": "header#masthead > div > section:nth-of-type(1) (sticky shell; covered by its inner #306180 section)", "property": "background-color", "observed": "rgb(0, 48, 73)" }
+      ]
+    },
+    "eyebrowText": {
+      "token": "--text-eyebrow",
+      "value": "#1670a8",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 131534, "selector": "section:nth-of-type(2) p \"Bali Swimwear Manufacturer\"", "property": "color", "observed": "rgb(22, 112, 168)" }
+      ]
+    },
+    "headingNavy": {
+      "value": "#0b2a4a",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 230659, "selector": "h2 \"Your price, locked in.\" (section:nth-of-type(11))", "property": "color", "observed": "rgb(11, 42, 74)" },
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 299794, "selector": "details > summary.swb-faq__q (section:nth-of-type(16))", "property": "color", "observed": "rgb(11, 42, 74)" }
+      ]
+    },
+    "buttonCreamSurface": {
+      "token": "--button-secondary-bg",
+      "value": "#f6f3ec",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 127536, "selector": "a.kt-seg__btn.kt-seg__btn--cream \"Established Brands\"", "property": "background-color", "observed": "rgb(246, 243, 236)" }
+      ]
+    },
+    "buttonCreamText": {
+      "token": "--button-secondary-text",
+      "value": "#111111",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 127534, "selector": "a.kt-seg__btn.kt-seg__btn--cream \"Established Brands\"", "property": "color", "observed": "rgb(17, 17, 17)" }
+      ]
+    },
+    "buttonDark": {
+      "value": "#000000",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 202459, "selector": "a.kt-cta3__btn \"READ HOW TO GET STARTED\"", "property": "background-color", "observed": "rgb(0, 0, 0)" },
+        { "route": "/swimwear-manufacturer/", "file": "reference-pages/manufacturer/raw/desktop-1440.json", "line": 125026, "selector": "a.elementor-button \"Request Price\"", "property": "background-color", "observed": "rgb(0, 0, 0)" }
+      ]
+    },
+    "submitSurface": {
+      "value": "#262626",
+      "evidence": [
+        { "route": "/contact-us/", "file": "reference-pages/contact/raw/desktop-1440.json", "line": 130819, "selector": "button.frm_button_submit \"SEND\"", "property": "background-color", "observed": "rgb(38, 38, 38)" }
+      ]
+    },
+    "bandBlue": {
+      "token": "--surface-band-blue",
+      "value": "#dceaf5",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 152363, "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(4)", "property": "background-color", "observed": "rgb(220, 234, 245)" }
+      ]
+    },
+    "bandMint": {
+      "token": "--surface-band-mint",
+      "value": "#d6e2de",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 311316, "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(18)", "property": "background-color", "observed": "rgb(214, 226, 222)" }
+      ]
+    },
+    "bandBlush": {
+      "token": "--surface-band-blush",
+      "value": "#ffe5df",
+      "evidence": [
+        { "route": "/swimwear-manufacturer/", "file": "reference-pages/manufacturer/raw/desktop-1440.json", "line": 160107, "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(10) (Sampling text column)", "property": "background-color", "observed": "rgb(255, 229, 223)" }
+      ]
+    },
+    "cardSand": {
+      "value": "#f5eee7",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 146158, "selector": "section:nth-of-type(3) sampling-studio figures (div.kt-num)", "property": "background-color", "observed": "rgb(245, 238, 231)" }
+      ]
+    },
+    "cardNavyAlt": {
+      "value": "#0d2a4b",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 234646, "selector": "section:nth-of-type(11) a.lp-btn.lp-btn--solid \"Plan Your Budget\" (pill, border-radius 999px)", "property": "background-color", "observed": "rgb(13, 42, 75)" }
+      ]
+    },
+    "cardBlueMid": {
+      "value": "#1e4670",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 249918, "selector": "section:nth-of-type(11) … div:nth-of-type(6) > div > section > div > div:nth-of-type(2).swbp-style.swbp-t-steel (example price card)", "property": "background-color", "observed": "rgb(30, 70, 112)" }
+      ]
+    },
+    "tabActive": {
+      "value": "#111111",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 157460, "selector": "div#elementor-tab-title-2601.elementor-tab-title.elementor-active \"Vita\" (section:nth-of-type(4) fabric tabs, pill border 1px solid rgb(17, 17, 17), radius 999px)", "property": "background-color", "observed": "rgb(17, 17, 17)" }
+      ]
+    },
+    "gallerySlot": {
+      "value": "#ece9e3",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 203791, "selector": "div.swb-gallery .swb-slot (behind each photo)", "property": "background-color", "observed": "rgb(236, 233, 227)" }
+      ]
+    },
+    "navCurrentSubItem": {
+      "value": "#d3ebfd",
+      "evidence": [
+        { "route": "/swimwear-manufacturer/", "file": "reference-pages/manufacturer/raw/desktop-1440.json", "line": 105925, "selector": "ul#menu-2-1ff7f7d > li:nth-of-type(2) > ul > li:nth-of-type(3) > a.elementor-sub-item.elementor-item-active (aria-current=page, in the dropdown)", "property": "background-color", "observed": "rgb(211, 235, 253)" }
+      ]
+    },
+    "channelCardBorder": {
+      "token": "--channel-card-border",
+      "value": "1px solid #979797",
+      "evidence": [
+        { "route": "/contact-us/", "file": "reference-pages/contact/raw/desktop-1440.json", "line": 134830, "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(3) > div > div:nth-of-type(1) > div > section > div > div > div", "property": "border", "observed": "1px solid rgb(151, 151, 151)" }
+      ]
+    },
+    "channelCardRadius": {
+      "token": "--channel-card-radius",
+      "value": "10px",
+      "evidence": [
+        { "route": "/contact-us/", "file": "reference-pages/contact/raw/desktop-1440.json", "line": 134831, "selector": "same contact channel card", "property": "border-radius", "observed": "10px" }
+      ]
+    },
+    "inputBorder": {
+      "token": "--input-border",
+      "value": "#000000",
+      "evidence": [
+        { "route": "/contact-us/", "file": "reference-pages/contact/raw/desktop-1440.json", "line": 131713, "selector": "contact form input", "property": "border", "observed": "1px solid rgb(0, 0, 0)" }
+      ]
+    },
+    "inputRadius": {
+      "token": "--radius-input",
+      "value": "0px",
+      "evidence": [
+        { "route": "/contact-us/", "file": "reference-pages/contact/raw/desktop-1440.json", "line": 131714, "selector": "contact form input", "property": "border-radius", "observed": "0px" }
+      ]
+    },
+    "pillRadius": {
+      "token": "--radius-pill",
+      "value": "999px",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 127319, "selector": "a.kt-seg__btn--aqua", "property": "border-radius", "observed": "999px" }
+      ]
+    },
+    "leadSize": {
+      "token": "--size-lead",
+      "value": "1.625rem",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 125974, "selector": "hero lead \"Specialists in body-sculpting custom swimwear, patterned in-house.\"", "property": "font-size", "observed": "26px (desktop-1440, tablet-768); 14px (mobile-390)" }
+      ]
+    },
+    "eyebrowSize": {
+      "token": "--size-eyebrow",
+      "value": "0.875rem",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 131525, "selector": "p \"Bali Swimwear Manufacturer\"", "property": "font-size", "observed": "14px" }
+      ]
+    },
+    "eyebrowTracking": {
+      "token": "--tracking-eyebrow",
+      "value": "1.4px",
+      "evidence": [
+        { "route": "/", "file": "reference-pages/home/raw/desktop-1440.json", "line": 131529, "selector": "p \"Bali Swimwear Manufacturer\"", "property": "letter-spacing", "observed": "1.4px (text-transform: uppercase)" }
+      ]
+    }
+  },
+  "tokens": {
+    "--surface-primary": "#ffffff",
+    "--surface-secondary": "#f4eee6",
+    "--surface-dark": "#0b2a4a",
+    "--text-primary": "#000000",
+    "--text-inverse": "#ffffff",
+    "--text-muted": "#6e8296",
+    "--border-color": "#000000",
+    "--accent": "#8fd6e1",
+    "--accent-contrast": "#1f5a7a",
+    "--link": "#08a4ec",
+    "--size-hero": "clamp(2.375rem, 6.111vw, 5.5rem)",
+    "--size-display": "clamp(2rem, 4.167vw, 3.75rem)",
+    "--size-card-heading": "1.375rem",
+    "--size-subheading": "1.625rem",
+    "--size-body": "1.0625rem",
+    "--line-body": "1.5",
+    "--weight-heading": "700",
+    "--radius-card": "6px",
+    "--radius-media": "2px",
+    "--radius-button": "999px",
+    "--shadow-card": "none",
+    "--container-max": "87.5rem",
+    "--gutter": "20px",
+    "--section-space": "57.5938px",
+    "--header-height": "79.1563px"
+  },
+  "tokenMapping": {
+    "--surface-primary": "roles.surfacePrimary (body background).",
+    "--surface-secondary": "roles.surfaceSecondary: the beige band of home sections 2, 11 and 16.",
+    "--surface-dark": "roles.surfaceDark: the navy content bands of home sections 9, 10 and 12. The footer's own navy is supplementaryRoles.footerSurface (--surface-footer).",
+    "--text-primary": "roles.textPrimary: body paragraphs and section headings on light surfaces.",
+    "--text-inverse": "roles.textInverse: text on the navy bands and in the footer.",
+    "--text-muted": "roles.textMuted: the only observed secondary text tone (the grey second line of the home pricing heading).",
+    "--border-color": "roles.border: the 1px black outline of the home 'ways to start' cards and the contact inputs.",
+    "--accent": "roles.accent: the aqua of the hero headline and the primary pill buttons.",
+    "--accent-contrast": "roles.accentContrast: the text colour observed on the aqua buttons.",
+    "--link": "roles.link: inline text links (about page).",
+    "--size-hero": "Home hero headline (h2 'Launch Your Swim Label', Maison Neue 800): 88px at 1440 and 768, 38px at 390. The clamp's ends are those observed values (5.5rem = 88px, 2.375rem = 38px; 6.111vw = 88/1440). Between 390 and 1440 the clamp interpolates, while the reference keeps 88px down to 768 and switches below it: the in-between sizes are not observed.",
+    "--size-display": "Section h2 (Maison 700): 60px at 1440 and 768 (also 52px on some home sections), 32px at 390. Clamp ends are those observed values (3.75rem = 60px, 2rem = 32px; 4.167vw = 60/1440); in-between sizes interpolated, not observed.",
+    "--size-card-heading": "Card title '01. Custom Designs' (Maison 700): 22px at 1440 and 768; 24px at 390.",
+    "--size-subheading": "Home h3 'Our Swimwear Sampling Studio' and the hero lead: 26px at 1440.",
+    "--size-body": "Body paragraph: 17px at all three viewports.",
+    "--line-body": "Body paragraph line-height 25.5px / font-size 17px = 1.5 (all three viewports).",
+    "--weight-heading": "Section h2 font-weight 700.",
+    "--radius-card": "Home 'ways to start' cards: border-radius 6px.",
+    "--radius-media": "Home gallery photo slots (.swb-slot): border-radius 2px. Other photos on home show no radius; the contact page's photo is shown with rounded corners but its radius was not read from the capture.",
+    "--radius-button": "Home pill buttons: border-radius 999px. The manufacturer page's black buttons use 8px (components.md).",
+    "--shadow-card": "Cards observed with box-shadow: none.",
+    "--container-max": "Home elementor containers: max-width 1400px (= 87.5rem) on sections 1-11, 15, 16.",
+    "--gutter": "1440 - 1400 = 40px, i.e. 20px each side at desktop (content x = 20). At 390 the side padding observed is 23.3906px (6vw).",
+    "--section-space": "Home section 2/3/4/16 padding-top and -bottom at 1440: 57.5938px. Other home sections use 28.7969px, 43.1875px or 86.3906px (2vw, 3vw, 6vw multiples). At 390 section 3 pads 58.5px top, at 768 30.7188px.",
+    "--header-height": "Sticky header height at 1440: 79.15625px (70.171875px at 390)."
+  },
+  "routeInvariants": [
+    { "invariant": "One sticky header on every route: wordmark left, seven top-level menu items right, background #306180, fixed at top on desktop, tablet and mobile (data-settings sticky_on desktop/tablet/mobile).", "routes": ["/", "/about-us/", "/contact-us/", "/swimwear-manufacturer/", "/start-your-swimwear-brand/"], "evidence": "header#masthead > div > section:nth-of-type(1), style position: fixed; top: 0px (each capture)" },
+    { "invariant": "One footer on every route on #003049: monogram + STAY CONNECTED column, four link columns (GET STARTED, FABRICS, OUR BRANDS, MORE INFORMATION), centred legal lines. On phones the four columns fold into toggles.", "routes": ["/", "/about-us/", "/contact-us/", "/swimwear-manufacturer/", "/start-your-swimwear-brand/"], "evidence": "footer#colophon > div > div > section:nth-of-type(1) background rgb(0, 48, 73); mobile div#elementor-tab-title-* a.elementor-toggle-title" },
+    { "invariant": "Page background white (#ffffff); body copy Maison/Maison Book 16-17px black.", "routes": ["/", "/about-us/", "/contact-us/", "/swimwear-manufacturer/", "/start-your-swimwear-brand/"], "evidence": "body background-color rgb(255, 255, 255); p font-size 17px (home, about) / 16px (manufacturer)" },
+    { "invariant": "The home and solution pages open with a full-width photo hero whose left side carries a baked-in dark gradient under the headline; the about page opens with a full-width photo and a centred white H1 on it; the manufacturer page opens with a full-width photo banner and its H1 under it; the contact page has no photo hero (centred H1 on white).", "routes": ["/", "/start-your-swimwear-brand/", "/about-us/", "/swimwear-manufacturer/", "/contact-us/"], "evidence": "design-references/desktop-1440.png of each page type; media.json hero entries" },
+    { "invariant": "Content containers 1400px wide on the home page; the manufacturer page's text sections are 950px wide (max-width) and centred.", "routes": ["/", "/swimwear-manufacturer/"], "evidence": "home max-width 1400px (lines 122613…296210); manufacturer max-width 950px (lines 121204…174269)" }
+  ]
+}

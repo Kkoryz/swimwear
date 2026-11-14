@@ -33,5 +33,12 @@
     "at": "2026-11-14T06:30:59.765Z",
     "seconds": 4,
     "log": ".pipeline/logs/2026-11-14T06-27-25-372Z/capture-check.log"
+  },
+  "analysis": {
+    "status": "done",
+    "hash": "e3b0c44298fc1c14",
+    "at": "2026-11-14T06:48:32.613Z",
+    "seconds": 1052,
+    "log": ".pipeline/logs/2026-11-14T06-27-25-372Z/analysis.log"
   }
 }

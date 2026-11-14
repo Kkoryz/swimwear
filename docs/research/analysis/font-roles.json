@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "seo-site-font-roles-v1",
+  "sourceUrl": "https://swimwearbali.com/",
+  "method": "Computed font values of the named elements in docs/research/reference-pages/<page type>/raw/<viewport>.json. Each viewport entry is one observed run (family as the computed font-family stack, weight, size, line height). The home captures list the same elements at the same lines in all three viewports, so one line number serves desktop-1440, tablet-768 and mobile-390.",
+  "declaredFaces": {
+    "note": "The @font-face families the home page declares and loaded (capture 'fonts' list, desktop-1440 lines 433174-433250). 'Maison', 'Maison Neue' and 'Maison Book' are the site's own names for the commercial Maison Neue files it serves (MaisonNeue-Medium1.ttf, fonnts.com-Maison_Neue_Book.ttf, FontsFree-Net-Maison-Neue-Bold.ttf in reference-assets). Raleway, Lato and Roboto come from Google Fonts.",
+    "loaded": [
+      { "family": "Maison", "weights": ["400", "500", "700"] },
+      { "family": "Maison Neue", "weights": ["500"] },
+      { "family": "Maison Book", "weights": ["400"] },
+      { "family": "Segoe UI", "weights": ["700"] }
+    ]
+  },
+  "licence": {
+    "maisonNeue": "Maison Neue (Milieu Grotesque) is a commercial face. Its open substitute in scripts/lib/font-licenses.mjs SUBSTITUTES is DM Sans (key 'maison neue'). The site's alias names 'Maison' and 'Maison Book' are not keys of that table: see notes.md (font substitution).",
+    "openSubstitute": { "family": "DM Sans", "substituteFor": "Maison Neue", "source": "scripts/lib/font-licenses.mjs SUBSTITUTES['maison neue']" },
+    "raleway": "Raleway is on Google Fonts (open)."
+  },
+  "roles": {
+    "display": {
+      "use": "Home hero headline (the visual title over the hero photo).",
+      "evidence": { "route": "/", "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(1) > div > div > div > div:nth-of-type(3) > div > h2", "text": "Launch Your Swim Label", "line": 125306 },
+      "viewports": {
+        "desktop-1440": { "family": "\"Maison Neue\", sans-serif", "weight": "800", "size": "88px", "lineHeight": "96.8px", "letterSpacing": "normal", "textTransform": "none", "color": "rgb(143, 214, 225)" },
+        "tablet-768": { "family": "\"Maison Neue\", sans-serif", "weight": "800", "size": "88px", "lineHeight": "96.8px" },
+        "mobile-390": { "family": "\"Maison Neue\", sans-serif", "weight": "800", "size": "38px", "lineHeight": "45.6px" }
+      }
+    },
+    "pageTitle": {
+      "use": "The H1 of the inner pages.",
+      "observations": [
+        { "route": "/about-us/", "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(1) > div > div > div > div > div > h1", "text": "About Swimwear Bali", "line": 119414, "viewport": "desktop-1440", "family": "Maison, sans-serif", "weight": "700", "size": "45px", "lineHeight": "45px", "textAlign": "center", "color": "rgb(255, 255, 255)" },
+        { "route": "/contact-us/", "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(1) > div > div > div > div:nth-of-type(1) > div > h1", "text": "Contact Us", "line": 120098, "viewport": "desktop-1440", "family": "Maison, sans-serif", "weight": "700", "size": "44px", "lineHeight": "44px", "textAlign": "center", "color": "rgb(0, 0, 0)" },
+        { "route": "/swimwear-manufacturer/", "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(2) > div > div > div > div:nth-of-type(1) > div > h1", "text": "Custom Swimwear Manufacturer", "line": 122341, "viewport": "desktop-1440", "family": "\"Maison Neue\", sans-serif", "weight": "700", "size": "32px", "lineHeight": "32px", "textAlign": "center", "color": "rgb(0, 0, 0)" }
+      ]
+    },
+    "heading": {
+      "use": "Section headings (h2).",
+      "evidence": { "route": "/", "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(6) … h2", "text": "3 Ways To Get Started", "line": 192685 },
+      "viewports": {
+        "desktop-1440": { "family": "Maison, sans-serif", "weight": "700", "size": "60px", "lineHeight": "60px", "letterSpacing": "normal", "color": "rgb(0, 0, 0)" },
+        "tablet-768": { "family": "Maison, sans-serif", "weight": "700", "size": "60px", "lineHeight": "60px" },
+        "mobile-390": { "family": "Maison, sans-serif", "weight": "700", "size": "32px", "lineHeight": "32px" }
+      },
+      "variants": [
+        { "route": "/", "text": "We Build Swimwear Brands", "line": 132191, "desktop-1440": { "family": "Maison, sans-serif", "weight": "700", "size": "52px", "lineHeight": "52px" }, "tablet-768": { "family": "Maison, sans-serif", "weight": "700", "size": "52px", "lineHeight": "52px" }, "mobile-390": { "family": "Maison, sans-serif", "weight": "700", "size": "32px", "lineHeight": "32px" } },
+        { "route": "/", "text": "Swimwear Manufacturing FAQ", "line": 298014, "desktop-1440": { "family": "Maison, sans-serif", "weight": "700", "size": "52px", "lineHeight": "52px" }, "mobile-390": { "family": "Maison, sans-serif", "weight": "700", "size": "32px", "lineHeight": "32px" } },
+        { "route": "/", "text": "Lower as you grow.", "line": 231316, "desktop-1440": { "family": "\"Maison Book\", sans-serif", "weight": "700", "size": "60px", "lineHeight": "60px", "color": "rgb(110, 130, 150)" } },
+        { "route": "/", "text": "Launch Your Swimwear Label (CTA band)", "line": 307970, "desktop-1440": { "family": "Maison, sans-serif", "weight": "700", "size": "60px", "lineHeight": "84px", "color": "rgb(255, 255, 255)" } },
+        { "route": "/swimwear-manufacturer/", "text": "Built for Swimwear", "line": 128792, "desktop-1440": { "family": "\"Maison Neue\", sans-serif", "weight": "500", "size": "32px", "lineHeight": "32px", "textAlign": "center" } }
+      ]
+    },
+    "subheading": {
+      "use": "Card titles and the hero lead.",
+      "observations": [
+        { "route": "/", "text": "01. Custom Designs", "line": 196009, "desktop-1440": { "family": "Maison, sans-serif", "weight": "700", "size": "22px", "lineHeight": "33px" }, "tablet-768": { "family": "Maison, sans-serif", "weight": "700", "size": "22px", "lineHeight": "33px" }, "mobile-390": { "family": "Maison, sans-serif", "weight": "700", "size": "24px", "lineHeight": "36px" } },
+        { "route": "/", "text": "Specialists in body-sculpting custom swimwear, patterned in-house. (hero lead)", "line": 125973, "desktop-1440": { "family": "Maison, sans-serif", "weight": "700", "size": "26px", "lineHeight": "44.2px", "color": "rgb(255, 255, 255)" }, "tablet-768": { "family": "Maison, sans-serif", "weight": "700", "size": "26px", "lineHeight": "44.2px" }, "mobile-390": { "family": "Maison, sans-serif", "weight": "700", "size": "14px", "lineHeight": "22.4px" } },
+        { "route": "/", "text": "STAY CONNECTED (footer)", "line": 351842, "desktop-1440": { "family": "Raleway, sans-serif", "weight": "600", "size": "20px", "lineHeight": "26px", "letterSpacing": "4px" } },
+        { "route": "/", "text": "GET STARTED (footer column title)", "line": 361609, "desktop-1440": { "family": "Raleway, sans-serif", "weight": "600", "size": "18px", "lineHeight": "23.4px", "letterSpacing": "0.3px" } }
+      ]
+    },
+    "body": {
+      "use": "Running text.",
+      "evidence": { "route": "/", "selector": "main#content > div > div:nth-of-type(1) > section:nth-of-type(2) > div > div:nth-of-type(1) > div > div:nth-of-type(3) > div > div > p", "line": 133075 },
+      "viewports": {
+        "desktop-1440": { "family": "Maison, sans-serif", "weight": "400", "size": "17px", "lineHeight": "25.5px", "color": "rgb(0, 0, 0)" },
+        "tablet-768": { "family": "Maison, sans-serif", "weight": "400", "size": "17px", "lineHeight": "25.5px" },
+        "mobile-390": { "family": "Maison, sans-serif", "weight": "400", "size": "17px", "lineHeight": "25.5px" }
+      },
+      "variants": [
+        { "route": "/", "text": "digital prints paragraph on navy", "line": 266287, "desktop-1440": { "family": "Maison, sans-serif", "weight": "400", "size": "16px", "lineHeight": "26px", "color": "rgb(255, 255, 255)" } },
+        { "route": "/swimwear-manufacturer/", "text": "Swimwear Bali manufactures custom and ready-to-order swimwear…", "line": 123010, "desktop-1440": { "family": "\"Maison Book\", sans-serif", "weight": "400", "size": "16px", "lineHeight": "24px" } },
+        { "route": "/about-us/", "text": "PT King Trading. (inline link)", "line": 121850, "desktop-1440": { "family": "\"Maison Book\", sans-serif", "weight": "300", "size": "17px", "lineHeight": "25.5px", "textDecoration": "underline", "color": "rgb(8, 164, 236)" } },
+        { "route": "/", "text": "Swimwear Bali focuses exclusively on swimwear. (small bold note)", "line": 135936, "desktop-1440": { "family": "Maison, sans-serif", "weight": "700", "size": "12px", "lineHeight": "18px" } }
+      ]
+    },
+    "ui": {
+      "use": "Navigation, eyebrows and buttons.",
+      "observations": [
+        { "route": "/", "text": "Order Samples (top-level menu item)", "selector": "a#sm-1794637689344815-1", "line": 43364, "desktop-1440": { "family": "Maison, sans-serif", "weight": "500", "size": "16px", "lineHeight": "20px", "color": "rgb(255, 255, 255)", "padding": "13px 20px" } },
+        { "route": "/", "text": "Swimwear Samples ↗ (dropdown item)", "line": 44477, "desktop-1440": { "family": "Maison, sans-serif", "weight": "400", "size": "16px", "lineHeight": "20px", "color": "rgb(48, 97, 128)" } },
+        { "route": "/", "text": "Bali Swimwear Manufacturer (eyebrow)", "line": 131524, "desktop-1440": { "family": "Maison, sans-serif", "weight": "600", "size": "14px", "lineHeight": "14px", "letterSpacing": "1.4px", "textTransform": "uppercase", "color": "rgb(22, 112, 168)" } },
+        { "route": "/", "text": "Custom Swimwear Manufacturer In Bali (hero eyebrow, the page's h1)", "line": 124639, "desktop-1440": { "family": "\"Maison Neue\", sans-serif", "weight": "600", "size": "14px", "lineHeight": "14px", "letterSpacing": "0.9px", "textTransform": "uppercase", "color": "rgb(255, 255, 255)" }, "tablet-768": { "family": "\"Maison Neue\", sans-serif", "weight": "600", "size": "14px", "lineHeight": "14px" }, "mobile-390": { "family": "\"Maison Neue\", sans-serif", "weight": "600", "size": "14px", "lineHeight": "18.2px" } },
+        { "route": "/", "text": "Start Up Labels (pill button)", "line": 127302, "desktop-1440": { "family": "\"Maison Neue\", Maison, \"Helvetica Neue\", Helvetica, Arial, sans-serif", "weight": "700", "size": "14px", "lineHeight": "14px", "letterSpacing": "0.14px", "textTransform": "uppercase" } },
+        { "route": "/", "text": "READ HOW TO GET STARTED (pill button)", "line": 202447, "desktop-1440": { "family": "\"Maison Neue\", \"Helvetica Neue\", Helvetica, Arial, sans-serif", "weight": "700", "size": "15px", "lineHeight": "15px", "letterSpacing": "0.15px", "textTransform": "uppercase" } },
+        { "route": "/", "text": "FAQ question (summary)", "line": 299784, "desktop-1440": { "family": "\"Maison Neue\", Maison, \"Helvetica Neue\", Helvetica, Arial, sans-serif", "weight": "700", "size": "15px", "lineHeight": "21px", "color": "rgb(11, 42, 74)" } },
+        { "route": "/swimwear-manufacturer/", "text": "Request Price (button)", "line": 125014, "desktop-1440": { "family": "\"Maison Book\", sans-serif", "weight": "400", "size": "16px", "lineHeight": "16px" } },
+        { "route": "/start-your-swimwear-brand/", "text": "GETTING STARTED (hero eyebrow, the page's h1)", "line": 119191, "desktop-1440": { "family": "Maison, sans-serif", "weight": "500", "size": "14px", "lineHeight": "14px", "letterSpacing": "1.4px" } }
+      ]
+    }
+  },
+  "notObserved": [
+    "Tablet-768 and mobile-390 values were read for the home page only; the inner pages' H1s and body variants are desktop-1440 values.",
+    "Italic faces: none observed on content text (the only italic is a hidden Lato toggle icon in the mobile footer)."
+  ]
+}
