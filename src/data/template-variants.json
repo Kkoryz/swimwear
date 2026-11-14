@@ -980,7 +980,12 @@
         "process": "list"
       },
       "general": {
-        "process": "timeline"
+        "process": "timeline",
+        "blocks": {
+          "overview-steps": {
+            "variant": "list"
+          }
+        }
       },
       "blog_hub": {
         "blocks": {
@@ -1003,7 +1008,12 @@
             "type": "band"
           }
         ],
-        "cta": "inline"
+        "cta": "inline",
+        "blocks": {
+          "m7": {
+            "variant": "panel"
+          }
+        }
       },
       "solution": {
         "splitSequence": [

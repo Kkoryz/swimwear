@@ -205,8 +205,11 @@ main[data-page-type="product_manufacturer"] .button { min-height: 44px; padding:
 main[data-page-type="product_manufacturer"] .button--primary { background: #000000; color: #ffffff; }
 main[data-page-type="product_manufacturer"] .button--primary:hover { background: var(--surface-dark); color: var(--text-inverse); }
 .block--page-lead { --size-lead: clamp(1.0625rem, 1.4vw, 1.25rem); }
-/* Blog hub: the title on its photo band, bold as the competitor's page titles (its size stays the template's). */
+/* Blog hub: the title on its photo band, bold and in title case as the competitor's page titles (its size stays the
+   template's); a lead on the band takes the title's alignment. */
 .blog-hub-hero h1 { font-weight: 700; }
+.blog-hub-hero[data-header="banner"] h1 { text-transform: none; }
+.blog-hub-hero[data-header="banner"] .blog-hub-hero__lead { margin-inline: auto; text-align: center; }
 
 /* Text sections: plain text on the page (the competitor's text sections carry no panel). */
 .block--proof[data-variant="band"] .text-block { padding: 0; border-radius: 0; background: transparent; }
@@ -219,6 +222,8 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
    left edge. A chart panel's scroll shade takes the panel's own colour. */
 .prose__table th, .prose__table td { border: 0; border-bottom: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent); }
 .block--table .table-block__scroll { max-width: calc(70ch + 20rem); }
+/* A row's label keeps to one line beside the long column on desktops (two-word labels broke over two lines). */
+@media (min-width: 900px) { .block--table .table-block :is(th, td):first-child { white-space: nowrap; } }
 .prose__chart .prose__table[data-scroll="sideways"] {
   background:
     linear-gradient(to right, var(--surface-secondary), var(--surface-secondary) 30%, transparent) left center / 2.5rem 100% no-repeat local,
@@ -233,10 +238,12 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
 }
 
 /* A comparison chart on phones: the label column gives the values room, the cells a narrower inset, so a value keeps
-   to a line or two. */
-@media (max-width: 599px) {
+   to a line or two. A chart of one or two options holds its label column to that share (fixed layout: the label's
+   longest word no longer widens it); a wider chart keeps its sideways scroll. */
+@media (max-width: 767px) {
   .chart-comparison :is(th, td) { padding-inline: 0.4rem; }
   .chart-comparison tr > :first-child { width: 32%; }
+  .chart-comparison table:not(:has(thead th:nth-of-type(3))) { table-layout: fixed; }
 }
 
 /* Answer cards (table cards): light cards in the competitor's 1px outline, a bold title over the label and answer. */
@@ -246,11 +253,10 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
 .block--table .table-card__row dt { color: var(--text-muted); }
 
 /* Related pages: a lone link is a link card of its own width, not a bar across the page. The link cards carry the
-   light hairline of the page's other rows, not a dark outline. The section takes a whole section space inside its own
-   surface (the half each block owns left its heading close to the top of a tinted band). */
+   light hairline of the page's other rows, not a dark outline. The section keeps the shared section padding of the
+   blocks around it (a whole section space inside it doubled the gap above and below its links). */
 .related-pages--grid .related-links:has(> li:only-child) { width: fit-content; max-width: 100%; }
 .block .related-pages--grid .related-links__link { border-color: color-mix(in srgb, var(--text-primary) 18%, transparent); }
-.block--related { padding-block: var(--section-space); }
 
 /* Cards: 1px black outline, 6px corners, 32px inset, no shadow; the number in the title's own type. */
 .block--grid { --grid-gap: 1.75rem; }
@@ -261,10 +267,22 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
 /* Solution: the cards are filled panels without an outline (beige on white, white on the tinted band: the tint sets
    --surface-secondary to white inside it). */
 main[data-page-type="solution"] [data-variant="outlined"] .feature-card { border-color: transparent; background: var(--surface-secondary); }
-/* Points beside their heading (bullets): a bold title over its text, the accent check as the marker. */
+/* Points beside their heading (bullets): a bold title over its text, the check lists' own drawn check (the
+   .icon-list__icon path) in the light-surface blue as the marker, level with the first line, so a page shows one check. */
 .point-list__title { font-weight: 700; }
-.point-list__items:not([data-numbered]) { list-style-type: "\2713\00A0\00A0"; }
-.point-list__items:not([data-numbered]) > .point-list__item::marker { color: var(--accent-text); font-weight: 700; }
+.point-list__items:not([data-numbered]) { padding-left: 0; list-style: none; }
+.point-list__items:not([data-numbered]) > .point-list__item { position: relative; padding-left: calc(22px + 0.75rem); }
+.point-list__items:not([data-numbered]) > .point-list__item::before {
+  content: "";
+  position: absolute;
+  top: calc((1lh - 22px) / 2);
+  left: 0;
+  width: 22px;
+  height: 22px;
+  background: var(--accent-text);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
 /* The intro and its points stack at the list's own gap on phones (the lead's bottom margin added a second gap). */
 .point-list__intro > .block__lead:last-child { margin-bottom: 0 !important; }
 @media (max-width: 899px) { .point-list { row-gap: 1.25rem; } }
@@ -305,7 +323,8 @@ main[data-page-type="solution"] [data-variant="outlined"] .feature-card { border
 /* The list's intro stays in view beside the longer steps; an intro without a heading of its own is set as the steps'
    lead, in the heading face at the sub-heading size, so the column reads as their heading, not a stray caption. */
 @media (min-width: 900px) { .block--process .point-list__intro { position: sticky; top: 6rem; } }
-.block--process .point-list__intro:not(:has(h2)) > .block__lead { font-family: var(--font-display); font-size: var(--size-subheading); font-weight: var(--weight-heading); line-height: 1.3; color: var(--heading-color, var(--text-primary)); }
+.block--process .point-list__intro:not(:has(h2)) > .block__lead,
+.block--process[data-variant="timeline"] .process:not(:has(> .process__heading)) > .block__lead { font-family: var(--font-display); font-size: var(--size-subheading); font-weight: var(--weight-heading); line-height: 1.3; color: var(--heading-color, var(--text-primary)); }
 /* The timeline starts on the content's left edge under its heading; its rows part on the light hairline of the FAQ
    rows and tables, not a black rule. */
 body[data-heading-align="start"] .block--process .process-timeline { margin-inline: 0; }
@@ -341,6 +360,8 @@ body[data-heading-align="start"] .block--process .process-timeline { margin-inli
 main[data-page-type="home"] .block--faq { --size-display: clamp(2rem, 3.611vw, 3.25rem); }
 .block--faq:not([data-variant="dark-cards"]) .faq__item h3 { font-family: var(--font-hero); font-weight: 700; line-height: 1.4; color: var(--surface-dark); }
 .block--faq:not([data-variant="dark-cards"]) .faq__item summary::after { color: var(--surface-dark); }
+/* A question runs along its row up to the mark (balanced, a two-line question left half the row empty before it). */
+.block--faq .faq__item summary h3 { flex: 1 1 auto; text-wrap: pretty; }
 .block--faq:is([data-variant="accordion"], [data-variant="two-column"], [data-variant="open-list"]) .faq__items { gap: 0; }
 .block--faq:is([data-variant="accordion"], [data-variant="two-column"], [data-variant="open-list"]) .faq__item { border-width: 0 0 1px; border-color: color-mix(in srgb, var(--text-primary) 18%, transparent); border-radius: 0; background: transparent; }
 .block--faq:is([data-variant="accordion"], [data-variant="two-column"], [data-variant="open-list"]) .faq__item summary { padding: 1.25rem 0; }
@@ -408,17 +429,19 @@ main[data-page-type="home"] .block--faq { --size-display: clamp(2rem, 3.611vw, 3
 .contact-channels[data-variant="cards"] > .contact-channel { flex: 1 1 0; min-width: min(100%, 10rem); }
 @media (max-width: 599px) { .contact-channels[data-variant="cards"] > .contact-channel { flex-basis: 100%; } }
 .contact-channels[data-variant="cards"] .contact-channel { gap: 0.75rem; }
+/* Phones: compact cards, the competitor's tight inset (about 12px) with the icon close to the card's top. */
+@media (max-width: 767px) { .contact-channels[data-variant="cards"] { --channel-card-padding: 0.75rem; --channel-icon-box: var(--channel-icon-size); } }
 .contact-channels[data-variant="cards"] .contact-channel__name { justify-self: stretch; padding: 0.5rem 1rem; border-radius: 8px; background: #000000; color: #ffffff; font-family: var(--font-ui); font-size: 1.25rem; font-weight: 700; letter-spacing: 0; line-height: 1.5; text-transform: none; }
 .contact-channels[data-variant="list"] .contact-channel { padding: 1rem 1.25rem; border: 1px solid #979797; border-radius: var(--radius-card); background: var(--surface-primary); }
 
-/* Logos: bare marks in one moving row, no tiles; a name keeps to one line. The moving row fades out at both ends; at
-   rest it spreads across the content. */
+/* Logos: bare marks in one moving row, no tiles; a name keeps to one line, moving or at rest (its tile as wide as the
+   name). The moving row fades out at both ends; at rest it spreads across the content. */
 .logos__item, .logos__item[data-wordmark] { border-color: transparent; background: transparent; }
 .logos-marquee[data-marquee-run] .logos-marquee__viewport { mask-image: linear-gradient(to right, transparent, #000 2rem, #000 calc(100% - 2rem), transparent); }
 .logos-marquee:not([data-marquee-run]) .logos-marquee__rail { width: 100%; }
 .logos-marquee:not([data-marquee-run]) .logos-marquee__row { flex: 1 1 auto; justify-content: space-between; padding-right: 0; }
-.logos-marquee:not([data-marquee-run]) .logos-marquee__row .logos__item { flex: 0 0 auto; min-width: var(--logos-item-width, 10rem); }
-.logos-marquee:not([data-marquee-run]) .logos__name { white-space: nowrap; }
+.logos-marquee .logos-marquee__row .logos__item { flex: 0 0 auto; min-width: var(--logos-item-width, 10rem); }
+.logos-marquee .logos__name { white-space: nowrap; }
 /* Testimonials: the quote cards take the template's card fill (the beige on white, white inside a tinted band), so a
    card's inset reads as a panel; when every card is in view they share the row. */
 .testimonials[data-variant="carousel"] .track[data-fits] .track__item { flex-grow: 1; }

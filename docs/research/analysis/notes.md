@@ -174,6 +174,9 @@ module; nothing faked in CSS):
   Levelling the rule and attribution across the cards needs the template to give the testimonial cards row tracks of
   their own (as feature cards have through `--card-rows`); setting grid rows and spans on the items is the template's,
   and pinning the attribution by hand would hold one part apart from its card.
+- **Testimonial parts level across the row, again** (`/`, owner-testimonials, design-polish repair P2): the asked subgrid
+  (`grid-template-rows` on the track, `grid-row: span 2` on each card) sets a grid's rows and an item's span, which are
+  the template's, on a carousel track that is a flex row. Still the template's to give the cards shared row tracks.
 
 ## Asked against the site rules
 
@@ -212,3 +215,19 @@ Design-gate repair (2026-11-14):
   (`long_measure`, measured in the paragraph's own ch) passes it. The reviewer counted letters: DM Sans's "0" (the
   `ch` unit) is wide, so 70ch holds about 95 average letters. Bringing the column to 70 letters would set the measure
   near 52ch, well under the practice's "about 70ch"; left at 70ch.
+
+Design-polish repair (2026-11-14):
+
+- `/swimwear-consulting/` m8 (desktop, P2), raised again: "one step above body size" for the list steps' titles is a
+  font-size on a heading (`.point-list__title`, an `h3`); headings are sized by the template, no rule sets their size.
+- `/about-us/` hero (mobile, P2), raised again: an `object-position` on the about hero image moves the crop by hand;
+  every cut photo is centred on its subject by the template (treatment practice, Photos).
+- `/custom-swimwear-printing/` splitMedia-1 (mobile, P2), raised again: `aspect-ratio: 4 / 3` on the wide row's photo is
+  a frame shape copied from the competitor; the template sets frame ratios from the photos.
+- `/contact-us/` faq and overview, `/watersports-apparel-manufacturer/` overview (desktop, P2): the answers, intro and
+  closing text already hold to `max-width: 70ch` (every `.block p`), the value each fix asks for; the audit's
+  `long_measure` passes them. The reviewer counts letters, and DM Sans's wide "0" puts about 90 letters in 70ch; a
+  narrower measure would fall well under the practice's "about 70ch". Left at 70ch.
+- `/swimwear-accessories/` m6 (desktop, P2), the part that asks the table to take the full content width: the table is
+  held to 70ch of text beside its label columns (`.table-block__scroll`, treatment practice, Measure). Repaired: the row
+  labels keep to one line on desktops.
