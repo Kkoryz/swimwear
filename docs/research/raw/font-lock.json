@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "seo-site-font-lock-v1",
+  "sourceUrl": "https://swimwearbali.com/",
+  "roles": {
+    "body": {
+      "family": "Maison",
+      "weight": "600",
+      "size": "14px",
+      "lineHeight": "14px"
+    },
+    "hero": {
+      "family": "Maison Neue",
+      "weight": "600",
+      "size": "14px",
+      "lineHeight": "14px"
+    },
+    "display": {
+      "family": "Maison Neue",
+      "weight": "800",
+      "size": "88px",
+      "lineHeight": "96.8px"
+    },
+    "subheading": {
+      "family": "Maison",
+      "weight": "700",
+      "size": "26px",
+      "lineHeight": "44.2px"
+    },
+    "navigation": {
+      "family": "Maison",
+      "weight": "600",
+      "size": "14px",
+      "lineHeight": "14px"
+    }
+  },
+  "assets": [
+    {
+      "url": "https://swimwearbali.com/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.woff2",
+      "path": "docs/research/reference-assets/d0b4256abed724815856.woff2",
+      "sha256": "d0b4256abed72481585662971262eabee345c19f837af00d7ce24239d3b40eef",
+      "bytes": 78196,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHjx4wXg.woff2",
+      "path": "docs/research/reference-assets/918b7dc3e2e2d015c16c.woff2",
+      "sha256": "918b7dc3e2e2d015c16ce08b57bcb64d2253bafc1707658f361e72865498e537",
+      "bytes": 23580,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyC0ITw.woff2",
+      "path": "docs/research/reference-assets/b1bef1f03a77a36fc257.woff2",
+      "sha256": "b1bef1f03a77a36fc257c5525e32a1dd621bb6f935b743a419da7ed0b18dc8f5",
+      "bytes": 48264,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+      "path": "docs/research/reference-assets/1404ca348bd75ef836f4.woff2",
+      "sha256": "1404ca348bd75ef836f4dd8b6f2cc719458642d1237c368296b2fc652dca47dc",
+      "bytes": 43136,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2",
+      "path": "docs/research/reference-assets/2addf2d86d7a5778653b.woff2",
+      "sha256": "2addf2d86d7a5778653b36d551e97a39da52855f82fac7461cfc1bd86d460aed",
+      "bytes": 20556,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-brands-400.woff2",
+      "path": "docs/research/reference-assets/6b2680fab784d245cbb2.woff2",
+      "sha256": "6b2680fab784d245cbb23d3b51e8d18740e8fc1c7c1c8eadcf0b2b7612125ff8",
+      "bytes": 81612,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+      "path": "docs/research/reference-assets/20b535fa80c8189e3b87.woff2",
+      "sha256": "20b535fa80c8189e3b87d1803038389960203a886d502bc2ef1857affc2f38d2",
+      "bytes": 40128,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/lato/v25/S6u_w4BMUTPHjxsI5wq_Gwft.woff2",
+      "path": "docs/research/reference-assets/6c84348296ebe2e2a083.woff2",
+      "sha256": "6c84348296ebe2e2a0830c3962eb02156419d9bc76371c2eadaf7329d827d550",
+      "bytes": 24448,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh6UVSwiPGQ.woff2",
+      "path": "docs/research/reference-assets/c447dd7677b419db7b21.woff2",
+      "sha256": "c447dd7677b419db7b21dbdfc6277c7816a913ffda76fd2e52702df538de0e49",
+      "bytes": 23040,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/fonts/elementskit.woff?itek3h",
+      "path": "docs/research/reference-assets/84687b1145eebcd305dd.woff",
+      "sha256": "84687b1145eebcd305dd300750ba1bc1b58bf93534a26b1590b2bd7bf064074f",
+      "bytes": 464672,
+      "contentType": "font/woff"
+    }
+  ],
+  "requiredCssTokens": [
+    "--font-body",
+    "--font-hero",
+    "--font-display",
+    "--font-subheading",
+    "--font-ui"
+  ]
+}

@@ -12,5 +12,12 @@
     "at": "2026-11-14T06:27:30.461Z",
     "seconds": 0,
     "log": ".pipeline/logs/2026-11-14T06-27-25-372Z/inputs.log"
+  },
+  "capture": {
+    "status": "passed",
+    "hash": "72e862e0c9a5eb44",
+    "at": "2026-11-14T06:30:05.275Z",
+    "seconds": 155,
+    "log": ".pipeline/logs/2026-11-14T06-27-25-372Z/capture.log"
   }
 }

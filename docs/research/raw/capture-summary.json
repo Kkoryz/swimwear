@@ -1,0 +1,345 @@
+{
+  "schemaVersion": "seo-site-reference-capture-v1",
+  "sourceUrl": "https://swimwearbali.com/",
+  "captures": [
+    {
+      "id": "desktop-1440",
+      "url": "https://swimwearbali.com/",
+      "elementCount": 1921,
+      "controlCount": 322,
+      "screenshot": "docs/design-references/desktop-1440.png"
+    },
+    {
+      "id": "tablet-768",
+      "url": "https://swimwearbali.com/",
+      "elementCount": 1901,
+      "controlCount": 320,
+      "screenshot": "docs/design-references/tablet-768.png"
+    },
+    {
+      "id": "mobile-390",
+      "url": "https://swimwearbali.com/",
+      "elementCount": 1881,
+      "controlCount": 318,
+      "screenshot": "docs/design-references/mobile-390.png"
+    }
+  ],
+  "assets": [
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/swimwearbali_desktop_frontpage-scaled.webp",
+      "path": "docs/research/reference-assets/24fca0584319aea101df.webp",
+      "sha256": "24fca0584319aea101dfc98716e61ead056e23f2ac82aa20bbcdf5829d1de67a",
+      "bytes": 99762,
+      "contentType": "image/webp"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/junkswimlogoforwebsite.png",
+      "path": "docs/research/reference-assets/dc5c92970ce597e1081b.png",
+      "sha256": "dc5c92970ce597e1081b3c8cb52900ee5806aabd9cb813f8c0bd48301adb72c7",
+      "bytes": 15943,
+      "contentType": "image/png"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/linelan-1024x4.png",
+      "path": "docs/research/reference-assets/7c24c74d100757617cee.png",
+      "sha256": "7c24c74d100757617cee7e648e05339a55e146b705da1c0d909c7b71c9af9d5e",
+      "bytes": 534,
+      "contentType": "image/png"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/2022/05/LENI-SWIM.png",
+      "path": "docs/research/reference-assets/38c0017268fd4d8dfebe.png",
+      "sha256": "38c0017268fd4d8dfebe606d2977aa89fe7bc883eeac13afedc1ab447fa78116",
+      "bytes": 40878,
+      "contentType": "image/png"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/2022/05/BYDEE.png",
+      "path": "docs/research/reference-assets/8e315b18b0e700c1ab38.png",
+      "sha256": "8e315b18b0e700c1ab3802947477b646d21c09696d32bf299caa25659aea4f01",
+      "bytes": 14898,
+      "contentType": "image/png"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/2022/05/FAE.png",
+      "path": "docs/research/reference-assets/a43297cf69e389222bdd.png",
+      "sha256": "a43297cf69e389222bdd6c12476926573c2b7d40ba66357b4bb0f620f71651db",
+      "bytes": 2681,
+      "contentType": "image/png"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/2022/08/VDM.png",
+      "path": "docs/research/reference-assets/79a8b2b80c55403a7a33.png",
+      "sha256": "79a8b2b80c55403a7a33b2793582c57a9bc9194b97cdbc7d6b4166e75d8fee48",
+      "bytes": 11806,
+      "contentType": "image/png"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/line.png",
+      "path": "docs/research/reference-assets/3e60fb8d5168b0cd2668.png",
+      "sha256": "3e60fb8d5168b0cd266882a9b1fc26d24aacb6ff30523a21f38ab8267dfadeae",
+      "bytes": 283,
+      "contentType": "image/png"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/MaisonNeue-Medium1.ttf",
+      "path": "docs/research/reference-assets/d1464df7cfebc69b5840.ttf",
+      "sha256": "d1464df7cfebc69b5840318fa664f24b2144c28f1cfcaee98e387f942ec0bf95",
+      "bytes": 62708,
+      "contentType": "application/octet-stream"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.woff2",
+      "path": "docs/research/reference-assets/d0b4256abed724815856.woff2",
+      "sha256": "d0b4256abed72481585662971262eabee345c19f837af00d7ce24239d3b40eef",
+      "bytes": 78196,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/fonnts.com-Maison_Neue_Book.ttf",
+      "path": "docs/research/reference-assets/9260e844eb5f379c9127.ttf",
+      "sha256": "9260e844eb5f379c91273441e0ee2b9f6aceb135f8e2278e96524bb6b0024ac7",
+      "bytes": 86832,
+      "contentType": "application/octet-stream"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/2022/10/FontsFree-Net-Maison-Neue-Bold.ttf",
+      "path": "docs/research/reference-assets/12b1bf9aee0a60579920.ttf",
+      "sha256": "12b1bf9aee0a605799200698e00451c28aea0a0478460e23638e53a97054560f",
+      "bytes": 70792,
+      "contentType": "application/octet-stream"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/Frame-1272631859-scaled.jpg",
+      "path": "docs/research/reference-assets/f8d80306973e4cfeca0d.jpg",
+      "sha256": "f8d80306973e4cfeca0d5ca4aa9ae40028fa3bc651a93989b32be7e7b8babff5",
+      "bytes": 230359,
+      "contentType": "image/jpeg"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/contactfrontpagedesktop-scaled.webp",
+      "path": "docs/research/reference-assets/7ff7399c52aa60c6c4b7.webp",
+      "sha256": "7ff7399c52aa60c6c4b76532f523224d1738db8684507aecdf26fa461cd08b3c",
+      "bytes": 129768,
+      "contentType": "image/webp"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/Image-20-1.webp",
+      "path": "docs/research/reference-assets/45cdc1ae2eb985e75f14.webp",
+      "sha256": "45cdc1ae2eb985e75f1420a17bcfb0496b39cade091461ac731a808a110e1b89",
+      "bytes": 47912,
+      "contentType": "image/webp"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/Image-18-1-1.webp",
+      "path": "docs/research/reference-assets/5f729d94bb79df03c7b8.webp",
+      "sha256": "5f729d94bb79df03c7b88d3efc60d2fc4ccd88808038fef5eac2af41e5ee8239",
+      "bytes": 62002,
+      "contentType": "image/webp"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/Image-17-4.webp",
+      "path": "docs/research/reference-assets/aec819f0cc185d6764c1.webp",
+      "sha256": "aec819f0cc185d6764c1378e46faa4b3dfb600be6f1822ffc4289b901d9d831a",
+      "bytes": 54028,
+      "contentType": "image/webp"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/Image-1-5.webp",
+      "path": "docs/research/reference-assets/747327905f847dec6365.webp",
+      "sha256": "747327905f847dec6365373f906d1999edb9ba16b9966ab4ac32ceefeeab04d7",
+      "bytes": 75772,
+      "contentType": "image/webp"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/Image-19-2.webp",
+      "path": "docs/research/reference-assets/de658c2c718e5eb14783.webp",
+      "sha256": "de658c2c718e5eb14783a4ad926181afd413a30a44ed44eb3e0650715ded7478",
+      "bytes": 88106,
+      "contentType": "image/webp"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/Image-21-1.webp",
+      "path": "docs/research/reference-assets/ffcb2b3686ba8bc38a72.webp",
+      "sha256": "ffcb2b3686ba8bc38a72b1124437cacb671d9c73f946231ff70aa45929b5c4c1",
+      "bytes": 52974,
+      "contentType": "image/webp"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/SWIMWEAR-BALI-WHITE-1536x112.png",
+      "path": "docs/research/reference-assets/07f62b798b323a84df36.png",
+      "sha256": "07f62b798b323a84df36f55bfcc0a9ae56a8894b57a374d210bf85113df1010e",
+      "bytes": 21395,
+      "contentType": "image/png"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHjx4wXg.woff2",
+      "path": "docs/research/reference-assets/918b7dc3e2e2d015c16c.woff2",
+      "sha256": "918b7dc3e2e2d015c16ce08b57bcb64d2253bafc1707658f361e72865498e537",
+      "bytes": 23580,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/videofrontopage-section1.mp4",
+      "path": "docs/research/reference-assets/8345f9aeb6d32419a24f.mp4",
+      "sha256": "8345f9aeb6d32419a24fe186dbcf1d07a442503ae909a795f6356cf6c82bde72",
+      "bytes": 15383677,
+      "contentType": "video/mp4"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyC0ITw.woff2",
+      "path": "docs/research/reference-assets/b1bef1f03a77a36fc257.woff2",
+      "sha256": "b1bef1f03a77a36fc257c5525e32a1dd621bb6f935b743a419da7ed0b18dc8f5",
+      "bytes": 48264,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+      "path": "docs/research/reference-assets/1404ca348bd75ef836f4.woff2",
+      "sha256": "1404ca348bd75ef836f4dd8b6f2cc719458642d1237c368296b2fc652dca47dc",
+      "bytes": 43136,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/sumatrapng-1-1536x1398.png",
+      "path": "docs/research/reference-assets/a3d8223f78de3abdbf61.png",
+      "sha256": "a3d8223f78de3abdbf61360d4272bebac08c1e5ddc5304130fd8dca25d8a63b1",
+      "bytes": 1629195,
+      "contentType": "image/png"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/vitapng-1-1536x1166.png",
+      "path": "docs/research/reference-assets/f2804fe8be8b3d120ec7.png",
+      "sha256": "f2804fe8be8b3d120ec7a567fc70a25f48c20e4c73468e04daee20f00485b6c4",
+      "bytes": 571594,
+      "contentType": "image/png"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/Segoe-UI-Bold.ttf",
+      "path": "docs/research/reference-assets/3084cb39c0f24d7dfa6b.ttf",
+      "sha256": "3084cb39c0f24d7dfa6b576014ec75d0c3b9e852e1a545eaa96253e087f02a2b",
+      "bytes": 36056,
+      "contentType": "application/octet-stream"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2",
+      "path": "docs/research/reference-assets/2addf2d86d7a5778653b.woff2",
+      "sha256": "2addf2d86d7a5778653b36d551e97a39da52855f82fac7461cfc1bd86d460aed",
+      "bytes": 20556,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://pixel.wp.com/g.gif?v=ext&blog=159676576&post=19519&tz=8&srv=swimwearbali.com&j=1%3A16.4&host=swimwearbali.com&ref=&fcp=3280&rand=0.28576913958491235",
+      "path": "docs/research/reference-assets/f3a8992acb9ab911e0fa.gif",
+      "sha256": "f3a8992acb9ab911e0fa4ae12f4b85ef8e61008619f13ee51c7a121ff87f63b1",
+      "bytes": 50,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://www.google.ca/ads/ga-audiences?v=1&t=sr&slf_rd=1&_r=4&tid=G-ZE596R4TXV&cid=2032884227.1794637655&gtm=45je6bb1v889695038za208zd889695038xf1&rcb=11&aip=1&dma=0&gcd=13l3l3l3l1l1&npa=0&frm=0&tag_exp=100940090~115938465~115938469~118897920~118897930~119860442~120213116~120385423~120412526~120420414~120469145~120469153~121246026~121246034~121284210~123988488&z=549709863",
+      "path": "docs/research/reference-assets/ef1955ae757c8b966c83.gif",
+      "sha256": "ef1955ae757c8b966c83248350331bd3a30f658ced11f387f8ebf05ab3368629",
+      "bytes": 42,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-brands-400.woff2",
+      "path": "docs/research/reference-assets/6b2680fab784d245cbb2.woff2",
+      "sha256": "6b2680fab784d245cbb23d3b51e8d18740e8fc1c7c1c8eadcf0b2b7612125ff8",
+      "bytes": 81612,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+      "path": "docs/research/reference-assets/20b535fa80c8189e3b87.woff2",
+      "sha256": "20b535fa80c8189e3b87d1803038389960203a886d502bc2ef1857affc2f38d2",
+      "bytes": 40128,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://c.clarity.ms/c.gif?ctsa=mr&CtsSyncId=6CCD5E0ED96A4B98BC51C824B3C66E09&MUID=34739ECE8BD46EFD231C86DF8A396F86",
+      "path": "docs/research/reference-assets/99c2917ee5b2a01459a9.gif",
+      "sha256": "99c2917ee5b2a01459a923bdd1c676f15ee73b62b87f696e6735312d26f51e12",
+      "bytes": 42,
+      "contentType": "image/gif"
+    },
+    {
+      "url": "https://www.youtube.com/generate_204?DGDcyA",
+      "path": "docs/research/reference-assets/e3b0c44298fc1c149afb.bin",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "contentType": ""
+    },
+    {
+      "url": "https://i.ytimg.com/vi/j1X_o7aQJLM/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGFEgZShQMA8=&rs=AOn4CLCRwWGE9dPoHQxTZZ1r8U1j4ARD5g",
+      "path": "docs/research/reference-assets/c6b01eb929355836cf69.jpg",
+      "sha256": "c6b01eb929355836cf69312f5af36a08ddac465948c1c8cc2aed765cde3051f0",
+      "bytes": 48584,
+      "contentType": "image/jpeg"
+    },
+    {
+      "url": "https://yt3.ggpht.com/eLi3Rm1Tzmytm9IReVEmT6gnA5vqmivjJDOZj-MXKRJPdjvAvx-d6jfxGvuxtadXTc61LdkujQ=s68-c-k-c0x00ffffff-no-rj",
+      "path": "docs/research/reference-assets/4a8409efd7913226057c.jpg",
+      "sha256": "4a8409efd7913226057cb1ccdeed41a2a2529f3eaa090f2b60da45c43928ab60",
+      "bytes": 1235,
+      "contentType": "image/jpeg"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/Client-piece-on-model.webp",
+      "path": "docs/research/reference-assets/f1c21c7dfc0f2f6184bb.webp",
+      "sha256": "f1c21c7dfc0f2f6184bba02c5320f3a900239682b56d15b9419038258b43d660",
+      "bytes": 61856,
+      "contentType": "image/webp"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/exampleppricesswim4.jpg",
+      "path": "docs/research/reference-assets/0cd5c8b0477ef258e93c.jpg",
+      "sha256": "0cd5c8b0477ef258e93cfbd887d802fa532050bf84c294a34d9575286081b94a",
+      "bytes": 1121841,
+      "contentType": "image/jpeg"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/examplepriceswim1.jpg",
+      "path": "docs/research/reference-assets/9908d8c850e3b25f1d28.jpg",
+      "sha256": "9908d8c850e3b25f1d28ac3d53b7828eacd8f3e03603e207f89f49fef31e461d",
+      "bytes": 1888121,
+      "contentType": "image/jpeg"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/lato/v25/S6u_w4BMUTPHjxsI5wq_Gwft.woff2",
+      "path": "docs/research/reference-assets/6c84348296ebe2e2a083.woff2",
+      "sha256": "6c84348296ebe2e2a0830c3962eb02156419d9bc76371c2eadaf7329d827d550",
+      "bytes": 24448,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh6UVSwiPGQ.woff2",
+      "path": "docs/research/reference-assets/c447dd7677b419db7b21.woff2",
+      "sha256": "c447dd7677b419db7b21dbdfc6277c7816a913ffda76fd2e52702df538de0e49",
+      "bytes": 23040,
+      "contentType": "font/woff2"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/fonts/elementskit.woff?itek3h",
+      "path": "docs/research/reference-assets/84687b1145eebcd305dd.woff",
+      "sha256": "84687b1145eebcd305dd300750ba1bc1b58bf93534a26b1590b2bd7bf064074f",
+      "bytes": 464672,
+      "contentType": "font/woff"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/mobilebannerswimwear.webp",
+      "path": "docs/research/reference-assets/752b39987d27ddfbcae1.webp",
+      "sha256": "752b39987d27ddfbcae16b89c0551db965e9accd83758e7305c73352978e6a0e",
+      "bytes": 137772,
+      "contentType": "image/webp"
+    },
+    {
+      "url": "https://swimwearbali.com/wp-content/uploads/contactfrontpagemobile.webp",
+      "path": "docs/research/reference-assets/fda51503aab70cef617e.webp",
+      "sha256": "fda51503aab70cef617ef2ff752fdbc59aa893e0916eb71524ea3b36f2cde280",
+      "bytes": 121730,
+      "contentType": "image/webp"
+    }
+  ],
+  "assetFailures": []
+}
