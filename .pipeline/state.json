@@ -215,5 +215,12 @@
     "at": "2026-11-14T09:07:29.811Z",
     "seconds": 5,
     "log": ".pipeline/logs/2026-11-14T07-38-16-013Z/build.log"
+  },
+  "image-fit": {
+    "status": "passed",
+    "hash": "10b1062dac0b2c4d",
+    "at": "2026-11-14T09:14:14.444Z",
+    "seconds": 404,
+    "log": ".pipeline/logs/2026-11-14T07-38-16-013Z/image-fit.log"
   }
 }
