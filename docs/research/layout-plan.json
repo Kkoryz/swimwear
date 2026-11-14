@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-layout-plan-v1",
-  "madeAt": "2026-11-14T12:33:31.064Z",
+  "madeAt": "2026-11-14T12:34:25.024Z",
   "maxWalls": 12,
   "headingModel": "the site's layout audit (882 headings)",
   "context": {
@@ -58,8 +58,8 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 812,
-            "visualPx": 739,
+            "heightPx": 811,
+            "visualPx": 738,
             "pictured": true,
             "before": 41,
             "after": 49
@@ -97,8 +97,8 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 812,
-            "visualPx": 739,
+            "heightPx": 811,
+            "visualPx": 738,
             "pictured": true,
             "before": 41,
             "after": 49
@@ -144,8 +144,8 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 812,
-            "visualPx": 739,
+            "heightPx": 811,
+            "visualPx": 738,
             "pictured": true,
             "before": 41,
             "after": 49
@@ -623,11 +623,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 421,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 421,
+            "after": 421
           },
           "items": 3,
           "longestItemWords": 38,
@@ -674,8 +674,8 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 812,
-            "visualPx": 739,
+            "heightPx": 811,
+            "visualPx": 738,
             "pictured": true,
             "before": 41,
             "after": 49
@@ -693,11 +693,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 415,
+            "heightPx": 603,
             "visualPx": 0,
             "pictured": false,
-            "before": 415,
-            "after": 415
+            "before": 603,
+            "after": 603
           },
           "items": 3,
           "longestItemWords": 78,
@@ -718,8 +718,8 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 812,
-            "visualPx": 739,
+            "heightPx": 811,
+            "visualPx": 738,
             "pictured": true,
             "before": 41,
             "after": 49
@@ -757,11 +757,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 602,
+            "heightPx": 691,
+            "visualPx": 601,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Send Your Enquiry Straight to the Factory",
@@ -772,10 +772,10 @@
       ],
       "words": 2086,
       "estimate": {
-        "heightPx": 17203,
-        "visualAreaPct": 51.7,
+        "heightPx": 17345,
+        "visualAreaPct": 51.3,
         "longestTextOnlyPx": 987,
-        "wordsPer1000px": 121
+        "wordsPer1000px": 120
       },
       "band": {
         "wordsPer1000px": {
@@ -799,10 +799,10 @@
         "cap": 6,
         "estimate": {
           "words": 2086,
-          "heightPx": 13955,
-          "visualAreaPct": 42.6,
-          "wordsPer1000px": 149,
-          "longestTextOnlyPx": 1597
+          "heightPx": 14101,
+          "visualAreaPct": 42.1,
+          "wordsPer1000px": 148,
+          "longestTextOnlyPx": 1784
         },
         "limits": []
       }
@@ -1067,11 +1067,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 532,
+            "heightPx": 546,
             "visualPx": 0,
             "pictured": false,
-            "before": 532,
-            "after": 532
+            "before": 546,
+            "after": 546
           },
           "items": 6,
           "longestItemWords": 40,
@@ -1095,11 +1095,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 905,
-            "visualPx": 561,
+            "heightPx": 882,
+            "visualPx": 547,
             "pictured": true,
-            "before": 163,
-            "after": 54
+            "before": 167,
+            "after": 53
           },
           "heading": {
             "text": "Private Label Design, Sampling and Your Own Supplied Materials",
@@ -1142,11 +1142,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 438,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 438,
+            "after": 438
           },
           "items": 3,
           "longestItemWords": 51,
@@ -1189,19 +1189,40 @@
           ]
         },
         {
+          "id": "media-module-budget-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 806,
+            "visualPx": 742,
+            "pictured": true,
+            "before": 40,
+            "after": 40
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
           "id": "faq",
           "type": "faq",
           "variant": null,
           "model": "faq:two-column",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 379,
+            "heightPx": 554,
             "visualPx": 0,
             "pictured": false,
-            "before": 379,
-            "after": 379
+            "before": 554,
+            "after": 554
           },
           "items": 3,
           "longestItemWords": 89,
@@ -1235,10 +1256,10 @@
       ],
       "words": 1851,
       "estimate": {
-        "heightPx": 8922,
-        "visualAreaPct": 33.8,
-        "longestTextOnlyPx": 2301,
-        "wordsPer1000px": 207
+        "heightPx": 9913,
+        "visualAreaPct": 37.8,
+        "longestTextOnlyPx": 1673,
+        "wordsPer1000px": 187
       },
       "band": {
         "wordsPer1000px": {
@@ -1253,7 +1274,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 0,
+      "budgetWalls": 1,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
@@ -1262,10 +1283,10 @@
         "cap": 8,
         "estimate": {
           "words": 1851,
-          "heightPx": 8922,
-          "visualAreaPct": 33.8,
-          "wordsPer1000px": 207,
-          "longestTextOnlyPx": 2301
+          "heightPx": 9107,
+          "visualAreaPct": 33,
+          "wordsPer1000px": 203,
+          "longestTextOnlyPx": 2494
         },
         "limits": []
       }
@@ -1545,11 +1566,11 @@
             "product"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Construction, Bust Support and Trim Details",
@@ -1566,11 +1587,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 554,
-            "visualPx": 343,
+            "heightPx": 537,
+            "visualPx": 333,
             "pictured": true,
-            "before": 100,
-            "after": 33
+            "before": 102,
+            "after": 32
           },
           "heading": {
             "text": "Size Range and Grading Specs from XS to 3XL",
@@ -1610,11 +1631,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -1657,11 +1678,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 468,
+            "heightPx": 688,
             "visualPx": 0,
             "pictured": false,
-            "before": 468,
-            "after": 468
+            "before": 688,
+            "after": 688
           },
           "items": 5,
           "longestItemWords": 87,
@@ -1695,10 +1716,10 @@
       ],
       "words": 1643,
       "estimate": {
-        "heightPx": 8747,
-        "visualAreaPct": 37.7,
-        "longestTextOnlyPx": 1162,
-        "wordsPer1000px": 188
+        "heightPx": 8979,
+        "visualAreaPct": 36.8,
+        "longestTextOnlyPx": 1387,
+        "wordsPer1000px": 183
       },
       "band": {
         "wordsPer1000px": {
@@ -1722,10 +1743,10 @@
         "cap": 10,
         "estimate": {
           "words": 1643,
-          "heightPx": 8747,
-          "visualAreaPct": 37.7,
-          "wordsPer1000px": 188,
-          "longestTextOnlyPx": 1162
+          "heightPx": 8979,
+          "visualAreaPct": 36.8,
+          "wordsPer1000px": 183,
+          "longestTextOnlyPx": 1387
         },
         "limits": []
       }
@@ -1800,11 +1821,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 770,
-            "visualPx": 477,
+            "heightPx": 749,
+            "visualPx": 464,
             "pictured": true,
-            "before": 139,
-            "after": 46
+            "before": 142,
+            "after": 45
           },
           "heading": {
             "text": "Bikini Sets and Separates in Sizes XS to 5XL",
@@ -1821,11 +1842,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 804,
+            "heightPx": 834,
             "visualPx": 0,
             "pictured": false,
-            "before": 804,
-            "after": 804
+            "before": 834,
+            "after": 834
           },
           "items": 8,
           "longestItemWords": 47,
@@ -1921,11 +1942,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 430,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 430,
+            "after": 430
           },
           "items": 3,
           "longestItemWords": 46,
@@ -1969,11 +1990,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 646,
+            "heightPx": 954,
             "visualPx": 0,
             "pictured": false,
-            "before": 646,
-            "after": 646
+            "before": 954,
+            "after": 954
           },
           "items": 5,
           "longestItemWords": 118,
@@ -2007,10 +2028,10 @@
       ],
       "words": 1348,
       "estimate": {
-        "heightPx": 6587,
-        "visualAreaPct": 37.8,
-        "longestTextOnlyPx": 2015,
-        "wordsPer1000px": 205
+        "heightPx": 6915,
+        "visualAreaPct": 35.9,
+        "longestTextOnlyPx": 2334,
+        "wordsPer1000px": 195
       },
       "band": {
         "wordsPer1000px": {
@@ -2034,10 +2055,10 @@
         "cap": 6,
         "estimate": {
           "words": 1348,
-          "heightPx": 6587,
-          "visualAreaPct": 37.8,
-          "wordsPer1000px": 205,
-          "longestTextOnlyPx": 2015
+          "heightPx": 6915,
+          "visualAreaPct": 35.9,
+          "wordsPer1000px": 195,
+          "longestTextOnlyPx": 2334
         },
         "limits": []
       }
@@ -2119,11 +2140,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Our Own Men's Swimwear Factory in Guangzhou, China",
@@ -2207,11 +2228,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 602,
-            "visualPx": 373,
+            "heightPx": 584,
+            "visualPx": 362,
             "pictured": true,
-            "before": 108,
-            "after": 36
+            "before": 111,
+            "after": 35
           },
           "heading": {
             "text": "OEM Men's Swimwear Patterns, Samples and Fees",
@@ -2326,11 +2347,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Custom Prints and Colour Matching",
@@ -2373,11 +2394,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -2447,11 +2468,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 421,
+            "heightPx": 618,
             "visualPx": 0,
             "pictured": false,
-            "before": 421,
-            "after": 421
+            "before": 618,
+            "after": 618
           },
           "items": 3,
           "longestItemWords": 83,
@@ -2485,10 +2506,10 @@
       ],
       "words": 1659,
       "estimate": {
-        "heightPx": 10017,
-        "visualAreaPct": 38.1,
-        "longestTextOnlyPx": 1751,
-        "wordsPer1000px": 166
+        "heightPx": 10217,
+        "visualAreaPct": 37.5,
+        "longestTextOnlyPx": 1745,
+        "wordsPer1000px": 162
       },
       "band": {
         "wordsPer1000px": {
@@ -2512,10 +2533,10 @@
         "cap": 11,
         "estimate": {
           "words": 1659,
-          "heightPx": 9211,
-          "visualAreaPct": 33.4,
-          "wordsPer1000px": 180,
-          "longestTextOnlyPx": 2420
+          "heightPx": 9411,
+          "visualAreaPct": 32.8,
+          "wordsPer1000px": 176,
+          "longestTextOnlyPx": 2611
         },
         "limits": []
       }
@@ -2716,11 +2737,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 696,
+            "heightPx": 719,
             "visualPx": 0,
             "pictured": false,
-            "before": 696,
-            "after": 696
+            "before": 719,
+            "after": 719
           },
           "items": 7,
           "longestItemWords": 36,
@@ -2772,11 +2793,11 @@
             "product"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Sublimation Prints and Colour Matching",
@@ -2839,11 +2860,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Preventing Common Boardshort Defects",
@@ -2860,11 +2881,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 432,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 432,
+            "after": 432
           },
           "items": 3,
           "longestItemWords": 48,
@@ -2908,11 +2929,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 490,
+            "heightPx": 721,
             "visualPx": 0,
             "pictured": false,
-            "before": 490,
-            "after": 490
+            "before": 721,
+            "after": 721
           },
           "items": 4,
           "longestItemWords": 85,
@@ -2946,10 +2967,10 @@
       ],
       "words": 1735,
       "estimate": {
-        "heightPx": 9321,
-        "visualAreaPct": 28.5,
-        "longestTextOnlyPx": 1878,
-        "wordsPer1000px": 186
+        "heightPx": 9604,
+        "visualAreaPct": 27.8,
+        "longestTextOnlyPx": 1890,
+        "wordsPer1000px": 181
       },
       "band": {
         "wordsPer1000px": {
@@ -2973,10 +2994,10 @@
         "cap": 10,
         "estimate": {
           "words": 1735,
-          "heightPx": 9321,
-          "visualAreaPct": 28.5,
-          "wordsPer1000px": 186,
-          "longestTextOnlyPx": 1878
+          "heightPx": 9604,
+          "visualAreaPct": 27.8,
+          "wordsPer1000px": 181,
+          "longestTextOnlyPx": 1890
         },
         "limits": []
       }
@@ -3028,11 +3049,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 938,
-            "visualPx": 581,
+            "heightPx": 913,
+            "visualPx": 566,
             "pictured": true,
-            "before": 169,
-            "after": 56
+            "before": 174,
+            "after": 55
           },
           "heading": {
             "text": "Trunk Styles, Waistbands, Sizes and Stock Styles",
@@ -3126,11 +3147,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 795,
+            "heightPx": 824,
             "visualPx": 0,
             "pictured": false,
-            "before": 795,
-            "after": 795
+            "before": 824,
+            "after": 824
           },
           "items": 8,
           "longestItemWords": 45,
@@ -3252,11 +3273,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -3299,11 +3320,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 504,
+            "heightPx": 741,
             "visualPx": 0,
             "pictured": false,
-            "before": 504,
-            "after": 504
+            "before": 741,
+            "after": 741
           },
           "items": 5,
           "longestItemWords": 127,
@@ -3337,10 +3358,10 @@
       ],
       "words": 1840,
       "estimate": {
-        "heightPx": 8774,
-        "visualAreaPct": 35,
-        "longestTextOnlyPx": 1822,
-        "wordsPer1000px": 210
+        "heightPx": 9052,
+        "visualAreaPct": 33.9,
+        "longestTextOnlyPx": 1851,
+        "wordsPer1000px": 203
       },
       "band": {
         "wordsPer1000px": {
@@ -3364,10 +3385,10 @@
         "cap": 8,
         "estimate": {
           "words": 1840,
-          "heightPx": 8774,
-          "visualAreaPct": 35,
-          "wordsPer1000px": 210,
-          "longestTextOnlyPx": 1822
+          "heightPx": 9052,
+          "visualAreaPct": 33.9,
+          "wordsPer1000px": 203,
+          "longestTextOnlyPx": 1851
         },
         "limits": []
       }
@@ -3449,11 +3470,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Our Own Children's Swimwear Factory in Guangzhou, China",
@@ -3504,27 +3525,6 @@
             "desktop": 2,
             "mobile": 3
           }
-        },
-        {
-          "id": "media-module-budget-1",
-          "type": "gallery",
-          "variant": "band",
-          "model": "gallery:band",
-          "continues": null,
-          "surface": "own",
-          "slots": [
-            "lifestyle"
-          ],
-          "estimate": {
-            "heightPx": 806,
-            "visualPx": 742,
-            "pictured": true,
-            "before": 40,
-            "after": 40
-          },
-          "wall": "budget",
-          "items": 1,
-          "longestItemWords": 0
         },
         {
           "id": "proof-1",
@@ -3631,11 +3631,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 786,
+            "heightPx": 815,
             "visualPx": 0,
             "pictured": false,
-            "before": 786,
-            "after": 786
+            "before": 815,
+            "after": 815
           },
           "items": 8,
           "longestItemWords": 49,
@@ -3834,11 +3834,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -3881,19 +3881,40 @@
           ]
         },
         {
+          "id": "media-module-budget-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 806,
+            "visualPx": 742,
+            "pictured": true,
+            "before": 40,
+            "after": 40
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
           "id": "faq",
           "type": "faq",
           "variant": null,
           "model": "faq:two-column",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 550,
+            "heightPx": 811,
             "visualPx": 0,
             "pictured": false,
-            "before": 550,
-            "after": 550
+            "before": 811,
+            "after": 811
           },
           "items": 4,
           "longestItemWords": 116,
@@ -3927,10 +3948,10 @@
       ],
       "words": 1921,
       "estimate": {
-        "heightPx": 11015,
-        "visualAreaPct": 30.3,
-        "longestTextOnlyPx": 1606,
-        "wordsPer1000px": 174
+        "heightPx": 11318,
+        "visualAreaPct": 29.5,
+        "longestTextOnlyPx": 1790,
+        "wordsPer1000px": 170
       },
       "band": {
         "wordsPer1000px": {
@@ -3954,10 +3975,10 @@
         "cap": 12,
         "estimate": {
           "words": 1921,
-          "heightPx": 10209,
-          "visualAreaPct": 25.4,
-          "wordsPer1000px": 188,
-          "longestTextOnlyPx": 1801
+          "heightPx": 10512,
+          "visualAreaPct": 24.8,
+          "wordsPer1000px": 183,
+          "longestTextOnlyPx": 1872
         },
         "limits": []
       }
@@ -4011,11 +4032,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "OEM Teen Swimwear Pattern Drafting, Grading and Design",
@@ -4034,11 +4055,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Our Own Teen Swimwear Factory in Guangzhou, China",
@@ -4348,11 +4369,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -4397,11 +4418,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 477,
+            "heightPx": 701,
             "visualPx": 0,
             "pictured": false,
-            "before": 477,
-            "after": 477
+            "before": 701,
+            "after": 701
           },
           "items": 4,
           "longestItemWords": 78,
@@ -4435,10 +4456,10 @@
       ],
       "words": 1617,
       "estimate": {
-        "heightPx": 9580,
-        "visualAreaPct": 26.8,
-        "longestTextOnlyPx": 2269,
-        "wordsPer1000px": 169
+        "heightPx": 9825,
+        "visualAreaPct": 26.3,
+        "longestTextOnlyPx": 2258,
+        "wordsPer1000px": 165
       },
       "band": {
         "wordsPer1000px": {
@@ -4462,10 +4483,10 @@
         "cap": 11,
         "estimate": {
           "words": 1617,
-          "heightPx": 9580,
-          "visualAreaPct": 26.8,
-          "wordsPer1000px": 169,
-          "longestTextOnlyPx": 2269
+          "heightPx": 9825,
+          "visualAreaPct": 26.3,
+          "wordsPer1000px": 165,
+          "longestTextOnlyPx": 2258
         },
         "limits": []
       }
@@ -4517,11 +4538,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 717,
-            "visualPx": 445,
+            "heightPx": 697,
+            "visualPx": 432,
             "pictured": true,
-            "before": 129,
-            "after": 43
+            "before": 132,
+            "after": 42
           },
           "heading": {
             "text": "Custom Baby Swimwear Sampling from Your Brief",
@@ -4611,11 +4632,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 831,
+            "heightPx": 862,
             "visualPx": 0,
             "pictured": false,
-            "before": 831,
-            "after": 831
+            "before": 862,
+            "after": 862
           },
           "items": 8,
           "longestItemWords": 61,
@@ -4639,11 +4660,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 745,
-            "visualPx": 462,
+            "heightPx": 724,
+            "visualPx": 449,
             "pictured": true,
-            "before": 134,
-            "after": 45
+            "before": 138,
+            "after": 43
           },
           "heading": {
             "text": "Sun-Protective Fabrics Made for Sensitive Skin",
@@ -4690,11 +4711,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Fabrics and Construction That Keep Baby Swimsuits in Shape",
@@ -4711,11 +4732,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -4759,11 +4780,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 490,
+            "heightPx": 721,
             "visualPx": 0,
             "pictured": false,
-            "before": 490,
-            "after": 490
+            "before": 721,
+            "after": 721
           },
           "items": 5,
           "longestItemWords": 75,
@@ -4797,10 +4818,10 @@
       ],
       "words": 1578,
       "estimate": {
-        "heightPx": 7935,
-        "visualAreaPct": 33.5,
-        "longestTextOnlyPx": 1617,
-        "wordsPer1000px": 199
+        "heightPx": 8169,
+        "visualAreaPct": 32.3,
+        "longestTextOnlyPx": 1842,
+        "wordsPer1000px": 193
       },
       "band": {
         "wordsPer1000px": {
@@ -4824,10 +4845,10 @@
         "cap": 9,
         "estimate": {
           "words": 1578,
-          "heightPx": 7935,
-          "visualAreaPct": 33.5,
-          "wordsPer1000px": 199,
-          "longestTextOnlyPx": 1617
+          "heightPx": 8169,
+          "visualAreaPct": 32.3,
+          "wordsPer1000px": 193,
+          "longestTextOnlyPx": 1842
         },
         "limits": []
       }
@@ -4879,11 +4900,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 938,
-            "visualPx": 581,
+            "heightPx": 913,
+            "visualPx": 566,
             "pictured": true,
-            "before": 169,
-            "after": 56
+            "before": 174,
+            "after": 55
           },
           "heading": {
             "text": "Wholesale Toddler Swimwear: Samples, Payment & Shipping Terms",
@@ -4900,11 +4921,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 602,
-            "visualPx": 373,
+            "heightPx": 584,
+            "visualPx": 362,
             "pictured": true,
-            "before": 108,
-            "after": 36
+            "before": 111,
+            "after": 35
           },
           "heading": {
             "text": "Chlorine- and Salt-Resistant Fabrics for Little Swimmers",
@@ -5021,11 +5042,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 453,
-            "visualPx": 281,
+            "heightPx": 439,
+            "visualPx": 272,
             "pictured": true,
-            "before": 82,
-            "after": 27
+            "before": 83,
+            "after": 26
           },
           "heading": {
             "text": "Toddler Sizes and Custom Size Runs",
@@ -5042,11 +5063,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -5089,11 +5110,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 464,
+            "heightPx": 681,
             "visualPx": 0,
             "pictured": false,
-            "before": 464,
-            "after": 464
+            "before": 681,
+            "after": 681
           },
           "items": 3,
           "longestItemWords": 90,
@@ -5127,10 +5148,10 @@
       ],
       "words": 1155,
       "estimate": {
-        "heightPx": 6798,
-        "visualAreaPct": 44.7,
-        "longestTextOnlyPx": 1147,
-        "wordsPer1000px": 170
+        "heightPx": 6995,
+        "visualAreaPct": 43.2,
+        "longestTextOnlyPx": 1368,
+        "wordsPer1000px": 165
       },
       "band": {
         "wordsPer1000px": {
@@ -5154,10 +5175,10 @@
         "cap": 5,
         "estimate": {
           "words": 1155,
-          "heightPx": 6798,
-          "visualAreaPct": 44.7,
-          "wordsPer1000px": 170,
-          "longestTextOnlyPx": 1147
+          "heightPx": 6995,
+          "visualAreaPct": 43.2,
+          "wordsPer1000px": 165,
+          "longestTextOnlyPx": 1368
         },
         "limits": []
       }
@@ -5239,11 +5260,11 @@
             "product"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Wholesale Stock and Ready-Made Modest Designs",
@@ -5313,11 +5334,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Our Own Modest Swimwear Factory in Guangzhou, China",
@@ -5427,11 +5448,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 400,
+            "heightPx": 405,
             "visualPx": 0,
             "pictured": false,
-            "before": 400,
-            "after": 400
+            "before": 405,
+            "after": 405
           },
           "items": 3,
           "longestItemWords": 33,
@@ -5455,11 +5476,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 785,
-            "visualPx": 487,
+            "heightPx": 763,
+            "visualPx": 473,
             "pictured": true,
-            "before": 141,
-            "after": 47
+            "before": 145,
+            "after": 46
           },
           "heading": {
             "text": "Coverage Levels, Sleeves and Swim Hijab Constructions",
@@ -5476,11 +5497,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 811,
+            "heightPx": 841,
             "visualPx": 0,
             "pictured": false,
-            "before": 811,
-            "after": 811
+            "before": 841,
+            "after": 841
           },
           "items": 8,
           "longestItemWords": 54,
@@ -5525,11 +5546,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 722,
+            "heightPx": 747,
             "visualPx": 0,
             "pictured": false,
-            "before": 722,
-            "after": 722
+            "before": 747,
+            "after": 747
           },
           "items": 8,
           "longestItemWords": 43,
@@ -5553,11 +5574,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 667,
-            "visualPx": 413,
+            "heightPx": 648,
+            "visualPx": 402,
             "pictured": true,
-            "before": 120,
-            "after": 40
+            "before": 123,
+            "after": 39
           },
           "heading": {
             "text": "Size Ranges, Fit Blocks and Grading",
@@ -5574,11 +5595,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 435,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 435,
+            "after": 435
           },
           "items": 3,
           "longestItemWords": 48,
@@ -5628,11 +5649,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 590,
+            "heightPx": 871,
             "visualPx": 0,
             "pictured": false,
-            "before": 590,
-            "after": 590
+            "before": 871,
+            "after": 871
           },
           "items": 5,
           "longestItemWords": 90,
@@ -5666,10 +5687,10 @@
       ],
       "words": 2215,
       "estimate": {
-        "heightPx": 10905,
-        "visualAreaPct": 27.7,
-        "longestTextOnlyPx": 1713,
-        "wordsPer1000px": 203
+        "heightPx": 11237,
+        "visualAreaPct": 26.9,
+        "longestTextOnlyPx": 1862,
+        "wordsPer1000px": 197
       },
       "band": {
         "wordsPer1000px": {
@@ -5693,10 +5714,10 @@
         "cap": 12,
         "estimate": {
           "words": 2215,
-          "heightPx": 10905,
-          "visualAreaPct": 27.7,
-          "wordsPer1000px": 203,
-          "longestTextOnlyPx": 1713
+          "heightPx": 11237,
+          "visualAreaPct": 26.9,
+          "wordsPer1000px": 197,
+          "longestTextOnlyPx": 1862
         },
         "limits": []
       }
@@ -5748,11 +5769,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 654,
+            "heightPx": 675,
             "visualPx": 0,
             "pictured": false,
-            "before": 654,
-            "after": 654
+            "before": 675,
+            "after": 675
           },
           "items": 7,
           "longestItemWords": 44,
@@ -5916,11 +5937,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -5939,11 +5960,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 506,
+            "heightPx": 744,
             "visualPx": 0,
             "pictured": false,
-            "before": 506,
-            "after": 506
+            "before": 744,
+            "after": 744
           },
           "items": 3,
           "longestItemWords": 96,
@@ -5995,10 +6016,10 @@
       ],
       "words": 1388,
       "estimate": {
-        "heightPx": 8116,
-        "visualAreaPct": 31.3,
-        "longestTextOnlyPx": 2085,
-        "wordsPer1000px": 171
+        "heightPx": 8396,
+        "visualAreaPct": 30.3,
+        "longestTextOnlyPx": 2106,
+        "wordsPer1000px": 165
       },
       "band": {
         "wordsPer1000px": {
@@ -6022,10 +6043,10 @@
         "cap": 7,
         "estimate": {
           "words": 1388,
-          "heightPx": 7310,
-          "visualAreaPct": 24.6,
-          "wordsPer1000px": 190,
-          "longestTextOnlyPx": 2472
+          "heightPx": 7590,
+          "visualAreaPct": 23.8,
+          "wordsPer1000px": 183,
+          "longestTextOnlyPx": 2715
         },
         "limits": []
       }
@@ -6077,11 +6098,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Custom Watersports Apparel: Sample Fees, Payment and Shipping",
@@ -6100,11 +6121,11 @@
             "product"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           }
         },
         {
@@ -6155,11 +6176,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -6208,11 +6229,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 444,
+            "heightPx": 651,
             "visualPx": 0,
             "pictured": false,
-            "before": 444,
-            "after": 444
+            "before": 651,
+            "after": 651
           },
           "items": 3,
           "longestItemWords": 233,
@@ -6246,10 +6267,10 @@
       ],
       "words": 607,
       "estimate": {
-        "heightPx": 5452,
-        "visualAreaPct": 34,
-        "longestTextOnlyPx": 1443,
-        "wordsPer1000px": 111
+        "heightPx": 5696,
+        "visualAreaPct": 33,
+        "longestTextOnlyPx": 1655,
+        "wordsPer1000px": 107
       },
       "band": {
         "wordsPer1000px": {
@@ -6273,10 +6294,10 @@
         "cap": 3,
         "estimate": {
           "words": 607,
-          "heightPx": 5452,
-          "visualAreaPct": 34,
-          "wordsPer1000px": 111,
-          "longestTextOnlyPx": 1443
+          "heightPx": 5696,
+          "visualAreaPct": 33,
+          "wordsPer1000px": 107,
+          "longestTextOnlyPx": 1655
         },
         "limits": []
       }
@@ -6503,11 +6524,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Flatlock and Bonded Seams Built for Board and Water",
@@ -6645,11 +6666,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 755,
-            "visualPx": 106,
+            "heightPx": 615,
+            "visualPx": 135,
             "pictured": true,
-            "before": 430,
-            "after": 430
+            "before": 326,
+            "after": 326
           },
           "heading": {
             "text": "Washing and Drying Printed and Bonded Rash Guards",
@@ -6687,11 +6708,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 421,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 421,
+            "after": 421
           },
           "items": 3,
           "longestItemWords": 40,
@@ -6734,11 +6755,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 477,
+            "heightPx": 701,
             "visualPx": 0,
             "pictured": false,
-            "before": 477,
-            "after": 477
+            "before": 701,
+            "after": 701
           },
           "items": 5,
           "longestItemWords": 87,
@@ -6790,10 +6811,10 @@
       ],
       "words": 2031,
       "estimate": {
-        "heightPx": 10749,
-        "visualAreaPct": 31.8,
-        "longestTextOnlyPx": 1930,
-        "wordsPer1000px": 189
+        "heightPx": 10843,
+        "visualAreaPct": 31.9,
+        "longestTextOnlyPx": 2156,
+        "wordsPer1000px": 187
       },
       "band": {
         "wordsPer1000px": {
@@ -6817,10 +6838,10 @@
         "cap": 12,
         "estimate": {
           "words": 2031,
-          "heightPx": 10749,
-          "visualAreaPct": 31.8,
-          "wordsPer1000px": 189,
-          "longestTextOnlyPx": 1930
+          "heightPx": 10843,
+          "visualAreaPct": 31.9,
+          "wordsPer1000px": 187,
+          "longestTextOnlyPx": 2156
         },
         "limits": []
       }
@@ -6946,11 +6967,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Our Own Resort Wear Factory in Guangzhou, China",
@@ -7081,11 +7102,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 850,
-            "visualPx": 527,
+            "heightPx": 827,
+            "visualPx": 513,
             "pictured": true,
-            "before": 153,
-            "after": 51
+            "before": 157,
+            "after": 50
           },
           "heading": {
             "text": "Lightweight, Breathable Fabrics Made for Warm Weather",
@@ -7102,11 +7123,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 802,
+            "heightPx": 831,
             "visualPx": 0,
             "pictured": false,
-            "before": 802,
-            "after": 802
+            "before": 831,
+            "after": 831
           },
           "items": 8,
           "longestItemWords": 56,
@@ -7130,11 +7151,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Patterns, Size Grading and Fit Approval Before Bulk",
@@ -7153,11 +7174,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           }
         },
         {
@@ -7169,11 +7190,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 442,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 442,
+            "after": 442
           },
           "items": 3,
           "longestItemWords": 53,
@@ -7223,11 +7244,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 564,
+            "heightPx": 831,
             "visualPx": 0,
             "pictured": false,
-            "before": 564,
-            "after": 564
+            "before": 831,
+            "after": 831
           },
           "items": 6,
           "longestItemWords": 124,
@@ -7261,10 +7282,10 @@
       ],
       "words": 2019,
       "estimate": {
-        "heightPx": 10438,
-        "visualAreaPct": 28.8,
-        "longestTextOnlyPx": 1743,
-        "wordsPer1000px": 193
+        "heightPx": 10774,
+        "visualAreaPct": 28.1,
+        "longestTextOnlyPx": 1732,
+        "wordsPer1000px": 187
       },
       "band": {
         "wordsPer1000px": {
@@ -7288,10 +7309,10 @@
         "cap": 10,
         "estimate": {
           "words": 2019,
-          "heightPx": 10438,
-          "visualAreaPct": 28.8,
-          "wordsPer1000px": 193,
-          "longestTextOnlyPx": 1743
+          "heightPx": 10774,
+          "visualAreaPct": 28.1,
+          "wordsPer1000px": 187,
+          "longestTextOnlyPx": 1732
         },
         "limits": []
       }
@@ -7394,11 +7415,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 1003,
-            "visualPx": 622,
+            "heightPx": 977,
+            "visualPx": 606,
             "pictured": true,
-            "before": 181,
-            "after": 60
+            "before": 186,
+            "after": 59
           },
           "heading": {
             "text": "Beach Cover-Up Fabrics, GSM Weights and Coverage",
@@ -7482,11 +7503,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 634,
-            "visualPx": 393,
+            "heightPx": 616,
+            "visualPx": 382,
             "pictured": true,
-            "before": 114,
-            "after": 38
+            "before": 117,
+            "after": 37
           },
           "heading": {
             "text": "Swimsuit Cover-Up Sizes, Lengths and Fit",
@@ -7627,11 +7648,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -7674,11 +7695,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 661,
+            "heightPx": 977,
             "visualPx": 0,
             "pictured": false,
-            "before": 661,
-            "after": 661
+            "before": 977,
+            "after": 977
           },
           "items": 6,
           "longestItemWords": 113,
@@ -7712,10 +7733,10 @@
       ],
       "words": 1952,
       "estimate": {
-        "heightPx": 10106,
-        "visualAreaPct": 45.6,
-        "longestTextOnlyPx": 1642,
-        "wordsPer1000px": 193
+        "heightPx": 10399,
+        "visualAreaPct": 44.1,
+        "longestTextOnlyPx": 1678,
+        "wordsPer1000px": 188
       },
       "band": {
         "wordsPer1000px": {
@@ -7739,10 +7760,10 @@
         "cap": 8,
         "estimate": {
           "words": 1952,
-          "heightPx": 9300,
-          "visualAreaPct": 41.6,
-          "wordsPer1000px": 210,
-          "longestTextOnlyPx": 2919
+          "heightPx": 9593,
+          "visualAreaPct": 40.1,
+          "wordsPer1000px": 203,
+          "longestTextOnlyPx": 3240
         },
         "limits": []
       }
@@ -7820,7 +7841,7 @@
           ],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -7862,7 +7883,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 402,
-            "visualPx": 165,
+            "visualPx": 169,
             "pictured": true,
             "before": 108,
             "after": 145
@@ -7879,11 +7900,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 484,
+            "heightPx": 486,
             "visualPx": 0,
             "pictured": false,
-            "before": 484,
-            "after": 484
+            "before": 486,
+            "after": 486
           },
           "items": 4,
           "longestItemWords": 36,
@@ -7987,7 +8008,7 @@
           ],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -8008,7 +8029,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 454,
-            "visualPx": 186,
+            "visualPx": 191,
             "pictured": true,
             "before": 123,
             "after": 163
@@ -8048,11 +8069,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 579,
-            "visualPx": 359,
+            "heightPx": 562,
+            "visualPx": 348,
             "pictured": true,
-            "before": 104,
-            "after": 35
+            "before": 107,
+            "after": 34
           },
           "heading": {
             "text": "Embroidered Logo Techniques and Minimums",
@@ -8110,6 +8131,27 @@
           }
         },
         {
+          "id": "media-module-budget-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 806,
+            "visualPx": 742,
+            "pictured": true,
+            "before": 40,
+            "after": 40
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
           "id": "m4",
           "type": "featureGrid",
           "variant": "bullets",
@@ -8118,11 +8160,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 762,
+            "heightPx": 800,
             "visualPx": 0,
             "pictured": false,
-            "before": 762,
-            "after": 762
+            "before": 800,
+            "after": 800
           },
           "items": 8,
           "longestItemWords": 44,
@@ -8190,11 +8232,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -8238,11 +8280,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 711,
+            "heightPx": 1003,
             "visualPx": 0,
             "pictured": false,
-            "before": 711,
-            "after": 711
+            "before": 1003,
+            "after": 1003
           },
           "items": 7,
           "longestItemWords": 99,
@@ -8263,11 +8305,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 609,
+            "heightPx": 691,
+            "visualPx": 608,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Start Your Embroidery Project with Strandmill",
@@ -8278,10 +8320,10 @@
       ],
       "words": 2166,
       "estimate": {
-        "heightPx": 13280,
-        "visualAreaPct": 35,
-        "longestTextOnlyPx": 2366,
-        "wordsPer1000px": 163
+        "heightPx": 14379,
+        "visualAreaPct": 37.5,
+        "longestTextOnlyPx": 2022,
+        "wordsPer1000px": 151
       },
       "band": {
         "wordsPer1000px": {
@@ -8296,7 +8338,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 0,
+      "budgetWalls": 1,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
@@ -8305,10 +8347,10 @@
         "cap": 12,
         "estimate": {
           "words": 2166,
-          "heightPx": 13280,
-          "visualAreaPct": 35,
-          "wordsPer1000px": 163,
-          "longestTextOnlyPx": 2366
+          "heightPx": 13573,
+          "visualAreaPct": 34.3,
+          "wordsPer1000px": 160,
+          "longestTextOnlyPx": 2403
         },
         "limits": []
       }
@@ -8361,7 +8403,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -8384,7 +8426,7 @@
           ],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -8580,7 +8622,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -8668,7 +8710,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -8757,12 +8799,33 @@
           }
         },
         {
+          "id": "media-module-budget-3",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 806,
+            "visualPx": 742,
+            "pictured": true,
+            "before": 40,
+            "after": 40
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
           "id": "m8",
           "type": "process",
           "variant": "list",
           "model": "process:list",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 760,
@@ -8776,6 +8839,32 @@
           "heading": {
             "text": "How Engagements Start: Inputs, Steps and a Roadmap",
             "desktop": 3,
+            "mobile": 3
+          }
+        },
+        {
+          "id": "iconList-3",
+          "type": "iconList",
+          "variant": null,
+          "model": "iconList:checks",
+          "continues": null,
+          "surface": "tinted",
+          "slots": [],
+          "estimate": {
+            "heightPx": 621,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 621,
+            "after": 621
+          },
+          "items": 6,
+          "longestItemWords": 33,
+          "columns": 1,
+          "layout": "split",
+          "longestItemChars": 191,
+          "heading": {
+            "text": "Samples, Bulk Production, Payment and Shipping Terms",
+            "desktop": 2,
             "mobile": 3
           }
         },
@@ -8801,32 +8890,6 @@
           "longestItemWords": 0
         },
         {
-          "id": "iconList-3",
-          "type": "iconList",
-          "variant": null,
-          "model": "iconList:checks",
-          "continues": null,
-          "surface": "white",
-          "slots": [],
-          "estimate": {
-            "heightPx": 621,
-            "visualPx": 0,
-            "pictured": false,
-            "before": 621,
-            "after": 621
-          },
-          "items": 6,
-          "longestItemWords": 33,
-          "columns": 1,
-          "layout": "split",
-          "longestItemChars": 191,
-          "heading": {
-            "text": "Samples, Bulk Production, Payment and Shipping Terms",
-            "desktop": 2,
-            "mobile": 3
-          }
-        },
-        {
           "id": "owner-testimonials",
           "type": "testimonials",
           "variant": "carousel",
@@ -8835,11 +8898,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -8886,11 +8949,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 636,
+            "heightPx": 853,
             "visualPx": 0,
             "pictured": false,
-            "before": 636,
-            "after": 636
+            "before": 853,
+            "after": 853
           },
           "items": 7,
           "longestItemWords": 75,
@@ -8910,7 +8973,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 373,
-            "visualPx": 153,
+            "visualPx": 157,
             "pictured": true,
             "before": 101,
             "after": 134
@@ -8929,11 +8992,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 609,
+            "heightPx": 691,
+            "visualPx": 608,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Start a Conversation About Your Consulting Project",
@@ -8944,10 +9007,10 @@
       ],
       "words": 2562,
       "estimate": {
-        "heightPx": 14830,
-        "visualAreaPct": 36.2,
-        "longestTextOnlyPx": 2049,
-        "wordsPer1000px": 173
+        "heightPx": 15815,
+        "visualAreaPct": 38.8,
+        "longestTextOnlyPx": 1660,
+        "wordsPer1000px": 162
       },
       "band": {
         "wordsPer1000px": {
@@ -8962,7 +9025,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 2,
+      "budgetWalls": 3,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
@@ -8971,10 +9034,10 @@
         "cap": 12,
         "estimate": {
           "words": 2562,
-          "heightPx": 13218,
-          "visualAreaPct": 29.3,
-          "wordsPer1000px": 194,
-          "longestTextOnlyPx": 3784
+          "heightPx": 13397,
+          "visualAreaPct": 29.2,
+          "wordsPer1000px": 191,
+          "longestTextOnlyPx": 4006
         },
         "limits": []
       }
@@ -9050,7 +9113,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 414,
-            "visualPx": 170,
+            "visualPx": 174,
             "pictured": true,
             "before": 112,
             "after": 149
@@ -9067,11 +9130,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 467,
+            "heightPx": 466,
             "visualPx": 0,
             "pictured": false,
-            "before": 467,
-            "after": 467
+            "before": 466,
+            "after": 466
           },
           "items": 4,
           "longestItemWords": 34,
@@ -9149,7 +9212,7 @@
           ],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -9192,11 +9255,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 479,
-            "visualPx": 297,
+            "heightPx": 463,
+            "visualPx": 287,
             "pictured": true,
-            "before": 86,
-            "after": 29
+            "before": 88,
+            "after": 28
           },
           "heading": {
             "text": "Size Ranges and Grading for Every Style",
@@ -9263,7 +9326,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -9327,7 +9390,7 @@
           }
         },
         {
-          "id": "media-module-budget-1",
+          "id": "media-module-budget-2",
           "type": "gallery",
           "variant": "band",
           "model": "gallery:band",
@@ -9353,7 +9416,7 @@
           "variant": "list",
           "model": "process:list",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 715,
@@ -9376,7 +9439,7 @@
           "variant": "wide",
           "model": "splitMedia:wide",
           "continues": null,
-          "surface": "white",
+          "surface": "tinted",
           "slots": [
             "product"
           ],
@@ -9399,7 +9462,7 @@
           "variant": null,
           "model": "iconList:checks",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 445,
@@ -9425,7 +9488,7 @@
           "variant": "list",
           "model": "process:list",
           "continues": null,
-          "surface": "white",
+          "surface": "tinted",
           "slots": [],
           "estimate": {
             "heightPx": 542,
@@ -9443,6 +9506,27 @@
           }
         },
         {
+          "id": "media-module-budget-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 806,
+            "visualPx": 742,
+            "pictured": true,
+            "before": 40,
+            "after": 40
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
           "id": "owner-testimonials",
           "type": "testimonials",
           "variant": "carousel",
@@ -9451,11 +9535,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -9499,11 +9583,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 626,
+            "heightPx": 833,
             "visualPx": 0,
             "pictured": false,
-            "before": 626,
-            "after": 626
+            "before": 833,
+            "after": 833
           },
           "items": 4,
           "longestItemWords": 79,
@@ -9524,11 +9608,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 609,
+            "heightPx": 691,
+            "visualPx": 608,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Ready to Discuss Your Project?",
@@ -9539,10 +9623,10 @@
       ],
       "words": 2158,
       "estimate": {
-        "heightPx": 14162,
-        "visualAreaPct": 37.6,
-        "longestTextOnlyPx": 2379,
-        "wordsPer1000px": 152
+        "heightPx": 15120,
+        "visualAreaPct": 40.2,
+        "longestTextOnlyPx": 1570,
+        "wordsPer1000px": 143
       },
       "band": {
         "wordsPer1000px": {
@@ -9557,7 +9641,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 1,
+      "budgetWalls": 2,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
@@ -9566,10 +9650,10 @@
         "cap": 12,
         "estimate": {
           "words": 2158,
-          "heightPx": 13356,
-          "visualAreaPct": 34.3,
-          "wordsPer1000px": 162,
-          "longestTextOnlyPx": 2468
+          "heightPx": 13508,
+          "visualAreaPct": 34,
+          "wordsPer1000px": 160,
+          "longestTextOnlyPx": 2588
         },
         "limits": []
       }
@@ -9643,7 +9727,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 478,
-            "visualPx": 196,
+            "visualPx": 201,
             "pictured": true,
             "before": 129,
             "after": 172
@@ -9684,7 +9768,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 603,
-            "visualPx": 247,
+            "visualPx": 253,
             "pictured": true,
             "before": 163,
             "after": 217
@@ -9799,11 +9883,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 782,
-            "visualPx": 485,
+            "heightPx": 761,
+            "visualPx": 472,
             "pictured": true,
-            "before": 141,
-            "after": 47
+            "before": 145,
+            "after": 46
           },
           "heading": {
             "text": "Compostable Corn-Starch Garment Bags and Eco Zip-Lock Bags",
@@ -9900,7 +9984,7 @@
           ],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -9946,11 +10030,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 1006,
-            "visualPx": 624,
+            "heightPx": 980,
+            "visualPx": 608,
             "pictured": true,
-            "before": 181,
-            "after": 60
+            "before": 186,
+            "after": 59
           },
           "heading": {
             "text": "Kraft Paper, Plastic and Recycled-Content Hygiene Liners",
@@ -9993,11 +10077,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -10040,11 +10124,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 703,
+            "heightPx": 986,
             "visualPx": 0,
             "pictured": false,
-            "before": 703,
-            "after": 703
+            "before": 986,
+            "after": 986
           },
           "items": 6,
           "longestItemWords": 96,
@@ -10065,11 +10149,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 609,
+            "heightPx": 691,
+            "visualPx": 608,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Start Your Packaging and Label Project with Strandmill",
@@ -10080,10 +10164,10 @@
       ],
       "words": 2428,
       "estimate": {
-        "heightPx": 13236,
-        "visualAreaPct": 39.8,
-        "longestTextOnlyPx": 2076,
-        "wordsPer1000px": 183
+        "heightPx": 13450,
+        "visualAreaPct": 39.1,
+        "longestTextOnlyPx": 2363,
+        "wordsPer1000px": 181
       },
       "band": {
         "wordsPer1000px": {
@@ -10107,10 +10191,10 @@
         "cap": 12,
         "estimate": {
           "words": 2428,
-          "heightPx": 13236,
-          "visualAreaPct": 39.8,
-          "wordsPer1000px": 183,
-          "longestTextOnlyPx": 2076
+          "heightPx": 13450,
+          "visualAreaPct": 39.1,
+          "wordsPer1000px": 181,
+          "longestTextOnlyPx": 2363
         },
         "limits": []
       }
@@ -10283,7 +10367,7 @@
           ],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -10332,7 +10416,7 @@
           ],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -10471,11 +10555,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -10521,11 +10605,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 554,
+            "heightPx": 687,
             "visualPx": 0,
             "pictured": false,
-            "before": 554,
-            "after": 554
+            "before": 687,
+            "after": 687
           },
           "items": 3,
           "longestItemWords": 85,
@@ -10546,11 +10630,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 609,
+            "heightPx": 691,
+            "visualPx": 608,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Ready to Start Your Swimwear Print Project?",
@@ -10561,10 +10645,10 @@
       ],
       "words": 1613,
       "estimate": {
-        "heightPx": 10495,
-        "visualAreaPct": 35.1,
+        "heightPx": 10606,
+        "visualAreaPct": 34.8,
         "longestTextOnlyPx": 1854,
-        "wordsPer1000px": 154
+        "wordsPer1000px": 152
       },
       "band": {
         "wordsPer1000px": {
@@ -10588,9 +10672,9 @@
         "cap": 12,
         "estimate": {
           "words": 1613,
-          "heightPx": 10495,
-          "visualAreaPct": 35.1,
-          "wordsPer1000px": 154,
+          "heightPx": 10606,
+          "visualAreaPct": 34.8,
+          "wordsPer1000px": 152,
           "longestTextOnlyPx": 1854
         },
         "limits": []
@@ -10643,11 +10727,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 996,
-            "visualPx": 617,
+            "heightPx": 970,
+            "visualPx": 601,
             "pictured": true,
-            "before": 179,
-            "after": 60
+            "before": 184,
+            "after": 58
           },
           "heading": {
             "text": "Swimwear Hardware Types, Sizes and Materials",
@@ -10756,11 +10840,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 605,
+            "heightPx": 622,
             "visualPx": 0,
             "pictured": false,
-            "before": 605,
-            "after": 605
+            "before": 622,
+            "after": 622
           },
           "items": 6,
           "longestItemWords": 43,
@@ -10784,11 +10868,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 581,
-            "visualPx": 361,
+            "heightPx": 564,
+            "visualPx": 350,
             "pictured": true,
-            "before": 105,
-            "after": 35
+            "before": 107,
+            "after": 34
           },
           "heading": {
             "text": "Pull Strength, Cycle and Temperature Ratings",
@@ -10901,11 +10985,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 720,
+            "heightPx": 752,
             "visualPx": 0,
             "pictured": false,
-            "before": 720,
-            "after": 720
+            "before": 752,
+            "after": 752
           },
           "items": 8,
           "longestItemWords": 49,
@@ -10976,11 +11060,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -11026,11 +11110,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 649,
+            "heightPx": 878,
             "visualPx": 0,
             "pictured": false,
-            "before": 649,
-            "after": 649
+            "before": 878,
+            "after": 878
           },
           "items": 6,
           "longestItemWords": 78,
@@ -11051,11 +11135,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 609,
+            "heightPx": 691,
+            "visualPx": 608,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Discuss Your Swimwear Hardware Project",
@@ -11066,10 +11150,10 @@
       ],
       "words": 2195,
       "estimate": {
-        "heightPx": 12328,
-        "visualAreaPct": 38.8,
-        "longestTextOnlyPx": 1744,
-        "wordsPer1000px": 178
+        "heightPx": 12541,
+        "visualAreaPct": 37.9,
+        "longestTextOnlyPx": 1776,
+        "wordsPer1000px": 175
       },
       "band": {
         "wordsPer1000px": {
@@ -11093,10 +11177,10 @@
         "cap": 12,
         "estimate": {
           "words": 2195,
-          "heightPx": 11522,
-          "visualAreaPct": 35.1,
-          "wordsPer1000px": 191,
-          "longestTextOnlyPx": 3004
+          "heightPx": 11735,
+          "visualAreaPct": 34.2,
+          "wordsPer1000px": 187,
+          "longestTextOnlyPx": 3270
         },
         "limits": []
       }
@@ -11320,11 +11404,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 815,
-            "visualPx": 505,
+            "heightPx": 793,
+            "visualPx": 492,
             "pictured": true,
-            "before": 147,
-            "after": 49
+            "before": 151,
+            "after": 48
           },
           "heading": {
             "text": "Nylon-Spandex Swim Fabrics: Weight, Stretch and Best Use",
@@ -11342,7 +11426,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -11416,7 +11500,7 @@
           ],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -11437,7 +11521,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -11488,7 +11572,7 @@
           ],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -11511,7 +11595,7 @@
           ],
           "estimate": {
             "heightPx": 654,
-            "visualPx": 222,
+            "visualPx": 229,
             "pictured": true,
             "before": 124,
             "after": 137
@@ -11575,11 +11659,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -11626,11 +11710,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 485,
+            "heightPx": 550,
             "visualPx": 0,
             "pictured": false,
-            "before": 485,
-            "after": 485
+            "before": 550,
+            "after": 550
           },
           "items": 5,
           "longestItemWords": 72,
@@ -11651,11 +11735,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 609,
+            "heightPx": 691,
+            "visualPx": 608,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Start Your Swim Fabric Sourcing Enquiry",
@@ -11666,7 +11750,7 @@
       ],
       "words": 1776,
       "estimate": {
-        "heightPx": 12577,
+        "heightPx": 12614,
         "visualAreaPct": 38.1,
         "longestTextOnlyPx": 1959,
         "wordsPer1000px": 141
@@ -11693,7 +11777,7 @@
         "cap": 12,
         "estimate": {
           "words": 1776,
-          "heightPx": 12577,
+          "heightPx": 12614,
           "visualAreaPct": 38.1,
           "wordsPer1000px": 141,
           "longestTextOnlyPx": 1959
@@ -11749,7 +11833,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 389,
-            "visualPx": 160,
+            "visualPx": 164,
             "pictured": true,
             "before": 105,
             "after": 140
@@ -11792,11 +11876,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 771,
+            "heightPx": 810,
             "visualPx": 0,
             "pictured": false,
-            "before": 771,
-            "after": 771
+            "before": 810,
+            "after": 810
           },
           "items": 8,
           "longestItemWords": 57,
@@ -12064,11 +12148,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 452,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 452,
+            "after": 452
           },
           "items": 2,
           "longestItemWords": 87,
@@ -12104,19 +12188,40 @@
           ]
         },
         {
+          "id": "media-module-budget-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 806,
+            "visualPx": 742,
+            "pictured": true,
+            "before": 40,
+            "after": 40
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
+        },
+        {
           "id": "faq",
           "type": "faq",
           "variant": "bars",
           "model": "faq:bars",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 777,
+            "heightPx": 1136,
             "visualPx": 0,
             "pictured": false,
-            "before": 777,
-            "after": 777
+            "before": 1136,
+            "after": 1136
           },
           "items": 7,
           "longestItemWords": 107,
@@ -12137,11 +12242,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 609,
+            "heightPx": 691,
+            "visualPx": 608,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Tell Us About Your Brand Launch",
@@ -12152,10 +12257,10 @@
       ],
       "words": 2042,
       "estimate": {
-        "heightPx": 10696,
-        "visualAreaPct": 33.4,
-        "longestTextOnlyPx": 2331,
-        "wordsPer1000px": 191
+        "heightPx": 11906,
+        "visualAreaPct": 36.3,
+        "longestTextOnlyPx": 1627,
+        "wordsPer1000px": 172
       },
       "band": {
         "wordsPer1000px": {
@@ -12170,7 +12275,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 0,
+      "budgetWalls": 1,
       "signatureFloor": 1,
       "signatureBands": 1,
       "feasibility": {
@@ -12179,10 +12284,10 @@
         "cap": 10,
         "estimate": {
           "words": 2042,
-          "heightPx": 10696,
-          "visualAreaPct": 33.4,
-          "wordsPer1000px": 191,
-          "longestTextOnlyPx": 2331
+          "heightPx": 11100,
+          "visualAreaPct": 32.2,
+          "wordsPer1000px": 184,
+          "longestTextOnlyPx": 2723
         },
         "limits": []
       }
@@ -12236,8 +12341,8 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 698,
-            "visualPx": 258,
+            "heightPx": 700,
+            "visualPx": 259,
             "pictured": true,
             "before": 161,
             "after": 154
@@ -12310,8 +12415,8 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 698,
-            "visualPx": 258,
+            "heightPx": 700,
+            "visualPx": 259,
             "pictured": true,
             "before": 161,
             "after": 154
@@ -12333,8 +12438,8 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 698,
-            "visualPx": 258,
+            "heightPx": 700,
+            "visualPx": 259,
             "pictured": true,
             "before": 161,
             "after": 154
@@ -12452,11 +12557,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 421,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 421,
+            "after": 421
           },
           "items": 2,
           "longestItemWords": 51,
@@ -12475,11 +12580,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 496,
+            "heightPx": 632,
             "visualPx": 0,
             "pictured": false,
-            "before": 496,
-            "after": 496
+            "before": 632,
+            "after": 632
           },
           "items": 3,
           "longestItemWords": 124,
@@ -12500,11 +12605,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 602,
+            "heightPx": 691,
+            "visualPx": 601,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Let's Talk About Your Next Collection",
@@ -12515,10 +12620,10 @@
       ],
       "words": 1138,
       "estimate": {
-        "heightPx": 7249,
-        "visualAreaPct": 35.2,
+        "heightPx": 7350,
+        "visualAreaPct": 34.7,
         "longestTextOnlyPx": 1270,
-        "wordsPer1000px": 157
+        "wordsPer1000px": 155
       },
       "band": {
         "wordsPer1000px": {
@@ -12542,9 +12647,9 @@
         "cap": 10,
         "estimate": {
           "words": 1138,
-          "heightPx": 7249,
-          "visualAreaPct": 35.2,
-          "wordsPer1000px": 157,
+          "heightPx": 7350,
+          "visualAreaPct": 34.7,
+          "wordsPer1000px": 155,
           "longestTextOnlyPx": 1270
         },
         "limits": []
@@ -12597,11 +12702,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 584,
+            "heightPx": 587,
             "visualPx": 0,
             "pictured": false,
-            "before": 584,
-            "after": 584
+            "before": 587,
+            "after": 587
           },
           "items": 5,
           "longestItemWords": 31
@@ -12641,11 +12746,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 533,
+            "heightPx": 767,
             "visualPx": 0,
             "pictured": false,
-            "before": 533,
-            "after": 533
+            "before": 767,
+            "after": 767
           },
           "items": 4,
           "longestItemWords": 127,
@@ -12710,11 +12815,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 609,
+            "heightPx": 691,
+            "visualPx": 608,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Bring Your Idea. We'll Quote First.",
@@ -12725,10 +12830,10 @@
       ],
       "words": 535,
       "estimate": {
-        "heightPx": 4242,
-        "visualAreaPct": 29,
-        "longestTextOnlyPx": 2960,
-        "wordsPer1000px": 126
+        "heightPx": 4436,
+        "visualAreaPct": 27.7,
+        "longestTextOnlyPx": 3194,
+        "wordsPer1000px": 121
       },
       "band": null,
       "floorExempt": false,
@@ -12783,11 +12888,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 614,
+            "heightPx": 564,
             "visualPx": 0,
             "pictured": false,
-            "before": 614,
-            "after": 614
+            "before": 564,
+            "after": 564
           },
           "items": 6,
           "longestItemWords": 12
@@ -12801,11 +12906,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 497,
+            "heightPx": 407,
             "visualPx": 0,
             "pictured": false,
-            "before": 497,
-            "after": 497
+            "before": 407,
+            "after": 407
           },
           "heading": {
             "text": "Our Background & How We Sell",
@@ -12822,11 +12927,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 389,
+            "heightPx": 321,
             "visualPx": 0,
             "pictured": false,
-            "before": 389,
-            "after": 389
+            "before": 321,
+            "after": 321
           }
         },
         {
@@ -12939,11 +13044,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 421,
+            "heightPx": 346,
             "visualPx": 0,
             "pictured": false,
-            "before": 421,
-            "after": 421
+            "before": 346,
+            "after": 346
           },
           "heading": {
             "text": "Samples: Timing, Fees & Delivery",
@@ -13007,11 +13112,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 440,
+            "heightPx": 361,
             "visualPx": 0,
             "pictured": false,
-            "before": 440,
-            "after": 440
+            "before": 361,
+            "after": 361
           },
           "heading": {
             "text": "Bulk Production Lead Times",
@@ -13028,11 +13133,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 435,
-            "visualPx": 213,
+            "heightPx": 383,
+            "visualPx": 176,
             "pictured": true,
             "before": 96,
-            "after": 39
+            "after": 34
           },
           "items": 4,
           "longestItemWords": 14
@@ -13046,11 +13151,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 614,
+            "heightPx": 612,
             "visualPx": 0,
             "pictured": false,
-            "before": 614,
-            "after": 614
+            "before": 612,
+            "after": 612
           },
           "items": 5,
           "longestItemWords": 29,
@@ -13069,11 +13174,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 497,
+            "heightPx": 407,
             "visualPx": 0,
             "pictured": false,
-            "before": 497,
-            "after": 497
+            "before": 407,
+            "after": 407
           },
           "heading": {
             "text": "Priority & Rush Orders",
@@ -13111,11 +13216,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 485,
+            "heightPx": 397,
             "visualPx": 0,
             "pictured": false,
-            "before": 485,
-            "after": 485
+            "before": 397,
+            "after": 397
           },
           "heading": {
             "text": "Repeat Orders & Restocks",
@@ -13160,8 +13265,8 @@
             "material"
           ],
           "estimate": {
-            "heightPx": 698,
-            "visualPx": 258,
+            "heightPx": 700,
+            "visualPx": 259,
             "pictured": true,
             "before": 161,
             "after": 154
@@ -13181,11 +13286,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 421,
+            "heightPx": 346,
             "visualPx": 0,
             "pictured": false,
-            "before": 421,
-            "after": 421
+            "before": 346,
+            "after": 346
           },
           "heading": {
             "text": "Payment Terms & Shipping Options",
@@ -13202,11 +13307,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 256,
+            "heightPx": 213,
             "visualPx": 0,
             "pictured": false,
-            "before": 256,
-            "after": 256
+            "before": 213,
+            "after": 213
           }
         },
         {
@@ -13218,11 +13323,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 383,
+            "heightPx": 315,
             "visualPx": 0,
             "pictured": false,
-            "before": 383,
-            "after": 383
+            "before": 315,
+            "after": 315
           }
         },
         {
@@ -13234,11 +13339,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 485,
+            "heightPx": 397,
             "visualPx": 0,
             "pictured": false,
-            "before": 485,
-            "after": 485
+            "before": 397,
+            "after": 397
           }
         },
         {
@@ -13252,8 +13357,8 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 698,
-            "visualPx": 258,
+            "heightPx": 700,
+            "visualPx": 259,
             "pictured": true,
             "before": 161,
             "after": 154
@@ -13275,8 +13380,8 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 698,
-            "visualPx": 258,
+            "heightPx": 700,
+            "visualPx": 259,
             "pictured": true,
             "before": 161,
             "after": 154
@@ -13322,11 +13427,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 609,
+            "heightPx": 691,
+            "visualPx": 615,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Send Us Your Enquiry",
@@ -13337,10 +13442,10 @@
       ],
       "words": 2015,
       "estimate": {
-        "heightPx": 14857,
-        "visualAreaPct": 26.6,
-        "longestTextOnlyPx": 2027,
-        "wordsPer1000px": 136
+        "heightPx": 14000,
+        "visualAreaPct": 28.2,
+        "longestTextOnlyPx": 1819,
+        "wordsPer1000px": 144
       },
       "band": {
         "wordsPer1000px": {
@@ -13359,15 +13464,15 @@
       "signatureFloor": 0,
       "signatureBands": 0,
       "feasibility": {
-        "verdict": "fits_with_walls",
-        "walls": 1,
+        "verdict": "fits",
+        "walls": 0,
         "cap": 12,
         "estimate": {
           "words": 2015,
-          "heightPx": 14051,
-          "visualAreaPct": 22.9,
-          "wordsPer1000px": 143,
-          "longestTextOnlyPx": 2124
+          "heightPx": 13194,
+          "visualAreaPct": 24.3,
+          "wordsPer1000px": 153,
+          "longestTextOnlyPx": 1939
         },
         "limits": []
       }
@@ -13419,14 +13524,62 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 614,
+            "heightPx": 570,
             "visualPx": 0,
             "pictured": false,
-            "before": 614,
-            "after": 614
+            "before": 570,
+            "after": 570
           },
           "items": 6,
           "longestItemWords": 12
+        },
+        {
+          "id": "cases",
+          "type": "orderCase",
+          "variant": null,
+          "model": "orderCase:",
+          "continues": null,
+          "surface": "tinted",
+          "slots": [],
+          "estimate": {
+            "heightPx": 544,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 544,
+            "after": 544
+          },
+          "items": 2,
+          "longestItemWords": 45,
+          "heading": {
+            "text": "A recent order",
+            "desktop": 1,
+            "mobile": 1
+          }
+        },
+        {
+          "id": "related",
+          "type": "relatedPages",
+          "variant": null,
+          "model": "relatedPages:links",
+          "continues": null,
+          "surface": "white",
+          "slots": [],
+          "estimate": {
+            "heightPx": 230,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 230,
+            "after": 230
+          },
+          "heading": {
+            "text": "Related products and services",
+            "desktop": 1,
+            "mobile": 2
+          },
+          "linksTo": [
+            "general",
+            "general"
+          ]
         },
         {
           "id": "media-module-budget-1",
@@ -13450,54 +13603,6 @@
           "longestItemWords": 0
         },
         {
-          "id": "cases",
-          "type": "orderCase",
-          "variant": null,
-          "model": "orderCase:",
-          "continues": null,
-          "surface": "white",
-          "slots": [],
-          "estimate": {
-            "heightPx": 544,
-            "visualPx": 0,
-            "pictured": false,
-            "before": 544,
-            "after": 544
-          },
-          "items": 2,
-          "longestItemWords": 45,
-          "heading": {
-            "text": "A recent order",
-            "desktop": 1,
-            "mobile": 1
-          }
-        },
-        {
-          "id": "related",
-          "type": "relatedPages",
-          "variant": null,
-          "model": "relatedPages:links",
-          "continues": null,
-          "surface": "tinted",
-          "slots": [],
-          "estimate": {
-            "heightPx": 230,
-            "visualPx": 0,
-            "pictured": false,
-            "before": 230,
-            "after": 230
-          },
-          "heading": {
-            "text": "Related products and services",
-            "desktop": 1,
-            "mobile": 2
-          },
-          "linksTo": [
-            "general",
-            "general"
-          ]
-        },
-        {
           "id": "faq",
           "type": "faq",
           "variant": null,
@@ -13506,11 +13611,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 788,
+            "heightPx": 1003,
             "visualPx": 0,
             "pictured": false,
-            "before": 788,
-            "after": 788
+            "before": 1003,
+            "after": 1003
           },
           "items": 4,
           "longestItemWords": 313,
@@ -13529,11 +13634,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 488,
-            "visualPx": 239,
+            "heightPx": 445,
+            "visualPx": 204,
             "pictured": true,
-            "before": 107,
-            "after": 44
+            "before": 111,
+            "after": 40
           },
           "items": 4,
           "longestItemWords": 20
@@ -13549,11 +13654,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 609,
+            "heightPx": 691,
+            "visualPx": 615,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Talk to Our Factory About Your Brand",
@@ -13564,10 +13669,10 @@
       ],
       "words": 455,
       "estimate": {
-        "heightPx": 5573,
-        "visualAreaPct": 44.7,
-        "longestTextOnlyPx": 1709,
-        "wordsPer1000px": 82
+        "heightPx": 5658,
+        "visualAreaPct": 43.5,
+        "longestTextOnlyPx": 1853,
+        "wordsPer1000px": 80
       },
       "band": {
         "wordsPer1000px": {
@@ -13591,10 +13696,10 @@
         "cap": 3,
         "estimate": {
           "words": 455,
-          "heightPx": 4767,
-          "visualAreaPct": 36.7,
-          "wordsPer1000px": 95,
-          "longestTextOnlyPx": 2752
+          "heightPx": 4852,
+          "visualAreaPct": 35.4,
+          "wordsPer1000px": 94,
+          "longestTextOnlyPx": 2927
         },
         "limits": []
       }
@@ -13625,11 +13730,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 917,
+            "heightPx": 960,
             "visualPx": 0,
             "pictured": false,
-            "before": 917,
-            "after": 917
+            "before": 960,
+            "after": 960
           },
           "items": 8,
           "longestItemWords": 50,
@@ -13724,11 +13829,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 485,
+            "heightPx": 713,
             "visualPx": 0,
             "pictured": false,
-            "before": 485,
-            "after": 485
+            "before": 713,
+            "after": 713
           },
           "items": 4,
           "longestItemWords": 117,
@@ -13749,11 +13854,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 609,
+            "heightPx": 691,
+            "visualPx": 615,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Ready to Start Your Sustainable Collection?",
@@ -13764,10 +13869,10 @@
       ],
       "words": 749,
       "estimate": {
-        "heightPx": 5286,
-        "visualAreaPct": 45.4,
-        "longestTextOnlyPx": 1723,
-        "wordsPer1000px": 142
+        "heightPx": 5538,
+        "visualAreaPct": 43.7,
+        "longestTextOnlyPx": 1951,
+        "wordsPer1000px": 135
       },
       "band": {
         "wordsPer1000px": {
@@ -13791,10 +13896,10 @@
         "cap": 4,
         "estimate": {
           "words": 749,
-          "heightPx": 4480,
-          "visualAreaPct": 37,
-          "wordsPer1000px": 167,
-          "longestTextOnlyPx": 2685
+          "heightPx": 4732,
+          "visualAreaPct": 35.4,
+          "wordsPer1000px": 158,
+          "longestTextOnlyPx": 2956
         },
         "limits": []
       }
@@ -13872,11 +13977,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 609,
+            "heightPx": 691,
+            "visualPx": 608,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Send an enquiry to our factory",
@@ -13887,10 +13992,10 @@
       ],
       "words": 125,
       "estimate": {
-        "heightPx": 1814,
-        "visualAreaPct": 54.4,
-        "longestTextOnlyPx": 764,
-        "wordsPer1000px": 69
+        "heightPx": 1771,
+        "visualAreaPct": 55.7,
+        "longestTextOnlyPx": 761,
+        "wordsPer1000px": 71
       },
       "band": null,
       "floorExempt": false,
@@ -13997,11 +14102,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 414,
+            "heightPx": 341,
             "visualPx": 0,
             "pictured": false,
-            "before": 414,
-            "after": 414
+            "before": 341,
+            "after": 341
           }
         },
         {
@@ -14013,11 +14118,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 375,
+            "heightPx": 309,
             "visualPx": 0,
             "pictured": false,
-            "before": 375,
-            "after": 375
+            "before": 309,
+            "after": 309
           }
         },
         {
@@ -14076,11 +14181,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 484,
+            "heightPx": 490,
             "visualPx": 0,
             "pictured": false,
-            "before": 484,
-            "after": 484
+            "before": 490,
+            "after": 490
           },
           "items": 6,
           "longestItemWords": 11
@@ -14096,11 +14201,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 609,
+            "heightPx": 691,
+            "visualPx": 608,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Send Your Enquiry to Strandmill",
@@ -14111,10 +14216,10 @@
       ],
       "words": 761,
       "estimate": {
-        "heightPx": 5016,
-        "visualAreaPct": 26.8,
-        "longestTextOnlyPx": 2364,
-        "wordsPer1000px": 152
+        "heightPx": 4858,
+        "visualAreaPct": 27.8,
+        "longestTextOnlyPx": 2291,
+        "wordsPer1000px": 157
       },
       "band": null,
       "floorExempt": false,
@@ -14195,11 +14300,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 947,
-            "visualPx": 464,
+            "heightPx": 978,
+            "visualPx": 450,
             "pictured": true,
-            "before": 208,
-            "after": 85
+            "before": 244,
+            "after": 88
           },
           "items": 6,
           "longestItemWords": 36,
@@ -14269,11 +14374,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 428,
+            "heightPx": 658,
             "visualPx": 0,
             "pictured": false,
-            "before": 428,
-            "after": 428
+            "before": 658,
+            "after": 658
           },
           "items": 4,
           "longestItemWords": 94,
@@ -14294,11 +14399,11 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 734,
-            "visualPx": 609,
+            "heightPx": 691,
+            "visualPx": 615,
             "pictured": true,
-            "before": 44,
-            "after": 88
+            "before": 41,
+            "after": 41
           },
           "heading": {
             "text": "Send Your Design Brief to Strandmill",
@@ -14309,10 +14414,10 @@
       ],
       "words": 801,
       "estimate": {
-        "heightPx": 5164,
-        "visualAreaPct": 41.1,
-        "longestTextOnlyPx": 1663,
-        "wordsPer1000px": 155
+        "heightPx": 5406,
+        "visualAreaPct": 39.3,
+        "longestTextOnlyPx": 1893,
+        "wordsPer1000px": 148
       },
       "band": {
         "wordsPer1000px": {
@@ -14336,10 +14441,10 @@
         "cap": 6,
         "estimate": {
           "words": 801,
-          "heightPx": 5164,
-          "visualAreaPct": 41.1,
-          "wordsPer1000px": 155,
-          "longestTextOnlyPx": 1663
+          "heightPx": 5406,
+          "visualAreaPct": 39.3,
+          "wordsPer1000px": 148,
+          "longestTextOnlyPx": 1893
         },
         "limits": []
       }
@@ -14417,11 +14522,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 369,
+            "heightPx": 373,
             "visualPx": 0,
             "pictured": false,
-            "before": 369,
-            "after": 369
+            "before": 373,
+            "after": 373
           },
           "items": 4,
           "longestItemWords": 25,
@@ -14620,11 +14725,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Straps and Strings Made to Your Specs",
@@ -14641,11 +14746,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 840,
-            "visualPx": 521,
+            "heightPx": 818,
+            "visualPx": 507,
             "pictured": true,
-            "before": 151,
-            "after": 50
+            "before": 155,
+            "after": 49
           },
           "heading": {
             "text": "Cups, Underwires, Boning and Silicone Grip",
@@ -14664,11 +14769,11 @@
             "material"
           ],
           "estimate": {
-            "heightPx": 629,
-            "visualPx": 88,
+            "heightPx": 615,
+            "visualPx": 135,
             "pictured": true,
-            "before": 358,
-            "after": 358
+            "before": 326,
+            "after": 326
           },
           "heading": {
             "text": "Hygienic Liners Printed with Your Logo",
@@ -14736,11 +14841,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 614,
+            "heightPx": 632,
             "visualPx": 0,
             "pictured": false,
-            "before": 614,
-            "after": 614
+            "before": 632,
+            "after": 632
           },
           "items": 7,
           "longestItemWords": 36,
@@ -14811,11 +14916,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -14863,11 +14968,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 524,
+            "heightPx": 771,
             "visualPx": 0,
             "pictured": false,
-            "before": 524,
-            "after": 524
+            "before": 771,
+            "after": 771
           },
           "items": 6,
           "longestItemWords": 107,
@@ -14901,10 +15006,10 @@
       ],
       "words": 2109,
       "estimate": {
-        "heightPx": 11811,
-        "visualAreaPct": 33.3,
-        "longestTextOnlyPx": 1570,
-        "wordsPer1000px": 179
+        "heightPx": 12073,
+        "visualAreaPct": 33,
+        "longestTextOnlyPx": 1574,
+        "wordsPer1000px": 175
       },
       "band": {
         "wordsPer1000px": {
@@ -14928,10 +15033,10 @@
         "cap": 12,
         "estimate": {
           "words": 2109,
-          "heightPx": 11005,
-          "visualAreaPct": 29,
-          "wordsPer1000px": 192,
-          "longestTextOnlyPx": 2644
+          "heightPx": 11267,
+          "visualAreaPct": 28.8,
+          "wordsPer1000px": 187,
+          "longestTextOnlyPx": 2914
         },
         "limits": []
       }
@@ -15160,11 +15265,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Your Designs, Size-by-Size Print Placement and Private Label Branding",
@@ -15202,11 +15307,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 283,
+            "heightPx": 281,
             "visualPx": 0,
             "pictured": false,
-            "before": 283,
-            "after": 283
+            "before": 281,
+            "after": 281
           },
           "items": 2,
           "longestItemWords": 29,
@@ -15230,11 +15335,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 429,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 429,
+            "after": 429
           },
           "items": 3,
           "longestItemWords": 44,
@@ -15279,11 +15384,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 508,
+            "heightPx": 748,
             "visualPx": 0,
             "pictured": false,
-            "before": 508,
-            "after": 508
+            "before": 748,
+            "after": 748
           },
           "items": 4,
           "longestItemWords": 81,
@@ -15335,10 +15440,10 @@
       ],
       "words": 1403,
       "estimate": {
-        "heightPx": 8235,
-        "visualAreaPct": 37.1,
-        "longestTextOnlyPx": 1447,
-        "wordsPer1000px": 170
+        "heightPx": 8507,
+        "visualAreaPct": 36.1,
+        "longestTextOnlyPx": 1695,
+        "wordsPer1000px": 165
       },
       "band": {
         "wordsPer1000px": {
@@ -15362,10 +15467,10 @@
         "cap": 8,
         "estimate": {
           "words": 1403,
-          "heightPx": 8235,
-          "visualAreaPct": 37.1,
-          "wordsPer1000px": 170,
-          "longestTextOnlyPx": 1447
+          "heightPx": 8507,
+          "visualAreaPct": 36.1,
+          "wordsPer1000px": 165,
+          "longestTextOnlyPx": 1695
         },
         "limits": []
       }
@@ -15445,11 +15550,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Our Own Swimsuit Factory in China",
@@ -15587,11 +15692,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Custom Prints Matched Across Different Fabrics",
@@ -15628,11 +15733,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 660,
+            "visualPx": 218,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 165,
+            "after": 172
           },
           "heading": {
             "text": "Keeping Colour Consistent Between His and Hers Pieces",
@@ -15649,11 +15754,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 419,
+            "heightPx": 424,
             "visualPx": 0,
             "pictured": false,
-            "before": 419,
-            "after": 419
+            "before": 424,
+            "after": 424
           },
           "items": 3,
           "longestItemWords": 33,
@@ -15702,11 +15807,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 446,
+            "heightPx": 654,
             "visualPx": 0,
             "pictured": false,
-            "before": 446,
-            "after": 446
+            "before": 654,
+            "after": 654
           },
           "items": 3,
           "longestItemWords": 127,
@@ -15740,10 +15845,10 @@
       ],
       "words": 1264,
       "estimate": {
-        "heightPx": 8631,
-        "visualAreaPct": 28.5,
-        "longestTextOnlyPx": 1285,
-        "wordsPer1000px": 146
+        "heightPx": 8900,
+        "visualAreaPct": 28.1,
+        "longestTextOnlyPx": 1487,
+        "wordsPer1000px": 142
       },
       "band": {
         "wordsPer1000px": {
@@ -15767,10 +15872,10 @@
         "cap": 9,
         "estimate": {
           "words": 1264,
-          "heightPx": 8631,
-          "visualAreaPct": 28.5,
-          "wordsPer1000px": 146,
-          "longestTextOnlyPx": 1285
+          "heightPx": 8900,
+          "visualAreaPct": 28.1,
+          "wordsPer1000px": 142,
+          "longestTextOnlyPx": 1487
         },
         "limits": []
       }
@@ -15869,6 +15974,13 @@
       "ratio": "10 / 11"
     },
     {
+      "route": "/women-s-swimwear-manufacturer/",
+      "block": "media-module-budget-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
+    },
+    {
       "route": "/one-piece-swimsuit-manufacturer/",
       "block": "media-module-1",
       "index": 0,
@@ -15940,14 +16052,14 @@
     },
     {
       "route": "/children-s-swimwear-manufacturer/",
-      "block": "media-module-budget-1",
+      "block": "media-module-1",
       "index": 0,
       "kind": "lifestyle",
       "ratio": "10 / 11"
     },
     {
       "route": "/children-s-swimwear-manufacturer/",
-      "block": "media-module-1",
+      "block": "media-module-budget-1",
       "index": 0,
       "kind": "lifestyle",
       "ratio": "10 / 11"
@@ -16122,6 +16234,13 @@
     },
     {
       "route": "/swimwear-embroidery/",
+      "block": "media-module-budget-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
+    },
+    {
+      "route": "/swimwear-embroidery/",
       "block": "media-module-1",
       "index": 0,
       "kind": "lifestyle",
@@ -16151,6 +16270,13 @@
     {
       "route": "/swimwear-consulting/",
       "block": "media-module-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
+    },
+    {
+      "route": "/swimwear-consulting/",
+      "block": "media-module-budget-3",
       "index": 0,
       "kind": "lifestyle",
       "ratio": "10 / 11"
@@ -16192,7 +16318,7 @@
     },
     {
       "route": "/development/",
-      "block": "media-module-budget-1",
+      "block": "media-module-budget-2",
       "index": 0,
       "kind": "lifestyle",
       "ratio": "10 / 11"
@@ -16203,6 +16329,13 @@
       "index": 0,
       "kind": "product",
       "ratio": "1 / 1"
+    },
+    {
+      "route": "/development/",
+      "block": "media-module-budget-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
     },
     {
       "route": "/development/",
@@ -16357,6 +16490,13 @@
       "index": 0,
       "kind": "process",
       "ratio": "1 / 1"
+    },
+    {
+      "route": "/swimwear-launch-services/",
+      "block": "media-module-budget-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
     },
     {
       "route": "/swimwear-launch-services/",
