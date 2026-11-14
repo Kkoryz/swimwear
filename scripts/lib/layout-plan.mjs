@@ -12,7 +12,7 @@ import { cardGridColumns, cardSet, cardSetColumns, cardTitleLevel, iconListLayou
 import { DENSITY_EXEMPT_PAGE_TYPES, DENSITY_FLOOR_EXEMPT_PAGE_TYPES, bandFor } from './density.mjs';
 import { HERO_FIT, fitHeading, leadBelowHero, wrapEmFor, wrapLines } from './heading-fit.mjs';
 import { PROOF_BLOCKS, blockWords, copyWords, drawsCharts, heroShowsPhoto, renderedWords, mediaSlots, modelVariant, resolveVariant, signatureFloor, splitsSection, withMediaModules } from './media-slots.mjs';
-import { PAGE_LEAD, tintedSections } from './section-surfaces.mjs';
+import { PAGE_LEAD, TRUST_BAR, tintedSections } from './section-surfaces.mjs';
 import { DEFAULT_BLOCK_MODEL, MAX_BUDGET_WALLS, estimateBlock, modelKey, pageEstimate } from './visual-budget.mjs';
 
 // The words a page renders as the density measure counts them (lib/media-slots.mjs renderedWords, blockWords).
@@ -129,7 +129,7 @@ export function planPage(page, components, { isBuilt = () => true, headingModel 
   const variants = new Map(shown.map((block) => [block.id, resolveVariant(block, page.pageType, block.type === 'splitMedia' ? at++ : 0, components)]));
   const heroVariant = components.heroByPageType?.[page.pageType] ?? components.hero;
   const leadBelow = leadBelowHero(page, heroVariant, components);
-  const tinted = tintedSections([...(leadBelow ? [PAGE_LEAD] : []), ...shown], (block) => variants.get(block.id));
+  const tinted = tintedSections([...(trustBar ? [TRUST_BAR] : []), ...(leadBelow ? [PAGE_LEAD] : []), ...shown], (block) => variants.get(block.id));
   let splits = 0;
   const rows = shown.map((block, index) => {
     const splitIndex = block.type === 'splitMedia' ? splits++ : 0;

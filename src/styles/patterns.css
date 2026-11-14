@@ -74,16 +74,20 @@
 /* Two columns only where the list asks for them (IconListBlock.astro: an even count of short items); every list took
    two at 768px and up before, an odd or long one too (the hotel site's split list read as three columns). */
 @media (min-width: 768px) { .icon-list__items[data-columns="2"] { grid-template-columns: 1fr 1fr; } }
-/* An odd count's last item runs the row, as a short last row must (unfilled_row). */
-@media (min-width: 768px) { .icon-list__items[data-columns="2"] > .icon-list__item:last-child:nth-child(odd):not(:first-child) { grid-column: 1 / -1; } }
+/* An odd count's last item keeps the others' width, centred under them, as every equal grid's short last row is
+   (gridPlan; unfilled_row passes a centred row). It ran the whole row before, a width matching neither column (2026-11-15,
+   Fable's ruling on hotel-rm's and motel's repeated findings). */
+@media (min-width: 768px) { .icon-list__items[data-columns="2"] > .icon-list__item:last-child:nth-child(odd):not(:first-child) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 1rem); } }
 /* Beside its introduction a one-column list keeps one column (about half the container); where the site's treatment
    sets the introduction above it, the list has the full width and its items go two to a row where two of 24rem fit
    (hotel-rm 2026-11-14: three lists of six to eight short items ran one column across the page); an odd count's last
-   item runs the row, as a short last row must (unfilled_row). */
+   item keeps the others' width, centred, where two go to a row (the list as wide as two items of 24rem and the gap:
+   a container query, the list itself the container), and is the one column otherwise. */
 @media (min-width: 768px) {
-  .icon-list[data-layout="split"] .icon-list__items[data-columns="1"] { grid-template-columns: repeat(auto-fill, minmax(min(100%, max(24rem, calc((100% - 4rem) / 2))), 1fr)); }
+  .icon-list[data-layout="split"] .icon-list__items[data-columns="1"] { grid-template-columns: repeat(auto-fill, minmax(min(100%, max(24rem, calc((100% - 4rem) / 2))), 1fr)); container: icon-list-items / inline-size; }
   .icon-list[data-layout="split"] .icon-list__items[data-columns="1"] > .icon-list__item:last-child:nth-child(odd):not(:first-child) { grid-column: 1 / -1; }
 }
+@container icon-list-items (min-width: 50rem) { .icon-list__item:last-child:nth-child(odd):not(:first-child) { justify-self: center; width: calc(50% - 1rem); } }
 .icon-list__item { display: grid; grid-template-columns: auto 1fr; gap: 0.75rem; align-items: start; }
 .icon-list__icon { color: var(--accent); margin-top: 0.15rem; }
 /* Side by side, the headings of a row share one track and their texts start level (a two-line heading no longer
@@ -557,6 +561,21 @@ main[data-authoring-page] .block--prose p { margin: 0 0 var(--article-paragraph-
     radial-gradient(farthest-side at 100% 50%, rgb(0 0 0 / 0.2), transparent) right center / 0.9rem 100% no-repeat scroll;
 }
 :is(.prose__table, .table-block__scroll)[data-scroll="sideways"]:focus-visible { outline: 2px solid var(--focus-ring, var(--accent)); outline-offset: 2px; }
+/* Tables on phones (2026-11-15, Fable's ruling on swimwear's, hotel-rm's and motel's tables): a two-column table (a
+   label and its description) stacks, the description under its label at the full width, not squeezed beside a label
+   column of 40%; a wider table still scrolls (its columns are read across), its first column pinned while it does and
+   its cells tighter, so more of it fits. */
+@media (max-width: 599px) {
+  :is(.prose__table, .table-block__scroll)[data-columns="2"] { overflow: visible; background: none; }
+  :is(.prose__table, .table-block__scroll)[data-columns="2"] :is(table, tbody, tr, th, td) { display: block; }
+  :is(.prose__table, .table-block__scroll)[data-columns="2"] thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  :is(.prose__table, .table-block__scroll)[data-columns="2"] tr { padding-block: 0.75rem; border-bottom: 1px solid var(--border-table, var(--border-color)); }
+  :is(.prose__table, .table-block__scroll)[data-columns="2"] td { padding: 0; border: 0; text-align: left; }
+  :is(.prose__table, .table-block__scroll)[data-columns="2"] td:first-child { margin-bottom: 0.25rem; font-weight: 600; }
+  :is(.prose__table, .table-block__scroll):not([data-columns="2"]) :is(th, td) { padding: 0.5rem 0.6rem; font-size: 0.875rem; }
+  :is(.prose__table, .table-block__scroll):not([data-columns="2"]) :is(th, td):first-child { position: sticky; left: 0; z-index: 1; background: var(--sticky-surface, var(--surface-primary)); }
+  .prose__table:not([data-columns="2"]) th:first-child { background: var(--surface-secondary); }
+}
 /* The section's own bottom space follows its last picture or table (no double gap before the next heading). */
 .block--prose > :is(.prose__figure, .prose__table):last-child { margin-bottom: 0; }
 .prose__table table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
@@ -661,10 +680,10 @@ td[data-mark="yes"] .table-block__mark { color: var(--accent-text, var(--accent)
 td[data-mark="no"] .table-block__mark { color: var(--text-muted); }
 .table-cards { display: grid; gap: var(--grid-gap); margin: 0; padding: 0; list-style: none; grid-template-columns: 1fr; }
 @media (min-width: 768px) { .table-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-/* Tablets: an odd last card (a lone one too) takes the row; wider screens centre it (gridPlan). */
-/* An odd last card takes the whole row at every two-column width: on both reading edges, and the row is full
-   (centred it broke the edges; in the first column alone it left the row half empty, unfilled_row). */
-@media (min-width: 768px) { .table-cards > :last-child:nth-child(odd):not(:first-child) { grid-column: 1 / -1; } }
+/* An odd last card keeps the others' width, centred under them, as every equal grid's short last row is: on tablets
+   here, on wider screens by gridPlan's --start (TableBlock.astro). It ran the whole row before, a width matching neither
+   column (2026-11-15, Fable's ruling on hotel-rm's and motel's repeated findings; unfilled_row passes a centred row). */
+@media (min-width: 768px) and (max-width: 1023px) { .table-cards > :last-child:nth-child(odd):not(:first-child) { grid-column: 1 / -1; justify-self: center; width: calc(50% - var(--grid-gap) / 2); } }
 .table-card { padding: 1.5rem 1.75rem; border-radius: var(--radius-card); background: var(--surface-dark); color: var(--text-inverse); --heading-color: var(--text-inverse); }
 .table-card__title { margin: 0 0 0.75rem; color: var(--text-inverse); font-size: 1.0625rem; }
 .table-card__rows { margin: 0; }
@@ -822,7 +841,9 @@ main[data-page-type="privacy"] .block--intro :is(h2, h3, p, li) { text-align: le
 .order-routes__option { padding-block: 1rem; border-bottom: 1px solid var(--border-color); }
 .order-routes__option-name { margin: 0 0 0.3rem !important; font-size: 1rem; font-weight: 700; }
 .order-routes__option p { margin: 0; font-size: 0.9375rem; }
-.trust-bar { border-block: 1px solid var(--border-color); background: var(--surface-secondary); }
+/* The trust bar's surface is the alternation's (lib/section-surfaces.mjs TRUST_BAR): tinted when it opens the first run,
+   as it always looked, the page's own surface when the run counts back from a band. */
+.trust-bar { border-block: 1px solid var(--border-color); background: var(--surface-primary); }
 .trust-bar__items { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 0; margin: 0 auto; padding-block: 1rem; list-style: none; text-align: center; color: var(--text-primary); }
 .trust-bar__item { display: grid; align-content: start; gap: 0.2rem; padding: 0.25rem 1rem; }
 .trust-bar__item + .trust-bar__item { border-left: 1px solid var(--border-color); }

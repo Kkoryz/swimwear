@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { PAGE_LEAD, tintedSections, tintStyle } from '../lib/section-surfaces.mjs';
+import { PAGE_LEAD, TRUST_BAR, tintedSections, tintStyle } from '../lib/section-surfaces.mjs';
 
 const block = (id, type) => ({ id, type });
 
@@ -27,7 +27,7 @@ test('the last of a run stays white before a band of its own, so two grey bands 
 
 test('the style tints each section across the page and turns its grey cards white', () => {
   assert.equal(tintStyle(new Set()), '');
-  assert.match(tintStyle(new Set(['b'])), /main \[data-block-id="b"\] \{ background: var\(--section-tint\); --surface-secondary: var\(--surface-primary\); \}/);
+  assert.match(tintStyle(new Set(['b'])), /main \[data-block-id="b"\] \{ background: var\(--section-tint\); --surface-secondary: var\(--surface-primary\); --sticky-surface: var\(--section-tint\); \}/);
 });
 
 test('a section going on in blocks of its own keeps one surface and does not count in the alternation', () => {
@@ -43,10 +43,27 @@ test('a split row of the tinted variant is a band of its own: the plain section 
   assert.deepEqual([...tintedSections(blocks, variantOf)].sort(), ['a', 'c', 'q']);
 });
 
+test("a section's steps are a module of their own: they alternate with the section above them (Fable's ruling, 2026-11-15)", () => {
+  // hotel-rm's contact page: the FAQ white, its steps tinted, not one white surface.
+  const blocks = [block('a', 'text'), block('faq', 'faq'), { id: 'faq-steps', type: 'process', continues: 'faq' }, block('cta', 'cta')];
+  assert.deepEqual([...tintedSections(blocks)], ['faq']);
+  assert.deepEqual([...tintedSections([block('faq', 'faq'), { id: 'faq-steps', type: 'process', continues: 'faq' }, block('cta', 'cta')])], ['faq-steps']);
+  // A card set's grids going on still keep their section's surface.
+  assert.deepEqual([...tintedSections([block('a', 'text'), block('g', 'featureGrid'), { id: 'g-2', type: 'featureGrid', continues: 'g' }])].sort(), ['g', 'g-2']);
+});
+
+test('the trust bar opens the first run tinted, the section under it white; it is the page surface when the run counts back from a band', () => {
+  assert.deepEqual([...tintedSections([TRUST_BAR, block('overview', 'text'), block('grid', 'featureGrid'), block('faq', 'faq')])], ['trust-bar', 'grid']);
+  const band = (item) => (item.id === 's' ? 'tinted' : undefined);
+  assert.deepEqual([...tintedSections([TRUST_BAR, block('overview', 'text'), { id: 's', type: 'splitMedia' }], band)], ['trust-bar']);
+  assert.deepEqual([...tintedSections([TRUST_BAR, block('overview', 'text'), block('grid', 'featureGrid'), { id: 's', type: 'splitMedia' }], band)], ['overview']);
+});
+
 test('steps going on from a split row with a photo are a plain section of the next run; steps over a photo part the page', () => {
   const blocks = [{ id: 's', type: 'splitMedia' }, { id: 's-steps', type: 'process', continues: 's' }, block('c', 'featureGrid'), { id: 'p', type: 'process' }, block('d', 'faq')];
-  // hotel-rm 2026-11-14: the steps after a split row and the grid after them were two white sections.
-  assert.deepEqual([...tintedSections(blocks, (item) => (item.id === 'p' ? 'photo-cards' : undefined))], ['c']);
+  // hotel-rm 2026-11-14: the steps after a split row and the grid after them were two white sections. Since the steps
+  // alternate with their section (2026-11-15): the split row white, its steps tinted, the grid white.
+  assert.deepEqual([...tintedSections(blocks, (item) => (item.id === 'p' ? 'photo-cards' : undefined))], ['s-steps']);
 });
 
 test("the hero's lead opened under the hero is the run's first plain section, so the section after it is tinted (motel's contact page)", () => {

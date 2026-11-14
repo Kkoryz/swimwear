@@ -2,8 +2,9 @@
 import { cardSet, cardSetColumns } from '../../../scripts/lib/block-layout.mjs';
 import { bandLink, withMediaModules } from '../../../scripts/lib/media-slots.mjs';
 import { headingFitVars, leadBelowHero, wrapEmFor } from '../../../scripts/lib/heading-fit.mjs';
-import { PAGE_LEAD, tintedSections, tintStyle } from '../../../scripts/lib/section-surfaces.mjs';
-import { blockVariant, isBuilt, pageHero, pageMedia, variants, type AuthoringPage } from '../../lib/authoring';
+import { PAGE_LEAD, TRUST_BAR, tintedSections, tintStyle } from '../../../scripts/lib/section-surfaces.mjs';
+import { trustBarContent } from '../../../scripts/lib/site-trust.mjs';
+import { blockVariant, isBuilt, pageFigures, pageHero, pageMedia, siteTrust, variants, type AuthoringPage } from '../../lib/authoring';
 import Breadcrumbs from '../site/Breadcrumbs.astro';
 import TrustBar from '../site/TrustBar.astro';
 import InlineText from '../blog/InlineText.astro';
@@ -48,7 +49,9 @@ const heroVariant = pageHero(page).variant;
 const leadBelow = leadBelowHero(page, heroVariant, variants);
 // Neighbouring plain sections alternate white and tinted (lib/section-surfaces.mjs), a section's charts with it.
 const variantOf = new Map(resolved.map(({ block, variant }) => [block.id, variant]));
-const tintCss = tintStyle(new Set([...tintedSections([...(leadBelow ? [PAGE_LEAD] : []), ...resolved.map(({ block }) => block)], (block) => variantOf.get(block.id))].flatMap((id) => [id, `${id}-charts`])));
+// The trust bar, when it shows, is the first section of the first run (TRUST_BAR).
+const trustShown = (({ items, certifications }) => items.length > 0 || certifications.length > 0)(trustBarContent(page, pageFigures, siteTrust));
+const tintCss = tintStyle(new Set([...tintedSections([...(trustShown ? [TRUST_BAR] : []), ...(leadBelow ? [PAGE_LEAD] : []), ...resolved.map(({ block }) => block)], (block) => variantOf.get(block.id))].flatMap((id) => [id, `${id}-charts`])));
 const mainStyle = titleFit ? `--title-ems-phone: ${titleFit['--fit-ems-phone']}; --title-min-phone: ${titleFit['--fit-min-phone']}` : undefined;
 ---
 

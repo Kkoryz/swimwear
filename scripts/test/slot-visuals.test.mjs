@@ -24,10 +24,20 @@ test('a trade whose photos are scenes gives its cards icons; a product trade kee
   assert.equal(cardVisual({}), 'photo');
   assert.equal(cardVisual({ tradePhotos: 'scenes', cardVisual: 'none' }), 'none', "the site's own choice comes first");
   assert.equal(cardVisual({ cardVisual: 'icon' }), 'icon');
+  // A service business's cards stay icons whatever a treatment writes (hotel-rm 2026-11-15); the owner's choice holds.
+  assert.equal(cardVisual({ tradePhotos: 'scenes', cardVisual: 'photo' }), 'icon');
+  assert.equal(cardVisual({ tradePhotos: 'scenes', cardVisual: 'photo', ownerChoices: { cardVisual: 'photo' } }), 'photo');
+  assert.equal(cardVisual({ cardVisual: 'photo' }), 'photo', 'a product trade keeps the photo cards it is set to');
   assert.equal(cardGridVariant('media', { tradePhotos: 'scenes' }), 'icons');
   assert.equal(cardGridVariant('media', { cardVisual: 'none' }), 'cards');
   assert.equal(cardGridVariant('media', {}), 'media');
   assert.equal(cardGridVariant('bullets', { tradePhotos: 'scenes' }), 'bullets', 'a variant without pictures is kept');
+});
+
+test("a card grid going on takes its first grid's chosen variant; steps going on from a section never take that section's", () => {
+  const components = { pageTypes: { home: { blocks: { m3: { variant: 'icons' }, faq: { variant: 'accordion' } } } } };
+  assert.equal(resolveVariant({ id: 'm3-2', type: 'featureGrid', continues: 'm3', items: [] }, 'home', 0, components), 'icons');
+  assert.notEqual(resolveVariant({ id: 'faq-steps', type: 'process', continues: 'faq', steps: [] }, 'home', 0, components), 'accordion');
 });
 
 test("the design's photo cards render as the site's cards: icon cards on a service site, with no photo slot", () => {

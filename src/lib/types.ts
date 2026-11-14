@@ -130,6 +130,8 @@ export interface TemplateVariants {
   // What the cards of photo-card designs show (scripts/lib/slot-visuals.mjs): the site's choice, else by the trade's
   // photos (tradePhotos "scenes": icons).
   cardVisual?: 'photo' | 'icon' | 'none';
+  // The owner's own choices, over what a treatment or a repair sets (photo cards on a service business: only here).
+  ownerChoices?: { cardVisual?: 'photo' | 'icon' | 'none' };
   tradePhotos?: 'scenes';
   splitMedia: string;
   proof: string;

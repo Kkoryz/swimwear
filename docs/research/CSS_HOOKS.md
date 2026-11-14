@@ -54,7 +54,7 @@ A template restyles shared components by setting these custom properties (in `gl
 | `--band-focal` | `center` | `.band__backdrop` | patterns.css |
 | `--band-min-height` | `auto` | `.block--band` | patterns.css |
 | `--band-overlay` | `rgb(0 0 0 / 0.35)` | `.block--band::after` | patterns.css |
-| `--border-table` | `var(--border-color)` | `.table-block th, .table-block td` | patterns.css |
+| `--border-table` | `var(--border-color)` | `.table-block th, .table-block td`<br>`:is(.prose__table, .table-block__scroll)[data-columns="2"] tr` | patterns.css |
 | `--button-secondary-bg` | `transparent` | `.button--secondary` | patterns.css |
 | `--button-secondary-border` | `currentColor` | `.button--secondary` | patterns.css |
 | `--button-secondary-text` | `var(--text-primary)` | `.button--secondary` | patterns.css |
@@ -133,6 +133,7 @@ A template restyles shared components by setting these custom properties (in `gl
 | `--size-subheading` | `1.125rem` | `.stats[data-values="wordy"] .stats__value` | patterns.css |
 | `--stats-columns` | `3` | `.stats` | patterns.css |
 | `--step-rows` | `2` | `.process-steps > .process-step` | patterns.css |
+| `--sticky-surface` | `var(--surface-primary)` | `:is(.prose__table, .table-block__scroll):not([data-columns="2"]) :is(th, td):first-child` | patterns.css |
 | `--surface-testimonial` | `var(--surface-secondary)` | `.testimonial` | patterns.css |
 | `--surface-topbar` | `var(--surface-dark)` | `.site-header__topbar` | patterns.css |
 | `--swatch` | `transparent` | `.swatch__chip` | patterns.css |
@@ -166,6 +167,8 @@ export interface TemplateVariants {
   // What the cards of photo-card designs show (scripts/lib/slot-visuals.mjs): the site's choice, else by the trade's
   // photos (tradePhotos "scenes": icons).
   cardVisual?: 'photo' | 'icon' | 'none';
+  // The owner's own choices, over what a treatment or a repair sets (photo cards on a service business: only here).
+  ownerChoices?: { cardVisual?: 'photo' | 'icon' | 'none' };
   tradePhotos?: 'scenes';
   splitMedia: string;
   proof: string;

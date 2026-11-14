@@ -71,6 +71,14 @@ test("every input of a title's fit is the template's: a site rule raising its fl
   assert.equal(css, '@media (min-width: 1024px) {  .x { color: red } }');
 });
 
+test("the trust bar's surface is the alternation's: a site rule colouring it is taken out, its items' styles stay (hotel-rm 2026-11-15)", async () => {
+  const { stripProtected } = await import('../lib/protected-rules.mjs');
+  const { css, removed } = stripProtected('main:is([data-page-type="general"], [data-page-type="contact"]) .trust-bar { background: var(--surface-primary); }\n.trust-bar__item { background: #fff }\n');
+  assert.deepEqual(removed.map((item) => item.property), ['background']);
+  assert.match(css, /\.trust-bar__item \{ background: #fff \}/);
+  assert.doesNotMatch(css, /\.trust-bar \{ background/);
+});
+
 test("a plain section's background is the template's alternation: a site rule tinting one section is taken out, a band's or a card's stays", async () => {
   const { stripProtected, stylesPlainSection } = await import('../lib/protected-rules.mjs');
   assert.ok(stylesPlainSection('.block--gallery + .block--icon-list[data-variant="checks"]'), 'a section tinted by its neighbour');

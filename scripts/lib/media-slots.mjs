@@ -26,7 +26,10 @@ export function resolveVariant(block, pageType, splitIndex, components) {
   if (block.type === 'splitMedia' && (block.visuals ?? []).some((visual) => visual.type === 'data' && isChartData(visual.data))) return 'single';
   // The site's own choice for this section (pageTypes.<type>.blocks.<block id>.variant, set by the treatment or a
   // repair) comes before the variant the section was given from the competitor's module.
-  const chosen = components.pageTypes?.[pageType]?.blocks?.[block.id]?.variant;
+  // A grid going on from another takes its first grid's choice when it has none of its own (hotel-rm's home m3-2 lost
+  // m3's icon cards: 2026-11-15).
+  const own = components.pageTypes?.[pageType]?.blocks;
+  const chosen = own?.[block.id]?.variant ?? (block.type === 'featureGrid' && block.continues != null ? own?.[block.continues]?.variant : undefined);
   if (chosen) return chosen;
   const variant = designedVariant(block, pageType, splitIndex, components);
   // A related block's photo tiles (each page's own photo) are links on a site whose cards carry icons: cards that name

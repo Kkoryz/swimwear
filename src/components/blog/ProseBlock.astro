@@ -42,7 +42,7 @@ const table = (part: ProsePart): ProseTable | undefined => ('table' in part ? pa
     );
     const rows = table(part);
     return rows && (
-      <div class="prose__table" data-scroll="sideways" role="region" tabindex="0" aria-label={rows.columns.filter(Boolean).join(', ') || 'Table'}>
+      <div class="prose__table" data-scroll="sideways" data-columns={rows.columns.length} role="region" tabindex="0" aria-label={rows.columns.filter(Boolean).join(', ') || 'Table'}>
         <table>
           <thead><tr>{rows.columns.map((column) => <th scope="col">{column}</th>)}</tr></thead>
           <tbody>{rows.rows.map((row) => <tr>{row.map((cell) => <td><InlineText text={cell} /></td>)}</tr>)}</tbody>

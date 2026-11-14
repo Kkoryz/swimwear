@@ -15,7 +15,7 @@ const { own, items, certifications } = trustBarContent(page, pageFigures, siteTr
 ---
 
 {(items.length > 0 || certifications.length > 0) && (
-  <aside class="trust-bar" aria-label={own ? 'Key figures' : 'The company in figures'} data-authoring-block="trustBar" data-boundary-anchor="box">
+  <aside class="trust-bar" aria-label={own ? 'Key figures' : 'The company in figures'} data-authoring-block="trustBar" data-block-id="trust-bar" data-boundary-anchor="box">
     {items.length > 0 && (
       <ul class="container trust-bar__items">
         {items.map((item) => (

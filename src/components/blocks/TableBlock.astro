@@ -8,8 +8,8 @@ import InlineText from '../blog/InlineText.astro';
 
 interface Props { block: TableBlock; variant?: string }
 const { block, variant = 'grid' } = Astro.props;
-// The cards follow their number (gridPlan): one card takes the row. Cards are read down their columns, so an odd last
-// one takes the whole row (patterns.css; centred, it broke both reading edges: the hotel site's style board).
+// The cards follow their number (gridPlan): one card takes the row; an odd last one keeps the others' width, centred
+// under them (gridPlan's --start; patterns.css on tablets), as every equal grid's short last row is (2026-11-15).
 const grid = gridPlan(block.rows.length, 2);
 const mark = (cell: string) => (/^(yes|included|available)\b/i.test(cell.trim()) ? 'yes' : /^(no|not)\b/i.test(cell.trim()) ? 'no' : null);
 ---
@@ -22,7 +22,7 @@ const mark = (cell: string) => (/^(yes|included|available)\b/i.test(cell.trim())
     {variant === 'cards' ? (
       <ul class="table-cards" data-layout="equal-grid" data-columns={grid.columns} style={grid.style}>
         {block.rows.map((row, index) => (
-          <li class="table-card">
+          <li class="table-card" style={grid.itemStyle(index)}>
             <h3 class="table-card__title"><InlineText text={row[0]} /></h3>
             <dl class="table-card__rows">
               {row.slice(1).map((cell, index) => (
@@ -33,7 +33,7 @@ const mark = (cell: string) => (/^(yes|included|available)\b/i.test(cell.trim())
         ))}
       </ul>
     ) : (
-      <div class="table-block__scroll" data-layout="table" data-scroll="sideways" role="region" tabindex="0" aria-label={block.heading ?? block.columns.join(', ')}>
+      <div class="table-block__scroll" data-layout="table" data-scroll="sideways" data-columns={block.columns.length} role="region" tabindex="0" aria-label={block.heading ?? block.columns.join(', ')}>
         <table class="table-block">
           <thead><tr>{block.columns.map((column) => <th scope="col">{column}</th>)}</tr></thead>
           <tbody>{block.rows.map((row) => <tr>{row.map((cell) => {
