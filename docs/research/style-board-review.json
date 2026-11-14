@@ -1,7 +1,7 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
   "status": "passed",
-  "modules": 28,
+  "modules": 29,
   "unbacked": [
     "iconList:checks",
     "gallery:mosaic",
@@ -61,9 +61,9 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "site",
-      "issue": "Each step title (\"Scale and trial print\", \"A4 approval options\" …) is set smaller than the text under it: the title is about 7.3 px per character against about 8.1 px for the regular text, which bold type should outweigh. So the bold names shrink beside their own descriptions and the step hierarchy is upside down.",
-      "reference": "The competitor sets each step name (\"Custom Designs\", \"Ready Designs\", \"Mix n' Match\") clearly larger than its body text, bold, with the text below it in a smaller size.",
-      "fix": "In reference.css, remove the `--size-subheading: 1.0625rem` override on .block--process (line 271). That lets .point-list__title take the template's own subheading size, which sits above body size. Keep font-weight: 700. Don't set a fixed font-size on the title."
+      "issue": "Each step title ('Scale and trial print', 'A4 approval options' …) is still set smaller than the regular text under it (about 3.7 px per character in the shot against about 4.1 px for the description), so the bold step names are outweighed by their own text. The last review's fix did not land and would not have worked: the title's size comes from the template's `.point-list__title { font-size: 1rem }` (patterns.css), not from --size-subheading.",
+      "reference": "The competitor sets each step name ('Custom Designs', 'Ready Designs', 'Mix n' Match') bold and clearly larger than the smaller body text under it.",
+      "fix": "In reference.css, give `.block--process .point-list__items[data-numbered] .point-list__title` a size one step above body text and below --size-card-heading, so it stays under the overview-steps lead, which is set at the card-heading size: e.g. change line 355 to `.block--process { --size-subheading: 1.25rem; }` and add `font-size: var(--size-subheading)` to that title rule. Keep font-weight 700."
     },
     {
       "pageType": "style-board",
@@ -73,9 +73,45 @@
       "viewport": "mobile",
       "severity": "P1",
       "scope": "site",
-      "issue": "On phones the step titles are again smaller than their descriptions (\"Scale and trial print\" is about 153 px wide for 21 bold characters, while \"We send you digital mock-ups so\" is about 263 px for 31 regular ones), so the descriptions outweigh the step names.",
+      "issue": "On phones the step titles are still smaller than their descriptions ('Scale and trial print' is about 153 px wide for 21 bold characters; 'We send you digital mock-ups so' is about 263 px for 31 regular ones), so each description outweighs its step name. This also affects overview-steps ('Fabric on arrival', 'Cutting' …).",
       "reference": "The competitor's step name is always the larger, bolder line above its text.",
-      "fix": "The same change as on desktop: remove the 1.0625rem --size-subheading override on .block--process so the step title is sized above body text at every width."
+      "fix": "The same rule as on desktop: size `.block--process .point-list__title` from a .block--process --size-subheading above body size (about 1.25rem). It must not reach the root's 1.625rem mobile/desktop subheading value."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--process-list",
+      "route": "/style-board/",
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "A step's title still sits right on top of its description ('Scale and trial print' / 'We send you digital mock-ups…'), with only the template's 0.25rem margin between them. This was reported before and is not fixed.",
+      "reference": "The competitor leaves a clear gap of about 8–10 px between each step name and its description.",
+      "fix": "In reference.css, add `margin-bottom: 0.5rem` to `.block--process .point-list__items[data-numbered] .point-list__title`."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--process-list",
+      "route": "/style-board/",
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "At 1440 px the step text still runs about 89 characters a line ('We send you digital mock-ups so you can approve the scale, and we turn strike-offs around'), over the 80ch limit for running text. This was reported before and is not fixed.",
+      "reference": "The competitor's step text keeps to about 65–75 characters a line.",
+      "fix": "In reference.css, set `max-width: 70ch` on `.block--process .point-list__items[data-numbered] > .point-list__item > :not(.point-list__title)`."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--process-list",
+      "route": "/style-board/",
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Both numbered lists start on a hairline above step 01 but end on open space with no line under the last step (06 in m7, 05 in overview-steps), at both widths. This was reported before and is not fixed.",
+      "reference": "The competitor's list ends with a thin line under its last step ('Mix n' Match'), matching the line above the first.",
+      "fix": "In reference.css, add `border-bottom: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent)` to `.block--process .point-list__items[data-numbered] > .point-list__item:last-child`."
     },
     {
       "pageType": "style-board",
@@ -83,48 +119,36 @@
       "route": "/style-board/",
       "block": "overview-steps",
       "viewport": "desktop",
-      "severity": "P1",
+      "severity": "P2",
       "scope": "content",
-      "issue": "The section still has no heading. It opens only on the body-size lead \"Quality checks at every stage of an order\", so its left column looks nearly empty, and on phones the list starts with no title at all.",
-      "reference": "The competitor's process list always opens with a large H2 (\"3 Ways to Handover\") above its lead, as m7 does here with \"Mock-ups, Strike-offs and Sample Approval\".",
-      "fix": "Site Factory should supply a heading for overview-steps (for example \"Quality Checks at Every Stage\") so the block renders its h2 above the lead."
+      "issue": "The section still has no h2. Its lead 'Quality checks at every stage of an order' is now styled as a heading at the card-heading size, but on desktop it stands much smaller than m7's heading and only a little above the step titles, so the left column reads as a caption more than a section title.",
+      "reference": "The competitor's process list always opens with a real H2 ('3 Ways to Handover') over its lead, as m7 does with 'Mock-ups, Strike-offs and Sample Approval'.",
+      "fix": "Site Factory should supply a heading for overview-steps (e.g. 'Quality Checks at Every Stage') so the block renders its own h2 and the current sentence goes back to being the lead."
     },
     {
       "pageType": "style-board",
       "review": "board--process-list",
       "route": "/style-board/",
-      "block": "m7",
+      "block": "overview-steps",
       "viewport": "desktop",
       "severity": "P2",
-      "scope": "site",
-      "issue": "A step's title sits right on top of its description with no gap (\"Scale and trial print\" / \"We send you digital mock-ups…\"). The title's margin-bottom of 0.5rem was lost when the list rules were rewritten.",
-      "reference": "The competitor leaves a small gap (about 8–10 px) between each step name and its description.",
-      "fix": "In reference.css, add margin-bottom: 0.5rem to .block--process .point-list__items[data-numbered] .point-list__title."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--process-list",
-      "route": "/style-board/",
-      "block": "m7",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "At 1440 px the step descriptions still run about 90 characters a line (\"We send you digital mock-ups so you can approve the scale, and we turn strike-offs around\"), over the 80ch limit for running text. The six-step list also ends on open space with no closing rule under step 06.",
-      "reference": "The competitor's step text keeps to about 65–75 characters a line, and its list ends with a thin rule under the last step, as it starts with one above the first.",
-      "fix": "In reference.css, set max-width: 70ch on .block--process .point-list__items[data-numbered] > .point-list__item > :not(.point-list__title). Also add border-bottom: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent) to .block--process .point-list__items[data-numbered] > .point-list__item:last-child."
+      "scope": "template",
+      "gap": "layout",
+      "issue": "m7 and overview-steps are both numbered rows of short items under a heading on the left. They stand one under the other in exactly the same layout, so the second one reads as a repeat of the first.",
+      "reference": "The site's rule: when two sections of the same shape follow each other, the template sets one of them out as a list beside its heading. The competitor shows its process list once, not twice in a row.",
+      "fix": "Have the template use a different arrangement when two process:list blocks follow each other (e.g. the short-item one as a compact list without the large number column, or a horizontal steps row)."
     },
     {
       "pageType": "style-board",
       "review": "board--iconList-checks",
       "route": "/style-board/",
-      "block": "m7",
-      "viewport": "mobile",
-      "severity": "P1",
-      "scope": "template",
-      "gap": "other",
-      "issue": "On phones the iconList item titles are almost the same size as the section heading above them (in m7, 'Mechanical durability' is about 13 px per character against about 14 px for 'Quality Control and Hardware Testing'), so the two heading levels don't read as two levels. At that size most of m3's longer titles ('Fabric-specific / Certification', 'Shipment-level / Recycled Claims', 'Buyer-appointed / Factory Audits') also wrap to two lines.",
-      "reference": "The competitor keeps each heading level clearly smaller than the one above it: its section h2 is 60 px and its sub-headings and h4 are about 24 px. Its sub-headings stay compact on phones and sit well below the section heading.",
-      "fix": "In the shared template's heading-fit logic, keep an iconList item h3 a clear step below its section h2 on small screens (for example, cap the item title's fitted size at a ratio of the section heading's fitted size). The fix belongs in the template, not in reference.css, because the rules forbid setting heading font sizes there. On desktop the two levels are already about 1.4× apart, so it can stay as it is."
+      "block": "m3",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "At 1440 px the check-list item text runs the full width of its column, out to the content's right edge, so lines reach about 95–100 characters (e.g. 'recycled polyester. Certified options are available on request, and your fabric determines which'); that is past the 80ch limit in treatment-practice.md and hard to follow back to the next line.",
+      "reference": "The competitor's running text keeps to a readable measure. The treatment practice holds running text to about 70ch at every width.",
+      "fix": "In src/styles/reference.css, add a max-width of about 68ch to the item text in .block--icon-list .icon-list__item (the item's p), leaving the column and grid widths alone. m7 gets the same cap and stays as it is now, since its lines already end near 70ch."
     },
     {
       "pageType": "style-board",
@@ -135,9 +159,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "layout",
-      "issue": "Each card's number ('01', '02', '03') still sits on a line of its own above the title with a full line of space under it, so it reads as a separate label and adds a row to every card's head (on phones the number plus a two-line title takes about 110px before the text starts); the earlier finding asking for it to be inline is not yet carried out in these shots.",
-      "reference": "The competitor sets the number inline in the bold card title as one line ('01. Custom Designs') with the text straight under it (section-modules.json home 7).",
-      "fix": "In FeatureGridBlock.astro, for the outline-numbered pattern, render the number inside .feature-card__title as an inline prefix ('01. ') in the title's own type, and drop the separate number row from the card's subgrid (cardRows); the 'numbered' pattern keeps its large number on top."
+      "issue": "The earlier finding is still open: each card's number ('01', '02', '03') sits on its own line above the title with a full line of space under it, so it reads as a separate label and adds a row to every card's head (on phones it is about 45px of the card before the title in both samples).",
+      "reference": "The competitor puts the number inside the bold card title, on the same line ('01. Custom Designs'), with the text straight under it (section-modules.json home 7).",
+      "fix": "In FeatureGridBlock.astro, for the outline-numbered pattern, render the number inside .feature-card__title as an inline prefix ('01. ') in the title's own type. Remove the separate number row from the card's subgrid (cardRows) and the matching [data-pattern=\"outline-numbered\"] .feature-card__number rule in reference.css. The 'numbered' pattern keeps its large number on top."
     },
     {
       "pageType": "style-board",
@@ -147,9 +171,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The space between each card title and its text is still tight (about 20px at 1440, in both samples), so the title sits close on the paragraph; reference.css has no title spacing rule for this pattern yet.",
-      "reference": "The competitor leaves a clear band under each card title before the text, about one and a half body lines (roughly 30–40px).",
-      "fix": "In src/styles/reference.css, add margin-block-end: 1.25rem to [data-pattern=\"outline-numbered\"] .feature-card__title (or a matching row-gap on the card's subgrid)."
+      "issue": "The earlier finding is still open: there is little space between each card title and its text (about 10–20px at 1440, and the same in m2-3), so the title sits tight on the paragraph. reference.css still has no title-spacing rule for this pattern.",
+      "reference": "The competitor leaves a clear gap under each card title before the text, about one and a half body lines (roughly 30–40px).",
+      "fix": "In src/styles/reference.css, add margin-block-end: 1.25rem to [data-pattern=\"outline-numbered\"] .feature-card__title (or set a matching row-gap on the card's subgrid)."
     },
     {
       "pageType": "style-board",
@@ -159,9 +183,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The earlier finding is still open in the current shots: the split copy's body paragraphs run the full copy column at desktop body size, reaching about 87 characters a line ('That cuts your development cost and your fit risk for a first collection. You can build'), and splitMedia-2 does the same ('Order one before you decide between screen printing, heat transfers, embroidery or'). That is over the treatment practice's 70ch measure and its 80-character audit limit; the 70ch cap in reference.css is only written for main[data-authoring-page] and doesn't keep these lines short enough in DM Sans.",
-      "reference": "The competitor's tinted split rows (home 2, home 12) keep their body copy to about 70–75 characters a line beside the media.",
-      "fix": "In src/styles/reference.css, cap the split copy's paragraphs for every page, not only main[data-authoring-page]: .block--split .split__copy p { max-width: 62ch; } (about 70 rendered DM Sans characters). Leave the copy column's width and its shared edge with the photo as they are, and leave the heading's size to the template's fit."
+      "issue": "The earlier measure finding is still open: the split copy's body paragraphs run about 80–87 characters a line at desktop (m4 'That cuts your development cost and your fit risk for a first collection. You can build' is 87; splitMedia-2 'Ask us for our design catalogue. Once you've sent your enquiry, we send you line' is 80). That is over treatment-practice's 70ch measure and its 80-character limit, because the only cap in reference.css is main[data-authoring-page] .block p { max-width: 70ch }, which in DM Sans renders about 87 characters.",
+      "reference": "The competitor's tinted split rows (home 2, home 12) keep their body copy to about 70–75 characters a line beside the media ('Swimwear Bali is a specialist custom swimwear manufacturer in Bali, making').",
+      "fix": "In src/styles/reference.css, cap the split copy's paragraphs for every page, not only main[data-authoring-page]: .block--split .split__copy p { max-width: 58ch; } (about 72 rendered DM Sans characters; this covers m4 and splitMedia-2). Leave the copy column's width, its shared edge with the photo, its vertical centring and the heading's fitted size as they are."
     },
     {
       "pageType": "style-board",
@@ -171,9 +195,9 @@
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "The first paragraph ('Each sample costs USD 50…') is still set as a lead, about 20px on phones (and about a step larger on desktop). It is clearly bigger than the paragraphs under it and than the single paragraph in 'related', so on a phone it runs five large lines before the body text starts.",
+      "issue": "The first paragraph ('Each sample costs USD 50…') is still set as a lead (about 20px on phones and a step larger on desktop), so on a phone it runs five large lines before the smaller body text starts; it is clearly bigger than the paragraphs under it and than the single paragraph in 'related'.",
       "reference": "The competitor's split module sets every paragraph at one body size ('From seamless bikinis…' matches the text under it) and marks key points in bold, not with a larger first paragraph.",
-      "fix": "In src/styles/reference.css, add .block--split { --size-lead: var(--size-body); } (or .block--split .block__lead { font-size: inherit; }) so a split row's first paragraph matches its body text; reference.css has no split override yet (only .block--page-lead resets --size-lead)."
+      "fix": "In src/styles/reference.css, add .block--split { --size-lead: var(--size-body); } (or .block--split .block__lead { font-size: inherit; }) so a split row's first paragraph matches its body text; reference.css still has no split override (only .block--page-lead resets --size-lead)."
     },
     {
       "pageType": "style-board",
@@ -184,9 +208,33 @@
       "severity": "P2",
       "scope": "template",
       "gap": "layout",
-      "issue": "The module puts its heading on a line of its own above the brand row, so the section is a heading block with a strip under it rather than one band, and that adds a whole heading's height to what the competitor sets as a single line.",
-      "reference": "The competitor's logo marquee is one row on white: the 'A FEW BRANDS WE PRODUCE' label sits on the left edge, on the same line as the moving marks, and the marks run on from it to the page's right edge.",
-      "fix": "Give the logos marquee a layout in the shared module that sets the heading at the start of the row, on the content's left edge and level with the marks, with the rail running to its right (stacking above the rail on phones). The heading keeps its template-fitted size; this changes only where it sits."
+      "issue": "Not fixed since the last review: the heading still sits on its own line above the brand row, so the section is a heading plus a strip under it rather than one band, which adds a heading's height to what the competitor sets as a single line.",
+      "reference": "The competitor's logo marquee is one row on white: the 'A FEW BRANDS WE PRODUCE' label sits on the content's left edge, on the same line as the marks, and the marks run on from it to the page's right edge.",
+      "fix": "Give the logos marquee a layout in the shared module that puts the heading at the start of the row, on the content's left edge and level with the marks, with the rail running to its right (stacked above the rail on phones). The heading keeps its template-fitted size; only its position changes."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--logos-marquee",
+      "route": "/style-board/",
+      "block": "owner-logos",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The brand names are small bold caps about the size of body text, so the row reads as a line of captions under a large heading rather than a row of brand marks.",
+      "reference": "The competitor's marks are the row's main content: each one stands well above body-text size, with clear space around it, and nothing else in the row competes with them.",
+      "fix": "In src/styles/reference.css, make .logos-marquee .logos__name larger (e.g. clamp(1.125rem, 1.6vw, 1.5rem)) and keep .logos__note at its current size and muted colour, so the names read as the marks and the notes stay secondary. The row stays at rest and spread across the content while every name fits."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--testimonials-carousel",
+      "route": "/style-board/",
+      "block": "owner-testimonials",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones only one quote card shows at a time, but the subgrid that lines up the cards' rules (reference.css:506-508) still sizes every slide to the tallest quote. The shortest sample's card has an empty band of about 80px between its five-line quote and the rule, and the attribution is pushed down with it.",
+      "reference": "The competitor's quote cards close a fixed space under each quote, followed by the bold name. No card carries an empty band inside it.",
+      "fix": "In src/styles/reference.css, apply the shared subgrid rows (.track__items grid-template-rows and .track__item / .testimonial grid-row: span 2; grid-template-rows: subgrid) only when every card is in view: add .track[data-fits] to those three selectors, or put them in a min-width media query. A slide shown alone then keeps its own height."
     },
     {
       "pageType": "style-board",
@@ -196,9 +244,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "This repeats the earlier finding, which has not been repaired. Now that the section follows the white/tinted alternation and sits on white, the white quote cards with no shadow (--shadow-card: none) do not show at all: the quotes float on the page, set in from the heading's left edge by card padding that nothing visible explains (at both widths).",
-      "reference": "The competitor's quote cards are raised panels with a soft drop shadow along the bottom and right edges, so each card stands off the surface behind it.",
-      "fix": "In src/styles/reference.css, give .block--testimonials a soft --shadow-card (e.g. 0 6px 12px rgb(0 0 0 / 0.15)) so that .testimonial picks it up through box-shadow: var(--shadow-card). That makes the cards show on a white or a tinted surface alike."
+      "issue": "This repeats the earlier finding, which has not been repaired. A hard, dark 1px rule (figcaption border-top) still runs across every quote card between the quote and the attribution, at both widths.",
+      "reference": "The competitor separates the quote from the bold name with space only, with no rule.",
+      "fix": "In src/styles/reference.css, set `.block--testimonials .testimonial figcaption { border-top: 0; }` and keep the subgrid row-gap (1rem) as the separation."
     },
     {
       "pageType": "style-board",
@@ -207,10 +255,11 @@
       "block": "owner-testimonials",
       "viewport": "desktop",
       "severity": "P2",
-      "scope": "site",
-      "issue": "This repeats the earlier finding, which has not been repaired. A hard dark 1px rule (patterns.css:233, figcaption border-top) still runs across every card between the quote and the attribution, at both widths.",
-      "reference": "The competitor's cards separate the quote from the bold name with space only, with no rule.",
-      "fix": "In src/styles/reference.css, set `.block--testimonials .testimonial figcaption { border-top: 0; }` and keep the existing padding-top and gap as the separation."
+      "scope": "template",
+      "gap": "other",
+      "issue": "The same heading, \"What buyers say\", renders at two different sizes and apparent weights at both widths: it is smaller and lighter in the longest sample (/resort-wear-manufacturer/) and larger and bold in the shortest (/about-us/). A heading fitted to identical words should come out the same.",
+      "reference": "The competitor's testimonials heading is one consistent bold H2 wherever the module appears.",
+      "fix": "In the template's heading fit, check why the h2 on the /resort-wear-manufacturer/ sample gets a smaller fit size or lighter weight (for example, a cap from that page's title or a different heading level or class). Make the same words resolve to the same size and the 700 weight the manifest reports for h2."
     },
     {
       "pageType": "style-board",
@@ -220,9 +269,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The link-card labels are set at 15px (template .related-links__link font-size: 0.9375rem), a step under the page's body text, so the cards read lighter and smaller than the competitor's link buttons.",
-      "reference": "The competitor's title-case link buttons on the manufacturer page are set in Maison Book 16px, and its body text is 16-17px; no link label is smaller than the body text.",
-      "fix": "In reference.css, set .block .related-pages--grid .related-links__link { font-size: 1rem; } so the card labels match the body/button size; leave padding, outline and column count as they are."
+      "issue": "The link-card labels are still 15px (template .related-links__link font-size: 0.9375rem; reference.css only changes their border colour). That is a step below the page's body text, so the cards read lighter than the section heading and the page's other link buttons at both widths. This was flagged in the last review and has not been repaired.",
+      "reference": "The competitor sets its title-case link buttons in Maison Book at 16px and its body text at 16-17px. None of its link labels is smaller than its body text.",
+      "fix": "In reference.css, add font-size: 1rem to the existing rule .block .related-pages--grid .related-links__link so the card labels match the body and button size. Leave the padding, hairline border, arrow colour and column count as they are."
     },
     {
       "pageType": "style-board",
@@ -230,12 +279,12 @@
       "route": "/style-board/",
       "block": "faq",
       "viewport": "desktop",
-      "severity": "P1",
+      "severity": "P2",
       "scope": "template",
       "gap": "layout",
-      "issue": "The two-column FAQ still sets the heading in a narrow left column with one column of questions to its right, which squeezes 'Frequently Asked Questions' into three one-word lines on the longest sample (this was in the last review and is not fixed).",
-      "reference": "The competitor's FAQ (home 16) puts the eyebrow and heading across the full content width on one line. The closed questions sit below them in two side-by-side columns of hairline rows, each with a + at its right.",
-      "fix": "Give the faq two-column variant a stacked arrangement. The heading spans the top, starting on the content's left edge. Below it, .faq__items is a two-column grid of rows whose column count follows the question length, falling back to one column when the questions are too long for two."
+      "issue": "The two-column FAQ still puts the heading in a left column beside a single column of questions, which leaves a blank band about 900 px tall under 'Frequently Asked Questions' on the longest sample. This was raised as P1 in the last review; it is lowered to P2 because the heading now sits on two lines instead of three.",
+      "reference": "The competitor's FAQ (home 16) puts its eyebrow and heading across the full content width, on a tinted band. The closed questions sit below in two side-by-side columns of hairline rows, each ending in a +.",
+      "fix": "Give the faq two-column variant a stacked layout. The heading spans the top from the content's left edge. Below it, .faq__items is a grid of hairline rows whose column count follows the question length: two columns when the questions fit, one when they are as long as these."
     },
     {
       "pageType": "style-board",
@@ -245,9 +294,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "On the shortest sample the questions still wrap at about 60% of the row ('…World Aquatics-approved for / competition…', '…front- / support panels…'), leaving a gap of roughly 350 px between each question's text and its +/− mark.",
-      "reference": "The competitor's questions run from the row's left edge up to just before the +, so each row reads as one line ending in its mark.",
-      "fix": "In src/styles/reference.css, remove any max-width / measure cap and text-wrap: balance from .block--faq:is([data-variant=\"two-column\"], [data-variant=\"accordion\"], [data-variant=\"open-list\"]) .faq__item h3, so the question fills the summary up to its ::after mark."
+      "issue": "The open answer on the longest sample still runs the full width of the list column, about 90 characters a line ('Yes. Every year we make samples and bulk orders for more than 350 brands, and some of those'), so this 300-word answer is hard to follow from line to line. Raised in the last review and not fixed.",
+      "reference": "The competitor's FAQ rows sit in half-width columns, so their answers stay within a comfortable reading measure.",
+      "fix": "In src/styles/reference.css, add max-width: 70ch to .block--faq:is([data-variant=\"two-column\"], [data-variant=\"accordion\"], [data-variant=\"open-list\"]) .faq__item p (line 415). Leave the summary and h3 at full width so each question still runs up to its +/− mark."
     },
     {
       "pageType": "style-board",
@@ -257,21 +306,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The question list has rules only under each row, so the first question still has no line above it and the list's top edge is undefined next to the heading.",
+      "issue": "The question list still has rules only under each row, so the first question ('Can you show examples…', 'Are any of your men's jammers…') has no line above it and the list has no top edge beside the heading. Raised in the last review and not fixed.",
       "reference": "The competitor draws a hairline above the first row as well, so every question sits between two rules.",
-      "fix": "Add border-top: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent) to .block--faq:is([data-variant=\"two-column\"], [data-variant=\"accordion\"], [data-variant=\"open-list\"]) .faq__items, matching the rules between rows (reference.css line 305)."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--faq-two-column",
-      "route": "/style-board/",
-      "block": "faq",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The open answer runs the full width of the list column, about 820 px or roughly 100 characters a line on the longest sample, so the long answer is hard to follow from line to line.",
-      "reference": "The competitor keeps its FAQ answers in a half-width column, well within a comfortable reading measure.",
-      "fix": "Cap the answer paragraph at a reading measure with max-width: 70ch on .block--faq:is([data-variant=\"two-column\"], [data-variant=\"accordion\"], [data-variant=\"open-list\"]) .faq__item p. Leave the question's width alone so it still runs up to the mark."
+      "fix": "Add border-top: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent) to .block--faq:is([data-variant=\"two-column\"], [data-variant=\"accordion\"], [data-variant=\"open-list\"]) .faq__items. If the rule should sit level with the heading's top, add the 1.25rem top padding back to the first summary (line 421)."
     },
     {
       "pageType": "style-board",
@@ -281,9 +318,9 @@
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "On phones the questions still wrap well short of the column ('Can you show examples of swimwear / you've made for brands selling / in Europe or North America?'), leaving 50–70 px of each row empty and turning rows into three or four ragged lines.",
-      "reference": "The competitor's questions run the full row width up to the + mark.",
-      "fix": "Let .block--faq .faq__item h3 fill the summary width up to the mark on phones, with no max-width and no text-wrap: balance. Keep the 15px bold navy type."
+      "issue": "On phones the list has no rule above the first question either, so 'Can you show examples…' and 'Are any of your men's jammers…' float under the heading, while every other question sits between two rules.",
+      "reference": "The competitor's FAQ opens its list with a hairline above the first row, at every width.",
+      "fix": "Use the same border-top on .block--faq[data-variant=\"two-column\"] .faq__items without a media query, so phones get it too."
     },
     {
       "pageType": "style-board",
@@ -293,9 +330,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "This was flagged in the last review and is still not fixed: at both samples the photo band sits about 20 px in from the screen edge on each side, so it reads as a boxed panel inside the content gutter, not a closing band across the full width.",
-      "reference": "On home 17 the competitor's closing image band runs from edge to edge of the 1440 px viewport with no side margin. Its copy keeps to the content's left edge.",
-      "fix": "In reference.css, make `.block--cta[data-variant=\"image-band\"] .cta` full-bleed: `margin-inline: calc(50% - 50vw); width: 100vw; border-radius: 0`. Keep `.cta__content`'s inline padding at the container gutter so the heading still starts on the content's left edge."
+      "issue": "Flagged in the last review and still not fixed: in both samples the photo band stops about 20 px short of the screen edge on each side, so it looks like a boxed panel inside the content gutter rather than a closing band across the full width.",
+      "reference": "On home 17 the competitor's closing image band runs edge to edge across the 1440 px viewport with no side margin, and its copy keeps to the content's left edge.",
+      "fix": "In reference.css, make `.block--cta[data-variant=\"image-band\"] .cta` full-bleed: `margin-inline: calc(50% - 50vw); width: 100vw; border-radius: 0`. Keep the container gutter as the inline padding of `.cta__content` so the heading still starts on the content's left edge. The 1024px+ `--cta-copy-end` gradient then needs the same `max(0px, (100% - var(--container-max) - 2 * var(--gutter)) / 2) + var(--gutter)` offset that `.block--band` already uses."
     },
     {
       "pageType": "style-board",
@@ -305,9 +342,21 @@
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "This was flagged in the last review and is still not fixed: at 390 px the band is inset by the gutter on both sides and lines up with the FAQ list above it, so it looks like a dark card rather than a full-width photo band.",
-      "reference": "At 390 px the competitor's closing band fills the screen from edge to edge.",
-      "fix": "Use the same full-bleed rule on `.block--cta[data-variant=\"image-band\"] .cta` at every width (`margin-inline: calc(50% - 50vw); width: 100vw`) and keep the gutter as `.cta__content`'s padding."
+      "issue": "Flagged in the last review and still not fixed: at 390 px the band is inset by the gutter on both sides and lines up with the FAQ list above it, so it reads as a dark card rather than a full-width photo band.",
+      "reference": "At 390 px the competitor's closing band fills the screen edge to edge.",
+      "fix": "Apply the same full-bleed rule to `.block--cta[data-variant=\"image-band\"] .cta` at every width (`margin-inline: calc(50% - 50vw); width: 100vw`) and keep the 1.25rem inset as the padding of `.cta__content`."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--cta-image-band",
+      "route": "/style-board/",
+      "block": "cta",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Flagged in the last review and still not fixed: in both samples the copy block is centred vertically in the band (longest: heading to button runs from about 29% to 70% of the band's height; shortest: about 30% to 72%), while the competitor's copy sits low in the band.",
+      "reference": "On home 17 the competitor's eyebrow, h2, paragraph and buttons run from about 43% to 83% of the band's height, leaving the upper part of the photo clear with the copy resting above the lower edge.",
+      "fix": "In reference.css at min-width 1024px, set `[data-variant=\"image-band\"] .cta` to `align-items: flex-end` (or `align-self: end` on `.cta__content`) with `padding-block-end: clamp(3rem, 7vw, 6rem)`. Leave the min-height as it is."
     },
     {
       "pageType": "style-board",
@@ -317,21 +366,9 @@
       "viewport": "mobile",
       "severity": "P2",
       "scope": "content",
-      "issue": "This is still the case: in the longest sample the button label 'TALK TO US ABOUT SWIMWEAR PACKAGING & CUSTOM BRAND LABELS' wraps to three centred lines. That turns the full-width pill into a tall slab almost as heavy as the paragraph above it, which goes against reference.css's own aim of 'its label on one line'.",
-      "reference": "The competitor's band buttons carry one to three words each (BOOK A CALL-BACK, WHATSAPP, VISIT US, EMAIL US), so each one stays a single-line pill on phones.",
+      "issue": "Still the case, though better than before: in the longest sample the button label 'TALK TO US ABOUT SWIMWEAR PACKAGING & CUSTOM BRAND LABELS' still wraps to two centred lines even at the reduced 0.8125rem size. That turns the full-width pill into a tall slab, against reference.css's own aim of keeping the label on one line.",
+      "reference": "The competitor's band buttons carry one to three words each (BOOK A CALL-BACK, WHATSAPP, VISIT US, EMAIL US), so each stays a single-line pill on phones.",
       "fix": "In Site Factory, shorten this CTA's button label to a few words (for example 'Request a label quote') and leave the topic to the heading."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--cta-image-band",
-      "route": "/style-board/",
-      "block": "cta",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The copy is centred top to bottom in the band (heading to button runs from about 29% to 72% of its height), while the competitor's copy sits low in the band.",
-      "reference": "On home 17 the competitor's eyebrow, h2, paragraph and buttons run from about 43% to 83% of the band's height. The upper part of the photo is left clear and the copy rests above the lower edge.",
-      "fix": "In reference.css at min-width 1024px, set `[data-variant=\"image-band\"] .cta` to align its content to the end (`align-items: flex-end`, or `align-self: end` on `.cta__content`). Give it a bottom padding of about 15% of the band height (`padding-block-end: clamp(3rem, 7vw, 6rem)`). Leave the min-height as it is."
     },
     {
       "pageType": "style-board",
@@ -341,9 +378,9 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "site",
-      "issue": "The four cards are still white boxes with a 1px black outline: the filled-panel rule in reference.css (line 236) only applies under main[data-page-type=\"solution\"], so featureGrid:cards on the manufacturer pages these samples come from (/rash-guard-manufacturer/) keeps the wireframe outline.",
-      "reference": "The competitor's featureGrid:cards module (solution sections 2 and 7) uses flat filled panels (white or cream on a tinted band, cream or light blue on navy) with a small radius and no outline.",
-      "fix": "In src/styles/reference.css widen the selector of the rule at line 236 from main[data-page-type=\"solution\"] [data-variant=\"outlined\"] .feature-card to the featureGrid cards variant on every page type (e.g. .block--featureGrid[data-variant=\"outlined\"] .feature-card { border-color: transparent; background: var(--surface-secondary); }), keeping --radius-card."
+      "issue": "The four cards are still white boxes with a 1px dark outline (repeat of the earlier finding: the fill rule at src/styles/reference.css line 297 only applies under main[data-page-type=\"solution\"], so this /rash-guard-manufacturer/ sample keeps the outline).",
+      "reference": "The competitor modules this board is matched to (solution sections 2 and 7) use flat filled panels with a small radius and no outline: white or cream on a cream band, cream or light blue on navy. Only the home page's separate outlined trio uses a 1px border.",
+      "fix": "In src/styles/reference.css widen the selector at line 297 from main[data-page-type=\"solution\"] [data-variant=\"outlined\"] .feature-card to every page type (e.g. .block--featureGrid[data-variant=\"outlined\"] .feature-card { border-color: transparent; background: var(--surface-secondary); }), keeping --radius-card."
     },
     {
       "pageType": "style-board",
@@ -353,9 +390,9 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "site",
-      "issue": "The two wide cards keep the same thin black outline on white, so the short set reads as two mostly empty framed boxes; the solution-only fill rule does not reach this manufacturer-page sample.",
-      "reference": "The competitor's two-card row (\"Choose from 100,000 m in stock\" / \"Digital prints\") is made of filled rounded panels without borders.",
-      "fix": "The same change as m2: apply the no-border, var(--surface-secondary) fill to the featureGrid cards variant regardless of page type."
+      "issue": "The two wide cards are still thin black outlines on white (repeat), so the short set reads as two mostly empty framed boxes. The fill rule limited to solution pages does not reach this /one-piece-swimsuit-manufacturer/ sample.",
+      "reference": "The competitor's two-card row (\"Choose from 100,000 m in stock\" / \"Digital prints\") is made of filled, rounded panels with no border.",
+      "fix": "The same change as for m2: apply the borderless var(--surface-secondary) fill to the featureGrid cards variant on every page type, not only under main[data-page-type=\"solution\"]."
     },
     {
       "pageType": "style-board",
@@ -365,9 +402,21 @@
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "On phones the section heading (\"Rash Guard Fabrics, UPF Ratings and Certifications\") appears to be set at the manufacturer heading weight (500), while the card titles under it are 700 and grow to 1.5rem, so \"Performance fabric range\" reads about as strong as the h2 and the step from section heading to card title is lost.",
-      "reference": "The competitor's card section heading clearly outranks its card titles, which are smaller and no heavier than the heading.",
-      "fix": "In src/styles/reference.css set .feature-card__title to font-weight: var(--weight-heading) rather than a fixed 700, so the card titles take the heading weight of their page type (500 on manufacturer pages); leave every font-size to the template."
+      "issue": "On phones the card titles (\"Performance fabric range\", fixed at font-weight 700 by reference.css line 108) look bolder than the section heading \"Rash Guard Fabrics, UPF Ratings and Certifications\" and almost as large, so the step from section heading to card title is lost (repeat, not yet fixed).",
+      "reference": "The competitor's section heading (\"Selecting Colours and adding Digital Prints\") clearly outranks its card titles, which are smaller and no heavier.",
+      "fix": "In src/styles/reference.css set .feature-card__title to font-weight: var(--weight-heading) instead of a fixed 700, so card titles take the heading weight of their page type. Leave every font-size to the template."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--featureGrid-cards",
+      "route": "/style-board/",
+      "block": "m2",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The card title \"Lightweight warm-water fabrics\" breaks at its compound hyphen, leaving \"Lightweight warm-\" on one line and \"water fabrics\" on the next, at both widths. The other three titles in the row break between words.",
+      "reference": "The competitor's card titles (\"Choose from 100,000 m in stock\", \"Digital prints\") break only between words.",
+      "fix": "Site Factory: rephrase the title so it does not depend on the hyphenated compound (e.g. \"Lightweight fabrics for warm water\"), or join it with a non-breaking hyphen (U+2011) in the copy."
     },
     {
       "pageType": "style-board",
@@ -378,9 +427,21 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "This sample's heading 'Ready-to-Brand Curvy Collections and Low-MOQ Trend Drops' is still set in regular weight. The same module's heading in m2 ('Recycled Fabrics and Low-Impact Production') is bold 700, so one module shows two heading weights depending on how long its copy is (the same on mobile).",
+      "issue": "Not fixed since the last review: the heading 'Ready-to-Brand Curvy Collections and Low-MOQ Trend Drops' is still in regular weight, while the same module's heading in m2 ('Recycled Fabrics and Low-Impact Production') is bold 700, so one module shows two heading weights depending on how long its copy is. The phone shot shows the same.",
       "reference": "The competitor keeps one heading weight per level: its h2s are always in the bold heading face, and only the size follows the words.",
-      "fix": "In the bullets module's heading CSS (patterns.css, .point-list__intro h2 / the fitted section heading), fix font-weight at the h2 weight (700) whatever the fit step, so fitting changes only font-size and never the weight."
+      "fix": "In the bullets module's heading CSS (patterns.css, .point-list__intro h2 / the fitted section heading), hold font-weight at the h2 weight (700) at every fit step, so fitting changes only font-size and never the weight."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--featureGrid-bullets",
+      "route": "/style-board/",
+      "block": "m2",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The intro (heading and lead) ends about a third of the way down a list roughly 1000 px tall and stays put, so the left column is an empty white band for most of the section's height while the points scroll past.",
+      "reference": "The competitor's long lists beside a heading keep the heading in sight next to the list. This site already does that for the process list's intro (.block--process .point-list__intro is sticky).",
+      "fix": "In src/styles/reference.css, make the bullets intro sticky on wide screens as the process list's is: @media (min-width: 900px) { .point-list__intro { position: sticky; top: 6rem; align-self: start; } }."
     },
     {
       "pageType": "style-board",
@@ -390,9 +451,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "With only two points, the list still runs as one column across the whole right track, so its lines run to about 90-95 characters ('Our low-MOQ, ready-to-brand trend drops let you test what sells in your market before you'). The reading-width cap in reference.css still does not reach the point items.",
-      "reference": "The competitor keeps body copy beside a heading to short lines of about 60-75 characters.",
-      "fix": "In src/styles/reference.css cap the point items' measure (e.g. .point-list__item { max-inline-size: 70ch; }) so lines stay short whatever the item count."
+      "issue": "Not fixed since the last review: with only two points, the list still runs as one column across the whole right track, so its lines run to about 90–95 characters ('Our low-MOQ, ready-to-brand trend drops let you test what sells in your market before you'). The 70ch cap in reference.css applies only to .block p and does not reach .point-list__item.",
+      "reference": "The competitor keeps body copy beside a heading to short lines of about 60–75 characters.",
+      "fix": "In src/styles/reference.css, cap the point items' measure (e.g. .point-list__item { max-inline-size: 70ch; }) so lines stay short whatever the item count."
     },
     {
       "pageType": "style-board",
@@ -402,9 +463,9 @@
       "viewport": "mobile",
       "severity": "P1",
       "scope": "site",
-      "issue": "Still open from the last review: at 390 px the four-column size table runs past the right edge, so the Weight column shows only 'We' / '12 kg' cut at the screen edge with a faint shade as the only sign it scrolls, while short cells wrap word by word ('About / 2 / years') and make every row three lines tall.",
-      "reference": "Nothing on the competitor's phone pages is cut off at the edge; any row that runs sideways shows a clear cue that it moves.",
-      "fix": "In reference.css at max-width 600px tighten .block--table .table-block th/td padding (e.g. 0.6rem 0.5rem, first cell padding-inline-start 0) and set white-space: nowrap on the short value cells (td:not(:last-child)) so four short columns fit 350 px. Where they still can't fit, give .table-block__scroll[data-scroll=\"sideways\"] a wider, darker right-edge fade."
+      "issue": "Still open after two reviews: at 390 px the four-column size table still runs past the right edge. The Weight column shows only 'We' and '12 / kg' clipped at the screen edge, and a faint shade is the only sign the table scrolls. Meanwhile the short cells wrap word by word ('About / 2 / years', 'Size / option'), so every row is three lines tall.",
+      "reference": "On the competitor's phone pages nothing is clipped at the edge; their facts read in full at the content width.",
+      "fix": "In reference.css, inside @media (max-width: 600px): set .block--table .table-block :is(th, td) { padding-inline: 0.5rem } with :first-child { padding-inline-start: 0 }, and set white-space: nowrap on the short cells (td:not(:last-child), thead th). The four short columns then fit about 350 px and the last one wraps. If they still overflow, make the right-edge fade on .table-block__scroll[data-scroll=\"sideways\"] wider and darker so the cut-off reads as a sideways scroll."
     },
     {
       "pageType": "style-board",
@@ -414,9 +475,9 @@
       "viewport": "mobile",
       "severity": "P1",
       "scope": "site",
-      "issue": "Still open from the last review: at 390 px the label column ('Detail') takes about 44% of the table, so the spec column is squeezed to about 20–22 characters a line and each row runs 6–15 lines ('Humid storage', 'Adhesive compatibility'), turning the 315-word table into a long, narrow strip of broken text over about 1,900 px.",
-      "reference": "The competitor's phone text runs the full content width in lines of about 35–45 characters (16px/26px body); none of its sections packs prose into a column this narrow.",
-      "fix": "In reference.css at max-width 600px stack the two-column .block--table .table-block: tr display:block with its border-bottom, th/td display:block, the first cell as a small bold label over a full-width text cell, thead visually hidden. Failing that, set the first column to inline-size ~30% (th:first-child, td:first-child) so the text column gets the width."
+      "issue": "Still open: at 390 px the label column ('Detail') still takes about 40% of the table. That squeezes the spec column to about 20 characters a line, so rows run 6 to 15 lines ('Humid storage', 'Adhesive compatibility') and the 315-word table becomes a narrow strip about 1,900 px tall with empty space under every label.",
+      "reference": "The competitor's phone text runs the full content width at about 35–45 characters a line; it never packs prose into a column this narrow.",
+      "fix": "In reference.css, inside @media (max-width: 600px), stack the two-column table: .block--table .table-block:not(:has(thead tr > :nth-child(3))) tr { display: block; border-bottom: 1px solid var(--border-table) } and its th, td { display: block; border: 0; padding-inline: 0 }. Make the first cell a bold label over a full-width text cell, and hide the thead visually. Keep the four-column m5 table as a table."
     },
     {
       "pageType": "style-board",
@@ -426,9 +487,9 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "site",
-      "issue": "The 'Specification and consequence' column still runs about 110–115 characters a line ('Made from 90% recycled materials and available in 3 shapes: thong, standard bikini and full coverage. The water-'). The table still spans the full content width of about 1130 px, so the repair since the last review (.block--table .table-block__scroll { max-width: calc(70ch + 20rem) }) has not given a reading-length line.",
-      "reference": "The competitor keeps body text to a short measure, about 60–75 characters a line at 16–17px.",
-      "fix": "Check that the max-width rule reaches the scroll wrapper (its selector or the ch it measures against). Otherwise cap the text cells directly: .block--table .table-block td:last-child { max-inline-size: 70ch } with the table at inline-size: auto, so the spec column keeps about 70 characters beside the label column."
+      "issue": "Still open: the 'Specification and consequence' column still runs about 100–115 characters a line ('Made from 90% recycled materials and available in 3 shapes: thong, standard bikini and full coverage. The water-'). The table still spans the whole content width of about 1,130 px, so .block--table .table-block__scroll { max-width: calc(70ch + 20rem) } is not taking effect.",
+      "reference": "The competitor keeps body text to a short measure of about 60–75 characters a line.",
+      "fix": "Check that the max-width actually reaches the wrapper that sets the table's width; the table itself may be the element at width: 100% of the section. If it doesn't, cap the cells directly: .block--table .table-block table { inline-size: auto; max-inline-size: 100% } and .block--table .table-block td:last-child { max-inline-size: 70ch }. The text column then keeps about 70 characters beside the label column, starting at the heading's left edge."
     },
     {
       "pageType": "style-board",
@@ -438,21 +499,21 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "Still open from the last review: the m5 heading ('Toddler Sizes and Custom Size Runs') is set in a regular weight while m9's table heading on the same board is bold (DM Sans 700), so two table headings of the same level show different weights (same at 390 px).",
+      "issue": "Still open: the m5 heading ('Toddler Sizes and Custom Size Runs') is still set in a regular weight, while m9's table heading on the same board is bold DM Sans 700. Two headings of the same level show different weights, at 390 px as well.",
       "reference": "The competitor sets every section h2 in one heavy weight throughout.",
-      "fix": "Give .block--table .table-block__heading the site h2 weight, font-weight: 700, leaving its fitted size untouched."
+      "fix": "Set font-weight: 700 on .block--table h2 (the table block's heading, in every variant) to match the site's h2 weight, and leave its fitted size alone."
     },
     {
       "pageType": "style-board",
       "review": "board--table-grid",
       "route": "/style-board/",
       "block": "m9",
-      "viewport": "desktop",
+      "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "The header row of both tables sits on a 2px solid black rule (patterns.css .table-block thead th { border-bottom-width: 2px }), much heavier than the light row hairlines below it, at both widths. This goes against the treatment's own note that tables carry single light rules.",
-      "reference": "The competitor's facts carry hairlines only, with no heavy rules.",
-      "fix": "In reference.css set .block--table .table-block thead th { border-bottom-width: 1px; border-bottom-color: color-mix(in srgb, var(--text-primary) 35%, transparent) } so the header keeps a hairline, slightly darker than the row rules."
+      "issue": "At 390 px the first cell of each row (and the header) is inset about 16 px from the content's left edge, so the labels 'Detail', 'Kraft paper' and 'Size option' start to the right of the heading and intro above them. Their row rules still start at the edge (m5 too).",
+      "reference": "The competitor starts its section text and facts on one left edge.",
+      "fix": "In reference.css, inside @media (max-width: 600px): .block--table .table-block :is(th, td):first-child { padding-inline-start: 0 }."
     },
     {
       "pageType": "style-board",
@@ -462,9 +523,9 @@
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "On phones the quote button still runs the full column width (about 350 px, larger label type than the body) and reads as a heavy black bar under the copy; this asks again for the earlier P2's change and so undoes the phone full-width rule in reference.css for this module, because the mobile shot shows the competitor's inline CTA uses small buttons, not full-width pills.",
-      "reference": "The competitor's inline CTA (product_manufacturer 13) keeps its two black buttons small and sized to their one-line labels on phones, sitting side by side under the text with an 8px radius and 12px 24px padding.",
-      "fix": "In src/styles/reference.css, keep the max-width: 767px full-width rule for the other CTA variants but override it for the inline one: .block--cta[data-variant=\"inline\"] .cta .button { width: auto; max-width: 100%; padding: 12px 24px; } so the button is sized to its label and starts on the left edge under the paragraph."
+      "issue": "On phones the quote button in both samples still fills the whole column (about 350 px) and reads as a heavy black bar under the copy, so the last review's P2 is not fixed yet. The fix takes the inline CTA out of the phone full-width button rule in reference.css, which an earlier finding added for the closing bands. That is needed here because the mobile shot shows the competitor's inline CTA keeping small buttons sized to their labels.",
+      "reference": "The competitor's inline CTA (product_manufacturer 13) keeps its two black buttons small on phones. They sit side by side under the text, each sized to its one-line label, with an 8px radius and 12px 24px padding.",
+      "fix": "In src/styles/reference.css, leave the @media (max-width: 767px) `.block--cta .cta .button { width: 100% }` rule in place for the band and form variants, and add an override for the inline variant after it: `@media (max-width: 767px) { .block--cta[data-variant=\"inline\"] .cta .button { width: auto; max-width: 100%; padding-inline: 1.5rem; } }`. The button then fits its label and starts on the left edge under the paragraph."
     },
     {
       "pageType": "style-board",
@@ -475,9 +536,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "The hairline linking the circles is still drawn only along the first row and runs on past the last circle to the content's right edge (01–03 in both samples). The six-step sample's second row (04–06) has no line at all, so the two rows of one sequence look like two different treatments (the earlier finding, not yet fixed).",
-      "reference": "The competitor's step rows (the timeline row on navy) draw one continuous hairline across the steps of the row it belongs to, and the line ends at the last step.",
-      "fix": "In the shared process:circles CSS, draw the connector per step: a `::after` line on each step's marker running to the next marker in the same row, left off the last step of each row. Do not draw one line across the list's first row."
+      "issue": "The line joining the circles is still drawn only along the first row, and it runs past the last circle (03) to the content's right edge in both samples, while the six-step sample's second row (04–06) has no line, so one sequence looks like two different treatments (raised in the last review and still not fixed).",
+      "reference": "The competitor's step rows (the timeline row on navy) draw one continuous thin line across the steps of their own row, and the line ends at the last step.",
+      "fix": "In the shared process:circles CSS, draw the line per step: a `::after` on each step's marker running to the next marker in the same row, left off each row's last step, in place of the single line under the list's first row."
     },
     {
       "pageType": "style-board",
@@ -487,21 +548,9 @@
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "On phones the longest sample's heading ('OEM Bikini Sampling, / Lead Times, Payment / and Shipping') wraps to three lines at line-height 1. The descenders of one line nearly touch the capitals of the next, so the heading reads as a tight block.",
-      "reference": "The competitor sets its multi-line headings with clear leading: the hero headline at 88/96.8px (1.1) and section h2s at 60/84px (1.4).",
-      "fix": "In reference.css, open the leading set by `.block h2 { line-height: 1; }` to about 1.15–1.2 (as `.page-hero h1` has at 1.15). Leave the size and fit variables with the template."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--proof-band",
-      "route": "/style-board/",
-      "block": "m9",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "At 390px the three-column fabric table is still squeezed inside the padded tinted panel, so most cells wrap to one or two words a line ('Standard / spandex / blends', 'LYCRA Xtra / Life, / Carvico, / ECONYL, / REPREVE', 'Relative / price'). Rows run three to five lines high, and the table is taller than the section's copy above it. This repeats the earlier finding: the shot shows the fix was not made.",
-      "reference": "The competitor's intro/proof modules run plain text across the full content width on phones, with no inset panel taking width from it.",
-      "fix": "In reference.css, under 600px, cut the inline padding of the m9-charts tinted panel (the section-charts table wrapper) to about 0.75rem. Set `.prose__table :is(th, td)` (the charts table cells) to an inline padding of about 0.5rem so the three columns get that width back."
+      "issue": "On phones the longest sample's heading ('OEM Bikini Sampling, / Lead Times, Payment / and Shipping') still wraps to three lines at line-height 1, so each line's descenders nearly touch the capitals below and the heading reads as a cramped block (raised in the last review; `.block h2 { line-height: 1; }` is unchanged).",
+      "reference": "The competitor gives its headings that run over several lines clear spacing between lines: the hero headline at 88/96.8px (1.1) and section h2s at 60/84px (1.4).",
+      "fix": "In reference.css, raise `.block h2 { line-height: 1; }` to about 1.15–1.2, as `.page-hero h1` has at 1.15; leave the size and the fit variables to the template."
     },
     {
       "pageType": "style-board",
@@ -511,21 +560,57 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The section heading 'What Drives Your Fabric Cost' is set in DM Sans 700, a heavy bold. The competitor's matching intro/proof heading ('Your Collection, Kept On Track') is a light, regular-weight display line, so ours reads much darker than the module it follows.",
-      "reference": "The competitor sets its intro/proof H2 large and light (regular or book weight), with weight used only on short bold phrases inside the body text.",
-      "fix": "In reference.css, set `.block--proof h2` to a lighter weight (400–500, DM Sans 500 is loaded). Leave the size alone, since the template fits it to the words."
+      "issue": "The section heading 'What Drives Your Fabric Cost' is still set in heavy bold (DM Sans 700) at both widths, while the competitor's matching intro/proof heading ('Your Collection, Kept On Track') is a light, regular-weight display line. This repeats the earlier finding: reference.css has no `.block--proof h2` weight rule, and the shots still show the bold heading.",
+      "reference": "The competitor sets its intro/proof heading large and light (regular or book weight), and uses bold only for short phrases inside the body text ('product development coordinator', 'we care about your brand as much as you do').",
+      "fix": "In reference.css, set `.block--proof[data-variant=\"band\"] h2 { font-weight: 500; }` (or 400). Leave its size to the template's fit."
     },
     {
       "pageType": "style-board",
       "review": "board--proof-band",
       "route": "/style-board/",
-      "block": "proof-5",
+      "block": "m9-charts",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "The same lighter-weight treatment applies to the proof band's heading wherever one is present. With no heading, the shortest sample is a lone 34-word paragraph sitting straight under the beige table panel, and the gap above it is wider than the gap between m9's paragraphs and its table. It reads as a stray line rather than a section.",
-      "reference": "The competitor's proof blocks without a heading sit as a short text block with the same even section gap above and below.",
-      "fix": "In reference.css, make the top padding of a `.block--proof` that has no h2 match the section rhythm used between m9 and m9-charts, so the gaps are equal."
+      "issue": "At 390px the three-column fabric table wraps most cells to one or two words a line ('Standard / spandex / blends', 'LYCRA Xtra / Life, / Carvico, / ECONYL, / REPREVE', 'Relative / price'), so rows run three to five lines high. The earlier finding asked for less panel padding, but the panel's inset is already small; the space goes to the cell padding and the full-size body type in three columns.",
+      "reference": "The competitor's intro/proof modules run their text in comfortable lines on phones, with no column squeezed to a word a line.",
+      "fix": "In reference.css, under 600px, set `.prose__table :is(th, td)` to an inline padding of about 0.375rem and the table's font-size to about 0.9375rem, so the two value columns get their width back and the header cells hold to two lines."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--splitMedia-panel",
+      "route": "/style-board/",
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "In the shortest sample the grey photo and the blush copy panel are two separate boxes with a white strip about 30 px wide between them, so the panel does not read as one blush block joined to its photo.",
+      "reference": "The competitor's sampling module (product_manufacturer 10) sets the blush copy panel directly against the photo, with no gap: one joined rectangle split into blush text and photo.",
+      "fix": "In src/styles/reference.css set `.block--split[data-variant=\"panel\"] .split { column-gap: 0; }` so the photo and .split__copy meet. Keep the equal top and bottom edges and the copy centred on the photo's middle as they are."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--splitMedia-panel",
+      "route": "/style-board/",
+      "block": "m7",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones the photo stacks under the blush panel with a white strip about 25 px tall between them, although the panel and photo already run to the band's edges as one unit.",
+      "reference": "The competitor's panel and photo touch, with no gap between the blush panel and the photo.",
+      "fix": "In the existing `@media (max-width: 899px)` rule for `.block--split[data-variant=\"panel\"] .split`, add `row-gap: 0` so the stacked photo meets the panel's lower edge."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--splitMedia-panel",
+      "route": "/style-board/",
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "content",
+      "issue": "The longest sample (/rash-guard-manufacturer/) has no photo, so the blush panel spans the whole content width with its copy in the left 60% and an empty blush area of about 40% on the right, which reads as a missing image.",
+      "reference": "The competitor's panel module always pairs the blush copy half with a photo half; there is no copy-only panel.",
+      "fix": "Have Site Factory supply the photo for block m7 on /rash-guard-manufacturer/, so the split renders the photo and panel side by side like the shortest sample."
     },
     {
       "pageType": "style-board",
@@ -535,9 +620,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The previous review asked for wider side padding and it has not been applied: the cards still have about 20px (1.25rem) on each side, against about 36px above the title under the number badge, so titles and text sit close to the white outline.",
-      "reference": "The competitor's outlined cards use about 32px of padding on every side, so the content sits evenly inside the outline.",
-      "fix": "In reference.css, set padding-inline: 2rem on .block--process[data-variant=\"photo-cards\"] .process-step (patterns.css:605 still sets 1.25rem), and move the .process-step__marker left offset to the same 2rem so the badge stays over the title's edge."
+      "issue": "The line that opens the section, 'How size-by-size print placement works', is the block's lead with no heading above it, so it renders at body size and regular weight. That makes it smaller and lighter than the bold card titles under it, and the section reads upside down. m7-steps' 'Care steps from our rash guard labels.' has the same problem at both widths. The earlier review sent this to content, but reference.css already has a rule for leads without a heading (lines 366–367); it covers the list and timeline variants and leaves out photo-cards.",
+      "reference": "The competitor opens its sections with a bold heading above the cards, heavier than the card titles.",
+      "fix": "In reference.css, add `.block--process[data-variant=\"photo-cards\"] .process:not(:has(> .process__heading)) > .block__lead` to the selector at lines 366–367. That sets the lead in the heading face at --size-card-heading, at the heading weight, in --heading-color (white here)."
     },
     {
       "pageType": "style-board",
@@ -547,33 +632,45 @@
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "Each stacked card still has about 50px of empty space under its last line (for example, card 01 ends its text near y 640 and its outline near y 690) against about 36px above the title, so every card looks bottom-heavy; this was reported before and the shots show it unchanged.",
-      "reference": "The competitor's cards use the same padding on every side, so the content sits evenly inside the outline.",
-      "fix": "In reference.css, set margin-bottom: 0 on .block--process[data-variant=\"photo-cards\"] .process-step > :last-child, so the card's own bottom padding (1.5rem) is the only space under the text."
+      "issue": "The earlier review asked for wider side padding, and it is still not applied. Each card keeps about 20px on each side (card 01: outline at x 434, text at x 455), against about 40px above the title under the number badge, so titles and text sit close to the white outline. The desktop cards show the same, in both blocks.",
+      "reference": "The competitor's outlined cards pad their content evenly on every side, about 32px.",
+      "fix": "In reference.css, set `padding-inline: 2rem` on `.block--process[data-variant=\"photo-cards\"] .process-step` (patterns.css:605 still sets 1.25rem). Move the `.process-step__marker` left offset to the same 2rem so the badge stays over the title's edge."
     },
     {
       "pageType": "style-board",
       "review": "board--process-photo-cards",
       "route": "/style-board/",
-      "block": "m3-steps",
-      "viewport": "desktop",
+      "block": "m7-steps",
+      "viewport": "mobile",
       "severity": "P2",
-      "scope": "content",
-      "issue": "The line above the cards, 'How size-by-size print placement works', reads as a heading (it has no full stop) but comes as a lead paragraph, so it renders at body size and regular weight, smaller and lighter than the bold card titles under it, and the section's hierarchy reads upside down (m7-steps' 'Care steps from our rash guard labels.' has the same problem on both widths).",
-      "reference": "The competitor's sections open with a bold heading above their cards, heavier than the card titles.",
-      "fix": "Site Factory should either give the block this line as its heading (block.heading, which renders as the h2 .process__heading) or rewrite it as a full lead sentence that follows on from the section heading it continues."
+      "scope": "site",
+      "issue": "Each stacked card still has about 50px of empty space under its last line, against about 40px above the title, so every card looks bottom-heavy. For example, card 01 ends its text near y 640 and its outline near y 690. This was reported before and the shots show it unchanged; m3-steps' cards show the same.",
+      "reference": "The competitor's cards use the same padding on every side, so the content sits evenly inside the outline.",
+      "fix": "In reference.css, set `margin-bottom: 0` on `.block--process[data-variant=\"photo-cards\"] .process-step > :last-child`, so the card's own bottom padding (1.5rem) is the only space under the text."
     },
     {
       "pageType": "style-board",
       "review": "board--splitMedia-wide",
       "route": "/style-board/",
-      "block": "m7",
+      "block": "splitMedia-1",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "In splitMedia:wide the copy column lets body paragraphs run about 800 px at body size, about 100 characters a line (m7 'Most of our partnerships … before you place', splitMedia-1 '… after-sales support. We've'), well past the ~70ch measure, which makes the long copy tiring to read.",
+      "issue": "Still not fixed from the last review: the splitMedia:wide body paragraphs still run about 800 px at body size, close to 100 characters a line ('customisable development, production and worldwide delivery, and on to after-sales support. We've'), well past the ~70ch measure, while only the lead keeps to a short line; the existing 70ch cap in reference.css (main[data-authoring-page] .block p) does not reach this row as the board renders it.",
       "reference": "The competitor keeps running text in short columns of about 60–75 characters, and treatment-practice.md holds running text to about 70ch at every width.",
-      "fix": "In src/styles/reference.css, cap the body paragraphs' max-width at about 68ch for the splitMedia:wide copy column, and leave the heading and the full-width photo as they are."
+      "fix": "In src/styles/reference.css, add the cap to the split row's own copy (e.g. .block--split .split__copy p { max-width: 68ch; }) so it applies wherever the module renders, not only under main[data-authoring-page]; leave the heading and the full-width photo as they are."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--splitMedia-wide",
+      "route": "/style-board/",
+      "block": "splitMedia-1",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones the wide row's photo, stacked under about 750 px of copy, stays the desktop's shallow strip (about 350 × 153 px, roughly 2.3:1). It reads as a thin band rather than a photo, because the phone rule meant to give it its own shape (reference.css, comment 'Phones: the wide row's photo … shows in its own shape') has an empty body.",
+      "reference": "The competitor's photos beside text keep a full photo shape on phones (about 4:3 to 3:2), not a strip cut for a 1440 px row.",
+      "fix": "Fill the empty @media (max-width: 767px) block in src/styles/reference.css with an aspect-ratio of about 4/3 on the wide variant's media frame (e.g. .block--split[data-variant=\"wide\"] .split__media { aspect-ratio: 4 / 3; } with object-fit: cover on its img), or delete the empty block and its comment if the strip is intended."
     },
     {
       "pageType": "style-board",
@@ -583,9 +680,9 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "content",
-      "issue": "The band still has no heading: it opens with a body-size lead (\"Our full-package service, from brief to shipment.\") straight above the steps, so the section has no title.",
+      "issue": "The band still has no heading: a body-size lead (\"Our full-package service, from brief to shipment.\") sits directly above the steps, so the section has no title at either width.",
       "reference": "The competitor's band opens with an eyebrow (\"HOW IT WORKS\") and a large H2 (\"Six steps from Costing to delivery\") above the rule that leads into the steps.",
-      "fix": "Site Factory should give this process block a heading (e.g. \"Seven steps from brief to shipment\") so it renders h2.process__heading above the lead."
+      "fix": "Site Factory should give this process block a heading (e.g. \"Seven steps from brief to shipment\") so h2.process__heading renders above the lead."
     },
     {
       "pageType": "style-board",
@@ -595,7 +692,7 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "content",
-      "issue": "The band still has neither a heading nor a lead: five bare steps start under an empty band of top padding, so the dark section has no visible purpose.",
+      "issue": "The band still has neither a heading nor a lead. Five bare steps start under an empty band of top padding (also on phones, about 100 px before the first rule), so the dark section has no visible purpose.",
       "reference": "The competitor's band always opens with an eyebrow and an H2 naming the process before the numbered steps.",
       "fix": "Site Factory should give faq-steps a heading (e.g. \"How a consulting project runs\") and, if it has one, a short lead."
     },
@@ -603,37 +700,13 @@
       "pageType": "style-board",
       "review": "board--process-band",
       "route": "/style-board/",
-      "block": "faq-steps",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "On phones each step number (\"01\", \"02\"…) still stands in a 44 px-tall box, so the gap from number to title (about 45 px) is larger than the gap from title to text. The number reads as cut off from its step, and the five one-line steps run about 900 px.",
-      "reference": "The competitor's step number is a small label directly above its step name, closer to it than to the step before.",
-      "fix": "In reference.css, add height: auto to .block--process[data-variant=\"band\"] .process-step__marker (width: auto is already set), so the step's 0.75rem gap is all that separates number and title."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--process-band",
-      "route": "/style-board/",
-      "block": "splitMedia-1-steps",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "Here too the 44 px-tall number box leaves about 45 px between each number and its title, nearly as much as between steps, so the seven stacked steps lose their grouping and the band runs about 1,500 px.",
-      "reference": "The competitor keeps each number tight above its step name, so every step reads as one unit.",
-      "fix": "The same change: height: auto on .block--process[data-variant=\"band\"] .process-step__marker in reference.css."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--process-band",
-      "route": "/style-board/",
       "block": "splitMedia-1-steps",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The step numbers are still white like the body text, and the rule runs level with them (broken by each number) instead of above them, so the numbers do not read as an accent.",
-      "reference": "The competitor sets its step numbers (\"01\"–\"06\") small, bold and in its light-blue accent, a clear space below one full-width rule.",
-      "fix": "In reference.css, set --process-marker-text on .block--process[data-variant=\"band\"] to the light accent (the button's cyan), and move the band's .process-steps::before rule above the numbers (top: 0, with padding-top on .process-steps for the space below it)."
+      "issue": "The step numbers are still white like the body text, and the band's rule still runs level with the first row's numbers (patterns.css .process-steps::before, top: 22px) rather than above them. The second row (05–07) has no rule at all, so the numbers do not read as an accent and the two rows are styled differently.",
+      "reference": "The competitor sets its step numbers (\"01\"–\"06\") small, bold and in its light-blue accent, a clear space below one full-width rule that sits under the heading and above every step.",
+      "fix": "In reference.css, set --process-marker-text on .block--process[data-variant=\"band\"] to the light accent (the button's cyan). For min-width 768px, move the band's .process-steps::before to top: 0 with left/right: 0, and give .process-steps padding-top (about 2rem) so the one rule stands above both rows of numbers."
     },
     {
       "pageType": "style-board",
@@ -644,9 +717,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The heading 'A recent order' starts on the content's left edge, but the case cards under it are a narrow stack (about 46rem) centred in the column. In both samples the cards start roughly 330px to the right of the heading and leave an empty band on the left, so heading and cards do not share an edge.",
-      "reference": "The competitor sets each section's heading, text and cards in one column from the same left edge. None of its sections pairs a left-set heading with a centred block of content.",
-      "fix": "In src/styles/patterns.css, change `.order-cases` (max-width: 46rem; margin-inline: auto) to `margin-inline: 0` when body[data-heading-align=\"start\"] is set, so the stack starts on the heading's edge and max-width stays only as the line-length limit. Alternatively, let the stack fill the content width as an equal-column grid that puts several cards side by side."
+      "issue": "This is still unfixed from the last review. The heading 'A recent order' starts on the content's left edge, but in both samples the case cards are a narrow stack of about 46rem centred in the column. The cards start about 330px right of the heading, leaving an empty band on the left and about a third of the width empty on the right, so the heading and cards share no edge.",
+      "reference": "The competitor sets each section's heading, text and cards in one column from the same left edge. It never pairs a left-set heading with a centred block of content. Its outlined cards (1px #979797, radius 6–10px) sit in the content grid, never as a floating centred stack.",
+      "fix": "In the template's src/styles/patterns.css, give `.order-cases` `margin-inline: 0` instead of `auto` when body[data-heading-align=\"start\"] is set. The stack then starts on the heading's edge, and max-width stays only as the line-length limit. Alternatively, let the stack fill the content width as an equal-column grid with the cards side by side."
     },
     {
       "pageType": "style-board",
@@ -657,7 +730,7 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "The same three-word heading 'A recent order' renders at about 60px in the longest sample and about 40px in the shortest. Identical headings in the same module fit to different sizes depending on how much body copy the block has.",
+      "issue": "This is still unfixed from the last review. The same three-word heading 'A recent order' renders at about 60px in the longest sample and about 40px in the shortest, so the same heading in the same module gets a different size depending on how much body copy the block has.",
       "reference": "The competitor uses one size per heading level in every section, so a section heading looks the same wherever it appears.",
       "fix": "Make the template's heading fit for the orderCase heading depend only on the heading's own words, so identical headings get the same size whatever the length of the block's body copy. Change only the fit logic; add no font-size rule."
     },
@@ -669,21 +742,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The type order is the wrong way round: each bold question is set smaller than the answer under it. This shows on desktop (questions about 13px against roughly 15px answers) and on phones (about 15px against 17px), so the open answer looks louder than the question that opens it.",
-      "reference": "In the competitor's bars, the bold question (\"Do I need a tech pack?\") is clearly bigger than the light answer copy under it.",
-      "fix": "In reference.css, set the answer text of .block--faq[data-variant=\"bars\"] (the details body, not the summary) one type step below the summary, e.g. font-size: var(--step--1) or 0.9375rem. This gives the question the larger size without setting any heading size."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--faq-bars",
-      "route": "/style-board/",
-      "block": "faq",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The bars run the full 1400px content width. One-line questions of about 100 characters end halfway across, and the +/− mark sits some 600px further right, cut off from the question it belongs to.",
-      "reference": "The competitor keeps its bars in a narrower column, so each question and its toggle read as one bar.",
-      "fix": "Give the bar list of .block--faq[data-variant=\"bars\"] a max-width set in ch to the longest question (around 90–100ch), left-aligned under the heading. This is a reading measure, not the competitor's pixel width."
+      "issue": "This repeats an earlier finding that the shots still show: the bars run the full content width (about 1400px), so one-line questions stop halfway across and the +/− sits several hundred pixels away from its question. The open answer also wraps at about half that width, so the question and its answer don't share a measure.",
+      "reference": "The competitor keeps its bars in a narrower column. Question, marker and answer read as one bar, and the answer runs nearly the bar's full width.",
+      "fix": "In reference.css, give the item list of .block--faq[data-variant=\"bars\"] a max-width in ch sized to the longest question (about 90–100ch), left-aligned under the heading. Let the answer fill that bar. This is a reading measure, not the competitor's pixel width."
     },
     {
       "pageType": "style-board",
@@ -694,9 +755,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "This repeats an earlier finding that is still visible: the open/close mark is still a +/− at the far right end of each bar, not before the question.",
+      "issue": "This repeats an earlier finding that the shots still show: the open/close mark is a +/− at the far right end of each bar, not a marker before the question.",
       "reference": "The competitor puts a small solid triangle (▸, turning ▾ when open) just before the question text, at the left of each bar.",
-      "fix": "Give the template a marker option for faq[data-variant=\"bars\"] that puts a triangle before the summary text, instead of the shared ::after +/− at the right."
+      "fix": "Give the template a marker option for faq[data-variant=\"bars\"] that puts a triangle before the summary text, in place of the shared ::after +/− at the right."
     },
     {
       "pageType": "style-board",
@@ -707,22 +768,22 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "This repeats an earlier finding that is still visible: on phones each bar's track takes only about half the panel width, and the value (\"4 cm\", \"7 cm\") sits at the far right with an empty gap between bar and figure.",
-      "reference": "On desktop the same chart lets the track fill the width between label and value, so bar and figure stay together.",
-      "fix": "On narrow widths, let the .charts bar track grow (flex: 1 1 auto; min-width: 0) to fill the row up to the value."
+      "issue": "This repeats an earlier finding that the shots still show: on phones each bar's track fills only about half the panel, and the value (\"4 cm\", \"7 cm\") sits at the far right with an empty gap between bar and figure.",
+      "reference": "On desktop the same chart's track fills the width between label and value, so bar and figure stay together.",
+      "fix": "At narrow widths, let the .charts bar track grow (flex: 1 1 auto; min-width: 0) to fill the row up to the value."
     },
     {
       "pageType": "style-board",
-      "review": "board--form-media",
+      "review": "board--faq-bars",
       "route": "/style-board/",
-      "block": "form",
-      "viewport": "desktop",
+      "block": "faq-charts",
+      "viewport": "mobile",
       "severity": "P2",
       "scope": "template",
-      "gap": "layout",
-      "issue": "The photo's top edge still sits below the form's. The heading 'Send an enquiry' sits only over the photo column, which pushes the grey frame down by about the heading's height, while the Name/Email labels start level with the heading.",
-      "reference": "The competitor puts a heading over each column ('Have Questions?' / 'Email Us'), so the photo and the first form row start on the same line.",
-      "fix": "In the form:media layout, put the section heading in a row above both columns (still starting on the content's left edge), so that .form-block__media and .form-block__form share their top edge."
+      "gap": "other",
+      "issue": "On phones the comparison table (shortest sample) is wider than its panel. The third column (\"Pigment with white underlayer\") is cut off at the right edge as \"Pigm / with / und\", and the only sign that the table scrolls sideways is a thin scrollbar sliver.",
+      "reference": "The competitor's FAQ module carries no wide table. Its content keeps to the panel width on phones.",
+      "fix": "In the shared charts/table component, stack the table on narrow widths: each column becomes a labelled card, or each row a label above its values. Failing that, add a visible sideways-scroll cue (an edge fade and a 'scroll' hint) to the table wrapper."
     },
     {
       "pageType": "style-board",
@@ -733,33 +794,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "The consent line still reads '…as described in the privacy policy. Privacy policy': a second 'Privacy policy' link is added after a label that already ends with those words.",
-      "reference": "The competitor's form has no repeated text under its fields; the only thing below its message box is the SEND button.",
-      "fix": "In LeadForm.astro, make the words 'privacy policy' inside consent.label the link, instead of adding a second 'Privacy policy' link after the label."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--form-media",
-      "route": "/style-board/",
-      "block": "form",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The consent checkbox shows only as a faint pale-grey square, much lighter than the dark 1px outlines of the fields above it, so the one required tick is easy to miss.",
-      "reference": "The competitor outlines every form control in the same thin dark line (its fields and its #262626 bar).",
-      "fix": "In reference.css, give :is(.form-block__form, .cta__form) input[type=\"checkbox\"] the fields' outline: appearance: none; border: 1px solid #262626; background: #fff. Show a #262626 fill or tick on :checked, because accent-color only colours the checked state."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--form-media",
-      "route": "/style-board/",
-      "block": "form",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The full-width submit button has fixed the desktop layout, but reference.css still gives it min-height: 37px at every width. On phones that is below the 44px minimum tap target.",
-      "reference": "The competitor's SEND bar is a slim dark bar sized for desktop; at phone width that height is too small to tap reliably.",
-      "fix": "In reference.css, inside @media (max-width: 767px), set :is(.form-block__form, .cta__form) .button--primary to min-height: 44px and keep its #262626 look and full width."
+      "issue": "The consent line still reads 'I agree that my details are used to answer this enquiry, as described in the privacy policy.' and then repeats 'Privacy policy' as a separate link on its own indented second line.",
+      "reference": "The competitor's form has no repeated text under its fields. The only thing below its message box is the dark SEND bar.",
+      "fix": "In LeadForm.astro, turn the words 'privacy policy' inside consent.label into the link, and stop adding a second 'Privacy policy' link after the label."
     },
     {
       "pageType": "style-board",
@@ -769,9 +806,9 @@
       "viewport": "mobile",
       "severity": "P1",
       "scope": "site",
-      "issue": "On phones the four channel cards still stack one per row at full width. Each card is about 230 px tall and mostly empty around one icon, one label bar and one line of text, so the section runs to about 1,090 px. This site's own CSS causes it: reference.css line 349 sets `@media (max-width: 599px) { .contact-channels[data-variant=\"cards\"] > .contact-channel { flex-basis: 100% } }`.",
-      "reference": "The competitor keeps its channel cards as small outlined tiles side by side on phones. The four tiles share one row, each with an icon above a black label bar (components.md, contact section 3).",
-      "fix": "In src/styles/reference.css, change the max-width: 599px rule for .contact-channels[data-variant=\"cards\"] > .contact-channel from flex-basis: 100% to flex-basis: calc(50% - var(--grid-gap) / 2) (with min-width: 0) so the four cards sit two by two. Also cut the phone card padding and the label-bar font-size (now 1.25rem) back to the desktop size so each tile stays compact."
+      "issue": "This was reported before and is still not fixed: on phones the four channel cards stack one per row at full width. Each card is a tall, mostly empty box holding one small icon, an oversized label bar (1.25rem bold) and one line of text, so the section runs to about 880 px. The cause is reference.css line 483, `@media (max-width: 599px) { .contact-channels[data-variant=\"cards\"] > .contact-channel { flex-basis: 100%; } }`.",
+      "reference": "The competitor keeps its channel cards as compact outlined tiles on phones, two by two (components.md, contact section 3; the mobile shot shows the four tiles side by side). Each tile has an icon over a black label bar.",
+      "fix": "In src/styles/reference.css line 483, change flex-basis: 100% to flex-basis: calc(50% - var(--grid-gap) / 2) with min-width: 0 so the cards sit two by two. Add overflow-wrap: anywhere to the card's value text so the email address breaks inside a half-width card. Below 600px, bring .contact-channels[data-variant=\"cards\"] .contact-channel__name down to about 1rem with 0.375rem 0.75rem padding so the label bar fits the smaller tile."
     },
     {
       "pageType": "style-board",
@@ -781,9 +818,21 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The parts of the cards in the one row do not line up. The email and phone links sit about 5 px lower than the plain address and hours text under the same black label bars (y≈201 against y≈196 on the shot).",
+      "issue": "This was reported before and is still not fixed: the parts of the cards in the one row do not line up. The email and phone links sit about 5 px lower under their label bars than the plain address and hours text (y≈200 against y≈195 on the shot).",
       "reference": "The competitor's channel cards put their icon, label bar and text at the same heights across the row.",
-      "fix": "In src/styles/reference.css, give .contact-channels[data-variant=\"cards\"] .contact-channel a@href value and its plain-text value the same box: the same line-height and padding, with no extra block padding or min-height on the link. This puts the line under every label bar at one height."
+      "fix": "In src/styles/reference.css, give the linked value (a[href]) and the plain-text value inside .contact-channels[data-variant=\"cards\"] .contact-channel the same box: the same display, line-height, padding and margin, with no extra block padding or min-height on the link. Then the line under every label bar starts at one height."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--contactChannels-cards",
+      "route": "/style-board/",
+      "block": "channels",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The channel icons are small, thin line glyphs, about 24 px across, floating in the card's top band. The icon reads much weaker than the black label bar under it, and the top of each card looks empty.",
+      "reference": "The competitor's channel cards lead with a large icon, about 60–70 px across and often set in a round badge, centred above the label bar, so the icon carries the card.",
+      "fix": "In src/styles/reference.css, raise --channel-icon-size (and --channel-icon-box) for .contact-channels[data-variant=\"cards\"] to about 2.5rem on desktop. Keep the line-icon style and stroke colour; on phones, the box can keep following the icon size as it does now."
     },
     {
       "pageType": "style-board",
@@ -794,9 +843,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The process:timeline steps have no step number or marker: each row is just a bold label beside text with a hairline under it, so it reads like a definitions table rather than an ordered sequence (the same at 390 px).",
-      "reference": "Every competitor step module numbers its steps: '01–03' in blue numerals on the three-step process, and a number over a title and text above a hairline on the six-step navy timeline (components.md).",
-      "fix": "In ProcessBlock.astro, render the step number (number(index), as the list and photo-cards variants already do) as a .process-step__marker before each .process-timeline__label, set in the accent colour; in patterns.css, give .process-timeline__row the room for it in its label column."
+      "issue": "The process:timeline steps still have no step number or marker: each row is a bold label beside its text over a hairline, so the six steps read as a definitions table, not an ordered sequence (the same at 390 px, where the labels stack over their text with nothing to count them).",
+      "reference": "Every competitor step module numbers its steps: blue '01–03' numerals on the three-step process, and a number over each title and text above a hairline on the six-step navy timeline (components.md). This site's own process list variant already does this with its 01/02/03 counter.",
+      "fix": "In ProcessBlock.astro, render the step number (number(index), as the list and photo-cards variants already do) as a .process-step__marker before each .process-timeline__label, in the accent colour; in patterns.css, make room for it in the label column (on phones, beside the label)."
     },
     {
       "pageType": "style-board",
@@ -805,58 +854,11 @@
       "block": "m3",
       "viewport": "desktop",
       "severity": "P2",
-      "scope": "site",
-      "issue": "The fixed 14rem label column wraps several step labels onto a second line that holds one or two words ('Receive your free / quotation', 'Check service response / times', 'Review the details / together'), while the text column next to them has plenty of room.",
-      "reference": "The competitor's step titles sit on one line above their text.",
-      "fix": "In reference.css, size the label column to its words instead of 14rem: .block--process .process-timeline__row { grid-template-columns: minmax(14rem, max-content) 1fr; } with a max width (for example 22rem) so the text column keeps its line length."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--process-timeline",
-      "route": "/style-board/",
-      "block": "m8-steps",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "This block has no heading, and its only intro line, 'From sign-off to bulk production' (a caption in the copy), is set as plain body text with a heading's spacing above the steps, so it looks like a stray sentence rather than the title of the sequence (the same at 390 px).",
-      "reference": "The competitor puts a clear label over each sequence: a heading, or uppercase UI labels on its timeline row.",
-      "fix": "In reference.css, style the lead of a process block that has no heading as a caption: .block--process:not(:has(h2)) > p (or the template's intro selector) { font-family: var(--font-ui); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.875rem; } so it reads as the sequence's label."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--table-cards",
-      "route": "/style-board/",
-      "block": "table-1",
-      "viewport": "desktop",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "The ten cards are solid navy (#0b2a4a) on a white section, which makes a heavy dark wall the competitor never puts on a white ground.",
-      "reference": "On white or beige grounds the competitor's cards are outlined: 1px solid black or #979797, radius 6–10px, no fill and no shadow, with dark text (components.md, three outlined cards and channel cards). It saves navy for whole sections such as MOQs and Selecting colours.",
-      "fix": "In reference.css, give .block--table .table-card a transparent background, a 1px solid #979797 border and border-radius: var(--radius-card), and set color and --heading-color back to var(--text-primary). Set .table-card__row dt to var(--text-muted) and change the row rule to a dark hairline."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--table-cards",
-      "route": "/style-board/",
-      "block": "table-1",
-      "viewport": "desktop",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "The card titles (Certifications, Fabrics, Lead times…) are set at 1.0625rem in a regular weight, so they barely stand out from the body text under them and the cards lose their hierarchy.",
-      "reference": "The competitor's card titles are Maison 700, clearly bolder than the text below them (outlined cards: card title 700 22px/33px).",
-      "fix": "In reference.css, set .block--table .table-card__title to font-weight: 700 with line-height 1.3, using the hero/heading family as the FAQ h3 does (line 302). Do not copy the 22px size; only the weight changes."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--table-cards",
-      "route": "/style-board/",
-      "block": "table-1",
-      "viewport": "mobile",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "At 390 px the card title ('Design and samples', 'Samples and fees') is the same size and weight as the body text, so in a long single column of 10 tall navy cards nothing marks where each card's subject starts.",
-      "reference": "The competitor's card titles are bold (700) and stand clearly above their text on phones too.",
-      "fix": "Use the same .block--table .table-card__title font-weight: 700 rule (not limited to one width) together with the outlined-card treatment, so the column reads as light cards with bold titles."
+      "scope": "template",
+      "gap": "other",
+      "issue": "Because the fit sizes the heading to its words across the full content width, the section heading 'What to Send for a Free, Accurate Quotation' is set at page-title size (about 64 px, about 2.5× the 26 px heading of m8-steps of the same module) and runs well past the right edge of its own timeline rows and lead, so the module's heading and body don't share a width.",
+      "reference": "The competitor sets its section headings well below its page titles, one size for each heading level, and keeps each heading inside its module's column.",
+      "fix": "In the template's heading fit, cap a section h2's fitted size at the h2 step (below the page title's fitted size) and fit it to the module's own measure (the .process-timeline width) instead of the full content width."
     },
     {
       "pageType": "style-board",
@@ -867,9 +869,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "Each of the 10 cards repeats the same muted column label 'What this means for you' above its text, and this repeated label is the only row in the card.",
-      "reference": "The competitor's cards carry a title and their text, with no repeated field label.",
-      "fix": "In TableBlock.astro's cards layout, when the table has only one data column, leave out the dt label (or make it visually hidden) and render the cell as the card's paragraph."
+      "issue": "This is still open from the last review: all ten cards repeat the same grey label 'What this means for you' between the title and the text. It is the cards' only row label, so it adds a filler line to every card at both widths (on phones it adds one line of height to each of ten cards stacked in one column).",
+      "reference": "The competitor's outlined cards have just a bold title and their text, with no repeated field label (components.md: three outlined cards, title 700, text below).",
+      "fix": "In TableBlock.astro's cards layout, leave out the dt column label when the table has only one data column (or make it visually hidden for screen readers), and render the cell as the card's paragraph directly under .table-card__title."
     }
   ]
 }
