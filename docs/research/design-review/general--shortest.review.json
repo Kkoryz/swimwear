@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "71291944936ec50369bebd5f",
+  "shots": "4f97eeddda3b1fe9541442a4",
   "rules": "896e2a6360c1caaa",
   "pageType": "general--shortest",
   "route": "/case-studies/",
@@ -11,9 +11,19 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "This was raised in the earlier review and is still unfixed: the two order-case cards sit in a narrow centred column (about x 350–1090 of the 1440 frame) under 'A recent order', whose heading starts on the content's left edge, so about 350 px of white is left on each side and the cards float mid-page instead of following their heading.",
-      "reference": "The competitor's card sets start on the content's left edge under their heading and fill the content width as outlined cards with a 1px outline.",
+      "issue": "Still unfixed from the earlier review: the two order-case cards sit in a narrow centred column (about x 350–1090 of the 1440 frame) under 'A recent order', whose heading starts on the content's left edge, so about 350 px of white is left on each side and the cards float mid-page instead of following their heading.",
+      "reference": "The competitor's card sets start on the content's left edge under their heading and fill the content width as outlined cards.",
       "fix": "In the shared patterns.css, stop centring `.order-cases` when headings start: under `body[data-heading-align=\"start\"]` set `.order-cases { margin-inline: 0; }`. Better still, set the cases side by side in a grid of equal columns that starts at the content's left edge."
+    },
+    {
+      "block": "overview-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Still unfixed: two plain white sections stand one after the other. The white overview intro is followed by the white overview-steps list, and the faq and faq-steps sections repeat the same white-on-white pair further down, so the page loses its alternating rhythm.",
+      "reference": "The site's rule is that neighbouring plain sections alternate white and tinted backgrounds. The competitor separates its sections by background, not by hairlines alone.",
+      "fix": "In the template's section-background sequencing, count process blocks as plain sections so that overview-steps (and faq-steps) take the --section-tint surface when the section before them is white."
     },
     {
       "block": "faq",
@@ -21,44 +31,16 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "Still unfixed from the earlier review: in the narrow left column of the two-column FAQ, 'Frequently Asked Questions' breaks into three one-word lines and reads as a stack, not a heading sized to its words.",
+      "issue": "Still unfixed: in the narrow left column of the two-column FAQ, 'Frequently Asked Questions' breaks into three one-word lines and reads as a stack, not a heading sized to its words.",
       "reference": "The competitor sets its FAQ heading on one line across the width, with the questions on hairline rows below it.",
       "fix": "In the FAQ's two-column layout, widen the heading column (for example a minmax track that holds the heading's longest two words on one line). Or, when the fit would leave one word per line, set the heading above the questions."
-    },
-    {
-      "block": "overview-steps",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "template",
-      "gap": "other",
-      "issue": "Two plain white sections stand one after the other: the white overview intro is followed by the white overview-steps list with no tint between them. The faq and faq-steps sections repeat the same white-on-white pair further down, so the page loses its alternating rhythm.",
-      "reference": "The site's rule is that neighbouring plain sections alternate white and tinted backgrounds. The competitor separates its sections by background, not by hairlines alone.",
-      "fix": "In the template's section-background sequencing, count process blocks as plain sections so that overview-steps (and faq-steps) take the --section-tint surface when the section before them is white."
-    },
-    {
-      "block": "overview-steps",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The section's only title, its lead 'How a typical order moves through our factory', is set at the same size and weight (about 17px bold) as the step titles under it, and is smaller than the 32px '01–06' numerals. The list has no visible top level.",
-      "reference": "The competitor's process modules have a heading clearly above the step titles in size, with step titles a level below.",
-      "fix": "In reference.css, at `.block--process .point-list__intro:not(:has(h2)) > .block__lead` (line 326), raise the lead to a heading step above `--size-subheading` (for example the h3/h2-small size) so it is larger than `.point-list__title`. The same applies to the faq-steps timeline lead."
-    },
-    {
-      "block": "faq-steps",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The timeline's step-name column is so narrow that 'Correct pattern and grading' wraps onto two lines, while the description column beside it is mostly empty and the rows stop about 220 px short of the content's right edge.",
-      "reference": "In the competitor's process rows, each step title stays on one line beside its text.",
-      "fix": "In reference.css, widen the title track of `.block--process[data-variant=\"timeline\"] .process-timeline__row` (for example `grid-template-columns: minmax(14rem, max-content) 1fr`) so step names keep to one line."
     },
     {
       "block": "faq",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "content",
-      "issue": "On phones, the question 'Have you worked with small start-up brands placing their first order, like us?' still breaks at the compound's hyphen: the first line ends on 'start-' and the next begins with 'up brands'. Desktop now keeps the compound whole.",
+      "issue": "Still unfixed: on phones, the question 'Have you worked with small start-up brands placing their first order, like us?' breaks at the compound's hyphen, so the first line ends on 'start-' and the next begins with 'up brands'.",
       "reference": "The competitor's FAQ questions keep each word whole on its line.",
       "fix": "In Site Factory, write 'start-up' with a non-breaking hyphen (U+2011), or reword it as 'small new brands'."
     },

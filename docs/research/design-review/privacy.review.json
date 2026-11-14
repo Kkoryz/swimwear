@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "fa24882980bea7e578f858c2",
+  "shots": "dc7535971eace971894c9bd7",
   "rules": "896e2a6360c1caaa",
   "pageType": "privacy",
   "route": "/terms-and-conditions/",
@@ -8,47 +8,20 @@
     {
       "block": "proof-1",
       "viewport": "desktop",
-      "severity": "P0",
-      "scope": "site",
-      "issue": "Still open from the last review, now scoped to the site: proof-1 starts with no top gap, so its first line ('Orders start at 50 pieces per style in each colour.') sits on the section's top edge right under m2's last item. proof-2 does the same under proof-1-charts ('Once you've approved the sample…'). The cause is this site's override `.block--proof[data-variant=\"band\"] .text-block { padding: 0; background: transparent; }` (reference.css:215), which removes the padding the template gives the proof panel (template.css:255).",
-      "reference": "Above the first line of each text section, the competitor leaves the same clear gap as between all its other sections.",
-      "fix": "In src/styles/reference.css:215, remove `padding: 0` from `.block--proof[data-variant=\"band\"] .text-block`, or replace it with `padding-block: calc(var(--section-space) / 2) 0`, so proof-1 and proof-2 get a top gap again."
-    },
-    {
-      "block": "proof-2",
-      "viewport": "mobile",
-      "severity": "P0",
-      "scope": "site",
-      "issue": "Still open from the last review: on phones, proof-1 and proof-2 also start against their top edge, so 'Orders start at 50 pieces…' and 'Once you've approved the sample…' touch the section above. The cause is the same `padding: 0` override in reference.css:215.",
-      "reference": "The competitor's text blocks on phones have the same top gap as every other section.",
-      "fix": "The same change as on desktop: give back the top padding of `.block--proof[data-variant=\"band\"] .text-block` in reference.css:215."
-    },
-    {
-      "block": "proof-1",
-      "viewport": "desktop",
       "severity": "P1",
       "scope": "template",
-      "issue": "Still open from the last review: after m3, the white/tint alternation breaks. m2, proof-1, proof-1-charts (white, with only a tinted card set inside it) and proof-2 are four white sections in a row at both widths.",
+      "issue": "Still open from the last review: after the tinted m3, the white/tint alternation breaks. m2, proof-1, proof-1-charts (white, with only its chart card tinted) and proof-2 are four white sections in a row, from 'Samples, Order Confirmations…' down to 'Trial Runs'. The same shows on mobile.",
       "reference": "The competitor separates neighbouring sections by their background.",
-      "fix": "Have the template's alternation count proof-1, proof-1-charts and proof-2 as one plain section and tint that group through --section-tint. The page then reads m2 (white), proof group (tint), process-1 (white), related (tint), cta-steps (white). Do not tint the sections one by one in reference.css."
+      "fix": "Have the template's alternation count proof-1, proof-1-charts and proof-2 (the text sections that go on from one another) as one plain section and tint that group through --section-tint. The page then reads m2 (white), proof group (tint), process-1 (white), related (tint), cta-steps (white). Do not tint the sections one by one in reference.css."
     },
     {
       "block": "cta-steps",
       "viewport": "desktop",
-      "severity": "P1",
+      "severity": "P2",
       "scope": "template",
-      "issue": "Still open from the last review: the section title 'From your brief to shipment: the typical order path' is a small bold line at body size, so the left column has no real heading and stands mostly empty beside the six steps.",
-      "reference": "The competitor's step modules put a section heading over the steps, set as a heading.",
-      "fix": "Render the process list variant's title as the section h2. The template fits it like the other headings and starts it on the content's left edge."
-    },
-    {
-      "block": "cta-steps",
-      "viewport": "mobile",
-      "severity": "P1",
-      "scope": "template",
-      "issue": "Still open from the last review: on phones, the order path opens with a small bold paragraph ('From your brief to shipment: the typical order path') instead of a heading, so it reads as the tail of the related block above rather than as its own section.",
-      "reference": "On phones, the competitor's steps stack under a section heading.",
-      "fix": "The same as on desktop: render the process list variant's title as the section h2."
+      "issue": "Partly fixed since the last review: the title 'From your brief to shipment: the typical order path' is now set in the heading face at the card-heading size. It is still a lead, not the section's h2, so it stands about half the size of every other section heading on the page ('Trial Runs', 'Related products and services'), and the left column stays mostly empty beside the six steps. On mobile it likewise reads smaller than the section headings around it.",
+      "reference": "The competitor's step modules put a section heading over the steps, set at the same level as its other section headings.",
+      "fix": "Have the template render the process list variant's title as the section h2, fitted like the other headings and starting on the content's left edge. The site's lead rule in reference.css (`.block--process .point-list__intro:not(:has(h2)) > .block__lead`) then no longer applies here."
     },
     {
       "block": "m2",
@@ -56,18 +29,28 @@
       "severity": "P2",
       "scope": "template",
       "gap": "layout",
-      "issue": "Still open from the last review: two iconList sections of the same shape stand one under the other. m3 and then m2 each put a heading on the left and a column of check-marked short items on the right, and only the background changes.",
+      "issue": "Still open from the last review: two iconList sections of the same shape stand one under the other. m3 and then m2 each put a heading and lead on the left and a column of check-marked short items on the right, and only the background changes between them.",
       "reference": "The competitor does not repeat a module back to back, and this site's rule says one of two same-shaped neighbours is set out differently.",
-      "fix": "When two iconList sections are neighbours, have the template set one of them out differently, e.g. m2's items as a two-column grid under its heading."
+      "fix": "When two iconList sections are neighbours, have the template set one of them out differently, for example m2's items as a two-column grid under its heading."
     },
     {
       "block": "m3",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "template",
-      "issue": "Still open from the last review: the heading 'Quality Claims, Returns and Outside Vendor Liability' breaks over four uneven lines and leaves 'Outside' alone on the third line. m2's heading likewise leaves 'Shipping' alone on a line.",
+      "issue": "Still open from the last review: the heading 'Quality Claims, Returns and Outside Vendor Liability' breaks over four uneven lines and leaves 'Outside' alone on the third line. m2's heading 'Samples, Order Confirmations, Shipping and Refunds' likewise leaves 'Shipping' alone on a line.",
       "reference": "The competitor's headings break into even lines.",
       "fix": "Add text-wrap: balance to the section h2 in the template's heading fit, so its lines break evenly without changing the fitted size."
+    },
+    {
+      "block": "cta",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "art-direction",
+      "issue": "On phones the closing band crops its wide photo to a near-square frame centred on the woman, so the heading 'Send Your Enquiry to Strandmill' and the lead sit right over her face. The overlay keeps the text readable, but the photo's subject is hidden. Changing object-position cannot clear her, because the visible window is less than half the photo's width.",
+      "reference": "On desktop the same band leaves its text on the empty dune to the left and keeps the subject clear on the right.",
+      "fix": "Give the cta band a different photo crop for narrow widths (art-direction), with the subject low or to one side, so the copy falls on an empty part of the photo."
     },
     {
       "block": "related",
@@ -76,7 +59,7 @@
       "scope": "content",
       "issue": "Still open from the last review: the heading 'Related products and services' sits over a single link, 'Privacy Policy', which is neither a product nor a service. The same shows on mobile.",
       "reference": "The competitor's related-link blocks list pages that match their heading.",
-      "fix": "In Site Factory, either link this page to the product or service pages about ordering, or retitle the block to fit its link (e.g. 'Related policies')."
+      "fix": "In Site Factory, either link this page to the product or service pages about ordering, or retitle the block to fit its link (for example 'Related policies')."
     }
   ]
 }

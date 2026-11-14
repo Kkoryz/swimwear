@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "daa0e88df29b1c960fed46ba",
+  "shots": "0fdd9d1d375a7c90d1c30926",
   "rules": "896e2a6360c1caaa",
   "pageType": "home",
   "route": "/",
@@ -19,7 +19,7 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "content",
-      "issue": "Two trust figures still read as broken fragments (\"65 that / SAMPLING TEAM\", \"55 custom / DAILY SAMPLES\"), and \"100,000 pieces\" carries its unit inside the value, so on phones it wraps to two lines while the other figures take one.",
+      "issue": "Two trust figures still read as broken fragments (\"65 that / SAMPLING TEAM\", \"55 custom / DAILY SAMPLES\"), and \"100,000 pieces\" carries its unit inside the value, so on phones it wraps to two lines while the other figures take one and the 2×2 grid's first row goes uneven.",
       "reference": "The competitor's trust line has clean figure-and-label pairs (\"Since 1993 · 300+ independent labels · custom samples in 1 to 3 weeks\").",
       "fix": "In the trust data from Site Factory, give bare figures with their labels, e.g. \"65\" / \"Sampling team\", \"55\" / \"Custom samples a day\", \"100,000\" / \"Pieces a month\"."
     },
@@ -29,7 +29,7 @@
       "severity": "P1",
       "scope": "template",
       "gap": "layout",
-      "issue": "The card sets featureGrid-1, -4, -7 and -9 still start directly under the set before them in the same three-across outlined-card shape. From m2 to featureGrid-10 the page is one unbroken wall of about seventeen identical card grids (about 5,800 px on desktop and far longer on phones).",
+      "issue": "The card sets featureGrid-1, -4, -7 and -9 still start directly under the set before them in the same three-across outlined-card shape. From m2 to featureGrid-10 the page is one unbroken wall of about seventeen identical card grids (about 5,900 px on desktop and far longer on phones).",
       "reference": "The competitor uses its outlined numbered cards only once (\"3 Ways To Get Started\") and changes module shape from one section to the next.",
       "fix": "Apply the template's own rule: where a card set follows another of the same shape, render the second as a list beside its heading (the featureGrid bullets or iconList layout) instead of another card grid."
     },
@@ -48,7 +48,7 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "Numbering still restarts at 01 in every grid that continues a set (m2 01–03, m2-2 01–03, m2-3 01–02; the same in m3/m3-2, featureGrid-1/2/3, -4/5/6, -7/8 and -9/10), so one card set reads \"01 02 03 01 02 03 01 02\" instead of one series.",
+      "issue": "Numbering still restarts at 01 in every grid that continues a set (m2 01–03, m2-2 01–03, m2-3 01–02; the same in m3/m3-2, featureGrid-1/2/3, -4/5/6, -7/8 and -9/10), at both widths, so one card set reads \"01 02 03 01 02 03 01 02\" instead of one series.",
       "reference": "The competitor's numbered cards (\"01. Custom Designs\", \"02. Ready Designs\", \"03. Mix n' Match\") count straight through the set.",
       "fix": "In the featureGrid component, carry the card counter across the grids that continue a set (pass a start index or a counter-reset value), so m2-2 starts at 04 and m2-3 at 07."
     },
@@ -97,9 +97,19 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "content",
-      "issue": "The process sections overview-steps and cta-steps still have no heading, only a caption in body-text size (\"Quality checks at every stage of an order\", \"From your enquiry to your sample\"). On desktop their left column is an almost empty strip with one small line at the top.",
+      "issue": "The process sections overview-steps and cta-steps still have no heading. Their intro line (\"Quality checks at every stage of an order\", \"From your enquiry to your sample\") is set only at card-heading size, far under the page's other section headings, and on desktop their left column is an almost empty strip with that one small line at the top.",
       "reference": "The competitor's numbered modules open with an eyebrow and a full heading (\"How to work with us / 3 Ways To Get Started\") beside or above the steps.",
-      "fix": "Site Factory gives overview-steps and cta-steps a section heading each (e.g. \"Quality Checks at Every Stage\", \"From Enquiry to Sample\") and keeps the caption as their intro line."
+      "fix": "Site Factory gives overview-steps and cta-steps a section heading each (e.g. \"Quality Checks at Every Stage\", \"From Enquiry to Sample\") and keeps the current line as their intro."
+    },
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The hero lead (about 190 characters, two long lines across some 1,200 px on desktop, four bold lines on phones) is about three times the competitor's one-line lead, yet it still stands on the photo instead of under the hero.",
+      "reference": "The competitor's hero carries only a short one-line lead (\"Specialists in body-sculpting custom swimwear, patterned in-house.\") between the H1 and the buttons.",
+      "fix": "Apply the template's rule for long hero leads on the home page: render the lead under the hero, at the start of the section after it, and keep only the H1 and the button on the photo."
     },
     {
       "block": "owner-testimonials",
@@ -109,24 +119,6 @@
       "issue": "In the three testimonial cards, the third card's rule and attribution still sit about 13 px lower than the other two. The attributions are pinned to the foot and the third has only one line, so the parts of one row are out of line.",
       "reference": "The competitor's testimonial cards align their quote, rule and name across the row.",
       "fix": "In reference.css, make the testimonial item a subgrid (on the track: grid-template-rows: auto auto; on each item: grid-row: span 2; grid-template-rows: subgrid). The rules then sit level across the row, with each attribution starting under its rule."
-    },
-    {
-      "block": "faq",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The open/close marks (+ and −) at the right of each question are tiny and dark at both widths, barely visible next to the bold navy questions, so the rows hardly read as expandable.",
-      "reference": "The competitor's FAQ rows end in a clearly visible accent-blue + mark.",
-      "fix": "In reference.css, on .block--faq .faq__item summary::after, raise font-size to about 1.25rem and set color to the link/accent colour (var(--link)) instead of var(--surface-dark)."
-    },
-    {
-      "block": "owner-logos",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The small line under each brand name (\"Swimwear, UK\", \"Swimwear, France\") is set at about 10 px in pale grey, below a legible size and contrast at both widths.",
-      "reference": "The competitor's brand row carries only the marks, with no unreadable small print under them.",
-      "fix": "In reference.css, raise the logos subtitle (the line under .logos__name) to at least 0.75rem and give it the secondary text colour (var(--text-secondary)), or hide it."
     },
     {
       "block": "related",

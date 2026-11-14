@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "f16753d6a5e8adfcc9f8edb6",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "contact",
+  "route": "/contact-us/",
+  "findings": [
+    {
+      "block": "hero",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The REQUEST A QUOTE button still ends right on the top edge of the tinted trustBar band, with no white space under it, because the plain hero's inner still has no bottom padding.",
+      "reference": "Under its centred title and lead, the competitor's plain hero (hero:plain) leaves clear white space before the next module starts.",
+      "fix": "In template.css, give .page-hero[data-variant=\"plain\"] .page-hero__inner a bottom padding (e.g. padding-block: calc(var(--section-space) / 2)) so that a tinted neighbour never starts right under the hero's button."
+    },
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "At desktop the hero button still ends only a few pixels above the tinted trustBar band, so it looks pushed into the band.",
+      "reference": "The competitor leaves an open white gap under its centred title and lead before the next module.",
+      "fix": "The same template change: give .page-hero[data-variant=\"plain\"] .page-hero__inner a bottom padding."
+    },
+    {
+      "block": "faq",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The FAQ's question column starts about 130px further left than the right column of the process, iconList and form sections above and below it, so the page's two-column split jumps at this one section.",
+      "reference": "The competitor's modules keep one column grid down the page.",
+      "fix": "In reference.css, give .block--faq[data-variant=\"two-column\"] the same column ratio as the process and iconList splits (the same grid-template-columns), so its questions start on the shared right-column edge."
+    },
+    {
+      "block": "faq",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The first question sits about 20px lower than the 'Frequently Asked Questions' heading beside it, because the summary's 1.25rem top padding pushes it down, so the heading and the list are not level.",
+      "reference": "In the competitor's side-by-side modules, the heading and the first item start on one line.",
+      "fix": "In reference.css, set padding-top: 0 on .block--faq[data-variant=\"two-column\"] .faq__item:first-child summary (or remove the first item's top padding) so the first question is level with the heading."
+    },
+    {
+      "block": "form",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The consent line still ends '…as described in the privacy policy. Privacy policy', which repeats the link's words right after the sentence (the same on mobile).",
+      "reference": "The competitor's form has no repeated text.",
+      "fix": "End the consent copy before the link (e.g. '…as described in our') or make 'privacy policy' inside the sentence the link."
+    },
+    {
+      "block": "channels",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The headings 'Contact details' and 'Send an enquiry' are still in sentence case, while the page's other section headings ('Frequently Asked Questions', 'What to Expect Once You Get in Touch') are in title case.",
+      "reference": "The competitor sets all its contact-page headings in title case ('Contact Us', 'Have Questions?', 'Email Us').",
+      "fix": "Write the two headings in title case ('Contact Details', 'Send an Enquiry') in the page copy."
+    }
+  ]
+}

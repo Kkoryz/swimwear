@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "c744037225bbef0a4486befe",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "about",
+  "route": "/about-us/",
+  "findings": [
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The 30-word lead ('Since 2011 we have run bulk lines…') and the aqua CONTACT US pill still sit on the photo under the centred title, in four centred lines that end on 'order size.'. The competitor's About hero has no lead at all, and the site rule puts a lead much longer than the competitor's under the hero.",
+      "reference": "The competitor's About hero is the sewing-floor photo with only the centred white H1 on it: no lead and no button.",
+      "fix": "Apply the on-photo lead limit per page type instead of site-wide (heroText.leadWords; the about reference has 0 words), so that PageHero.astro's heroLeadShown() moves the about lead and its button into the block under the hero."
+    },
+    {
+      "block": "hero",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "On phones the same lead still runs to four lines of small centred text over the busy rose-and-wall photo, between the three-line title and the large aqua pill, so the whole lower half of the hero is text over the picture.",
+      "reference": "The competitor's phone hero carries only the white H1 over the photo; its text follows under the photo.",
+      "fix": "Use the same per-page-type lead limit in PageHero.astro (heroLeadShown()), so the about lead and its button go under the hero at every width."
+    },
+    {
+      "block": "header",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "On /about-us/ the 'About Us' nav item still looks like the others. No component in src/ sets aria-current on a nav link, so the treatment's `.site-nav__link[aria-current=\"page\"]` rule (lighter #d3ebfd plus an underline) never applies.",
+      "reference": "The competitor's header shows the current page's item ('About') in a lighter tone.",
+      "fix": "In SiteHeader.astro, set aria-current=\"page\" on the nav link (and the dropdown link) whose route matches the current page."
+    },
+    {
+      "block": "trustBar",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "Two of the four figures still read as cut-off phrases ('65 that' over 'SAMPLING TEAM', '55 custom' over 'DAILY SAMPLES'). On phones '100,000 pieces' wraps to two lines, so its label 'MONTHLY CAPACITY' sits lower than 'FOUNDED' beside it in the 2×2 grid.",
+      "reference": "The competitor's figure rows set a short value over a clear uppercase label.",
+      "fix": "Site Factory: rewrite the value/label pairs, e.g. '65' / 'person sampling team', '55' / 'custom samples a day', '100,000' / 'pieces a month'."
+    },
+    {
+      "block": "m4",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The six steps wrap into two rows of three, but the connecting line still runs only through the first row and goes on past marker 03 to the column's edge, while steps 04–06 have no line. The second row looks cut off from the sequence.",
+      "reference": "The competitor's six-step module sets every step on the same hairline.",
+      "fix": "Draw the process rule per row, on each row's marker line instead of one line across the whole step list, and end it at the row's last marker."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "After m6's tint, the logo row, the testimonials and the FAQ still stand on white one after another (the same at 390px). Three plain sections run together while every section above them alternates.",
+      "reference": "The site rule: neighbouring plain sections alternate white and tinted backgrounds, and the template sets this.",
+      "fix": "Make the template's section-surface alternation count the logos and testimonials blocks, so that the testimonials section (or the FAQ) takes --section-tint and breaks the white run."
+    },
+    {
+      "block": "m5",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "m5 ('How We Check Quality at Every Stage') and m6 ('Certifications and Compliance Paperwork') are still both a heading with a check list of short items beside it, one under the other, so only the background changes between them.",
+      "reference": "The site rule: two sections of the same shape do not stand one under the other; the template sets only one of them out as a list beside its heading.",
+      "fix": "In the template's layout pass, when two adjacent iconList sections share the list-beside-heading shape, lay out the second one differently (e.g. as a check grid under its heading)."
+    },
+    {
+      "block": "hero",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "art-direction",
+      "issue": "The tall phone frame still crops the photo to its stone wall and roses, with only part of the sitter's dress at the lower-right edge, so the subject is almost out of the frame.",
+      "reference": "The competitor's phone hero uses its own phone crop (banner-about-us-mobile.webp), so the scene stays in the frame.",
+      "fix": "Give the about hero photo a phone crop or focal point on the sitter, set by the template (--hero-focal or a phone image source), not by reference.css."
+    },
+    {
+      "block": "owner-logos",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones the moving logo row is cut off hard at the content edge, so the first name reads 'OLD BASICS' over 'nwear, UK' with no fade, which looks like clipped text, not motion.",
+      "reference": "The competitor's sliding rows let items enter and leave at the edge of the row without a hard cut through a word.",
+      "fix": "In reference.css, add an edge fade to `.logos-marquee[data-marquee-run]` (e.g. mask-image: linear-gradient(to right, transparent, #000 2rem, #000 calc(100% - 2rem), transparent)) so names fade in and out at the row's ends."
+    }
+  ]
+}
