@@ -26,5 +26,12 @@
     "at": "2026-11-14T06:30:55.766Z",
     "seconds": 49,
     "log": ".pipeline/logs/2026-11-14T06-27-25-372Z/density.log"
+  },
+  "capture-check": {
+    "status": "passed",
+    "hash": "14440901b54d2108",
+    "at": "2026-11-14T06:30:59.765Z",
+    "seconds": 4,
+    "log": ".pipeline/logs/2026-11-14T06-27-25-372Z/capture-check.log"
   }
 }
