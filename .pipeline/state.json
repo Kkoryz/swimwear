@@ -226,9 +226,9 @@
   "image-refit": {
     "status": "passed",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T10:22:21.839Z",
+    "at": "2026-11-14T11:21:09.114Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/image-refit.log"
+    "log": ".pipeline/logs/2026-11-14T10-49-24-604Z/image-refit.log"
   },
   "content": {
     "status": "passed",
