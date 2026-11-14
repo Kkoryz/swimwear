@@ -79,16 +79,16 @@
   "treatment": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T09:21:03.123Z",
+    "at": "2026-11-14T10:49:33.221Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/treatment.log"
+    "log": ".pipeline/logs/2026-11-14T10-49-24-604Z/treatment.log"
   },
   "fonts": {
     "status": "passed",
-    "hash": "25f82dbb92a1cb9a",
-    "at": "2026-11-14T07:19:59.737Z",
+    "hash": "3a51bb588da21c4d",
+    "at": "2026-11-14T10:49:33.336Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T07-19-53-295Z/fonts.log"
+    "log": ".pipeline/logs/2026-11-14T10-49-24-604Z/fonts.log"
   },
   "proof": {
     "status": "passed",
