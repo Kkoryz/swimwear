@@ -271,5 +271,12 @@
     "at": "2026-11-14T13:11:03.864Z",
     "seconds": 190,
     "log": ".pipeline/logs/2026-11-14T12-44-35-176Z/design-polish.log"
+  },
+  "geo-blogs": {
+    "status": "waiting",
+    "hash": "e3b0c44298fc1c14",
+    "at": "2026-11-14T13:11:04.200Z",
+    "seconds": 0,
+    "log": ".pipeline/logs/2026-11-14T12-44-35-176Z/geo-blogs.log"
   }
 }
