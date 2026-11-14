@@ -31,449 +31,7 @@
     }
   },
   "mediaSlots": [],
-  "failures": [
-    {
-      "route": "/women-s-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Item",
-      "second": "Private-label development"
-    },
-    {
-      "route": "/women-s-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Item",
-      "second": "We support OEM/ODM bikinis, one-pieces and athleti"
-    },
-    {
-      "route": "/women-s-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "What we provide or require",
-      "second": "We support OEM/ODM bikinis, one-pieces and athleti"
-    },
-    {
-      "route": "/one-piece-swimsuit-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Specification",
-      "second": "Size range"
-    },
-    {
-      "route": "/one-piece-swimsuit-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Specification",
-      "second": "XS to 3XL, with custom grading to your chart. We s"
-    },
-    {
-      "route": "/one-piece-swimsuit-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Our standard or custom option",
-      "second": "XS to 3XL, with custom grading to your chart. We s"
-    },
-    {
-      "route": "/bikini-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Order or fit choice",
-      "second": "Matched sets"
-    },
-    {
-      "route": "/bikini-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Order or fit choice",
-      "second": "A matching top and bottom count as one piece with "
-    },
-    {
-      "route": "/bikini-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "What we make and how you allocate sizes",
-      "second": "A matching top and bottom count as one piece with "
-    },
-    {
-      "route": "/men-s-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Item",
-      "second": "Pattern development"
-    },
-    {
-      "route": "/men-s-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Item",
-      "second": "We build custom patterns from your sketch, referen"
-    },
-    {
-      "route": "/men-s-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "What happens",
-      "second": "We build custom patterns from your sketch, referen"
-    },
-    {
-      "route": "/swim-trunks-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Option",
-      "second": "Full-elastic waistband"
-    },
-    {
-      "route": "/swim-trunks-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Option",
-      "second": "Each size fits about 10 cm of waist variation, and"
-    },
-    {
-      "route": "/swim-trunks-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "What we make for your range",
-      "second": "Each size fits about 10 cm of waist variation, and"
-    },
-    {
-      "route": "/baby-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Development stage",
-      "second": "Brief and fit"
-    },
-    {
-      "route": "/baby-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Development stage",
-      "second": "We confirm your age range, measurements, styles an"
-    },
-    {
-      "route": "/baby-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "What happens",
-      "second": "We confirm your age range, measurements, styles an"
-    },
-    {
-      "route": "/baby-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Fabric choice",
-      "second": "Polyester/spandex"
-    },
-    {
-      "route": "/baby-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Fabric choice",
-      "second": "For a range aimed at the pool, polyester keeps its"
-    },
-    {
-      "route": "/baby-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "What it means for your range",
-      "second": "For a range aimed at the pool, polyester keeps its"
-    },
-    {
-      "route": "/toddler-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Item",
-      "second": "Sample and design fees"
-    },
-    {
-      "route": "/toddler-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Item",
-      "second": "Each sample is USD 50. Design work is USD 50 per d"
-    },
-    {
-      "route": "/toddler-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "What applies to your order",
-      "second": "Each sample is USD 50. Design work is USD 50 per d"
-    },
-    {
-      "route": "/toddler-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Fabric consideration",
-      "second": "Water and washing"
-    },
-    {
-      "route": "/toddler-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Fabric consideration",
-      "second": "Our chlorine- and salt-resistant fabrics hold up t"
-    },
-    {
-      "route": "/toddler-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "What it means for your collection",
-      "second": "Our chlorine- and salt-resistant fabrics hold up t"
-    },
-    {
-      "route": "/modest-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Feature",
-      "second": "Coverage"
-    },
-    {
-      "route": "/modest-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Feature",
-      "second": "A mid-thigh tunic, a tunic with an added skirt or "
-    },
-    {
-      "route": "/modest-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Construction choices",
-      "second": "A mid-thigh tunic, a tunic with an added skirt or "
-    },
-    {
-      "route": "/modest-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Fit or range",
-      "second": "Classic block"
-    },
-    {
-      "route": "/modest-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Fit or range",
-      "second": "S to 3XL. The size M legging has a 76 cm inseam, a"
-    },
-    {
-      "route": "/modest-swimwear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Sizes and grading",
-      "second": "S to 3XL. The size M legging has a 76 cm inseam, a"
-    },
-    {
-      "route": "/resort-wear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Fabric or use",
-      "second": "Linen"
-    },
-    {
-      "route": "/resort-wear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Fabric or use",
-      "second": "100% linen or 55/45 linen-viscose, in 140–190 GSM "
-    },
-    {
-      "route": "/resort-wear-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Specification and consequence",
-      "second": "100% linen or 55/45 linen-viscose, in 140–190 GSM "
-    },
-    {
-      "route": "/cover-up-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Fabric or requirement",
-      "second": "Lightweight selection"
-    },
-    {
-      "route": "/cover-up-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Fabric or requirement",
-      "second": "We source chiffon, cotton voile, linen, cotton, ra"
-    },
-    {
-      "route": "/cover-up-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "What we supply",
-      "second": "We source chiffon, cotton voile, linen, cotton, ra"
-    },
-    {
-      "route": "/cover-up-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Fit or measurement",
-      "second": "Standard sizing"
-    },
-    {
-      "route": "/cover-up-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Fit or measurement",
-      "second": "We offer S-XL, S-L and one size. For your market, "
-    },
-    {
-      "route": "/cover-up-manufacturer/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Your options",
-      "second": "We offer S-XL, S-L and one size. For your market, "
-    },
-    {
-      "route": "/swimwear-embroidery/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Technique or service",
-      "second": "Embroidered logos"
-    },
-    {
-      "route": "/swimwear-embroidery/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Technique or service",
-      "second": "You need 50 pieces per design. We embroider by mac"
-    },
-    {
-      "route": "/swimwear-embroidery/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Minimum and selection conditions",
-      "second": "You need 50 pieces per design. We embroider by mac"
-    },
-    {
-      "route": "/development/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Sizing option",
-      "second": "Standard grading"
-    },
-    {
-      "route": "/development/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Sizing option",
-      "second": "We grade from XS to 3XL using internationally reco"
-    },
-    {
-      "route": "/development/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "What we provide",
-      "second": "We grade from XS to 3XL using internationally reco"
-    },
-    {
-      "route": "/swimwear-packaging-custom-brand-labels/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Detail",
-      "second": "Kraft paper"
-    },
-    {
-      "route": "/swimwear-packaging-custom-brand-labels/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Detail",
-      "second": "Comes in 5 shapes. Custom branding needs an order "
-    },
-    {
-      "route": "/swimwear-packaging-custom-brand-labels/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Specification and consequence",
-      "second": "Comes in 5 shapes. Custom branding needs an order "
-    },
-    {
-      "route": "/swimwear-hardware/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Hardware",
-      "second": "Strap sizing"
-    },
-    {
-      "route": "/swimwear-hardware/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Hardware",
-      "second": "A 15 mm metal ring fits a 15 mm strap. Sliders, ho"
-    },
-    {
-      "route": "/swimwear-hardware/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Sizes, materials and selection",
-      "second": "A 15 mm metal ring fits a 15 mm strap. Sliders, ho"
-    },
-    {
-      "route": "/swimwear-hardware/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Check",
-      "second": "Hook-and-eye closures"
-    },
-    {
-      "route": "/swimwear-hardware/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Check",
-      "second": "Hold 3–5 kg of pull force; metal rings and front c"
-    },
-    {
-      "route": "/swimwear-hardware/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Rating or requirement",
-      "second": "Hold 3–5 kg of pull force; metal rings and front c"
-    },
-    {
-      "route": "/swimwear-fabrics-sourcing/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Fabric or specification",
-      "second": "Recycled performance"
-    },
-    {
-      "route": "/swimwear-fabrics-sourcing/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Fabric or specification",
-      "second": "This fabric is 78% recycled nylon and 22% spandex "
-    },
-    {
-      "route": "/swimwear-fabrics-sourcing/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "What it means for your styles",
-      "second": "This fabric is 78% recycled nylon and 22% spandex "
-    },
-    {
-      "route": "/swimwear-accessories/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Component",
-      "second": "Foam cups"
-    },
-    {
-      "route": "/swimwear-accessories/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Component",
-      "second": "Our soft, quick-drying foam cups come in triangle,"
-    },
-    {
-      "route": "/swimwear-accessories/",
-      "viewport": "mobile",
-      "issue": "text_overlap",
-      "first": "Specification and use",
-      "second": "Our soft, quick-drying foam cups come in triangle,"
-    }
-  ],
+  "failures": [],
   "warnings": [
     {
       "route": "/",
@@ -19873,20 +19431,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Item",
-          "second": "Private-label development"
-        },
-        {
-          "first": "Item",
-          "second": "We support OEM/ODM bikinis, one-pieces and athleti"
-        },
-        {
-          "first": "What we provide or require",
-          "second": "We support OEM/ODM bikinis, one-pieces and athleti"
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {
@@ -28257,20 +27802,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Specification",
-          "second": "Size range"
-        },
-        {
-          "first": "Specification",
-          "second": "XS to 3XL, with custom grading to your chart. We s"
-        },
-        {
-          "first": "Our standard or custom option",
-          "second": "XS to 3XL, with custom grading to your chart. We s"
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {
@@ -34978,20 +34510,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Order or fit choice",
-          "second": "Matched sets"
-        },
-        {
-          "first": "Order or fit choice",
-          "second": "A matching top and bottom count as one piece with "
-        },
-        {
-          "first": "What we make and how you allocate sizes",
-          "second": "A matching top and bottom count as one piece with "
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {
@@ -42886,20 +42405,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Item",
-          "second": "Pattern development"
-        },
-        {
-          "first": "Item",
-          "second": "We build custom patterns from your sketch, referen"
-        },
-        {
-          "first": "What happens",
-          "second": "We build custom patterns from your sketch, referen"
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {
@@ -59393,20 +58899,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Option",
-          "second": "Full-elastic waistband"
-        },
-        {
-          "first": "Option",
-          "second": "Each size fits about 10 cm of waist variation, and"
-        },
-        {
-          "first": "What we make for your range",
-          "second": "Each size fits about 10 cm of waist variation, and"
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {
@@ -84497,32 +83990,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Development stage",
-          "second": "Brief and fit"
-        },
-        {
-          "first": "Development stage",
-          "second": "We confirm your age range, measurements, styles an"
-        },
-        {
-          "first": "What happens",
-          "second": "We confirm your age range, measurements, styles an"
-        },
-        {
-          "first": "Fabric choice",
-          "second": "Polyester/spandex"
-        },
-        {
-          "first": "Fabric choice",
-          "second": "For a range aimed at the pool, polyester keeps its"
-        },
-        {
-          "first": "What it means for your range",
-          "second": "For a range aimed at the pool, polyester keeps its"
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {
@@ -90887,32 +90355,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Item",
-          "second": "Sample and design fees"
-        },
-        {
-          "first": "Item",
-          "second": "Each sample is USD 50. Design work is USD 50 per d"
-        },
-        {
-          "first": "What applies to your order",
-          "second": "Each sample is USD 50. Design work is USD 50 per d"
-        },
-        {
-          "first": "Fabric consideration",
-          "second": "Water and washing"
-        },
-        {
-          "first": "Fabric consideration",
-          "second": "Our chlorine- and salt-resistant fabrics hold up t"
-        },
-        {
-          "first": "What it means for your collection",
-          "second": "Our chlorine- and salt-resistant fabrics hold up t"
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {
@@ -99373,32 +98816,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Feature",
-          "second": "Coverage"
-        },
-        {
-          "first": "Feature",
-          "second": "A mid-thigh tunic, a tunic with an added skirt or "
-        },
-        {
-          "first": "Construction choices",
-          "second": "A mid-thigh tunic, a tunic with an added skirt or "
-        },
-        {
-          "first": "Fit or range",
-          "second": "Classic block"
-        },
-        {
-          "first": "Fit or range",
-          "second": "S to 3XL. The size M legging has a 76 cm inseam, a"
-        },
-        {
-          "first": "Sizes and grading",
-          "second": "S to 3XL. The size M legging has a 76 cm inseam, a"
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {
@@ -130080,20 +129498,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Fabric or use",
-          "second": "Linen"
-        },
-        {
-          "first": "Fabric or use",
-          "second": "100% linen or 55/45 linen-viscose, in 140–190 GSM "
-        },
-        {
-          "first": "Specification and consequence",
-          "second": "100% linen or 55/45 linen-viscose, in 140–190 GSM "
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {
@@ -138725,32 +138130,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Fabric or requirement",
-          "second": "Lightweight selection"
-        },
-        {
-          "first": "Fabric or requirement",
-          "second": "We source chiffon, cotton voile, linen, cotton, ra"
-        },
-        {
-          "first": "What we supply",
-          "second": "We source chiffon, cotton voile, linen, cotton, ra"
-        },
-        {
-          "first": "Fit or measurement",
-          "second": "Standard sizing"
-        },
-        {
-          "first": "Fit or measurement",
-          "second": "We offer S-XL, S-L and one size. For your market, "
-        },
-        {
-          "first": "Your options",
-          "second": "We offer S-XL, S-L and one size. For your market, "
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {
@@ -148341,20 +147721,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Technique or service",
-          "second": "Embroidered logos"
-        },
-        {
-          "first": "Technique or service",
-          "second": "You need 50 pieces per design. We embroider by mac"
-        },
-        {
-          "first": "Minimum and selection conditions",
-          "second": "You need 50 pieces per design. We embroider by mac"
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {
@@ -170048,20 +169415,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Sizing option",
-          "second": "Standard grading"
-        },
-        {
-          "first": "Sizing option",
-          "second": "We grade from XS to 3XL using internationally reco"
-        },
-        {
-          "first": "What we provide",
-          "second": "We grade from XS to 3XL using internationally reco"
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {
@@ -180165,20 +179519,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Detail",
-          "second": "Kraft paper"
-        },
-        {
-          "first": "Detail",
-          "second": "Comes in 5 shapes. Custom branding needs an order "
-        },
-        {
-          "first": "Specification and consequence",
-          "second": "Comes in 5 shapes. Custom branding needs an order "
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {
@@ -198365,32 +197706,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Hardware",
-          "second": "Strap sizing"
-        },
-        {
-          "first": "Hardware",
-          "second": "A 15 mm metal ring fits a 15 mm strap. Sliders, ho"
-        },
-        {
-          "first": "Sizes, materials and selection",
-          "second": "A 15 mm metal ring fits a 15 mm strap. Sliders, ho"
-        },
-        {
-          "first": "Check",
-          "second": "Hook-and-eye closures"
-        },
-        {
-          "first": "Check",
-          "second": "Hold 3–5 kg of pull force; metal rings and front c"
-        },
-        {
-          "first": "Rating or requirement",
-          "second": "Hold 3–5 kg of pull force; metal rings and front c"
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {
@@ -208134,20 +207450,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Fabric or specification",
-          "second": "Recycled performance"
-        },
-        {
-          "first": "Fabric or specification",
-          "second": "This fabric is 78% recycled nylon and 22% spandex "
-        },
-        {
-          "first": "What it means for your styles",
-          "second": "This fabric is 78% recycled nylon and 22% spandex "
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {
@@ -268292,20 +267595,7 @@
       "density": null,
       "blockMetrics": null,
       "lowContrast": [],
-      "textOverlaps": [
-        {
-          "first": "Component",
-          "second": "Foam cups"
-        },
-        {
-          "first": "Component",
-          "second": "Our soft, quick-drying foam cups come in triangle,"
-        },
-        {
-          "first": "Specification and use",
-          "second": "Our soft, quick-drying foam cups come in triangle,"
-        }
-      ],
+      "textOverlaps": [],
       "visual": {
         "blocks": [
           {

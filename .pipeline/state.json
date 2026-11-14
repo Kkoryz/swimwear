@@ -239,10 +239,10 @@
   },
   "audits": {
     "status": "passed",
-    "hash": "96f46a5a72cdb7bb",
-    "at": "2026-11-14T13:01:55.950Z",
-    "seconds": 117,
-    "log": ".pipeline/logs/2026-11-14T12-44-35-176Z/audits.log"
+    "hash": "2de3b8ec0af664b6",
+    "at": "2026-11-14T19:43:27.839Z",
+    "seconds": 115,
+    "log": ".pipeline/logs/2026-11-14T19-37-31-591Z/audits.log"
   },
   "design-shots": {
     "status": "passed",
