@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "seo-site-article-rhythm-v1",
+  "urls": [
+    "https://swimwearbali.com/swimwear-tech-pack-guide/",
+    "https://swimwearbali.com/finding-a-swimwear-manufacturer/",
+    "https://swimwearbali.com/how-many-styles-swimwear-collection/"
+  ],
+  "vars": {
+    "--article-figure-gap": "4rem"
+  },
+  "wordsPerPicture": 176
+}
