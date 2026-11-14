@@ -17,6 +17,9 @@ test('the substitution table replaces a commercial family by its open stand-in, 
   assert.equal(substituteFor('futura-pt').family, 'Jost');
   assert.equal(substituteFor('Futura PT').family, 'Jost');
   assert.equal(substituteFor('Maison Neue').family, 'DM Sans');
+  // swimwearbali.com serves its Maison Neue files under the alias names Maison and Maison Book.
+  assert.equal(substituteFor('Maison').family, 'DM Sans');
+  assert.equal(substituteFor('"Maison Book"').family, 'DM Sans');
   // A name that only starts like a key is not it.
   assert.equal(substituteFor('Freighter'), null);
   assert.equal(substituteFor('Josefin Sans'), null);

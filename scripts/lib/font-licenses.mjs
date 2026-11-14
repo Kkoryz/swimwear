@@ -25,6 +25,8 @@ export const SUBSTITUTES = Object.freeze({
   'freight sans': { family: 'Source Sans 3', category: 'sans-serif' },
   'futura': { family: 'Jost', category: 'sans-serif' },
   'maison neue': { family: 'DM Sans', category: 'sans-serif' },
+  // Maison Neue served under the names Maison and Maison Book (swimwearbali.com).
+  'maison': { family: 'DM Sans', category: 'sans-serif' },
   'proxima nova': { family: 'Montserrat', category: 'sans-serif' },
   'gotham': { family: 'Montserrat', category: 'sans-serif' },
   'avenir': { family: 'Nunito Sans', category: 'sans-serif' },
