@@ -127,10 +127,10 @@
   },
   "plan-gate": {
     "status": "passed",
-    "hash": "51d3d39710078eb1",
-    "at": "2026-11-14T10:49:35.361Z",
+    "hash": "58c24d69668dd3de",
+    "at": "2026-11-14T12:33:31.505Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T10-49-24-604Z/plan-gate.log"
+    "log": ".pipeline/logs/2026-11-14T12-33-21-160Z/plan-gate.log"
   },
   "calibrate": {
     "status": "passed",
