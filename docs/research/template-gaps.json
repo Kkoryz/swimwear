@@ -13,13 +13,13 @@
       "sites": [
         "site13-strandmill"
       ],
-      "pages": 21,
-      "blocking": 29,
+      "pages": 19,
+      "blocking": 22,
       "onBacklog": true,
       "examples": [
         "site13-strandmill solution section 2: GAP: no per-card panel colour; two equal text-only panels on a cream band, the first white, the second dark navy with white text",
         "site13-strandmill solution section 3: GAP: no button pair per row and no navy 'Good to know' note box under the intro; eyebrow, heading and lead in a left column, three large blu",
-        "site13-strandmill about hero (desktop): The 30-word bold lead ('Since 2011 we have run bulk lines…') and the aqua CONTACT US pill still sit on the hero photo under the centred titl"
+        "site13-strandmill about hero (desktop): The 30-word lead ('Since 2011 we have run bulk lines…') and the aqua CONTACT US pill are still on the photo, centred in four lines under the"
       ]
     },
     {
@@ -27,8 +27,8 @@
       "sites": [
         "site13-strandmill"
       ],
-      "pages": 11,
-      "blocking": 4,
+      "pages": 12,
+      "blocking": 3,
       "onBacklog": true,
       "examples": [
         "site13-strandmill home section 3: GAP: under the text sits a cream rounded card (h3, a row of five figures, arrow link), and no split nests a stats card in its copy; the righ",
@@ -37,17 +37,17 @@
       ]
     },
     {
-      "kind": "unclassified",
+      "kind": "art-direction",
       "sites": [
         "site13-strandmill"
       ],
-      "pages": 2,
-      "blocking": 7,
-      "onBacklog": false,
+      "pages": 6,
+      "blocking": 0,
+      "onBacklog": true,
       "examples": [
-        "site13-strandmill board--process-band splitMedia-1-steps (desktop): The band's button sits only a few pixels under the step-05 text (\"and trimming.\") and is pushed part-way across the section, neither on the ",
-        "site13-strandmill board--process-band splitMedia-1-steps (mobile): On phones the full-width button sits right up against step 07's last line (\"arranged by our in-house team.\"), with no gap between them.",
-        "site13-strandmill privacy proof-1 (desktop): The proof section has no top padding: its opening line ('Orders start at 50 pieces…') starts on the section's top edge, right under m2's las"
+        "site13-strandmill about hero (mobile): The tall phone frame still crops the photo to its stone wall and roses, with only part of the sitter's dress at the lower-right edge, so the",
+        "site13-strandmill blog_hub hero (mobile): Still open from the last review: at 390 px the hero is a 275 px band cut from a wide photo and is covered by text, so the photo barely reads",
+        "site13-strandmill privacy--shortest cta (mobile): At 390 px the closing band crops its wide photo to a near-square window on the woman, so 'Send an enquiry to our factory' and the lead sit r"
       ]
     },
     {
@@ -62,6 +62,20 @@
         "site13-strandmill home section 1: GAP: the hero plays a background mp4 and the template shows only the still. Full-bleed photo with a dark gradient on the left third, eyebrow",
         "site13-strandmill home section 2: GAP: the media is an embedded video (black box in the capture). Full-width cream band, eyebrow, h2 and paragraph on the left, video on the r",
         "site13-strandmill product_manufacturer section 6: GAP: no split row with an embedded video; a video player (black box) on the left, text and link on the right, white ground"
+      ]
+    },
+    {
+      "kind": "unclassified",
+      "sites": [
+        "site13-strandmill"
+      ],
+      "pages": 1,
+      "blocking": 1,
+      "onBacklog": false,
+      "examples": [
+        "site13-strandmill privacy proof-1 (desktop): Still open from the last review: the white and tinted backgrounds stop alternating after the tinted m3. m2, proof-1, proof-1-charts and proo",
+        "site13-strandmill privacy m3 (desktop): Still open from the last review: the heading 'Quality Claims, Returns and Outside Vendor Liability' breaks over four uneven lines and leaves",
+        "site13-strandmill privacy cta-steps (desktop): Still open from the last review: the title 'From your brief to shipment: the typical order path' is still a lead, not the section's h2. It s"
       ]
     },
     {
@@ -89,7 +103,7 @@
       ]
     },
     {
-      "kind": "carousel",
+      "kind": "icon-links",
       "sites": [
         "site13-strandmill"
       ],
@@ -97,7 +111,7 @@
       "blocking": 0,
       "onBacklog": false,
       "examples": [
-        "site13-strandmill board--testimonials-carousel owner-testimonials (desktop): This repeats the earlier finding, which has not been repaired. With two testimonials, the carousel keeps three-card widths and leaves the ri"
+        "site13-strandmill solution--shortest related (desktop): The related link cards still name services (Embroidery, Consulting, Packaging & Labels, Hardware) with only text and an arrow, with no line "
       ]
     }
   ],
