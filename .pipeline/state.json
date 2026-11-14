@@ -29,10 +29,10 @@
   },
   "capture-check": {
     "status": "passed",
-    "hash": "24175a4f9dec4f6e",
-    "at": "2026-11-14T10:49:32.214Z",
+    "hash": "adc43879e1f77233",
+    "at": "2026-11-14T12:33:28.468Z",
     "seconds": 4,
-    "log": ".pipeline/logs/2026-11-14T10-49-24-604Z/capture-check.log"
+    "log": ".pipeline/logs/2026-11-14T12-33-21-160Z/capture-check.log"
   },
   "analysis": {
     "status": "done",
