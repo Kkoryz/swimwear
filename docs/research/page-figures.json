@@ -1,0 +1,934 @@
+{
+  "schemaVersion": "seo-site-page-figures-v1",
+  "rules": "2b30331c679528b9",
+  "readings": {
+    "/one-piece-swimsuit-manufacturer/": {
+      "text": "0405fb6f4d7b2b5f",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Standard sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "XS to 3XL",
+          "label": "Standard size range"
+        },
+        {
+          "value": "2 to 3 working days",
+          "label": "Quotation turnaround"
+        },
+        {
+          "value": "one business day",
+          "label": "Enquiry reply time"
+        }
+      ]
+    },
+    "/women-s-swimwear-manufacturer/": {
+      "text": "4898d1e2df213c33",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Sample lead time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "3XL",
+          "label": "Standard sizes up to"
+        },
+        {
+          "value": "G cup",
+          "label": "Maximum cup size"
+        },
+        {
+          "value": "2 to 3 working days",
+          "label": "Quotation turnaround"
+        }
+      ]
+    },
+    "/men-s-swimwear-manufacturer/": {
+      "text": "4468ecf675f3bea5",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "100,000 pieces a month",
+          "label": "Monthly capacity"
+        },
+        {
+          "value": "1000 pieces",
+          "label": "Woven labels minimum"
+        },
+        {
+          "value": "55 custom samples a day",
+          "label": "Daily sampling output"
+        }
+      ]
+    },
+    "/bikini-manufacturer/": {
+      "text": "13de111fed716ad1",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "XS to 5XL",
+          "label": "Size range"
+        },
+        {
+          "value": "3 to 4 sizes",
+          "label": "Sizes per style"
+        },
+        {
+          "value": "one business day",
+          "label": "Quote reply time"
+        }
+      ]
+    },
+    "/boardshorts-manufacturer/": {
+      "text": "18714e2ed4308cc6",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "28 to 44 inches",
+          "label": "Men's waist range"
+        },
+        {
+          "value": "10 to 22 inches",
+          "label": "Custom outseam range"
+        },
+        {
+          "value": "120 GSM",
+          "label": "Microfiber twill weight"
+        }
+      ]
+    },
+    "/swim-trunks-manufacturer/": {
+      "text": "9332d038bd244c99",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style/colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "5 inch, 7 inch or 9 inch",
+          "label": "Classic trunk inseams"
+        },
+        {
+          "value": "S to 3XL",
+          "label": "Standard size range"
+        },
+        {
+          "value": "1,000 pieces",
+          "label": "Custom woven label minimum"
+        }
+      ]
+    },
+    "/children-s-swimwear-manufacturer/": {
+      "text": "a36db350d3e1c221",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Sample lead time"
+        },
+        {
+          "value": "4 to 7 days",
+          "label": "Customs and dispatch"
+        },
+        {
+          "value": "UPF 50+",
+          "label": "Sun protection rating"
+        },
+        {
+          "value": "size 14",
+          "label": "Largest size made"
+        }
+      ]
+    },
+    "/teen-swimwear-manufacturer/": {
+      "text": "1413f4be66f505ef",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Sample lead time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "8-10 to 12-14",
+          "label": "Age size range"
+        },
+        {
+          "value": "164 cm",
+          "label": "Maximum height size"
+        },
+        {
+          "value": "one business day",
+          "label": "Enquiry response time"
+        }
+      ]
+    },
+    "/baby-swimwear-manufacturer/": {
+      "text": "abe15eb5de0954f3",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "UPF 50",
+          "label": "Sun protection"
+        },
+        {
+          "value": "180 to 200 gsm",
+          "label": "Main fabric weight"
+        },
+        {
+          "value": "since 2011",
+          "label": "Factory operating since"
+        }
+      ]
+    },
+    "/toddler-swimwear-manufacturer/": {
+      "text": "6f9d4ed6924973ff",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Standard sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "2T to 4T",
+          "label": "Standard size range"
+        },
+        {
+          "value": "UPF 50+",
+          "label": "Sun protection fabric"
+        },
+        {
+          "value": "one business day",
+          "label": "Enquiry reply time"
+        }
+      ]
+    },
+    "/modest-swimwear-manufacturer/": {
+      "text": "a90a1d3af65d6889",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style/colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Standard sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "200–210 gsm",
+          "label": "Standard fabric weight"
+        },
+        {
+          "value": "UPF 50+",
+          "label": "Fabric sun protection"
+        },
+        {
+          "value": "one business day",
+          "label": "Enquiry reply time"
+        }
+      ]
+    },
+    "/burkini-manufacturer/": {
+      "text": "af5061427c9ceace",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Standard sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "XS to 3XL",
+          "label": "Free size grading"
+        },
+        {
+          "value": "UPF 50+",
+          "label": "Sun protection option"
+        },
+        {
+          "value": "one business day",
+          "label": "Enquiry reply time"
+        }
+      ]
+    },
+    "/watersports-apparel-manufacturer/": {
+      "text": "9643594bb8417870",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Standard sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "UPF 50+",
+          "label": "Sun protection fabric"
+        },
+        {
+          "value": "XS to 3XL",
+          "label": "Size grading range"
+        },
+        {
+          "value": "80/20 nylon-spandex",
+          "label": "Core fabric blend"
+        }
+      ]
+    },
+    "/rash-guard-manufacturer/": {
+      "text": "e6fc179f8f05288e",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Standard sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "180gsm to 320gsm",
+          "label": "Fabric weight range"
+        },
+        {
+          "value": "UPF 50+",
+          "label": "Sun protection rating"
+        },
+        {
+          "value": "one business day",
+          "label": "Enquiry response time"
+        }
+      ]
+    },
+    "/cover-up-manufacturer/": {
+      "text": "95ad27533da287c0",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style/colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Standard sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "80 to 150 GSM",
+          "label": "Natural-fibre fabric weight"
+        },
+        {
+          "value": "UPF 50+",
+          "label": "Sun-protection fabric rating"
+        },
+        {
+          "value": "within 3%",
+          "label": "Finished shrinkage"
+        }
+      ]
+    },
+    "/resort-wear-manufacturer/": {
+      "text": "fe8ab6d0323d0020",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Standard sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "XS to 3XL",
+          "label": "Core size range"
+        },
+        {
+          "value": "1X to 4X",
+          "label": "Plus size range"
+        },
+        {
+          "value": "one business day",
+          "label": "Enquiry reply time"
+        }
+      ]
+    },
+    "/swimwear-embroidery/": {
+      "text": "59680249192c9754",
+      "figures": [
+        {
+          "value": "50 pieces per design",
+          "label": "Minimum per design"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Standard sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "5 to 7 days",
+          "label": "Embroidery added to bulk"
+        },
+        {
+          "value": "30 x 30 cm",
+          "label": "Maximum design size"
+        },
+        {
+          "value": "12 thread colours",
+          "label": "Maximum colours per design"
+        }
+      ]
+    },
+    "/swimwear-consulting/": {
+      "text": "1b52bc7cebe60491",
+      "figures": [
+        {
+          "value": "6 to 8 weeks",
+          "label": "Fixed-scope project duration"
+        },
+        {
+          "value": "3 to 4 weeks",
+          "label": "Single workstream duration"
+        },
+        {
+          "value": "3 months",
+          "label": "Minimum retainer term"
+        },
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Standard sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        }
+      ]
+    },
+    "/development/": {
+      "text": "45151bf381c9bd30",
+      "figures": [
+        {
+          "value": "10 to 15 days",
+          "label": "Standard sample time"
+        },
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style/colour"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "3 to 5 days",
+          "label": "Pattern drafting time"
+        },
+        {
+          "value": "2-3 weeks",
+          "label": "Extra for custom development"
+        },
+        {
+          "value": "XS to 3XL",
+          "label": "Standard grading range"
+        }
+      ]
+    },
+    "/swimwear-packaging-custom-brand-labels/": {
+      "text": "744ae3d5c4027a8f",
+      "figures": [
+        {
+          "value": "7 to 10 days",
+          "label": "Label accessory preparation"
+        },
+        {
+          "value": "300 pcs",
+          "label": "Printed zip-lock bag minimum"
+        },
+        {
+          "value": "3,000 units",
+          "label": "Branded liner minimum"
+        },
+        {
+          "value": "7 days",
+          "label": "Supplied materials before cutting"
+        },
+        {
+          "value": "50 pieces",
+          "label": "Garment minimum per style"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        }
+      ]
+    },
+    "/custom-swimwear-printing/": {
+      "text": "48328ae1f9c9c827",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Standard sample time"
+        },
+        {
+          "value": "one day",
+          "label": "Strike-off turnaround"
+        },
+        {
+          "value": "up to 3 business days",
+          "label": "Sublimation quote time"
+        },
+        {
+          "value": "300 dpi",
+          "label": "Minimum artwork resolution"
+        }
+      ]
+    },
+    "/swimwear-hardware/": {
+      "text": "1330f238fdaa2183",
+      "figures": [
+        {
+          "value": "100 to 500 pieces",
+          "label": "Standard hardware minimum"
+        },
+        {
+          "value": "1,000 pieces",
+          "label": "Custom logo hardware minimum"
+        },
+        {
+          "value": "3 to 7 days",
+          "label": "Stock hardware ready"
+        },
+        {
+          "value": "15 to 20 days",
+          "label": "Logo hardware samples"
+        },
+        {
+          "value": "6 mm to 50 mm",
+          "label": "Metal ring sizes"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        }
+      ]
+    },
+    "/swimwear-fabrics-sourcing/": {
+      "text": "04fff7343a9efe23",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "50 to 100 m",
+          "label": "Mill fabric minimum"
+        },
+        {
+          "value": "180–200 GSM",
+          "label": "Main fabric weight"
+        },
+        {
+          "value": "3 to 5 weeks",
+          "label": "Import adds before bulk"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        }
+      ]
+    },
+    "/swimwear-launch-services/": {
+      "text": "fb40be2d206dff3e",
+      "figures": [
+        {
+          "value": "10 to 12 weeks",
+          "label": "Brief to launch"
+        },
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Standard sample time"
+        },
+        {
+          "value": "1 to 2 weeks",
+          "label": "Photo and video shoot"
+        },
+        {
+          "value": "2 to 3 weeks",
+          "label": "Store build time"
+        }
+      ]
+    },
+    "/faq/": {
+      "text": "33f0a7e5e90fa96c",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Sample lead time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "5 to 7 days",
+          "label": "DHL sample delivery"
+        },
+        {
+          "value": "4 to 7 days",
+          "label": "Customs declaration, dispatch"
+        },
+        {
+          "value": "one business day",
+          "label": "Enquiry reply time"
+        }
+      ]
+    },
+    "/contact-us/": {
+      "text": "50c4146aa455d73f",
+      "figures": [
+        {
+          "value": "one business day",
+          "label": "Enquiry reply time"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Sample development time"
+        },
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "8 weeks",
+          "label": "Order before Chinese New Year"
+        },
+        {
+          "value": "about 3 weeks",
+          "label": "Chinese New Year closure"
+        }
+      ]
+    },
+    "/case-studies/": {
+      "text": "573944b1f125dc7f",
+      "figures": [
+        {
+          "value": "10 to 15 days",
+          "label": "Sample lead time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "more than 350 brands",
+          "label": "Brands served yearly"
+        },
+        {
+          "value": "one business day",
+          "label": "Enquiry reply time"
+        },
+        {
+          "value": "3 business days",
+          "label": "Supplied fabric inspection"
+        },
+        {
+          "value": "2011",
+          "label": "Factory running since"
+        }
+      ]
+    },
+    "/sustainability/": {
+      "text": "1c92963824775074",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Development sample time"
+        },
+        {
+          "value": "20 kg",
+          "label": "Minimum take-back batch"
+        },
+        {
+          "value": "10 business days",
+          "label": "Carbon report delivery"
+        },
+        {
+          "value": "1 business day",
+          "label": "Certificate copies turnaround"
+        }
+      ]
+    },
+    "/request-a-quote/": {
+      "text": "0dde8bd3cbfd4226",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Sampling time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "2 to 3 working days",
+          "label": "Free quotation turnaround"
+        },
+        {
+          "value": "30 days",
+          "label": "Quotation validity"
+        },
+        {
+          "value": "one business day",
+          "label": "Enquiry reply time"
+        }
+      ]
+    },
+    "/swimwear-accessories/": {
+      "text": "9c671e8bfe448195",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Sample lead time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "2 to 3 working days",
+          "label": "Quotation turnaround"
+        },
+        {
+          "value": "300 pcs",
+          "label": "Branded zip-lock bag minimum"
+        },
+        {
+          "value": "7 days",
+          "label": "Defect reporting deadline"
+        }
+      ]
+    },
+    "/couples-matching-swimsuit-manufacturer/": {
+      "text": "6b5c68ecf51002cd",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Standard sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "2 to 3 working days",
+          "label": "Quotation turnaround"
+        },
+        {
+          "value": "3 to 4 sizes",
+          "label": "Sizes per style"
+        },
+        {
+          "value": "1:2:2:1",
+          "label": "Standard S:M:L:XL ratio"
+        }
+      ]
+    },
+    "/plus-size-swimwear-manufacturer/": {
+      "text": "6a803887a3791485",
+      "figures": [
+        {
+          "value": "50 pieces",
+          "label": "Minimum per style colour"
+        },
+        {
+          "value": "10 to 15 days",
+          "label": "Sample time"
+        },
+        {
+          "value": "35 to 40 days",
+          "label": "Bulk production time"
+        },
+        {
+          "value": "5XL",
+          "label": "Largest size"
+        },
+        {
+          "value": "G cup",
+          "label": "Largest underwire cup"
+        },
+        {
+          "value": "200 to 220 gsm",
+          "label": "Plus-size fabric weight"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,3 @@
+```json
+{"figures": [{"value": "10 to 15 days", "label": "Standard sample time"}, {"value": "50 pieces", "label": "Minimum per style/colour"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "3 to 5 days", "label": "Pattern drafting time"}, {"value": "2-3 weeks", "label": "Extra for custom development"}, {"value": "XS to 3XL", "label": "Standard grading range"}]}
+```

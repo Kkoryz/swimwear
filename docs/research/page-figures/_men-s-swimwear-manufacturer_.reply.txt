@@ -1,0 +1,3 @@
+```json
+{"figures": [{"value": "50 pieces", "label": "Minimum per style"}, {"value": "10 to 15 days", "label": "Sample time"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "100,000 pieces a month", "label": "Monthly capacity"}, {"value": "1000 pieces", "label": "Woven labels minimum"}, {"value": "55 custom samples a day", "label": "Daily sampling output"}]}
+```

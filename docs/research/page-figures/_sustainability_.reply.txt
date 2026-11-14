@@ -1,0 +1,3 @@
+```json
+{"figures": [{"value": "50 pieces", "label": "Minimum per style colour"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "10 to 15 days", "label": "Development sample time"}, {"value": "20 kg", "label": "Minimum take-back batch"}, {"value": "10 business days", "label": "Carbon report delivery"}, {"value": "1 business day", "label": "Certificate copies turnaround"}]}
+```

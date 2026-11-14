@@ -1,0 +1,3 @@
+```json
+{"figures": [{"value": "7 to 10 days", "label": "Label accessory preparation"}, {"value": "300 pcs", "label": "Printed zip-lock bag minimum"}, {"value": "3,000 units", "label": "Branded liner minimum"}, {"value": "7 days", "label": "Supplied materials before cutting"}, {"value": "50 pieces", "label": "Garment minimum per style"}, {"value": "35 to 40 days", "label": "Bulk production time"}]}
+```

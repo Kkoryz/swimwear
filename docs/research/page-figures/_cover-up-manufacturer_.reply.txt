@@ -1,0 +1,3 @@
+```json
+{"figures": [{"value": "50 pieces", "label": "Minimum per style/colour"}, {"value": "10 to 15 days", "label": "Standard sample time"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "80 to 150 GSM", "label": "Natural-fibre fabric weight"}, {"value": "UPF 50+", "label": "Sun-protection fabric rating"}, {"value": "within 3%", "label": "Finished shrinkage"}]}
+```

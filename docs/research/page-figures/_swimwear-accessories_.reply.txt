@@ -1,0 +1,3 @@
+```json
+{"figures": [{"value": "50 pieces", "label": "Minimum per style colour"}, {"value": "10 to 15 days", "label": "Sample lead time"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "2 to 3 working days", "label": "Quotation turnaround"}, {"value": "300 pcs", "label": "Branded zip-lock bag minimum"}, {"value": "7 days", "label": "Defect reporting deadline"}]}
+```

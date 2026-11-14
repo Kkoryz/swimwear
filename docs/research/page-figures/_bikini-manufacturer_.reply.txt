@@ -1,0 +1,3 @@
+```json
+{"figures": [{"value": "50 pieces", "label": "Minimum per style colour"}, {"value": "10 to 15 days", "label": "Sample time"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "XS to 5XL", "label": "Size range"}, {"value": "3 to 4 sizes", "label": "Sizes per style"}, {"value": "one business day", "label": "Quote reply time"}]}
+```
