@@ -1,0 +1,26 @@
+{
+  "name": "swimwear",
+  "category": "swimwear",
+  "category_plural": "swimwear",
+  "category_words": [
+    "swimwear",
+    "swim",
+    "swimsuit"
+  ],
+  "site_name": "Strandmill",
+  "web_domain": "strandmill.com",
+  "domain": "b2b-manufacturer",
+  "locations": [
+    "china",
+    "guangzhou"
+  ],
+  "language": "English",
+  "contact": {
+    "email": "sales@strandmill.com",
+    "phone": "",
+    "address": "Guangzhou, Guangdong, China",
+    "hours": "Monday to Saturday, 9:00-18:00 China Standard Time",
+    "same_as": [],
+    "placeholder": true
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "facts": [
+    {
+      "fact_id": "owner:location-china",
+      "text": "We manufacture swimwear ourselves in a single factory of our own in Guangzhou, Guangdong, China.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:factory-and-trade",
+      "text": "Production and export sit in one company that owns its factory, so quality, cost and delivery stay under our direct control.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:moq",
+      "text": "Orders start at 50 pieces per style in each colour, a level set so that small and growing labels can order.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:trial-order",
+      "text": "A first trial run is agreed case by case, and we are as flexible on its quantity as production allows.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:lead-time",
+      "text": "Once the sample is approved and the deposit received, bulk production usually needs 35 to 40 days, depending on order size and season.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:oem-odm",
+      "text": "Both OEM and ODM work is possible: a new style can start from your own design, a picture or just an idea.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:sample-time",
+      "text": "A standard sample is ready in 10 to 15 days.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:sample-fee",
+      "text": "Each sample costs USD 50, and the design fee is USD 50 per design (its pattern or print, with all colourways); these fees are not refunded or credited against the bulk order.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:sample-freight",
+      "text": "Courier delivery of samples costs USD 50, paid by the buyer in addition to the sample fee.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:quality-control",
+      "text": "Quality is checked at every stage of an order: fabric on arrival, cutting, sewing, then random checks and a full final inspection.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:third-party-inspection",
+      "text": "Independent inspectors such as SGS or BV are welcome to check the goods before they ship.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:trade-terms",
+      "text": "Shipments go out on FOB, CIF or DDP terms; DDP is available worldwide, and under DDP one all-in price covers delivery to your door, with duties, customs and freight handled by us.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:start-with-samples",
+      "text": "Most partnerships begin with samples so quality can be judged first, and the bulk order follows once they are approved.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:design-team",
+      "text": "An in-house design team handles pattern design, grading and fit development, which saves you rounds of back-and-forth on the design.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:fabric-range",
+      "text": "We make swimwear from nylon and polyester swimwear fabrics blended with spandex, such as 80% nylon 20% spandex, with matching linings. On request we source chlorine-resistant LYCRA Xtra Life, recycled nylon such as ECONYL, recycled polyester such as REPREVE, and Italian Carvico fabrics.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:ready-stock",
+      "text": "Alongside made-to-order production, some styles are held in stock for wholesale buyers.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:founded",
+      "text": "The factory has been running since 2011.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:certifications",
+      "text": "Our production holds OEKO-TEX Standard 100 for tested fabrics and trims, GRS and RCS for recycled fabrics, bluesign for chemistry, ISO 9001 for quality management and WRAP for social compliance.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:typical-timeline",
+      "text": "A typical order moves from your brief or tech pack to a sample in 10 to 15 days, then to your approval and deposit, 35 to 40 days of bulk production depending on size and season, a full final inspection, and shipment on FOB, CIF or DDP terms.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:quote-before-sample",
+      "text": "We quote first: once the price is agreed, we move on to making the sample.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:payment-terms",
+      "text": "We take a 50% deposit when the order is confirmed, and the remaining 50% is paid before shipment.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:enquiry-reply",
+      "text": "We reply to every enquiry within one business day.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    },
+    {
+      "fact_id": "owner:b2b-only",
+      "text": "We are a business-to-business manufacturer: this website and our own team are our only sales channels. We have no online shop and no store on any third-party marketplace or platform, and every order is agreed directly with our team.",
+      "verification_status": "user_provided",
+      "approved_public": true
+    }
+  ],
+  "sources": {
+    "owner:location-china": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "location-china",
+      "verification_status": "user_provided"
+    },
+    "owner:factory-and-trade": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "factory-and-trade",
+      "verification_status": "user_provided"
+    },
+    "owner:moq": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "moq",
+      "verification_status": "user_provided"
+    },
+    "owner:trial-order": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "trial-order",
+      "verification_status": "user_provided"
+    },
+    "owner:lead-time": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "lead-time",
+      "verification_status": "user_provided"
+    },
+    "owner:oem-odm": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "oem-odm",
+      "verification_status": "user_provided"
+    },
+    "owner:sample-time": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "sample-time",
+      "verification_status": "user_provided"
+    },
+    "owner:sample-fee": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "sample-fee",
+      "verification_status": "user_provided"
+    },
+    "owner:sample-freight": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "sample-freight",
+      "verification_status": "user_provided"
+    },
+    "owner:quality-control": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "quality-control",
+      "verification_status": "user_provided"
+    },
+    "owner:third-party-inspection": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "third-party-inspection",
+      "verification_status": "user_provided"
+    },
+    "owner:trade-terms": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "trade-terms",
+      "verification_status": "user_provided"
+    },
+    "owner:start-with-samples": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "start-with-samples",
+      "verification_status": "user_provided"
+    },
+    "owner:design-team": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "design-team",
+      "verification_status": "user_provided"
+    },
+    "owner:fabric-range": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "fabric-range",
+      "verification_status": "user_provided"
+    },
+    "owner:ready-stock": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "ready-stock",
+      "verification_status": "user_provided"
+    },
+    "owner:founded": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "founded",
+      "verification_status": "user_provided"
+    },
+    "owner:certifications": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "certifications",
+      "verification_status": "user_provided"
+    },
+    "owner:typical-timeline": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "typical-timeline",
+      "verification_status": "user_provided"
+    },
+    "owner:quote-before-sample": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "quote-before-sample",
+      "verification_status": "user_provided"
+    },
+    "owner:payment-terms": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "payment-terms",
+      "verification_status": "user_provided"
+    },
+    "owner:enquiry-reply": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "enquiry-reply",
+      "verification_status": "user_provided"
+    },
+    "owner:b2b-only": {
+      "file": "inputs/owner_facts.yaml",
+      "fact_id": "b2b-only",
+      "verification_status": "user_provided"
+    }
+  },
+  "provisional": []
+}

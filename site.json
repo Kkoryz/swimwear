@@ -23,6 +23,9 @@
   "images": "generate",
   "siteFactoryProject": "D:/korey_seo/scratch_offload/swim_1114/handoff08/swim_1114a/package",
   "siteFactoryFreeze": "D:/korey_seo/site13-strandmill/inputs/freeze",
-  "navOnly": ["products", "solutions"],
-  "siteFactory": "D:/korey_seo/site13-strandmill/inputs/freeze/s07-ed84d21aaa"
+  "navOnly": [
+    "products",
+    "solutions"
+  ],
+  "siteFactory": "D:/korey_seo/site13-strandmill/inputs/freeze/s07-361a8152f4"
 }

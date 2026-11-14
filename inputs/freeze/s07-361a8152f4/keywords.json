@@ -1,0 +1,3388 @@
+{
+  "project": "swimwear",
+  "category": "swimwear",
+  "patterns": [
+    {
+      "pattern": "{product} manufacturer",
+      "goods": [
+        "apparel",
+        "clothing",
+        "garment",
+        "swimwear"
+      ],
+      "volume": 8100
+    },
+    {
+      "pattern": "wholesale {product} distributors",
+      "goods": [
+        "apparel",
+        "clothing",
+        "garment",
+        "swimwear"
+      ],
+      "volume": 4400
+    },
+    {
+      "pattern": "wholesale {product} manufacturers",
+      "goods": [
+        "apparel",
+        "clothing",
+        "garment",
+        "swimwear"
+      ],
+      "volume": 4400
+    },
+    {
+      "pattern": "{product} factory",
+      "goods": [
+        "apparel",
+        "clothing",
+        "garment",
+        "swimwear"
+      ],
+      "volume": 4400
+    },
+    {
+      "pattern": "{product} wholesale",
+      "goods": [
+        "apparel",
+        "clothing",
+        "garment",
+        "swimwear"
+      ],
+      "volume": 4400
+    },
+    {
+      "pattern": "{product} supplier",
+      "goods": [
+        "apparel",
+        "clothing",
+        "garment",
+        "swimwear"
+      ],
+      "volume": 1900
+    },
+    {
+      "pattern": "{product} factory china",
+      "goods": [
+        "apparel",
+        "clothing",
+        "garment",
+        "swimwear"
+      ],
+      "volume": 880
+    },
+    {
+      "pattern": "{product} manufacturer china",
+      "goods": [
+        "apparel",
+        "clothing",
+        "garment",
+        "swimwear"
+      ],
+      "volume": 880
+    },
+    {
+      "pattern": "{product} wholesale suppliers",
+      "goods": [
+        "apparel",
+        "clothing",
+        "swimwear"
+      ],
+      "volume": 4400
+    },
+    {
+      "pattern": "{product} wholesale vendors",
+      "goods": [
+        "apparel",
+        "clothing",
+        "swimwear"
+      ],
+      "volume": 4400
+    },
+    {
+      "pattern": "{product} wholesale china",
+      "goods": [
+        "apparel",
+        "clothing",
+        "swimwear"
+      ],
+      "volume": 720
+    },
+    {
+      "pattern": "private label {product} manufacturer",
+      "goods": [
+        "apparel",
+        "clothing",
+        "swimwear"
+      ],
+      "volume": 480
+    },
+    {
+      "pattern": "{product} manufacturing factory",
+      "goods": [
+        "apparel",
+        "clothing",
+        "garment"
+      ],
+      "volume": 40
+    },
+    {
+      "pattern": "wholesale {product} bulk",
+      "goods": [
+        "clothing",
+        "swimwear"
+      ],
+      "volume": 1300
+    },
+    {
+      "pattern": "{product} supplier china",
+      "goods": [
+        "apparel",
+        "clothing"
+      ],
+      "volume": 880
+    },
+    {
+      "pattern": "private label {product} supplier",
+      "goods": [
+        "apparel",
+        "clothing"
+      ],
+      "volume": 480
+    },
+    {
+      "pattern": "oem {product} manufacturer",
+      "goods": [
+        "clothing",
+        "garment"
+      ],
+      "volume": 110
+    },
+    {
+      "pattern": "chinese {product} factory",
+      "goods": [
+        "clothing",
+        "garment"
+      ],
+      "volume": 70
+    },
+    {
+      "pattern": "wholesale private label {product}",
+      "goods": [
+        "apparel",
+        "swimwear"
+      ],
+      "volume": 50
+    },
+    {
+      "pattern": "guangzhou {product} factory",
+      "goods": [
+        "clothing",
+        "garment"
+      ],
+      "volume": 40
+    },
+    {
+      "pattern": "oem {product} factory",
+      "goods": [
+        "apparel",
+        "clothing"
+      ],
+      "volume": 10
+    },
+    {
+      "pattern": "custom {product} manufacturer",
+      "goods": [
+        "base"
+      ],
+      "volume": 0
+    }
+  ],
+  "pages": [
+    {
+      "id": "home",
+      "name": "Swimwear",
+      "page_name": "Swimwear",
+      "type": "home",
+      "search": "",
+      "primary": {
+        "query": "swimwear manufacturer",
+        "volume": 590,
+        "volume_from": "swimwear manufacturer"
+      },
+      "secondaries": [
+        {
+          "query": "swimwear factory",
+          "volume": 90
+        },
+        {
+          "query": "private label swimwear manufacturer",
+          "volume": 20
+        },
+        {
+          "query": "oem swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom swimwear manufacturer",
+          "volume": 50
+        },
+        {
+          "query": "swimwear manufacturer china",
+          "volume": 50
+        },
+        {
+          "query": "swimwear supplier",
+          "volume": 40
+        },
+        {
+          "query": "wholesale swimwear manufacturers",
+          "volume": 70
+        }
+      ],
+      "historical_keywords": [
+        {
+          "query": "swimwear manufacturing",
+          "volume": 590,
+          "volume_from": "swimwear manufacturing"
+        },
+        {
+          "query": "swimwear production",
+          "volume": 10
+        },
+        {
+          "query": "white label swimwear",
+          "volume": 10,
+          "volume_from": "white label swimwear"
+        },
+        {
+          "query": "ready-made private label swimwear",
+          "volume": null
+        },
+        {
+          "query": "swimwear manufacturer",
+          "volume": 590,
+          "volume_from": "swimwear manufacturer"
+        },
+        {
+          "query": "wholesale swimwear distributors",
+          "volume": 70
+        },
+        {
+          "query": "wholesale swimwear manufacturers",
+          "volume": 70
+        },
+        {
+          "query": "swimwear factory",
+          "volume": 90
+        },
+        {
+          "query": "swimwear wholesale",
+          "volume": 480
+        },
+        {
+          "query": "swimwear supplier",
+          "volume": 40
+        },
+        {
+          "query": "swimwear factory china",
+          "volume": null
+        },
+        {
+          "query": "swimwear manufacturer china",
+          "volume": 50
+        },
+        {
+          "query": "swimwear wholesale suppliers",
+          "volume": null
+        },
+        {
+          "query": "swimwear wholesale vendors",
+          "volume": null
+        },
+        {
+          "query": "swimwear wholesale china",
+          "volume": 10
+        },
+        {
+          "query": "private label swimwear manufacturer",
+          "volume": 20
+        },
+        {
+          "query": "swimwear manufacturing factory",
+          "volume": null
+        },
+        {
+          "query": "wholesale swimwear bulk",
+          "volume": 10
+        },
+        {
+          "query": "swimwear supplier china",
+          "volume": null
+        },
+        {
+          "query": "private label swimwear supplier",
+          "volume": null
+        },
+        {
+          "query": "oem swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "chinese swimwear factory",
+          "volume": null
+        },
+        {
+          "query": "wholesale private label swimwear",
+          "volume": 10
+        },
+        {
+          "query": "guangzhou swimwear factory",
+          "volume": null
+        },
+        {
+          "query": "oem swimwear factory",
+          "volume": null
+        },
+        {
+          "query": "custom swimwear manufacturer",
+          "volume": 50
+        },
+        {
+          "query": "private label swimwear",
+          "volume": 40
+        }
+      ],
+      "alternate_names": [],
+      "library_pick": {
+        "primary": {
+          "query": "swimwear manufacturer",
+          "volume": 590
+        },
+        "secondaries": [
+          {
+            "query": "private label swimwear manufacturer",
+            "volume": 20
+          },
+          {
+            "query": "swimwear production",
+            "volume": 10
+          }
+        ],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "c-a0d1d7027027:product",
+      "name": "Women Swimwear",
+      "page_name": "Women's Swimwear",
+      "type": "product",
+      "search": "women's swimwear",
+      "primary": {
+        "query": "women's swimwear manufacturer",
+        "volume": 10,
+        "volume_from": "women's swimwear manufacturer"
+      },
+      "secondaries": [
+        {
+          "query": "women's swimsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "women's swimwear factory",
+          "volume": 10
+        },
+        {
+          "query": "private label women's swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem women's swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom women's swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "women's swimwear manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "women's swimwear supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale women's swimwear manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "women's swimsuits"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "wholesale women's swimwear",
+          "volume": 20
+        },
+        "secondaries": [
+          {
+            "query": "women's swimwear manufacturer",
+            "volume": 10
+          }
+        ],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "c-705b55f5501e:product",
+      "name": "One Piece",
+      "page_name": "One-Piece Swimsuits",
+      "type": "product",
+      "search": "one-piece swimsuit",
+      "primary": {
+        "query": "one-piece swimsuit manufacturer",
+        "volume": 10,
+        "volume_from": "one-piece swimsuit manufacturer"
+      },
+      "secondaries": [
+        {
+          "query": "one-piece swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "one-piece bathing suit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "one-piece swimsuit factory",
+          "volume": 10
+        },
+        {
+          "query": "private label one-piece swimsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem one-piece swimsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom one-piece swimsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "one-piece swimsuit manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "one-piece swimsuit supplier",
+          "volume": 10
+        },
+        {
+          "query": "wholesale one-piece swimsuit manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "one-piece swimwear",
+        "one-piece bathing suit"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "one piece swimsuit manufacturer",
+          "volume": 10
+        },
+        "secondaries": [
+          {
+            "query": "one piece swimsuit supplier",
+            "volume": 10
+          },
+          {
+            "query": "wholesale one piece swimsuits",
+            "volume": 10
+          }
+        ],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "c-0a2f4a960a8b:product",
+      "name": "Bikini",
+      "page_name": "Bikinis",
+      "type": "product",
+      "search": "bikini",
+      "primary": {
+        "query": "bikini manufacturer",
+        "volume": 170,
+        "volume_from": "bikini manufacturer"
+      },
+      "secondaries": [
+        {
+          "query": "bikini set manufacturer",
+          "volume": null
+        },
+        {
+          "query": "bikini factory",
+          "volume": 320
+        },
+        {
+          "query": "private label bikini manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem bikini manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom bikini manufacturer",
+          "volume": 20
+        },
+        {
+          "query": "bikini manufacturer china",
+          "volume": 10
+        },
+        {
+          "query": "bikini supplier",
+          "volume": 10
+        },
+        {
+          "query": "wholesale bikini manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "bikini set"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "bikini manufacturer",
+          "volume": 170
+        },
+        "secondaries": [
+          {
+            "query": "wholesale bikinis",
+            "volume": 170
+          },
+          {
+            "query": "bikini supplier",
+            "volume": 10
+          }
+        ],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "inferred:product:0",
+      "name": "Maternity Swimwear",
+      "page_name": "Maternity Swimwear",
+      "type": "product",
+      "search": "maternity swimwear",
+      "primary": {
+        "query": "maternity swimwear manufacturer",
+        "volume": null
+      },
+      "secondaries": [
+        {
+          "query": "maternity swimsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "maternity swimwear factory",
+          "volume": null
+        },
+        {
+          "query": "private label maternity swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem maternity swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom maternity swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "maternity swimwear manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "maternity swimwear supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale maternity swimwear manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "maternity swimsuits"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "maternity swimwear",
+          "volume": null
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": true
+      }
+    },
+    {
+      "id": "c-6e0b54e5523e:product",
+      "name": "Men’s Swimwear",
+      "page_name": "Men's Swimwear",
+      "type": "product",
+      "search": "men's swimwear",
+      "primary": {
+        "query": "men's swimwear manufacturer",
+        "volume": null
+      },
+      "secondaries": [
+        {
+          "query": "men's swimsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "men's bathing suit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "men's swimwear factory",
+          "volume": null
+        },
+        {
+          "query": "private label men's swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem men's swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom men's swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "men's swimwear manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "men's swimwear supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale men's swimwear manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "men's swimsuits",
+        "men's bathing suits"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "mens swimwear factory",
+          "volume": 10
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "inferred:product:5",
+      "name": "Boardshorts",
+      "page_name": "Boardshorts",
+      "type": "product",
+      "search": "boardshorts",
+      "primary": {
+        "query": "boardshorts manufacturer",
+        "volume": 20,
+        "volume_from": "boardshorts manufacturer"
+      },
+      "secondaries": [
+        {
+          "query": "boardshorts factory",
+          "volume": null
+        },
+        {
+          "query": "private label boardshorts manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem boardshorts manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom boardshorts manufacturer",
+          "volume": null
+        },
+        {
+          "query": "boardshorts manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "boardshorts supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale boardshorts manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [],
+      "library_pick": {
+        "primary": {
+          "query": "boardshorts manufacturer",
+          "volume": 20
+        },
+        "secondaries": [
+          {
+            "query": "board shorts factory",
+            "volume": 10
+          }
+        ],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "inferred:product:13",
+      "name": "Trunks",
+      "page_name": "Swim Trunks",
+      "type": "product",
+      "search": "swim trunks",
+      "primary": {
+        "query": "swim trunks manufacturer",
+        "volume": null
+      },
+      "secondaries": [
+        {
+          "query": "swim trunks factory",
+          "volume": null
+        },
+        {
+          "query": "private label swim trunks manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem swim trunks manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom swim trunks manufacturer",
+          "volume": null
+        },
+        {
+          "query": "swim trunks manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "swim trunks supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale swim trunks manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "swim shorts",
+        "swimming trunks"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "swim trunks",
+          "volume": 40500
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": true
+      }
+    },
+    {
+      "id": "c-3d3fc0c8dc39:product",
+      "name": "Children’s Swimwear",
+      "page_name": "Children's Swimwear",
+      "type": "product",
+      "search": "children's swimwear",
+      "primary": {
+        "query": "children's swimwear manufacturer",
+        "volume": null
+      },
+      "secondaries": [
+        {
+          "query": "kids' swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "kids' bathing suit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "children's swimwear factory",
+          "volume": null
+        },
+        {
+          "query": "private label children's swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem children's swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom children's swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "children's swimwear manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "children's swimwear supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale children's swimwear manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "kids' swimwear",
+        "kids' bathing suits"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "children's swimwear",
+          "volume": null
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": true
+      }
+    },
+    {
+      "id": "inferred:product:6",
+      "name": "Teen Swimwear",
+      "page_name": "Teen Swimwear",
+      "type": "product",
+      "search": "teen swimwear",
+      "primary": {
+        "query": "teen swimwear manufacturer",
+        "volume": null
+      },
+      "secondaries": [
+        {
+          "query": "teenage swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "teen swimwear factory",
+          "volume": null
+        },
+        {
+          "query": "private label teen swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem teen swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom teen swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "teen swimwear manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "teen swimwear supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale teen swimwear manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "teenage swimwear"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "teen swimwear",
+          "volume": null
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": true
+      }
+    },
+    {
+      "id": "inferred:product:7",
+      "name": "Baby Swimwear",
+      "page_name": "Baby Swimwear",
+      "type": "product",
+      "search": "baby swimwear",
+      "primary": {
+        "query": "baby swimwear manufacturer",
+        "volume": null
+      },
+      "secondaries": [
+        {
+          "query": "infant swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "baby swimwear factory",
+          "volume": null
+        },
+        {
+          "query": "private label baby swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem baby swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom baby swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "baby swimwear manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "baby swimwear supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale baby swimwear manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "infant swimwear"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "baby swimwear",
+          "volume": 5400
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": true
+      }
+    },
+    {
+      "id": "inferred:product:8",
+      "name": "Toddler Swimwear",
+      "page_name": "Toddler Swimwear",
+      "type": "product",
+      "search": "toddler swimwear",
+      "primary": {
+        "query": "toddler swimwear manufacturer",
+        "volume": null
+      },
+      "secondaries": [
+        {
+          "query": "toddler swimsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "toddler swimwear factory",
+          "volume": null
+        },
+        {
+          "query": "private label toddler swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem toddler swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom toddler swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "toddler swimwear manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "toddler swimwear supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale toddler swimwear manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "toddler swimsuits"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "toddler swimwear",
+          "volume": null
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": true
+      }
+    },
+    {
+      "id": "inferred:product:10",
+      "name": "Modest Swimwear",
+      "page_name": "Modest Swimwear",
+      "type": "product",
+      "search": "modest swimwear",
+      "primary": {
+        "query": "modest swimwear manufacturer",
+        "volume": 10,
+        "volume_from": "modest swimwear manufacturer"
+      },
+      "secondaries": [
+        {
+          "query": "modest swimsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "modest bathing suit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "modest swimwear factory",
+          "volume": null
+        },
+        {
+          "query": "private label modest swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem modest swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom modest swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "modest swimwear manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "modest swimwear supplier",
+          "volume": 0
+        },
+        {
+          "query": "wholesale modest swimwear manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "modest swimsuits",
+        "modest bathing suits"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "modest swimwear manufacturer",
+          "volume": 10
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "inferred:product:3",
+      "name": "Burkinis",
+      "page_name": "Burkinis",
+      "type": "product",
+      "search": "burkini",
+      "primary": {
+        "query": "burkini manufacturer",
+        "volume": null
+      },
+      "secondaries": [
+        {
+          "query": "muslim swimsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "burkini factory",
+          "volume": null
+        },
+        {
+          "query": "private label burkini manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem burkini manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom burkini manufacturer",
+          "volume": null
+        },
+        {
+          "query": "burkini manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "burkini supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale burkini manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "muslim swimsuit"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "burkini",
+          "volume": 22200
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": true
+      }
+    },
+    {
+      "id": "group:watersports-apparel",
+      "name": "Watersports Apparel",
+      "page_name": "Watersports Apparel",
+      "type": "product",
+      "search": "watersports apparel",
+      "primary": {
+        "query": "watersports apparel manufacturer",
+        "volume": null
+      },
+      "secondaries": [
+        {
+          "query": "watersports apparel factory",
+          "volume": null
+        },
+        {
+          "query": "private label watersports apparel manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem watersports apparel manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom watersports apparel manufacturer",
+          "volume": null
+        },
+        {
+          "query": "watersports apparel manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "watersports apparel supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale watersports apparel manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [],
+      "library_pick": {
+        "primary": {
+          "query": "watersports apparel",
+          "volume": 90
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": true
+      }
+    },
+    {
+      "id": "inferred:product:1",
+      "name": "Rash Guards",
+      "page_name": "Rash Guards",
+      "type": "product",
+      "search": "rash guard",
+      "primary": {
+        "query": "rash guard manufacturer",
+        "volume": 20,
+        "volume_from": "rash guard manufacturer"
+      },
+      "secondaries": [
+        {
+          "query": "rash vest manufacturer",
+          "volume": null
+        },
+        {
+          "query": "rash guard factory",
+          "volume": null
+        },
+        {
+          "query": "private label rash guard manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem rash guard manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom rash guard manufacturer",
+          "volume": null
+        },
+        {
+          "query": "rash guard manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "rash guard supplier",
+          "volume": 20
+        },
+        {
+          "query": "wholesale rash guard manufacturers",
+          "volume": 10
+        }
+      ],
+      "alternate_names": [
+        "rash vest"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "rash guard manufacturer",
+          "volume": 20
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "inferred:product:2",
+      "name": "Wetsuits",
+      "page_name": "Wetsuits",
+      "type": "product",
+      "search": "wetsuit",
+      "primary": {
+        "query": "wetsuit manufacturer",
+        "volume": null
+      },
+      "secondaries": [
+        {
+          "query": "neoprene suit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "wetsuit factory",
+          "volume": 140
+        },
+        {
+          "query": "private label wetsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem wetsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom wetsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "wetsuit manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "wetsuit supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale wetsuit manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "neoprene suit"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "custom wetsuits",
+          "volume": 390
+        },
+        "secondaries": [
+          {
+            "query": "wetsuit factory",
+            "volume": 140
+          }
+        ],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "c-0cc45987ac6b:product",
+      "name": "Resort Wear",
+      "page_name": "Resort Wear",
+      "type": "product",
+      "search": "resort wear",
+      "primary": {
+        "query": "resort wear manufacturer",
+        "volume": 10,
+        "volume_from": "resort wear manufacturer"
+      },
+      "secondaries": [
+        {
+          "query": "resort wear factory",
+          "volume": null
+        },
+        {
+          "query": "private label resort wear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem resort wear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom resort wear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "resort wear manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "resort wear supplier",
+          "volume": 10
+        },
+        {
+          "query": "wholesale resort wear manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [],
+      "library_pick": {
+        "primary": {
+          "query": "resort wear manufacturer",
+          "volume": 10
+        },
+        "secondaries": [
+          {
+            "query": "resort wear supplier",
+            "volume": 10
+          }
+        ],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "inferred:product:11",
+      "name": "Cover-Ups",
+      "page_name": "Cover-Ups",
+      "type": "product",
+      "search": "cover-up",
+      "primary": {
+        "query": "cover-up manufacturer",
+        "volume": null
+      },
+      "secondaries": [
+        {
+          "query": "beach cover-up manufacturer",
+          "volume": null
+        },
+        {
+          "query": "swimsuit cover-up manufacturer",
+          "volume": null
+        },
+        {
+          "query": "cover-up factory",
+          "volume": null
+        },
+        {
+          "query": "private label cover-up manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem cover-up manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom cover-up manufacturer",
+          "volume": null
+        },
+        {
+          "query": "cover-up manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "cover-up supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale cover-up manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "beach cover-up",
+        "swimsuit cover-up"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "cover up wholesale",
+          "volume": 10
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "c-8404f8cb0b07:service",
+      "name": "Embroidery Services",
+      "page_name": "Embroidery",
+      "type": "service",
+      "search": "",
+      "primary": {
+        "query": "swimwear embroidery",
+        "volume": 480,
+        "volume_from": "swimwear embroidery"
+      },
+      "secondaries": [
+        {
+          "query": "custom embroidery swimwear",
+          "volume": null
+        }
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "embroidery supplier",
+          "volume": 9900
+        },
+        "secondaries": [
+          {
+            "query": "embroidery factory",
+            "volume": 590
+          }
+        ],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "c-c48d984954c3:service",
+      "name": "Consulting",
+      "page_name": "Consulting",
+      "type": "service",
+      "search": "",
+      "primary": {
+        "query": "swimwear consulting",
+        "volume": null
+      },
+      "secondaries": [
+        {
+          "query": "swimwear brand consulting",
+          "volume": null
+        }
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "consulting",
+          "volume": 33100
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": true
+      }
+    },
+    {
+      "id": "c-05134426bcd1:service",
+      "name": "Development",
+      "page_name": "Development",
+      "type": "service",
+      "search": "",
+      "primary": {
+        "query": "swimwear development",
+        "volume": null
+      },
+      "secondaries": [
+        {
+          "query": "swimwear sampling",
+          "volume": null
+        },
+        {
+          "query": "swimwear product development",
+          "volume": null
+        },
+        {
+          "query": "swimwear design development",
+          "volume": null
+        },
+        {
+          "query": "swimwear sample making",
+          "volume": null
+        },
+        {
+          "query": "swimwear prototyping",
+          "volume": null
+        }
+      ],
+      "historical_keywords": [
+        {
+          "query": "swimwear sampling",
+          "volume": null
+        },
+        {
+          "query": "swimwear sample development",
+          "volume": null
+        },
+        {
+          "query": "swimwear development",
+          "volume": null
+        },
+        {
+          "query": "swimwear design and development",
+          "volume": null
+        },
+        {
+          "query": "swimwear product development",
+          "volume": null
+        },
+        {
+          "query": "swimwear sample making",
+          "volume": null
+        },
+        {
+          "query": "swimwear prototyping",
+          "volume": null
+        },
+        {
+          "query": "swimwear design development",
+          "volume": null
+        }
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "swimwear sample maker",
+          "volume": 10
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "c-fe2ba46d3673:service",
+      "name": "Swimwear Packaging & Custom Brand Labels",
+      "page_name": "Swimwear Packaging & Custom Brand Labels",
+      "type": "service",
+      "search": "",
+      "primary": {
+        "query": "swimwear packaging",
+        "volume": 50,
+        "volume_from": "swimwear packaging"
+      },
+      "secondaries": [
+        {
+          "query": "custom swimwear labels",
+          "volume": null
+        },
+        {
+          "query": "custom swimwear packaging",
+          "volume": 10
+        },
+        {
+          "query": "swimwear brand labels",
+          "volume": null
+        }
+      ],
+      "historical_keywords": [
+        {
+          "query": "swimwear packaging",
+          "volume": 50,
+          "volume_from": "swimwear packaging"
+        },
+        {
+          "query": "swimsuit packaging",
+          "volume": null
+        },
+        {
+          "query": "custom swimwear labels",
+          "volume": null
+        },
+        {
+          "query": "custom swimsuit labels",
+          "volume": null
+        },
+        {
+          "query": "custom swimwear packaging",
+          "volume": 10
+        },
+        {
+          "query": "swimwear brand labels",
+          "volume": null
+        }
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "swimwear packaging & custom brand labels",
+          "volume": null
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": true
+      }
+    },
+    {
+      "id": "c-2cd070a4fc87:service",
+      "name": "Custom Printing",
+      "page_name": "Custom Printing",
+      "type": "service",
+      "search": "",
+      "primary": {
+        "query": "swimwear printing",
+        "volume": 110,
+        "volume_from": "swimwear printing"
+      },
+      "secondaries": [
+        {
+          "query": "custom swimwear prints",
+          "volume": null
+        },
+        {
+          "query": "swimwear fabric printing",
+          "volume": 40
+        }
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "custom printing",
+          "volume": 14800
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": true
+      }
+    },
+    {
+      "id": "c-5d0487ddb859:service",
+      "name": "Laser Cutting",
+      "page_name": "Laser Cutting",
+      "type": "service",
+      "search": "",
+      "primary": {
+        "query": "swimwear laser cutting",
+        "volume": null
+      },
+      "secondaries": [
+        {
+          "query": "laser cut swimwear",
+          "volume": 260
+        }
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "laser cutting",
+          "volume": 27100
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": true
+      }
+    },
+    {
+      "id": "c-fb5b6b828f5b:service",
+      "name": "Swimwear Hardware",
+      "page_name": "Swimwear Hardware",
+      "type": "service",
+      "search": "",
+      "primary": {
+        "query": "swimwear hardware",
+        "volume": 90,
+        "volume_from": "swimwear hardware"
+      },
+      "secondaries": [],
+      "library_pick": {
+        "primary": {
+          "query": "swimwear hardware",
+          "volume": 90
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": true
+      }
+    },
+    {
+      "id": "c-3055c652c816:service",
+      "name": "Swimwear Fabrics & Sourcing",
+      "page_name": "Swimwear Fabrics & Sourcing",
+      "type": "service",
+      "search": "",
+      "primary": {
+        "query": "swimwear fabric",
+        "volume": 5400,
+        "volume_from": "swimwear fabric"
+      },
+      "secondaries": [
+        {
+          "query": "swimwear sourcing",
+          "volume": null
+        },
+        {
+          "query": "swim fabric",
+          "volume": 880
+        },
+        {
+          "query": "swimwear material sourcing",
+          "volume": null
+        },
+        {
+          "query": "swimwear fabric and trim sourcing",
+          "volume": null
+        }
+      ],
+      "historical_keywords": [
+        {
+          "query": "swimwear sourcing",
+          "volume": null
+        },
+        {
+          "query": "swimwear material sourcing",
+          "volume": null
+        },
+        {
+          "query": "swimwear fabrics",
+          "volume": 5400,
+          "volume_from": "swimwear fabrics"
+        },
+        {
+          "query": "swimsuit fabrics",
+          "volume": 90
+        },
+        {
+          "query": "swim fabrics",
+          "volume": 880
+        },
+        {
+          "query": "swimwear fabric and trim sourcing",
+          "volume": null
+        },
+        {
+          "query": "swimwear fabric",
+          "volume": 5400,
+          "volume_from": "swimwear fabric"
+        },
+        {
+          "query": "swim fabric",
+          "volume": 880
+        }
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "sourcing",
+          "volume": 8100
+        },
+        "secondaries": [
+          {
+            "query": "swimwear fabric supplier",
+            "volume": 10
+          }
+        ],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "c-f7c91fefc9c3:service",
+      "name": "Launch Services",
+      "page_name": "Launch",
+      "type": "service",
+      "search": "",
+      "primary": {
+        "query": "swimwear brand launch",
+        "volume": null
+      },
+      "secondaries": [],
+      "library_pick": {
+        "primary": {
+          "query": "launch services",
+          "volume": 12100
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": true
+      }
+    },
+    {
+      "id": "site:about",
+      "name": "About Us",
+      "page_name": "About Us",
+      "type": "general",
+      "search": "",
+      "primary": {
+        "query": "",
+        "volume": null
+      },
+      "secondaries": []
+    },
+    {
+      "id": "site:contact",
+      "name": "Contact Us",
+      "page_name": "Contact Us",
+      "type": "general",
+      "search": "",
+      "primary": {
+        "query": "",
+        "volume": null
+      },
+      "secondaries": []
+    },
+    {
+      "id": "site:faq",
+      "name": "FAQ",
+      "page_name": "FAQ",
+      "type": "general",
+      "search": "",
+      "primary": {
+        "query": "",
+        "volume": null
+      },
+      "secondaries": []
+    },
+    {
+      "id": "site:blog",
+      "name": "Blog",
+      "page_name": "Blog",
+      "type": "general",
+      "search": "",
+      "primary": {
+        "query": "",
+        "volume": null
+      },
+      "secondaries": []
+    },
+    {
+      "id": "site:case_studies_portfolio",
+      "name": "Case Studies",
+      "page_name": "Case Studies",
+      "type": "general",
+      "search": "",
+      "primary": {
+        "query": "",
+        "volume": null
+      },
+      "secondaries": []
+    },
+    {
+      "id": "site:sustainability",
+      "name": "Sustainability",
+      "page_name": "Sustainability",
+      "type": "general",
+      "search": "",
+      "primary": {
+        "query": "",
+        "volume": null
+      },
+      "secondaries": []
+    },
+    {
+      "id": "site:privacy",
+      "name": "Privacy Policy",
+      "page_name": "Privacy Policy",
+      "type": "general",
+      "search": "",
+      "primary": {
+        "query": "",
+        "volume": null
+      },
+      "secondaries": []
+    },
+    {
+      "id": "site:terms",
+      "name": "Terms and Conditions",
+      "page_name": "Terms and Conditions",
+      "type": "general",
+      "search": "",
+      "primary": {
+        "query": "",
+        "volume": null
+      },
+      "secondaries": []
+    },
+    {
+      "id": "site:inquiry",
+      "name": "Request a Quote",
+      "page_name": "Request a Quote",
+      "type": "general",
+      "search": "",
+      "primary": {
+        "query": "",
+        "volume": null
+      },
+      "secondaries": []
+    },
+    {
+      "id": "c-2bdd0c3dd288:product",
+      "name": "Swimwear Accessories",
+      "page_name": "Swimwear Accessories",
+      "type": "product",
+      "search": "swimwear accessories",
+      "primary": {
+        "query": "swimwear accessories manufacturer",
+        "volume": 10,
+        "volume_from": "swimwear accessories manufacturer"
+      },
+      "secondaries": [
+        {
+          "query": "swimwear accessories factory",
+          "volume": null
+        },
+        {
+          "query": "private label swimwear accessories manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem swimwear accessories manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom swimwear accessories manufacturer",
+          "volume": null
+        },
+        {
+          "query": "swimwear accessories manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "swimwear accessories supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale swimwear accessories manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [],
+      "library_pick": {
+        "primary": {
+          "query": "swimwear accessories manufacturer",
+          "volume": 10
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "c-ac87783a1afd:product",
+      "name": "Plus Size Swimwear",
+      "page_name": "Plus Size Swimwear",
+      "type": "product",
+      "search": "plus-size swimwear",
+      "primary": {
+        "query": "plus-size swimwear manufacturer",
+        "volume": 10,
+        "volume_from": "plus-size swimwear manufacturer"
+      },
+      "secondaries": [
+        {
+          "query": "plus-size swimsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "plus-size swimwear factory",
+          "volume": null
+        },
+        {
+          "query": "private label plus-size swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem plus-size swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom plus-size swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "plus-size swimwear manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "plus-size swimwear supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale plus-size swimwear manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "plus size swimsuits"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "wholesale plus size swimwear supplier",
+          "volume": 10
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": false
+      }
+    },
+    {
+      "id": "c-6343e1f14c58:product",
+      "name": "Couples Matching Swimsuits",
+      "page_name": "Couples Matching Swimsuits",
+      "type": "product",
+      "search": "couples matching swimsuit",
+      "primary": {
+        "query": "couples matching swimsuit manufacturer",
+        "volume": null
+      },
+      "secondaries": [
+        {
+          "query": "matching couple swimwear manufacturer",
+          "volume": null
+        },
+        {
+          "query": "couples matching swimsuit factory",
+          "volume": null
+        },
+        {
+          "query": "private label couples matching swimsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "oem couples matching swimsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "custom couples matching swimsuit manufacturer",
+          "volume": null
+        },
+        {
+          "query": "couples matching swimsuit manufacturer china",
+          "volume": null
+        },
+        {
+          "query": "couples matching swimsuit supplier",
+          "volume": null
+        },
+        {
+          "query": "wholesale couples matching swimsuit manufacturers",
+          "volume": null
+        }
+      ],
+      "alternate_names": [
+        "matching couple swimwear"
+      ],
+      "library_pick": {
+        "primary": {
+          "query": "couples matching swimsuit",
+          "volume": 22200
+        },
+        "secondaries": [],
+        "checked": false,
+        "no_volume": true
+      }
+    }
+  ],
+  "unmeasured": [
+    "baby swimwear factory",
+    "baby swimwear manufacturer",
+    "baby swimwear manufacturer china",
+    "baby swimwear supplier",
+    "beach cover-up manufacturer",
+    "bikini set manufacturer",
+    "boardshorts factory",
+    "boardshorts manufacturer china",
+    "boardshorts supplier",
+    "burkini factory",
+    "burkini manufacturer",
+    "burkini manufacturer china",
+    "burkini supplier",
+    "children's swimwear factory",
+    "children's swimwear manufacturer",
+    "children's swimwear manufacturer china",
+    "children's swimwear supplier",
+    "couples matching swimsuit factory",
+    "couples matching swimsuit manufacturer",
+    "couples matching swimsuit manufacturer china",
+    "couples matching swimsuit supplier",
+    "cover-up factory",
+    "cover-up manufacturer",
+    "cover-up manufacturer china",
+    "cover-up supplier",
+    "custom baby swimwear manufacturer",
+    "custom boardshorts manufacturer",
+    "custom burkini manufacturer",
+    "custom children's swimwear manufacturer",
+    "custom couples matching swimsuit manufacturer",
+    "custom cover-up manufacturer",
+    "custom embroidery swimwear",
+    "custom maternity swimwear manufacturer",
+    "custom men's swimwear manufacturer",
+    "custom modest swimwear manufacturer",
+    "custom one-piece swimsuit manufacturer",
+    "custom plus size swimwear manufacturer",
+    "custom rash guard manufacturer",
+    "custom resort wear manufacturer",
+    "custom swim trunks manufacturer",
+    "custom swimwear accessories manufacturer",
+    "custom swimwear labels",
+    "custom swimwear prints",
+    "custom teen swimwear manufacturer",
+    "custom toddler swimwear manufacturer",
+    "custom watersports apparel manufacturer",
+    "custom wetsuit manufacturer",
+    "custom women's swimwear manufacturer",
+    "infant swimwear manufacturer",
+    "kids' bathing suit manufacturer",
+    "kids' swimwear manufacturer",
+    "matching couple swimwear manufacturer",
+    "maternity swimsuit manufacturer",
+    "maternity swimwear factory",
+    "maternity swimwear manufacturer",
+    "maternity swimwear manufacturer china",
+    "maternity swimwear supplier",
+    "men's bathing suit manufacturer",
+    "men's swimsuit manufacturer",
+    "men's swimwear factory",
+    "men's swimwear manufacturer",
+    "men's swimwear manufacturer china",
+    "men's swimwear supplier",
+    "modest bathing suit manufacturer",
+    "modest swimsuit manufacturer",
+    "modest swimwear factory",
+    "modest swimwear manufacturer china",
+    "muslim swimsuit manufacturer",
+    "neoprene suit manufacturer",
+    "oem baby swimwear manufacturer",
+    "oem bikini manufacturer",
+    "oem boardshorts manufacturer",
+    "oem burkini manufacturer",
+    "oem children's swimwear manufacturer",
+    "oem couples matching swimsuit manufacturer",
+    "oem cover-up manufacturer",
+    "oem maternity swimwear manufacturer",
+    "oem men's swimwear manufacturer",
+    "oem modest swimwear manufacturer",
+    "oem one-piece swimsuit manufacturer",
+    "oem plus size swimwear manufacturer",
+    "oem rash guard manufacturer",
+    "oem resort wear manufacturer",
+    "oem swim trunks manufacturer",
+    "oem swimwear accessories manufacturer",
+    "oem swimwear manufacturer",
+    "oem teen swimwear manufacturer",
+    "oem toddler swimwear manufacturer",
+    "oem watersports apparel manufacturer",
+    "oem wetsuit manufacturer",
+    "oem women's swimwear manufacturer",
+    "one-piece bathing suit manufacturer",
+    "one-piece swimsuit manufacturer china",
+    "one-piece swimwear manufacturer",
+    "plus size swimsuit manufacturer",
+    "plus size swimwear factory",
+    "plus size swimwear manufacturer",
+    "plus size swimwear manufacturer china",
+    "plus size swimwear supplier",
+    "private label baby swimwear manufacturer",
+    "private label bikini manufacturer",
+    "private label boardshorts manufacturer",
+    "private label burkini manufacturer",
+    "private label children's swimwear manufacturer",
+    "private label couples matching swimsuit manufacturer",
+    "private label cover-up manufacturer",
+    "private label maternity swimwear manufacturer",
+    "private label men's swimwear manufacturer",
+    "private label modest swimwear manufacturer",
+    "private label one-piece swimsuit manufacturer",
+    "private label plus size swimwear manufacturer",
+    "private label rash guard manufacturer",
+    "private label resort wear manufacturer",
+    "private label swim trunks manufacturer",
+    "private label swimwear accessories manufacturer",
+    "private label teen swimwear manufacturer",
+    "private label toddler swimwear manufacturer",
+    "private label watersports apparel manufacturer",
+    "private label wetsuit manufacturer",
+    "private label women's swimwear manufacturer",
+    "rash guard factory",
+    "rash guard manufacturer china",
+    "rash vest manufacturer",
+    "resort wear factory",
+    "resort wear manufacturer china",
+    "swim trunks factory",
+    "swim trunks manufacturer",
+    "swim trunks manufacturer china",
+    "swim trunks supplier",
+    "swimsuit cover-up manufacturer",
+    "swimwear accessories factory",
+    "swimwear accessories manufacturer china",
+    "swimwear accessories supplier",
+    "swimwear brand consulting",
+    "swimwear brand labels",
+    "swimwear brand launch",
+    "swimwear consulting",
+    "swimwear design development",
+    "swimwear development",
+    "swimwear fabric and trim sourcing",
+    "swimwear laser cutting",
+    "swimwear material sourcing",
+    "swimwear product development",
+    "swimwear prototyping",
+    "swimwear sample making",
+    "swimwear sampling",
+    "swimwear sourcing",
+    "teen swimwear factory",
+    "teen swimwear manufacturer",
+    "teen swimwear manufacturer china",
+    "teen swimwear supplier",
+    "teenage swimwear manufacturer",
+    "toddler swimsuit manufacturer",
+    "toddler swimwear factory",
+    "toddler swimwear manufacturer",
+    "toddler swimwear manufacturer china",
+    "toddler swimwear supplier",
+    "watersports apparel factory",
+    "watersports apparel manufacturer",
+    "watersports apparel manufacturer china",
+    "watersports apparel supplier",
+    "wetsuit manufacturer",
+    "wetsuit manufacturer china",
+    "wetsuit supplier",
+    "wholesale baby swimwear manufacturers",
+    "wholesale bikini manufacturers",
+    "wholesale boardshorts manufacturers",
+    "wholesale burkini manufacturers",
+    "wholesale children's swimwear manufacturers",
+    "wholesale couples matching swimsuit manufacturers",
+    "wholesale cover-up manufacturers",
+    "wholesale maternity swimwear manufacturers",
+    "wholesale men's swimwear manufacturers",
+    "wholesale modest swimwear manufacturers",
+    "wholesale one-piece swimsuit manufacturers",
+    "wholesale plus size swimwear manufacturers",
+    "wholesale resort wear manufacturers",
+    "wholesale swim trunks manufacturers",
+    "wholesale swimwear accessories manufacturers",
+    "wholesale teen swimwear manufacturers",
+    "wholesale toddler swimwear manufacturers",
+    "wholesale watersports apparel manufacturers",
+    "wholesale wetsuit manufacturers",
+    "wholesale women's swimwear manufacturers",
+    "women's swimsuit manufacturer",
+    "women's swimwear manufacturer china",
+    "women's swimwear supplier"
+  ],
+  "volume_fallbacks": [],
+  "missing_seeds": [],
+  "serp_check": {
+    "pages": {
+      "c-a0d1d7027027:product": [
+        {
+          "query": "women's swimwear manufacturer",
+          "results": [
+            {
+              "title": "10 Best Swimwear Manufacturers (USA & Global)",
+              "snippet": "Top Swimwear Manufacturers · Appareify – Best Swimwear Manufacturer Overall · AEL Apparel – Best Custom Swimwear Manufacturer in China · Bali Swim – Indonesia's ..."
+            },
+            {
+              "title": "Bali Swim | Swimwear, Swimsuit & Bikini Manufacturer — Bali ...",
+              "snippet": "Where Swimwear Brands Start & Scale. Ready Design or Custom. Start from 100 pieces. Start Your Brand. Established Brand."
+            },
+            {
+              "title": "Swimwear and Bikini Manufacturer LA",
+              "snippet": "We are your one-stop shop swimsuit manufacturer, specializing in styles from traditional one-pieces to complex bikini manufacturing. ‍ As most swimwear and ..."
+            },
+            {
+              "title": "Mayi Swimwear: Swimwear, Swimsuit, Bikini Manufacturer",
+              "snippet": "Mayi Swimwear is a trusted swimsuit factory and bikini manufacturer ... Customizable designs for women's swimwear brands, private labels, and bulk orders."
+            },
+            {
+              "title": "SWIM USA – The Leader in Women's Swimwear",
+              "snippet": "We are a global industry leader in the design, manufacture, and marketing of branded, licensed, and private label swimwear. SwimUSA-midpagehero."
+            },
+            {
+              "title": "Trusted Private Label Swimwear Manufacturer Factory",
+              "snippet": "La Isla is a full-service women's swimwear manufacturing company based in Oregon, with manufacturing facilities in Medellin, Colombia. We specialize in private ..."
+            },
+            {
+              "title": "Best 10 Swimwear Manufacturers In The USA (2026)",
+              "snippet": "Best Swimwear Manufacturers in the USA 2026 · 1. Lefty Production Co. · 2. Swim USA Manufacturing · 3. Style Source Manufacturing · 4. TC ..."
+            },
+            {
+              "title": "China Swimwear Manufacturer,Best Bikini Supplier Factory ...",
+              "snippet": "We are specialized in manufacturing and exporting of swimwear business. We have our business office in Guangzhou and production plants in Foshan, China and ..."
+            },
+            {
+              "title": "swimwearmanufacturers",
+              "snippet": "At Swimwear Manufacturers, we can manufacture all of your resortwear designs • All Made In London • Get in touch for more info! ..."
+            },
+            {
+              "title": "8 Made in America Swimwear Brands for Every Budget and ...",
+              "snippet": "Sauvage: This maker of both men's and women's swimwear does all its manufacturing at its factory in San Diego. The chic styles are designed ..."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "c-705b55f5501e:product": [
+        {
+          "query": "one-piece swimsuit manufacturer",
+          "results": [
+            {
+              "title": "Bali Swim | Swimwear, Swimsuit & Bikini Manufacturer — Bali ...",
+              "snippet": "Begin with Ready Designs through the Shop or build a custom collection with our team. As your order grows, your unit price comes down. Start through the Shop."
+            },
+            {
+              "title": "Swimwear Bali: Custom Swimwear & Bikini Manufacturer",
+              "snippet": "We produced bikinis, one-pieces, seamless styles, cover-ups and headbands, plain or printed, with sewn-in or removable pads, underwires, adding custom branding ..."
+            },
+            {
+              "title": "Swimwear and Bikini Manufacturer LA",
+              "snippet": "We are your one-stop shop swimsuit manufacturer, specializing in styles from traditional one-pieces to complex bikini manufacturing."
+            },
+            {
+              "title": "10 Best Swimwear Manufacturers (USA & Global)",
+              "snippet": "Blue Sky Swimwear – Most Flexible Swimwear Manufacturer in the U.S. Mukara Swimwear – Best Swimwear Manufacturer With Technical Fabrics in the U.S."
+            },
+            {
+              "title": "Best 10 Swimwear Manufacturers In The USA (2026)",
+              "snippet": "1. Lefty Production Co. · 2. Swim USA Manufacturing · 3. Style Source Manufacturing · 4. TC Manufacturing · 5. Apparel Production Inc. · 6. Green ..."
+            },
+            {
+              "title": "Mayi Swimwear: Swimwear, Swimsuit, Bikini Manufacturer",
+              "snippet": "Custom bikinis and one-piece swimsuits produced with premium fabrics, flexible MOQs, and scalable production for global swimwear brands."
+            },
+            {
+              "title": "One Piece Swimwear Manufacturer | Custom Designs & Low ...",
+              "snippet": "Joy Sportswear is a swimwear manufacturer specializing in custom bikinis, swimsuits, and sportswear production for global brands."
+            },
+            {
+              "title": "Best One Piece Swimsuit Manufacturers",
+              "snippet": "Best One Piece Swimsuit Manufacturers · Quanzhou Stamgon Trading Co., Ltd. · Welon (China) Ltd. · Guangzhou Le Yong Sports Goods Co., Ltd. · LRX Costume Weaving Co."
+            },
+            {
+              "title": "Women's One Piece Swimsuits | Active Swimwear",
+              "snippet": "JOLYN has a huge selection of one piece swimsuits, everything from cheeky to sporty and FINA approved. All of our one piece swimsuits are made with Foreverever ..."
+            },
+            {
+              "title": "11 Cute One Piece Swimsuits From Sustainable Brands",
+              "snippet": "1. Patagonia ... All of Patagonia's swimwear is designed to be comfy and timeless, and is made in Fair Trade factories using recycled nylon and ..."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "c-0a2f4a960a8b:product": [
+        {
+          "query": "bikini manufacturer",
+          "results": [
+            {
+              "title": "Swimwear Bali: Custom Swimwear & Bikini Manufacturer",
+              "snippet": "Swimwear Bali has worked as a swimwear manufacturer in Bali since 1993, We produced bikinis, one-pieces, seamless styles, cover-ups and headbands, plain or ..."
+            },
+            {
+              "title": "Bali Swim | Swimwear, Swimsuit & Bikini Manufacturer — Bali ...",
+              "snippet": "Founded in 2014, Bali Swim was built around a simple idea: emerging swimwear brands deserved lower minimums, hands-on guidance and room to grow."
+            },
+            {
+              "title": "Swimwear and Bikini Manufacturer LA",
+              "snippet": "We are your one-stop shop swimsuit manufacturer, specializing in styles from traditional one-pieces to complex bikini manufacturing."
+            },
+            {
+              "title": "Best 10 Swimwear Manufacturers In The USA (2026)",
+              "snippet": "Best Swimwear Manufacturers in the USA 2026 · 1. Lefty Production Co. · 2. Swim USA Manufacturing · 3. Style Source Manufacturing · 4. TC ..."
+            },
+            {
+              "title": "Trusted Private Label Swimwear Manufacturer Factory",
+              "snippet": "We are a full service factory providing private label bathing suits, bikinis, and other types of swimwear."
+            },
+            {
+              "title": "Custom Bikini Manufacturer | Private Label & OEM Bikinis",
+              "snippet": "Joy Sportswear is a swimwear manufacturer specializing in custom bikinis, swimsuits, and sportswear production for global brands."
+            },
+            {
+              "title": "10 Best Swimwear Manufacturers (USA & Global)",
+              "snippet": "Lefty Production Co. is a Los Angeles clothing manufacturer that specializes in swimsuit and bikini manufacturing."
+            },
+            {
+              "title": "Swimwear Manufacturer(999+)",
+              "snippet": "Swimwear Manufacturer High Quality Women Digital Printing Beach Bikini Bathing Suits Customized Printed Logo Bikini Swimwear. $4.99-11."
+            },
+            {
+              "title": "Mayi Swimwear: Swimwear, Swimsuit, Bikini Manufacturer",
+              "snippet": "Mayi Swimwear is a trusted swimsuit factory and bikini manufacturer, specializing in custom designs, low MOQ, and sustainable swimwear manufacturing for ..."
+            },
+            {
+              "title": "Sweenie Manufacturing: Trusted Active Wear Manufacturers",
+              "snippet": "Sweenie Manufacturing is a custom clothing manufacturer based in New York, specializing in swimwear, activewear, ready-to-wear, and private label production."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "inferred:product:0": [
+        {
+          "query": "maternity swimwear manufacturer",
+          "results": [
+            {
+              "title": "Factories & Producers",
+              "snippet": "Asmay Swimwear manufactures our swimwear. It is a family-owned company in Istanbul that is now run by the second generation. All steps in the production are ..."
+            },
+            {
+              "title": "maternity swimsuit – Full-Service Manufacturer for Swimwear ...",
+              "snippet": "China's one-stop swimwear manufacturer. Maternity swimsuit. Make your brand from scratch to success now."
+            },
+            {
+              "title": "Top 25 Maternity swimwear companies Worldwide",
+              "snippet": "The 25 largest of 566 maternity swimwear companies worldwide, ranked by team size, each with its own description, match evidence and ..."
+            },
+            {
+              "title": "Swimwear & Activewear Manufacturer From China - Unijoy ...",
+              "snippet": "UNIJOY is a swimwear and activewear OEM/ODM manufacturer. Plus-size swimsuits and maternity series are also offered."
+            },
+            {
+              "title": "Best Swimwear Manufacturers in China",
+              "snippet": "Just Great Trading Co., Ltd. They also provide specialized items such as maternity swimwear, plus-size options, and children's beachwear. maternity dresses, ..."
+            },
+            {
+              "title": "6 Sustainable Maternity Swimwear Brands - Mamalina",
+              "snippet": "6 Sustainable Maternity Swimwear Brands · Lucky Sew And Sew · Frugi · Boob Design · Mamalicious · Batoko · Want A Fortnightly Newsletter Full Of ..."
+            },
+            {
+              "title": "Custom Maternity Swimwear Manufacturer | LEMI",
+              "snippet": "Source custom maternity swimsuits with adjustable support, stretch, coverage and size options for private-label and wholesale collections."
+            },
+            {
+              "title": "Maternity swimwear | Cache Coeur",
+              "snippet": "Discover our collection of elegant and comfortable maternity swimwear at Cache Cœur. Ideal for accentuating your baby bump!"
+            },
+            {
+              "title": "Maternity Swimwear Wholesale",
+              "snippet": "Explore Maternity Swimwear from Hongxiu for wholesale, private label and custom swimwear production, with low MOQ and factory-direct support."
+            },
+            {
+              "title": "Maternity Swimwear",
+              "snippet": "Make a splash with our high-end trending maternity swimwear! This curated collection includes flattering maternity bikinis & one-piece suits that grow with ..."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "c-6e0b54e5523e:product": [
+        {
+          "query": "men's swimwear manufacturer",
+          "results": [
+            {
+              "title": "Men's Swimwear Manufacturer in Bali",
+              "snippet": "Bali Active Qstom develops and produces custom swim trunks, swim shorts, and briefs for emerging and established brands, from pattern development and sampling ..."
+            },
+            {
+              "title": "Swimwear Manufacturer",
+              "snippet": "Best selling men's swim. Crafted from recycled fishing nets, this sustainable fabric for men's swim shorts offers slight stretch for comfort and an adaptable ..."
+            },
+            {
+              "title": "Men's Swimsuits & Swimwear | Full Service Manufacturing |",
+              "snippet": "Rad Sourcing offers top-notch manufacturing for men's swimwear. We specialize in creating custom designs and delivering exceptional quality."
+            },
+            {
+              "title": "Mens swimwear manufacturers - Joy Sportswear",
+              "snippet": "Joy Sportswear is a swimwear manufacturer specializing in custom bikinis, swimsuits, and sportswear production for global brands."
+            },
+            {
+              "title": "Best 10 Swimwear Manufacturers In The USA (2026)",
+              "snippet": "1. Lefty Production Co. · 2. Swim USA Manufacturing · 3. Style Source Manufacturing · 4. TC Manufacturing · 5. Apparel Production Inc. · 6. Green ..."
+            },
+            {
+              "title": "Men's Swimwear Manufacturers & Exporters - Brinell",
+              "snippet": "Brinell is the leading top men's quick dry Teflon coated swim shorts manufacturers, exporting to brands from USA & Canada and B2B vendors globally."
+            },
+            {
+              "title": "10 Best Swimwear Manufacturers (USA & Global)",
+              "snippet": "Steve Apparel – Most Inclusive Swimwear Manufacturer in the U.S.; TACK – Best Swimwear Manufacturer for Rush Ordering in the U.S.; Blue Sky Swimwear – Most ..."
+            },
+            {
+              "title": "Men's swimwear - Designer swimwear",
+              "snippet": "Ron Dorff is a premium Men's Designer Swimwear brand that offers upgraded versions of classic and timeless styles. The brand offers five iconic, bestseller ..."
+            },
+            {
+              "title": "Men's swimwear manufacturers Made in Italy | AreaB",
+              "snippet": "AreaB is a leading manufacturer of men's swimwear: quality craftsmanship, customization and sustainable materials for unique collections."
+            },
+            {
+              "title": "Manufacturer of Men's Swim Trunks – Custom & Bulk Supply",
+              "snippet": "We manufacture men's swim trunks with liners, quick-dry fabric, and customizable options. Perfect for wholesalers, private labels, and bulk orders."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "inferred:product:5": [
+        {
+          "query": "boardshorts manufacturer",
+          "results": [
+            {
+              "title": "Custom Manufacturing",
+              "snippet": "Custom Board Shorts & Performance Watersports Apparel. Choose from our most popular performance styles and customize them to fit your lifestyle."
+            },
+            {
+              "title": "Boardshort Suppliers, Manufacturer, Distributor, Factories, ...",
+              "snippet": "Alibaba offers 618 Boardshort Suppliers, and Boardshort Manufacturers, Distributors, Factories, Companies. There are 393 OEM, 348 ODM, 23 Self Patent."
+            },
+            {
+              "title": "10 Best Board Shorts Manufacturers in the USA",
+              "snippet": "10 Best Board Shorts Manufacturers in the USA · 1. Board Shorts World– Best for Custom Sizing · 2. Birdwell Beach Britches– Best for Durability · 3. Mangrove ..."
+            },
+            {
+              "title": "Premium Boardshorts for Men & Women | Maui Rippers ...",
+              "snippet": "Maui Rippers makes premium boardshorts and swimwear for men and women who live for the water. Trusted by lifeguards, surfers, and athletes, ..."
+            },
+            {
+              "title": "Board shorts Manufacturers & Suppliers ...",
+              "snippet": "Times Chensheng (Xiamen) Trading Co., Ltd. Dongguan Tengxiang Sportswear Co., Ltd. Most Popular Suppliers. in Men's Board Short. 5,800+ Inquiries · Guangzhou ..."
+            },
+            {
+              "title": "Wholesale Custom Board Shorts ODM",
+              "snippet": "Rise Sportswear provides custom board shorts manufacturing for sportswear brands, surf brands, teams and wholesalers. Starting from 10 pcs, we support OEM/ODM"
+            },
+            {
+              "title": "Custom Boardshorts | Custom Your Own Style",
+              "snippet": "We are a professional boardshorts manufacturer，we can make custom boardshorts for you，and support boardshorts wholesale.If you have needs, please contact ..."
+            },
+            {
+              "title": "Top 25 Board shorts manufacturers based in the United ...",
+              "snippet": "The 25 largest of 98 board shorts manufacturers based in the United States, ranked by team size, Costa Mesa is the largest hub. board shorts ..."
+            },
+            {
+              "title": "Designing Boardshorts 101: Let's get into the details",
+              "snippet": "In this episode we dig into the details of the basics of designing a pair of boardshorts. From tech packs to colorways, lets DIVE into the ..."
+            },
+            {
+              "title": "Board Shorts Manufacturer - Unijoy Custom Surf Swim Trunks ...",
+              "snippet": "Unijoy is an audited factory passed by BSCI, GRS and Oeko-Tex. Unijoy has been a professional custom board shorts manufacturer since 2008."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "inferred:product:13": [
+        {
+          "query": "swim trunks manufacturer",
+          "results": [
+            {
+              "title": "Men's Swimwear Manufacturer in Bali",
+              "snippet": "Active Qstom develops and produces custom swim trunks, swim shorts, and briefs for emerging and established brands, from pattern development and sampling to ..."
+            },
+            {
+              "title": "Swimwear Manufacturer",
+              "snippet": "Eco Luxe Women Swimwear Manufacturer for Startup Swim Brands. Made in Bali. We've launched 100+ Swim & Active private labels worldwide."
+            },
+            {
+              "title": "Manufacturer of Men's Swim Trunks – Custom & Bulk Supply",
+              "snippet": "We manufacture men's swim trunks with liners, quick-dry fabric, and customizable options. Perfect for wholesalers, private labels, and bulk orders."
+            },
+            {
+              "title": "Mens Swimming Trunks Made in California USA by Xelos ...",
+              "snippet": "Mens Swimming Trunks Made in California USA by Xelos Brand. Since 1998. Shop Retro Short Mens Swim Trunks, Shop Mid Length Mens Swim Trunks."
+            },
+            {
+              "title": "Men's Swimsuits & Swimwear | Full Service Manufacturing |",
+              "snippet": "Rad Sourcing offers top-notch manufacturing for men&#39;s swimwear. We specialize in creating custom designs and delivering exceptional quality. Swim Trunks ..."
+            },
+            {
+              "title": "Swim Trunks - Custom Board Shorts Manufacturer",
+              "snippet": "We specialize in manufacturing private label swim trunks, board shorts, and beach shorts for streetwear brands, resortwear companies, surf labels, e-commerce ..."
+            },
+            {
+              "title": "9 Sustainable Swim Trunks For Men (2026)",
+              "snippet": "Canadian-owned swimwear brand Bather is pumping out modern swim trunks with sustainable fabrics in mind. Made from 100% recycled materials,"
+            },
+            {
+              "title": "Swimwear Manufacturers USA | Custom & Private Label",
+              "snippet": "Leading USA swimwear manufacturers for bikinis, swimsuits, and bathing suits. Custom designs, private label, and premium production for your brand."
+            },
+            {
+              "title": "Men's Swimwear Manufacturers & Exporters - Brinell",
+              "snippet": "Brinell is the leading top men's quick dry Teflon coated swim shorts manufacturers, exporting to brands from USA & Canada and B2B vendors globally."
+            },
+            {
+              "title": "Swim Shorts Manufacturer & Supplier",
+              "snippet": "Get premium swim shorts from Iconic Apparel House, your top manufacturer & supplier in Canada & USA. Dive into style & quality today! Contact us today."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "c-3d3fc0c8dc39:product": [
+        {
+          "query": "children's swimwear manufacturer",
+          "results": [
+            {
+              "title": "Children's Beachwear",
+              "snippet": "We are the premier children's swimwear manufacturer in Bali and understand the special needs of manufacturing for children. Combining style and a kid friendly ..."
+            },
+            {
+              "title": "Kids Swimwear Manufacturer | Sustainable & Stylish",
+              "snippet": "From chlorine-resistant fabrics to trendy designs, Appareify is the kids' swimwear manufacturer that covers you. Discover our capabilities and benefits now!"
+            },
+            {
+              "title": "Swimwear Factory Every kid deserves a comfortable, safe ...",
+              "snippet": "We design and manufacture kids swimwear with soft fabrics, secure stitching, and careful detail control 💼👙 With 23+ years of OEM / ODM swimwear ..."
+            },
+            {
+              "title": "Children's Swimwear Manufacturing Miami",
+              "snippet": "10585 SW 109th Ct, Suite 200 Miami, Florida 33176, United States 1 (888) 341-8243‬. We offer the best swimwear manufacturing services on the market. All our ..."
+            },
+            {
+              "title": "Children'S Swimwear Manufacturers",
+              "snippet": "We are the premier children's swimwear manufacturer in China and understand the special needs of children's manufacturing. Combining style and fit for children,"
+            },
+            {
+              "title": "Swimwear and Bikini Manufacturer LA",
+              "snippet": "We are your one-stop shop swimsuit manufacturer, specializing in styles from traditional one-pieces to complex bikini manufacturing. ‍ As most swimwear and ..."
+            },
+            {
+              "title": "Kids Swimwear Manufacturer | Custom Children's Swimsuit",
+              "snippet": "Safe, stylish, and durable swimwear for kids. Customize children's bikinis & one-pieces with sustainable fabrics and low MOQ. OEM for global brands."
+            },
+            {
+              "title": "Custom Kids Swimwear",
+              "snippet": "Custom Kids Swimwear - Select 2026 high quality Custom Kids Swimwear products in best price from certified Chinese Kids Lycra Swimwear manufacturers, ..."
+            },
+            {
+              "title": "Wholesale Kids' Swimwear Manufacturer",
+              "snippet": "A dependable manufacturer of kids' swimwear. We prioritize safe, certified, and durable UPF 50+ fabrics for your brand's swimwear line."
+            },
+            {
+              "title": "Swimwear Manufacturer",
+              "snippet": "We started as the go-to for Women's Swim startups, and we've grown with our clients — now offering ready-to-launch collections for Men, Kids, and Plus Size ..."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "inferred:product:6": [
+        {
+          "query": "teen swimwear manufacturer",
+          "results": [
+            {
+              "title": "Bikini & Swimsuit Manufacturer for Swim Brands",
+              "snippet": "Bikini and swimsuit manufacturer in Bali for new swim brands. Ready Designs or private label custom from 100 pieces. Women's, men's and kids' swim."
+            },
+            {
+              "title": "Trusted Private Label Swimwear Manufacturer Factory",
+              "snippet": "We manufacture a broad range of swimwear styles, from contemporary, to cup size, children's and more! Our Private Label Swimwear Process Is Streamlined, ..."
+            },
+            {
+              "title": "Swimwear and Bikini Manufacturer LA",
+              "snippet": "We are your one-stop shop swimsuit manufacturer, specializing in styles from traditional one-pieces to complex bikini manufacturing. ‍ As most swimwear and ..."
+            },
+            {
+              "title": "Custom Girls Swimsuit Manufacturer",
+              "snippet": "We are specialized in designing and manufacturing bathing suits for girls, not only baby girl swimwear, and toddler girl swimsuits, but also junior bathing ..."
+            },
+            {
+              "title": "Best 10 Swimwear Manufacturers In The USA (2026)",
+              "snippet": "Best 10 Swimwear Manufacturers in the USA for Custom Brands (2026) · 1. Lefty Production Co. · 2. Swim USA Manufacturing · 3. Style Source ..."
+            },
+            {
+              "title": "Sweenie Manufacturing: Trusted Active Wear Manufacturers",
+              "snippet": "Sweenie Manufacturing is a custom clothing manufacturer based in New York, specializing in swimwear, activewear, ready-to-wear, and private label production."
+            },
+            {
+              "title": "China Swimwear Manufacturer,Best Bikini Supplier Factory ...",
+              "snippet": "We are specialized in manufacturing and exporting of swimwear business. We have our business office in Guangzhou and production plants in Foshan, China and ..."
+            },
+            {
+              "title": "10 Best Women's Swimwear Manufacturers for Private Labels",
+              "snippet": "Compare 10 women's swimwear manufacturers for private labels by MOQ, samples, fit review, fabrics, labels, QC, and resort retail fit."
+            },
+            {
+              "title": "Swimwear Manufacturers USA | Private Label Swimwear",
+              "snippet": "Custom swimwear manufacturers in the USA. Argus Apparel offers private label swimsuits, bikinis, and athletic swimwear for fashion brands & startups."
+            },
+            {
+              "title": "Teens Industry on Reels",
+              "snippet": "High Quality Sublimation Print Clothing Manufacturer Swim Shorts Manufacturer Swimwear Manufacturer Sports Jersey Manufacturer OEM & ... Teens ..."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "inferred:product:7": [
+        {
+          "query": "baby swimwear manufacturer",
+          "results": [
+            {
+              "title": "Children's Beachwear",
+              "snippet": "We are the premier children's swimwear manufacturer in Bali and understand the special needs of manufacturing for children. We are a gold certified factory ..."
+            },
+            {
+              "title": "Kids Swimwear Manufacturer | Sustainable & Stylish",
+              "snippet": "Appareify is the kids&#39; swimwear manufacturer that covers you. We can confidently handle any size run for kids' swimwear, from infants to size 14."
+            },
+            {
+              "title": "Baby swimsuit supplier kids swimsuit manufacturer wholesale",
+              "snippet": "We specialize in small quantity and low MOQ children clothing production. We offer any type of fabrics for infants, babies, kids or teenager clothing products. ..."
+            },
+            {
+              "title": "Wholesale Kids' Swimwear Manufacturer",
+              "snippet": "A dependable manufacturer of kids' swimwear. We prioritize safe, certified, and durable UPF 50+ fabrics for your brand's swimwear line."
+            },
+            {
+              "title": "Swimwear vendor manufacturing from China ...",
+              "snippet": "We manufacture baby and kids swimsuits with custom prints, colors, ruffles, labels and packaging for brands, shops and distributors."
+            },
+            {
+              "title": "Swimwear Manufacturers USA | Private Label Swimwear",
+              "snippet": "Custom swimwear manufacturers in the USA. Argus Apparel offers private label swimsuits, bikinis, and athletic swimwear. Now! (747) 298-5882. Custom Baby ..."
+            },
+            {
+              "title": "Organic Baby Swimwear",
+              "snippet": "Dive into our Swim Collection—designed with recycled UPF 50+ fabrics, charming details, and everyday comfort in mind. Each piece is sun-safe, splash-ready, ..."
+            },
+            {
+              "title": "Custom Kids Swimwear Suppliers",
+              "snippet": "China custom kids swimwear manufacturer. Baby Girl Kid Swimwear US$4.50-5.50 /Pieces. Baby Products Co., Ltd. Baby Kids Swim Wear Set US$1.50-7.50 /Piece"
+            },
+            {
+              "title": "Sustainable, Non-Toxic Swimwear for Kids",
+              "snippet": "City Threads is one of the only swimwear companies made in the USA. They have a wide selection of rash guards and swimwear for babies, kids, and ..."
+            },
+            {
+              "title": "How to Start a Kids Swimwear Brand？ - Custom Organic ...",
+              "snippet": "To start a kids' swimwear brand, you need to identify your target market, select safe and high-quality fabrics, ensure sun protection features ..."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "inferred:product:8": [
+        {
+          "query": "toddler swimwear manufacturer",
+          "results": [
+            {
+              "title": "Children's Beachwear",
+              "snippet": "We are the premier children's swimwear manufacturer in Bali and understand the special needs of manufacturing for children. We are a gold certified factory ..."
+            },
+            {
+              "title": "Children's Swimwear Manufacturing Miami",
+              "snippet": "Thinking of launching your children's swimwear collection? We offer the best swimwear manufacturing services on the market. Don't have your own designs?"
+            },
+            {
+              "title": "Swimwear Factory Every kid deserves a comfortable, safe ...",
+              "snippet": "We design and manufacture kids swimwear with soft fabrics, secure stitching, and careful detail control 💼👙 With 23+ years of OEM / ODM swimwear ..."
+            },
+            {
+              "title": "Wholesale Kids' Swimwear Manufacturer",
+              "snippet": "We are a top supplier create fun, durable, and age-appropriate swimsuits for toddlers, children, and tweens."
+            },
+            {
+              "title": "Children'S Swimwear Manufacturers",
+              "snippet": "We are the premier children's swimwear manufacturer in China and understand the special. Combining style and fit for children, we produce highly sought-after ..."
+            },
+            {
+              "title": "Kids Swimwear Manufacturer | Sustainable & Stylish",
+              "snippet": "Appareify is the kids&#39; swimwear manufacturer that covers you. We can confidently handle any size run for kids' swimwear, from infants to size 14."
+            },
+            {
+              "title": "Swimwear and Bikini Manufacturer LA",
+              "snippet": "We are your one-stop shop swimsuit manufacturer, specializing in styles from traditional one-pieces to complex bikini manufacturing."
+            },
+            {
+              "title": "How to Start a Kids Swimwear Brand？ - Custom Organic ...",
+              "snippet": "To start a kids' swimwear brand, you need to identify your target market, select safe and high-quality fabrics, ensure sun protection features ..."
+            },
+            {
+              "title": "Bikini & Swimsuit Manufacturer for Swim Brands",
+              "snippet": "Bikini and swimsuit manufacturer in Bali for new swim brands. Ready Designs or private label custom from 100 pieces. Women's, men's and kids' swim."
+            },
+            {
+              "title": "Custom Swimwear Manufacturer & Wholesale Supplier | MLY",
+              "snippet": "Experience verified swimwear manufacturing at MLY. We deliver guaranteed custom designs, rapid prototyping & eco fabrics. Build your brand with confidence ..."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "inferred:product:10": [
+        {
+          "query": "modest swimwear manufacturer",
+          "results": [
+            {
+              "title": "Best Modest Swimwear Manufacturers",
+              "snippet": "Discover a curated list of global manufacturers specializing in modest swimwear, featuring diverse styles, sustainable materials, and customizable options ..."
+            },
+            {
+              "title": "LANUUK | Full Coverage Modest Swimwear, Resortwear ...",
+              "snippet": "Shop Lanuuk Luxury Modest Swimwear, Resortwear & Activewear. Ethically made full & mid coverage burkini swimsuits providing UPF50+ sun protection."
+            },
+            {
+              "title": "Geode Swimwear: Full Coverage Swimwear for Women",
+              "snippet": "What makes Geode Swimwear a modest swimwear brand? We specialize in full coverage swimwear with thoughtful designs that provide coverage without compromising ..."
+            },
+            {
+              "title": "9 Modest Swimwear & Bathing Suit Brands For Women",
+              "snippet": "9 Modest Swimwear & Bathing Suit Brands For Women · 1. Jessica Rey Swimwear · 2. TomboyX · 3. Summersalt · 4. Patagonia · 5. Youswim · 6. Boden."
+            },
+            {
+              "title": "Full Coverage Swimwear - Tankinis, Swim Skirts, One-Piece ...",
+              "snippet": "Find cute, stylish, full-coverage swimwear at Lime Ricki! Our swimsuits are designed for women, by women who understand the importance of a good fitting ..."
+            },
+            {
+              "title": "Trusted Private Label Swimwear Manufacturer Factory",
+              "snippet": "We are a full service factory providing private label bathing suits, bikinis, and other types of swimwear. If you're looking for ethically made white label ..."
+            },
+            {
+              "title": "10 Best Modest Swimwear Manufacturers",
+              "snippet": "Compare 10 modest swimwear manufacturers by coverage, MOQ, private-label support, fabric, sampling, QC, labels, and shipping before quotes."
+            },
+            {
+              "title": "10 Best Swimwear Manufacturers (USA & Global)",
+              "snippet": "Top Swimwear Manufacturers · Appareify – Best Swimwear Manufacturer Overall · AEL Apparel – Best Custom Swimwear Manufacturer in China · Bali Swim – Indonesia's ..."
+            },
+            {
+              "title": "Top 10 BEST Modest Swimsuit Companies | Third Hour",
+              "snippet": "Top 10 BEST Modest Swimsuits Companies for All Your Summer Needs · Lime Ricki · Modli · Roolee · Geode Swimwear · Graham Swim · Nani Swimwear · Janela ..."
+            },
+            {
+              "title": "Manufacturer & Sourcing Agent Needed for Modest ...",
+              "snippet": "Hi, our factory is located in China and supplies swimwear for a lot of premium brands with low MOQ and complex workmanship supported. Would be ..."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "inferred:product:3": [
+        {
+          "query": "burkini manufacturer",
+          "results": [
+            {
+              "title": "Burkini Suppliers, Manufacturer, Distributor, Factories, ...",
+              "snippet": "burkini suppliers · Yiwu Laidy Apparel Firm · Shenzhen Yannisfashion Commerce Co., Ltd. · Suzhou Driving Strong I/E Co.,Ltd. · Guangzhou Ciunia Garments Co., ..."
+            },
+            {
+              "title": "Top Manufactures of Islamic Swimwear (Burkinis) -",
+              "snippet": "However, some of the well-known and popular brands that offer Islamic swimwear include Modanisa, Veilkini, Ahiida, Splashgear, and lyra. These ..."
+            },
+            {
+              "title": "Burkini",
+              "snippet": "The burkini was originally designed in Australia by Aheda Zanetti. Zanetti's company Ahiida owns the trademarks to the words burkini and burqini, but they are ..."
+            },
+            {
+              "title": "Burkini and Modest Swimwear Manufacturer",
+              "snippet": "Riccitelli Milano develops and manufactures modest swimwear and burkinis in Italy for brands in the Gulf, in Europe and worldwide."
+            },
+            {
+              "title": "Burkini Remsa: Online Hijab Swimwear Shop",
+              "snippet": "Burkini Remsa is a hijab swimwear company that provides modest swimsuit and muslim bath suits. Affordable burkinis are available!"
+            },
+            {
+              "title": "Burkini Manufacturer — Modest Swimwear Wholesale & Export",
+              "snippet": "Burkini manufacturer and wholesale supplier — UPF 50+, chlorine-resistant modest swimwear. OEM and private label for global importers, exported from Egypt."
+            },
+            {
+              "title": "Swijabi",
+              "snippet": "✨ Modest swimwear brand Maxim Mall ground floor. For international shipping www.swijabi.world. TRN. 682-249-157."
+            },
+            {
+              "title": "The History of the Burkini & Aheda Zanetti",
+              "snippet": "Aheda produced the first burkini samples in June 2004, roughly a year after she started designing it. Ahiida has manufactured and sold the ..."
+            },
+            {
+              "title": "about us modest swimwear | burkini",
+              "snippet": "We have built our reputation as an ethically-conscious modest swimwear label through responsible manufacturing techniques made in France using only the finest ..."
+            },
+            {
+              "title": "The sale of \"burkinis\" hits a new high",
+              "snippet": "Many French cities have banned women from wearing so-called burkinis—modest, full-bodies swimsuits—on local beaches. The French high courts ..."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "group:watersports-apparel": [
+        {
+          "query": "watersports apparel manufacturer",
+          "results": [
+            {
+              "title": "Voll Will - Premium Water Sport Apparel Manufacturer",
+              "snippet": "Voll Will manufactures a full range of water sports apparel and neoprene gear for OEM and ODM brand partners, covering wetsuits, rash guards, and gloves"
+            },
+            {
+              "title": "Custom Water Sports Apparel Manufacturer",
+              "snippet": "Looking for a custom water sports apparel manufacturer? Sphere Sport delivers quick-dry, UV-resistant gear with full customization and low-MOQ production."
+            },
+            {
+              "title": "Top 16 Water sports apparel manufacturers based in Canada",
+              "snippet": "The top 16 of 52 company matches for water sports apparel manufacturers based in Canada, ordered by contacts tracked, with recorded ..."
+            },
+            {
+              "title": "The Startup Selling Watersports Apparel With a Side of Advocacy",
+              "snippet": "Waterlust makes activewear with designs inspired by the sea, and donates a portion of sales to conservation efforts."
+            },
+            {
+              "title": "CoastWaterSports: Sailing Clothing & Wetsuits USA",
+              "snippet": "At Coast Water Sports, we stock a huge range of watersports clothing and equipment for sailing, kayaking, SUP, and beach life. We're a family-run business"
+            },
+            {
+              "title": "Sewport | Fashion Design Clothing Manufacturers for your Brand",
+              "snippet": "An digital platform to help you source high quality clothing manufacturers and suppliers. From sketch to production and everything in-between."
+            },
+            {
+              "title": "Material-driven functional watersports apparel ...",
+              "snippet": "Material-driven functional watersports apparel manufacturer. Swimwear, training suits, racing suits, surfwear and wetsuits."
+            },
+            {
+              "title": "Brands",
+              "snippet": "At Bart's Watersports, we carry a huge selection of over 50 of the hottest brands including Obrien, Hyperlite, O'Neill, Proline, Sumo Sac, Body Glove, Billabong ..."
+            },
+            {
+              "title": "Clothing For Water Sports",
+              "snippet": "Gear up for water sports with L.L.Bean's durable & stylish clothing. Shop now for performance-driven apparel perfect for any adventure!"
+            },
+            {
+              "title": "Trusted Fishing Apparel Manufacturers",
+              "snippet": "Goodworth Sports is one of the most trusted fishing apparel manufacturers, delivering premium, durable, and custom fishing gear you can rely ..."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "inferred:product:1": [
+        {
+          "query": "rash guard manufacturer",
+          "results": [
+            {
+              "title": "Wholesale Custom Rash Guards | High-Quality USA-Made Apparel",
+              "snippet": "VictoryBuiltUSA is a family-owned manufacturer of custom performance apparel based in Huntington Beach, California. They specialize in high-quality UV-protective gear and custom apparel with low minimums and fast turnaround times. Since 1983, VictoryBuiltUSA has produced products like rashguards, UV-protective shirts, and custom apparel using modern manufacturing technology. By keeping ..."
+            },
+            {
+              "title": "Wholesale Rash Guards | Custom Printed Rash Guards | Blank ...",
+              "snippet": "Wholesale rash guards - SEE Our Affordable Bulk Pricing.. custom rash guards and wholesale surf shirts, swim shirts, rash shirts. Bulk pricing, screen printing, quality service. Look no further."
+            },
+            {
+              "title": "Private Label & Wholesale Rash guards and Wetsuits Made in USA",
+              "snippet": "We manufacture high quality rash guards, performance shirts, and wetsuits for your shop or business to use or re-sell under your own brand name! Wholesale and Private Label services."
+            },
+            {
+              "title": "Best 10 Rash Guard Manufacturers for Sportswear Brands",
+              "snippet": "Rash Guard Manufacturers play an important role in supplying high-quality performance apparel for sports brands, fitness companies, surf shops, MMA brands, and private label businesses. Rash guards are designed to provide comfort, flexibility, moisture management, and protection during activities such as surfing, Brazilian Jiu-Jitsu, MMA training, swimming, and other outdoor sports. Choosing ..."
+            },
+            {
+              "title": "Custom Rash Guard Manufacturer | Wholesale Private Label Bulk",
+              "snippet": "Premium custom rash guard manufacturer. Sourcing wholesale bjj rash guards, private label rash guards bulk, and sublimated rash guard manufacturer services."
+            },
+            {
+              "title": "Rash Guard Manufacturers in USA | Custom Rash Guards Supplier ...",
+              "snippet": "Wings2fashion is a leading private label rash guard manufacturer in USA offering custom rash guards, rash vests, swim shirts, plus size & long sleeve swimwear for global wholesale buyers and startups."
+            },
+            {
+              "title": "Best 10 Rash Guard Manufacturers in USA For 2026",
+              "snippet": "Discover the Top 10 Rash Guard Manufacturers in USA, offering premium quality, custom designs, and reliable bulk production for brand needs."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "inferred:product:2": [
+        {
+          "query": "wetsuit manufacturer",
+          "results": [
+            {
+              "title": "OEM Wetsuit Manufacturer | JANGA USA",
+              "snippet": "JANGA OEM (Original Equipment Manufacturer) wetsuits for surfing and other water sports are made from premium Yamamoto neoprene. Custom, hand-made tailored wetsuits designed for performance, durability, and real water conditions."
+            },
+            {
+              "title": "Wetsuit Manufacturer",
+              "snippet": "Wetsuits manufacturing factory for Private Label Brands. We offer small MOQ with premium quality sustainable materials & maximum customization. We Develop Brands So They Can Thrive, Grow & Inspire."
+            },
+            {
+              "title": "Custom Handmade Wetsuits | Terrapin Wetsuits",
+              "snippet": "Custom Wetsuits We want to make sure your custom wetsuit fits your needs. From the color (s) to the patterns and designs of your liking and the size and shape of your body, Terrapin Wetsuits is the only US Manufacturer of wetsuits that includes a custom fitting step in our process to make sure your custom wetsuit fits perfectly."
+            },
+            {
+              "title": "WAIHANA",
+              "snippet": "Born from Water, WAIHANA is the World's leading purveyor of neoprene wetsuits for the Spearfishing, Freediving, and Surf."
+            },
+            {
+              "title": "Oceaner | Made to order wetsuits and drysuits | Custom ...",
+              "snippet": "Hand made, made to order wetsuits, drysuits, and accessories for diving and watersports! Custom tailoring, and custom design products"
+            },
+            {
+              "title": "Private Label & Wholesale Rash guards and Wetsuits Made in USA",
+              "snippet": "We manufacture high quality rash guards, performance shirts, and wetsuits for your shop or business to use or re-sell under your own brand name! Wholesale and Private Label services."
+            },
+            {
+              "title": "Top Wetsuit Manufacturers | Custom Neoprene Suits for Surfing ...",
+              "snippet": "Need premium wetsuits? Discover leading manufacturers offering custom 3mm-7mm neoprene suits for surfing, diving and water sports. Click to compare suppliers and request quotes today!"
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "c-0cc45987ac6b:product": [
+        {
+          "query": "resort wear manufacturer",
+          "results": [
+            {
+              "title": "Resort Wear Manufacturer",
+              "snippet": "Eco Luxe Resort Wear manufacturer for Resortwear Brands. Made in Bali. We've launched 100+ Swim & Active labels worldwide."
+            },
+            {
+              "title": "Custom Resort Wear: Dresses, Swimwear, Bags & ...",
+              "snippet": "Explore personalized resort wear for women and men. Create custom vacation outfits, beachwear, and holiday clothes made to stand out in style."
+            },
+            {
+              "title": "10 Best Resort Set Manufacturers for Boutique Brands",
+              "snippet": "Compare 10 resort set manufacturers by product scope, MOQ, samples, fabric and print control, private-label support, QC, and shipping."
+            },
+            {
+              "title": "Resortwear and Swimwear Clothing Production in Bali",
+              "snippet": "We are Bali's most trusted clothing manufacturer since 1987, and the only manufacturer in Bali to have in-house digital fabric printing services."
+            },
+            {
+              "title": "Resort Wear",
+              "snippet": "Embrace laid-back luxury with our Resort Wear collection, featuring effortlessly stylish pieces in soft, comfortable fabrics."
+            },
+            {
+              "title": "Resort Wear Manufacturers in Massachusetts",
+              "snippet": "Wings2fashion is leading luxury resort wear manufacturers & beach wear suppliers Massachusetts. We export all types of vacation dresses, plus size resort ..."
+            },
+            {
+              "title": "Wholesale resort wear for your store",
+              "snippet": "Explore wholesale resort wear and find curated collections of summer dresses, beach apparel, and more for your USA store. Discover unique styles today."
+            },
+            {
+              "title": "Resort Wear Manufacture (@resortwearmanufacture)",
+              "snippet": "#1 Resort Wear Manufacturer Bali, Indonesia Wholesale - retail - custom manufacture. Dress, cardigan, kimono, kaftan, poncho, pant, top, knitwear."
+            },
+            {
+              "title": "My Go-To Resort Wear Brands",
+              "snippet": "My Go-To Resort Wear Brands · History of Resort Wear · What is Resort Casual? · Resort Wear Brand: SPELL · Resort Wear Brand: Vitamin A · Resort Wear Brand: Farm Rio."
+            },
+            {
+              "title": "Resort wear manufacturer in China",
+              "snippet": "We manufacture a full range of resort categories — from flowing maxi dresses and relaxed co-ords to refined swimwear and lightweight cover-ups — all designed to ..."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "inferred:product:11": [
+        {
+          "query": "cover-up manufacturer",
+          "results": [
+            {
+              "title": "Wholesale Coverups",
+              "snippet": "We offer a wide range of coverup styles in bulk quantities from brands like Pineapple Bay, Golden Butterfly, La Class, Shoreline, My Belle, and more."
+            },
+            {
+              "title": "Wholesale Beach Cover-Ups | Swim Coverups for Boutiques",
+              "snippet": "Wholesale swim cover-ups from La Moda Clothing — kaftans, sarongs, kimono wraps & beach cover-up dresses for boutiques."
+            },
+            {
+              "title": "Swim Cover Up Dresses Manufacturer",
+              "snippet": "Iconic Apparel House is one of the leading wholesale swim cover up dresses manufacturer and supplier with more than 10 years of experience"
+            },
+            {
+              "title": "Manufacturing Beach Cover-Ups to Expand Swimwear Lines",
+              "snippet": "The process of swim cover-up manufacturing involves material selection, pattern development, and production methods that balance style and ..."
+            },
+            {
+              "title": "Beach Cover-Up Manufacturer | Kaftans, Sarongs & Resort Wear",
+              "snippet": "Explore our beach cover-up collection. Custom kaftans, sarongs, and resort wear with low MOQ and global delivery for fashion brands."
+            },
+            {
+              "title": "Custom Beach Cover Ups Wholesale Manufacturer | MLY",
+              "snippet": "With 23 years of OEM/ODM. MLY creates beach sarongs, crochet cover ups, swim cover ups, custom prints, private labels, and lightweight fabrics that layer ..."
+            },
+            {
+              "title": "Cover up product Manufacturers & Suppliers ...",
+              "snippet": "Cover Up Product Suppliers · Hangzhou Sunra Fashion Co., Ltd. · GUANGZHOU HUMLISUN IMP & EXP CO.,LTD. Follow · Fujian S&J Imp&Exp Co., Ltd. · FUJIAN KLAIT IMP. & ..."
+            },
+            {
+              "title": "Wholesale Beach Swimsuit Cover Ups Supplier",
+              "snippet": "Outpace Sportswear manufactures different types of beach cover ups crafted from high-quality, breathable fabrics to suit different preferences and body ..."
+            },
+            {
+              "title": "Swim Cover Ups",
+              "snippet": "From crochet and lace textures to lightweight organic cotton fabrics and styles with sun protection (UPF), these cover ups offer a refined balance of coverage ..."
+            },
+            {
+              "title": "Resort Wear News & Market Signals",
+              "snippet": "A practical factory-vetting checklist for fashion-led men's swim shorts, covering sourcing routes, sample specifications, testing, certificates, and labels."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "c-2bdd0c3dd288:product": [
+        {
+          "query": "swimwear accessories manufacturer",
+          "results": [
+            {
+              "title": "Swimwear Bali: Custom Swimwear & Bikini Manufacturer",
+              "snippet": "Swimwear Bali has worked as a swimwear manufacturer in Bali since 1993, built to get new brands into production fast, at a high standard, with room to grow."
+            },
+            {
+              "title": "Swimwear Accessories | Labels, Tags & Packaging",
+              "snippet": "From straps to pads, metal rings to linings — we offer full customization to make your swimwear designs stand out."
+            },
+            {
+              "title": "Custom Swimwear Manufacturer & Wholesale Supplier | MLY",
+              "snippet": "MLY, as a Swimwear Manufacturer China specializes in premium swimwear and beach accessories, we empower brands with agile customization, and fast production."
+            },
+            {
+              "title": "Swimwear Hardware Customize - Custom Metal Products",
+              "snippet": "Swimsuit Fasteners/Hooks Customize. The hooks or loops are used for connecting straps or fastening different parts of the swimwear. Material: Zinc alloy or ..."
+            },
+            {
+              "title": "Swimwear hardware accessories — brand customization ...",
+              "snippet": "A strong factory specialized in lingerie and swimwear accessories, supporting new product mold development and customization."
+            },
+            {
+              "title": "Accessories option - Full-Service Manufacturer for Swimwear ...",
+              "snippet": "Swimwear accessories are vital for both style and functionality, comprising elements such as metal chains, hooks, rings, sliders, clasps, stoppers, buttons, ..."
+            },
+            {
+              "title": "Top 10 Swimwear Accessories Suppliers in the World",
+              "snippet": "Jiaxing Jinhua Accessories Co., Ltd. is a leading supplier of swimwear accessories based in China. With years of experience in the industry, the ..."
+            },
+            {
+              "title": "Swimwear Accessory",
+              "snippet": "If you are looking to import Swimwear Accessory of high quality & factory prices, choose from our verified manufacturers，suppliers or buy directly from China ..."
+            },
+            {
+              "title": "10 Best Swimwear Manufacturers (USA & Global)",
+              "snippet": "Top Swimwear Manufacturers · Appareify – Best Swimwear Manufacturer Overall · AEL Apparel – Best Custom Swimwear Manufacturer in China · Bali Swim – Indonesia's ..."
+            },
+            {
+              "title": "Wholesale swimwear accessories for your store",
+              "snippet": "Wholesale swimwear accessories with low minimums. Shop wholesale swimwear accessories from brands on Faire, with opening orders starting at just $50.00."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "c-ac87783a1afd:product": [
+        {
+          "query": "plus size swimwear manufacturer",
+          "results": [
+            {
+              "title": "Nomads Swimwear | Luxe, Sustainable Swim and Resortwear ...",
+              "snippet": "Nomads is a Black woman-owned swimwear brand that creates luxe, sustainable swim and resortwear for sizes XS-5X. Enjoy complimentary domestic shipping on ..."
+            },
+            {
+              "title": "Swimwear Manufacturers - Prototype Fashion",
+              "snippet": "Prototype is the only full-service swimwear. We offer 100% custom swimwear design services, including bikinis, plus-size swimwear, children's swimwear, and ..."
+            },
+            {
+              "title": "Swimwear Bali: Custom Swimwear & Bikini Manufacturer",
+              "snippet": "Swimwear Bali has worked as a swimwear manufacturer in Bali since 1993, built to get new brands into production fast, at a high standard, with room to grow."
+            },
+            {
+              "title": "Trusted Private Label Swimwear Manufacturer Factory",
+              "snippet": "We offer extensive customization options, including fabric choices, colors, patterns, embroidery, underwires, complex cup sizes, one-pieces, plus sizes, and ..."
+            },
+            {
+              "title": "Best 10 Swimwear Manufacturers In The USA (2026)",
+              "snippet": "1. Lefty Production Co. · 2. Swim USA Manufacturing · 3. Style Source Manufacturing · 4. TC Manufacturing · 5. Apparel Production Inc. · 6. Green ..."
+            },
+            {
+              "title": "10 Best Swimwear Manufacturers (USA & Global)",
+              "snippet": "Lefty Production Co. is a Los Angeles clothing manufacturer that specializes in swimsuit and bikini manufacturing. It works with clients of all sizes, offering ..."
+            },
+            {
+              "title": "Plus size swimwear Made in the USA",
+              "snippet": "Just For Us is a premier online retailer specializing in plus-size swimwear for women sizes 18-32. from top brands like T.H.E. Swimwear and Krinkle,"
+            },
+            {
+              "title": "Swimsuits For All: Women's & Plus Swimsuits, Swimwear ...",
+              "snippet": "S4A Offers Expertly Crafted Swim Styles Designed In-House, From Size 4-44 Including Plus Size Swimsuits And Trendy Touches For Every Woman's Shape."
+            },
+            {
+              "title": "Mayi Swimwear: Swimwear, Swimsuit, Bikini Manufacturer",
+              "snippet": "Plus size swimwear. High-quality plus size swimwear made to flatter every curve. Factory customization available for inclusive sizing and body-positive brands."
+            },
+            {
+              "title": "Swimwear Manufacturer",
+              "snippet": "We started as the go-to for Women's Swim startups, and we've grown with our clients — now offering ready-to-launch collections for Men, Kids, and Plus Size, all ..."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ],
+      "c-6343e1f14c58:product": [
+        {
+          "query": "couples matching swimsuit manufacturer",
+          "results": [
+            {
+              "title": "Matching Swimsuit for Couples Personalized Face Bathing ...",
+              "snippet": "【HIGH QUALITY&FASHION DESIGN】: Our custom couples' swimsuits Made from high-quality, quick-dry, and stretchable 86% polyester and 14% spandex for all-day ..."
+            },
+            {
+              "title": "His and Hers Matching Swimwear",
+              "snippet": "The best matching couples swimwear for honeymoon, babymoon, anniversary or vacation. Matching his and hers swimsuits - swim trunks, ..."
+            },
+            {
+              "title": "BAECATION• SWIMWEAR BRAND🏝 (@2baecation)",
+              "snippet": "Couples Matching Swimsuits for #BAECATION EST 2018. SWIMWEAR BRAND🏝. Refresh your swimwear with our matching sets! Check out 2baecation.com."
+            },
+            {
+              "title": "couples matching swimwear - Beerills",
+              "snippet": "Full-Service Manufacturer for Swimwear, Swimsuits, and Bikinis … full coverage, low back, strapless, u-shape couples. China's one-stop swimwear manufacturer."
+            },
+            {
+              "title": "10 Matching Swimsuits for Couples That Pass the Vibe ...",
+              "snippet": "Matching couple's swimsuits from Blackbough's. Bermies makes simple, classic swimwear for the whole family, kids included. to two- range: $100+ ..."
+            },
+            {
+              "title": "His & Her | Matching Swimsuits for Couples",
+              "snippet": "Looking for matching swimsuits for him & her, look no further. Berry Beachy Swimwear offers the best matching swimwear for couples anyone can ask for."
+            },
+            {
+              "title": "Matching Swimsuits for Family and Couples",
+              "snippet": "Shop by person: Many matching swimwear collections list women's, men's, girls', boys', and toddler pieces separately. Open each page and select the right size."
+            },
+            {
+              "title": "Matching Swimsuits for Couples Designer",
+              "snippet": "Discover Pinterest's best ideas and inspiration for Matching swimsuits for couples designer. Get inspired and try out new things. 53 people searched this."
+            },
+            {
+              "title": "10 Best Swimwear Manufacturers (USA & Global)",
+              "snippet": "While offering standard swimwear solutions, Appareify also designs bikinis, matching couple swimsuits, and long-sleeve models. Besides these specific ..."
+            },
+            {
+              "title": "Because couples who SEND IT together, stay ...",
+              "snippet": "Because couples who SEND IT together, stay together. Premium swimwear ... His & Hers Matching Swimwear Sets from Rain Clothing Co Florida."
+            }
+          ],
+          "votes": [
+            true,
+            true
+          ],
+          "same_goods": true
+        }
+      ]
+    },
+    "pending": [],
+    "skipped": [],
+    "purchases": [],
+    "paid_usd": 0.0
+  },
+  "unwritten_services": [],
+  "search_clashes": [],
+  "search_dropped": [],
+  "search_unresolved": [],
+  "search_candidates": {},
+  "category_hubs": [],
+  "shared_searches": {},
+  "tree_review_unresolved": [],
+  "no_volume_pages": [],
+  "no_own_search_pages": [],
+  "hand_fix": {
+    "by": "协调者 11-14（业主：每个步骤跑完做一次手改）",
+    "script": "handfix/hand_05_3.py",
+    "pages": [
+      "Plus Size Swimwear"
+    ]
+  }
+}
