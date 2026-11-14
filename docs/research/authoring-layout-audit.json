@@ -31,17 +31,7 @@
     }
   },
   "mediaSlots": [],
-  "failures": [
-    {
-      "route": "/burkini-manufacturer/",
-      "viewport": "mobile",
-      "issue": "boundary_gap",
-      "from": "charts",
-      "to": "process",
-      "gap": 183,
-      "maximum": 176
-    }
-  ],
+  "failures": [],
   "warnings": [
     {
       "route": "/",
@@ -27379,7 +27369,7 @@
         {
           "from": "charts",
           "to": "cta",
-          "gap": 162
+          "gap": 146
         }
       ],
       "grids": [
@@ -58335,7 +58325,7 @@
         {
           "from": "charts",
           "to": "table",
-          "gap": 162
+          "gap": 146
         },
         {
           "from": "table",
@@ -58400,7 +58390,7 @@
         {
           "from": "charts",
           "to": "cta",
-          "gap": 162
+          "gap": 146
         }
       ],
       "grids": [
@@ -60047,7 +60037,7 @@
             "block": "media-module-1",
             "box": {
               "x": 0,
-              "y": 9047.59375,
+              "y": 9031.59375,
               "width": 390,
               "height": 292.5
             },
@@ -89725,7 +89715,7 @@
         {
           "from": "charts",
           "to": "table",
-          "gap": 141
+          "gap": 125
         },
         {
           "from": "table",
@@ -89780,7 +89770,7 @@
         {
           "from": "charts",
           "to": "cta",
-          "gap": 141
+          "gap": 125
         }
       ],
       "grids": [
@@ -91129,7 +91119,7 @@
             "block": "media-module-1",
             "box": {
               "x": 0,
-              "y": 7394.421875,
+              "y": 7378.421875,
               "width": 390,
               "height": 292.5
             },
@@ -105605,7 +105595,7 @@
         {
           "from": "charts",
           "to": "process",
-          "gap": 183
+          "gap": 167
         },
         {
           "from": "process",
@@ -111383,7 +111373,7 @@
         {
           "from": "charts",
           "to": "splitMedia",
-          "gap": 162
+          "gap": 146
         },
         {
           "from": "splitMedia",
@@ -112503,7 +112493,7 @@
             "block": "splitMedia-2",
             "box": {
               "x": 20,
-              "y": 3549.1875,
+              "y": 3533.1875,
               "width": 350,
               "height": 350
             },
@@ -112519,7 +112509,7 @@
             "block": "media-module-1",
             "box": {
               "x": 0,
-              "y": 4757.53125,
+              "y": 4741.53125,
               "width": 390,
               "height": 292.5
             },
@@ -128574,7 +128564,7 @@
         {
           "from": "charts",
           "to": "cta",
-          "gap": 141
+          "gap": 125
         }
       ],
       "grids": [
@@ -137180,7 +137170,7 @@
         {
           "from": "charts",
           "to": "cta",
-          "gap": 162
+          "gap": 146
         }
       ],
       "grids": [
@@ -146585,7 +146575,7 @@
         {
           "from": "charts",
           "to": "cta",
-          "gap": 141
+          "gap": 125
         }
       ],
       "grids": [
@@ -177927,7 +177917,7 @@
         {
           "from": "charts",
           "to": "cta",
-          "gap": 141
+          "gap": 125
         }
       ],
       "grids": [
@@ -186866,7 +186856,7 @@
         {
           "from": "charts",
           "to": "cta",
-          "gap": 162
+          "gap": 146
         }
       ],
       "grids": [
@@ -196064,7 +196054,7 @@
         {
           "from": "charts",
           "to": "cta",
-          "gap": 162
+          "gap": 146
         }
       ],
       "grids": [
@@ -205713,7 +205703,7 @@
         {
           "from": "charts",
           "to": "orderCase",
-          "gap": 141
+          "gap": 125
         },
         {
           "from": "orderCase",
@@ -205738,7 +205728,7 @@
         {
           "from": "charts",
           "to": "cta",
-          "gap": 141
+          "gap": 125
         }
       ],
       "grids": [
@@ -214712,7 +214702,7 @@
         {
           "from": "charts",
           "to": "cta",
-          "gap": 162
+          "gap": 146
         }
       ],
       "grids": [
@@ -235167,7 +235157,7 @@
         {
           "from": "charts",
           "to": "iconList",
-          "gap": 141
+          "gap": 125
         },
         {
           "from": "iconList",
@@ -236974,7 +236964,7 @@
             "block": "media-module-budget-1",
             "box": {
               "x": 0,
-              "y": 11037.28125,
+              "y": 11021.28125,
               "width": 390,
               "height": 292.5
             },
@@ -236990,7 +236980,7 @@
             "block": "m10",
             "box": {
               "x": 20,
-              "y": 13003.21875,
+              "y": 12987.21875,
               "width": 350,
               "height": 350
             },
@@ -237006,7 +236996,7 @@
             "block": "splitMedia-1",
             "box": {
               "x": 20,
-              "y": 15378.40625,
+              "y": 15362.40625,
               "width": 350,
               "height": 350
             },
@@ -237022,7 +237012,7 @@
             "block": "splitMedia-2",
             "box": {
               "x": 20,
-              "y": 16243.640625,
+              "y": 16227.640625,
               "width": 350,
               "height": 350
             },
@@ -245377,7 +245367,7 @@
         {
           "from": "charts",
           "to": "cta",
-          "gap": 162
+          "gap": 146
         }
       ],
       "grids": [
@@ -257070,7 +257060,7 @@
         {
           "from": "charts",
           "to": "iconList",
-          "gap": 162
+          "gap": 146
         },
         {
           "from": "iconList",
@@ -265417,7 +265407,7 @@
         {
           "from": "charts",
           "to": "cta",
-          "gap": 141
+          "gap": 125
         }
       ],
       "grids": [
@@ -273874,7 +273864,7 @@
         {
           "from": "charts",
           "to": "process",
-          "gap": 141
+          "gap": 125
         },
         {
           "from": "process",
@@ -281342,7 +281332,7 @@
         {
           "from": "charts",
           "to": "iconList",
-          "gap": 108
+          "gap": 92
         },
         {
           "from": "iconList",
@@ -281412,7 +281402,7 @@
         {
           "from": "charts",
           "to": "cta",
-          "gap": 141
+          "gap": 125
         }
       ],
       "grids": [
@@ -282884,7 +282874,7 @@
             "block": "splitMedia-1",
             "box": {
               "x": 20,
-              "y": 3275.25,
+              "y": 3259.25,
               "width": 350,
               "height": 350
             },
@@ -282900,7 +282890,7 @@
             "block": "media-module-1",
             "box": {
               "x": 0,
-              "y": 5233.90625,
+              "y": 5217.90625,
               "width": 390,
               "height": 292.5
             },
@@ -282916,7 +282906,7 @@
             "block": "splitMedia-2",
             "box": {
               "x": 20,
-              "y": 8043.75,
+              "y": 8027.75,
               "width": 350,
               "height": 350
             },
@@ -282932,7 +282922,7 @@
             "block": "splitMedia-3",
             "box": {
               "x": 20,
-              "y": 9705.734375,
+              "y": 9689.734375,
               "width": 350,
               "height": 350
             },
