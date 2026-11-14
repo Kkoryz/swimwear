@@ -54,5 +54,12 @@
     "at": "2026-11-14T07:00:28.256Z",
     "seconds": 715,
     "log": ".pipeline/logs/2026-11-14T06-27-25-372Z/brand.log"
+  },
+  "patterns": {
+    "status": "passed",
+    "hash": "b5d8b5da626e87a2",
+    "at": "2026-11-14T07:01:36.229Z",
+    "seconds": 67,
+    "log": ".pipeline/logs/2026-11-14T06-27-25-372Z/patterns.log"
   }
 }

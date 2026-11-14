@@ -1,0 +1,303 @@
+{
+  "enabled": false,
+  "note": "Set enabled to true and include to false for a competitor section the blueprint should not follow.",
+  "pageTypes": {
+    "home": [
+      {
+        "index": 2,
+        "pattern": "split-video",
+        "decision": "splitMedia:single (video shown as a photo)",
+        "firstHeading": "We Build Swimwear Brands",
+        "include": true
+      },
+      {
+        "index": 3,
+        "pattern": "stats",
+        "decision": "stats",
+        "firstHeading": "Digital Patterns for a Perfect Fit",
+        "include": true
+      },
+      {
+        "index": 4,
+        "pattern": "tabs",
+        "decision": "splitMedia:tinted (tab panels collapse to the first panel)",
+        "firstHeading": "Bali’s Largest Imported Swimwear Fabric Stocks",
+        "include": true
+      },
+      {
+        "index": 5,
+        "pattern": "logos",
+        "decision": "logos",
+        "firstHeading": "A FEW BRANDS WE PRODUCE",
+        "include": true
+      },
+      {
+        "index": 6,
+        "pattern": "text",
+        "decision": "intro/proof",
+        "firstHeading": "3 Ways To Get Started",
+        "include": true
+      },
+      {
+        "index": 7,
+        "pattern": "stats",
+        "decision": "stats",
+        "firstHeading": "",
+        "include": true
+      },
+      {
+        "index": 8,
+        "pattern": "mosaic",
+        "decision": "gallery:mosaic",
+        "firstHeading": "",
+        "include": true
+      },
+      {
+        "index": 9,
+        "pattern": "columns",
+        "decision": "featureGrid:columns",
+        "firstHeading": "MOQs & Timelines",
+        "include": true
+      },
+      {
+        "index": 10,
+        "pattern": "text",
+        "decision": "intro/proof",
+        "firstHeading": "",
+        "include": true
+      },
+      {
+        "index": 11,
+        "pattern": "split-tinted",
+        "decision": "splitMedia:tinted",
+        "firstHeading": "Your price, locked in.",
+        "include": true
+      },
+      {
+        "index": 12,
+        "pattern": "split-tinted",
+        "decision": "splitMedia:tinted",
+        "firstHeading": "Digital Prints on Recycled Nylon",
+        "include": true
+      },
+      {
+        "index": 13,
+        "pattern": "figure",
+        "decision": "figure",
+        "firstHeading": "Branded, Packed,\nReady To Sell",
+        "include": true
+      },
+      {
+        "index": 14,
+        "pattern": "band",
+        "decision": "band",
+        "firstHeading": "SUSTAINABILITY",
+        "include": true
+      },
+      {
+        "index": 15,
+        "pattern": "text",
+        "decision": "intro/proof",
+        "firstHeading": "Your Collection, Kept On Track",
+        "include": true
+      },
+      {
+        "index": 16,
+        "pattern": "faq",
+        "decision": "faq",
+        "firstHeading": "Swimwear Manufacturing FAQ",
+        "include": true
+      },
+      {
+        "index": 17,
+        "pattern": "band",
+        "decision": "band",
+        "firstHeading": "Launch Your Swimwear Label",
+        "include": true
+      },
+      {
+        "index": 18,
+        "pattern": "testimonials",
+        "decision": "testimonials",
+        "firstHeading": "What Independent Labels Say",
+        "include": true
+      }
+    ],
+    "about": [
+      {
+        "index": 2,
+        "pattern": "text",
+        "decision": "intro/proof",
+        "firstHeading": "",
+        "include": true
+      }
+    ],
+    "contact": [
+      {
+        "index": 2,
+        "pattern": "form",
+        "decision": "form",
+        "firstHeading": "Have Questions?",
+        "include": true
+      },
+      {
+        "index": 3,
+        "pattern": "logos",
+        "decision": "logos",
+        "firstHeading": "",
+        "include": true
+      },
+      {
+        "index": 4,
+        "pattern": "columns",
+        "decision": "featureGrid:columns",
+        "firstHeading": "Book a Call-Back",
+        "include": true
+      }
+    ],
+    "product_manufacturer": [
+      {
+        "index": 2,
+        "pattern": "text",
+        "decision": "intro/proof",
+        "firstHeading": "Custom Swimwear Manufacturer",
+        "include": true
+      },
+      {
+        "index": 3,
+        "pattern": "text",
+        "decision": "intro/proof",
+        "firstHeading": "Built for Swimwear",
+        "include": true
+      },
+      {
+        "index": 5,
+        "pattern": "split",
+        "decision": "splitMedia:single",
+        "firstHeading": "",
+        "include": true
+      },
+      {
+        "index": 6,
+        "pattern": "split-video",
+        "decision": "splitMedia:single (video shown as a photo)",
+        "firstHeading": "",
+        "include": true
+      },
+      {
+        "index": 7,
+        "pattern": "figure",
+        "decision": "figure",
+        "firstHeading": "Premium Fabrics. In Stock in Bali.",
+        "include": true
+      },
+      {
+        "index": 8,
+        "pattern": "text",
+        "decision": "intro/proof",
+        "firstHeading": "Digital Print on Recycled Nylon",
+        "include": true
+      },
+      {
+        "index": 9,
+        "pattern": "figure",
+        "decision": "figure",
+        "firstHeading": "MOQs",
+        "include": true
+      },
+      {
+        "index": 10,
+        "pattern": "split",
+        "decision": "splitMedia:single",
+        "firstHeading": "Sampling",
+        "include": true
+      },
+      {
+        "index": 11,
+        "pattern": "text",
+        "decision": "intro/proof",
+        "firstHeading": "Branding",
+        "include": true
+      },
+      {
+        "index": 12,
+        "pattern": "text",
+        "decision": "intro/proof",
+        "firstHeading": "Trusted by Brands Worldwide",
+        "include": true
+      },
+      {
+        "index": 13,
+        "pattern": "text",
+        "decision": "intro/proof",
+        "firstHeading": "Send Your Designs",
+        "include": true
+      }
+    ],
+    "solution": [
+      {
+        "index": 2,
+        "pattern": "text",
+        "decision": "intro/proof",
+        "firstHeading": "",
+        "include": true
+      },
+      {
+        "index": 3,
+        "pattern": "numbered-cards",
+        "decision": "featureGrid:numbered",
+        "firstHeading": "3 WAYS TO PRICE YOUR DESIGNS",
+        "include": true
+      },
+      {
+        "index": 4,
+        "pattern": "figure",
+        "decision": "figure",
+        "firstHeading": "",
+        "include": true
+      },
+      {
+        "index": 5,
+        "pattern": "numbered-cards",
+        "decision": "featureGrid:numbered",
+        "firstHeading": "Six steps from Costing to delivery",
+        "include": true
+      },
+      {
+        "index": 6,
+        "pattern": "split",
+        "decision": "splitMedia:single",
+        "firstHeading": "FROM HANDOVER TO MOCK-UP",
+        "include": true
+      },
+      {
+        "index": 7,
+        "pattern": "columns",
+        "decision": "featureGrid:columns",
+        "firstHeading": "NEXT STEP",
+        "include": true
+      },
+      {
+        "index": 8,
+        "pattern": "text",
+        "decision": "intro/proof",
+        "firstHeading": "SUSTAINABILITY",
+        "include": true
+      },
+      {
+        "index": 9,
+        "pattern": "faq",
+        "decision": "faq",
+        "firstHeading": "Commonly Asked Questions",
+        "include": true
+      },
+      {
+        "index": 10,
+        "pattern": "split",
+        "decision": "splitMedia:single",
+        "firstHeading": "Contact Us",
+        "include": true
+      }
+    ]
+  }
+}

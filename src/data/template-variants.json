@@ -43,6 +43,78 @@
           }
         }
       }
+    },
+    "heroByPageType": {
+      "home": "media-overlay",
+      "about": "media-overlay",
+      "contact": "plain",
+      "product_manufacturer": "media-banner",
+      "solution": "media-overlay"
+    },
+    "pageTypes": {
+      "home": {
+        "splitSequence": [
+          "single",
+          "tinted",
+          "tinted",
+          "tinted",
+          "wide"
+        ],
+        "mediaModules": [
+          {
+            "at": 0.38,
+            "type": "mosaic"
+          },
+          {
+            "at": 0.69,
+            "type": "band",
+            "action": true
+          }
+        ],
+        "featureGrid": "columns",
+        "gallery": "mosaic"
+      },
+      "about": {},
+      "contact": {
+        "featureGrid": "columns"
+      },
+      "product_manufacturer": {
+        "splitSequence": [
+          "single",
+          "single",
+          "wide",
+          "wide",
+          "single"
+        ],
+        "mediaModules": [
+          {
+            "at": 0.45,
+            "type": "band"
+          }
+        ]
+      },
+      "solution": {
+        "splitSequence": [
+          "wide",
+          "single",
+          "single"
+        ],
+        "mediaModules": [
+          {
+            "at": 0.25,
+            "type": "band"
+          }
+        ],
+        "featureGrid": "numbered"
+      }
+    },
+    "headingAlign": "start",
+    "heroText": {
+      "family": "\"Maison Neue\", sans-serif",
+      "textTransform": "uppercase",
+      "chars": 108,
+      "charEm": 0.603,
+      "leadWords": 27
     }
   }
 }

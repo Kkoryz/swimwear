@@ -1,0 +1,1745 @@
+{
+  "schemaVersion": "seo-site-slot-manifest-v1",
+  "source": "https://example.com/",
+  "note": "Each page type follows the competitor page it was copied from: slot order and modules from its sections, our content purposes in them.",
+  "pageTypes": {
+    "home": {
+      "hero": {
+        "variant": "media-overlay",
+        "words": {
+          "heading": [
+            4,
+            12
+          ],
+          "lead": [
+            15,
+            35
+          ]
+        },
+        "cta": true
+      },
+      "slots": [
+        {
+          "id": "story",
+          "block": "splitMedia",
+          "fill": "copy",
+          "purpose": "Factory and team",
+          "repeat": [
+            1,
+            1
+          ],
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              50,
+              100
+            ]
+          },
+          "media": {
+            "kind": "process",
+            "count": 1
+          },
+          "variant": "single",
+          "module": "splitMedia:single"
+        },
+        {
+          "id": "key-figures",
+          "block": "stats",
+          "fill": "structured",
+          "field": "key_figures",
+          "purpose": "Order figures, each stated verbatim in an approved fact: minimum order, lead time and founding year first, capacity last; left out when fewer than three facts give one",
+          "items": [
+            3,
+            5
+          ],
+          "module": "stats:default"
+        },
+        {
+          "id": "quality",
+          "block": "splitMedia",
+          "fill": "copy",
+          "purpose": "Quality control and certifications stated in facts",
+          "repeat": [
+            1,
+            1
+          ],
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              50,
+              120
+            ]
+          },
+          "media": {
+            "kind": "process",
+            "count": 1
+          },
+          "variant": "tinted",
+          "module": "splitMedia:tinted"
+        },
+        {
+          "id": "logos",
+          "block": "logos",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Client or certification logos the owner can show (real, with permission)",
+          "module": "logos:default"
+        },
+        {
+          "id": "intro",
+          "block": "intro",
+          "fill": "copy",
+          "purpose": "Who we are and what we make",
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              40,
+              100
+            ]
+          },
+          "media": {
+            "kind": "product",
+            "count": 4
+          },
+          "module": "intro:text"
+        },
+        {
+          "id": "orderRoutes",
+          "block": "orderRoutes",
+          "fill": "owner",
+          "required": false,
+          "purpose": "How an order starts (Site Factory order_routes): two route cards, the other ways as a list",
+          "module": "orderRoutes:default"
+        },
+        {
+          "id": "why_us",
+          "block": "iconList",
+          "fill": "copy",
+          "required": false,
+          "purpose": "Why buyers choose this maker: four to six short selling points",
+          "words": {
+            "heading": [
+              3,
+              8
+            ],
+            "body": [
+              0,
+              20
+            ]
+          },
+          "items": [
+            4,
+            6
+          ],
+          "itemWords": {
+            "title": [
+              2,
+              5
+            ],
+            "text": [
+              10,
+              30
+            ]
+          },
+          "module": "iconList:default"
+        },
+        {
+          "id": "categories",
+          "block": "gallery",
+          "fill": "plan",
+          "source": "children:products_hub",
+          "purpose": "Product categories, each card linking to its page",
+          "items": [
+            4,
+            8
+          ],
+          "media": {
+            "kind": "product",
+            "count": 1
+          },
+          "variant": "mosaic",
+          "module": "gallery:mosaic"
+        },
+        {
+          "id": "capabilities",
+          "block": "featureGrid",
+          "fill": "copy",
+          "purpose": "Core capabilities",
+          "items": [
+            2,
+            4
+          ],
+          "itemWords": {
+            "title": [
+              2,
+              6
+            ],
+            "text": [
+              15,
+              40
+            ]
+          },
+          "variant": "columns",
+          "module": "featureGrid:columns"
+        },
+        {
+          "id": "process",
+          "block": "process",
+          "fill": "structured",
+          "field": "process_steps",
+          "purpose": "How an order runs, step by step",
+          "items": [
+            4,
+            6
+          ],
+          "module": "process:default"
+        },
+        {
+          "id": "solutions",
+          "block": "gallery",
+          "fill": "plan",
+          "source": "children:solutions_hub",
+          "purpose": "Services, each card linking to its page",
+          "items": [
+            2,
+            6
+          ],
+          "media": {
+            "kind": "lifestyle",
+            "count": 1
+          },
+          "module": "gallery:mosaic"
+        },
+        {
+          "id": "factory",
+          "block": "factory",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Factory figures the owner can state (capacity, lines, staff, floor area, founding year)",
+          "module": "factory:default"
+        },
+        {
+          "id": "certifications",
+          "block": "certifications",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Certificates the production holds: name, issuer, scope, number, validity",
+          "module": "certifications:default"
+        },
+        {
+          "id": "caseStudies",
+          "block": "caseStudies",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Client projects with measured results, told with permission",
+          "module": "caseStudies:default"
+        },
+        {
+          "id": "faq",
+          "block": "faq",
+          "fill": "copy",
+          "purpose": "Buyer questions, each answered in its first sentence",
+          "items": [
+            5,
+            8
+          ],
+          "itemWords": {
+            "question": [
+              6,
+              16
+            ],
+            "answer": [
+              25,
+              45
+            ]
+          },
+          "module": "faq:accordion"
+        },
+        {
+          "id": "testimonials",
+          "block": "testimonials",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Testimonials real clients agreed to publish",
+          "module": "testimonials:default"
+        },
+        {
+          "id": "cta",
+          "block": "cta",
+          "fill": "copy",
+          "purpose": "Closing call to action; the related links come from the site plan",
+          "links": [
+            2,
+            6
+          ],
+          "variant": "image-band",
+          "module": "cta:image-band"
+        }
+      ]
+    },
+    "about": {
+      "hero": {
+        "variant": "media-overlay",
+        "words": {
+          "heading": [
+            4,
+            12
+          ],
+          "lead": [
+            15,
+            35
+          ]
+        },
+        "cta": true
+      },
+      "slots": [
+        {
+          "id": "story",
+          "block": "splitMedia",
+          "fill": "copy",
+          "purpose": "Company story",
+          "repeat": [
+            1,
+            2
+          ],
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              60,
+              150
+            ]
+          },
+          "media": {
+            "kind": "process",
+            "count": 1
+          },
+          "module": "splitMedia:alternate"
+        },
+        {
+          "id": "key-figures",
+          "block": "stats",
+          "fill": "structured",
+          "field": "key_figures",
+          "purpose": "Order figures, each stated verbatim in an approved fact",
+          "items": [
+            3,
+            5
+          ],
+          "module": "stats:default"
+        },
+        {
+          "id": "values",
+          "block": "featureGrid",
+          "fill": "copy",
+          "purpose": "What we stand for",
+          "items": [
+            2,
+            4
+          ],
+          "itemWords": {
+            "title": [
+              2,
+              6
+            ],
+            "text": [
+              15,
+              40
+            ]
+          },
+          "module": "featureGrid:outlined"
+        },
+        {
+          "id": "process",
+          "block": "process",
+          "fill": "structured",
+          "field": "process_steps",
+          "purpose": "How an order runs, step by step",
+          "items": [
+            4,
+            6
+          ],
+          "module": "process:default"
+        },
+        {
+          "id": "factory",
+          "block": "factory",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Factory figures the owner can state (capacity, lines, staff, floor area, founding year)",
+          "module": "factory:default"
+        },
+        {
+          "id": "history",
+          "block": "history",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Milestones of the company, year by year",
+          "module": "history:default"
+        },
+        {
+          "id": "certifications",
+          "block": "certifications",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Certificates the production holds: name, issuer, scope, number, validity",
+          "module": "certifications:default"
+        },
+        {
+          "id": "logos",
+          "block": "logos",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Client or certification logos the owner can show (real, with permission)",
+          "module": "logos:default"
+        },
+        {
+          "id": "testimonials",
+          "block": "testimonials",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Testimonials real clients agreed to publish",
+          "module": "testimonials:default"
+        },
+        {
+          "id": "faq",
+          "block": "faq",
+          "fill": "copy",
+          "purpose": "Buyer questions, each answered in its first sentence",
+          "items": [
+            4,
+            8
+          ],
+          "itemWords": {
+            "question": [
+              6,
+              16
+            ],
+            "answer": [
+              30,
+              80
+            ]
+          },
+          "module": "faq:accordion"
+        },
+        {
+          "id": "cta",
+          "block": "cta",
+          "fill": "copy",
+          "purpose": "Closing call to action; the related links come from the site plan",
+          "links": [
+            2,
+            6
+          ],
+          "module": "cta:band"
+        }
+      ]
+    },
+    "contact": {
+      "hero": {
+        "variant": "plain",
+        "words": {
+          "heading": [
+            4,
+            12
+          ],
+          "lead": [
+            15,
+            35
+          ]
+        },
+        "cta": true
+      },
+      "slots": [
+        {
+          "id": "channels",
+          "block": "contactChannels",
+          "fill": "site",
+          "purpose": "Ways to reach us, from the company's own contact details (email, phone, WhatsApp, address, hours); the template renders them with an icon and a link each",
+          "media": "none",
+          "module": "contactChannels:default"
+        },
+        {
+          "id": "form",
+          "block": "form",
+          "fill": "copy",
+          "purpose": "Enquiry form: field labels and the submit label",
+          "items": [
+            3,
+            8
+          ],
+          "module": "form:default"
+        },
+        {
+          "id": "faq",
+          "block": "faq",
+          "fill": "copy",
+          "purpose": "Buyer questions, each answered in its first sentence",
+          "items": [
+            4,
+            8
+          ],
+          "itemWords": {
+            "question": [
+              6,
+              16
+            ],
+            "answer": [
+              30,
+              80
+            ]
+          },
+          "module": "faq:accordion"
+        },
+        {
+          "id": "logos",
+          "block": "logos",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Client or certification logos the owner can show (real, with permission)",
+          "module": "logos:default"
+        }
+      ]
+    },
+    "products_hub": {
+      "hero": {
+        "variant": "plain",
+        "words": {
+          "heading": [
+            4,
+            12
+          ],
+          "lead": [
+            15,
+            35
+          ]
+        },
+        "cta": true
+      },
+      "slots": [
+        {
+          "id": "intro",
+          "block": "intro",
+          "fill": "copy",
+          "purpose": "What the product range covers",
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              40,
+              100
+            ]
+          },
+          "media": {
+            "kind": "product",
+            "count": 4
+          },
+          "module": "intro:text"
+        },
+        {
+          "id": "children",
+          "block": "gallery",
+          "fill": "plan",
+          "source": "children:self",
+          "purpose": "Every page in this section, each card linking to it",
+          "items": [
+            2,
+            12
+          ],
+          "media": {
+            "kind": "product",
+            "count": 1
+          },
+          "module": "gallery:grid"
+        },
+        {
+          "id": "key-figures",
+          "block": "stats",
+          "fill": "structured",
+          "field": "key_figures",
+          "purpose": "Order figures, each stated verbatim in an approved fact",
+          "items": [
+            3,
+            5
+          ],
+          "module": "stats:default"
+        },
+        {
+          "id": "comparison",
+          "block": "table",
+          "fill": "structured",
+          "field": "comparison",
+          "purpose": "Options or choices compared side by side",
+          "rows": [
+            3,
+            8
+          ],
+          "columns": [
+            2,
+            4
+          ],
+          "module": "table:default"
+        },
+        {
+          "id": "faq",
+          "block": "faq",
+          "fill": "copy",
+          "purpose": "Buyer questions, each answered in its first sentence",
+          "items": [
+            4,
+            8
+          ],
+          "itemWords": {
+            "question": [
+              6,
+              16
+            ],
+            "answer": [
+              30,
+              80
+            ]
+          },
+          "module": "faq:accordion"
+        },
+        {
+          "id": "cta",
+          "block": "cta",
+          "fill": "copy",
+          "purpose": "Closing call to action; the related links come from the site plan",
+          "links": [
+            2,
+            6
+          ],
+          "module": "cta:band"
+        }
+      ]
+    },
+    "solutions_hub": {
+      "hero": {
+        "variant": "plain",
+        "words": {
+          "heading": [
+            4,
+            12
+          ],
+          "lead": [
+            15,
+            35
+          ]
+        },
+        "cta": true
+      },
+      "slots": [
+        {
+          "id": "intro",
+          "block": "intro",
+          "fill": "copy",
+          "purpose": "What the services cover",
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              40,
+              100
+            ]
+          },
+          "media": {
+            "kind": "product",
+            "count": 4
+          },
+          "module": "intro:text"
+        },
+        {
+          "id": "children",
+          "block": "gallery",
+          "fill": "plan",
+          "source": "children:self",
+          "purpose": "Every page in this section, each card linking to it",
+          "items": [
+            2,
+            12
+          ],
+          "media": {
+            "kind": "product",
+            "count": 1
+          },
+          "module": "gallery:grid"
+        },
+        {
+          "id": "key-figures",
+          "block": "stats",
+          "fill": "structured",
+          "field": "key_figures",
+          "purpose": "Order figures, each stated verbatim in an approved fact",
+          "items": [
+            3,
+            5
+          ],
+          "module": "stats:default"
+        },
+        {
+          "id": "comparison",
+          "block": "table",
+          "fill": "structured",
+          "field": "comparison",
+          "purpose": "Options or choices compared side by side",
+          "rows": [
+            3,
+            8
+          ],
+          "columns": [
+            2,
+            4
+          ],
+          "module": "table:default"
+        },
+        {
+          "id": "faq",
+          "block": "faq",
+          "fill": "copy",
+          "purpose": "Buyer questions, each answered in its first sentence",
+          "items": [
+            4,
+            8
+          ],
+          "itemWords": {
+            "question": [
+              6,
+              16
+            ],
+            "answer": [
+              30,
+              80
+            ]
+          },
+          "module": "faq:accordion"
+        },
+        {
+          "id": "cta",
+          "block": "cta",
+          "fill": "copy",
+          "purpose": "Closing call to action; the related links come from the site plan",
+          "links": [
+            2,
+            6
+          ],
+          "module": "cta:band"
+        }
+      ]
+    },
+    "wholesale_hub": {
+      "hero": {
+        "variant": "plain",
+        "words": {
+          "heading": [
+            4,
+            12
+          ],
+          "lead": [
+            15,
+            35
+          ]
+        },
+        "cta": true
+      },
+      "slots": [
+        {
+          "id": "intro",
+          "block": "intro",
+          "fill": "copy",
+          "purpose": "What wholesale orders cover",
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              40,
+              100
+            ]
+          },
+          "media": {
+            "kind": "product",
+            "count": 4
+          },
+          "module": "intro:text"
+        },
+        {
+          "id": "children",
+          "block": "gallery",
+          "fill": "plan",
+          "source": "children:self",
+          "purpose": "Every page in this section, each card linking to it",
+          "items": [
+            2,
+            12
+          ],
+          "media": {
+            "kind": "product",
+            "count": 1
+          },
+          "module": "gallery:grid"
+        },
+        {
+          "id": "key-figures",
+          "block": "stats",
+          "fill": "structured",
+          "field": "key_figures",
+          "purpose": "Order figures, each stated verbatim in an approved fact",
+          "items": [
+            3,
+            5
+          ],
+          "module": "stats:default"
+        },
+        {
+          "id": "comparison",
+          "block": "table",
+          "fill": "structured",
+          "field": "comparison",
+          "purpose": "Options or choices compared side by side",
+          "rows": [
+            3,
+            8
+          ],
+          "columns": [
+            2,
+            4
+          ],
+          "module": "table:default"
+        },
+        {
+          "id": "faq",
+          "block": "faq",
+          "fill": "copy",
+          "purpose": "Buyer questions, each answered in its first sentence",
+          "items": [
+            4,
+            8
+          ],
+          "itemWords": {
+            "question": [
+              6,
+              16
+            ],
+            "answer": [
+              30,
+              80
+            ]
+          },
+          "module": "faq:accordion"
+        },
+        {
+          "id": "cta",
+          "block": "cta",
+          "fill": "copy",
+          "purpose": "Closing call to action; the related links come from the site plan",
+          "links": [
+            2,
+            6
+          ],
+          "module": "cta:band"
+        }
+      ]
+    },
+    "product_manufacturer": {
+      "hero": {
+        "variant": "media-banner",
+        "words": {
+          "heading": [
+            4,
+            12
+          ],
+          "lead": [
+            15,
+            35
+          ]
+        },
+        "cta": true
+      },
+      "slots": [
+        {
+          "id": "intro",
+          "block": "intro",
+          "fill": "copy",
+          "purpose": "What we make in this category and for whom",
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              40,
+              100
+            ]
+          },
+          "media": {
+            "kind": "product",
+            "count": 4
+          },
+          "module": "intro:text"
+        },
+        {
+          "id": "why_us",
+          "block": "iconList",
+          "fill": "copy",
+          "required": false,
+          "purpose": "Why buyers choose this maker: four to six short selling points",
+          "words": {
+            "heading": [
+              3,
+              8
+            ],
+            "body": [
+              0,
+              20
+            ]
+          },
+          "items": [
+            4,
+            6
+          ],
+          "itemWords": {
+            "title": [
+              2,
+              5
+            ],
+            "text": [
+              10,
+              30
+            ]
+          },
+          "module": "iconList:default"
+        },
+        {
+          "id": "key-figures",
+          "block": "stats",
+          "fill": "structured",
+          "field": "key_figures",
+          "purpose": "Order figures, each stated verbatim in an approved fact",
+          "items": [
+            3,
+            5
+          ],
+          "module": "stats:default"
+        },
+        {
+          "id": "terms",
+          "block": "proof",
+          "fill": "copy",
+          "purpose": "Ordering this product or service: the one or two terms its buyers ask about (such as the minimum for this product or its sample time), with the rest left to the How to Order page it links to",
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              30,
+              70
+            ]
+          },
+          "media": {
+            "kind": "material",
+            "count": 1
+          },
+          "module": "proof:band"
+        },
+        {
+          "id": "orderTerms",
+          "block": "orderTerms",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Order terms from the approved facts as one table: MOQ, sampling, lead times, fees",
+          "module": "orderTerms:default"
+        },
+        {
+          "id": "details",
+          "block": "splitMedia",
+          "fill": "copy",
+          "purpose": "Fabrics, fits, construction and decoration",
+          "repeat": [
+            2,
+            5
+          ],
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              60,
+              150
+            ]
+          },
+          "media": {
+            "kind": "process",
+            "count": 1
+          },
+          "variant": "single",
+          "module": "splitMedia:single"
+        },
+        {
+          "id": "options",
+          "block": "featureGrid",
+          "fill": "copy",
+          "purpose": "Customisation options",
+          "items": [
+            2,
+            4
+          ],
+          "itemWords": {
+            "title": [
+              2,
+              6
+            ],
+            "text": [
+              15,
+              40
+            ]
+          },
+          "module": "featureGrid:outlined"
+        },
+        {
+          "id": "comparison",
+          "block": "table",
+          "fill": "structured",
+          "field": "comparison",
+          "purpose": "Options or choices compared side by side",
+          "rows": [
+            3,
+            8
+          ],
+          "columns": [
+            2,
+            4
+          ],
+          "module": "table:default"
+        },
+        {
+          "id": "process",
+          "block": "process",
+          "fill": "structured",
+          "field": "process_steps",
+          "purpose": "How an order runs, step by step",
+          "items": [
+            4,
+            6
+          ],
+          "module": "process:default"
+        },
+        {
+          "id": "certifications",
+          "block": "certifications",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Certificates the production holds: name, issuer, scope, number, validity",
+          "module": "certifications:default"
+        },
+        {
+          "id": "testimonials",
+          "block": "testimonials",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Testimonials real clients agreed to publish",
+          "module": "testimonials:default"
+        },
+        {
+          "id": "caseStudies",
+          "block": "caseStudies",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Client projects with measured results, told with permission",
+          "module": "caseStudies:default"
+        },
+        {
+          "id": "faq",
+          "block": "faq",
+          "fill": "copy",
+          "purpose": "Buyer questions, each answered in its first sentence",
+          "items": [
+            4,
+            8
+          ],
+          "itemWords": {
+            "question": [
+              6,
+              16
+            ],
+            "answer": [
+              30,
+              80
+            ]
+          },
+          "module": "faq:accordion"
+        },
+        {
+          "id": "cta",
+          "block": "cta",
+          "fill": "copy",
+          "purpose": "Closing call to action; the related links come from the site plan",
+          "links": [
+            2,
+            6
+          ],
+          "module": "cta:band"
+        }
+      ]
+    },
+    "product_wholesale": {
+      "hero": {
+        "variant": "plain",
+        "words": {
+          "heading": [
+            4,
+            12
+          ],
+          "lead": [
+            15,
+            35
+          ]
+        },
+        "cta": true
+      },
+      "slots": [
+        {
+          "id": "intro",
+          "block": "intro",
+          "fill": "copy",
+          "purpose": "What wholesale buyers can order in this category",
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              40,
+              100
+            ]
+          },
+          "media": {
+            "kind": "product",
+            "count": 4
+          },
+          "module": "intro:text"
+        },
+        {
+          "id": "key-figures",
+          "block": "stats",
+          "fill": "structured",
+          "field": "key_figures",
+          "purpose": "Order figures, each stated verbatim in an approved fact",
+          "items": [
+            3,
+            5
+          ],
+          "module": "stats:default"
+        },
+        {
+          "id": "range",
+          "block": "featureGrid",
+          "fill": "copy",
+          "purpose": "Styles and ranges available",
+          "items": [
+            2,
+            4
+          ],
+          "itemWords": {
+            "title": [
+              2,
+              6
+            ],
+            "text": [
+              15,
+              40
+            ]
+          },
+          "module": "featureGrid:outlined"
+        },
+        {
+          "id": "details",
+          "block": "splitMedia",
+          "fill": "copy",
+          "purpose": "Order details: sizing, colours, branding",
+          "repeat": [
+            1,
+            3
+          ],
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              60,
+              150
+            ]
+          },
+          "media": {
+            "kind": "process",
+            "count": 1
+          },
+          "module": "splitMedia:alternate"
+        },
+        {
+          "id": "comparison",
+          "block": "table",
+          "fill": "structured",
+          "field": "comparison",
+          "purpose": "Options or choices compared side by side",
+          "rows": [
+            3,
+            8
+          ],
+          "columns": [
+            2,
+            4
+          ],
+          "module": "table:default"
+        },
+        {
+          "id": "terms",
+          "block": "proof",
+          "fill": "copy",
+          "purpose": "Ordering this product or service: the one or two terms its buyers ask about (such as the minimum for this product or its sample time), with the rest left to the How to Order page it links to",
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              30,
+              70
+            ]
+          },
+          "media": {
+            "kind": "material",
+            "count": 1
+          },
+          "module": "proof:band"
+        },
+        {
+          "id": "orderTerms",
+          "block": "orderTerms",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Order terms from the approved facts as one table: MOQ, sampling, lead times, fees",
+          "module": "orderTerms:default"
+        },
+        {
+          "id": "process",
+          "block": "process",
+          "fill": "structured",
+          "field": "process_steps",
+          "purpose": "How an order runs, step by step",
+          "items": [
+            4,
+            6
+          ],
+          "module": "process:default"
+        },
+        {
+          "id": "testimonials",
+          "block": "testimonials",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Testimonials real clients agreed to publish",
+          "module": "testimonials:default"
+        },
+        {
+          "id": "faq",
+          "block": "faq",
+          "fill": "copy",
+          "purpose": "Buyer questions, each answered in its first sentence",
+          "items": [
+            4,
+            8
+          ],
+          "itemWords": {
+            "question": [
+              6,
+              16
+            ],
+            "answer": [
+              30,
+              80
+            ]
+          },
+          "module": "faq:accordion"
+        },
+        {
+          "id": "cta",
+          "block": "cta",
+          "fill": "copy",
+          "purpose": "Closing call to action; the related links come from the site plan",
+          "links": [
+            2,
+            6
+          ],
+          "module": "cta:band"
+        }
+      ]
+    },
+    "solution": {
+      "hero": {
+        "variant": "media-overlay",
+        "words": {
+          "heading": [
+            4,
+            12
+          ],
+          "lead": [
+            15,
+            35
+          ]
+        },
+        "cta": true
+      },
+      "slots": [
+        {
+          "id": "intro",
+          "block": "intro",
+          "fill": "copy",
+          "purpose": "What the service is and who it is for",
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              40,
+              100
+            ]
+          },
+          "media": {
+            "kind": "product",
+            "count": 4
+          },
+          "module": "intro:text"
+        },
+        {
+          "id": "key-figures",
+          "block": "stats",
+          "fill": "structured",
+          "field": "key_figures",
+          "purpose": "Order figures, each stated verbatim in an approved fact",
+          "items": [
+            3,
+            5
+          ],
+          "module": "stats:default"
+        },
+        {
+          "id": "options",
+          "block": "featureGrid",
+          "fill": "copy",
+          "purpose": "Service options",
+          "items": [
+            2,
+            4
+          ],
+          "itemWords": {
+            "title": [
+              2,
+              6
+            ],
+            "text": [
+              15,
+              40
+            ]
+          },
+          "variant": "numbered",
+          "module": "featureGrid:numbered"
+        },
+        {
+          "id": "scope",
+          "block": "splitMedia",
+          "fill": "copy",
+          "purpose": "What the service covers",
+          "repeat": [
+            2,
+            4
+          ],
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              60,
+              150
+            ]
+          },
+          "media": {
+            "kind": "process",
+            "count": 1
+          },
+          "variant": "single",
+          "module": "splitMedia:single"
+        },
+        {
+          "id": "comparison",
+          "block": "table",
+          "fill": "structured",
+          "field": "comparison",
+          "purpose": "Options or choices compared side by side",
+          "rows": [
+            3,
+            8
+          ],
+          "columns": [
+            2,
+            4
+          ],
+          "module": "table:default"
+        },
+        {
+          "id": "terms",
+          "block": "proof",
+          "fill": "copy",
+          "purpose": "Ordering this product or service: the one or two terms its buyers ask about (such as the minimum for this product or its sample time), with the rest left to the How to Order page it links to",
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              30,
+              70
+            ]
+          },
+          "media": {
+            "kind": "material",
+            "count": 1
+          },
+          "module": "proof:band"
+        },
+        {
+          "id": "process",
+          "block": "process",
+          "fill": "structured",
+          "field": "process_steps",
+          "purpose": "How an order runs, step by step",
+          "items": [
+            4,
+            6
+          ],
+          "module": "process:default"
+        },
+        {
+          "id": "testimonials",
+          "block": "testimonials",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Testimonials real clients agreed to publish",
+          "module": "testimonials:default"
+        },
+        {
+          "id": "caseStudies",
+          "block": "caseStudies",
+          "fill": "owner",
+          "required": false,
+          "purpose": "Client projects with measured results, told with permission",
+          "module": "caseStudies:default"
+        },
+        {
+          "id": "faq",
+          "block": "faq",
+          "fill": "copy",
+          "purpose": "Buyer questions, each answered in its first sentence",
+          "items": [
+            4,
+            8
+          ],
+          "itemWords": {
+            "question": [
+              6,
+              16
+            ],
+            "answer": [
+              30,
+              80
+            ]
+          },
+          "module": "faq:accordion"
+        },
+        {
+          "id": "cta",
+          "block": "cta",
+          "fill": "copy",
+          "purpose": "Closing call to action; the related links come from the site plan",
+          "links": [
+            2,
+            6
+          ],
+          "module": "cta:band"
+        }
+      ]
+    },
+    "blog_hub": {
+      "hero": {
+        "variant": "plain",
+        "words": {
+          "heading": [
+            4,
+            12
+          ],
+          "lead": [
+            15,
+            35
+          ]
+        },
+        "cta": true
+      },
+      "slots": [
+        {
+          "id": "intro",
+          "block": "intro",
+          "fill": "copy",
+          "purpose": "What the guides explain and who they are for",
+          "words": {
+            "heading": [
+              3,
+              10
+            ],
+            "body": [
+              40,
+              90
+            ]
+          },
+          "module": "intro:text"
+        },
+        {
+          "id": "posts",
+          "block": "gallery",
+          "fill": "site",
+          "purpose": "The articles, listed by the template",
+          "items": [
+            1,
+            24
+          ],
+          "module": "gallery:grid"
+        },
+        {
+          "id": "cta",
+          "block": "cta",
+          "fill": "copy",
+          "purpose": "Closing call to action to the contact page",
+          "module": "cta:band"
+        }
+      ]
+    },
+    "ordering": {
+      "hero": {
+        "variant": "plain",
+        "words": {
+          "heading": [
+            4,
+            12
+          ],
+          "lead": [
+            15,
+            35
+          ]
+        },
+        "cta": true
+      },
+      "slots": [
+        {
+          "id": "intro",
+          "block": "intro",
+          "fill": "copy",
+          "purpose": "How ordering works, in brief",
+          "words": {
+            "heading": [
+              3,
+              10
+            ],
+            "body": [
+              40,
+              90
+            ]
+          },
+          "module": "intro:text"
+        },
+        {
+          "id": "orderRoutes",
+          "block": "orderRoutes",
+          "fill": "owner",
+          "required": false,
+          "purpose": "How an order starts (Site Factory order_routes): two route cards, the other ways as a list",
+          "module": "orderRoutes:default"
+        },
+        {
+          "id": "key-figures",
+          "block": "stats",
+          "fill": "structured",
+          "field": "key_figures",
+          "purpose": "The ordering figures, each stated verbatim in an approved fact",
+          "items": [
+            3,
+            6
+          ],
+          "module": "stats:default"
+        },
+        {
+          "id": "terms",
+          "block": "splitMedia",
+          "fill": "copy",
+          "purpose": "One ordering term each, in full with its conditions: minimum and trial orders; samples and fees; production time; payment, trade terms and shipping",
+          "repeat": [
+            3,
+            5
+          ],
+          "words": {
+            "heading": [
+              3,
+              10
+            ],
+            "body": [
+              50,
+              120
+            ]
+          },
+          "media": {
+            "kind": "process",
+            "count": 1
+          },
+          "module": "splitMedia:alternate"
+        },
+        {
+          "id": "process",
+          "block": "process",
+          "fill": "structured",
+          "field": "process_steps",
+          "purpose": "How an order runs, step by step",
+          "items": [
+            4,
+            7
+          ],
+          "module": "process:default"
+        },
+        {
+          "id": "faq",
+          "block": "faq",
+          "fill": "copy",
+          "purpose": "Buyer questions on ordering, each answered in its first sentence",
+          "items": [
+            5,
+            8
+          ],
+          "itemWords": {
+            "question": [
+              6,
+              16
+            ],
+            "answer": [
+              25,
+              45
+            ]
+          },
+          "module": "faq:accordion"
+        },
+        {
+          "id": "cta",
+          "block": "cta",
+          "fill": "copy",
+          "purpose": "Closing call to request a quote",
+          "module": "cta:band"
+        }
+      ]
+    },
+    "privacy": {
+      "hero": {
+        "variant": "plain",
+        "words": {
+          "heading": [
+            4,
+            12
+          ],
+          "lead": [
+            15,
+            35
+          ]
+        },
+        "cta": true
+      },
+      "slots": [
+        {
+          "id": "policy",
+          "block": "intro",
+          "fill": "site",
+          "purpose": "Privacy policy: the owner's legal text (template-owned; Site Factory does not write legal copy). Placeholder until supplied.",
+          "words": {
+            "body": [
+              150,
+              600
+            ]
+          },
+          "module": "intro:text"
+        }
+      ]
+    },
+    "general": {
+      "hero": {
+        "variant": "plain",
+        "words": {
+          "heading": [
+            4,
+            12
+          ],
+          "lead": [
+            15,
+            35
+          ]
+        },
+        "cta": true
+      },
+      "slots": [
+        {
+          "id": "intro",
+          "block": "intro",
+          "fill": "copy",
+          "purpose": "What this page is for",
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              40,
+              100
+            ]
+          },
+          "media": "none",
+          "module": "intro:text"
+        },
+        {
+          "id": "cta",
+          "block": "cta",
+          "fill": "copy",
+          "purpose": "Closing call to action; the related links come from the site plan",
+          "links": [
+            2,
+            6
+          ],
+          "module": "cta:band"
+        }
+      ]
+    }
+  }
+}
