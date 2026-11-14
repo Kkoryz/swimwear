@@ -137,7 +137,7 @@
       "key": "gallery:band",
       "type": "gallery",
       "variant": "band",
-      "uses": 42,
+      "uses": 47,
       "names": [
         "gallery:band",
         "figure"
@@ -185,7 +185,7 @@
       "key": "process:list",
       "type": "process",
       "variant": "list",
-      "uses": 31,
+      "uses": 33,
       "names": [
         "process:list"
       ],
@@ -595,7 +595,7 @@
       "key": "splitMedia:single",
       "type": "splitMedia",
       "variant": "single",
-      "uses": 48,
+      "uses": 46,
       "names": [
         "splitMedia:single"
       ],
@@ -1766,6 +1766,98 @@
       ]
     },
     {
+      "key": "splitMedia:panel",
+      "type": "splitMedia",
+      "variant": "panel",
+      "uses": 2,
+      "names": [
+        "splitMedia:panel"
+      ],
+      "evidence": [
+        {
+          "pageType": "product_manufacturer",
+          "index": 10,
+          "module": "splitMedia:panel"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/rash-guard-manufacturer/",
+          "pageType": "product_manufacturer",
+          "blockId": "m7",
+          "splitIndex": 1,
+          "words": 105,
+          "slots": 0,
+          "block": {
+            "id": "m7",
+            "type": "splitMedia",
+            "sourceSectionIds": [
+              "m7"
+            ],
+            "heading": "Washing and Drying Printed and Bonded Rash Guards",
+            "paragraphs": [
+              "We write the care label for each style around how it's built and decorated, and we add specific warnings for bonded seams. Rinsing, washing gently and drying in the shade protects sublimation, screen prints and heat-transfer logos.",
+              "Heat, wringing, bleach and chlorine left in the fabric damage prints, elastane and seam adhesive faster than ordinary wear does. On programme orders, passing these instructions on to whoever does the laundry keeps the garments cared for the same way. Longer instructions need a bigger label. If comfort matters more, we print the care information straight onto the garment instead."
+            ],
+            "wordCount": 97,
+            "media": null,
+            "variant": "single",
+            "mediaKind": "material",
+            "visuals": [
+              {
+                "id": "m7_sequence_care",
+                "type": "data",
+                "purpose": "Sets out the care steps on our labels in the order the wearer follows them.",
+                "caption": "Care steps from our rash guard labels.",
+                "data": {
+                  "shape": "sequence",
+                  "items": [
+                    {
+                      "label": "Rinse in fresh water",
+                      "detail": "Rinse the rash guard in fresh water after each use."
+                    },
+                    {
+                      "label": "Wash cold, inside out",
+                      "detail": "Hand wash, or machine wash cold and inside out on a gentle cycle, with no bleach."
+                    },
+                    {
+                      "label": "Dry flat in shade",
+                      "detail": "Dry flat in the shade, with no tumble drying or ironing. For bonded seams: no water above 30°C, no wringing and no fabric softener."
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "role": "shortest",
+          "route": "/swimwear-accessories/",
+          "pageType": "product_manufacturer",
+          "blockId": "m7",
+          "splitIndex": 1,
+          "words": 71,
+          "slots": 1,
+          "block": {
+            "id": "m7",
+            "type": "splitMedia",
+            "sourceSectionIds": [
+              "m7"
+            ],
+            "heading": "Hygienic Liners Printed with Your Logo",
+            "paragraphs": [
+              "We make your hygienic liners from skin-friendly adhesive materials in a range of shapes and colours, and we match the shape and adhesive to your gusset and fabric. We keep your logo or brand message simple and easy to read. Branded liners are quoted on request. Liners peel off cleanly for up to 12 months in normal storage, and sampling includes an 8-hour wear peel-test."
+            ],
+            "wordCount": 65,
+            "media": null,
+            "variant": "single",
+            "mediaKind": "material"
+          }
+        }
+      ]
+    },
+    {
       "key": "process:photo-cards",
       "type": "process",
       "variant": "photo-cards",
@@ -2373,7 +2465,7 @@
       "key": "process:timeline",
       "type": "process",
       "variant": "timeline",
-      "uses": 5,
+      "uses": 3,
       "names": [
         "process:timeline"
       ],

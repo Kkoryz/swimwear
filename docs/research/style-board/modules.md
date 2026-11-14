@@ -19,19 +19,19 @@ the site's treatment as a whole.
 | process:photo-cards | 2 | longest 70 words (/rash-guard-manufacturer/ m7-steps)<br>shortest 48 words (/plus-size-swimwear-manufacturer/ m3-steps) | - |
 | splitMedia:wide | 8 | longest 121 words (/swimwear-packaging-custom-brand-labels/ splitMedia-1)<br>shortest 48 words (/development/ m7) | - |
 | orderCase:default | 3 | longest 88 words (/case-studies/ cases)<br>shortest 43 words (/swimwear-fabrics-sourcing/ cases) | - |
-| process:timeline | 5 | longest 237 words (/request-a-quote/ m3)<br>shortest 53 words (/faq/ m8-steps) | - |
+| process:timeline | 3 | longest 237 words (/request-a-quote/ m3)<br>shortest 53 words (/faq/ m8-steps) | - |
 | table:cards | 1 | only 333 words (/blog/ table-1) | - |
 
-## Modules the competitor shows (17)
+## Modules the competitor shows (18)
 
 | Module | Uses | Samples | Competitor sections |
 |---|---|---|---|
 | intro:text | 36 | longest 104 words (/ overview)<br>shortest 50 words (/one-piece-swimsuit-manufacturer/ overview) | about 2 intro/proof<br>home 15 intro/proof<br>product_manufacturer 2 intro/proof<br>product_manufacturer 3 intro/proof<br>product_manufacturer 8 intro/proof<br>product_manufacturer 11 intro/proof<br>product_manufacturer 12 intro/proof<br>solution 8 intro/proof |
-| gallery:band | 42 | longest 0 words (/ media-module-budget-4) | product_manufacturer 7 figure<br>product_manufacturer 9 figure<br>solution 4 gallery:band |
-| process:list | 31 | longest 231 words (/custom-swimwear-printing/ m7)<br>shortest 43 words (/ overview-steps) | solution 3 process:list (GAP: other) |
+| gallery:band | 47 | longest 0 words (/ media-module-budget-4) | product_manufacturer 7 figure<br>product_manufacturer 9 figure<br>solution 4 gallery:band |
+| process:list | 33 | longest 231 words (/custom-swimwear-printing/ m7)<br>shortest 43 words (/ overview-steps) | solution 3 process:list (GAP: other) |
 | featureGrid:outline-numbered | 15 | longest 143 words (/ featureGrid-1)<br>shortest 48 words (/ m2-3) | home 7 featureGrid:outline-numbered |
 | splitMedia:tinted | 2 | longest 93 words (/ m4)<br>shortest 86 words (/ splitMedia-2) | home 2 splitMedia:tinted (GAP: video)<br>home 4 splitMedia:tinted (GAP: tabs)<br>home 12 splitMedia:tinted |
-| splitMedia:single | 48 | longest 159 words (/watersports-apparel-manufacturer/ splitMedia-1)<br>shortest 35 words (/swimwear-packaging-custom-brand-labels/ related) | home 3 splitMedia:single (GAP: layout)<br>home 13 splitMedia:single<br>product_manufacturer 5 splitMedia:single<br>product_manufacturer 6 splitMedia:single (GAP: video) |
+| splitMedia:single | 46 | longest 159 words (/watersports-apparel-manufacturer/ splitMedia-1)<br>shortest 35 words (/swimwear-packaging-custom-brand-labels/ related) | home 3 splitMedia:single (GAP: layout)<br>home 13 splitMedia:single<br>product_manufacturer 5 splitMedia:single<br>product_manufacturer 6 splitMedia:single (GAP: video) |
 | logos:marquee | 2 | longest 27 words (/ owner-logos) | home 5 owner:logos |
 | testimonials:carousel | 28 | longest 154 words (/resort-wear-manufacturer/ owner-testimonials)<br>shortest 92 words (/about-us/ owner-testimonials) | home 18 owner:testimonials |
 | faq:two-column | 25 | longest 729 words (/case-studies/ faq)<br>shortest 210 words (/men-s-swimwear-manufacturer/ faq) | home 16 faq:two-column |
@@ -39,6 +39,7 @@ the site's treatment as a whole.
 | featureGrid:cards | 101 | longest 165 words (/rash-guard-manufacturer/ m2)<br>shortest 50 words (/one-piece-swimsuit-manufacturer/ m3-2) | solution 2 featureGrid:cards (GAP: other)<br>solution 7 featureGrid:cards (GAP: layout) |
 | cta:inline | 19 | longest 52 words (/one-piece-swimsuit-manufacturer/ cta)<br>shortest 38 words (/modest-swimwear-manufacturer/ cta) | product_manufacturer 13 cta:inline |
 | proof:band | 17 | longest 74 words (/swimwear-fabrics-sourcing/ m9)<br>shortest 34 words (/faq/ proof-5) | about 2 intro/proof<br>home 15 intro/proof<br>product_manufacturer 2 intro/proof<br>product_manufacturer 3 intro/proof<br>product_manufacturer 8 intro/proof<br>product_manufacturer 11 intro/proof<br>product_manufacturer 12 intro/proof<br>solution 8 intro/proof |
+| splitMedia:panel | 2 | longest 105 words (/rash-guard-manufacturer/ m7)<br>shortest 71 words (/swimwear-accessories/ m7) | product_manufacturer 10 splitMedia:panel |
 | process:band | 6 | longest 101 words (/swimwear-packaging-custom-brand-labels/ splitMedia-1-steps)<br>shortest 44 words (/swimwear-consulting/ faq-steps) | solution 5 process:band |
 | faq:bars | 7 | longest 509 words (/swimwear-embroidery/ faq)<br>shortest 202 words (/custom-swimwear-printing/ faq) | solution 9 faq:bars |
 | form:media | 1 | only 46 words (/contact-us/ form) | contact 2 form:media |
