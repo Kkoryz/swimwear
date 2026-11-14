@@ -109,6 +109,13 @@
         "height": 640
       }
     },
+    "/media/photos/burkini-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/burkini-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    },
     "/media/photos/watersports-apparel-hero-1-960.webp": {
       "0.70": {
         "src": "/media/photos/watersports-apparel-hero-1-960-phone-70.webp",
@@ -207,6 +214,7 @@
     "/media/photos/baby-swimwear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
     "/media/photos/toddler-swimwear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
     "/media/photos/modest-swimwear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/burkini-hero-1-960-phone-70.webp (448px wide, from 960x640)",
     "/media/photos/watersports-apparel-hero-1-960-phone-70.webp (448px wide, from 960x640)",
     "/media/photos/rash-guard-hero-1-960-phone-70.webp (448px wide, from 960x640)",
     "/media/photos/resort-wear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
