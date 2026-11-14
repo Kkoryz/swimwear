@@ -1,0 +1,1 @@
+{"slots":[{"id":"couples-matching-swimsuit-hero-1","kind":5},{"id":"couples-matching-swimsuit-lifestyle-1","kind":1}]}

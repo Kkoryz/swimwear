@@ -1,0 +1,1 @@
+{"slots":[{"id":"boardshorts-hero-1","kind":5},{"id":"boardshorts-product-sublimation-prints-and-colour-matching","kind":2},{"id":"boardshorts-lifestyle-1","kind":1}]}

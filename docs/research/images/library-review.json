@@ -1,0 +1,590 @@
+{
+  "schemaVersion": "seo-site-library-review-v1",
+  "reviewedAt": "2026-11-14T08:36:59.394Z",
+  "photos": [
+    {
+      "number": 1,
+      "id": "general-hero-1"
+    },
+    {
+      "number": 2,
+      "id": "general-hero-2"
+    },
+    {
+      "number": 3,
+      "id": "general-hero-3"
+    },
+    {
+      "number": 4,
+      "id": "general-hero-4"
+    },
+    {
+      "number": 5,
+      "id": "general-product-1"
+    },
+    {
+      "number": 6,
+      "id": "general-product-2"
+    },
+    {
+      "number": 7,
+      "id": "general-product-3"
+    },
+    {
+      "number": 8,
+      "id": "general-product-4"
+    },
+    {
+      "number": 9,
+      "id": "general-product-5"
+    },
+    {
+      "number": 10,
+      "id": "general-product-wholesale-swimwear-ready-to-brand-and-ship"
+    },
+    {
+      "number": 11,
+      "id": "general-product-quality-checked-at-every-stage-of-your-order"
+    },
+    {
+      "number": 12,
+      "id": "general-product-starting-with-samples-before-bulk"
+    },
+    {
+      "number": 13,
+      "id": "general-process-1"
+    },
+    {
+      "number": 14,
+      "id": "general-process-2"
+    },
+    {
+      "number": 15,
+      "id": "general-process-3"
+    },
+    {
+      "number": 16,
+      "id": "general-material-1"
+    },
+    {
+      "number": 17,
+      "id": "general-lifestyle-1"
+    },
+    {
+      "number": 18,
+      "id": "general-lifestyle-2"
+    },
+    {
+      "number": 19,
+      "id": "general-lifestyle-3"
+    },
+    {
+      "number": 20,
+      "id": "general-lifestyle-4"
+    },
+    {
+      "number": 21,
+      "id": "general-lifestyle-5"
+    },
+    {
+      "number": 22,
+      "id": "women-s-swimwear-hero-1"
+    },
+    {
+      "number": 23,
+      "id": "women-s-swimwear-lifestyle-1"
+    },
+    {
+      "number": 24,
+      "id": "one-piece-swimsuit-hero-1"
+    },
+    {
+      "number": 25,
+      "id": "one-piece-swimsuit-product-construction-bust-support-and-trim-details"
+    },
+    {
+      "number": 26,
+      "id": "one-piece-swimsuit-lifestyle-1"
+    },
+    {
+      "number": 27,
+      "id": "bikini-hero-1"
+    },
+    {
+      "number": 28,
+      "id": "bikini-lifestyle-1"
+    },
+    {
+      "number": 29,
+      "id": "men-s-swimwear-hero-1"
+    },
+    {
+      "number": 30,
+      "id": "men-s-swimwear-lifestyle-1"
+    },
+    {
+      "number": 31,
+      "id": "boardshorts-hero-1"
+    },
+    {
+      "number": 32,
+      "id": "boardshorts-product-sublimation-prints-and-colour-matching"
+    },
+    {
+      "number": 33,
+      "id": "boardshorts-lifestyle-1"
+    },
+    {
+      "number": 34,
+      "id": "swim-trunks-hero-1"
+    },
+    {
+      "number": 35,
+      "id": "swim-trunks-lifestyle-1"
+    },
+    {
+      "number": 36,
+      "id": "children-s-swimwear-hero-1"
+    },
+    {
+      "number": 37,
+      "id": "children-s-swimwear-lifestyle-1"
+    },
+    {
+      "number": 38,
+      "id": "children-s-swimwear-lifestyle-2"
+    },
+    {
+      "number": 39,
+      "id": "teen-swimwear-hero-1"
+    },
+    {
+      "number": 40,
+      "id": "teen-swimwear-lifestyle-1"
+    },
+    {
+      "number": 41,
+      "id": "baby-swimwear-hero-1"
+    },
+    {
+      "number": 42,
+      "id": "baby-swimwear-lifestyle-1"
+    },
+    {
+      "number": 43,
+      "id": "toddler-swimwear-hero-1"
+    },
+    {
+      "number": 44,
+      "id": "toddler-swimwear-lifestyle-1"
+    },
+    {
+      "number": 45,
+      "id": "modest-swimwear-product-wholesale-stock-and-ready-made-modest-designs"
+    },
+    {
+      "number": 46,
+      "id": "modest-swimwear-lifestyle-1"
+    },
+    {
+      "number": 47,
+      "id": "burkini-hero-1"
+    },
+    {
+      "number": 48,
+      "id": "burkini-lifestyle-1"
+    },
+    {
+      "number": 49,
+      "id": "watersports-apparel-product-1"
+    },
+    {
+      "number": 50,
+      "id": "watersports-apparel-lifestyle-1"
+    },
+    {
+      "number": 51,
+      "id": "rash-guard-hero-1"
+    },
+    {
+      "number": 52,
+      "id": "rash-guard-lifestyle-1"
+    },
+    {
+      "number": 53,
+      "id": "resort-wear-hero-1"
+    },
+    {
+      "number": 54,
+      "id": "resort-wear-lifestyle-1"
+    },
+    {
+      "number": 55,
+      "id": "cover-up-lifestyle-1"
+    },
+    {
+      "number": 56,
+      "id": "cover-up-lifestyle-2"
+    },
+    {
+      "number": 57,
+      "id": "swimwear-accessories-hero-1"
+    },
+    {
+      "number": 58,
+      "id": "swimwear-accessories-material-1"
+    },
+    {
+      "number": 59,
+      "id": "swimwear-accessories-lifestyle-1"
+    },
+    {
+      "number": 60,
+      "id": "swimwear-accessories-lifestyle-2"
+    },
+    {
+      "number": 61,
+      "id": "plus-size-swimwear-lifestyle-1"
+    },
+    {
+      "number": 62,
+      "id": "couples-matching-swimsuit-hero-1"
+    },
+    {
+      "number": 63,
+      "id": "couples-matching-swimsuit-lifestyle-1"
+    }
+  ],
+  "review": {
+    "lookAlike": [
+      {
+        "photos": [
+          22,
+          30,
+          49,
+          63
+        ],
+        "reason": "Seated outdoors by the sea with both hands cupping the face, looking at the camera, same framing"
+      },
+      {
+        "photos": [
+          9,
+          17
+        ],
+        "reason": "Lying on a sunlit stone terrace propped on one arm with eyes closed and an open cover-up, same composition"
+      },
+      {
+        "photos": [
+          10,
+          24
+        ],
+        "reason": "Leaning against a whitewashed wall with eyes closed and a red cover-up, near-identical pose and light"
+      },
+      {
+        "photos": [
+          55,
+          56
+        ],
+        "reason": "Seated woman sipping from a cup held to the face, same crop and seaside setting"
+      },
+      {
+        "photos": [
+          7,
+          19
+        ],
+        "reason": "Same model seated by a rocky coast in a light cover-up, looking off to the side, same framing"
+      }
+    ],
+    "samePerson": [
+      {
+        "photos": [
+          1,
+          25
+        ]
+      },
+      {
+        "photos": [
+          2,
+          26
+        ]
+      },
+      {
+        "photos": [
+          3,
+          27,
+          49
+        ]
+      },
+      {
+        "photos": [
+          4,
+          50
+        ]
+      },
+      {
+        "photos": [
+          5,
+          17,
+          51,
+          61
+        ]
+      },
+      {
+        "photos": [
+          6,
+          18,
+          52,
+          62
+        ]
+      },
+      {
+        "photos": [
+          7,
+          19,
+          31,
+          63
+        ]
+      },
+      {
+        "photos": [
+          9,
+          21,
+          33
+        ]
+      },
+      {
+        "photos": [
+          10,
+          22,
+          55
+        ]
+      },
+      {
+        "photos": [
+          12,
+          24,
+          47
+        ]
+      },
+      {
+        "photos": [
+          23,
+          35,
+          56
+        ]
+      },
+      {
+        "photos": [
+          32,
+          54
+        ]
+      },
+      {
+        "photos": [
+          13,
+          14,
+          15
+        ]
+      }
+    ],
+    "wrongColour": [
+      {
+        "photo": 4,
+        "seen": "pink floral bikini with a pink-red wrap, not white"
+      },
+      {
+        "photo": 17,
+        "seen": "olive and teal plaid swimsuit with an olive cover-up, not navy"
+      },
+      {
+        "photo": 19,
+        "seen": "cream cover-up with a green leaf print, no olive garment visible"
+      },
+      {
+        "photo": 23,
+        "seen": "brown and navy animal-print swimsuit, not charcoal"
+      },
+      {
+        "photo": 26,
+        "seen": "black lace-up swimsuit, not forest green"
+      },
+      {
+        "photo": 40,
+        "seen": "black bikini as the main piece, not forest green"
+      },
+      {
+        "photo": 41,
+        "seen": "pink ruffle swimsuit and olive rash top dominate, cream only secondary"
+      },
+      {
+        "photo": 43,
+        "seen": "olive, pink and red pieces dominate, little black"
+      },
+      {
+        "photo": 45,
+        "seen": "pink floral tunic over olive leggings and hijab, not white"
+      },
+      {
+        "photo": 52,
+        "seen": "navy tie-dye long-sleeve top, not forest green"
+      }
+    ],
+    "factoryScene": [
+      13,
+      14,
+      15
+    ],
+    "weakSubject": [
+      {
+        "photo": 19,
+        "seen": "swimwear hidden behind drawn-up knees and the cover-up"
+      },
+      {
+        "photo": 30,
+        "seen": "grey trunks barely visible, mostly a bare-chested man's pose"
+      },
+      {
+        "photo": 46,
+        "seen": "dark underexposed frame; small figure, mostly rocks and ground"
+      }
+    ]
+  },
+  "rejected": [
+    {
+      "id": "men-s-swimwear-lifestyle-1",
+      "reason": "looks like photo 22: Seated outdoors by the sea with both hands cupping the face, looking at the camera, same framing"
+    },
+    {
+      "id": "watersports-apparel-product-1",
+      "reason": "looks like photo 22: Seated outdoors by the sea with both hands cupping the face, looking at the camera, same framing"
+    },
+    {
+      "id": "couples-matching-swimsuit-lifestyle-1",
+      "reason": "looks like photo 22: Seated outdoors by the sea with both hands cupping the face, looking at the camera, same framing"
+    },
+    {
+      "id": "general-lifestyle-1",
+      "reason": "looks like photo 9: Lying on a sunlit stone terrace propped on one arm with eyes closed and an open cover-up, same composition"
+    },
+    {
+      "id": "one-piece-swimsuit-hero-1",
+      "reason": "looks like photo 10: Leaning against a whitewashed wall with eyes closed and a red cover-up, near-identical pose and light"
+    },
+    {
+      "id": "cover-up-lifestyle-2",
+      "reason": "looks like photo 55: Seated woman sipping from a cup held to the face, same crop and seaside setting"
+    },
+    {
+      "id": "general-lifestyle-3",
+      "reason": "looks like photo 7: Same model seated by a rocky coast in a light cover-up, looking off to the side, same framing"
+    },
+    {
+      "id": "one-piece-swimsuit-product-construction-bust-support-and-trim-details",
+      "reason": "same person as photo 1"
+    },
+    {
+      "id": "one-piece-swimsuit-lifestyle-1",
+      "reason": "same person as photo 2"
+    },
+    {
+      "id": "bikini-hero-1",
+      "reason": "same person as photo 3"
+    },
+    {
+      "id": "watersports-apparel-lifestyle-1",
+      "reason": "same person as photo 4"
+    },
+    {
+      "id": "rash-guard-hero-1",
+      "reason": "same person as photo 5"
+    },
+    {
+      "id": "plus-size-swimwear-lifestyle-1",
+      "reason": "same person as photo 5"
+    },
+    {
+      "id": "general-lifestyle-2",
+      "reason": "same person as photo 6"
+    },
+    {
+      "id": "rash-guard-lifestyle-1",
+      "reason": "same person as photo 6"
+    },
+    {
+      "id": "couples-matching-swimsuit-hero-1",
+      "reason": "same person as photo 6"
+    },
+    {
+      "id": "boardshorts-hero-1",
+      "reason": "same person as photo 7"
+    },
+    {
+      "id": "general-lifestyle-5",
+      "reason": "same person as photo 9"
+    },
+    {
+      "id": "boardshorts-lifestyle-1",
+      "reason": "same person as photo 9"
+    },
+    {
+      "id": "women-s-swimwear-hero-1",
+      "reason": "same person as photo 10"
+    },
+    {
+      "id": "cover-up-lifestyle-1",
+      "reason": "same person as photo 10"
+    },
+    {
+      "id": "burkini-hero-1",
+      "reason": "same person as photo 12"
+    },
+    {
+      "id": "swim-trunks-lifestyle-1",
+      "reason": "same person as photo 23"
+    },
+    {
+      "id": "resort-wear-lifestyle-1",
+      "reason": "same person as photo 32"
+    },
+    {
+      "id": "general-process-2",
+      "reason": "same person as photo 13"
+    },
+    {
+      "id": "general-process-3",
+      "reason": "same person as photo 13"
+    },
+    {
+      "id": "general-hero-4",
+      "reason": "main colour is not white: pink floral bikini with a pink-red wrap, not white"
+    },
+    {
+      "id": "women-s-swimwear-lifestyle-1",
+      "reason": "main colour is not charcoal: brown and navy animal-print swimsuit, not charcoal"
+    },
+    {
+      "id": "teen-swimwear-lifestyle-1",
+      "reason": "main colour is not forest green: black bikini as the main piece, not forest green"
+    },
+    {
+      "id": "baby-swimwear-hero-1",
+      "reason": "main colour is not cream: pink ruffle swimsuit and olive rash top dominate, cream only secondary"
+    },
+    {
+      "id": "toddler-swimwear-hero-1",
+      "reason": "main colour is not black: olive, pink and red pieces dominate, little black"
+    },
+    {
+      "id": "modest-swimwear-product-wholesale-stock-and-ready-made-modest-designs",
+      "reason": "main colour is not white: pink floral tunic over olive leggings and hijab, not white"
+    },
+    {
+      "id": "general-process-1",
+      "reason": "staged in a factory, workshop or warehouse"
+    },
+    {
+      "id": "modest-swimwear-lifestyle-1",
+      "reason": "does not show its subject: dark underexposed frame; small figure, mostly rocks and ground"
+    }
+  ]
+}
