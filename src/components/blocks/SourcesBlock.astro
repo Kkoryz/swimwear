@@ -1,0 +1,21 @@
+---
+// The published sources behind a page's facts: a closed panel ("Sources (n)") that opens to the numbered list, so a
+// sales page does not end in a bibliography while readers, search engines and AI answers still find every citation.
+import type { SourcesBlock } from '../../lib/authoring';
+
+interface Props { block: SourcesBlock }
+const { block } = Astro.props;
+---
+
+<section class="block block--sources" data-authoring-block="sources" data-block-id={block.id}>
+  <div class="container">
+    <details class="sources-panel">
+      <summary><h2 class="sources__heading">Sources ({block.items.length})</h2></summary>
+      <ol class="sources" data-layout="list">
+        {block.items.map((item) => (
+          <li class="sources__item"><a href={item.url} rel="noopener">{item.title}</a>{item.publisher && <span class="sources__publisher">, {item.publisher}</span>}</li>
+        ))}
+      </ol>
+    </details>
+  </div>
+</section>

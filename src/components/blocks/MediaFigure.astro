@@ -1,0 +1,12 @@
+---
+import { focusStyle, type Media } from '../../lib/authoring';
+
+interface Props { media: Media; ratio?: string; class?: string; loading?: 'lazy' | 'eager'; sizes?: string }
+const { media, ratio = '4 / 3', class: className, loading = 'lazy', sizes = '(min-width: 1024px) 50vw, 100vw' } = Astro.props;
+---
+
+<figure class:list={['media-box', className, { 'media-box--slot': media.slot }]} style={`--media-ratio: ${ratio}`} data-media-slot={media.slot}>
+  {media.slot
+    ? <span class="media-box__slot-label" aria-hidden="true">Image slot · {media.slot}</span>
+    : <img src={media.src} srcset={media.srcset} sizes={media.srcset ? sizes : undefined} alt={media.alt} width={media.width} height={media.height} loading={media.priority ? 'eager' : loading} decoding="async" style={focusStyle(media.src)} />}
+</figure>

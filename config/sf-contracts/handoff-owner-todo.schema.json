@@ -1,0 +1,105 @@
+{
+  "$defs": {
+    "OwnerItem": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "replace",
+            "reword",
+            "supply",
+            "confirm"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "blocking": {
+          "title": "Blocking",
+          "type": "boolean"
+        },
+        "page_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Id"
+        },
+        "section_id": {
+          "default": "",
+          "title": "Section Id",
+          "type": "string"
+        },
+        "field": {
+          "default": "",
+          "title": "Field",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "ask": {
+          "default": "",
+          "title": "Ask",
+          "type": "string"
+        },
+        "source": {
+          "default": "",
+          "title": "Source",
+          "type": "string"
+        },
+        "evidence": {
+          "default": "",
+          "title": "Evidence",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "blocking",
+        "text"
+      ],
+      "title": "OwnerItem",
+      "type": "object"
+    }
+  },
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {
+      "const": "sf/handoff-owner-todo/v1",
+      "default": "sf/handoff-owner-todo/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "items": {
+      "items": {
+        "$ref": "#/$defs/OwnerItem"
+      },
+      "title": "Items",
+      "type": "array"
+    },
+    "counts": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Counts",
+      "type": "object"
+    }
+  },
+  "required": [
+    "items",
+    "counts"
+  ],
+  "title": "OwnerTodo",
+  "type": "object"
+}

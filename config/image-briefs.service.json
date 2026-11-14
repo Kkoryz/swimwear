@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "seo-site-image-briefs-v1",
+  "note": "The image briefs of a service business (site.json trade \"service\", lib/trade.mjs; owner 2026-11-06: site11's motel management pages were given models, sewing floors and cutting tables from the clothing briefs). Its photos are scenes of the business's own work (photos \"scenes\"): the places it works in, the people it serves and its staff at work, never a product on a model. planFromCopy: what each page section's photo shows is planned from the page's copy (plan-photo-briefs.mjs, config/agent-steps/photo-briefs.md); the subjects below are only for photos no section describes (the heroes and the site's shared photos), written for any service: a site names its own (site.json imageSubjects, by class) for scenes of its trade. {category} is the line (site.json line). siteKind names what the site is (site.json siteKind over this one). How the photos look still comes from the reference site alone (analyze:image-style). photoToShoot is what the owner's sheet asks to be shot for each class (handoff.mjs).",
+  "photos": "scenes",
+  "planFromCopy": true,
+  "siteKind": "a service business",
+  "personWords": [
+    "person",
+    "people",
+    "worker",
+    "workers",
+    "staff",
+    "employee",
+    "manager",
+    "managers",
+    "owner",
+    "owners",
+    "operator",
+    "housekeeper",
+    "housekeepers",
+    "technician",
+    "guest",
+    "guests",
+    "team",
+    "hands?",
+    "receptionist",
+    "clerk",
+    "consultant",
+    "client",
+    "customer"
+  ],
+  "childCategoryWords": [],
+  "productionSceneWords": [],
+  "prompts": {
+    "productionSceneReplaced": "a bright, clean place where this business works",
+    "notInProduction": "",
+    "productOnlySetting": "Setting: {backdrop}, nothing else in the frame.",
+    "constraints": "no text, no logos, no watermarks, no brand marks; no readable words on signs, screens, papers or uniforms; no certificates",
+    "reviewPlanned": "no planned colour",
+    "reviewCriteria": "Report: (1) lookAlike: groups of photos so similar in setting, composition and pose that a visitor would see them as the same shot; (2) samePerson: groups of photos showing the same person; (3) wrongColour: always empty (no colour is planned); (4) factoryScene: photos staged in a factory, sewing room, clothing workshop or warehouse, or anywhere else this business does not work; (5) weakSubject: photos that do not do their job: what the photo is planned to show is small, hidden or absent, or most of the frame is an empty room, hall, floor or wall (a portrait does its job when it shows one person's face and shoulders clearly).",
+    "design": "",
+    "model": "",
+    "portrait": "Show one real-looking adult whose age, look and styling fit the name, role and country given; natural expression, looking at the camera.",
+    "realism": "Photorealistic: a real photograph someone could have taken in the moment on a real camera, not a render, an illustration or an advertisement. The light comes from the place itself and falls the same way on the subject and the background; natural depth of field, slight film grain, nothing oversharpened.",
+    "realismPerson": "The people look like real people, not retouched models: skin with natural texture and unevenness, no shine on the face; hair with loose strands; relaxed, unposed expressions; natural hands and proportions. No airbrushing or glamour retouching.",
+    "realismPlace": "The place is real and in use: a little wear on its surfaces, things left where they are; no studio or cinematic lighting.",
+    "realismFabric": "",
+    "worker": "People: the business's staff or its clients, adults of mixed ages and backgrounds in everyday work clothes, busy with what they are doing and not posing for the camera; nobody looks into the lens.",
+    "childPrints": "",
+    "prop": "",
+    "modestCut": "",
+    "coverUp": ""
+  },
+  "placeholderKinds": [
+    "process"
+  ],
+  "caps": {
+    "hero": 1,
+    "product": 10,
+    "process": 3,
+    "material": 2,
+    "lifestyle": 2,
+    "portrait": 0
+  },
+  "generalCaps": {
+    "product": 16,
+    "hero": 4
+  },
+  "topicCaps": {
+    "product": 12,
+    "lifestyle": 3,
+    "portrait": 12
+  },
+  "sizes": {
+    "hero": "1536x1024",
+    "hero-phone": "1024x1536",
+    "product": "1024x1024",
+    "process": "1536x1024",
+    "material": "1536x1024",
+    "lifestyle": "1536x1024",
+    "portrait": "1024x1024"
+  },
+  "categoryStopWords": [
+    "service",
+    "services",
+    "company",
+    "companies",
+    "outsourced",
+    "outsourcing"
+  ],
+  "categoryAliases": {},
+  "topicSubject": "a scene of a {category} business's work that shows what the page section \"{topic}\" is about",
+  "subjects": {
+    "hero": [
+      "the premises where a {category} business serves its clients, its staff at work there, with some open space on one side for a headline",
+      "a member of a {category} business's staff helping a client in person, with some open space on one side for a headline",
+      "the owner and a manager of a {category} business going over results together on a tablet, with some open space on one side for a headline",
+      "the outside of the premises a {category} business works at, in late-afternoon light, with some open space on one side for a headline"
+    ],
+    "product": [
+      "a {category} business's staff member doing the work its clients pay for",
+      "a client being served in person by a {category} business",
+      "the premises of a {category} business, clean and ready for its clients",
+      "two staff members of a {category} business working side by side"
+    ],
+    "process": [
+      "a manager at a laptop in a small back office of a {category} business, going over the week's figures",
+      "a {category} business's staff member at work on a routine task",
+      "a technician of a {category} business fixing something on site"
+    ],
+    "material": [
+      "a close view of a manager's hands on a printed weekly report beside a laptop, in a {category} business's office",
+      "a close view of hands at work on the everyday task of a {category} business"
+    ],
+    "lifestyle": [
+      "clients of a {category} business arriving to be served",
+      "the owner of a {category} business and a manager walking the premises together"
+    ]
+  },
+  "productOnlySubjects": {
+    "hero": [
+      "the premises of a {category} business, with some open space on one side for a headline"
+    ],
+    "product": [
+      "the premises of a {category} business, clean and ready for its clients"
+    ]
+  },
+  "itemSubjects": {
+    "hero": [
+      "the premises of a {category} business, with some open space on one side for a headline"
+    ],
+    "product": [
+      "the premises of a {category} business, clean and ready for its clients"
+    ]
+  },
+  "photoToShoot": {
+    "hero": "本页主题的实景大图（经营场所、团队工作或服务客户的场景，横幅构图，主体清晰）",
+    "product": "与本段内容对应的服务现场实拍",
+    "material": "与本段内容对应的细节实拍（报表、工作中的手部特写等，不能出现可读的客户信息）",
+    "lifestyle": "客户在经营场所中的真实场景",
+    "process": "团队工作实拍（与本段内容对应的环节）",
+    "portrait": "评价客户本人的照片（需本人书面同意）"
+  },
+  "garmentColours": [],
+  "casting": []
+}

@@ -1,0 +1,236 @@
+{
+  "$defs": {
+    "ComponentRequirement": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
+        "presentation": {
+          "title": "Presentation",
+          "type": "string"
+        },
+        "component": {
+          "title": "Component",
+          "type": "string"
+        },
+        "pages": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Pages",
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "declared",
+            "needed_before_delivery",
+            "blocking_import",
+            "done"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "contract": {
+          "default": "",
+          "title": "Contract",
+          "type": "string"
+        },
+        "acceptance": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Acceptance",
+          "type": "array"
+        },
+        "attachment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Attachment"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "presentation",
+        "component",
+        "status"
+      ],
+      "title": "ComponentRequirement",
+      "type": "object"
+    },
+    "FormRequirement": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "pages": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Pages",
+          "type": "array"
+        },
+        "config": {
+          "title": "Config",
+          "type": "string"
+        },
+        "delivery": {
+          "title": "Delivery",
+          "type": "string"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "pages",
+        "config",
+        "delivery",
+        "status"
+      ],
+      "title": "FormRequirement",
+      "type": "object"
+    },
+    "MapRequirement": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "page": {
+          "title": "Page",
+          "type": "string"
+        },
+        "address": {
+          "title": "Address",
+          "type": "string"
+        },
+        "placeholder": {
+          "title": "Placeholder",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "page",
+        "address",
+        "placeholder"
+      ],
+      "title": "MapRequirement",
+      "type": "object"
+    },
+    "PageStatusRequirement": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "status": {
+          "const": "hold",
+          "title": "Status",
+          "type": "string"
+        },
+        "pages": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Pages",
+          "type": "array"
+        },
+        "acceptance": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Acceptance",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "status",
+        "pages",
+        "acceptance"
+      ],
+      "title": "PageStatusRequirement",
+      "type": "object"
+    }
+  },
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {
+      "const": "sf/handoff-requires/v1",
+      "default": "sf/handoff-requires/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "components": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ComponentRequirement"
+      },
+      "title": "Components",
+      "type": "array"
+    },
+    "images": {
+      "additionalProperties": true,
+      "default": {},
+      "title": "Images",
+      "type": "object"
+    },
+    "forms": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/FormRequirement"
+      },
+      "title": "Forms",
+      "type": "array"
+    },
+    "maps": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/MapRequirement"
+      },
+      "title": "Maps",
+      "type": "array"
+    },
+    "page_statuses": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/PageStatusRequirement"
+      },
+      "title": "Page Statuses",
+      "type": "array"
+    },
+    "structured_data": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "default": {},
+      "title": "Structured Data",
+      "type": "object"
+    }
+  },
+  "title": "Requires",
+  "type": "object"
+}

@@ -1,0 +1,20 @@
+---
+// A client's order (Site Factory cases, borrowed and anonymised until the owner replaces it): the goods as a small
+// label and the order in a sentence or two, next to the testimonials. No photo, no client name.
+import type { OrderCaseBlock } from '../../lib/authoring';
+import BlockSection from './BlockSection.astro';
+
+interface Props { block: OrderCaseBlock }
+const { block } = Astro.props;
+---
+
+<BlockSection block={block} name="order-case" headingClass="order-case__heading">
+  <div class="order-cases" data-layout="equal-grid" data-count={block.items.length}>
+    {block.items.map((item) => (
+      <article class="order-case">
+        <p class="order-case__product">{item.product}</p>
+        <p class="order-case__text">{item.text}</p>
+      </article>
+    ))}
+  </div>
+</BlockSection>

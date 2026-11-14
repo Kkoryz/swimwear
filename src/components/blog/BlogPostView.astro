@@ -1,0 +1,93 @@
+---
+// An article, laid out the way the reference blog lays out its posts (variants.blog.post.layout):
+// sidebar-start (title band; contents and author on the left of the text), narrow (full-width photo, centred title,
+// one narrow column), paper (the article on a card; related posts after it), sidebar-end (photo, title bar, a contents
+// box in the text, newest posts on the right). No figures bar: it sits between the title and the opening answer
+// (owner 2026-10-30).
+import { headingFitStyle, POST_TITLE_FIT, wrapEmFor } from '../../../scripts/lib/heading-fit.mjs';
+import { articleRhythmStyle, blogVariants, builtRoutes, focusStyle, pages, siteIdentity, variants, type AuthoringPage, type ProseBlock } from '../../lib/authoring';
+import CtaBlock from '../blocks/CtaBlock.astro';
+import FaqBlock from '../blocks/FaqBlock.astro';
+import SourcesBlock from '../blocks/SourcesBlock.astro';
+import Breadcrumbs from '../site/Breadcrumbs.astro';
+import SmartLink from '../site/SmartLink.astro';
+import InlineText from './InlineText.astro';
+import PostDate from './PostDate.astro';
+import ProseBlockView from './ProseBlock.astro';
+
+interface Props { page: AuthoringPage }
+const { page } = Astro.props;
+const article = page.article!;
+const { layout } = blogVariants.post;
+const sections = page.blocks.filter((block): block is ProseBlock => block.type === 'prose');
+const author = article.author.type === 'Person'
+  ? { name: article.author.name!, href: article.author.url! }
+  : { name: siteIdentity?.siteName ?? '[Placeholder] Company', href: builtRoutes.has('/about/') ? '/about/' : '/' };
+const updated = article.dateModified.slice(0, 10) !== article.datePublished.slice(0, 10);
+// Newest other posts (the related-posts module; the links a writer placed in the text do the real linking).
+const others = pages.filter((other) => other.pageType === 'blog_post' && other.route !== page.route && other.status === page.status)
+  .sort((left, right) => Date.parse(right.article!.dateModified) - Date.parse(left.article!.dateModified)).slice(0, 3);
+const sidebar = layout === 'sidebar-start' || layout === 'sidebar-end';
+const image = article.image;
+const toc = sections.length >= 3;
+// The title sized to its words as a page hero's is (scripts/lib/heading-fit.mjs), on the post title's own scale.
+const fitStyle = headingFitStyle(page.hero.heading, { charEm: wrapEmFor(variants.heroText), fit: POST_TITLE_FIT });
+---
+
+<main id="main" data-authoring-page={page.id} data-page-type={page.pageType} data-page-status={page.status} data-post-layout={layout} style={articleRhythmStyle}>
+  <Breadcrumbs page={page} />
+  <header class="post-header" data-authoring-block="hero" data-layout="hero" data-boundary-anchor="box">
+    {(layout === 'narrow' || layout === 'sidebar-end') && image && <figure class="post-header__image"><img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="eager" fetchpriority="high" decoding="async" style={focusStyle(image.src)} /></figure>}
+    <div class="container post-header__inner" data-heading-fit={fitStyle ? '' : undefined} style={fitStyle}>
+      {page.status === 'placeholder' && <p class="placeholder-badge">Placeholder copy</p>}
+      {article.category && <p class="post-header__category">{article.category}</p>}
+      <h1 class="post-header__title">{page.hero.heading}</h1>
+      <p class="post-header__meta">
+        <span class="post-byline">By <SmartLink href={author.href}>{author.name}</SmartLink></span>
+        <PostDate value={article.datePublished} label="Published" />
+        {updated && <PostDate value={article.dateModified} label="Updated" />}
+        <span class="post-minutes">{article.minutes} min read</span>
+      </p>
+    </div>
+  </header>
+  <div class="container post-body" data-sidebar={sidebar ? layout : undefined}>
+    {layout === 'sidebar-start' && toc && (
+      <aside class="post-aside">
+        <nav class="post-toc" aria-label="Contents"><p class="post-toc__title">Contents</p><ol>{sections.map((section) => <li><a href={`#${section.anchor}`}>{section.heading}</a></li>)}</ol></nav>
+        <div class="post-author"><p class="post-author__name">{author.name}</p><SmartLink href={author.href}>About us</SmartLink></div>
+      </aside>
+    )}
+    <article class="post-article">
+      {(layout === 'sidebar-start' || layout === 'paper') && image && <figure class="post-article__image"><img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="eager" decoding="async" style={focusStyle(image.src)} /></figure>}
+      <div class="post-intro">
+        {page.hero.lead?.map((paragraph) => <p class="post-lead"><InlineText text={paragraph} /></p>)}
+        {article.takeaways.length > 0 && (
+          <div class="post-takeaways"><p class="post-takeaways__title">Key takeaways</p><ul>{article.takeaways.map((item) => <li>{item}</li>)}</ul></div>
+        )}
+        {layout !== 'sidebar-start' && toc && (
+          <nav class="post-toc post-toc--inline" aria-label="Contents"><p class="post-toc__title">{layout === 'sidebar-end' ? 'Article overview' : 'Contents'}</p><ol>{sections.map((section) => <li><a href={`#${section.anchor}`}>{section.heading}</a></li>)}</ol></nav>
+        )}
+      </div>
+      {page.blocks.map((block) => {
+        if (block.type === 'prose') return <ProseBlockView block={block} />;
+        if (block.type === 'faq') return <FaqBlock block={block} />;
+        if (block.type === 'sources') return <SourcesBlock block={block} />;
+        if (block.type === 'cta') return <CtaBlock block={block} variant="band" />;
+        return null;
+      })}
+    </article>
+    {layout === 'sidebar-end' && others.length > 0 && (
+      <aside class="post-aside">
+        <nav class="post-recent" aria-label="Recent posts"><p class="post-toc__title">Recent posts</p><ul>{others.map((other) => <li><a href={other.route}>{other.hero.heading}</a></li>)}</ul></nav>
+      </aside>
+    )}
+  </div>
+  {layout !== 'sidebar-end' && others.length > 0 && (
+    <section class="post-related" aria-labelledby="related-heading">
+      <div class="container">
+        <h2 id="related-heading" class="post-related__heading">Related articles</h2>
+        <ul class="post-related__list">{others.map((other) => <li><a href={other.route}>{other.hero.heading}</a></li>)}</ul>
+      </div>
+    </section>
+  )}
+</main>

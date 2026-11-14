@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "seo-site-template-v1",
+  "sourceUrl": "https://example.com/",
+  "starter": true,
+  "route": "/",
+  "components": ["Hero"],
+  "islands": []
+}

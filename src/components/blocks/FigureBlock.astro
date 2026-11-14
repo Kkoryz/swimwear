@@ -1,0 +1,19 @@
+---
+// Heading and short copy over one wide image (reference charts, infographics, illustrated examples).
+import type { FigureBlock, Media } from '../../lib/authoring';
+import Eyebrow from './Eyebrow.astro';
+import MediaFigure from './MediaFigure.astro';
+import TextFlow from './TextFlow.astro';
+
+interface Props { block: FigureBlock; media?: Media | null }
+const { block, media = null } = Astro.props;
+---
+
+<section class="block block--figure" data-authoring-block="figure" data-block-id={block.id}>
+  <div class="container figure-block" data-layout="figure">
+    <Eyebrow text={block.eyebrow} />
+    {block.heading && <h2>{block.heading}</h2>}
+    {block.paragraphs && <TextFlow paragraphs={block.paragraphs} lead={false} />}
+    {media && <MediaFigure media={media} ratio="16 / 7" class="figure-block__media" />}
+  </div>
+</section>

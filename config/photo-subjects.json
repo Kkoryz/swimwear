@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "seo-site-photo-subjects-v1",
+  "note": "Subjects the image model falls back on when a photo's topic has no scene (owner 2026-11-12: of the hotel site's 168 photos, 48 were described as a laptop, a screen or a chart). The layout audit (image_subject_repeat, a warning) counts the site's photos in use, each once, whose alt text names a word of a group; more than maxShare of them for one group is reported with the photos. A word matches a whole word of the alt text, any case, its plural too. Not checked on a site with fewer than minPhotos photos.",
+  "maxShare": 0.15,
+  "minPhotos": 10,
+  "groups": {
+    "screens": ["laptop", "screen", "monitor", "computer", "tablet", "chart", "graph", "dashboard", "spreadsheet", "keyboard"]
+  }
+}

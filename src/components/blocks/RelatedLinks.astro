@@ -1,0 +1,19 @@
+---
+// Related pages under a closing band: inline links, or (grid) a grid of page links of their own.
+import type { Link } from '../../lib/authoring';
+import SmartLink from '../site/SmartLink.astro';
+
+interface Props { links: Link[]; grid?: boolean }
+const { links, grid = false } = Astro.props;
+// A grid's columns on wide screens: all cards in one row up to four, else rows of four or three, whichever leaves
+// no lone card on the last row, full rows first (5 -> 3 + 2, 6 -> 3 + 3, 7 -> 4 + 3, 8 -> 4 + 4, 10 -> 4 + 4 + 2).
+const count = links.length;
+const fit = (columns: number) => (count % columns === 0 ? 2 : count % columns !== 1 ? 1 : 0);
+const columns = count <= 4 ? count : fit(3) > fit(4) ? 3 : 4;
+---
+
+<nav class:list={['related-pages', { 'related-pages--grid': grid }]} aria-label="Related pages" style={grid ? `--related-columns: ${columns}` : undefined}>
+  <ul class="related-links">
+    {links.map((link) => <li><SmartLink href={link.href} class="related-links__link"><span class="related-links__label">{link.label}</span></SmartLink></li>)}
+  </ul>
+</nav>

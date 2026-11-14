@@ -1,0 +1,25 @@
+---
+// Price cards (Site Factory prices, owner 2026-11-10): what is priced, its amount as written with its unit and
+// conditions, and one sentence; the cards in one equal row. Every amount is stated in a fact it cites (the import checks).
+import { gridPlan, type PricingBlock } from '../../lib/authoring';
+import BlockSection from './BlockSection.astro';
+import InlineText from '../blog/InlineText.astro';
+
+interface Props { block: PricingBlock }
+const { block } = Astro.props;
+const grid = gridPlan(block.items.length, 4);
+---
+
+<BlockSection block={block} name="pricing" headingClass="pricing__heading">
+  {block.paragraphs?.map((paragraph) => <p class="block__lead"><InlineText text={paragraph} /></p>)}
+  <ul class="pricing-cards" data-layout="equal-grid" data-columns={grid.columns} style={grid.style}>
+    {block.items.map((item, index) => (
+      <li class="pricing-card" style={grid.itemStyle(index)}>
+        <h3 class="pricing-card__title">{item.heading}</h3>
+        <p class="pricing-card__price"><span class="pricing-card__amount">{item.price.amount}</span>{item.price.unit && <span class="pricing-card__unit"> {item.price.unit}</span>}</p>
+        {item.price.note && <p class="pricing-card__note">{item.price.note}</p>}
+        <p class="pricing-card__text"><InlineText text={item.text} /></p>
+      </li>
+    ))}
+  </ul>
+</BlockSection>

@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "seo-site-image-briefs-v1",
+  "note": "What each generated photograph shows, per photography class; how it looks comes from the reference site alone (analyze:image-style: its photos, its written profile, its shot list of framings and poses, its product language), so these subjects name content only, never framing, pose or setting (owner 2026-10-28: our own camera and pose lists contradicted the reference and put site10's models small in wide scenes). {category} is the page's product (or the line's product for site-wide pages). placeholderKinds depict the manufacturer's own factory, staff or process, which must be real photos: the site's own photos of them (site-media.json) fill them; a site with none gets generated stand-ins, which the pre-launch handoff lists as 必须实拍替换 (owner 2026-10-24, 2026-10-25). siteKind names what the site is in the image prompts; set it per product line. garmentColours and casting rotate across the library so photos differ in colour and person; the colour is the main or ground colour of a design in the reference's product language. itemSubjects take their place for what nobody wears (a service page's packaging or hardware, analyze:image-types worn false): a hanger or a mannequin made site10's packaging photos garments. productOnlySubjects show a product without a person: for products made for children (childCategoryWords, a word of the category name with its plural s dropped; owner 2026-10-27) and when the image model refuses one worn after trying the reference's other shots. They are product shots on the plain settings of the reference's own photos, taken in turn (analyze:image-style productSettings), lit, coloured and rendered like the reference but never in its scenery, and no reference photo is attached to them (owner 2026-10-27, 2026-10-28). productionSceneWords mark a reference photo or style profile as the production floor (English and Chinese words: the reference analysis describes photos in either), where no photo of a model is staged. prompts hold the product-specific wording of the generation and review prompts; {name} slots are filled from the photo's entry.",
+  "siteKind": "a B2B clothing manufacturer",
+  "childCategoryWords": [
+    "baby",
+    "babie",
+    "newborn",
+    "infant",
+    "toddler",
+    "kid",
+    "child",
+    "children",
+    "teen",
+    "teenager",
+    "junior",
+    "youth",
+    "girl",
+    "boy"
+  ],
+  "productionSceneWords": [
+    "factory",
+    "workshop",
+    "sewing",
+    "cutting",
+    "warehouse",
+    "production",
+    "worker",
+    "machine",
+    "工厂",
+    "车间",
+    "缝纫",
+    "裁剪",
+    "仓库",
+    "生产",
+    "工人",
+    "机器"
+  ],
+  "prompts": {
+    "productionSceneReplaced": "a bright, clean, styled place that suits the garment (the reference photo shows a production floor, which is not used here)",
+    "notInProduction": "never staged in a factory, workshop, sewing room or warehouse",
+    "productOnlySetting": "Setting: {backdrop}, nothing else in the frame: no view, scenery, furniture or props.",
+    "constraints": "no text, no logos, no watermarks, no brand marks or labels on garments; no certificates or signage",
+    "reviewPlanned": "{colour} garment",
+    "reviewCriteria": "Report: (1) lookAlike: groups of photos so similar in setting, composition and pose that a visitor would see them as the same shot; (2) samePerson: groups of photos showing the same person; (3) wrongColour: photos whose main garment is clearly not the planned colour; (4) factoryScene: photos staged in a factory, workshop, sewing room or warehouse; (5) weakSubject: photos that do not do their job: the garment is small, hidden or absent, or most of the frame is an empty room, hall, floor or wall (a material photo does its job when it shows fabric up close; a portrait does its job when it shows one person's face and shoulders clearly, no product needed).",
+    "design": "a new design of our own in the reference site's product language, never a copy of one of its garments, cut with standard coverage",
+    "model": "Model: one adult {casting}, of the gender that wears it.",
+    "portrait": "Show one real-looking adult whose age, look and styling fit the name, role and country given; natural expression, looking at the camera.",
+    "realism": "Photorealistic: a real photograph someone could have taken in the moment on a real camera, not a render, an illustration or an advertisement. The light comes from the place itself and falls the same way on the subject and the background; natural depth of field, slight film grain, nothing oversharpened.",
+    "realismPerson": "The person looks like a real person, not a retouched model: skin dry and matte, with visible pores, fine lines, faint freckles and natural unevenness, no shine on the face; hair with loose strands; a relaxed, unposed expression; natural hands and proportions. No airbrushing or glamour retouching.",
+    "realismPlace": "The place is real and in use: surfaces weathered and uneven (worn paint, weather stains, sand, dust, small cracks), things left where they are, a little haze in the distance; no studio or cinematic lighting.",
+    "realismFabric": "Fabric with real weave, stitching, slight creases and the way it sits on the body or surface; small everyday imperfections left in.",
+    "worker": "Person: a Chinese factory worker in everyday work clothes, busy with the task and not posing; nobody wears the garment.",
+    "childPrints": "for children: florals, plain colours or simple graphics",
+    "prop": "Prop: {prop}, used naturally where it belongs in the scene (held, worn or set nearby), never posed for show.",
+    "modestCut":"A more covering version of the same garment, its print and colours unchanged: a higher neckline, wider straps or sleeves and more length.",
+    "coverUp": "Styled with a loose open-front overshirt or wrap in a coordinating print or colour over it, the garment still clearly visible."
+  },
+  "placeholderKinds": [
+    "process"
+  ],
+  "caps": {
+    "hero": 1,
+    "product": 10,
+    "process": 3,
+    "material": 2,
+    "lifestyle": 2,
+    "portrait": 0
+  },
+  "generalCaps": {
+    "product": 16,
+    "hero": 4
+  },
+  "topicCaps": {
+    "product": 12,
+    "lifestyle": 3,
+    "portrait": 12
+  },
+  "sizes": {
+    "hero": "1536x1024",
+    "hero-phone": "1024x1536",
+    "product": "1024x1024",
+    "process": "1536x1024",
+    "material": "1536x1024",
+    "lifestyle": "1536x1024",
+    "portrait": "1024x1024"
+  },
+  "categoryStopWords": [
+    "manufacturer",
+    "manufacturers",
+    "manufacturing",
+    "wholesale",
+    "supplier",
+    "suppliers",
+    "factory",
+    "custom"
+  ],
+  "categoryAliases": {
+    "t shirts": "t-shirts"
+  },
+  "subjects": {
+    "hero": [
+      "a model wearing {category}, with some open space on one side for a headline"
+    ],
+    "product": [
+      "a model wearing {category}"
+    ],
+    "process": [
+      "a garment factory worker sewing {category} on an industrial sewing machine, close-up of hands and fabric",
+      "fabric being cut for {category} on a large cutting table in a clean, bright factory",
+      "a quality inspector checking finished {category} on a well-lit inspection table"
+    ],
+    "material": [
+      "a close-up of the fabric used for {category}, showing its texture",
+      "fabric swatches in the colours used for {category}, arranged on a surface"
+    ],
+    "lifestyle": [
+      "a model wearing {category} in a relaxed everyday moment"
+    ]
+  },
+  "productOnlySubjects": {
+    "hero": [
+      "{category} in several colourways arranged as a studio still life, some on hangers and some folded, filling most of the frame, with some open space on one side for a headline",
+      "{category} in several colourways on a simple clothing rail in a photo studio, close enough that they fill most of the frame, with some open space on one side for a headline"
+    ],
+    "product": [
+      "{category} laid flat, seen from directly above",
+      "{category} on a plain hanger, front view",
+      "{category} folded and stacked in its colourways, three-quarter view",
+      "a close crop of {category} showing seams, trims and fabric texture",
+      "{category} laid flat with its matching pieces, seen from directly above",
+      "{category} on an invisible mannequin, front view"
+    ],
+    "lifestyle": [
+      "{category} laid out with its coordinating pieces, the {category} in front and in sharp focus",
+      "{category} in several colourways styled as a small display, the {category} in front and in sharp focus"
+    ],
+    "material": [
+      "a close-up of the fabric used for {category}, showing its texture"
+    ]
+  },
+  "itemSubjects": {
+    "hero": [
+      "{category} in several colourways arranged as a studio still life, filling most of the frame, with some open space on one side for a headline"
+    ],
+    "product": [
+      "{category} laid flat, seen from directly above",
+      "{category} arranged as a small still life, three-quarter view",
+      "{category} grouped and stacked in its colourways",
+      "a close crop of {category} showing its material and finish",
+      "{category} beside the garment it is used with, the {category} in front and in sharp focus"
+    ]
+  },
+  "garmentColours": [
+    "black",
+    "heather grey",
+    "navy blue",
+    "white",
+    "olive green",
+    "sand beige",
+    "cobalt blue",
+    "dusty pink",
+    "charcoal",
+    "burgundy",
+    "sky blue",
+    "forest green",
+    "cream",
+    "coral"
+  ],
+  "casting": [
+    "in their twenties, Black, with a deep brown complexion and short natural hair",
+    "in their thirties, white, with light skin, freckles and auburn hair",
+    "in their twenties, Hispanic, with a warm olive complexion and long wavy dark hair",
+    "in their forties, Black, with a medium brown complexion and natural curly hair",
+    "in their thirties, white, with fair skin and straight blonde hair",
+    "in their thirties, Hispanic, with a tan complexion and dark curly hair",
+    "in their twenties, Black, with a light brown complexion and a short textured haircut",
+    "in their twenties, white, with light skin and short brown hair",
+    "in their forties, Hispanic, with a light brown complexion and dark hair tied back",
+    "in their thirties, Black, with a dark complexion and braided hair",
+    "in their forties, white, with light skin and grey-streaked hair",
+    "in their twenties, Hispanic, with light skin and wavy brown hair"
+  ]
+}

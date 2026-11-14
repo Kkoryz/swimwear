@@ -1,0 +1,19 @@
+---
+import BlogHubView from '../components/blog/BlogHubView.astro';
+import BlogPostView from '../components/blog/BlogPostView.astro';
+import PageView from '../components/blocks/PageView.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { pages, type AuthoringPage } from '../lib/authoring';
+
+export function getStaticPaths() {
+  return pages
+    .filter((page) => page.route !== '/')
+    .map((page) => ({ params: { slug: page.route.replace(/^\/|\/$/g, '') }, props: { page } }));
+}
+
+const { page } = Astro.props as { page: AuthoringPage };
+---
+
+<BaseLayout title={page.seo.title} description={page.seo.description} page={page} shell>
+  {page.pageType === 'blog_post' ? <BlogPostView page={page} /> : page.pageType === 'blog_hub' ? <BlogHubView page={page} /> : <PageView page={page} />}
+</BaseLayout>

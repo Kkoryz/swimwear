@@ -1,0 +1,58 @@
+---
+import '../styles/global.css';
+import { absoluteJsonLd, absoluteUrl, pageSchemas, robotsDirective, serializeJsonLd, socialMeta } from '../../scripts/lib/seo-head.mjs';
+import ChatLauncher from '../components/site/ChatLauncher.astro';
+import SiteFooter from '../components/site/SiteFooter.astro';
+import SiteHeader from '../components/site/SiteHeader.astro';
+import { builtRoutes, pageHero, siteContact, siteIdentity, siteNav, siteRuntime, variants, type AuthoringPage } from '../lib/authoring';
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: string;
+  canonical?: string;
+  jsonLd?: Record<string, unknown>[];
+  robots?: string;
+  shell?: boolean;
+  // A built page: its canonical, robots, social tags and site-level structured data follow from it (stage 10).
+  page?: AuthoringPage;
+}
+
+const { title, description, lang = 'en', canonical = Astro.props.page?.seo.canonical, jsonLd = Astro.props.page?.jsonLd ?? [], shell = false, page } = Astro.props;
+const robots = Astro.props.robots ?? (page ? robotsDirective(page) : null);
+// Without a site identity the canonical stays a root-relative route; it is never guessed.
+const canonicalHref = canonical ? absoluteUrl(siteIdentity, canonical) : undefined;
+const schemas: Record<string, unknown>[] = page ? pageSchemas({ page, identity: siteIdentity, nav: siteNav, builtRoutes, contact: siteContact }) : absoluteJsonLd(jsonLd, siteIdentity);
+// The page's own photo for sharing: the article's, else the hero's.
+const shareImage = page ? (page.article?.image ?? (pageHero(page).showsImage ? pageHero(page).media : null)) : null;
+const social = page ? socialMeta({ page, identity: siteIdentity, image: shareImage }) : [];
+// body data-heading-align: how the reference sets its section headings (start or centre, scaffold-placeholder-pages),
+// which every section heading and lead follows (patterns.css).
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    {canonicalHref && <link rel="canonical" href={canonicalHref} />}
+    {robots && <meta name="robots" content={robots} />}
+    {social.map((tag) => (tag.attribute === 'property' ? <meta property={tag.key} content={tag.content} /> : <meta name={tag.key} content={tag.content} />))}
+    {siteIdentity?.icons.map((icon) => <link rel={icon.rel} href={icon.src} sizes={icon.sizes} type={icon.type} />)}
+    {siteIdentity?.manifest && <link rel="manifest" href={siteIdentity.manifest} />}
+    {siteRuntime?.analytics && <script is:inline defer src={siteRuntime.analytics.scriptSrc} data-website-id={siteRuntime.analytics.websiteId} />}
+    {schemas.map((item) => <script is:inline type="application/ld+json" set:html={serializeJsonLd(item)} />)}
+  </head>
+  <body data-heading-align={variants.headingAlign}>
+    <a class="skip-link" href="#main">Skip to content</a>
+    {/* A paused site stays online and says why (registry site_notice); kept out of search snippets. */}
+    {siteRuntime?.site?.status === 'paused' && siteRuntime.site.notice && <p class="site-notice" role="status" data-nosnippet>{siteRuntime.site.notice}</p>}
+    {shell && <SiteHeader />}
+    <slot />
+    {shell && <SiteFooter />}
+    {shell && page && <ChatLauncher page={page} />}
+  </body>
+</html>

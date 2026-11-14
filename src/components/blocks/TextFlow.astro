@@ -1,0 +1,16 @@
+---
+// Verbatim copy laid out for reading: a lead sentence, then short runs of sentences.
+import { textFlow } from '../../lib/authoring';
+import InlineText from '../blog/InlineText.astro';
+
+interface Props { paragraphs: string[]; lead?: boolean; maxWords?: number; class?: string }
+const { paragraphs, lead = true, maxWords = 48, class: className } = Astro.props;
+const flow = textFlow(paragraphs, { lead, maxWords });
+---
+
+<div class:list={['text-flow', className]}>
+  {flow.lead && <p class="text-flow__lead"><InlineText text={flow.lead} /></p>}
+  <div class="text-flow__runs">
+    {flow.runs.map((run) => <p><InlineText text={run} /></p>)}
+  </div>
+</div>

@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "seo-site-demo-proof-v1",
+  "note": "Stand-in proof for a service business (site.json trade \"service\", lib/trade.mjs; owner 2026-11-06: site11's motel management site showed a clothing factory's monthly output). Same rules as config/demo-proof.json: every name is invented and belongs to no real business or person, no person is named, a case names its client by role, city and country, and everything is replaced with real, permitted values before launch (pnpm proof:signoff lists it). The figures and terms follow the approved facts where a fact states them. signoff: the owner's sheet's wording for these items (handoff.mjs), over the manufacturer's.",
+  "headings": {
+    "factory": "At a glance",
+    "certifications": "Licences and memberships",
+    "clients": "Clients we work with",
+    "caseStudies": "Client results",
+    "testimonials": "What clients say",
+    "history": "Our story",
+    "terms": "Working with us at a glance",
+    "orderRoutes": "Ways to get started"
+  },
+  "foundedLabel": "founded in {location}",
+  "locationFact": "location",
+  "clientNote": "{country}",
+  "termsColumns": ["Term", "Details"],
+  "certificates": [],
+  "certificateAliases": {},
+  "factory": [
+    {
+      "value": "40",
+      "label": "clients served",
+      "measure": "([\\d,]+) (?:clients|properties|customers)\\b"
+    },
+    {
+      "value": "25",
+      "label": "people on the team",
+      "measure": "([\\d,]+) (?:staff|people|employees|team members)\\b"
+    }
+  ],
+  "history": [
+    { "after": 0, "event": "Founded in {location} with a team of three" },
+    { "after": 3, "event": "First clients outside our home region" },
+    { "after": 6, "event": "A dedicated reporting and finance team" },
+    { "after": 9, "event": "A second office and an on-call support line" }
+  ],
+  "clients": [
+    { "name": "Pine Hollow Holdings", "country": "Ohio, USA" },
+    { "name": "Redstone Family Partners", "country": "Texas, USA" },
+    { "name": "Bayline Properties", "country": "Florida, USA" },
+    { "name": "Northgate Owners Group", "country": "Minnesota, USA" },
+    { "name": "Copper Mesa Ventures", "country": "Arizona, USA" },
+    { "name": "Harbor Lane Partners", "country": "Oregon, USA" }
+  ],
+  "people": [
+    { "author": "Owner", "country": "USA" },
+    { "author": "Operations director", "country": "USA" },
+    { "author": "Managing partner", "country": "USA" }
+  ],
+  "testimonials": [
+    { "headline": "Clear reports every week", "quote": "We get the same short report every week, and when a number moves we hear why before we have to ask." },
+    { "headline": "A smooth handover", "quote": "The handover took a few weeks, not months, and the day-to-day work never stopped while it happened." },
+    { "headline": "Room to start small", "quote": "We started with one part of the work to see how it went and handed over the rest the following year." }
+  ],
+  "caseStudies": [
+    {
+      "title": "Handing over the day-to-day work",
+      "summary": "The owner's day-to-day work moved to our team over a planned handover, with a weekly report from the first week.",
+      "results": [
+        { "value": "6 weeks", "label": "handover" },
+        { "value": "1", "label": "weekly report" },
+        { "value": "2", "label": "owner meetings a month" }
+      ]
+    }
+  ],
+  "serviceCaseStudies": [
+    {
+      "title": "{Service} for a family-owned business",
+      "summary": "{Service} set up with the owners over a planned handover, with the results reported to them every week.",
+      "results": [
+        { "value": "6 weeks", "label": "handover" },
+        { "value": "1", "label": "weekly report" },
+        { "value": "2", "label": "owner meetings a month" }
+      ]
+    },
+    {
+      "title": "{Service} for an owner with two sites",
+      "summary": "{Service} brought both sites under one way of working and one report.",
+      "results": [
+        { "value": "2", "label": "sites" },
+        { "value": "1", "label": "shared report" },
+        { "value": "3 months", "label": "to a settled routine" }
+      ]
+    },
+    {
+      "title": "{Service} for a first-time owner",
+      "summary": "{Service} started in the owner's first month, with the routines and reports set up from day one.",
+      "results": [
+        { "value": "1st", "label": "month of ownership" },
+        { "value": "4", "label": "routines set up" },
+        { "value": "1", "label": "weekly report" }
+      ]
+    }
+  ],
+  "customers": [
+    { "role": "Family business owner", "city": "Columbus", "country": "USA" },
+    { "role": "Owner-operator", "city": "San Antonio", "country": "USA" },
+    { "role": "Regional owner group", "city": "Tampa", "country": "USA" },
+    { "role": "First-time owner", "city": "Minneapolis", "country": "USA" },
+    { "role": "Managing partner of an owner group", "city": "Phoenix", "country": "USA" },
+    { "role": "Second-generation owner", "city": "Portland", "country": "USA" }
+  ],
+  "terms": [
+    { "label": "Contract length", "fact": "contract-term" },
+    { "label": "Notice period", "fact": "notice-period" },
+    { "label": "Fees", "fact": "fee-structure" },
+    { "label": "Reporting", "fact": "reporting" },
+    { "label": "Handover", "fact": "handover-time" }
+  ],
+  "signoff": {
+    "company:founded": ["成立年份", "核对；不对就改"],
+    "company:capabilities": ["服务能力清单", "逐条核对，删除做不到的，补上没列的"],
+    "proof:factory-figures": ["公司数据（服务客户数、团队人数）", "填写真实数字；当前是示范值"],
+    "proof:clients": ["合作客户名称", "填写允许公开的真实客户名称；没有授权的不要填"],
+    "proof:testimonials": ["客户评价", "提供真实客户的评价原文、署名（职位和公司）和公开授权"],
+    "proof:cases": ["客户案例", "提供真实服务案例：客户（经授权）、服务内容、周期和结果"],
+    "photos:factory-team": ["团队和经营场所实拍", "提供实拍照片（见图片行）"]
+  }
+}

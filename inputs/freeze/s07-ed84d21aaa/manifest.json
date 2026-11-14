@@ -1,0 +1,59 @@
+{
+  "stage": "07_2_package",
+  "files": [
+    "authoring_package.json"
+  ],
+  "inputs": [
+    {
+      "path": "D:/korey_seo/scratch_offload/swim_1114/run/projects/swimwear/artifacts/07_1_draft/drafts.jsonl",
+      "sha256": "fd70a6ec9d875a5fc1a1aea51fbc9e33b318719a9f3d6dbb4e5c1df6ab2bd8b4"
+    },
+    {
+      "path": "D:/korey_seo/scratch_offload/swim_1114/run/projects/swimwear/artifacts/06_1_plan/blueprints.jsonl",
+      "sha256": "4cf3ede9d611b5bd1187f70cbdee17d1f9e3951a59dd298199798039c985b429"
+    },
+    {
+      "path": "D:/korey_seo/scratch_offload/swim_1114/run/projects/swimwear/artifacts/06_1_plan/site_plan.json",
+      "sha256": "d0ee90690b5a30d3e7577dcdae723ea6ef1a990602654311a1ceeb30cda20bef"
+    },
+    {
+      "path": "D:/korey_seo/scratch_offload/swim_1114/run/projects/swimwear/artifacts/06_3_keywords/keywords.jsonl",
+      "sha256": "f2b40e9bc7dc5181ba362ec57ea97765bcbd2407f39ab8ceb112bb714a0d40d0"
+    },
+    {
+      "path": "D:/korey_seo/scratch_offload/swim_1114/run/projects/swimwear/artifacts/04_1_site_tree/tree.json",
+      "sha256": "ccc4908d17fb43e6ab33cae6341ce0a373a5990bf21e0ce8a4ca9b8efe95e6af"
+    },
+    {
+      "path": "D:/korey_seo/scratch_offload/swim_1114/run/projects/swimwear/project.yaml",
+      "sha256": "8af2721fe19c53b1fa529dcea7c0ea9125584a6ce2bb547c0bbe9b3c8e8941e8"
+    },
+    {
+      "path": "domain/section-layout.json",
+      "sha256": "590b79f403a70f82c86958547ca4712ee5dce047aac622d98f989f018300a477"
+    },
+    {
+      "path": "domain/block-kinds.json",
+      "sha256": "b30064f1f5fe606acd52c7e460b70b6656f75858bfdea6b84d657fc879dc49e7"
+    },
+    {
+      "path": "D:/korey_seo/scratch_offload/swim_1114/run/projects/swimwear/artifacts/07_1_draft/trust_bar.json",
+      "sha256": "477e90f5e8987825560c12db8270895311ae1bb3596c81fc37c745a9e19a6450"
+    },
+    {
+      "path": "D:/korey_seo/scratch_offload/swim_1114/run/projects/swimwear/artifacts/05_7_capabilities/site_library.json",
+      "sha256": "64834f5e37133196ef092abeb9b250df7803fbb774dc5874a04c431e9a454535"
+    }
+  ],
+  "counts": {
+    "pages": 37,
+    "sections": 397,
+    "data_visuals": 91,
+    "photo_visuals": 0,
+    "hold": 1,
+    "within_density": 0
+  },
+  "include_photos": false,
+  "code_version": "4e26cfbd15069347875fa8e54b1ba7f6167c49a2",
+  "created_at": "2026-11-14T06:17:26+00:00"
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "seo-site-blueprint-wording-v1",
+  "note": "A service business's words for the default blueprint's slot purposes (site.json trade \"service\", lib/trade.mjs; owner 2026-11-06: site11's motel pages asked for minimum orders, sample times and a factory). The purposes are what Site Factory 06/07 plan and write each slot for, and what a placeholder page shows until then; only the competitor-derived blueprint is reworded (Site Factory's own slot manifest keeps its words). Keys are the default purposes exactly as config/page-blueprints.default.json writes them.",
+  "purposes": {
+    "Who we are and what we make": "Who we are and what we do",
+    "Why buyers choose this maker: four to six short selling points": "Why clients choose this company: four to six short selling points",
+    "Order figures, each stated verbatim in an approved fact: minimum order, lead time and founding year first, capacity last; left out when fewer than three facts give one": "Key figures, each stated verbatim in an approved fact: clients served, years in business and team size; left out when fewer than three facts give one",
+    "Core capabilities": "What we do for clients",
+    "Factory and team": "The team and how it works",
+    "How an order runs, step by step": "How working with us runs, step by step",
+    "Quality control and certifications stated in facts": "Standards, licences and memberships stated in facts",
+    "Buyer questions, each answered in its first sentence": "Client questions, each answered in its first sentence",
+    "Order figures, each stated verbatim in an approved fact": "Key figures, each stated verbatim in an approved fact",
+    "Ordering this product or service: the one or two terms its buyers ask about (such as the minimum for this product or its sample time), with the rest left to the How to Order page it links to": "Starting this service: the one or two terms its clients ask about (such as the contract length or the notice period), with the rest left to the page on working with us it links to",
+    "How ordering works, in brief": "How getting started works, in brief",
+    "The ordering figures, each stated verbatim in an approved fact": "The figures of getting started, each stated verbatim in an approved fact",
+    "One ordering term each, in full with its conditions: minimum and trial orders; samples and fees; production time; payment, trade terms and shipping": "One term each, in full with its conditions: contract length and notice; fees and what they cover; reporting; handover and start dates",
+    "Buyer questions on ordering, each answered in its first sentence": "Client questions on getting started, each answered in its first sentence",
+    "Closing call to request a quote": "Closing call to request a proposal"
+  }
+}

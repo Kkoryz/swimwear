@@ -1,0 +1,13 @@
+---
+// One data visual of a section (Site Factory's visuals[].data), drawn as the chart lib/visual-data.mjs gives its shape,
+// with its caption under it.
+import { chartOfData } from '../../../scripts/lib/visual-data.mjs';
+import type { ProseChart, SectionVisual } from '../../lib/authoring';
+import ArticleChart from '../blog/ArticleChart.astro';
+
+interface Props { visual: Extract<SectionVisual, { type: 'data' }> }
+const { visual } = Astro.props;
+const chart = { ...chartOfData(visual.data), alt: visual.caption ?? visual.purpose ?? '', ...(visual.caption ? { caption: visual.caption } : {}) } as ProseChart;
+---
+
+<ArticleChart chart={chart} />

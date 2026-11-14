@@ -1,0 +1,99 @@
+---
+// Header patterns: layout stacked (brand row above the nav row) or inline (brand and nav in one bar),
+// optional announcement bar, mega or list dropdowns, optional carets, and a nav item promoted to a CTA pill.
+import { siteIdentity, siteNav, siteRuntime, variants, type NavNode } from '../../lib/authoring';
+import SmartLink from './SmartLink.astro';
+
+const nav = siteNav as { brand?: { name?: string; logo?: string } | null; announcement?: string | null };
+const brand = nav.brand ?? null;
+const options = { layout: 'stacked', topBar: false, dropdown: 'mega', carets: false, ctaRoute: null, ...(variants.header ?? {}) };
+const announcement = nav.announcement ?? siteRuntime?.site?.announcement ?? null;
+const ctaItem = siteNav.header.find((item) => item.route === options.ctaRoute && item.children.length === 0) ?? null;
+const menuItems = siteNav.header.filter((item) => item !== ctaItem);
+const flatten = (nodes: NavNode[], depth = 0): { node: NavNode; depth: number }[] =>
+  nodes.flatMap((node) => [{ node, depth }, ...flatten(node.children, depth + 1)]);
+---
+
+<header class="site-header" data-site-header data-layout={options.layout} data-dropdown={options.dropdown}>
+  {/* The reference's announcement bar shows only with real text (registry announcement), never a placeholder. */}
+  {options.topBar && announcement && (
+    <div class="site-header__topbar">
+      <div class="container">{announcement}</div>
+    </div>
+  )}
+  <div class="site-header__brand-row">
+    <div class="container">
+      <a href="/" class="site-header__brand" data-placeholder={siteIdentity || brand?.name ? undefined : 'true'}>
+        {siteIdentity
+          ? <img class="site-header__logo" src={siteIdentity.logo.src} alt={siteIdentity.siteName} width={siteIdentity.logo.width} height={siteIdentity.logo.height} />
+          : brand?.logo ? <img src={brand.logo} alt={brand.name ?? ''} height="40" /> : (brand?.name ?? 'Brand placeholder')}
+      </a>
+    </div>
+  </div>
+  <div class="container site-header__bar">
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__list">
+        {menuItems.map((item) => (
+          <li class:list={['site-nav__item', { 'has-panel': item.children.length > 0 }]}>
+            <SmartLink href={item.route} class="site-nav__link">
+              {item.label}
+              {options.carets && item.children.length > 0 && <svg class="site-nav__caret" viewBox="0 0 10 6" width="9" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>}
+            </SmartLink>
+            {item.children.length > 0 && options.dropdown === 'list' && (
+              <ul class="site-nav__dropdown">
+                {flatten(item.children).map(({ node, depth }) => (
+                  <li style={`--nav-depth:${depth}`}><SmartLink href={node.route} class="site-nav__sublink">{node.label}</SmartLink></li>
+                ))}
+              </ul>
+            )}
+            {item.children.length > 0 && options.dropdown !== 'list' && (
+              <div class="site-nav__panel">
+                <ul class="site-nav__columns">
+                  {item.children.map((child) => (
+                    <li class="site-nav__group">
+                      <SmartLink href={child.route} class="site-nav__group-link">{child.label}</SmartLink>
+                      {child.children.length > 0 && (
+                        <ul>
+                          {flatten(child.children).map(({ node, depth }) => (
+                            <li style={`--nav-depth:${depth}`}><SmartLink href={node.route} class="site-nav__sublink">{node.label}</SmartLink></li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+    {ctaItem && <SmartLink href={ctaItem.route} class="site-header__cta">{ctaItem.label}</SmartLink>}
+    <details class="site-menu">
+      <summary class="site-menu__toggle" aria-label="Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" /></svg>
+      </summary>
+      <div class="site-menu__panel">
+        <ul>
+          {siteNav.header.map((item) => (
+            <li>
+              {item.children.length > 0 ? (
+                <details>
+                  <summary>{item.label}</summary>
+                  <ul>
+                    {item.route && <li><SmartLink href={item.route}>{item.label}</SmartLink></li>}
+                    {flatten(item.children).map(({ node, depth }) => (
+                      <li style={`--nav-depth:${depth}`}><SmartLink href={node.route}>{node.label}</SmartLink></li>
+                    ))}
+                  </ul>
+                </details>
+              ) : (
+                <SmartLink href={item.route}>{item.label}</SmartLink>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </details>
+  </div>
+</header>

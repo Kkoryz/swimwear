@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "seo-site-template-variants-v1",
+  "sourceUrl": "https://example.com/",
+  "axes": {},
+  "components": {
+    "header": {
+      "ctaRoute": null
+    },
+    "hero": "plain",
+    "featureGrid": "outlined",
+    "splitMedia": "alternate",
+    "proof": "band",
+    "faq": "accordion",
+    "cta": "band",
+    "media": {
+      "hero": null,
+      "pool": [],
+      "origin": "none"
+    }
+  }
+}

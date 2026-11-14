@@ -1,0 +1,25 @@
+---
+// The styles of a line page (Site Factory style_cards), after the strong wholesale pages (gymclothes.com: a grid of
+// photo, style name and a quote button): a photo of the line, the name, one sentence on the style and a link to the
+// page's enquiry. No price, stock or request count: not our data.
+import type { Media, StyleGridBlock } from '../../lib/authoring';
+import SmartLink from '../site/SmartLink.astro';
+import BlockSection from './BlockSection.astro';
+import MediaFigure from './MediaFigure.astro';
+
+interface Props { block: StyleGridBlock; media?: (Media | null)[] }
+const { block, media = [] } = Astro.props;
+---
+
+<BlockSection block={block} name="styles" headingClass="styles__heading">
+  <ul class="style-grid" data-layout="equal-grid" data-count={block.items.length}>
+    {block.items.map((item, index) => (
+      <li class="style-card">
+        {media[index] && <MediaFigure media={media[index]} ratio="3 / 4" sizes="(min-width: 1024px) 25vw, 50vw" />}
+        <h3 class="style-card__name">{item.name}</h3>
+        <p class="style-card__intro">{item.intro}</p>
+        <SmartLink href={block.cta.href} class="style-card__quote">{block.cta.label}</SmartLink>
+      </li>
+    ))}
+  </ul>
+</BlockSection>

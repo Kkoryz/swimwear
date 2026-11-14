@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "seo-site-block-kinds-v1",
+  "note": "The page's structure is Site Factory's (05/06 choose each section's kind, its order and its length); this table says which component renders a kind in each presentation, and what each component holds. Site Factory copies this file byte for byte and plans within these limits. Site-wide parts (the certificate wall, trust bar, testimonials, cases, order routes, key figures) are the template's; a certifications section is prose beside them. The imitated competitor only styles the components (lib/sf-kinds.mjs competitorStyles). A list section carries items [{ title, text, fact_ids?, placeholder? }]; a qa section carries question/answer pairs in its body; body is an optional lead for cards, list and steps. Site Factory 06 lists the layouts it needs (artifacts/06_blueprint/layouts_needed.json); pnpm kinds:check reports the ones this table lacks. A figures section carries items [{ value, unit?, label, note?, fact_ids }] (each value stated in a fact it cites); a prices section items [{ title, price: { amount, unit?, note? }, text, fact_ids }] (each amount stated in a fact it cites); a swatches section items [{ name, colour? (#rrggbb), composition?, fact_ids? }]; a photos section items [{ title }], each a captioned photo the template supplies. A flow (steps or table) carries its own steps [{ name, we_do, client_provides?, duration: { min, max, unit } | null, fact_ids }], or uses: the id of a site-wide flow in the package's site_modules (written once: { heading?, steps }), with an optional note (one sentence for this page, shown first); a duration's numbers are stated in a fact its step cites. A scope section says what one piece of work includes, leaves out and delivers, in any trade (a service's operations, revenue management or accounting; owner via Site Factory, 2026-11-11); a guide section only explains knowledge.",
+  "components": {
+    "intro": { "presentation": "prose", "words": { "heading": [4, 10], "body": [40, 100] } },
+    "splitMedia": { "presentation": "prose", "words": { "heading": [4, 10], "body": [35, 150] } },
+    "proof": { "presentation": "prose", "words": { "heading": [4, 10], "body": [30, 70] } },
+    "featureGrid": { "presentation": "cards", "words": { "heading": [3, 10], "body": [0, 30] }, "items": [2, 8], "itemWords": { "title": [2, 6], "text": [15, 40] } },
+    "iconList": { "presentation": "list", "words": { "heading": [3, 8], "body": [0, 30] }, "items": [3, 8], "itemWords": { "title": [2, 5], "text": [10, 30] } },
+    "process": { "presentation": "steps", "words": { "heading": [3, 8], "body": [0, 25] }, "items": [3, 6], "itemWords": { "title": [2, 5], "text": [12, 35] } },
+    "faq": { "presentation": "qa", "words": { "heading": [3, 10] }, "items": [4, 8], "itemWords": { "question": [6, 16], "answer": [25, 80] } },
+    "cta": { "presentation": "prose", "words": { "heading": [3, 10], "body": [15, 45] } },
+    "table": { "presentation": "table", "words": { "heading": [3, 10], "body": [0, 400] } },
+    "stats": { "presentation": "figures", "words": { "heading": [3, 10], "body": [0, 30] }, "items": [2, 6], "itemWords": { "label": [2, 8] } },
+    "pricing": { "presentation": "prices", "words": { "heading": [3, 10], "body": [0, 30] }, "items": [2, 4], "itemWords": { "title": [2, 6], "text": [10, 35] } },
+    "swatches": { "presentation": "swatches", "words": { "heading": [3, 10], "body": [0, 30] }, "items": [3, 24], "itemWords": { "name": [1, 4] } },
+    "gallery": { "presentation": "photos", "words": { "heading": [3, 10], "body": [0, 30] }, "items": [2, 8], "itemWords": { "title": [1, 6] } }
+  },
+  "kinds": {
+    "intro": { "presentations": { "prose": "intro" }, "default": "prose" },
+    "product_range": { "presentations": { "cards": "featureGrid", "prose": "splitMedia", "table": "table", "figures": "stats", "photos": "gallery" }, "default": "cards", "media": "product" },
+    "materials": { "presentations": { "prose": "splitMedia", "cards": "featureGrid", "list": "iconList", "table": "table", "swatches": "swatches", "photos": "gallery" }, "default": "prose", "media": "material" },
+    "customization": { "presentations": { "cards": "featureGrid", "prose": "splitMedia", "list": "iconList", "table": "table", "prices": "pricing", "swatches": "swatches", "photos": "gallery" }, "default": "cards", "media": "product" },
+    "routes": { "presentations": { "prose": "splitMedia", "cards": "featureGrid", "list": "iconList", "prices": "pricing" }, "default": "prose", "media": "product" },
+    "development": { "presentations": { "prose": "splitMedia", "steps": "process", "table": "table", "prices": "pricing" }, "default": "prose", "media": "process" },
+    "process_steps": { "presentations": { "steps": "process", "prose": "splitMedia", "table": "table" }, "default": "steps", "media": "process" },
+    "why_us": { "presentations": { "list": "iconList", "cards": "featureGrid", "prose": "splitMedia", "figures": "stats" }, "default": "list", "media": "process" },
+    "confidentiality": { "presentations": { "prose": "splitMedia", "list": "iconList" }, "default": "prose", "media": "process" },
+    "certifications": { "presentations": { "prose": "splitMedia", "list": "iconList" }, "default": "prose", "media": "material" },
+    "terms": { "presentations": { "prose": "proof", "list": "iconList", "figures": "stats", "prices": "pricing" }, "default": "prose", "media": "material" },
+    "quality_control": { "presentations": { "prose": "splitMedia", "list": "iconList", "steps": "process", "table": "table", "figures": "stats" }, "default": "prose", "media": "process" },
+    "audience": { "presentations": { "list": "iconList", "prose": "splitMedia", "cards": "featureGrid" }, "default": "list", "media": "lifestyle" },
+    "factory": { "presentations": { "prose": "splitMedia", "figures": "stats" }, "default": "prose", "media": "process" },
+    "proof": { "presentations": { "prose": "proof", "figures": "stats" }, "default": "prose", "media": "material" },
+    "scope": { "presentations": { "prose": "splitMedia", "cards": "featureGrid", "list": "iconList", "table": "table", "steps": "process", "figures": "stats", "prices": "pricing" }, "default": "prose", "media": "process" },
+    "guide": { "presentations": { "prose": "splitMedia" }, "default": "prose", "words": { "heading": [4, 10], "body": [150, 400] }, "media": "material" },
+    "faq": { "presentations": { "qa": "faq", "prose": "splitMedia" }, "default": "qa" },
+    "cta": { "presentations": { "prose": "cta" }, "default": "prose" }
+  }
+}

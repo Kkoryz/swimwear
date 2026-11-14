@@ -1,0 +1,11 @@
+The site's layout audit failed (site:run step "audits"); you repair this site's treatment once, in this folder. Read AGENTS.md and `docs/research/CSS_HOOKS.md` first.
+
+The failures are in `{{report}}` (`failures`: route, viewport and issue, e.g. `low_contrast` with the text's colour, its background and the ratio it needs, `horizontal_overflow`, `boundary_gap`, `unequal_grid`); the audit's log is `{{log}}`.
+
+Follow `config/agent-steps/treatment-practice.md`: in particular, contrast over a photo comes from the overlay token as a soft gradient over the whole photo, never from a box or panel behind the text. Fix what this site's treatment causes, in `src/styles/reference.css` and `src/data/template-variants.json` only: a colour that fails contrast is darkened (or lightened) by the least amount that passes, text over a photo gets an overlay through its token (--hero-overlay, --cta-overlay), an overflowing element gets a width or wrapping rule, running text whose lines run too wide (`long_measure`, in ch) gets a `max-width` of about 70ch on its text column, placed where the section's heading sits (centred under a centred heading), through shared selectors rather than page by page. This one is the treatment's to set even where every site would need it. Keep the competitor's look otherwise, within this site's own layout rules:
+{{siteRules}}
+A repair never breaks one of them: a heading over its page's title is brought down to below the title, not the title up; no rule sets a title's or heading's fit variables. Do not edit `scripts/`, `src/components/`, `src/lib/`, `src/layouts/`, `src/pages/`, `config/` or any copy: a failure the shared template causes (it would fail on every site) is listed in `docs/research/analysis/notes.md` under "Template gaps" instead, with the route and issue.
+
+The design review's findings, if it has run, are in `docs/research/design-review.json`: do not undo what its open findings ask for (treatment-practice says how an overlay satisfies both).
+
+Do not run `pnpm build`, a preview or a browser: site:run builds the site and audits it again right after you. Finish with one short paragraph: what you changed for which failures, and the template gaps you listed.

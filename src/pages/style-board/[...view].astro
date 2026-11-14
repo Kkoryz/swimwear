@@ -1,0 +1,51 @@
+---
+// The style board (scripts/build-style-board.mjs writes src/data/style-board.json; lib/style-board.mjs): every module
+// the site's pages use, once with the longest and once with the shortest copy written for it, each photo a grey frame,
+// rendered by the same components and inside the same page context (main[data-page-type]) as its page, so the site's
+// treatment applies as it does there. A development page at /style-board/: a release build has none, nothing links to
+// it, it is noindex. site:run shoots it module by module for the review (design-review.mjs board).
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionChart from '../../components/blocks/SectionChart.astro';
+import { BLOCKS, type BlockEntry } from '../../components/blocks/registry';
+import { dataVisuals, pages, type Block, type Media } from '../../lib/authoring';
+import { boardBuilt } from '../../../scripts/lib/style-board.mjs';
+import { GREY_FRAME } from '../../../scripts/lib/trial-build.mjs';
+
+interface Sample { role: string; route: string; pageType: string; blockId: string; splitIndex: number; words: number; slots: number; block: Block }
+interface BoardModule { key: string; type: string; variant: string | null; uses: number; evidence: { pageType: string; index: number; module: string; gap?: string }[]; samples: Sample[] }
+interface Board { modules: BoardModule[] }
+
+export function getStaticPaths() {
+  const board = Object.values(import.meta.glob<{ default: Board }>('../../data/style-board.json', { eager: true }))[0]?.default;
+  return board && boardBuilt() ? [{ params: { view: undefined }, props: { board } }] : [];
+}
+
+const { board } = Astro.props as { board: Board };
+// A grey frame in each photo's place, the size of a typical photo (the frame's own ratio crops it as it would a photo).
+const grey: Media = GREY_FRAME;
+const samples = board.modules.flatMap((module) => module.samples.map((sample) => {
+  const page = pages.find((item) => item.route === sample.route);
+  return page ? { module, sample, page, entry: BLOCKS[sample.block.type as keyof typeof BLOCKS] as BlockEntry | undefined } : null;
+})).filter((item) => item?.entry);
+---
+
+<BaseLayout title="Style board" description="Every module of the site with its longest and shortest copy." robots="noindex, nofollow" shell>
+  <style>
+    .style-board__label { margin: 0; padding: 0.35rem 0.75rem; background: #d6006e; color: #fff; font: 600 0.8125rem/1.4 ui-monospace, monospace; }
+  </style>
+  {samples.map((item) => {
+    const { module, sample, page, entry } = item!;
+    const charts = sample.block.type === 'splitMedia' ? [] : dataVisuals(sample.block);
+    const drawn = charts.length > 0 && <div class="block block--charts" data-authoring-block="charts" data-block-id={`${sample.block.id}-charts`}><div class="container section-charts">{charts.map((visual) => <SectionChart visual={visual} />)}</div></div>;
+    const Component = entry!.component;
+    const evidence = module.evidence.length ? `competitor: ${module.evidence.map((section) => `${section.pageType} ${section.index}`).join(', ')}` : 'no competitor module';
+    return (
+      <main data-authoring-page={page.id} data-page-type={page.pageType} data-page-status={page.status} data-board-key={module.key} data-board-sample={sample.role} data-board-unbacked={module.evidence.length ? undefined : 'true'}>
+        <p class="style-board__label">{sample.block.id} ({sample.block.type}) · {module.key} · {sample.role}, {sample.words} words · {sample.route} · {evidence}</p>
+        {sample.block.type === 'cta' && drawn}
+        <Component {...entry!.props({ block: sample.block, variant: module.variant ?? undefined, page, formId: null, media: Array.from({ length: sample.slots }, () => grey), splitIndex: sample.splitIndex })} />
+        {sample.block.type !== 'cta' && drawn}
+      </main>
+    );
+  })}
+</BaseLayout>

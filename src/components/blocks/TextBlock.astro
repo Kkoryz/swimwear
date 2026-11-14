@@ -1,0 +1,28 @@
+---
+// Renders intro and proof blocks: one heading plus verbatim paragraphs, with optional template media.
+import { density, type IntroBlock, type Media, type ProofBlock } from '../../lib/authoring';
+import Eyebrow from './Eyebrow.astro';
+import MediaFigure from './MediaFigure.astro';
+import TextFlow from './TextFlow.astro';
+
+interface Props { block: IntroBlock | ProofBlock; media?: Media[]; variant?: string }
+const { block, media = [], variant } = Astro.props;
+---
+
+<section class:list={['block', `block--${block.type}`]} data-authoring-block={block.type} data-block-id={block.id} data-continues={block.continues} data-variant={variant}>
+  <div class="container">
+    <div class="text-block" data-layout={block.type === 'proof' && media.length ? 'split' : 'text'} data-density={density(block.wordCount)}>
+      <div class="text-block__copy">
+        <Eyebrow text={block.eyebrow} />
+        {block.heading && <h2>{block.heading}</h2>}
+        <TextFlow paragraphs={block.paragraphs} />
+      </div>
+      {block.type === 'proof' && media[0] && <MediaFigure media={media[0]} ratio="4 / 5" class="text-block__media" />}
+    </div>
+    {block.type === 'intro' && media.length > 0 && (
+      <div class="media-row" data-layout="equal-grid" data-columns={media.length}>
+        {media.map((item) => <MediaFigure media={item} ratio="10 / 11" />)}
+      </div>
+    )}
+  </div>
+</section>

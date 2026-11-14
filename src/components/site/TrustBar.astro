@@ -1,0 +1,28 @@
+---
+// The trust bar under a page's hero. A page shows its own key figures (src/data/page-figures.json, lib/page-figures.mjs:
+// word for word from its text, its own before the terms every page states; none, no band); the home and about pages,
+// the blog and a site whose figures are not read yet show the site-wide band: the company's size facts (Site
+// Factory's trust_bar, each word for word from an approved fact) and the founding year, after the best competitor
+// pages ("SINCE 2014 · 70+ COUNTRIES · 100 PIECE MOQ"), and under them the certificates the approved fact names (no
+// numbers). Nothing renders while there is nothing to show.
+import { trustBarContent } from '../../../scripts/lib/site-trust.mjs';
+import { pageFigures, siteTrust } from '../../lib/authoring';
+
+interface Props { page?: { route: string; pageType: string } }
+const { page } = Astro.props;
+
+const { own, items, certifications } = trustBarContent(page, pageFigures, siteTrust);
+---
+
+{(items.length > 0 || certifications.length > 0) && (
+  <aside class="trust-bar" aria-label={own ? 'Key figures' : 'The company in figures'} data-authoring-block="trustBar" data-boundary-anchor="box">
+    {items.length > 0 && (
+      <ul class="container trust-bar__items">
+        {items.map((item) => (
+          <li class="trust-bar__item"><span class="trust-bar__value">{item.value}</span> <span class="trust-bar__label">{item.label}</span></li>
+        ))}
+      </ul>
+    )}
+    {certifications.length > 0 && <div class="container trust-bar__certs"><span class="trust-bar__certs-label">Certified:</span> {certifications.join(' · ')}</div>}
+  </aside>
+)}

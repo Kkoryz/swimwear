@@ -1,0 +1,51 @@
+---
+// What clients say: a headline, the quote, and who said it (name, role, company, country), with the client's own
+// photo when one is supplied (never a generated face). Variant grid (the cards side by side) or carousel (one sliding
+// row with controls, Track.astro).
+import type { Media, TestimonialsBlock } from '../../lib/authoring';
+import BlockSection from './BlockSection.astro';
+import Track from './Track.astro';
+
+interface Props { block: TestimonialsBlock; media?: (Media | null)[]; variant?: string }
+const { block, media = [], variant = 'grid' } = Astro.props;
+const portrait = (index: number) => { const photo = media[index]; return photo && !photo.slot ? photo : null; };
+const carousel = variant === 'carousel' && block.items.length > 1;
+---
+
+<BlockSection block={block} name="testimonials" headingClass="testimonials__heading">
+  {carousel ? (
+    <div class="testimonials" data-variant="carousel">
+      <Track label={block.heading ?? 'Testimonials'} count={block.items.length}>
+        {block.items.map((item, index) => (
+          <li class="track__item" aria-label={`${index + 1} / ${block.items.length}`}>
+            <figure class="testimonial">
+              {item.headline && <p class="testimonial__headline">{item.headline}</p>}
+              <blockquote><p>{item.quote}</p></blockquote>
+              <figcaption>
+                {portrait(index) && <img class="testimonial__photo" src={portrait(index)!.src} srcset={portrait(index)!.srcset} sizes="56px" alt={portrait(index)!.alt} width="56" height="56" loading="lazy" decoding="async" />}
+                <span class="testimonial__author">{item.author}</span>
+                {(item.role || item.company) && <span class="testimonial__meta">{[item.role, item.company].filter(Boolean).join(', ')}</span>}
+                {item.country && <span class="testimonial__meta">{item.country}</span>}
+              </figcaption>
+            </figure>
+          </li>
+        ))}
+      </Track>
+    </div>
+  ) : (
+    <div class="testimonials" data-layout="equal-grid" data-columns={Math.min(block.items.length, 3)}>
+      {block.items.map((item, index) => (
+        <figure class="testimonial">
+          {item.headline && <p class="testimonial__headline">{item.headline}</p>}
+          <blockquote><p>{item.quote}</p></blockquote>
+          <figcaption>
+            {portrait(index) && <img class="testimonial__photo" src={portrait(index)!.src} srcset={portrait(index)!.srcset} sizes="56px" alt={portrait(index)!.alt} width="56" height="56" loading="lazy" decoding="async" />}
+            <span class="testimonial__author">{item.author}</span>
+            {(item.role || item.company) && <span class="testimonial__meta">{[item.role, item.company].filter(Boolean).join(', ')}</span>}
+            {item.country && <span class="testimonial__meta">{item.country}</span>}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  )}
+</BlockSection>

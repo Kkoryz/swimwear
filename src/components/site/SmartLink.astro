@@ -1,0 +1,12 @@
+---
+// Renders a link only when its internal target is built; a planned-but-unbuilt route stays visible as text, and so does
+// a menu heading without a page (href null).
+import { isBuilt } from '../../lib/authoring';
+
+interface Props { href: string | null; class?: string }
+const { href, class: className } = Astro.props;
+---
+
+{href && isBuilt(href)
+  ? <a href={href} class={className}><slot /></a>
+  : href ? <span class={className} data-route-status="planned" data-route={href}><slot /></span> : <span class={className}><slot /></span>}

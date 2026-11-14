@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "seo-site-chat-agents-v1",
+  "note": "The corner chat's virtual agent (scripts/lib/chat-setup.mjs): a first name and a headshot look are picked from the site's domain, so each site keeps its own and sites differ. headshot and headshotAvoid are the product line's sentences of the Codex headshot prompt; {look} is the picked look.",
+  "names": ["Emma", "Olivia", "Sophia", "Grace", "Chloe", "Lily", "Hannah", "Claire", "Laura", "Anna", "Emily", "Sarah", "Julia", "Mia", "Nora", "Lucy", "Ella", "Amy", "Rachel", "Helen"],
+  "looks": [
+    "an East Asian woman in her late twenties with shoulder-length straight black hair",
+    "an East Asian woman in her early thirties with her dark hair tied back",
+    "an East Asian woman in her mid thirties with a short dark bob",
+    "an East Asian woman in her late twenties with long dark hair over one shoulder",
+    "an East Asian woman in her early forties with short layered dark hair"
+  ],
+  "headshot": "Generate ONE photorealistic professional headshot of {look}, a friendly sales manager at a clothing manufacturer: business casual blazer, natural smile, looking at the camera, head and shoulders centred, soft even studio light, plain light grey background, square 1024x1024.",
+  "headshotAvoid": "No text, no logos, no watermarks, no jewellery brand marks."
+}

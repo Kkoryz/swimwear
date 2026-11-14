@@ -1,0 +1,33 @@
+---
+// Client projects (the owner's proof, src/data/site-proof.json): the client and its market, what was made, and the
+// measured results as figures; a link to the product page the project belongs to; a photo of the product on top.
+import { fitRatio, usualRatio } from '../../../scripts/lib/media-ratio.mjs';
+import type { CaseStudiesBlock, Media } from '../../lib/authoring';
+import MediaFigure from './MediaFigure.astro';
+import InlineText from '../blog/InlineText.astro';
+import SmartLink from '../site/SmartLink.astro';
+import BlockSection from './BlockSection.astro';
+
+interface Props { block: CaseStudiesBlock; media?: (Media | null)[]; route?: string | null }
+const { block, media = [], route = null } = Astro.props;
+// One frame ratio for the row, following the photos' orientation (lib/media-ratio.mjs).
+const ratio = fitRatio(usualRatio('caseStudies'), media.filter((item): item is Media => Boolean(item) && !item?.slot));
+---
+
+<BlockSection block={block} name="cases" headingClass="cases__heading">
+  <div class="cases" data-layout="cases" data-count={block.items.length}>
+    {block.items.map((item, index) => (
+      <article class="case">
+        {media[index] && !media[index].slot && <MediaFigure media={media[index]} ratio={ratio} />}
+        {media[index]?.slot && <span hidden data-media-slot={media[index].slot} />}
+        <p class="case__client">{item.client}{item.market && <span class="case__market"> · {item.market}</span>}</p>
+        <h3 class="case__title">{item.title}</h3>
+        <p class="case__summary"><InlineText text={item.summary} /></p>
+        <dl class="case__results">
+          {item.results.map((result) => <div class="case__result"><dt>{result.label}</dt><dd>{result.value}</dd></div>)}
+        </dl>
+        {item.href && item.href !== route && <SmartLink href={item.href} class="case__link">{block.linkLabel ?? 'See the product'}</SmartLink>}
+      </article>
+    ))}
+  </div>
+</BlockSection>

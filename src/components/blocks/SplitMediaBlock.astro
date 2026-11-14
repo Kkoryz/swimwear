@@ -1,0 +1,55 @@
+---
+// Text beside media. Variants after the reference's text/photo rows: single (one photo), dual (two photos side by side),
+// column (two photos one above the other, each the photo column's full width, on phones too), tinted (on a surface band), wide (text then one wide photo below), stacked (two photos overlapping), numbered (a
+// large row number before the heading and the page's enquiry link after the text), framed (the photo on an offset
+// frame), panel (the text on a tinted rounded panel beside the photo).
+import { FIXED_FRAMES, fitRatio, fitsFrames, usualRatio } from '../../../scripts/lib/media-ratio.mjs';
+import { splitSide } from '../../../scripts/lib/media-slots.mjs';
+import { dataVisuals, density, variants, type Link, type Media, type SplitMediaBlock } from '../../lib/authoring';
+import SectionChart from './SectionChart.astro';
+import SmartLink from '../site/SmartLink.astro';
+import Eyebrow from './Eyebrow.astro';
+import MediaFigure from './MediaFigure.astro';
+import TextFlow from './TextFlow.astro';
+
+interface Props { block: SplitMediaBlock; index: number; media: Media[]; variant?: string; cta?: Link | null; pageType?: string }
+const { block, index, media: given, variant: asked = 'single', cta = null, pageType = '' } = Astro.props;
+// A position no photo fills yet (a class only the site's own photos may fill) is no grey frame on the page: the row is
+// set as text, and the position stays marked for the handoff (data-media-slot) (site10's repairs hid each frame by its
+// block id, and the rows they missed kept them).
+const media = given.filter((item) => !item.slot);
+const slots = given.filter((item) => item.slot);
+// The section's data takes the photo's place (lib/media-slots.mjs gives such a row no template photo), in a plain
+// text-beside row (resolveVariant sets such a row single).
+const charts = dataVisuals(block);
+// A wide row's banner (16 / 7) only with photos it shows enough of; a square or portrait photo makes the row a plain
+// photo-beside-text row instead of a banner cut to a strip.
+const variant = asked === 'wide' && !media.every((photo) => fitsFrames(FIXED_FRAMES.wideRow, photo)) ? 'single' : asked;
+// The photo's side: the site's choice for this section (as the competitor's row has it), else the site-wide order.
+const side = splitSide(block, pageType, index, variants);
+const layout = !media.length && !charts.length ? 'text' : variant === 'wide' ? 'stack' : 'split';
+// A wide row keeps its banner; the others follow their photos' orientation (lib/media-ratio.mjs).
+const ratio = variant === 'wide' ? '16 / 7' : fitRatio(usualRatio('splitMedia', variant), media);
+---
+
+<section class="block block--split" data-authoring-block="splitMedia" data-block-id={block.id} data-continues={block.continues} data-variant={variant}>
+  <div class="container">
+    <div class="split" data-layout={layout} data-side={side} data-density={density(block.wordCount)} data-media-count={media.length}>
+      <div class="split__copy">
+        <Eyebrow text={block.eyebrow} />
+        {variant === 'numbered' && !block.continues && <span class="split__number" aria-hidden="true">{index + 1}.</span>}
+        {block.heading && <h2>{block.heading}</h2>}
+        <TextFlow paragraphs={block.paragraphs} />
+        {variant === 'numbered' && cta && <p class="split__cta"><SmartLink href={cta.href} class="button button--primary">{cta.label}</SmartLink></p>}
+      </div>
+      {charts.length > 0 ? (
+        <div class="split__media-set split__charts">{charts.map((visual) => <SectionChart visual={visual} />)}</div>
+      ) : media.length > 0 && (
+        <div class="split__media-set">
+          {media.map((item) => <MediaFigure media={item} ratio={ratio} class="split__media" />)}
+        </div>
+      )}
+      {slots.map((item) => <span hidden data-media-slot={item.slot} />)}
+    </div>
+  </div>
+</section>

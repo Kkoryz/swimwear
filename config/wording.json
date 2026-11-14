@@ -1,0 +1,6 @@
+{
+  "note": "Words 08 adds to a page itself, per trade (config/wording.<trade>.json, lib/trade.mjs): the related pages' heading, the heading over a page's client cases and a case card's link. A trade file lacking one fails the import.",
+  "relatedHeading": "Related products and services",
+  "caseHeading": "A recent order",
+  "caseLink": "See the product"
+}

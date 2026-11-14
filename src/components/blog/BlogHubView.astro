@@ -1,0 +1,80 @@
+---
+// The blog hub, headed the way the reference blog is (variants.blog.hub.header): hero (heading and intro beside the
+// hub's hero photo), plain (a centred heading), featured (the newest post as a large card under the heading),
+// banner (a photo banner with the heading over it).
+import { cardSet, cardSetColumns } from '../../../scripts/lib/block-layout.mjs';
+import { heroLeadShown } from '../../../scripts/lib/heading-fit.mjs';
+import { blockVariant, blogVariants, focusStyle, pageMedia, variants, type AuthoringPage, type PostListBlock } from '../../lib/authoring';
+import { BLOCKS, type BlockEntry } from '../blocks/registry';
+import Breadcrumbs from '../site/Breadcrumbs.astro';
+import InlineText from './InlineText.astro';
+import PostDate from './PostDate.astro';
+import PostListBlockView from './PostListBlock.astro';
+
+interface Props { page: AuthoringPage }
+const { page } = Astro.props;
+const header = blogVariants.hub.header;
+// The hub's own blocks (Site Factory's copy, lib/blog.mjs hubPages) around its post list, each by its registry component.
+const list = page.blocks.find((block) => block.type === 'postList') as PostListBlock | undefined;
+const plan = pageMedia(page.route);
+let splits = 0;
+// A card set going on in grids of its own keeps one card width, as on every other page (PageView, block-layout.mjs).
+const setColumns = cardSetColumns(page.blocks);
+const own = page.blocks.map((source, index) => {
+  if (source.type === 'postList') return null;
+  const columns = source.type === 'featureGrid' ? setColumns.get(cardSet(source)) : undefined;
+  const block = columns ? { ...source, setColumns: columns } : source;
+  const splitIndex = block.type === 'splitMedia' ? splits++ : 0;
+  return { entry: BLOCKS[block.type as keyof typeof BLOCKS] as BlockEntry, context: { block, variant: blockVariant(block, page.pageType, splitIndex), page, formId: null, media: plan[index] ?? [], splitIndex } };
+});
+const newest = list?.items[0];
+// The header photo is the hub's own hero (the image plan's photo for this route), so it does not repeat the first card.
+const photo = variants.media.heroByRoute?.[page.route] ?? newest?.image ?? null;
+// The featured header shows the newest post itself on the first page; the list below starts after it.
+const featured = list && header === 'featured' && list.pagination.page === 1 && list.items.length > 1 ? newest : null;
+// A banner's lead much longer than the competitor's opens the page under the banner, word for word, as on every other
+// photo hero (PageView leadBelow, heading-fit.mjs heroLeadShown): on the photo it covered the banner.
+const leadBelow = header === 'banner' && Boolean(photo) && Boolean(page.hero.lead?.length) && !heroLeadShown(page.hero.lead, variants.heroText);
+const rest = list && featured ? { ...list, items: list.items.slice(1) } : list;
+// Without a photo in its header, the hub's first image may sit in the first viewport: it loads eagerly (as PageView).
+if (!((['banner', 'hero'].includes(header) && photo) || featured?.image)) {
+  const first = plan.flat().find((media) => media && !media.slot);
+  if (first) plan.forEach((media) => media.forEach((item, index) => { if (item === first) media[index] = { ...item, priority: true }; }));
+}
+---
+
+<main id="main" data-authoring-page={page.id} data-page-type={page.pageType} data-page-status={page.status} data-hero-photo={header === 'banner' && photo ? '' : undefined}>
+  {header !== 'banner' && <Breadcrumbs page={page} />}
+  <section class="blog-hub-hero" data-authoring-block="hero" data-layout="hero" data-header={header} data-boundary-anchor={header === 'banner' ? 'box' : undefined}>
+    {header === 'banner' && photo && <img class="blog-hub-hero__backdrop" src={photo.src} alt="" data-decorative width={photo.width} height={photo.height} loading="eager" decoding="async" style={focusStyle(photo.src)} />}
+    <div class="container blog-hub-hero__inner">
+      <div class="blog-hub-hero__copy">
+        {page.status === 'placeholder' && <p class="placeholder-badge">Placeholder copy</p>}
+        <h1>{page.hero.heading}</h1>
+        {!leadBelow && page.hero.lead?.map((paragraph) => <p class="blog-hub-hero__lead">{paragraph}</p>)}
+      </div>
+      {header === 'hero' && photo && <figure class="blog-hub-hero__media media-box" style="--media-ratio: 4 / 3"><img src={photo.src} alt="" data-decorative width={photo.width} height={photo.height} loading="eager" decoding="async" style={focusStyle(photo.src)} /></figure>}
+      {featured && (
+        <a class="blog-featured" href={featured.href}>
+          {featured.image && <img class="blog-featured__image" src={featured.image.src} alt="" data-decorative width={featured.image.width} height={featured.image.height} loading="eager" decoding="async" style={focusStyle(featured.image.src)} />}
+          <span class="blog-featured__copy">
+            <span class="blog-featured__title">{featured.title}</span>
+            <PostDate value={featured.date} />
+          </span>
+        </a>
+      )}
+    </div>
+  </section>
+  {header === 'banner' && <Breadcrumbs page={page} />}
+  {leadBelow && (
+    <section class="block block--page-lead" data-authoring-block="page-lead" data-block-id="page-lead">
+      <div class="container">{page.hero.lead!.map((paragraph) => <p class="page-lead"><InlineText text={paragraph} /></p>)}</div>
+    </section>
+  )}
+  {/* No trust bar here: a reader comes for the posts, which follow the heading (lib/blog.mjs hubPages). */}
+  {own.map((item) => {
+    if (!item) return rest && rest.items.length > 0 && <PostListBlockView block={rest} />;
+    const { component: Component, props } = item.entry;
+    return <Component {...props(item.context)} />;
+  })}
+</main>

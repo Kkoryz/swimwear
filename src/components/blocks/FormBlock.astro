@@ -1,0 +1,28 @@
+---
+// Enquiry form block: an intro beside the form (LeadForm), or the form alone inside another module (embedded).
+// Variant plain (the intro's words only) or media (a photo under the intro, the competitor's photo-and-form module;
+// the photo is the page's own, from the photo pool).
+import { type FormBlock, type Media } from '../../lib/authoring';
+import Eyebrow from './Eyebrow.astro';
+import LeadForm from './LeadForm.astro';
+import MediaFigure from './MediaFigure.astro';
+import TextFlow from './TextFlow.astro';
+
+interface Props { block: FormBlock; embedded?: boolean; media?: (Media | null)[]; variant?: string }
+const { block, embedded = false, media = [], variant = 'plain' } = Astro.props;
+const photo = variant === 'media' ? media[0] ?? null : null;
+---
+
+{embedded ? <LeadForm block={block} /> : (
+<section class="block block--form" id={block.id} data-authoring-block="form" data-block-id={block.id}>
+  <div class="container form-block" data-layout="form" data-variant={variant}>
+    <div class="form-block__intro">
+      <Eyebrow text={block.eyebrow} />
+      {block.heading && <h2>{block.heading}</h2>}
+      {block.paragraphs && <TextFlow paragraphs={block.paragraphs} lead={false} />}
+      {photo && <MediaFigure media={photo} ratio="var(--form-media-ratio, 4 / 3)" class="form-block__media" sizes="(min-width: 900px) 40vw, 100vw" />}
+    </div>
+    <LeadForm block={block} />
+  </div>
+</section>
+)}

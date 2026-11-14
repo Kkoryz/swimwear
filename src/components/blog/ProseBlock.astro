@@ -1,0 +1,53 @@
+---
+// An article section: its heading (the table of contents' anchor), paragraphs, and an optional list or table; or, for
+// a section written as an ordered body, its paragraphs, subheadings, lists, tables and figures in the writer's order.
+import { variants, type ProseBlock, type ProseList, type ProsePart, type ProseTable } from '../../lib/authoring';
+import ProcessBlockView from '../blocks/ProcessBlock.astro';
+import ArticleChart from './ArticleChart.astro';
+import InlineText from './InlineText.astro';
+
+interface Props { block: ProseBlock }
+const { block } = Astro.props;
+const parts: ProsePart[] = block.body ?? [
+  ...block.paragraphs.map((text) => ({ text })),
+  ...(block.list ? [{ list: block.list }] : []),
+  ...(block.table ? [{ table: block.table }] : []),
+];
+const listTag = (list: ProseList) => (list.ordered ? 'ol' : 'ul');
+// Steps are the site's process module, as on its pages, in the competitor's process style; an article has no photo
+// behind them, so a photo-backed style takes the numbered circles.
+const siteProcess = (variants as { process?: string }).process;
+const stepsVariant = siteProcess && siteProcess !== 'photo-cards' ? siteProcess : 'circles';
+const table = (part: ProsePart): ProseTable | undefined => ('table' in part ? part.table : undefined);
+---
+
+<section class="block block--prose" data-authoring-block="prose" data-block-id={block.id}>
+  <h2 id={block.anchor} class="prose__heading">{block.heading}</h2>
+  {parts.map((part) => {
+    if ('text' in part) return <p><InlineText text={part.text} /></p>;
+    if ('subheading' in part) return <h3 class="prose__subheading">{part.subheading}</h3>;
+    if ('list' in part) { const List = listTag(part.list); return <List class="prose__list">{part.list.items.map((item) => <li><InlineText text={item} /></li>)}</List>; }
+    if ('chart' in part && part.chart.kind === 'steps') return (
+      <div class="prose__steps">
+        <ProcessBlockView block={{ id: `${block.id}-steps`, type: 'process', steps: part.chart.items.map((item) => (item.detail ? { heading: item.label, text: item.detail } : item.label)) }} variant={stepsVariant} />
+        {part.chart.caption && <p class="prose__steps-caption">{part.chart.caption}</p>}
+      </div>
+    );
+    if ('chart' in part) return <ArticleChart chart={part.chart} />;
+    if ('figure' in part) return (
+      <figure class="prose__figure">
+        <img src={part.figure.src} srcset={part.figure.srcset} sizes="(min-width: 960px) 760px, 100vw" alt={part.figure.alt} width={part.figure.width} height={part.figure.height} loading="lazy" decoding="async" />
+        {part.figure.caption && <figcaption>{part.figure.caption}</figcaption>}
+      </figure>
+    );
+    const rows = table(part);
+    return rows && (
+      <div class="prose__table" data-scroll="sideways" role="region" tabindex="0" aria-label={rows.columns.filter(Boolean).join(', ') || 'Table'}>
+        <table>
+          <thead><tr>{rows.columns.map((column) => <th scope="col">{column}</th>)}</tr></thead>
+          <tbody>{rows.rows.map((row) => <tr>{row.map((cell) => <td><InlineText text={cell} /></td>)}</tr>)}</tbody>
+        </table>
+      </div>
+    );
+  })}
+</section>

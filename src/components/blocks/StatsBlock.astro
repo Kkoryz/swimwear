@@ -1,0 +1,32 @@
+---
+// Key figures. Variants after the reference's figure modules: row (figures side by side, the default), trust-bar (a
+// dark full-width bar of figures), tiles (a tinted tile per figure with a round mark), lines (a label column and a line
+// per figure), kv (a dark card, one row per figure: label left, value right).
+import { gridPlan, type StatsBlock } from '../../lib/authoring';
+import Eyebrow from './Eyebrow.astro';
+import InlineText from '../blog/InlineText.astro';
+
+interface Props { block: StatsBlock; variant?: string }
+const { block, variant = 'row' } = Astro.props;
+const grid = gridPlan(block.items.length, 5);
+// A value that is a phrase rather than a figure is set as text, not as a big number.
+const wordy = block.items.some((item) => `${item.value} ${item.unit ?? ''}`.trim().length > 24);
+---
+
+<section class="block block--stats" data-authoring-block="stats" data-block-id={block.id} data-variant={variant} data-boundary-anchor={variant === 'trust-bar' ? 'box' : undefined}>
+  <div class="container">
+    <Eyebrow text={block.eyebrow} />
+    {block.heading && <h2 class="stats__heading">{block.heading}</h2>}
+    {block.paragraphs?.map((paragraph) => <p class="block__lead"><InlineText text={paragraph} /></p>)}
+    <dl class="stats" data-layout={variant === 'kv' || variant === 'lines' ? 'list' : 'equal-grid'} data-columns={grid.columns} data-values={wordy ? 'wordy' : undefined} data-notes={block.items.some((item) => item.note) ? 'true' : undefined} style={variant === 'kv' || variant === 'lines' ? undefined : grid.style}>
+      {block.items.map((item, index) => (
+        <div class="stats__item" style={variant === 'kv' || variant === 'lines' ? undefined : grid.itemStyle(index)}>
+          {variant === 'tiles' && <span class="stats__mark" aria-hidden="true"></span>}
+          <dt class="stats__value">{item.value}{item.unit && <span class="stats__unit"> {item.unit}</span>}</dt>
+          <dd class="stats__label">{item.label}</dd>
+          {item.note && <dd class="stats__note"><InlineText text={item.note} /></dd>}
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

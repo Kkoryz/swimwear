@@ -1,0 +1,22 @@
+---
+// Visible breadcrumb trail (the same trail the BreadcrumbList JSON-LD describes); home pages have none.
+import { breadcrumbTrail } from '../../../scripts/lib/seo-head.mjs';
+import { builtRoutes, siteNav, type AuthoringPage } from '../../lib/authoring';
+import SmartLink from './SmartLink.astro';
+
+interface Props { page: AuthoringPage }
+const { page } = Astro.props;
+const trail = breadcrumbTrail(page, siteNav, builtRoutes);
+---
+
+{trail.length >= 2 && (
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol class="container breadcrumbs__list">
+      {trail.map((crumb, index) => (
+        <li class="breadcrumbs__item">
+          {index === trail.length - 1 ? <span aria-current="page">{crumb.name}</span> : <SmartLink href={crumb.route}>{crumb.name}</SmartLink>}
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}

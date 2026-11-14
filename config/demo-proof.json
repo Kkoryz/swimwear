@@ -1,0 +1,244 @@
+{
+  "schemaVersion": "seo-site-demo-proof-v1",
+  "note": "Stand-in proof for a new site (the owner, 2026-09-26: show the proof modules now, replace with real, permitted values before launch). Every name is invented and belongs to no real brand or person. scripts/scaffold-site-proof.mjs builds src/data/site-proof.json from it and the site's approved facts; pnpm proof:signoff lists it for the owner's sign-off. No person is named (owner 2026-10-24: invented contacts carry no names): a testimonial is signed by the client's role. A case names its client by role, city and country (customers), never a brand name, and a service page has a case about its service (serviceCaseStudies; owner 2026-10-30).",
+  "headings": {
+    "factory": "Our factory in figures",
+    "certifications": "Certified production",
+    "clients": "Brands we make for",
+    "caseStudies": "Client projects",
+    "testimonials": "What buyers say",
+    "history": "Our story",
+    "terms": "Order terms at a glance",
+    "orderRoutes": "Ways to start your order"
+  },
+  "certificates": [
+    "OEKO-TEX Standard 100",
+    "GOTS",
+    "GRS",
+    "Better Cotton (BCI)",
+    "ISO 9001",
+    "WRAP",
+    "amfori BSCI",
+    "SA8000",
+    "bluesign",
+    "Sedex"
+  ],
+  "certificateAliases": {
+    "BCI": "Better Cotton (BCI)",
+    "BSCI": "amfori BSCI",
+    "OEKO-TEX": "OEKO-TEX Standard 100"
+  },
+  "factory": [
+    {
+      "value": "150,000 pcs",
+      "label": "{product} pieces a month",
+      "measure": "([\\d,]+) (?:pieces|pcs)\\b[^.]*\\b(?:a|per) month",
+      "unit": " pcs"
+    },
+    {
+      "value": "12",
+      "label": "sewing lines",
+      "measure": "([\\d,]+) (?:sewing|production) lines"
+    },
+    {
+      "value": "280",
+      "label": "staff, 18 in design and patterns",
+      "measure": "([\\d,]+) (?:staff|people|employees|workers)\\b"
+    }
+  ],
+  "history": [
+    {
+      "after": 0,
+      "event": "Factory founded in {location}, with four sewing lines"
+    },
+    {
+      "after": 3,
+      "event": "Design and pattern room opened for OEM and ODM development"
+    },
+    {
+      "after": 6,
+      "event": "Second production building and a fabric inspection room"
+    },
+    {
+      "after": 9,
+      "event": "Ready-stock {product} for wholesale buyers"
+    },
+    {
+      "after": 12,
+      "event": "Recycled and organic fabric programmes for private-label brands"
+    }
+  ],
+  "clients": [
+    {
+      "name": "Northfold Basics",
+      "country": "UK"
+    },
+    {
+      "name": "Lune & Lark",
+      "country": "France"
+    },
+    {
+      "name": "Softmere",
+      "country": "USA"
+    },
+    {
+      "name": "Kiri Studio",
+      "country": "Japan"
+    },
+    {
+      "name": "Harbour Knit Co.",
+      "country": "Australia"
+    },
+    {
+      "name": "Velda",
+      "country": "Germany"
+    }
+  ],
+  "people": [
+    {
+      "author": "Founder",
+      "country": "France"
+    },
+    {
+      "author": "Head of product",
+      "country": "United Kingdom"
+    },
+    {
+      "author": "Buyer",
+      "country": "Japan"
+    }
+  ],
+  "testimonials": [
+    {
+      "headline": "Samples that match the tech pack",
+      "quote": "Our {product} samples matched the tech pack on the second round, and the bulk order followed the approved sample."
+    },
+    {
+      "headline": "Clear on price, clear on dates",
+      "quote": "Every quote listed the sample, pattern and bulk costs separately, and our {product} order shipped inside the agreed window."
+    },
+    {
+      "headline": "Room to start small",
+      "quote": "We started with a small first order of {product} to test the market and reordered the same styles within a season."
+    }
+  ],
+  "caseStudies": [
+    {
+      "title": "A private-label {product} range from tech pack to reorder",
+      "summary": "{Product} styles developed from the brand's tech packs, graded across the size range and approved in two sample rounds before bulk.",
+      "results": [
+        {
+          "value": "1,800",
+          "label": "pieces in the first order"
+        },
+        {
+          "value": "2",
+          "label": "sample rounds"
+        },
+        {
+          "value": "38 days",
+          "label": "bulk production"
+        }
+      ]
+    },
+    {
+      "title": "{Product} in six colourways",
+      "summary": "A core {product} programme with the brand's own labels and retail packs, sampled once and repeated each season.",
+      "results": [
+        {
+          "value": "6",
+          "label": "colourways"
+        },
+        {
+          "value": "4,200",
+          "label": "pieces a season"
+        },
+        {
+          "value": "3",
+          "label": "repeat orders"
+        }
+      ]
+    },
+    {
+      "title": "A capsule launch in {product}",
+      "summary": "A small first run of {product} in the brand's own designs, with colour samples approved before production.",
+      "results": [
+        {
+          "value": "4",
+          "label": "styles in the capsule"
+        },
+        {
+          "value": "600",
+          "label": "pieces in the launch"
+        },
+        {
+          "value": "12 days",
+          "label": "sample to approval"
+        }
+      ]
+    }
+  ],
+  "customers": [
+    { "role": "Independent {line} label founder", "city": "Sydney", "country": "Australia" },
+    { "role": "Resort boutique owner", "city": "Miami", "country": "USA" },
+    { "role": "Online {line} retailer", "city": "London", "country": "UK" },
+    { "role": "Department store buyer", "city": "Toronto", "country": "Canada" },
+    { "role": "Designer launching a first collection", "city": "Paris", "country": "France" },
+    { "role": "Wholesale distributor", "city": "Dubai", "country": "UAE" }
+  ],
+  "serviceCaseStudies": [
+    {
+      "title": "{Service} for a first collection",
+      "summary": "{Service} brought in from the first sample round and approved before bulk production.",
+      "results": [
+        { "value": "2", "label": "sample rounds" },
+        { "value": "600", "label": "pieces in the launch" },
+        { "value": "5 weeks", "label": "brief to shipment" }
+      ]
+    },
+    {
+      "title": "{Service} carried through every reorder",
+      "summary": "{Service} set up once and kept the same across each reorder of the range.",
+      "results": [
+        { "value": "3", "label": "reorders" },
+        { "value": "8", "label": "styles" },
+        { "value": "1", "label": "approval round" }
+      ]
+    },
+    {
+      "title": "{Service} for a seasonal range",
+      "summary": "{Service} planned with the season's styles and delivered with the bulk order.",
+      "results": [
+        { "value": "6", "label": "styles" },
+        { "value": "1,500", "label": "pieces" },
+        { "value": "6 weeks", "label": "brief to shipment" }
+      ]
+    }
+  ],
+  "terms": [
+    {
+      "label": "Minimum order",
+      "fact": "moq"
+    },
+    {
+      "label": "Samples",
+      "fact": "sample-time"
+    },
+    {
+      "label": "Sample and pattern fees",
+      "fact": "sample-fee"
+    },
+    {
+      "label": "Bulk production",
+      "fact": "lead-time"
+    },
+    {
+      "label": "Inspection",
+      "fact": "third-party-inspection"
+    },
+    {
+      "label": "Shipping terms",
+      "fact": "trade-terms"
+    }
+  ]
+}

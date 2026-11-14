@@ -1,0 +1,55 @@
+---
+// Certificates the production holds (the owner's proof, src/data/site-proof.json), as the SEO-strong manufacturer sites
+// show them: a wall of logos, each with the certificate's name as text (buyers and search engines read the name, not
+// only an image). The certifier's logo is added once the certificate is held; until then a seal mark stands in.
+// Issuer, scope, number and validity show when the owner gives them. Variant grid (the cards in rows) or strip (one
+// sliding row with controls, Track.astro, as a competitor's certificate slider).
+import type { CertificationsBlock } from '../../lib/authoring';
+import BlockSection from './BlockSection.astro';
+import Track from './Track.astro';
+
+interface Props { block: CertificationsBlock; variant?: string }
+const { block, variant = 'grid' } = Astro.props;
+const strip = variant === 'strip';
+// The seal that stands in for a certifier's logo not yet given.
+const SEAL = '<svg class="certification__seal" viewBox="0 0 24 24" width="44" height="44" aria-hidden="true"><path d="M12 2l2.4 2.1 3.2-.3.9 3.1 2.8 1.6-1.1 3 1.1 3-2.8 1.6-.9 3.1-3.2-.3L12 22l-2.4-2.1-3.2.3-.9-3.1-2.8-1.6 1.1-3-1.1-3 2.8-1.6.9-3.1 3.2.3z" fill="none" stroke="currentColor" stroke-width="1.3" /><path d="M8.5 12.2l2.3 2.3 4.7-4.8" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>';
+---
+
+<BlockSection block={block} name="certifications" headingClass="certifications__heading">
+  {strip ? (
+    <div class="certifications-strip" data-variant="strip">
+      <Track label={block.heading ?? 'Certifications'} count={block.items.length}>
+        {block.items.map((item, index) => (
+          <li class="track__item certification" aria-label={`${index + 1} / ${block.items.length}`}>
+            {item.logo
+              ? <img class="certification__logo" src={item.logo.src} alt={item.logo.alt || item.name} width={item.logo.width} height={item.logo.height} loading="lazy" decoding="async" />
+              : <Fragment set:html={SEAL} />}
+            <p class="certification__name">{item.name}</p>
+            {item.issuer && <p class="certification__issuer">{item.issuer}</p>}
+            {item.url && <a class="certification__verify" href={item.url} rel="noopener">Verify certificate</a>}
+          </li>
+        ))}
+      </Track>
+    </div>
+  ) : (
+    <ul class="certifications" data-layout="certifications">
+      {block.items.map((item) => (
+        <li class="certification">
+          {item.logo
+            ? <img class="certification__logo" src={item.logo.src} alt={item.logo.alt || item.name} width={item.logo.width} height={item.logo.height} loading="lazy" decoding="async" />
+            : <Fragment set:html={SEAL} />}
+          <p class="certification__name">{item.name}</p>
+          {item.issuer && <p class="certification__issuer">{item.issuer}</p>}
+          {item.scope && <p class="certification__scope">{item.scope}</p>}
+          {(item.number || item.validUntil) && (
+            <dl class="certification__facts">
+              {item.number && <><dt>No.</dt><dd>{item.number}</dd></>}
+              {item.validUntil && <><dt>Valid until</dt><dd>{item.validUntil}</dd></>}
+            </dl>
+          )}
+          {item.url && <a class="certification__verify" href={item.url} rel="noopener">Verify certificate</a>}
+        </li>
+      ))}
+    </ul>
+  )}
+</BlockSection>

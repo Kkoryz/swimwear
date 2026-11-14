@@ -1,0 +1,39 @@
+---
+import { iconListLayout } from '../../../scripts/lib/block-layout.mjs';
+import type { IconListBlock } from '../../lib/authoring';
+import Eyebrow from './Eyebrow.astro';
+import InlineText from '../blog/InlineText.astro';
+import TextFlow from './TextFlow.astro';
+
+interface Props { block: IconListBlock; variant?: string }
+const { block, variant = 'checks' } = Astro.props;
+// Columns, notes and the split beside an introduction (scripts/lib/block-layout.mjs, shared with the layout plan).
+const { hasIntro, layout, listed, notes, columns } = iconListLayout(block);
+---
+
+<section class="block block--icon-list" data-authoring-block="iconList" data-block-id={block.id} data-variant={variant}>
+  <div class="container icon-list" data-layout={layout}>
+    {hasIntro && (
+      <div class="icon-list__intro">
+        <Eyebrow text={block.eyebrow} />
+        {block.heading && <h2>{block.heading}</h2>}
+        {block.paragraphs && <TextFlow paragraphs={block.paragraphs} />}
+      </div>
+    )}
+    <ul class="icon-list__items" data-columns={columns}>
+      {[...listed, ...notes].map((item) => (
+        <li class:list={['icon-list__item', { 'icon-list__item--note': notes.includes(item) }]} data-explicit-span={notes.includes(item) ? 'true' : undefined}>
+          <svg class="icon-list__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            {variant === 'icons'
+              ? <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2" />
+              : <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />}
+          </svg>
+          <div>
+            {item.heading && <h3>{item.heading}</h3>}
+            <p><InlineText text={item.text} /></p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

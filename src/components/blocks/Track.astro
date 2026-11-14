@@ -1,0 +1,64 @@
+---
+// A row of items that slides sideways (a carousel): the items in one scroll-snapped row, previous and next buttons and a
+// dot per item. Every item stays in the page (readers, search engines and the review see them all); nothing moves by
+// itself. Without its script the row still scrolls by hand and the controls stay hidden; when every item fits, the
+// controls hide too (data-fits). The slot holds <li class="track__item"> elements. Look: the --carousel-* hooks.
+interface Props { label: string; count: number }
+const { label, count } = Astro.props;
+---
+
+<div class="track" data-layout="carousel" data-track role="region" aria-roledescription="carousel" aria-label={label}>
+  <div class="track__viewport" tabindex="0" data-scroll="sideways">
+    <ul class="track__items"><slot /></ul>
+  </div>
+  <div class="track__controls">
+    <button type="button" class="track__button" data-track-prev aria-label="Previous">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+    </button>
+    <ol class="track__dots" aria-hidden="true">
+      {Array.from({ length: count }, (_, index) => <li class="track__dot" data-track-dot={index}></li>)}
+    </ol>
+    <button type="button" class="track__button" data-track-next aria-label="Next">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+    </button>
+  </div>
+</div>
+<script is:inline>
+  (() => {
+    for (const root of document.querySelectorAll('[data-track]:not([data-track-ready])')) {
+      root.setAttribute('data-track-ready', '');
+      const viewport = root.querySelector('.track__viewport');
+      const items = [...root.querySelectorAll('.track__item')];
+      const dots = [...root.querySelectorAll('[data-track-dot]')];
+      const [previous, next] = ['[data-track-prev]', '[data-track-next]'].map((selector) => root.querySelector(selector));
+      const step = () => (items[1] ? items[1].offsetLeft - items[0].offsetLeft : viewport.clientWidth);
+      // Whole items only: a row that does not hold every item shows a whole number of them (site10's third testimonial
+      // was cut in half at the edge), each at most 15% narrower than its own width, else wider.
+      const fit = () => {
+        root.style.removeProperty('--carousel-item-width');
+        if (!items[0]) return;
+        const width = items[0].getBoundingClientRect().width;
+        const gap = parseFloat(getComputedStyle(items[0].parentElement).columnGap) || 0;
+        const room = viewport.clientWidth;
+        if (items.length * width + (items.length - 1) * gap <= room + 1) return;
+        const shown = Math.max(1, Math.min(items.length, Math.floor((room + gap) / (width * 0.85 + gap))));
+        root.style.setProperty('--carousel-item-width', `${(room - (shown - 1) * gap) / shown}px`);
+      };
+      const update = () => {
+        const end = viewport.scrollWidth - viewport.clientWidth;
+        root.toggleAttribute('data-fits', end <= 1);
+        previous.disabled = viewport.scrollLeft <= 1;
+        next.disabled = viewport.scrollLeft >= end - 1;
+        const current = next.disabled ? dots.length - 1 : Math.round(viewport.scrollLeft / Math.max(1, step()));
+        dots.forEach((dot, index) => dot.toggleAttribute('data-current', index === current));
+      };
+      const move = (direction) => viewport.scrollBy({ left: direction * step(), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      previous.addEventListener('click', () => move(-1));
+      next.addEventListener('click', () => move(1));
+      viewport.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+      addEventListener('resize', () => { fit(); update(); });
+      fit();
+      update();
+    }
+  })();
+</script>

@@ -1,0 +1,385 @@
+/* Reusable authoring components. Values come from tokens in global.css; variants come from
+   src/data/template-variants.json through data-variant attributes. */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--size-body);
+  line-height: var(--line-body);
+  color: var(--text-primary);
+}
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container-max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+main[data-authoring-page] h1,
+main[data-authoring-page] h2,
+/* Headings wrap between words in balanced lines; only a word too long for its column breaks (never "re-cycled"
+   hyphenation of an ordinary word). Paragraphs avoid a last line of one word. */
+main[data-authoring-page] h3 { margin: 0; overflow-wrap: break-word; hyphens: manual; text-wrap: balance; }
+main[data-authoring-page] p { margin: 0; text-wrap: pretty; }
+main[data-authoring-page] img { display: block; max-width: 100%; }
+
+/* Placeholders stay identifiable (data-placeholder, the page badge, [Placeholder] copy) without breaking the layout. */
+.placeholder-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem !important;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  /* Its own colours, so it reads on any surface or photo (whatever a treatment gives the hero's text). */
+  background: #ffffff !important;
+  color: #1f2937 !important;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.12);
+  font-family: var(--font-ui);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.placeholder-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+/* A page that is not built yet is named as plain text: it must not look like a link a site treatment styled. */
+[data-route-status="planned"] { cursor: default; color: inherit !important; text-decoration: none !important; }
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-button);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.button--primary { background: var(--accent); color: var(--accent-contrast); }
+.button--primary:hover { background: var(--surface-dark); color: var(--text-inverse); }
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--surface-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+.site-header__brand-row { padding-block: 0.75rem; border-bottom: 1px solid var(--border-color); }
+.site-header__bar { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: var(--header-height); }
+.site-header__cta { display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; border-radius: var(--radius-pill, 999px); background: var(--accent); color: var(--accent-contrast); font-family: var(--font-ui); font-weight: 500; text-decoration: none; white-space: nowrap; }
+@media (max-width: 1023px) { .site-header__cta { display: none; } }
+.site-header__brand { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--text-primary); text-decoration: none; white-space: nowrap; }
+.site-header__brand img { display: block; height: 40px; width: auto; }
+.site-nav__list { display: flex; gap: 0.25rem; margin: 0; padding: 0; list-style: none; }
+.site-nav__item { position: static; }
+.site-nav__link {
+  display: block;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-ui);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  text-transform: var(--nav-transform, none);
+}
+.site-nav__item:hover > .site-nav__link,
+.site-nav__item:focus-within > .site-nav__link { color: var(--accent); }
+.site-nav__panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  display: none;
+  padding-block: 1.5rem;
+  background: var(--surface-primary);
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 16px 32px rgb(0 0 0 / 0.08);
+  max-height: calc(100vh - var(--header-height));
+  overflow-y: auto;
+}
+.site-nav__item:hover > .site-nav__panel,
+.site-nav__item:focus-within > .site-nav__panel { display: block; }
+.site-nav__columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem 2rem;
+  max-width: calc(var(--container-max) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  list-style: none;
+}
+.site-nav__columns ul { margin: 0.5rem 0 0; padding: 0; list-style: none; }
+.site-nav__group-link { font-family: var(--font-ui); font-weight: 700; font-size: 0.9375rem; color: var(--text-primary); text-decoration: none; }
+.site-nav__sublink { display: block; padding: 0.2rem 0 0.2rem calc(var(--nav-depth, 0) * 0.75rem); font-size: 0.875rem; color: var(--text-muted); text-decoration: none; }
+.site-nav a:hover { color: var(--accent); }
+.site-menu { display: none; }
+
+@media (max-width: 1023px) {
+  .site-nav { display: none; }
+  .site-menu { display: block; }
+  .site-menu > summary { list-style: none; cursor: pointer; padding: 0.5rem; }
+  .site-menu > summary::-webkit-details-marker { display: none; }
+  .site-menu__panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    max-height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+    padding: 0.5rem var(--gutter) 1.5rem;
+    background: var(--surface-primary);
+    border-top: 1px solid var(--border-color);
+  }
+  .site-menu__panel ul { margin: 0; padding: 0; list-style: none; }
+  .site-menu__panel li > a,
+  .site-menu__panel li > span,
+  .site-menu__panel summary { display: block; padding: 0.625rem 0 0.625rem calc(var(--nav-depth, 0) * 0.875rem); font-family: var(--font-ui); color: var(--text-primary); text-decoration: none; border-bottom: 1px solid var(--border-color); }
+  .site-menu__panel summary { cursor: pointer; font-weight: 600; }
+}
+
+/* Hero */
+.page-hero { position: relative; overflow: hidden; background: var(--surface-secondary); }
+/* --hero-align (start, center): where the copy sits over the photo (a competitor's centred title strip); --size-lead:
+   the lead's size; --hero-min-height: the overlay hero's height (a compact inner-page strip: 188px). */
+.page-hero__inner { position: relative; display: grid; gap: 2.5rem; align-items: center; justify-items: var(--hero-align, stretch); padding-block: clamp(3rem, 7vw, 6rem); }
+.page-hero__copy { display: grid; gap: 1.25rem; justify-items: var(--hero-align, start); max-width: var(--hero-copy-max, 46rem); text-align: var(--hero-align, start); }
+.page-hero h1 { font-family: var(--font-hero); font-size: min(var(--size-hero), var(--heading-fit, var(--size-hero))); font-weight: var(--weight-heading); line-height: 1.15; }
+/* A title sized to its words (scripts/lib/heading-fit.mjs): the box around it carries the title's line width in ems
+   at its line limit (two lines on a desktop, four on a phone) and the floor, and is the size container, so
+   --heading-fit is the largest size at which the title keeps to its lines in the box's real width, never below the
+   floor; the competitor's size stays the ceiling. A hero's copy column widens (up to the container) as far as the
+   floor needs. A page title is never below a step over the site's section headings (--fit-above: the competitor's
+   40px h2 sat over a long title held at the 36px floor, the order upside down). On a phone the title keeps its four
+   lines and the section headings come down to it instead (.block h2 --section-cap: at their size, ten-word titles
+   took five lines). */
+[data-heading-fit] { container-type: inline-size; --fit-ems: var(--fit-ems-desktop); --fit-min: max(var(--fit-min-desktop), var(--fit-above, 0px)); --heading-fit: max(var(--fit-min), 100cqi / var(--fit-ems)); }
+@media (max-width: 767px) { [data-heading-fit] { --fit-ems: var(--fit-ems-phone); --fit-min: max(var(--fit-min-phone), var(--fit-above, 0px)); --fit-above-step: 0; } }
+.page-hero__copy[data-heading-fit] { --fit-above: calc(var(--size-display) * var(--fit-above-step, 1.125)); width: 100%; max-width: max(var(--hero-copy-max, 46rem), var(--fit-ems) * min(var(--size-hero), var(--fit-min))); }
+.page-hero__lead { font-size: var(--size-lead, 1.125rem); }
+/* Over a photo the lead is set in the title's face, at its regular weight: the body's serif under a bold capital sans
+   read as two voices on the hotel home's hero (owner 2026-11-12: "文字tone很奇怪"; the competitor's mastheads carry
+   their title alone). */
+.page-hero[data-variant="media-overlay"] .page-hero__lead { font-family: var(--font-hero); font-weight: 400; letter-spacing: 0.01em; }
+/* A lead too long for the photo opens the page under the hero (PageView.astro), on the section headings' axis. */
+.page-lead { max-width: min(46rem, 68ch); margin-inline: var(--lead-inline, auto); text-align: var(--lead-align, center); font-size: var(--size-lead, 1.125rem); line-height: 1.6; }
+.page-lead + .page-lead { margin-top: 0.75rem; }
+.page-hero[data-variant="media-overlay"] { color: var(--text-inverse); background: var(--surface-dark); }
+.page-hero[data-variant="media-overlay"] .page-hero__inner { min-height: var(--hero-min-height, clamp(360px, 42vw, 560px)); }
+.page-hero__backdrop { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--hero-focal, center); }
+.page-hero[data-variant="media-overlay"]::before { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--hero-overlay, rgb(0 0 0 / 0.45)); }
+.page-hero[data-variant="media-overlay"] .page-hero__inner { z-index: 2; }
+@media (min-width: 900px) { .page-hero[data-variant="media-split"] .page-hero__inner { grid-template-columns: 1.1fr 1fr; } }
+.page-hero[data-variant="media-banner"] { background: var(--surface-primary); }
+/* A banner is never taller than its photo can fill: at most the height that still shows 60% of it (the audit's
+   heavy_crop), whatever height a treatment asks for; a taller phone banner needs a portrait photo (art direction). */
+.page-hero__banner { --hero-fit-ratio: var(--hero-photo-ratio, 0.01); margin: 0; height: min(var(--hero-banner-height, clamp(220px, 26vw, 372px)), calc(100vw / var(--hero-fit-ratio) / 0.6)); overflow: hidden; }
+@media (max-width: 767px) { .page-hero__banner { --hero-fit-ratio: var(--hero-phone-ratio, var(--hero-photo-ratio, 0.01)); } }
+/* A phone photo of its own (art direction: cut to the competitor's phone hero shape) is the banner's shape on phones,
+   whatever height the treatment gives the desktop banner. */
+/* (min-width 0: a minimum height set on it would otherwise turn into a minimum width through the ratio, wider than the
+   phone.) */
+@media (max-width: 767px) { .page-hero__banner[data-phone-photo] { height: auto; aspect-ratio: var(--hero-phone-ratio); min-width: 0; max-width: 100%; } }
+/* So does a closing band's photo panel: at least the photo's shape (taller when the copy needs it). */
+@media (max-width: 767px) { .cta[data-phone-photo] { aspect-ratio: var(--cta-phone-ratio); min-width: 0; max-width: 100%; } }
+.page-hero__banner img { width: 100%; height: 100%; object-fit: cover; object-position: var(--hero-focal, center); }
+/* The copy under the banner is set one way, box and text alike: centred, or on the content's left edge on a site whose
+   section headings start there (hotel-rm 2026-11-14: the box centred and the text flush put the title 18px off its lead
+   and the button under the middle of left-set text). */
+.page-hero[data-variant="media-banner"] { --banner-align: var(--hero-align, center); }
+body[data-heading-align="start"] .page-hero[data-variant="media-banner"] { --banner-align: var(--hero-align, start); }
+.page-hero[data-variant="media-banner"] .page-hero__inner { padding-block: clamp(2rem, 4vw, 3rem) 0; justify-items: var(--banner-align); text-align: var(--banner-align); }
+.page-hero[data-variant="media-banner"] .page-hero__copy { justify-items: var(--banner-align); text-align: var(--banner-align); }
+
+/* Media boxes: an explicit ratio, crop and focal point so an asset never leaves an empty band. */
+.media-box { margin: 0; aspect-ratio: var(--media-ratio, 4 / 3); overflow: hidden; border-radius: var(--radius-media); background: var(--surface-secondary); }
+.media-box img { width: 100%; height: 100%; object-fit: cover; object-position: var(--media-focal, center); }
+
+/* Block rhythm: every block owns half of the gap on each side, so two neighbours never add up. */
+.block { padding-block: calc(var(--section-space) / 2); }
+.page-hero + .block { padding-top: var(--section-space); }
+.block:last-child { padding-bottom: var(--section-space); }
+/* A section going on in a block of its own (data-continues: a card set in grids of four) is one section: the grids
+   part by the cards' own gap, not a section's (the hotel hub's thirteen entry cards read as four sections). */
+.block:has(+ .block[data-continues]) { padding-bottom: calc(var(--grid-gap, 1.5rem) / 2); }
+.block[data-continues] { padding-top: calc(var(--grid-gap, 1.5rem) / 2); }
+.block h2 { font-family: var(--font-display); font-size: min(var(--size-display), var(--section-cap, var(--size-display))); font-weight: var(--weight-heading); line-height: 1.25; }
+/* On a phone the page title keeps to its four lines (heading-fit) and the section headings stay at or under it: main
+   carries the title's phone line width in ems (PageView.astro --title-ems-phone), and the title's box is about the
+   column's width there, so its size is known here (a hair under it, for a box a little narrower). */
+@media (max-width: 767px) {
+  main[style*="--title-ems-phone"] { --section-cap: calc(max(var(--title-min-phone, 24px), (100vw - 2 * var(--gutter)) / var(--title-ems-phone)) * 0.95); }
+}
+.text-block, .split__copy { display: grid; gap: 1rem; }
+.text-block { max-width: 52rem; }
+.text-block[data-density="long"] { max-width: 60rem; }
+
+.split { display: grid; gap: clamp(1.5rem, 4vw, 4rem); align-items: center; }
+@media (min-width: 900px) {
+  .split[data-layout="split"] { grid-template-columns: 1fr 1fr; }
+  /* The photos' column moves, not a photo inside it (alternating rows put it before the copy). */
+  .split[data-side="media-start"] .split__media-set { order: -1; }
+  /* Photo and copy share their edges: the photo runs the copy's height (cut, never stretched) and a copy shorter than
+     the photo sits level with its middle. A photo of a fixed shape beside copy of any length left half the column
+     empty or stood a third over the text (the hotel site's service rows: a 364px photo by 218-719px of copy). */
+  /* The photo grows no taller than 1.25 times its column's width (a landscape photo still shows more than half of
+     itself: heavy_crop); copy longer than that keeps the photo beside it as it is read (sticky). */
+  .block--split:not([data-variant="stacked"]) .split[data-layout="split"] > .split__media-set { align-self: stretch; grid-template-rows: 1fr; container-type: inline-size; }
+  .block--split:not([data-variant="stacked"]) .split[data-layout="split"] > .split__media-set > .split__media { width: 100%; height: 100%; max-height: 125cqi; position: sticky; top: 6rem; }
+  .block--split:not([data-variant="stacked"]) .split[data-layout="split"] > .split__media-set > .split__media img { width: 100%; height: 100%; object-fit: cover; }
+  .block--split:not([data-variant="stacked"]) .split[data-layout="split"] > .split__copy { align-self: center; }
+  /* A copy panel (the panel variant: copy on its own background) runs the row's height and centres its text inside, so
+     panel and photo share both edges (hotel-rm's about page: a navy panel 44px short of its photo at top and foot). */
+  .block--split[data-variant="panel"] .split[data-layout="split"] > .split__copy { align-self: stretch; display: grid; align-content: center; }
+}
+
+.feature-grid { display: grid; gap: var(--grid-gap); grid-template-columns: 1fr; }
+@media (min-width: 768px) { .feature-grid { grid-template-columns: repeat(var(--grid-columns, 2), minmax(0, 1fr)); } }
+.feature-grid[data-columns="3"] { --grid-columns: 3; }
+.feature-grid[data-columns="4"] { --grid-columns: 2; }
+@media (min-width: 1200px) { .feature-grid[data-columns="4"] { --grid-columns: 4; } }
+.feature-card { display: grid; align-content: start; gap: 0.875rem; padding: clamp(1.25rem, 2.5vw, 2rem); border-radius: var(--radius-card); }
+.feature-grid { margin: 0; padding: 0; list-style: none; }
+.feature-card__title { font-size: var(--size-card-heading); }
+/* A card title fits its card at every width: a long word ("Construction") is hyphenated at a proper break, never cut
+   at an arbitrary letter or widening the page. (No container query here: its containment would switch off the
+   subgrid that aligns card rows.) */
+.feature-grid .feature-card .feature-card__title { overflow-wrap: break-word; hyphens: auto; }
+[data-variant="outlined"] .feature-card { border: 1px solid var(--border-color); background: var(--surface-primary); }
+[data-variant="plain"] .feature-card { padding: 0; border: 0; border-radius: 0; background: transparent; }
+
+
+.block--proof .text-block { padding: clamp(1.5rem, 4vw, 3rem); border-radius: var(--radius-card); max-width: none; }
+[data-variant="band"] .text-block { background: var(--surface-secondary); }
+[data-variant="panel"] .text-block { border: 1px solid var(--border-color); border-left: 4px solid var(--accent); }
+[data-variant="dark"] .text-block { background: var(--surface-dark); color: var(--text-inverse); }
+
+.faq { display: grid; gap: 1.5rem; }
+.faq__items { display: grid; gap: 0.75rem; }
+.faq__item { border: 1px solid var(--border-color); border-radius: var(--radius-card); background: var(--surface-primary); }
+.faq__item summary { display: flex; justify-content: space-between; gap: 1rem; padding: 1.125rem 1.25rem; cursor: pointer; list-style: none; }
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after { content: "+"; font-family: var(--font-ui); font-size: 1.25rem; line-height: 1; color: var(--accent); }
+.faq__item[open] summary::after { content: "−"; }
+.faq__item h3 { font-family: var(--font-subheading); font-size: var(--size-subheading); font-weight: 600; line-height: 1.4; }
+.faq__item p { padding: 0 1.25rem 1.25rem; }
+@media (min-width: 900px) {
+  [data-variant="two-column"] .faq { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); align-items: start; }
+  /* The questions keep their column when the block goes on from the one before it (no heading of its own). */
+  [data-variant="two-column"] .faq > .faq__items { grid-column: 2; }
+}
+
+.cta { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 2rem; }
+[data-variant="band"] .cta, [data-variant="dark"] .cta { padding: clamp(1.5rem, 4vw, 2.5rem); border-radius: var(--radius-card); }
+[data-variant="band"] .cta { background: var(--surface-secondary); }
+[data-variant="dark"] .cta { background: var(--surface-dark); color: var(--text-inverse); }
+/* Links a finger taps on their own (the footer's columns, lists of pages): at least 24px tall, the WCAG 2.2 minimum
+   target size (the audit's tap_target). A link inside running text is exempt. */
+:is(.site-footer__links, .site-footer__legal, .related-links, .gallery__links) a { display: inline-flex; align-items: center; min-block-size: var(--tap-min, 24px); }
+.related-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 0; padding: 0; list-style: none; }
+.related-links__link { color: inherit; font-family: var(--font-ui); font-size: 0.9375rem; text-decoration: underline; text-underline-offset: 3px; }
+/* Under the band: each related page a bordered link, as many a row as fit. */
+.related-pages--grid { margin-top: clamp(1.25rem, 3vw, 2rem); }
+.related-pages--grid .related-links { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+@media (min-width: 600px) { .related-pages--grid .related-links { grid-template-columns: repeat(min(2, var(--related-columns, 2)), minmax(0, 1fr)); } }
+@media (min-width: 900px) { .related-pages--grid .related-links { grid-template-columns: repeat(var(--related-columns, 3), minmax(0, 1fr)); } }
+.block .related-pages--grid .related-links__link { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; height: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-card); color: var(--text-primary); text-decoration: none; }
+.block .related-pages--grid .related-links__link::after { content: "→"; flex: none; color: var(--accent-text, var(--accent)); }
+.block .related-pages--grid a.related-links__link:hover { border-color: var(--accent); }
+
+/* Footer */
+.site-footer { padding-block: 3rem 2rem; background: var(--surface-dark); color: var(--text-inverse); }
+.site-footer__grid { display: grid; gap: 1.5rem 3rem; }
+@media (min-width: 768px) { .site-footer__grid { grid-template-columns: 1.5fr 2fr 1fr; } }
+.site-footer__brand { align-self: start; justify-self: start; margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; }
+.site-footer__links { display: grid; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+.site-footer a { color: inherit; text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+
+/* Reading flow: verbatim sentences regrouped into a lead and short paragraphs. */
+.text-flow { display: grid; gap: 0.875rem; }
+.text-flow__runs { display: grid; gap: 0.875rem; }
+.text-flow__lead { font-size: 1.125em; line-height: 1.55; color: var(--heading-color, var(--text-primary)); }
+.text-block__copy { display: grid; gap: 1rem; }
+
+/* Intro gallery: a row of product photographs under the introduction. */
+.media-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--grid-gap); margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+@media (min-width: 768px) { .media-row[data-columns="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); } .media-row[data-columns="4"] { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 900px) {
+  [data-variant="gallery"] .text-block { max-width: none; }
+  [data-variant="gallery"] [data-density="long"] .text-flow__runs, [data-variant="gallery"] [data-density="standard"] .text-flow__runs { display: block; columns: 2; column-gap: 3rem; }
+  [data-variant="gallery"] .text-flow__runs p { break-inside: avoid; margin-bottom: 0.875rem; }
+}
+
+/* Cards with a photograph on top. */
+.feature-card__media { margin-bottom: 0.5rem; }
+
+/* Proof panel with a material photograph. */
+.text-block[data-layout="split"] { display: grid; gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
+@media (min-width: 900px) { .text-block[data-layout="split"] { grid-template-columns: 7fr 4fr; } }
+
+/* CTA image band: photograph, overlay, inverse text. */
+[data-variant="image-band"] .cta { position: relative; overflow: hidden; min-height: clamp(260px, 26vw, 380px); padding: clamp(2rem, 5vw, 4rem); color: var(--text-inverse); background: var(--surface-dark); }
+.cta__backdrop { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--cta-focal, center); }
+[data-variant="image-band"] .cta::after { content: ""; position: absolute; inset: 0; background: var(--cta-overlay, rgb(0 0 0 / 0.45)); }
+.cta__content { position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 2rem; }
+[data-variant="image-band"] .related-links__link { color: var(--text-inverse); }
+
+:root { --text-ink: var(--text-primary); --heading-ink: var(--heading-color, var(--text-primary)); --muted-ink: var(--text-muted); }
+
+/* Dark and photo surfaces: the text tokens switch to their inverse, and the text on them takes the inverse colour
+   over a site treatment's light-surface text colours (.block p, .block h2). A treatment that paints one of these
+   surfaces light again resets the tokens with `inherit`. */
+.page-hero[data-variant="media-overlay"], [data-variant="dark"] .text-block, [data-variant="dark"] .cta, [data-variant="image-band"] .cta, .block--band, .site-footer, .site-notice, .site-header__topbar {
+  --heading-color: var(--text-inverse);
+  --text-primary: var(--text-inverse);
+  --text-muted: var(--text-inverse-muted, rgb(255 255 255 / 0.78));
+  --text-muted-2: var(--text-inverse-muted, rgb(255 255 255 / 0.78));
+}
+:is([data-variant="dark"] .text-block, [data-variant="dark"] .cta, [data-variant="image-band"] .cta) :is(h2, h3, p, li, dt, dd) { color: var(--text-inverse); }
+/* Text over a photo: a soft shade right behind the copy keeps it readable wherever the photo is bright (the
+   reference's overlay was set for the reference's own photos). A treatment with dark text on a light photo sets
+   --text-scrim: transparent. (Turning it off by default left 44 to 850 texts per site below contrast, 2026-10-25.) */
+.page-hero[data-variant="media-overlay"] .page-hero__copy, [data-variant="image-band"] .cta__content { position: relative; isolation: isolate; }
+.page-hero[data-variant="media-overlay"] .page-hero__copy::before, [data-variant="image-band"] .cta__content::before { content: ""; position: absolute; inset: -14% -10%; z-index: -1; background: radial-gradient(farthest-side, var(--text-scrim, rgb(0 0 0 / 0.45)) 55%, transparent); pointer-events: none; }
+
+/* Gallery: equal image tiles, 3 or 4 per row, 2 on phones. */
+.gallery__heading { margin-bottom: 1.5rem !important; text-align: center; }
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--grid-gap); }
+@media (min-width: 768px) { .gallery[data-columns="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); } .gallery[data-columns="4"] { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.gallery__item { margin: 0; display: grid; gap: 0.5rem; }
+
+/* A plain hero is a page title, not a band: no fill, and it owns only half a section gap below. */
+.page-hero[data-variant="plain"] { background: transparent; }
+.page-hero[data-variant="plain"] .page-hero__inner { padding-block: calc(var(--section-space) / 2) 0; }
+
+/* Accessibility baseline (WCAG 2.2 AA): skip link, visible keyboard focus, reduced motion. */
+.skip-link { position: absolute; left: 0.75rem; top: -3rem; z-index: 100; padding: 0.5rem 1rem; background: var(--surface-primary); color: var(--text-primary); font-family: var(--font-ui); text-decoration: none; }
+.skip-link:focus { top: 0.75rem; }
+:where(a, button, summary, input, textarea, select):focus-visible { outline: 2px solid var(--focus-ring, var(--accent)); outline-offset: 2px; }
+img { height: auto; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Brand: the site logo (site-identity.json) at the header's logo height, never wider than --logo-max-width (a widely
+   spaced wordmark fits inside that box at its own proportions, so it never crowds the menu). */
+.site-header__brand { display: inline-flex; align-items: center; }
+.site-header__brand .site-header__logo { height: var(--logo-height, 40px); width: auto; max-width: var(--logo-max-width, min(16rem, 55vw)); object-fit: contain; object-position: left center; filter: var(--logo-filter, none); }
+
+/* Breadcrumbs: a slim trail above the hero. */
+.breadcrumbs { padding-block: 0.6rem; font-family: var(--font-ui); font-size: 0.8125rem; }
+.breadcrumbs__list { display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; margin: 0 auto; list-style: none; }
+.breadcrumbs__item + .breadcrumbs__item::before { content: "/"; margin-right: 0.5rem; opacity: 0.5; }
+.breadcrumbs a { color: inherit; text-decoration: none; }
+.breadcrumbs a:hover { color: var(--accent); }
+.breadcrumbs [aria-current="page"] { opacity: 0.75; }
+
+/* 404 page */
+.not-found__inner { display: grid; gap: 1rem; justify-items: start; padding-block: var(--section-space); }
+
+/* A text-only introduction is a centred reading column, not a column pinned left beside empty space. */
+.block--intro[data-variant="text"] .text-block { margin-inline: auto; }

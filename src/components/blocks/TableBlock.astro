@@ -1,0 +1,48 @@
+---
+// A comparison. Variants after the reference's table modules: grid (a bordered table, the default), checks (a cell that
+// says yes or no also shows a tick or a cross; the words stay), cards (one dark card per row: the first cell as its
+// title, the others as label/value lines).
+import { gridPlan, type TableBlock } from '../../lib/authoring';
+import Eyebrow from './Eyebrow.astro';
+import InlineText from '../blog/InlineText.astro';
+
+interface Props { block: TableBlock; variant?: string }
+const { block, variant = 'grid' } = Astro.props;
+// The cards follow their number (gridPlan): one card takes the row. Cards are read down their columns, so an odd last
+// one takes the whole row (patterns.css; centred, it broke both reading edges: the hotel site's style board).
+const grid = gridPlan(block.rows.length, 2);
+const mark = (cell: string) => (/^(yes|included|available)\b/i.test(cell.trim()) ? 'yes' : /^(no|not)\b/i.test(cell.trim()) ? 'no' : null);
+---
+
+<section class="block block--table" data-authoring-block="table" data-block-id={block.id} data-variant={variant}>
+  <div class="container">
+    <Eyebrow text={block.eyebrow} />
+    {block.heading && <h2 class="table-block__heading">{block.heading}</h2>}
+    {block.paragraphs?.map((paragraph) => <p class="table-block__lead"><InlineText text={paragraph} /></p>)}
+    {variant === 'cards' ? (
+      <ul class="table-cards" data-layout="equal-grid" data-columns={grid.columns} style={grid.style}>
+        {block.rows.map((row, index) => (
+          <li class="table-card">
+            <h3 class="table-card__title">{row[0]}</h3>
+            <dl class="table-card__rows">
+              {row.slice(1).map((cell, index) => (
+                <div class="table-card__row"><dt>{block.columns[index + 1]}</dt><dd>{cell}</dd></div>
+              ))}
+            </dl>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <div class="table-block__scroll" data-layout="table" data-scroll="sideways" role="region" tabindex="0" aria-label={block.heading ?? block.columns.join(', ')}>
+        <table class="table-block">
+          <thead><tr>{block.columns.map((column) => <th scope="col">{column}</th>)}</tr></thead>
+          <tbody>{block.rows.map((row) => <tr>{row.map((cell) => {
+            const tick = variant === 'checks' ? mark(cell) : null;
+            return <td data-mark={tick ?? undefined}>{tick && <span class="table-block__mark" aria-hidden="true">{tick === 'yes' ? '✓' : '✗'}</span>}<InlineText text={cell} /></td>;
+          })}</tr>)}</tbody>
+        </table>
+      </div>
+    )}
+    {block.notes?.map((note) => <p class="table-block__note"><InlineText text={note} /></p>)}
+  </div>
+</section>

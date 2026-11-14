@@ -1,0 +1,332 @@
+{
+  "$defs": {
+    "AssetNeeded": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "page_id": {
+          "title": "Page Id",
+          "type": "string"
+        },
+        "block": {
+          "title": "Block",
+          "type": "string"
+        },
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
+        "ratio": {
+          "title": "Ratio",
+          "type": "string"
+        },
+        "count": {
+          "minimum": 1,
+          "title": "Count",
+          "type": "integer"
+        },
+        "owner_todo": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Owner Todo"
+        }
+      },
+      "required": [
+        "id",
+        "page_id",
+        "block",
+        "kind",
+        "ratio",
+        "count"
+      ],
+      "title": "AssetNeeded",
+      "type": "object"
+    },
+    "ReportOwnerItem": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "applied",
+            "n/a"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "status"
+      ],
+      "title": "ReportOwnerItem",
+      "type": "object"
+    },
+    "ReportPage": {
+      "additionalProperties": true,
+      "properties": {
+        "page_id": {
+          "title": "Page Id",
+          "type": "string"
+        },
+        "route": {
+          "title": "Route",
+          "type": "string"
+        },
+        "rendered": {
+          "title": "Rendered",
+          "type": "boolean"
+        },
+        "status": {
+          "enum": [
+            "frozen",
+            "accept_as_is",
+            "curated",
+            "withheld",
+            "nav_only"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "components": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Components",
+          "type": "array"
+        },
+        "missing_components": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Missing Components",
+          "type": "array"
+        }
+      },
+      "required": [
+        "page_id",
+        "route",
+        "rendered",
+        "status",
+        "components",
+        "missing_components"
+      ],
+      "title": "ReportPage",
+      "type": "object"
+    },
+    "ReportRequirement": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "done",
+            "open",
+            "declined"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "note": {
+          "default": "",
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "status"
+      ],
+      "title": "ReportRequirement",
+      "type": "object"
+    },
+    "Template": {
+      "additionalProperties": true,
+      "properties": {
+        "commit": {
+          "title": "Commit",
+          "type": "string"
+        },
+        "block_kinds_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Block Kinds Sha256",
+          "type": "string"
+        },
+        "slot_manifest_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Slot Manifest Sha256"
+        },
+        "handoff_schema_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Handoff Schema Sha256"
+        },
+        "authoring_schema_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Authoring Schema Sha256"
+        },
+        "requires_schema_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Requires Schema Sha256"
+        },
+        "owner_todo_schema_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Owner Todo Schema Sha256"
+        },
+        "report_schema_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Report Schema Sha256"
+        }
+      },
+      "required": [
+        "commit",
+        "block_kinds_sha256"
+      ],
+      "title": "Template",
+      "type": "object"
+    }
+  },
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {
+      "const": "sf/handoff-report/v1",
+      "default": "sf/handoff-report/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "handoff_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Handoff Sha256",
+      "type": "string"
+    },
+    "made_at": {
+      "title": "Made At",
+      "type": "string"
+    },
+    "template": {
+      "$ref": "#/$defs/Template"
+    },
+    "pages": {
+      "items": {
+        "$ref": "#/$defs/ReportPage"
+      },
+      "title": "Pages",
+      "type": "array"
+    },
+    "requires": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ReportRequirement"
+      },
+      "title": "Requires",
+      "type": "array"
+    },
+    "assets_needed": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/AssetNeeded"
+      },
+      "title": "Assets Needed",
+      "type": "array"
+    },
+    "owner_items": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ReportOwnerItem"
+      },
+      "title": "Owner Items",
+      "type": "array"
+    },
+    "unknown_fields": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Unknown Fields",
+      "type": "array"
+    },
+    "notes_zh": {
+      "default": "",
+      "title": "Notes Zh",
+      "type": "string"
+    }
+  },
+  "required": [
+    "handoff_sha256",
+    "made_at",
+    "template",
+    "pages"
+  ],
+  "title": "Report",
+  "type": "object"
+}

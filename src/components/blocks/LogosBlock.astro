@@ -1,0 +1,76 @@
+---
+// Client or certification logos. Logos are never invented: a name without a logo image is set as a wordmark (the name
+// in type), with its note (sector, country) under it. Variant grid (tiles in rows), strip (one sliding row with
+// controls, Track.astro) or marquee (one row that moves by itself: a second, hidden copy of the row makes the loop; it
+// pauses on hover and focus, and stays still for reduced motion or when every logo fits).
+import { gridPlan, type LogosBlock } from '../../lib/authoring';
+import BlockSection from './BlockSection.astro';
+import Track from './Track.astro';
+
+interface Props { block: LogosBlock; variant?: string }
+const { block, variant = 'grid' } = Astro.props;
+const label = block.heading ?? 'Logos';
+// Grid rows of equal length (gridPlan: the count leaving the fewest empty cells): six names were four and two.
+const grid = gridPlan(block.items.length, 4);
+---
+
+<BlockSection block={block} name="logos" headingClass="logos__heading">
+  {variant === 'strip' ? (
+    <div class="logos-strip" data-variant="strip">
+      <Track label={label} count={block.items.length}>
+        {block.items.map((item, index) => (
+          <li class="track__item logos__item" data-wordmark={item.media ? undefined : 'true'} aria-label={`${index + 1} / ${block.items.length}`}>
+            {item.media ? <img src={item.media.src} alt={item.name} loading="lazy" /> : <span class="logos__name">{item.name}</span>}
+            {item.note && <span class="logos__note">{item.note}</span>}
+          </li>
+        ))}
+      </Track>
+    </div>
+  ) : variant === 'marquee' ? (
+    <div class="logos-marquee" data-variant="marquee" data-marquee role="region" aria-label={label}>
+      <div class="logos-marquee__viewport" data-scroll="sideways">
+        <div class="logos-marquee__rail">
+          <ul class="logos-marquee__row">
+            {block.items.map((item) => (
+              <li class="logos__item" data-wordmark={item.media ? undefined : 'true'}>
+                {item.media ? <img src={item.media.src} alt={item.name} loading="lazy" /> : <span class="logos__name">{item.name}</span>}
+                {item.note && <span class="logos__note">{item.note}</span>}
+              </li>
+            ))}
+          </ul>
+          <ul class="logos-marquee__row" aria-hidden="true" data-marquee-copy>
+            {block.items.map((item) => (
+              <li class="logos__item" data-wordmark={item.media ? undefined : 'true'}>
+                {item.media ? <img src={item.media.src} alt="" loading="lazy" /> : <span class="logos__name">{item.name}</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <ul class="logos" data-layout="logos" style={`--logos-columns: ${grid.columns}; --logos-columns-md: ${grid.tabletColumns}`}>
+      {block.items.map((item) => (
+        <li class="logos__item" data-wordmark={item.media ? undefined : 'true'}>
+          {item.media ? <img src={item.media.src} alt={item.name} loading="lazy" /> : <span class="logos__name">{item.name}</span>}
+          {item.note && <span class="logos__note">{item.note}</span>}
+        </li>
+      ))}
+    </ul>
+  )}
+</BlockSection>
+{variant === 'marquee' && (
+  <script is:inline>
+    (() => {
+      const still = matchMedia('(prefers-reduced-motion: reduce)');
+      for (const root of document.querySelectorAll('[data-marquee]')) {
+        const viewport = root.querySelector('.logos-marquee__viewport');
+        const row = root.querySelector('.logos-marquee__row');
+        const run = () => root.toggleAttribute('data-marquee-run', !still.matches && row.scrollWidth > viewport.clientWidth + 1);
+        run();
+        addEventListener('resize', run);
+        still.addEventListener('change', run);
+      }
+    })();
+  </script>
+)}

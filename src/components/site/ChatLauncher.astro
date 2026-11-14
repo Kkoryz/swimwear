@@ -1,0 +1,253 @@
+---
+// Corner chat window (src/data/site-runtime.json `chat`, see scripts/lib/chat-config.mjs). A real chat: the team's
+// greeting, the conversation, and a message box. With a Chatwoot API inbox the visitor's messages go to the team's
+// Chatwoot (and their replies come back here); without one, sending hands the message to WhatsApp or email. On a
+// desktop the window opens by itself once per visit after chat.autoOpen seconds (not again for a day once closed);
+// on a phone it stays a bubble so it never covers the page.
+import { DEFAULT_AUTO_OPEN_SECONDS, DEFAULT_COLOR, DEFAULT_GREETING, DEFAULT_LABELS, DEFAULT_QUICK_REPLIES, agentGreeting, contrastText, mailtoLink, prefillFor, whatsappDigits, whatsappLink } from '../../../scripts/lib/chat-config.mjs';
+import { absoluteUrl } from '../../../scripts/lib/seo-head.mjs';
+import { siteIdentity, siteRuntime, type AuthoringPage } from '../../lib/authoring';
+
+interface Props { page: AuthoringPage }
+const { page } = Astro.props;
+const chat = siteRuntime?.chat || null;
+const labels = { ...DEFAULT_LABELS, ...(chat?.labels ?? {}) };
+const url = absoluteUrl(siteIdentity, page.seo.canonical);
+const message = chat ? prefillFor(chat, { title: page.hero.heading, url }) : '';
+const colour = chat?.color === 'accent' ? undefined : (chat?.color ?? DEFAULT_COLOR);
+const style = colour ? `--chat-color: ${colour}; --chat-contrast: ${contrastText(colour)};` : undefined;
+const mark = siteIdentity?.icons.find((icon) => icon.sizes === '192x192') ?? siteIdentity?.icons.at(-1);
+const siteName = siteIdentity?.siteName ?? labels.launcher;
+// The virtual agent (setup:chat): her name and headshot head the window and open the greeting.
+const agent = chat?.agent ?? null;
+const name = agent?.name ?? siteName;
+const avatar = agent?.avatar ?? mark?.src;
+const greeting = chat?.greeting ?? (agent ? agentGreeting(agent, siteIdentity?.siteName) : DEFAULT_GREETING);
+const firstWhatsapp = chat?.whatsapp?.[0]?.number;
+const quickReplies = chat?.quickReplies ?? DEFAULT_QUICK_REPLIES;
+---
+
+{chat && (
+  <div class="chat" data-chat style={style}
+    data-auto-open={chat.autoOpen ?? DEFAULT_AUTO_OPEN_SECONDS}
+    data-base-url={chat.chatwoot?.baseUrl} data-inbox={chat.chatwoot?.inboxIdentifier}
+    data-page-url={url} data-page-title={page.hero.heading} data-site-id={siteRuntime?.site?.id}
+    data-whatsapp={firstWhatsapp ? whatsappDigits(firstWhatsapp) : undefined} data-email={chat.email}
+    data-labels={JSON.stringify(labels)}>
+    <section class="chat__window" id="chat-window" role="dialog" aria-label={labels.launcher} hidden>
+      <header class="chat__header">
+        {avatar ? <img class="chat__avatar" src={avatar} alt="" width="40" height="40" /> : <span class="chat__avatar chat__avatar--initial" aria-hidden="true">{name.slice(0, 1)}</span>}
+        <div class="chat__who">
+          <p class="chat__name">{name}</p>
+          {((agent && (agent.title ?? siteIdentity?.siteName)) || chat.replyTime) && <p class="chat__reply">{[agent && (agent.title ?? siteIdentity?.siteName), chat.replyTime].filter(Boolean).join(' · ')}</p>}
+        </div>
+        {(chat.whatsapp ?? []).slice(0, 1).map((line) => (
+          <a class="chat__icon" href={whatsappLink(line.number, message)} target="_blank" rel="noopener" aria-label={labels.whatsapp} title={labels.whatsapp} data-chat-whatsapp={whatsappDigits(line.number)} data-umami-event="chat-whatsapp">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="currentColor" d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.58a1 1 0 0 1-.25 1L6.6 10.8Z" /></svg>
+          </a>
+        ))}
+        {chat.email && (
+          <a class="chat__icon" href={mailtoLink(chat.email, page.hero.heading, message)} aria-label={labels.email} title={labels.email} data-chat-mail data-umami-event="chat-email">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z" /></svg>
+          </a>
+        )}
+        <button type="button" class="chat__close" data-chat-close aria-label={labels.close}>
+          <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="currentColor" d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7l-1.4-1.4L9.2 12 2.9 5.7l1.4-1.4 6.3 6.3 6.3-6.3 1.4 1.4Z" /></svg>
+        </button>
+      </header>
+      <ol class="chat__messages" data-chat-messages aria-live="polite">
+        <li class="chat__message chat__message--team">{greeting}</li>
+        {quickReplies.length > 0 && (
+          <li class="chat__quick" data-chat-quick>
+            {quickReplies.map((text) => <button type="button" class="chat__quick-reply" data-chat-quick-reply={text} data-umami-event="chat-quick-reply">{text}</button>)}
+          </li>
+        )}
+      </ol>
+      <form class="chat__email" data-chat-email hidden>
+        <label class="chat__email-label" for="chat-email-input">{labels.emailAsk}</label>
+        <div class="chat__email-row">
+          <input id="chat-email-input" type="email" name="email" autocomplete="email" required placeholder="name@company.com" />
+          <button type="submit">{labels.emailSave}</button>
+        </div>
+      </form>
+      <form class="chat__composer" data-chat-composer>
+        <label class="chat__sr" for="chat-input">{labels.placeholder}</label>
+        <textarea id="chat-input" name="message" rows="1" placeholder={labels.placeholder} data-chat-input></textarea>
+        <button type="submit" class="chat__send" aria-label={labels.send}>
+          <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="currentColor" d="M3.4 20.4 21 12 3.4 3.6 3.4 10l12.6 2-12.6 2z" /></svg>
+        </button>
+      </form>
+    </section>
+    <button type="button" class="chat__bubble" aria-expanded="false" aria-controls="chat-window" data-chat-toggle>
+      <svg class="chat__bubble-icon" viewBox="0 0 24 24" aria-hidden="true" width="26" height="26"><path fill="currentColor" d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" /></svg>
+      <span class="chat__bubble-label">{labels.launcher}</span>
+      <span class="chat__unread" data-chat-unread hidden></span>
+    </button>
+  </div>
+)}
+
+<script>
+  import { chatClient } from '../../../scripts/lib/chat-client.mjs';
+
+  const root = document.querySelector<HTMLElement>('[data-chat]');
+  if (root) {
+    const $ = <T extends Element>(selector: string) => root.querySelector<T>(selector)!;
+    const windowEl = $<HTMLElement>('.chat__window');
+    const toggle = $<HTMLButtonElement>('[data-chat-toggle]');
+    const list = $<HTMLOListElement>('[data-chat-messages]');
+    const input = $<HTMLTextAreaElement>('[data-chat-input]');
+    const emailForm = $<HTMLFormElement>('[data-chat-email]');
+    const unread = $<HTMLElement>('[data-chat-unread]');
+    const { autoOpen, baseUrl, inbox, pageUrl = '', pageTitle = '', whatsapp, email, siteId } = root.dataset;
+    const labels = JSON.parse(root.dataset.labels ?? '{}') as Record<string, string>;
+    const storage = (kind: 'local' | 'session') => { try { return kind === 'local' ? localStorage : sessionStorage; } catch { return null; } };
+    const read = (kind: 'local' | 'session', key: string) => { try { return storage(kind)?.getItem(key) ?? null; } catch { return null; } };
+    const write = (kind: 'local' | 'session', key: string, value: string) => { try { storage(kind)?.setItem(key, value); } catch { /* storage blocked */ } };
+    const client = baseUrl && inbox ? chatClient({ baseUrl, inboxIdentifier: inbox, storage: storage('local') }) : null;
+    const attributes = () => ({
+      ...(siteId ? { site_id: siteId } : {}), page_url: pageUrl, page_title: pageTitle,
+      ...(document.referrer ? { referrer: document.referrer } : {}),
+      ...Object.fromEntries([...new URLSearchParams(location.search)].filter(([key]) => key.startsWith('utm_'))),
+    });
+
+    const shown = new Set<number | string>();
+    const add = (text: string, who: 'team' | 'mine' | 'system', id?: number | string) => {
+      if (id !== undefined) { if (shown.has(id)) return; shown.add(id); }
+      const item = document.createElement('li');
+      item.className = `chat__message chat__message--${who}`;
+      item.textContent = text;
+      list.append(item);
+      list.scrollTop = list.scrollHeight;
+      return item;
+    };
+    // The WhatsApp and email links carry what the visitor typed (else the opening message naming the page).
+    const handOff = (text: string) => {
+      const body = text ? `${text}\n\n${pageUrl}` : null;
+      for (const link of root.querySelectorAll<HTMLAnchorElement>('[data-chat-whatsapp]')) if (body) link.href = `https://wa.me/${link.dataset.chatWhatsapp}?text=${encodeURIComponent(body)}`;
+      const mail = root.querySelector<HTMLAnchorElement>('[data-chat-mail]');
+      if (mail && body && email) mail.href = `mailto:${email}?subject=${encodeURIComponent(pageTitle)}&body=${encodeURIComponent(body)}`;
+      return body;
+    };
+
+    let seen = 0;
+    const refresh = async () => {
+      if (!client?.started) return;
+      try {
+        const messages = await client.messages();
+        for (const message of messages) add(message.text, message.mine ? 'mine' : 'team', message.id);
+        const replies = messages.filter((message) => !message.mine).length;
+        if (windowEl.hidden && replies > seen) unread.hidden = false;
+        if (!windowEl.hidden) { seen = replies; unread.hidden = true; }
+      } catch { /* offline: the next poll tries again */ }
+    };
+    let timer = 0;
+    const poll = () => { clearInterval(timer); timer = window.setInterval(() => { if (document.visibilityState === 'visible') refresh(); }, windowEl.hidden ? 30000 : 4000); };
+
+    const setOpen = (open: boolean) => {
+      windowEl.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+      root.classList.toggle('chat--open', open);
+      if (open) { refresh(); input.focus({ preventScroll: true }); } else write('local', 'chat-dismissed-at', String(Date.now()));
+      poll();
+    };
+    toggle.addEventListener('click', () => setOpen(windowEl.hidden));
+    $('[data-chat-close]').addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && !windowEl.hidden) setOpen(false); });
+
+    // Opens by itself on a desktop (a large screen with a mouse; a tablet or a phone held sideways never), once per visit,
+    // never within a day of the visitor closing it (Google: dialogs that cover content hurt page experience).
+    const closedRecently = Date.now() - Number(read('local', 'chat-dismissed-at') ?? 0) < 864e5;
+    if (Number(autoOpen) > 0 && matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)').matches && !closedRecently && !read('session', 'chat-auto-opened')) {
+      setTimeout(() => { if (windowEl.hidden) { windowEl.hidden = false; toggle.setAttribute('aria-expanded', 'true'); root.classList.add('chat--open'); write('session', 'chat-auto-opened', '1'); refresh(); poll(); } }, Number(autoOpen) * 1000);
+    }
+    if (client?.started) poll();
+
+    input.addEventListener('input', () => { input.style.height = 'auto'; input.style.height = `${Math.min(input.scrollHeight, 120)}px`; });
+    input.addEventListener('keydown', (event) => { if (event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); $<HTMLFormElement>('[data-chat-composer]').requestSubmit(); } });
+    // One tap on a quick reply or the send key: the message goes to the team's Chatwoot, or without live chat to
+    // WhatsApp (else email), already written. The quick replies go once the conversation has started.
+    const quick = root.querySelector<HTMLElement>('[data-chat-quick]');
+    if (quick && client?.started) quick.hidden = true;
+    const sendText = async (text: string) => {
+      const body = handOff(text);
+      if (!client) {
+        const target = whatsapp ? `https://wa.me/${whatsapp}?text=${encodeURIComponent(body ?? text)}` : email ? `mailto:${email}?subject=${encodeURIComponent(pageTitle)}&body=${encodeURIComponent(body ?? text)}` : null;
+        if (target) window.open(target, '_blank', 'noopener');
+        return;
+      }
+      if (quick) quick.hidden = true;
+      const pending = add(text, 'mine');
+      try {
+        const sent = await client.send(text, attributes());
+        if (sent?.id !== undefined) shown.add(sent.id);
+        if (!client.email) emailForm.hidden = false;
+        poll();
+      } catch {
+        pending?.classList.add('chat__message--failed');
+        add(labels.unavailable, 'system');
+      }
+    };
+    for (const button of root.querySelectorAll<HTMLButtonElement>('[data-chat-quick-reply]')) button.addEventListener('click', () => sendText(button.dataset.chatQuickReply ?? ''));
+    $<HTMLFormElement>('[data-chat-composer]').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+      if (client) { input.value = ''; input.style.height = 'auto'; }
+      sendText(text);
+    });
+    emailForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const value = (emailForm.elements.namedItem('email') as HTMLInputElement).value.trim();
+      try { await client?.setEmail(value); emailForm.hidden = true; add(labels.emailSaved.replace('{email}', value), 'system'); } catch { add(labels.unavailable, 'system'); }
+    });
+  }
+</script>
+
+<style is:global>
+  .chat { --chat-bg: var(--chat-color, var(--accent)); --chat-fg: var(--chat-contrast, var(--accent-contrast)); position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 1000; display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; font-family: var(--font-ui); }
+  .chat__bubble { position: relative; display: flex; align-items: center; gap: 0.5rem; min-height: 3.5rem; padding: 0 1.25rem; border: 0; border-radius: 999px; background: var(--chat-bg); color: var(--chat-fg); box-shadow: 0 8px 24px rgb(0 0 0 / 0.2); cursor: pointer; font: inherit; font-weight: 600; }
+  .chat--open .chat__bubble { width: 3.5rem; padding: 0; justify-content: center; }
+  .chat--open .chat__bubble-label { display: none; }
+  .chat__unread { position: absolute; top: 2px; right: 2px; width: 12px; height: 12px; border: 2px solid #fff; border-radius: 50%; background: #dc2626; }
+  .chat button:focus-visible, .chat a:focus-visible, .chat textarea:focus-visible, .chat input:focus-visible { outline: 3px solid var(--chat-bg); outline-offset: 2px; }
+  .chat__window { display: flex; flex-direction: column; width: min(23rem, calc(100vw - 2rem)); height: min(34rem, calc(100dvh - 7rem)); overflow: hidden; border-radius: 16px; background: var(--surface-primary); color: var(--text-primary); box-shadow: 0 16px 48px rgb(0 0 0 / 0.22); }
+  .chat__window[hidden] { display: none; }
+  .chat__header { display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 0.75rem 0.9rem 1rem; background: var(--chat-bg); color: var(--chat-fg); }
+  .chat__avatar { width: 40px; height: 40px; flex: none; border-radius: 50%; background: #fff; object-fit: cover; }
+  .chat__avatar--initial { display: grid; place-items: center; color: var(--chat-bg); font-weight: 700; }
+  .chat__who { flex: 1; min-width: 0; }
+  .chat__name { margin: 0; font-weight: 700; line-height: 1.3; }
+  .chat__reply { margin: 0.1rem 0 0; font-size: 0.8125rem; opacity: 0.9; }
+  .chat__close { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border: 0; border-radius: 50%; background: none; color: inherit; cursor: pointer; }
+  .chat__close:hover { background: rgb(255 255 255 / 0.18); }
+  .chat__messages { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; margin: 0; padding: 1rem; overflow-y: auto; list-style: none; background: var(--surface-secondary); }
+  .chat__message { max-width: 85%; padding: 0.6rem 0.85rem; border-radius: 14px; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 0.9375rem; }
+  .chat__message--team { align-self: flex-start; border-bottom-left-radius: 4px; background: var(--surface-primary); box-shadow: 0 1px 2px rgb(0 0 0 / 0.08); }
+  .chat__message--mine { align-self: flex-end; border-bottom-right-radius: 4px; background: var(--chat-bg); color: var(--chat-fg); }
+  .chat__message--failed { opacity: 0.5; }
+  .chat__message--system { align-self: center; max-width: 95%; padding: 0.35rem 0.6rem; background: none; color: var(--text-muted); font-size: 0.8125rem; text-align: center; }
+  .chat__email { padding: 0.75rem 1rem; border-top: 1px solid var(--border-color); background: var(--surface-primary); font-size: 0.8125rem; }
+  .chat__email[hidden] { display: none; }
+  .chat__email-row { display: flex; gap: 0.5rem; margin-top: 0.4rem; }
+  .chat__email input { flex: 1; min-width: 0; padding: 0.5rem 0.6rem; border: 1px solid var(--border-color); border-radius: 8px; font: inherit; }
+  .chat__email button { padding: 0 0.9rem; border: 0; border-radius: 8px; background: var(--chat-bg); color: var(--chat-fg); font: inherit; font-weight: 600; cursor: pointer; }
+  .chat__composer { display: flex; align-items: flex-end; gap: 0.5rem; padding: 0.75rem; border-top: 1px solid var(--border-color); background: var(--surface-primary); }
+  .chat__composer textarea { flex: 1; min-width: 0; max-height: 120px; padding: 0.6rem 0.75rem; border: 1px solid var(--border-color); border-radius: 20px; font: inherit; font-size: 0.9375rem; line-height: 1.4; resize: none; }
+  .chat__send { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; flex: none; border: 0; border-radius: 50%; background: var(--chat-bg); color: var(--chat-fg); cursor: pointer; }
+  .chat__quick { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem; }
+  .chat__quick[hidden] { display: none; }
+  .chat__quick-reply { padding: 0.5rem 0.9rem; border: 1.5px solid var(--chat-bg); border-radius: 999px; background: var(--surface-primary); color: var(--chat-bg); font: inherit; font-size: 0.875rem; font-weight: 600; cursor: pointer; }
+  .chat__quick-reply:hover { background: var(--chat-bg); color: var(--chat-fg); }
+  .chat__icon { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; color: inherit; }
+  .chat__icon:hover { background: rgb(255 255 255 / 0.18); }
+  .chat__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  /* On a phone the bubble is an icon only; the window opens only when tapped, full screen above the site header. */
+  @media (max-width: 767px) {
+    .chat { right: 0.75rem; bottom: 0.75rem; }
+    .chat__bubble { width: 3.5rem; padding: 0; justify-content: center; }
+    .chat__bubble-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .chat__window { position: fixed; inset: 0; width: 100%; height: 100dvh; border-radius: 0; }
+    .chat--open .chat__bubble { display: none; }
+  }
+  @media print { .chat { display: none; } }
+</style>

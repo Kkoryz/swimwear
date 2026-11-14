@@ -1,0 +1,95 @@
+---
+// A chart an article's writer gave as data (lib/blog.mjs chartErrors), drawn in the site's colours with exact words and
+// numbers (an image model's lettering is not to be trusted): bars of values, a timeline of date ranges, or steps.
+// Plain HTML and CSS, so the text is the page's own (read aloud, translated, found by search).
+import type { ProseChart } from '../../lib/authoring';
+
+interface Props { chart: ProseChart }
+const { chart } = Astro.props;
+const money = chart.unit && /^(usd|\$)$/i.test(chart.unit);
+const number = (value: number) => (money ? `$${value.toLocaleString('en-US')}` : `${value.toLocaleString('en-US')}${chart.unit ? ` ${chart.unit}` : ''}`);
+const day = (value: string) => new Date(`${value}T00:00:00Z`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+const time = (value: string) => Date.parse(`${value}T00:00:00Z`);
+const bars = chart.kind === 'bar' ? chart.items : [];
+const most = Math.max(1, ...bars.map((item) => item.value));
+const spans = chart.kind === 'timeline' ? chart.items : [];
+const first = Math.min(...spans.map((item) => time(item.start)));
+const last = Math.max(...spans.map((item) => time(item.end)));
+const at = (value: string) => ((time(value) - first) / Math.max(1, last - first)) * 100;
+const steps = chart.kind === 'steps' ? chart.items : [];
+// Ranges on one scale from 0 to the largest maximum (so 10–15 days and 35–40 days read in proportion).
+const ranges = chart.kind === 'ranges' ? chart.items : [];
+const top = Math.max(1, ...ranges.map((item) => item.max));
+const unitText = chart.unit ? ` ${chart.unit}` : '';
+const stats = chart.kind === 'stats' ? chart.items : [];
+const shares = chart.kind === 'shares' ? chart.items : [];
+const comparison = chart.kind === 'comparison' ? chart : null;
+---
+
+<figure class="prose__figure prose__chart" data-chart={chart.kind}>
+  {chart.kind === 'bar' && (
+    <ul class="chart-bars" aria-label={chart.alt}>
+      {bars.map((item) => (
+        <li class="chart-bars__row">
+          <span class="chart-bars__label">{item.label}</span>
+          <span class="chart-bars__track"><span class="chart-bars__bar" style={`width: ${Math.max(1.5, (item.value / most) * 100).toFixed(1)}%`}></span></span>
+          <span class="chart-bars__value">{number(item.value)}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+  {chart.kind === 'timeline' && (
+    <ul class="chart-timeline" aria-label={chart.alt}>
+      {spans.map((item) => (
+        <li class="chart-timeline__row">
+          <span class="chart-timeline__label">{item.label}</span>
+          <span class="chart-timeline__track"><span class="chart-timeline__span" style={`left: ${at(item.start).toFixed(1)}%; width: ${Math.max(1.5, at(item.end) - at(item.start)).toFixed(1)}%`}></span></span>
+          <span class="chart-timeline__dates">{item.start === item.end ? day(item.start) : `${day(item.start)} – ${day(item.end)}`}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+  {chart.kind === 'steps' && (
+    <ol class="chart-steps" aria-label={chart.alt}>
+      {steps.map((item) => (
+        <li class="chart-steps__step">
+          <span class="chart-steps__label">{item.label}</span>
+          {item.detail && <span class="chart-steps__detail">{item.detail}</span>}
+        </li>
+      ))}
+    </ol>
+  )}
+  {chart.kind === 'ranges' && (
+    <ul class="chart-timeline" aria-label={chart.alt}>
+      {ranges.map((item) => (
+        <li class="chart-timeline__row">
+          <span class="chart-timeline__label">{item.label}</span>
+          <span class="chart-timeline__track"><span class="chart-timeline__span" style={`left: ${((item.min / top) * 100).toFixed(1)}%; width: ${Math.max(1.5, ((item.max - item.min) / top) * 100).toFixed(1)}%`}></span></span>
+          <span class="chart-timeline__dates">{item.min === item.max ? item.min : `${item.min}–${item.max}`}{unitText}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+  {chart.kind === 'stats' && (
+    <ul class="chart-stats" aria-label={chart.alt}>
+      {stats.map((item) => (
+        <li class="chart-stats__item"><span class="chart-stats__value">{item.value}{item.unit && <span class="chart-stats__unit"> {item.unit}</span>}</span><span class="chart-stats__label">{item.label}</span></li>
+      ))}
+    </ul>
+  )}
+  {chart.kind === 'shares' && (
+    <div class="chart-shares" aria-label={chart.alt}>
+      <div class="chart-shares__bar">{shares.map((item, index) => <span class="chart-shares__part" data-part={index % 4} style={`width: ${item.percent}%`}></span>)}</div>
+      <ul class="chart-shares__legend">{shares.map((item, index) => <li><span class="chart-shares__key" data-part={index % 4}></span>{item.label} {item.percent}%</li>)}</ul>
+    </div>
+  )}
+  {comparison && (
+    <div class="prose__table chart-comparison" data-scroll="sideways" role="region" tabindex="0" aria-label={chart.alt}>
+      <table aria-label={chart.alt}>
+        <thead><tr><td></td>{comparison.options.map((option) => <th scope="col">{option}</th>)}</tr></thead>
+        <tbody>{comparison.rows.map((row) => <tr><th scope="row">{row.label}</th>{row.values.map((value) => <td>{value}</td>)}</tr>)}</tbody>
+      </table>
+    </div>
+  )}
+  {chart.caption && <figcaption>{chart.caption}</figcaption>}
+</figure>

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "seo-site-crawler-policy-v1",
+  "note": "Owner decision 2026-09-25: search engines, AI search crawlers and AI training crawlers are all allowed. The SEO audit and verify-live fail when robots.txt blocks any crawler listed here from the site. Tokens from claude-seo scripts/agentic_check.py AI_AGENTS (MIT) and the vendors' crawler documentation.",
+  "allow": [
+    { "token": "Googlebot", "purpose": "search" },
+    { "token": "Bingbot", "purpose": "search" },
+    { "token": "OAI-SearchBot", "purpose": "ai-search" },
+    { "token": "ChatGPT-User", "purpose": "ai-user" },
+    { "token": "Claude-SearchBot", "purpose": "ai-search" },
+    { "token": "Claude-User", "purpose": "ai-user" },
+    { "token": "PerplexityBot", "purpose": "ai-search" },
+    { "token": "Perplexity-User", "purpose": "ai-user" },
+    { "token": "GPTBot", "purpose": "ai-training" },
+    { "token": "ClaudeBot", "purpose": "ai-training" },
+    { "token": "Google-Extended", "purpose": "ai-training" },
+    { "token": "Applebot-Extended", "purpose": "ai-training" },
+    { "token": "CCBot", "purpose": "ai-training" },
+    { "token": "Meta-ExternalAgent", "purpose": "ai-training" },
+    { "token": "Amazonbot", "purpose": "ai-training" }
+  ]
+}

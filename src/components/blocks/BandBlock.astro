@@ -1,0 +1,22 @@
+---
+// Full-bleed photo band with copy on top (reference "image band" pattern).
+import { focusStyle, type BandBlock, type Media } from '../../lib/authoring';
+import SmartLink from '../site/SmartLink.astro';
+import Eyebrow from './Eyebrow.astro';
+import TextFlow from './TextFlow.astro';
+
+interface Props { block: BandBlock; media?: Media | null; variant?: string }
+const { block, media = null, variant = 'left' } = Astro.props;
+---
+
+<section class="block block--band" data-authoring-block="band" data-block-id={block.id} data-variant={variant} data-boundary-anchor="box" data-media-slot={media?.slot}>
+  {media && !media.slot && <img class="band__backdrop" src={media.src} alt="" width={media.width} height={media.height} loading={media.priority ? 'eager' : 'lazy'} decoding="async" style={focusStyle(media.src)} />}
+  <div class="container band__inner">
+    <div class="band__copy">
+      <Eyebrow text={block.eyebrow} />
+      <h2>{block.heading}</h2>
+      {block.paragraphs && <TextFlow paragraphs={block.paragraphs} lead={false} />}
+      {block.cta && <SmartLink href={block.cta.href} class="button button--primary">{block.cta.label}</SmartLink>}
+    </div>
+  </div>
+</section>

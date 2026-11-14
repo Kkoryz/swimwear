@@ -1,0 +1,33 @@
+---
+// How an order starts (Site Factory order_routes, each word for word from a fact), after swimwearbali.com and
+// baliswim.com: the two main routes (ready designs, custom designs) as cards side by side, the other ways to start
+// (a starter kit, volume pricing, mixing routes, restocks) as a short list under them.
+import type { OrderRoutesBlock } from '../../lib/authoring';
+import BlockSection from './BlockSection.astro';
+
+interface Props { block: OrderRoutesBlock }
+const { block } = Astro.props;
+const cards = block.items.slice(0, 2);
+const more = block.items.slice(2);
+// Site Factory gives each route's text without its closing full stop (a fact's "<Label>: <text>." split at the colon).
+const sentence = (text: string) => (/[.!?]$/.test(text) ? text : `${text}.`);
+---
+
+<BlockSection block={block} name="order-routes" headingClass="order-routes__heading">
+  <div class="order-routes" data-layout="order-routes" data-count={cards.length}>
+    {cards.map((item, index) => (
+      <article class="order-route">
+        <p class="order-route__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</p>
+        <h3 class="order-route__name">{item.heading}</h3>
+        <p class="order-route__text">{sentence(item.text)}</p>
+      </article>
+    ))}
+  </div>
+  {more.length > 0 && (
+    <ul class="order-routes__more">
+      {more.map((item) => (
+        <li class="order-routes__option"><h3 class="order-routes__option-name">{item.heading}</h3><p>{sentence(item.text)}</p></li>
+      ))}
+    </ul>
+  )}
+</BlockSection>

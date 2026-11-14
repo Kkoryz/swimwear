@@ -1,0 +1,24 @@
+---
+import Hero from '../components/Hero.astro';
+import PageView from '../components/blocks/PageView.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { pages } from '../lib/authoring';
+
+const home = pages.find((page) => page.route === '/');
+---
+
+{home ? (
+  <BaseLayout title={home.seo.title} description={home.seo.description} page={home} shell>
+    <PageView page={home} />
+  </BaseLayout>
+) : (
+  <BaseLayout title="SEO Site Template" description="Astro scaffold ready for reference-site extraction.">
+    <main id="main">
+      <Hero
+        eyebrow="Astro MVP"
+        title="Reference site not extracted yet"
+        description="Run the seo-site-template skill with one public URL to replace this scaffold with real content, assets, styles, and observed interactions."
+      />
+    </main>
+  </BaseLayout>
+)}

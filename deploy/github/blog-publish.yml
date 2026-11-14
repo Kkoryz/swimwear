@@ -1,0 +1,51 @@
+# Blog publishing for one site repository (sync-template-core copies it to .github/workflows/blog-publish.yml).
+# On a schedule, publishes the next reviewed article from content/blog-queue/approved (pnpm blog:publish; it holds
+# any article that fails its checks), commits it and starts the release workflow. A push made with the workflow token
+# starts no workflow by itself, so the release is started explicitly. Cadence: once a week by default; change the
+# cron, or run it by hand. The queue is filled by people (a reviewed package, review.by and review.at set).
+name: blog-publish
+
+on:
+  schedule:
+    - cron: '0 2 * * 2'
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: How many articles to publish now
+        default: '1'
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: blog-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Publish the next reviewed article
+        env:
+          LIMIT: ${{ inputs.limit || '1' }}
+        run: pnpm blog:publish --limit "$LIMIT"
+      - name: Commit and release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add src/data/blog-posts.json content/blog-queue
+          if git diff --cached --quiet; then echo "nothing to publish"; exit 0; fi
+          git config user.name "blog-publish"
+          git config user.email "blog-publish@users.noreply.github.com"
+          git commit -m "blog: publish from the queue"
+          git push
+          gh workflow run release.yml --ref "${GITHUB_REF_NAME}"

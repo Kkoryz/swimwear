@@ -1,0 +1,97 @@
+---
+// Ordered steps. Variants after the reference's process modules: circles (numbered markers on a connecting rule, the
+// default), ring (the steps as segments of one ring, their text beside it), band (a dark band with the page's enquiry
+// link under the steps), photo-cards (outlined numbered cards over a darkened photo), timeline (a label column and a
+// line per step), list (the steps as a numbered list beside the heading, the reference's service list where it has no
+// process module of its own).
+import { focusStyle, gridPlan, type Link, type Media, type ProcessBlock } from '../../lib/authoring';
+import Eyebrow from './Eyebrow.astro';
+import InlineText from '../blog/InlineText.astro';
+import SmartLink from '../site/SmartLink.astro';
+
+interface Props { block: ProcessBlock; variant?: string; media?: Media[]; cta?: Link | null }
+const { block, variant = 'circles', media = [], cta = null } = Astro.props;
+type Step = Exclude<ProcessBlock['steps'][number], string>;
+const steps: Step[] = block.steps.map((step) => (typeof step === 'string' ? { text: step } : step));
+// Balanced rows: up to 5 steps share one row; a short last row is centred. Titles share a row track when any step has one.
+const grid = gridPlan(steps.length, variant === 'photo-cards' ? 3 : 5);
+const titled = steps.some((step) => step.heading);
+// A flow's step says what the client gives and how long it takes (Site Factory steps): each its own row track, so the
+// cards line up whichever steps have them.
+const provides = steps.some((step) => step.provides);
+const timed = steps.some((step) => step.duration);
+const number = (index: number) => String(index + 1).padStart(2, '0');
+// Ring geometry: one arc per step around a 200-unit circle, a small gap between arcs.
+const radius = 80;
+const circumference = 2 * Math.PI * radius;
+const arc = circumference / steps.length;
+const backdrop = media[0] && !media[0].slot ? media[0] : null;
+---
+
+<section class="block block--process" data-authoring-block="process" data-block-id={block.id} data-variant={variant} data-boundary-anchor={variant === 'band' || variant === 'photo-cards' ? 'box' : undefined}>
+  {variant === 'photo-cards' && backdrop && <img class="process__backdrop" src={backdrop.src} alt="" width={backdrop.width} height={backdrop.height} loading={backdrop.priority ? 'eager' : 'lazy'} decoding="async" style={focusStyle(backdrop.src)} />}
+  {variant === 'list' ? (
+  <div class="container point-list" data-layout="split" data-continues={block.continues ? '' : undefined}>
+    <div class="point-list__intro">
+      <Eyebrow text={block.eyebrow} />
+      {block.heading && <h2 class="process__heading">{block.heading}</h2>}
+      {block.paragraphs?.map((paragraph) => <p class="block__lead"><InlineText text={paragraph} /></p>)}
+    </div>
+    <ol class="point-list__items" data-numbered="">
+      {steps.map((step) => (
+        <li class="point-list__item">{step.heading && <h3 class="point-list__title">{step.heading}</h3>}<p><InlineText text={step.text} /></p>{step.provides && <p class="process-step__provides"><span class="process-step__label">You provide:</span> {step.provides}</p>}{step.duration && <p class="process-step__time">{step.duration}</p>}</li>
+      ))}
+    </ol>
+  </div>
+  ) : (
+  <div class="container process">
+    <Eyebrow text={block.eyebrow} />
+    {block.heading && <h2 class="process__heading">{block.heading}</h2>}
+    {block.paragraphs?.map((paragraph) => <p class="block__lead"><InlineText text={paragraph} /></p>)}
+    {variant === 'ring' ? (
+      <div class="process-ring">
+        <svg class="process-ring__chart" viewBox="0 0 200 200" role="img" aria-label={`${steps.length} steps`}>
+          {steps.map((_, index) => (
+            <circle cx="100" cy="100" r={radius} fill="none" stroke-width="28" class="process-ring__arc" style={`--step: ${index}`} stroke-dasharray={`${arc - 4} ${circumference - arc + 4}`} stroke-dashoffset={-index * arc} transform="rotate(-90 100 100)" />
+          ))}
+          {steps.map((_, index) => {
+            const angle = ((index + 0.5) / steps.length) * 2 * Math.PI - Math.PI / 2;
+            const [x, y] = [100 + radius * Math.cos(angle), 100 + radius * Math.sin(angle)];
+            return <g><circle cx={x} cy={y} r="14" class="process-ring__dot" /><text x={x} y={y} class="process-ring__number" text-anchor="middle" dominant-baseline="central">{number(index)}</text></g>;
+          })}
+        </svg>
+        <ol class="process-ring__steps">
+          {steps.map((step, index) => (
+            <li class="process-ring__step" style={`--step: ${index}`}>
+              <span class="process-step__marker" aria-hidden="true">{number(index)}</span>
+              <div>{step.heading && <h3 class="process-step__title">{step.heading}</h3>}<p><InlineText text={step.text} /></p>{step.provides && <p class="process-step__provides"><span class="process-step__label">You provide:</span> {step.provides}</p>}{step.duration && <p class="process-step__time">{step.duration}</p>}</div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    ) : variant === 'timeline' ? (
+      <ol class="process-timeline">
+        {steps.map((step, index) => (
+          <li class="process-timeline__row">
+            <span class="process-timeline__label">{step.heading ?? number(index)}{step.duration && <span class="process-step__time">{step.duration}</span>}</span>
+            <div><p><InlineText text={step.text} /></p>{step.provides && <p class="process-step__provides"><span class="process-step__label">You provide:</span> {step.provides}</p>}</div>
+          </li>
+        ))}
+      </ol>
+    ) : (
+      <ol class="process-steps" data-layout="equal-grid" data-columns={grid.columns} style={`${grid.style}; --step-rows: ${2 + Number(titled) + Number(provides) + Number(timed)}`}>
+        {steps.map((step, index) => (
+          <li class="process-step" style={grid.itemStyle(index)}>
+            <span class="process-step__marker" aria-hidden="true">{number(index)}</span>
+            {step.heading ? <h3 class="process-step__title">{step.heading}</h3> : titled && <span class="process-step__title" aria-hidden="true"></span>}
+            <p><InlineText text={step.text} /></p>
+            {step.provides ? <p class="process-step__provides"><span class="process-step__label">You provide:</span> {step.provides}</p> : provides && <span aria-hidden="true"></span>}
+            {step.duration ? <p class="process-step__time">{step.duration}</p> : timed && <span aria-hidden="true"></span>}
+          </li>
+        ))}
+      </ol>
+    )}
+    {variant === 'band' && cta && <p class="process__cta"><SmartLink href={cta.href} class="button button--primary">{cta.label}</SmartLink></p>}
+  </div>
+  )}
+</section>

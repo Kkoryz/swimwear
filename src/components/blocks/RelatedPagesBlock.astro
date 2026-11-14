@@ -1,0 +1,45 @@
+---
+// The pages this page links to outside its copy (Site Factory's page.links, then the site plan's related pages), as
+// cards before the FAQ: SEO-strong manufacturer sites keep one or two links in their sentences and the rest in cards
+// and lists. Like the menus, it lists only pages that exist; with none built it renders nothing.
+// Variants: links (a grid of boxed page links, the default), tiles (where the reference links its own pages with photo
+// tiles: each page's hero photo with its name over it and a button on the photo's lower edge, two as the reference's pair;
+// the rest stay links below them). A page whose visual budget is spent (lib/visual-budget.mjs) has them as links.
+import { isBuilt, pageHero, pages, type Media, type RelatedPagesBlock } from '../../lib/authoring';
+import BlockSection from './BlockSection.astro';
+import MediaFigure from './MediaFigure.astro';
+import RelatedLinks from './RelatedLinks.astro';
+import SmartLink from '../site/SmartLink.astro';
+
+interface Props { block: RelatedPagesBlock; variant?: string; route?: string }
+const { block, variant = 'links', route } = Astro.props;
+const links = block.links.filter((link) => isBuilt(link.href));
+const MAX_TILES = 2;
+const photoOf = (href: string): Media | null => { const target = pages.find((page) => page.route === href); const media = target ? pageHero(target).media : null; return media && !media.slot ? media : null; };
+// Each tile a photo of its own: two pages whose heroes fall back to one photo (hotel-rm's home, 2026-11-14: Services and
+// Blog both showed the site's default hero) do not stand side by side; fewer distinct photos than the pair, and the
+// pages stay links. Nor the photo this page opens on (hotel-rm's home: its Resources tile repeated the home's hero, a
+// page with no hero of its own taking the site's).
+const own = route ? photoOf(route) : null;
+const seen = new Set<string>(own ? [own.src] : []);
+const distinct = variant === 'tiles' ? links.map((link) => ({ link, photo: photoOf(link.href) })).filter((tile) => tile.photo && !seen.has(tile.photo.src) && Boolean(seen.add(tile.photo.src))).slice(0, MAX_TILES) : [];
+const tiles = distinct.length < Math.min(MAX_TILES, links.length) ? [] : distinct;
+const rest = links.filter((link) => !tiles.some((tile) => tile.link === link));
+---
+
+{links.length > 0 && (
+  <BlockSection block={block} name="related" headingClass="related__heading" variant={tiles.length ? 'tiles' : 'links'}>
+    {tiles.length > 0 && (
+      <ul class="related-tiles" data-count={tiles.length}>
+        {tiles.map(({ link, photo }) => (
+          <li class="related-tile">
+            {photo && <MediaFigure media={photo} ratio="3 / 2" class="related-tile__media" />}
+            <span class="related-tile__label">{link.label}</span>
+            <SmartLink href={link.href} class="button button--primary related-tile__button" aria-label={link.label}>Learn more</SmartLink>
+          </li>
+        ))}
+      </ul>
+    )}
+    {rest.length > 0 && <RelatedLinks links={rest} grid />}
+  </BlockSection>
+)}

@@ -1,0 +1,8 @@
+---
+// A visible date, the same one the article's structured data states.
+interface Props { value: string; label?: string }
+const { value, label } = Astro.props;
+const shown = new Date(value).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+---
+
+<span class="post-date">{label && `${label} `}<time datetime={value}>{shown}</time></span>

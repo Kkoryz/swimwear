@@ -1,0 +1,48 @@
+---
+// The closing call to action. Variants after the reference's closing modules: band, inline, dark, image-band (copy over
+// a photo), form (the enquiry form beside the copy, over a photo when there is one), link-band (the related pages as
+// large links on an accent band).
+import { leadFormBlock } from '../../../scripts/lib/lead-form.mjs';
+import { isBuilt, pages, variants, withPhoneCrop, type CtaBlock, type FormBlock, type Media } from '../../lib/authoring';
+import SmartLink from '../site/SmartLink.astro';
+import Eyebrow from './Eyebrow.astro';
+import InlineText from '../blog/InlineText.astro';
+import LeadForm from './LeadForm.astro';
+import Picture from './Picture.astro';
+import RelatedLinks from './RelatedLinks.astro';
+
+interface Props { block: CtaBlock; media?: Media | null; variant?: string; route?: string | null; formId?: string | null }
+const { block, media = null, variant, route = null, formId = null } = Astro.props;
+// A button to the page it sits on leads to that page's enquiry form, or is left out.
+const primary = block.cta.href !== route ? block.cta.href : formId ? `#${formId}` : null;
+const requested = variant ?? variants.cta;
+const resolved = requested === 'image-band' && (!media || media.slot) ? 'band' : requested;
+// Related pages are navigation: like the menus, they list only pages that exist.
+const related = block.links.filter((link) => isBuilt(link.href));
+// On phones, where the competitor's closing band is a photo panel of its own shape (derive-phone-heroes.mjs), the band
+// shows its photo cut to that shape and takes it.
+const backdrop: Media | null = withPhoneCrop(media && !media.slot ? media : null, 'cta', pages.find((page) => page.route === route)?.pageType ?? '');
+const photo = backdrop && (resolved === 'image-band' || resolved === 'form');
+const phoneShape = photo && backdrop.sources?.[0]?.width && backdrop.sources[0].height ? `--cta-phone-ratio: ${Math.round((backdrop.sources[0].width / backdrop.sources[0].height) * 1000) / 1000}` : undefined;
+// Related pages: the link band's own large links; under any other band, a grid of page links of their own.
+const linkBand = resolved === 'link-band';
+const form = resolved === 'form' ? (leadFormBlock(`${block.id}-form`) as FormBlock) : null;
+---
+
+<section class="block block--cta" data-authoring-block="cta" data-block-id={block.id} data-variant={resolved} data-has-photo={photo ? 'true' : undefined} data-form-layout={form && variants.ctaForm === 'below' ? 'below' : undefined}>
+  <div class="container">
+    <div class="cta" data-layout="cta" data-media-slot={media?.slot} style={phoneShape} data-phone-photo={phoneShape ? '' : undefined}>
+      {photo && <Picture media={backdrop} class="cta__backdrop" alt="" loading={backdrop.priority ? 'eager' : 'lazy'} />}
+      <div class="cta__content">
+        <Eyebrow text={block.eyebrow} />
+        {block.heading && <h2 class="cta__heading">{block.heading}</h2>}
+        {block.paragraphs?.map((paragraph) => <p class="cta__text"><InlineText text={paragraph} /></p>)}
+        {!form && primary && <SmartLink href={primary} class="button button--primary">{block.cta.label}</SmartLink>}
+        {!form && block.secondaryCta && <SmartLink href={block.secondaryCta.href} class="button button--secondary">{block.secondaryCta.label}</SmartLink>}
+        {related.length > 0 && linkBand && <RelatedLinks links={related} />}
+      </div>
+      {form && <div class="cta__form"><LeadForm block={form} /></div>}
+    </div>
+    {related.length > 0 && !linkBand && <RelatedLinks links={related} grid />}
+  </div>
+</section>

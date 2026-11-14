@@ -1,0 +1,15 @@
+{
+  "note": "Site Factory's handoff contracts, copied byte for byte (Site Factory produces them, 08 copies; block-kinds.json goes the other way). Re-copy when a handoff names other sha256s.",
+  "source": {
+    "repo": "site-factory-r11hotel-fix1111",
+    "branch": "fix/r11-hotel-partly-1111",
+    "commit": "a7889d70171fc8be1fa0392cb483768b2e33b3a6"
+  },
+  "files": {
+    "authoring.schema.json": "35ab40678795d9e7f8cb59e6c70ccc67fdb52c2c976e5f4281510e255fc3313e",
+    "handoff-owner-todo.schema.json": "26b3309b97f6a0f98a8c93faad83283c78f48a98c5d1c11edd4e467ff413d5c9",
+    "handoff-report.schema.json": "320df2dddd897f2500ea306e9c3722d1a64bef4d8d6b0d9f427234ae7eea809e",
+    "handoff-requires.schema.json": "ac44952c6521783bfecafb87eb30ee2dec6ab16a34615f2cc385d5cc25a90afe",
+    "handoff.schema.json": "42303eeb8d8f953ad0705cfb9786879221ff66980ca574c7ed1d82116e0ca887"
+  }
+}

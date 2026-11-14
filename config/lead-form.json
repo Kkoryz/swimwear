@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "seo-site-lead-form-v1",
+  "note": "The enquiry form stage 09 places in a blueprint's form slot (fill \"site\"). While status is \"not-connected\" the form is laid out but disabled and has no action; stage 11 blocks release until it is \"connected\" and a real POST to the endpoint has been tested. The endpoint is the first-party API on the same origin (Nginx proxies /api/). Consent links to the privacy page; the honeypot field is hidden from people and left empty by them.",
+  "status": "not-connected",
+  "endpoint": "/api/leads",
+  "method": "POST",
+  "heading": "Send an enquiry",
+  "fields": [
+    { "name": "name", "label": "Name", "kind": "text", "required": true, "autocomplete": "name" },
+    { "name": "email", "label": "Email", "kind": "email", "required": true, "autocomplete": "email" },
+    { "name": "company", "label": "Company", "kind": "text", "required": false, "autocomplete": "organization" },
+    { "name": "phone", "label": "Phone", "kind": "tel", "required": false, "autocomplete": "tel" },
+    { "name": "message", "label": "Message", "kind": "textarea", "required": true }
+  ],
+  "consent": { "label": "I agree that my details are used to answer this enquiry, as described in the privacy policy.", "privacyRoute": "/privacy/" },
+  "honeypot": "website",
+  "submitLabel": "Send enquiry"
+}

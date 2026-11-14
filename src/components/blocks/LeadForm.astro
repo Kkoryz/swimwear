@@ -1,0 +1,50 @@
+---
+// The enquiry form from the form contract (config/lead-form.json): disabled and without an action until the contract
+// says connected; every enquiry carries the site, the page, the referrer and the UTM parameters.
+import { privacyRouteOf } from '../../../scripts/lib/lead-form.mjs';
+import { absoluteUrl } from '../../../scripts/lib/seo-head.mjs';
+import { siteIdentity, siteRuntime, type FormBlock } from '../../lib/authoring';
+import { pages } from '../../lib/site-data';
+import SmartLink from '../site/SmartLink.astro';
+
+interface Props { block: FormBlock }
+const { block } = Astro.props;
+const connected = block.status === 'connected';
+const disabled = !connected;
+const pageUrl = absoluteUrl(siteIdentity, Astro.url.pathname);
+const UTM = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+---
+
+<form class="form-block__form" data-form-status={connected ? 'connected' : 'not-connected'} method={connected ? 'post' : undefined} action={connected ? block.endpoint : undefined}>
+  {block.fields.map((field, index) => (
+    <label class:list={['form-block__field', { 'form-block__field--wide': field.kind === 'textarea' }]}>
+      <span>{field.label}{field.required && <span aria-hidden="true"> *</span>}</span>
+      {field.kind === 'textarea'
+        ? <textarea name={field.name ?? `field-${index}`} rows="5" required={field.required} disabled={disabled} />
+        : <input type={field.kind} name={field.name ?? `field-${index}`} autocomplete={field.autocomplete} required={field.required} disabled={disabled} />}
+    </label>
+  ))}
+  {siteRuntime?.site?.id && <input type="hidden" name="site_id" value={siteRuntime.site.id} />}
+  <input type="hidden" name="page_url" value={pageUrl} />
+  <input type="hidden" name="referrer" value="" data-lead-referrer />
+  {UTM.map((key) => <input type="hidden" name={key} value="" data-lead-utm={key} />)}
+  {block.honeypot && (
+    <label class="form-block__trap" aria-hidden="true">
+      <span>Leave this field empty</span>
+      <input type="text" name={block.honeypot} tabindex="-1" autocomplete="off" />
+    </label>
+  )}
+  {block.consent && (
+    <label class="form-block__consent form-block__field--wide">
+      <input type="checkbox" name="consent" value="yes" required disabled={disabled} />
+      <span>{block.consent.label} <SmartLink href={privacyRouteOf(pages, { consent: block.consent })}>Privacy policy</SmartLink></span>
+    </label>
+  )}
+  <button type={connected ? 'submit' : 'button'} class="button button--primary" disabled={disabled} data-umami-event="form-submit">{block.submitLabel}</button>
+</form>
+<script>
+  // The visit's referrer and UTM parameters travel with the enquiry.
+  const params = new URLSearchParams(location.search);
+  for (const input of document.querySelectorAll<HTMLInputElement>('[data-lead-utm]')) input.value = params.get(input.dataset.leadUtm ?? '') ?? '';
+  for (const input of document.querySelectorAll<HTMLInputElement>('[data-lead-referrer]')) input.value = document.referrer;
+</script>

@@ -1,0 +1,10 @@
+---
+// One paragraph with the links its writer placed inline ([label](/route/)); internal links to unbuilt pages stay text.
+import { inlineParts } from '../../../scripts/lib/blog.mjs';
+import SmartLink from '../site/SmartLink.astro';
+
+interface Props { text: string }
+const parts = inlineParts(Astro.props.text) as { text: string; href?: string }[];
+---
+
+{parts.map((part) => (part.href ? (part.href.startsWith('/') ? <SmartLink href={part.href}>{part.text}</SmartLink> : <a href={part.href} rel="noopener">{part.text}</a>) : part.text))}

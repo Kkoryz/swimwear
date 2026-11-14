@@ -1,0 +1,334 @@
+{
+  "note": "How tall each module renders at 1440px and how much of it is picture: height = base + perWord x its words; visual its share of pictures and structured blocks; before/after the share of its height that is text before its first and after its last picture. Measured on the hotel site (2026-11-12, lib/visual-budget.mjs; our own step, figure and table modules count as structured, as the page measure counts them); a site calibrates its own from its layout audit (components.blockModel). featureGrid:icons is not measured yet: the plain cards' fit, 60px taller for the icon row.",
+  "modules": {
+    "*": {
+      "base": 200,
+      "perWord": 4,
+      "visual": 0,
+      "before": 1,
+      "after": 1
+    },
+    "caseStudies:*": {
+      "base": 1262,
+      "perWord": 0,
+      "visual": 0.43,
+      "before": 0.13,
+      "after": 0.31
+    },
+    "caseStudies:": {
+      "base": 1262,
+      "perWord": 0,
+      "visual": 0.43,
+      "before": 0.13,
+      "after": 0.31
+    },
+    "charts:*": {
+      "base": 351,
+      "perWord": 0,
+      "visual": 0.4,
+      "before": 0.24,
+      "after": 0.43
+    },
+    "charts:": {
+      "base": 351,
+      "perWord": 0,
+      "visual": 0.4,
+      "before": 0.24,
+      "after": 0.43
+    },
+    "cta:*": {
+      "base": 654,
+      "perWord": 0,
+      "visual": 0.37,
+      "before": 0.43,
+      "after": 0.49
+    },
+    "cta:form+photo": {
+      "base": 950,
+      "perWord": 0,
+      "visual": 0.63,
+      "before": 0.15,
+      "after": 0.2
+    },
+    "cta:form": {
+      "base": 754,
+      "perWord": 0,
+      "visual": 0.18,
+      "before": 0.74,
+      "after": 0.76
+    },
+    "cta:image-band+photo": {
+      "base": 554,
+      "perWord": 0,
+      "visual": 0.56,
+      "before": 0.11,
+      "after": 0.22
+    },
+    "cta:image-band": {
+      "base": 554,
+      "perWord": 0,
+      "visual": 0.56,
+      "before": 0.11,
+      "after": 0.22
+    },
+    "featureGrid:*": {
+      "base": 258,
+      "perWord": 4.09,
+      "visual": 0.24,
+      "before": 0.5,
+      "after": 0.6
+    },
+    "featureGrid:bullets": {
+      "base": 150,
+      "perWord": 5.45,
+      "visual": 0,
+      "before": 1,
+      "after": 1
+    },
+    "featureGrid:cards": {
+      "base": 155,
+      "perWord": 4.07,
+      "visual": 0.47,
+      "before": 0.34,
+      "after": 0.27
+    },
+    "featureGrid:icons": {
+      "base": 215,
+      "perWord": 4.07,
+      "visual": 0.47,
+      "before": 0.34,
+      "after": 0.27
+    },
+    "featureGrid:media": {
+      "base": 470,
+      "perWord": 2.75,
+      "visual": 0.25,
+      "before": 0.17,
+      "after": 0.53
+    },
+    "gallery:*": {
+      "base": 966,
+      "perWord": 0,
+      "visual": 0.71,
+      "before": 0.07,
+      "after": 0.11
+    },
+    "gallery:band": {
+      "base": 720,
+      "perWord": 0,
+      "visual": 0.86,
+      "before": 0.08,
+      "after": 0.08
+    },
+    "gallery:grid": {
+      "base": 1212,
+      "perWord": 0,
+      "visual": 0.56,
+      "before": 0.05,
+      "after": 0.13
+    },
+    "hero:*": {
+      "base": 499,
+      "perWord": 20.42,
+      "visual": 1,
+      "before": 0,
+      "after": 0
+    },
+    "hero:media-overlay": {
+      "base": 499,
+      "perWord": 20.42,
+      "visual": 1,
+      "before": 0,
+      "after": 0
+    },
+    "iconList:*": {
+      "base": 150,
+      "perWord": 5.45,
+      "visual": 0,
+      "before": 1,
+      "after": 1
+    },
+    "iconList:checks": {
+      "base": 150,
+      "perWord": 5.45,
+      "visual": 0,
+      "before": 1,
+      "after": 1
+    },
+    "intro:*": {
+      "base": 203,
+      "perWord": 3.16,
+      "visual": 0,
+      "before": 1,
+      "after": 1
+    },
+    "intro:text": {
+      "base": 203,
+      "perWord": 3.16,
+      "visual": 0,
+      "before": 1,
+      "after": 1
+    },
+    "logos:*": {
+      "base": 338,
+      "perWord": 0,
+      "visual": 0.42,
+      "before": 0.4,
+      "after": 0.14
+    },
+    "logos:": {
+      "base": 338,
+      "perWord": 0,
+      "visual": 0.42,
+      "before": 0.4,
+      "after": 0.14
+    },
+    "process:*": {
+      "base": 389,
+      "perWord": 1.81,
+      "visual": 0.5,
+      "before": 0.5,
+      "after": 0.5
+    },
+    "process:circles": {
+      "base": 210,
+      "perWord": 3.62,
+      "visual": 0.7,
+      "before": 0.25,
+      "after": 0.05
+    },
+    "process:list": {
+      "base": 210,
+      "perWord": 3.62,
+      "visual": 0,
+      "before": 1,
+      "after": 1
+    },
+    "process:photo-cards": {
+      "base": 567,
+      "perWord": 0,
+      "visual": 1,
+      "before": 0,
+      "after": 0
+    },
+    "process:ring": {
+      "base": 210,
+      "perWord": 3.62,
+      "visual": 0.7,
+      "before": 0.25,
+      "after": 0.05
+    },
+    "process:timeline": {
+      "base": 210,
+      "perWord": 3.62,
+      "visual": 0.7,
+      "before": 0.25,
+      "after": 0.05
+    },
+    "proof:*": {
+      "base": 398,
+      "perWord": 1.83,
+      "visual": 0,
+      "before": 1,
+      "after": 1
+    },
+    "proof:band": {
+      "base": 398,
+      "perWord": 1.83,
+      "visual": 0,
+      "before": 1,
+      "after": 1
+    },
+    "relatedPages:*": {
+      "base": 476,
+      "perWord": 0,
+      "visual": 0.33,
+      "before": 0.24,
+      "after": 0.37
+    },
+    "relatedPages:": {
+      "base": 476,
+      "perWord": 0,
+      "visual": 0.33,
+      "before": 0.24,
+      "after": 0.37
+    },
+    "relatedPages:tiles": {
+      "base": 476,
+      "perWord": 0,
+      "visual": 0.33,
+      "before": 0.24,
+      "after": 0.37
+    },
+    "splitMedia:*": {
+      "base": 462,
+      "perWord": 2.71,
+      "visual": 0.2,
+      "before": 0.36,
+      "after": 0.37
+    },
+    "splitMedia:panel": {
+      "base": 366,
+      "perWord": 3.7,
+      "visual": 0.14,
+      "before": 0.57,
+      "after": 0.57
+    },
+    "splitMedia:single": {
+      "base": 557,
+      "perWord": 1.72,
+      "visual": 0.26,
+      "before": 0.14,
+      "after": 0.17
+    },
+    "stats:*": {
+      "base": 269,
+      "perWord": 0,
+      "visual": 0,
+      "before": 1,
+      "after": 1
+    },
+    "stats:row": {
+      "base": 269,
+      "perWord": 0,
+      "visual": 0.6,
+      "before": 0.3,
+      "after": 0.1
+    },
+    "table:*": {
+      "base": 874,
+      "perWord": 0,
+      "visual": 0.57,
+      "before": 0.22,
+      "after": 0.07
+    },
+    "table:cards": {
+      "base": 888,
+      "perWord": 0,
+      "visual": 0.7,
+      "before": 0.28,
+      "after": 0.07
+    },
+    "table:grid": {
+      "base": 860,
+      "perWord": 0,
+      "visual": 0.61,
+      "before": 0.16,
+      "after": 0.07
+    },
+    "trustBar:*": {
+      "base": 82,
+      "perWord": 0.47,
+      "visual": 0.33,
+      "before": 0.67,
+      "after": 0.67
+    },
+    "trustBar:": {
+      "base": 82,
+      "perWord": 0.47,
+      "visual": 0.33,
+      "before": 0.67,
+      "after": 0.67
+    }
+  }
+}

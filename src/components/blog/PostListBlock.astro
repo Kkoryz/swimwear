@@ -1,0 +1,59 @@
+---
+// The hub's posts. Cards follow the reference blog's card (variants.blog.hub.card): title (title only, shadowed),
+// wide (wide photo, serif title, excerpt, arrow link), bordered (bordered, large title, excerpt, date), meta (photo,
+// date row, excerpt, solid button). Numbered pages link as plain <a href> so every page can be crawled.
+import { blogVariants, focusStyle, gridPlan, type PostListBlock } from '../../lib/authoring';
+import PostDate from './PostDate.astro';
+
+interface Props { block: PostListBlock }
+const { block } = Astro.props;
+const card = blogVariants.hub.card;
+const { page, pages, base } = block.pagination;
+// Up to three cards a row, as many as leave no card alone on the last row (4 posts: two rows of two); one or two
+// posts keep the size of a third, centred.
+const columns = block.items.length < 3 ? 3 : gridPlan(block.items.length, 3).columns;
+// From 768px the cards are an equal grid (patterns.css [data-layout="equal-grid"]: two tracks a column, the first card
+// of a short last row starting where the row is centred) whose cards share their rows (subgrid): a title one line
+// longer than its neighbour's no longer pushes the date and the excerpt down (the hotel blog: 28px apart). The rows are
+// the same parts in every card: a category row while any post has one.
+const count = block.items.length;
+const start = (size: number, index: number) => { const remainder = count % size; return remainder && index === count - remainder ? size - remainder + 1 : null; };
+const itemStyle = (index: number) => [start(columns, index) && `--start: ${start(columns, index)}`, start(2, index) && `--start-md: ${start(2, index)}`].filter(Boolean).join('; ') || undefined;
+const categories = card !== 'title' && block.items.some((item) => item.category);
+const bodyRows = 1 + (categories ? 1 : 0) + (card !== 'title' ? 2 : 0) + (card === 'wide' || card === 'meta' ? 1 : 0);
+const href = (number: number) => (number === 1 ? base : `${base}page/${number}/`);
+---
+
+<section class="block block--posts" data-authoring-block="postList" data-block-id={block.id} data-card={card}>
+  <div class="container">
+    <ul class="post-grid" data-layout="equal-grid" style={`--post-max: ${columns}; --tracks: ${columns * 2}; --tracks-md: 4; --body-rows: ${bodyRows}`}>
+      {block.items.map((item, index) => (
+        <li class="post-card" style={[`--card-rows: ${bodyRows + (item.image ? 1 : 0)}`, itemStyle(index)].filter(Boolean).join('; ')}>
+          {item.image && (
+            <a class="post-card__media" href={item.href} tabindex="-1" aria-hidden="true">
+              <img src={item.image.src} alt="" data-decorative width={item.image.width} height={item.image.height} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" style={focusStyle(item.image.src)} />
+            </a>
+          )}
+          <div class="post-card__body">
+            {categories && <p class="post-card__category">{item.category ?? ''}</p>}
+            <h2 class="post-card__title"><a href={item.href}>{item.title}</a></h2>
+            {card !== 'title' && <p class="post-card__meta"><PostDate value={item.date} /></p>}
+            {card !== 'title' && <p class="post-card__excerpt">{item.excerpt}</p>}
+            {card === 'wide' && <a class="post-card__more" href={item.href} aria-label={`Read: ${item.title}`}>Read more →</a>}
+            {card === 'meta' && <a class="button button--primary post-card__button" href={item.href} aria-label={`Read: ${item.title}`}>Read more</a>}
+          </div>
+        </li>
+      ))}
+    </ul>
+    {pages > 1 && (
+      <nav class="pagination" aria-label="Blog pages">
+        <ol class="pagination__list">
+          {Array.from({ length: pages }, (_, index) => index + 1).map((number) => (
+            <li>{number === page ? <span aria-current="page">{number}</span> : <a href={href(number)}>{number}</a>}</li>
+          ))}
+          {page < pages && <li><a href={href(page + 1)} rel="next">Next</a></li>}
+        </ol>
+      </nav>
+    )}
+  </div>
+</section>

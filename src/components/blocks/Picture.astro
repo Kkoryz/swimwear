@@ -1,0 +1,18 @@
+---
+// One photo, art-directed when its Media has sources (a different photo per width, e.g. the competitor's portrait one
+// on phones): a <picture> whose sources come before the image; otherwise the plain image. The image keeps every
+// attribute and class it was given, so styles for it apply either way.
+import { focusStyle, type Media } from '../../lib/authoring';
+
+interface Props { media: Media; alt?: string; sizes?: string; class?: string; loading?: 'lazy' | 'eager'; fetchpriority?: 'high' | 'auto' }
+const { media, alt = media.alt, sizes, class: className, loading = 'lazy', fetchpriority } = Astro.props;
+// The image's own srcset only where the caller says how wide it shows (sizes).
+const image = { src: media.src, srcset: sizes ? media.srcset : undefined, sizes: sizes && media.srcset ? sizes : undefined, alt, width: media.width, height: media.height, loading, fetchpriority, decoding: 'async' as const, style: focusStyle(media.src) };
+---
+
+{media.sources?.length ? (
+  <picture>
+    {media.sources.map((source) => <source media={source.media} srcset={source.srcset ?? source.src} width={source.width} height={source.height} />)}
+    <img class={className} {...image} />
+  </picture>
+) : <img class={className} {...image} />}

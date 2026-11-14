@@ -1,0 +1,40 @@
+---
+// The company's ways to be reached on the contact page: one per channel of its own details and chat lines
+// (lib/site-contact.mjs, the list the footer shows), each with the template's icon for its kind and a link where it can
+// be acted on (mail, phone, WhatsApp). Variant cards (a card each, icon on top), row (one line of icon links) or list
+// (icon at the start). Placeholder details are marked until the owner replaces them. Look: the --channel-* hooks.
+import { contactChannels } from '../../../scripts/lib/site-contact.mjs';
+import type { ContactChannelsBlock } from '../../lib/authoring';
+import { siteContact, siteRuntime } from '../../lib/authoring';
+import BlockSection from './BlockSection.astro';
+
+interface Props { block: ContactChannelsBlock; variant?: string }
+const { block, variant = 'cards' } = Astro.props;
+const channels = contactChannels({ contact: siteContact, chat: siteRuntime?.chat || null });
+const names: Record<string, string> = { email: 'Email', phone: 'Phone', whatsapp: 'WhatsApp', address: 'Address', hours: 'Hours' };
+// Single-colour line icons (currentColor), the template's own.
+const icons: Record<string, string> = {
+  email: 'M4 6h16v12H4z M4 7l8 6 8-6',
+  phone: 'M6.5 4h3l1.5 4-2 1.5a11 11 0 0 0 5.5 5.5l1.5-2 4 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 4.5 6a2 2 0 0 1 2-2z',
+  whatsapp: 'M4 20l1.3-4A8 8 0 1 1 8.5 19z M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-1.8-1-1 .8a4 4 0 0 1-2-2l.8-1-1-1.8z',
+  address: 'M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10z M12 8.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z',
+  hours: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M12 7v5l3 2',
+};
+const placeholder = siteContact?.placeholder ? 'true' : undefined;
+---
+
+{channels.length > 0 && (
+  <BlockSection block={block} name="contact-channels" headingClass="contact-channels__heading">
+    <ul class="contact-channels" data-variant={variant} data-placeholder={placeholder} data-layout={variant === 'cards' ? 'equal-grid' : undefined} data-columns={variant === 'cards' ? Math.min(channels.length, 4) : undefined}>
+      {channels.map((channel) => (
+        <li class="contact-channel" data-kind={channel.kind}>
+          <span class="contact-channel__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path d={icons[channel.kind]} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </span>
+          <span class="contact-channel__name">{names[channel.kind]}</span>
+          {channel.href ? <a class="contact-channel__value" href={channel.href}>{channel.label}</a> : <span class="contact-channel__value">{channel.label}</span>}
+        </li>
+      ))}
+    </ul>
+  </BlockSection>
+)}

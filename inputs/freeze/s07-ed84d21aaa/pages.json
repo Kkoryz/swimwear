@@ -1,0 +1,509 @@
+{
+  "schemaVersion": "sf/pages-from-tree/v1",
+  "source": "Site Factory 04_1_site_tree/tree.json + 06_1_plan/site_plan.json",
+  "pages": [
+    {
+      "page_id": "home",
+      "page_type": "home",
+      "label": "Swimwear",
+      "url": "/",
+      "parent_page_id": null,
+      "primary_query": "swimwear manufacturer"
+    },
+    {
+      "page_id": "products",
+      "page_type": "products_hub",
+      "label": "Products",
+      "url": "/products/",
+      "parent_page_id": "home"
+    },
+    {
+      "page_id": "solutions",
+      "page_type": "solutions_hub",
+      "label": "Solutions",
+      "url": "/solutions/",
+      "parent_page_id": "home"
+    },
+    {
+      "page_id": "c-a0d1d7027027:product",
+      "page_type": "product_manufacturer",
+      "label": "Women's Swimwear",
+      "url": "/women-s-swimwear-manufacturer/",
+      "parent_page_id": "products",
+      "primary_query": "women's swimwear manufacturer"
+    },
+    {
+      "page_id": "c-705b55f5501e:product",
+      "page_type": "product_manufacturer",
+      "label": "One-Piece Swimsuits",
+      "url": "/one-piece-swimsuit-manufacturer/",
+      "parent_page_id": "c-a0d1d7027027:product",
+      "primary_query": "one-piece swimsuit manufacturer"
+    },
+    {
+      "page_id": "c-0a2f4a960a8b:product",
+      "page_type": "product_manufacturer",
+      "label": "Bikinis",
+      "url": "/bikini-manufacturer/",
+      "parent_page_id": "c-a0d1d7027027:product",
+      "primary_query": "bikini manufacturer"
+    },
+    {
+      "page_id": "c-6e0b54e5523e:product",
+      "page_type": "product_manufacturer",
+      "label": "Men's Swimwear",
+      "url": "/men-s-swimwear-manufacturer/",
+      "parent_page_id": "products",
+      "primary_query": "men's swimwear manufacturer"
+    },
+    {
+      "page_id": "inferred:product:5",
+      "page_type": "product_manufacturer",
+      "label": "Boardshorts",
+      "url": "/boardshorts-manufacturer/",
+      "parent_page_id": "c-6e0b54e5523e:product",
+      "primary_query": "boardshorts manufacturer"
+    },
+    {
+      "page_id": "inferred:product:13",
+      "page_type": "product_manufacturer",
+      "label": "Swim Trunks",
+      "url": "/swim-trunks-manufacturer/",
+      "parent_page_id": "c-6e0b54e5523e:product",
+      "primary_query": "swim trunks manufacturer"
+    },
+    {
+      "page_id": "c-3d3fc0c8dc39:product",
+      "page_type": "product_manufacturer",
+      "label": "Children's Swimwear",
+      "url": "/children-s-swimwear-manufacturer/",
+      "parent_page_id": "products",
+      "primary_query": "children's swimwear manufacturer"
+    },
+    {
+      "page_id": "inferred:product:6",
+      "page_type": "product_manufacturer",
+      "label": "Teen Swimwear",
+      "url": "/teen-swimwear-manufacturer/",
+      "parent_page_id": "c-3d3fc0c8dc39:product",
+      "primary_query": "teen swimwear manufacturer"
+    },
+    {
+      "page_id": "inferred:product:7",
+      "page_type": "product_manufacturer",
+      "label": "Baby Swimwear",
+      "url": "/baby-swimwear-manufacturer/",
+      "parent_page_id": "c-3d3fc0c8dc39:product",
+      "primary_query": "baby swimwear manufacturer"
+    },
+    {
+      "page_id": "inferred:product:8",
+      "page_type": "product_manufacturer",
+      "label": "Toddler Swimwear",
+      "url": "/toddler-swimwear-manufacturer/",
+      "parent_page_id": "c-3d3fc0c8dc39:product",
+      "primary_query": "toddler swimwear manufacturer"
+    },
+    {
+      "page_id": "inferred:product:10",
+      "page_type": "product_manufacturer",
+      "label": "Modest Swimwear",
+      "url": "/modest-swimwear-manufacturer/",
+      "parent_page_id": "products",
+      "primary_query": "modest swimwear manufacturer"
+    },
+    {
+      "page_id": "inferred:product:3",
+      "page_type": "product_manufacturer",
+      "label": "Burkinis",
+      "url": "/burkini-manufacturer/",
+      "parent_page_id": "inferred:product:10",
+      "primary_query": "burkini manufacturer"
+    },
+    {
+      "page_id": "group:watersports-apparel",
+      "page_type": "product_manufacturer",
+      "label": "Watersports Apparel",
+      "url": "/watersports-apparel-manufacturer/",
+      "parent_page_id": "products",
+      "primary_query": "watersports apparel manufacturer"
+    },
+    {
+      "page_id": "inferred:product:1",
+      "page_type": "product_manufacturer",
+      "label": "Rash Guards",
+      "url": "/rash-guard-manufacturer/",
+      "parent_page_id": "group:watersports-apparel",
+      "primary_query": "rash guard manufacturer"
+    },
+    {
+      "page_id": "c-0cc45987ac6b:product",
+      "page_type": "product_manufacturer",
+      "label": "Resort Wear",
+      "url": "/resort-wear-manufacturer/",
+      "parent_page_id": "products",
+      "primary_query": "resort wear manufacturer"
+    },
+    {
+      "page_id": "inferred:product:11",
+      "page_type": "product_manufacturer",
+      "label": "Cover-Ups",
+      "url": "/cover-up-manufacturer/",
+      "parent_page_id": "c-0cc45987ac6b:product",
+      "primary_query": "cover-up manufacturer"
+    },
+    {
+      "page_id": "c-8404f8cb0b07:service",
+      "page_type": "solution",
+      "label": "Embroidery",
+      "url": "/swimwear-embroidery/",
+      "parent_page_id": "solutions",
+      "primary_query": "swimwear embroidery"
+    },
+    {
+      "page_id": "c-c48d984954c3:service",
+      "page_type": "solution",
+      "label": "Consulting",
+      "url": "/swimwear-consulting/",
+      "parent_page_id": "solutions",
+      "primary_query": "swimwear consulting"
+    },
+    {
+      "page_id": "c-05134426bcd1:service",
+      "page_type": "solution",
+      "label": "Development",
+      "url": "/development/",
+      "parent_page_id": "solutions",
+      "primary_query": "swimwear development"
+    },
+    {
+      "page_id": "c-fe2ba46d3673:service",
+      "page_type": "solution",
+      "label": "Swimwear Packaging & Custom Brand Labels",
+      "url": "/swimwear-packaging-custom-brand-labels/",
+      "parent_page_id": "solutions",
+      "primary_query": "swimwear packaging"
+    },
+    {
+      "page_id": "c-2cd070a4fc87:service",
+      "page_type": "solution",
+      "label": "Custom Printing",
+      "url": "/custom-swimwear-printing/",
+      "parent_page_id": "solutions",
+      "primary_query": "swimwear printing"
+    },
+    {
+      "page_id": "c-fb5b6b828f5b:service",
+      "page_type": "solution",
+      "label": "Swimwear Hardware",
+      "url": "/swimwear-hardware/",
+      "parent_page_id": "solutions",
+      "primary_query": "swimwear hardware"
+    },
+    {
+      "page_id": "c-3055c652c816:service",
+      "page_type": "solution",
+      "label": "Swimwear Fabrics & Sourcing",
+      "url": "/swimwear-fabrics-sourcing/",
+      "parent_page_id": "solutions",
+      "primary_query": "swimwear fabric"
+    },
+    {
+      "page_id": "c-f7c91fefc9c3:service",
+      "page_type": "solution",
+      "label": "Launch",
+      "url": "/swimwear-launch-services/",
+      "parent_page_id": "solutions",
+      "primary_query": "swimwear brand launch"
+    },
+    {
+      "page_id": "site:about",
+      "page_type": "about",
+      "label": "About Us",
+      "url": "/about-us/",
+      "parent_page_id": "home"
+    },
+    {
+      "page_id": "site:contact",
+      "page_type": "contact",
+      "label": "Contact Us",
+      "url": "/contact-us/",
+      "parent_page_id": "home"
+    },
+    {
+      "page_id": "site:faq",
+      "page_type": "general",
+      "label": "FAQ",
+      "url": "/faq/",
+      "parent_page_id": "home"
+    },
+    {
+      "page_id": "site:blog",
+      "page_type": "blog_hub",
+      "label": "Blog",
+      "url": "/blog/",
+      "parent_page_id": "home"
+    },
+    {
+      "page_id": "site:case_studies_portfolio",
+      "page_type": "general",
+      "label": "Case Studies",
+      "url": "/case-studies/",
+      "parent_page_id": "home"
+    },
+    {
+      "page_id": "site:sustainability",
+      "page_type": "general",
+      "label": "Sustainability",
+      "url": "/sustainability/",
+      "parent_page_id": "home"
+    },
+    {
+      "page_id": "site:privacy",
+      "page_type": "privacy",
+      "label": "Privacy Policy",
+      "url": "/privacy-policy/",
+      "parent_page_id": "home"
+    },
+    {
+      "page_id": "site:terms",
+      "page_type": "privacy",
+      "label": "Terms and Conditions",
+      "url": "/terms-and-conditions/",
+      "parent_page_id": "home"
+    },
+    {
+      "page_id": "site:inquiry",
+      "page_type": "general",
+      "label": "Request a Quote",
+      "url": "/request-a-quote/",
+      "parent_page_id": "home"
+    },
+    {
+      "page_id": "c-2bdd0c3dd288:product",
+      "page_type": "product_manufacturer",
+      "label": "Swimwear Accessories",
+      "url": "/swimwear-accessories/",
+      "parent_page_id": "products",
+      "primary_query": "swimwear accessories manufacturer"
+    },
+    {
+      "page_id": "c-ac87783a1afd:product",
+      "page_type": "product_manufacturer",
+      "label": "Plus Size Swimwear",
+      "url": "/plus-size-swimwear-manufacturer/",
+      "parent_page_id": "c-a0d1d7027027:product",
+      "primary_query": "plus-size swimwear manufacturer"
+    },
+    {
+      "page_id": "c-6343e1f14c58:product",
+      "page_type": "product_manufacturer",
+      "label": "Couples Matching Swimsuits",
+      "url": "/couples-matching-swimsuit-manufacturer/",
+      "parent_page_id": "products",
+      "primary_query": "couples matching swimsuit manufacturer"
+    }
+  ],
+  "header_nav": [
+    {
+      "label": "Products",
+      "page_id": "products",
+      "children": [
+        {
+          "label": "Women's Swimwear",
+          "page_id": "c-a0d1d7027027:product",
+          "children": [
+            {
+              "label": "One-Piece Swimsuits",
+              "page_id": "c-705b55f5501e:product",
+              "children": []
+            },
+            {
+              "label": "Bikinis",
+              "page_id": "c-0a2f4a960a8b:product",
+              "children": []
+            },
+            {
+              "label": "Plus Size Swimwear",
+              "page_id": "c-ac87783a1afd:product",
+              "children": []
+            }
+          ]
+        },
+        {
+          "label": "Men's Swimwear",
+          "page_id": "c-6e0b54e5523e:product",
+          "children": [
+            {
+              "label": "Boardshorts",
+              "page_id": "inferred:product:5",
+              "children": []
+            },
+            {
+              "label": "Swim Trunks",
+              "page_id": "inferred:product:13",
+              "children": []
+            }
+          ]
+        },
+        {
+          "label": "Children's Swimwear",
+          "page_id": "c-3d3fc0c8dc39:product",
+          "children": [
+            {
+              "label": "Teen Swimwear",
+              "page_id": "inferred:product:6",
+              "children": []
+            },
+            {
+              "label": "Baby Swimwear",
+              "page_id": "inferred:product:7",
+              "children": []
+            },
+            {
+              "label": "Toddler Swimwear",
+              "page_id": "inferred:product:8",
+              "children": []
+            }
+          ]
+        },
+        {
+          "label": "Modest Swimwear",
+          "page_id": "inferred:product:10",
+          "children": [
+            {
+              "label": "Burkinis",
+              "page_id": "inferred:product:3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "label": "Watersports Apparel",
+          "page_id": "group:watersports-apparel",
+          "children": [
+            {
+              "label": "Rash Guards",
+              "page_id": "inferred:product:1",
+              "children": []
+            }
+          ]
+        },
+        {
+          "label": "Resort Wear",
+          "page_id": "c-0cc45987ac6b:product",
+          "children": [
+            {
+              "label": "Cover-Ups",
+              "page_id": "inferred:product:11",
+              "children": []
+            }
+          ]
+        },
+        {
+          "label": "Swimwear Accessories",
+          "page_id": "c-2bdd0c3dd288:product",
+          "children": []
+        },
+        {
+          "label": "Couples Matching Swimsuits",
+          "page_id": "c-6343e1f14c58:product",
+          "children": []
+        }
+      ]
+    },
+    {
+      "label": "Solutions",
+      "page_id": "solutions",
+      "children": [
+        {
+          "label": "Embroidery",
+          "page_id": "c-8404f8cb0b07:service",
+          "children": []
+        },
+        {
+          "label": "Consulting",
+          "page_id": "c-c48d984954c3:service",
+          "children": []
+        },
+        {
+          "label": "Development",
+          "page_id": "c-05134426bcd1:service",
+          "children": []
+        },
+        {
+          "label": "Swimwear Packaging & Custom Brand Labels",
+          "page_id": "c-fe2ba46d3673:service",
+          "children": []
+        },
+        {
+          "label": "Custom Printing",
+          "page_id": "c-2cd070a4fc87:service",
+          "children": []
+        },
+        {
+          "label": "Swimwear Hardware",
+          "page_id": "c-fb5b6b828f5b:service",
+          "children": []
+        },
+        {
+          "label": "Swimwear Fabrics & Sourcing",
+          "page_id": "c-3055c652c816:service",
+          "children": []
+        },
+        {
+          "label": "Launch",
+          "page_id": "c-f7c91fefc9c3:service",
+          "children": []
+        }
+      ]
+    },
+    {
+      "label": "About Us",
+      "page_id": "site:about",
+      "children": []
+    },
+    {
+      "label": "Case Studies",
+      "page_id": "site:case_studies_portfolio",
+      "children": []
+    },
+    {
+      "label": "Blog",
+      "page_id": "site:blog",
+      "children": []
+    },
+    {
+      "label": "Contact Us",
+      "page_id": "site:contact",
+      "children": []
+    }
+  ],
+  "footer_nav": [
+    {
+      "label": "FAQ",
+      "page_id": "site:faq",
+      "children": []
+    },
+    {
+      "label": "Sustainability",
+      "page_id": "site:sustainability",
+      "children": []
+    },
+    {
+      "label": "Privacy Policy",
+      "page_id": "site:privacy",
+      "children": []
+    },
+    {
+      "label": "Terms and Conditions",
+      "page_id": "site:terms",
+      "children": []
+    },
+    {
+      "label": "Request a Quote",
+      "page_id": "site:inquiry",
+      "children": []
+    }
+  ]
+}

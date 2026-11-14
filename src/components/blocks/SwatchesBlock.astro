@@ -1,0 +1,23 @@
+---
+// Colour swatches (Site Factory swatches, owner 2026-11-10: a static colour card in place of the competitor's fabric
+// explorer): a chip of the colour when the data gives one (a ring when it does not), the name and the composition.
+import type { SwatchesBlock } from '../../lib/authoring';
+import BlockSection from './BlockSection.astro';
+import InlineText from '../blog/InlineText.astro';
+
+interface Props { block: SwatchesBlock }
+const { block } = Astro.props;
+---
+
+<BlockSection block={block} name="swatches" headingClass="swatches__heading">
+  {block.paragraphs?.map((paragraph) => <p class="block__lead"><InlineText text={paragraph} /></p>)}
+  <ul class="swatches">
+    {block.items.map((item) => (
+      <li class="swatch">
+        <span class="swatch__chip" data-colour={item.colour ? 'given' : 'none'} style={item.colour ? `--swatch: ${item.colour}` : undefined} aria-hidden="true"></span>
+        <span class="swatch__name">{item.name}</span>
+        {item.composition && <span class="swatch__composition">{item.composition}</span>}
+      </li>
+    ))}
+  </ul>
+</BlockSection>

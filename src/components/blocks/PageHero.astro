@@ -1,0 +1,63 @@
+---
+// The page's hero. media-form (after a reference hero with an enquiry form) is the photo hero with the enquiry form
+// beside the copy (not on the contact page, which carries its own form).
+import { headingFitStyle, heroLeadShown, wrapEmFor } from '../../../scripts/lib/heading-fit.mjs';
+import { leadFormBlock } from '../../../scripts/lib/lead-form.mjs';
+import { pageHero, variants, type AuthoringPage, type FormBlock, type Media } from '../../lib/authoring';
+import LeadForm from './LeadForm.astro';
+import Picture from './Picture.astro';
+import SmartLink from '../site/SmartLink.astro';
+import Eyebrow from './Eyebrow.astro';
+import InlineText from '../blog/InlineText.astro';
+
+interface Props { page: AuthoringPage }
+const { page } = Astro.props;
+const { media, variant: chosen } = pageHero(page);
+const form = chosen === 'media-form' && page.pageType !== 'contact' ? (leadFormBlock('hero-form') as FormBlock) : null;
+// A form hero is the photo hero with the form beside the copy.
+const variant = chosen === 'media-form' ? 'media-overlay' : chosen;
+// The banner photo's shape, and its phone photo's (art direction), for the banner's height cap (template.css).
+const ratio = (width?: number, height?: number) => (width && height ? Math.round((width / height) * 1000) / 1000 : null);
+// The title's size from its own words (scripts/lib/heading-fit.mjs; template.css [data-heading-fit]): at most two lines
+// on a desktop and four on a phone, the competitor's title size the ceiling.
+// A lead much longer than the competitor's stays off the photo and opens the page under the hero (PageView.astro).
+const leadOnHero = variant !== 'media-overlay' || heroLeadShown(page.hero.lead ?? [], variants.heroText);
+const fitStyle = headingFitStyle(page.hero.heading, { charEm: wrapEmFor(variants.heroText) });
+const bannerRatios = (photo: Media) => [ratio(photo.width, photo.height) && `--hero-photo-ratio: ${ratio(photo.width, photo.height)}`, photo.sources?.[0] && ratio(photo.sources[0].width, photo.sources[0].height) && `--hero-phone-ratio: ${ratio(photo.sources[0].width, photo.sources[0].height)}`].filter(Boolean).join('; ') || undefined;
+---
+
+<section
+  class="page-hero"
+  data-authoring-block="hero"
+  data-variant={variant}
+  data-layout="hero"
+  data-boundary-anchor={variant === 'media-overlay' || variant === 'media-split' ? 'box' : undefined}
+  data-hero-form={form ? 'true' : undefined}
+>
+  {media && variant === 'media-overlay' && <Picture media={media} class="page-hero__backdrop" sizes="100vw" alt="" loading="eager" fetchpriority="high" />}
+  {media && variant === 'media-banner' && (
+    <figure class="page-hero__banner" style={bannerRatios(media)} data-phone-photo={media.sources?.length ? '' : undefined}>
+      <Picture media={media} sizes="100vw" loading="eager" fetchpriority="high" />
+    </figure>
+  )}
+  <div class="container page-hero__inner">
+    <div class="page-hero__copy" data-heading-fit={fitStyle ? '' : undefined} style={fitStyle}>
+      {page.status === 'placeholder' && <p class="placeholder-badge" title="Site Factory has not authored this page yet">Placeholder copy</p>}
+      <Eyebrow text={page.hero.eyebrow} />
+      <h1>{page.hero.heading}</h1>
+      {leadOnHero && page.hero.lead?.map((paragraph) => <p class="page-hero__lead"><InlineText text={paragraph} /></p>)}
+      {(page.hero.cta || page.hero.secondaryCta) && (
+        <div class="page-hero__actions">
+          {page.hero.cta && <SmartLink href={page.hero.cta.href} class="button button--primary">{page.hero.cta.label}</SmartLink>}
+          {page.hero.secondaryCta && <SmartLink href={page.hero.secondaryCta.href} class="button button--secondary">{page.hero.secondaryCta.label}</SmartLink>}
+        </div>
+      )}
+    </div>
+    {form && <div class="page-hero__form"><LeadForm block={form} /></div>}
+    {media && variant === 'media-split' && (
+      <figure class="page-hero__media media-box" style="--media-ratio: 4 / 3">
+        <Picture media={media} sizes="(min-width: 900px) 50vw, 100vw" loading="eager" fetchpriority="high" />
+      </figure>
+    )}
+  </div>
+</section>

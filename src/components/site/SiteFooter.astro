@@ -1,0 +1,94 @@
+---
+// Footer patterns: minimal (brand, sections, legal) or columns (one titled column per navigation group,
+// titles and links from the site plan, plus a bottom bar). With phoneGroups "collapsed" a column's links fold under its
+// title on phones (a <details> open everywhere else); the links stay in the page either way.
+import { contactChannels } from '../../../scripts/lib/site-contact.mjs';
+import { siteContact, siteIdentity, siteNav, siteRuntime, variants } from '../../lib/authoring';
+import SmartLink from './SmartLink.astro';
+
+const navBrand = (siteNav as { brand?: { name?: string } | null }).brand ?? null;
+const brand = siteIdentity ? { name: siteIdentity.siteName } : navBrand;
+const layout = variants.footer?.layout ?? 'minimal';
+// Footer columns summarise each navigation group; the column title links to the group, the header keeps every link.
+const maxLinks = variants.footer?.maxLinks ?? 8;
+const collapsed = variants.footer?.phoneGroups === 'collapsed';
+const groups = siteNav.header.filter((item) => item.children.length > 0);
+const singles = siteNav.header.filter((item) => item.children.length === 0);
+const year = new Date().getFullYear();
+// The site's own contact channels (the registry via site:config) on every page: a visitor can always reach a person.
+const chat = siteRuntime?.chat || null;
+// The company's own details (site-contact.json) come first (lib/site-contact.mjs, the same list the contact page's
+// channels show); a placeholder is marked until the owner replaces it.
+const contacts: { label: string; href?: string }[] = contactChannels({ contact: siteContact, chat });
+const contactPlaceholder = siteContact?.placeholder ? 'true' : undefined;
+---
+
+<footer class="site-footer" data-site-footer data-layout={layout}>
+  {layout === 'columns' ? (
+    <>
+      <div class="container site-footer__columns">
+        <div class="site-footer__brand-column">
+          <p class="site-footer__brand" data-placeholder={brand?.name ? undefined : 'true'}>{brand?.name ?? 'Brand placeholder'}</p>
+          {contacts.length > 0 && <address class="site-footer__contact" data-placeholder={contactPlaceholder}>{contacts.map((item) => (item.href ? <a href={item.href}>{item.label}</a> : <span>{item.label}</span>))}</address>}
+          <ul class="site-footer__links">
+            {singles.map((item) => <li><SmartLink href={item.route}>{item.label}</SmartLink></li>)}
+          </ul>
+        </div>
+        {groups.map((group) => (
+          <nav class="site-footer__group" aria-label={group.label} data-nav-source="header_nav">
+            {collapsed ? (
+              <details class="site-footer__fold" open data-phone-fold>
+                <summary class="site-footer__title"><SmartLink href={group.route}>{group.label}</SmartLink></summary>
+                <ul class="site-footer__links">
+                  {group.children.slice(0, maxLinks).map((child) => <li><SmartLink href={child.route}>{child.label}</SmartLink></li>)}
+                </ul>
+              </details>
+            ) : (
+              <>
+                <p class="site-footer__title"><SmartLink href={group.route}>{group.label}</SmartLink></p>
+                <ul class="site-footer__links">
+                  {group.children.slice(0, maxLinks).map((child) => <li><SmartLink href={child.route}>{child.label}</SmartLink></li>)}
+                </ul>
+              </>
+            )}
+          </nav>
+        ))}
+      </div>
+      <div class="site-footer__bottom">
+        <div class="container site-footer__bottom-inner">
+          <span data-placeholder={brand?.name ? undefined : 'true'}>© {year} {brand?.name ?? 'Brand placeholder'}</span>
+          <ul class="site-footer__legal" data-nav-source="footer_nav">
+            {siteNav.footer.map((item) => <li><SmartLink href={item.route}>{item.label}</SmartLink></li>)}
+          </ul>
+        </div>
+      </div>
+    </>
+  ) : (
+    <div class="container site-footer__grid">
+      <div>
+        <p class="site-footer__brand" data-placeholder={brand?.name ? undefined : 'true'}>{brand?.name ?? 'Brand placeholder'}</p>
+        {contacts.length > 0 && <address class="site-footer__contact" data-placeholder={contactPlaceholder}>{contacts.map((item) => (item.href ? <a href={item.href}>{item.label}</a> : <span>{item.label}</span>))}</address>}
+      </div>
+      <nav aria-label="Site sections" data-nav-source="header_nav">
+        <ul class="site-footer__links">
+          {siteNav.header.filter((item) => item.route).map((item) => <li><SmartLink href={item.route}>{item.label}</SmartLink></li>)}
+        </ul>
+      </nav>
+      <nav aria-label="Legal" data-nav-source="footer_nav">
+        <ul class="site-footer__links">
+          {siteNav.footer.map((item) => <li><SmartLink href={item.route}>{item.label}</SmartLink></li>)}
+        </ul>
+      </nav>
+    </div>
+  )}
+</footer>
+{collapsed && (
+  <script is:inline>
+    (() => {
+      const phone = matchMedia('(max-width: 767px)');
+      const fold = () => { for (const group of document.querySelectorAll('[data-phone-fold]')) group.open = !phone.matches; };
+      fold();
+      phone.addEventListener('change', fold);
+    })();
+  </script>
+)}

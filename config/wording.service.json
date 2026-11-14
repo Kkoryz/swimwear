@@ -1,0 +1,12 @@
+{
+  "note": "Words 08 adds to a service business's pages (config/wording.json).",
+  "relatedHeading": "Related services",
+  "caseHeading": "Client results",
+  "caseLink": "About this service",
+  "trustBarLeaveOut": {
+    "note": "Figures about the company's own inside (its team's size) tell a property owner nothing about what they get; they stay off the trust bar while another figure is there (owner 2026-11-12: show what is useful to the reader). Matched on the figure's label and value, case-insensitive.",
+    "patterns": [
+      "\\b(team|people|staff|employees|colleagues|headcount)\\b"
+    ]
+  }
+}

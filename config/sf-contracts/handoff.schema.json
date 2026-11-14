@@ -1,0 +1,620 @@
+{
+  "$defs": {
+    "BlockKindsFingerprint": {
+      "additionalProperties": true,
+      "properties": {
+        "schema": {
+          "title": "Schema",
+          "type": "string"
+        },
+        "commit": {
+          "title": "Commit",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "commit",
+        "sha256"
+      ],
+      "title": "BlockKindsFingerprint",
+      "type": "object"
+    },
+    "Contracts": {
+      "additionalProperties": true,
+      "properties": {
+        "authoring": {
+          "const": "sf/authoring/v1",
+          "default": "sf/authoring/v1",
+          "title": "Authoring",
+          "type": "string"
+        },
+        "handoff_schema_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Handoff Schema Sha256",
+          "type": "string"
+        },
+        "authoring_schema_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Authoring Schema Sha256",
+          "type": "string"
+        },
+        "requires_schema_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Requires Schema Sha256",
+          "type": "string"
+        },
+        "owner_todo_schema_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Owner Todo Schema Sha256",
+          "type": "string"
+        },
+        "report_schema_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Report Schema Sha256",
+          "type": "string"
+        },
+        "block_kinds": {
+          "$ref": "#/$defs/BlockKindsFingerprint"
+        },
+        "slot_manifest_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Slot Manifest Sha256"
+        },
+        "fact_sources": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Fact Sources",
+          "type": "object"
+        }
+      },
+      "required": [
+        "handoff_schema_sha256",
+        "authoring_schema_sha256",
+        "requires_schema_sha256",
+        "owner_todo_schema_sha256",
+        "report_schema_sha256",
+        "block_kinds",
+        "fact_sources"
+      ],
+      "title": "Contracts",
+      "type": "object"
+    },
+    "HandoffFile": {
+      "additionalProperties": true,
+      "properties": {
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "bytes": {
+          "minimum": 0,
+          "title": "Bytes",
+          "type": "integer"
+        },
+        "role": {
+          "title": "Role",
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "byte_copy",
+            "merged",
+            "generated"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "page_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Id"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "bytes",
+        "role",
+        "mode"
+      ],
+      "title": "HandoffFile",
+      "type": "object"
+    },
+    "HandoffPage": {
+      "additionalProperties": true,
+      "properties": {
+        "page_id": {
+          "title": "Page Id",
+          "type": "string"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "name": {
+          "default": "",
+          "title": "Name",
+          "type": "string"
+        },
+        "tree_type": {
+          "default": "",
+          "title": "Tree Type",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "frozen",
+            "accept_as_is",
+            "curated",
+            "withheld",
+            "nav_only"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "origin": {
+          "anyOf": [
+            {
+              "enum": [
+                "native",
+                "curated"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Origin"
+        },
+        "release_status": {
+          "anyOf": [
+            {
+              "enum": [
+                "ready_for_template",
+                "hold"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Release Status"
+        },
+        "hold_reasons": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Hold Reasons",
+          "type": "array"
+        },
+        "accepted_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Accepted At"
+        },
+        "replayable": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Replayable"
+        },
+        "replaces": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Replaces"
+        },
+        "provenance": {
+          "default": "",
+          "title": "Provenance",
+          "type": "string"
+        },
+        "file": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "File"
+        },
+        "sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sha256"
+        },
+        "reason": {
+          "default": "",
+          "title": "Reason",
+          "type": "string"
+        },
+        "requires": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Requires",
+          "type": "array"
+        }
+      },
+      "required": [
+        "page_id",
+        "url",
+        "status"
+      ],
+      "title": "HandoffPage",
+      "type": "object"
+    },
+    "Identity": {
+      "additionalProperties": true,
+      "properties": {
+        "project_yaml": {
+          "title": "Project Yaml",
+          "type": "string"
+        },
+        "project_yaml_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Project Yaml Sha256",
+          "type": "string"
+        },
+        "brand_dir": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Brand Dir"
+        },
+        "brand_sha256": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Brand Sha256"
+        },
+        "media_dir": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Media Dir"
+        },
+        "media_sha256": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Media Sha256"
+        },
+        "note": {
+          "default": "",
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "project_yaml",
+        "project_yaml_sha256"
+      ],
+      "title": "Identity",
+      "type": "object"
+    },
+    "OwnerIndex": {
+      "additionalProperties": true,
+      "properties": {
+        "todo": {
+          "default": "owner/todo.json",
+          "title": "Todo",
+          "type": "string"
+        },
+        "items": {
+          "minimum": 0,
+          "title": "Items",
+          "type": "integer"
+        },
+        "blocking": {
+          "minimum": 0,
+          "title": "Blocking",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "items",
+        "blocking"
+      ],
+      "title": "OwnerIndex",
+      "type": "object"
+    },
+    "RouteAlias": {
+      "additionalProperties": true,
+      "properties": {
+        "from": {
+          "title": "From",
+          "type": "string"
+        },
+        "to": {
+          "title": "To",
+          "type": "string"
+        },
+        "page_id": {
+          "title": "Page Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "page_id"
+      ],
+      "title": "RouteAlias",
+      "type": "object"
+    },
+    "Site": {
+      "additionalProperties": true,
+      "properties": {
+        "project": {
+          "title": "Project",
+          "type": "string"
+        },
+        "site_name": {
+          "title": "Site Name",
+          "type": "string"
+        },
+        "web_domain": {
+          "title": "Web Domain",
+          "type": "string"
+        },
+        "language": {
+          "title": "Language",
+          "type": "string"
+        }
+      },
+      "required": [
+        "project",
+        "site_name",
+        "web_domain",
+        "language"
+      ],
+      "title": "Site",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": true,
+      "properties": {
+        "repo": {
+          "title": "Repo",
+          "type": "string"
+        },
+        "branch": {
+          "title": "Branch",
+          "type": "string"
+        },
+        "commit": {
+          "title": "Commit",
+          "type": "string"
+        },
+        "dirty": {
+          "title": "Dirty",
+          "type": "boolean"
+        },
+        "project_dir": {
+          "title": "Project Dir",
+          "type": "string"
+        },
+        "freeze_yaml_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Freeze Yaml Sha256",
+          "type": "string"
+        },
+        "owner_facts_sha": {
+          "title": "Owner Facts Sha",
+          "type": "string"
+        },
+        "rulings_sha": {
+          "title": "Rulings Sha",
+          "type": "string"
+        },
+        "native_code_version": {
+          "title": "Native Code Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "repo",
+        "branch",
+        "commit",
+        "dirty",
+        "project_dir",
+        "freeze_yaml_sha256",
+        "owner_facts_sha",
+        "rulings_sha",
+        "native_code_version"
+      ],
+      "title": "Source",
+      "type": "object"
+    }
+  },
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {
+      "const": "sf/handoff/v1",
+      "default": "sf/handoff/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "created_at": {
+      "title": "Created At",
+      "type": "string"
+    },
+    "generator": {
+      "const": "sf handoff",
+      "default": "sf handoff",
+      "title": "Generator",
+      "type": "string"
+    },
+    "site": {
+      "$ref": "#/$defs/Site"
+    },
+    "source": {
+      "$ref": "#/$defs/Source"
+    },
+    "contracts": {
+      "$ref": "#/$defs/Contracts"
+    },
+    "identity": {
+      "$ref": "#/$defs/Identity"
+    },
+    "files": {
+      "items": {
+        "$ref": "#/$defs/HandoffFile"
+      },
+      "title": "Files",
+      "type": "array"
+    },
+    "pages": {
+      "items": {
+        "$ref": "#/$defs/HandoffPage"
+      },
+      "title": "Pages",
+      "type": "array"
+    },
+    "requires": {
+      "default": "requires.json",
+      "title": "Requires",
+      "type": "string"
+    },
+    "owner": {
+      "$ref": "#/$defs/OwnerIndex"
+    },
+    "summary": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Summary",
+      "type": "object"
+    },
+    "warnings": {
+      "default": [],
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Warnings",
+      "type": "array"
+    },
+    "route_aliases": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/RouteAlias"
+      },
+      "title": "Route Aliases",
+      "type": "array"
+    }
+  },
+  "required": [
+    "created_at",
+    "site",
+    "source",
+    "contracts",
+    "identity",
+    "files",
+    "pages",
+    "owner",
+    "summary"
+  ],
+  "title": "Handoff",
+  "type": "object"
+}
