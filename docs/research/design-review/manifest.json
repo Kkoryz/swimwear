@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-shots-v1",
-  "id": "7ba657b84d7ddf15",
+  "id": "35eb2ff105d888e1",
   "pages": [
     {
       "key": "home",
@@ -10,9 +10,9 @@
       "words": 2180,
       "route": "/",
       "status": "authored",
-      "source": "4ad3280a2d7f5012ed789e5d",
+      "source": "2e88426daf84362b7237dcd9",
       "rules": "896e2a6360c1caaa",
-      "shots": "f1ee92da329d27181b8f001a",
+      "shots": "883fff75dabc1f4445d1ab81",
       "images": [
         "docs/research/design-review/home-desktop-1.png",
         "docs/research/design-review/home-desktop-2.png",
@@ -63,7 +63,7 @@
             }
           },
           {
-            "id": "media-module-budget-3",
+            "id": "media-module-budget-4",
             "type": "gallery",
             "top": 1523,
             "height": 806,
@@ -73,7 +73,7 @@
             "id": "overview-steps",
             "type": "process",
             "top": 2329,
-            "height": 396,
+            "height": 487,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -83,15 +83,15 @@
           {
             "id": "media-module-budget-2",
             "type": "gallery",
-            "top": 2725,
+            "top": 2816,
             "height": 806,
             "imageShare": 0.89
           },
           {
             "id": "iconList-1",
             "type": "iconList",
-            "top": 3532,
-            "height": 443,
+            "top": 3623,
+            "height": 417,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -100,15 +100,15 @@
           {
             "id": "media-module-2",
             "type": "gallery",
-            "top": 3975,
+            "top": 4040,
             "height": 830,
             "imageShare": 0.87
           },
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 4805,
-            "height": 494,
+            "top": 4870,
+            "height": 488,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -118,8 +118,8 @@
           {
             "id": "m2-2",
             "type": "featureGrid",
-            "top": 5299,
-            "height": 341,
+            "top": 5359,
+            "height": 336,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -129,8 +129,8 @@
           {
             "id": "m2-3",
             "type": "featureGrid",
-            "top": 5640,
-            "height": 290,
+            "top": 5694,
+            "height": 285,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -140,8 +140,8 @@
           {
             "id": "featureGrid-1",
             "type": "featureGrid",
-            "top": 5930,
-            "height": 442,
+            "top": 5979,
+            "height": 436,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -151,8 +151,8 @@
           {
             "id": "featureGrid-2",
             "type": "featureGrid",
-            "top": 6372,
-            "height": 400,
+            "top": 6415,
+            "height": 389,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -162,8 +162,8 @@
           {
             "id": "featureGrid-3",
             "type": "featureGrid",
-            "top": 6771,
-            "height": 370,
+            "top": 6803,
+            "height": 365,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -173,15 +173,15 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 7141,
+            "top": 7168,
             "height": 579,
             "imageShare": 0.79
           },
           {
             "id": "m3",
             "type": "featureGrid",
-            "top": 7720,
-            "height": 528,
+            "top": 7747,
+            "height": 523,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -191,8 +191,8 @@
           {
             "id": "m3-2",
             "type": "featureGrid",
-            "top": 8249,
-            "height": 290,
+            "top": 8270,
+            "height": 285,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -202,8 +202,8 @@
           {
             "id": "featureGrid-4",
             "type": "featureGrid",
-            "top": 8539,
-            "height": 290,
+            "top": 8554,
+            "height": 285,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -213,8 +213,8 @@
           {
             "id": "featureGrid-5",
             "type": "featureGrid",
-            "top": 8829,
-            "height": 341,
+            "top": 8839,
+            "height": 336,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -224,8 +224,8 @@
           {
             "id": "featureGrid-6",
             "type": "featureGrid",
-            "top": 9170,
-            "height": 341,
+            "top": 9174,
+            "height": 336,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -235,8 +235,8 @@
           {
             "id": "featureGrid-7",
             "type": "featureGrid",
-            "top": 9511,
-            "height": 432,
+            "top": 9510,
+            "height": 426,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -246,8 +246,8 @@
           {
             "id": "featureGrid-8",
             "type": "featureGrid",
-            "top": 9942,
-            "height": 290,
+            "top": 9936,
+            "height": 285,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -257,8 +257,8 @@
           {
             "id": "featureGrid-9",
             "type": "featureGrid",
-            "top": 10232,
-            "height": 290,
+            "top": 10220,
+            "height": 285,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -268,8 +268,8 @@
           {
             "id": "featureGrid-10",
             "type": "featureGrid",
-            "top": 10522,
-            "height": 345,
+            "top": 10505,
+            "height": 339,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -279,7 +279,7 @@
           {
             "id": "m4",
             "type": "splitMedia",
-            "top": 10867,
+            "top": 10844,
             "height": 728,
             "imageShare": 0.43,
             "align": {
@@ -290,22 +290,22 @@
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 11595,
+            "top": 11572,
             "height": 699,
             "imageShare": 0.45
           },
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 12294,
+            "top": 12271,
             "height": 728,
             "imageShare": 0.43
           },
           {
             "id": "owner-logos",
             "type": "logos",
-            "top": 13023,
-            "height": 269,
+            "top": 13000,
+            "height": 250,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -314,8 +314,8 @@
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 13292,
-            "height": 442,
+            "top": 13250,
+            "height": 416,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -325,7 +325,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 13734,
+            "top": 13667,
             "height": 230,
             "imageShare": 0,
             "align": {
@@ -335,15 +335,15 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 13964,
+            "top": 13897,
             "height": 806,
             "imageShare": 0.89
           },
           {
             "id": "faq",
             "type": "faq",
-            "top": 14770,
-            "height": 293,
+            "top": 14703,
+            "height": 415,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -351,10 +351,17 @@
             }
           },
           {
+            "id": "media-module-budget-3",
+            "type": "gallery",
+            "top": 15118,
+            "height": 806,
+            "imageShare": 0.89
+          },
+          {
             "id": "cta-steps",
             "type": "process",
-            "top": 15064,
-            "height": 331,
+            "top": 15925,
+            "height": 407,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -364,7 +371,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 15395,
+            "top": 16331,
             "height": 734,
             "imageShare": 0.8,
             "align": {
@@ -398,7 +405,7 @@
             "id": "overview",
             "type": "intro",
             "top": 828,
-            "height": 593,
+            "height": 617,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -406,17 +413,17 @@
             }
           },
           {
-            "id": "media-module-budget-3",
+            "id": "media-module-budget-4",
             "type": "gallery",
-            "top": 1421,
-            "height": 341,
-            "imageShare": 0.86
+            "top": 1445,
+            "height": 365,
+            "imageShare": 0.8
           },
           {
             "id": "overview-steps",
             "type": "process",
-            "top": 1761,
-            "height": 456,
+            "top": 1809,
+            "height": 569,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -426,15 +433,15 @@
           {
             "id": "media-module-budget-2",
             "type": "gallery",
-            "top": 2218,
-            "height": 341,
-            "imageShare": 0.86
+            "top": 2378,
+            "height": 365,
+            "imageShare": 0.8
           },
           {
             "id": "iconList-1",
             "type": "iconList",
-            "top": 2558,
-            "height": 688,
+            "top": 2743,
+            "height": 686,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -443,15 +450,15 @@
           {
             "id": "media-module-2",
             "type": "gallery",
-            "top": 3247,
-            "height": 365,
-            "imageShare": 0.8
+            "top": 3429,
+            "height": 389,
+            "imageShare": 0.75
           },
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 3611,
-            "height": 1149,
+            "top": 3818,
+            "height": 1143,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -461,8 +468,8 @@
           {
             "id": "m2-2",
             "type": "featureGrid",
-            "top": 4760,
-            "height": 929,
+            "top": 4960,
+            "height": 905,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -472,8 +479,8 @@
           {
             "id": "m2-3",
             "type": "featureGrid",
-            "top": 5688,
-            "height": 580,
+            "top": 5865,
+            "height": 562,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -483,8 +490,8 @@
           {
             "id": "featureGrid-1",
             "type": "featureGrid",
-            "top": 6268,
-            "height": 1247,
+            "top": 6427,
+            "height": 1223,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -494,8 +501,8 @@
           {
             "id": "featureGrid-2",
             "type": "featureGrid",
-            "top": 7515,
-            "height": 1082,
+            "top": 7650,
+            "height": 1058,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -505,8 +512,8 @@
           {
             "id": "featureGrid-3",
             "type": "featureGrid",
-            "top": 8597,
-            "height": 743,
+            "top": 8707,
+            "height": 737,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -516,14 +523,14 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 9340,
-            "height": 225,
-            "imageShare": 0.65
+            "top": 9444,
+            "height": 249,
+            "imageShare": 0.59
           },
           {
             "id": "m3",
             "type": "featureGrid",
-            "top": 9565,
+            "top": 9693,
             "height": 751,
             "imageShare": 0,
             "align": {
@@ -534,8 +541,8 @@
           {
             "id": "m3-2",
             "type": "featureGrid",
-            "top": 10316,
-            "height": 595,
+            "top": 10445,
+            "height": 583,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -545,8 +552,8 @@
           {
             "id": "featureGrid-4",
             "type": "featureGrid",
-            "top": 10911,
-            "height": 842,
+            "top": 11028,
+            "height": 824,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -556,8 +563,8 @@
           {
             "id": "featureGrid-5",
             "type": "featureGrid",
-            "top": 11753,
-            "height": 621,
+            "top": 11851,
+            "height": 609,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -567,8 +574,8 @@
           {
             "id": "featureGrid-6",
             "type": "featureGrid",
-            "top": 12373,
-            "height": 718,
+            "top": 12460,
+            "height": 694,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -578,8 +585,8 @@
           {
             "id": "featureGrid-7",
             "type": "featureGrid",
-            "top": 13091,
-            "height": 1096,
+            "top": 13154,
+            "height": 1072,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -589,8 +596,8 @@
           {
             "id": "featureGrid-8",
             "type": "featureGrid",
-            "top": 14187,
-            "height": 842,
+            "top": 14225,
+            "height": 824,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -600,8 +607,8 @@
           {
             "id": "featureGrid-9",
             "type": "featureGrid",
-            "top": 15028,
-            "height": 816,
+            "top": 15049,
+            "height": 798,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -611,8 +618,8 @@
           {
             "id": "featureGrid-10",
             "type": "featureGrid",
-            "top": 15844,
-            "height": 913,
+            "top": 15847,
+            "height": 901,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -622,9 +629,9 @@
           {
             "id": "m4",
             "type": "splitMedia",
-            "top": 16757,
-            "height": 910,
-            "imageShare": 0.35,
+            "top": 16748,
+            "height": 922,
+            "imageShare": 0.34,
             "align": {
               "heading": "start",
               "text": "start"
@@ -633,22 +640,22 @@
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 17667,
+            "top": 17670,
             "height": 804,
             "imageShare": 0.39
           },
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 18471,
-            "height": 809,
-            "imageShare": 0.39
+            "top": 18473,
+            "height": 821,
+            "imageShare": 0.38
           },
           {
             "id": "owner-logos",
             "type": "logos",
-            "top": 19280,
-            "height": 199,
+            "top": 19295,
+            "height": 223,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -657,8 +664,8 @@
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 19479,
-            "height": 437,
+            "top": 19517,
+            "height": 461,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -668,8 +675,8 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 19915,
-            "height": 302,
+            "top": 19978,
+            "height": 326,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -678,15 +685,15 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 20218,
-            "height": 341,
-            "imageShare": 0.86
+            "top": 20304,
+            "height": 365,
+            "imageShare": 0.8
           },
           {
             "id": "faq",
             "type": "faq",
-            "top": 20558,
-            "height": 439,
+            "top": 20669,
+            "height": 687,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -694,10 +701,17 @@
             }
           },
           {
+            "id": "media-module-budget-3",
+            "type": "gallery",
+            "top": 21356,
+            "height": 365,
+            "imageShare": 0.8
+          },
+          {
             "id": "cta-steps",
             "type": "process",
-            "top": 20997,
-            "height": 442,
+            "top": 21720,
+            "height": 540,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -707,9 +721,9 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 21440,
-            "height": 619,
-            "imageShare": 0.79,
+            "top": 22260,
+            "height": 655,
+            "imageShare": 0.75,
             "align": {
               "heading": "start",
               "text": "start",
@@ -803,9 +817,9 @@
       "words": 1362,
       "route": "/about-us/",
       "status": "authored",
-      "source": "e9bbbfe7591fcd743d9866d7",
+      "source": "508c728b1c7ea9194881ea21",
       "rules": "896e2a6360c1caaa",
-      "shots": "26164d6581bff45c33533879",
+      "shots": "f1403616be62d2d6475ebc9c",
       "images": [
         "docs/research/design-review/about-desktop-1.png",
         "docs/research/design-review/about-desktop-2.png",
@@ -862,7 +876,7 @@
             "id": "m3",
             "type": "featureGrid",
             "top": 1727,
-            "height": 403,
+            "height": 398,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -872,8 +886,8 @@
           {
             "id": "m3-2",
             "type": "featureGrid",
-            "top": 2131,
-            "height": 272,
+            "top": 2125,
+            "height": 267,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -883,7 +897,7 @@
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 2403,
+            "top": 2392,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -894,7 +908,7 @@
           {
             "id": "splitMedia-3",
             "type": "splitMedia",
-            "top": 3160,
+            "top": 3149,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -905,7 +919,7 @@
           {
             "id": "m4",
             "type": "process",
-            "top": 3918,
+            "top": 3907,
             "height": 640,
             "imageShare": 0,
             "align": {
@@ -916,8 +930,8 @@
           {
             "id": "m5",
             "type": "iconList",
-            "top": 4558,
-            "height": 757,
+            "top": 4547,
+            "height": 718,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -926,8 +940,8 @@
           {
             "id": "m6",
             "type": "iconList",
-            "top": 5316,
-            "height": 414,
+            "top": 5266,
+            "height": 394,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -937,8 +951,8 @@
           {
             "id": "owner-logos",
             "type": "logos",
-            "top": 5730,
-            "height": 241,
+            "top": 5660,
+            "height": 222,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -947,8 +961,8 @@
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 5971,
-            "height": 465,
+            "top": 5882,
+            "height": 363,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -958,8 +972,8 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 6436,
-            "height": 272,
+            "top": 6245,
+            "height": 496,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -969,7 +983,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 6708,
+            "top": 6742,
             "height": 734,
             "imageShare": 0.8,
             "align": {
@@ -1003,7 +1017,7 @@
             "id": "overview",
             "type": "intro",
             "top": 820,
-            "height": 295,
+            "height": 319,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1013,9 +1027,9 @@
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 1114,
-            "height": 643,
-            "imageShare": 0.49,
+            "top": 1138,
+            "height": 667,
+            "imageShare": 0.47,
             "align": {
               "heading": "start",
               "text": "start"
@@ -1024,8 +1038,8 @@
           {
             "id": "m3",
             "type": "featureGrid",
-            "top": 1757,
-            "height": 1001,
+            "top": 1805,
+            "height": 983,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1035,7 +1049,7 @@
           {
             "id": "m3-2",
             "type": "featureGrid",
-            "top": 2758,
+            "top": 2788,
             "height": 480,
             "imageShare": 0,
             "align": {
@@ -1046,9 +1060,9 @@
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 3238,
-            "height": 862,
-            "imageShare": 0.36,
+            "top": 3268,
+            "height": 886,
+            "imageShare": 0.35,
             "align": {
               "heading": "start",
               "text": "start"
@@ -1057,9 +1071,9 @@
           {
             "id": "splitMedia-3",
             "type": "splitMedia",
-            "top": 4100,
-            "height": 883,
-            "imageShare": 0.36,
+            "top": 4154,
+            "height": 907,
+            "imageShare": 0.35,
             "align": {
               "heading": "start",
               "text": "start"
@@ -1068,8 +1082,8 @@
           {
             "id": "m4",
             "type": "process",
-            "top": 4983,
-            "height": 1542,
+            "top": 5061,
+            "height": 1566,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1079,8 +1093,8 @@
           {
             "id": "m5",
             "type": "iconList",
-            "top": 6524,
-            "height": 1230,
+            "top": 6626,
+            "height": 1235,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -1089,8 +1103,8 @@
           {
             "id": "m6",
             "type": "iconList",
-            "top": 7754,
-            "height": 903,
+            "top": 7861,
+            "height": 894,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1100,8 +1114,8 @@
           {
             "id": "owner-logos",
             "type": "logos",
-            "top": 8657,
-            "height": 197,
+            "top": 8755,
+            "height": 221,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -1110,8 +1124,8 @@
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 8854,
-            "height": 461,
+            "top": 8976,
+            "height": 485,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1121,8 +1135,8 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 9314,
-            "height": 394,
+            "top": 9460,
+            "height": 897,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1132,9 +1146,9 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 9708,
-            "height": 392,
-            "imageShare": 0.73,
+            "top": 10357,
+            "height": 428,
+            "imageShare": 0.67,
             "align": {
               "heading": "start",
               "text": "start",
@@ -1173,7 +1187,7 @@
               },
               "body": {
                 "family": "DM Sans",
-                "weight": 700
+                "weight": 400
               },
               "button": {
                 "family": "DM Sans",
@@ -1206,7 +1220,7 @@
               },
               "body": {
                 "family": "DM Sans",
-                "weight": 700
+                "weight": 400
               },
               "button": {
                 "family": "DM Sans",
@@ -1226,9 +1240,9 @@
       "words": 1907,
       "route": "/faq/",
       "status": "authored",
-      "source": "02a1c351f7a20d2a3e0ab7ef",
+      "source": "e146bb95d3898e2f24feb419",
       "rules": "896e2a6360c1caaa",
-      "shots": "339d159e05e00bb4ce1ac129",
+      "shots": "183b2662dc49bf1a32ede7af",
       "images": [
         "docs/research/design-review/general-desktop-1.png",
         "docs/research/design-review/general-desktop-2.png",
@@ -1279,17 +1293,13 @@
             "id": "overview-steps",
             "type": "process",
             "top": 1407,
-            "height": 461,
-            "imageShare": 0,
-            "align": {
-              "heading": "start",
-              "text": "start"
-            }
+            "height": 487,
+            "imageShare": 0
           },
           {
             "id": "proof-1",
             "type": "proof",
-            "top": 1868,
+            "top": 1894,
             "height": 283,
             "imageShare": 0,
             "align": {
@@ -1300,15 +1310,15 @@
           {
             "id": "proof-2",
             "type": "proof",
-            "top": 2151,
+            "top": 2177,
             "height": 173,
             "imageShare": 0
           },
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 2324,
-            "height": 411,
+            "top": 2350,
+            "height": 405,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1318,8 +1328,8 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 2735,
-            "height": 363,
+            "top": 2756,
+            "height": 343,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -1328,8 +1338,8 @@
           {
             "id": "m6",
             "type": "iconList",
-            "top": 3098,
-            "height": 681,
+            "top": 3099,
+            "height": 642,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -1338,7 +1348,7 @@
           {
             "id": "m4",
             "type": "splitMedia",
-            "top": 3779,
+            "top": 3741,
             "height": 264,
             "imageShare": 0,
             "align": {
@@ -1349,7 +1359,7 @@
           {
             "id": "m5",
             "type": "proof",
-            "top": 4043,
+            "top": 4005,
             "height": 253,
             "imageShare": 0,
             "align": {
@@ -1360,15 +1370,15 @@
           {
             "id": "m5-charts",
             "type": "charts",
-            "top": 4296,
+            "top": 4258,
             "height": 417,
             "imageShare": 0
           },
           {
             "id": "m7",
             "type": "iconList",
-            "top": 4713,
-            "height": 944,
+            "top": 4675,
+            "height": 892,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -1377,8 +1387,8 @@
           {
             "id": "iconList-1",
             "type": "iconList",
-            "top": 5657,
-            "height": 363,
+            "top": 5567,
+            "height": 343,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1386,16 +1396,9 @@
             }
           },
           {
-            "id": "media-module-budget-1",
-            "type": "gallery",
-            "top": 6020,
-            "height": 806,
-            "imageShare": 0.89
-          },
-          {
             "id": "m8",
             "type": "proof",
-            "top": 6826,
+            "top": 5910,
             "height": 304,
             "imageShare": 0,
             "align": {
@@ -1406,29 +1409,24 @@
           {
             "id": "m8-steps",
             "type": "process",
-            "top": 7130,
-            "height": 331,
-            "imageShare": 0,
-            "align": {
-              "heading": "start",
-              "text": "start"
-            }
+            "top": 6214,
+            "height": 370,
+            "imageShare": 0
           },
           {
             "id": "process-1",
             "type": "process",
-            "top": 7461,
-            "height": 421,
+            "top": 6584,
+            "height": 614,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
             "id": "proof-3",
             "type": "proof",
-            "top": 7882,
+            "top": 7198,
             "height": 322,
             "imageShare": 0,
             "align": {
@@ -1437,9 +1435,16 @@
             }
           },
           {
+            "id": "media-module-budget-1",
+            "type": "gallery",
+            "top": 7520,
+            "height": 806,
+            "imageShare": 0.89
+          },
+          {
             "id": "proof-4",
             "type": "proof",
-            "top": 8204,
+            "top": 8327,
             "height": 352,
             "imageShare": 0,
             "align": {
@@ -1450,8 +1455,8 @@
           {
             "id": "m9",
             "type": "iconList",
-            "top": 8555,
-            "height": 388,
+            "top": 8678,
+            "height": 369,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -1460,7 +1465,7 @@
           {
             "id": "m10",
             "type": "splitMedia",
-            "top": 8944,
+            "top": 9047,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -1471,7 +1476,7 @@
           {
             "id": "m11",
             "type": "proof",
-            "top": 9701,
+            "top": 9805,
             "height": 278,
             "imageShare": 0,
             "align": {
@@ -1482,35 +1487,35 @@
           {
             "id": "m11-charts",
             "type": "charts",
-            "top": 9980,
+            "top": 10083,
             "height": 166,
             "imageShare": 0
           },
           {
             "id": "proof-5",
             "type": "proof",
-            "top": 10145,
+            "top": 10249,
             "height": 79,
             "imageShare": 0
           },
           {
             "id": "proof-6",
             "type": "proof",
-            "top": 10224,
+            "top": 10328,
             "height": 144,
             "imageShare": 0
           },
           {
             "id": "proof-7",
             "type": "proof",
-            "top": 10368,
+            "top": 10472,
             "height": 246,
             "imageShare": 0
           },
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 10615,
+            "top": 10718,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -1521,7 +1526,7 @@
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 11372,
+            "top": 11476,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -1532,7 +1537,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 12130,
+            "top": 12233,
             "height": 230,
             "imageShare": 0,
             "align": {
@@ -1542,7 +1547,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 12360,
+            "top": 12463,
             "height": 734,
             "imageShare": 0.8,
             "align": {
@@ -1576,7 +1581,7 @@
             "id": "overview",
             "type": "intro",
             "top": 891,
-            "height": 364,
+            "height": 388,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1586,19 +1591,15 @@
           {
             "id": "overview-steps",
             "type": "process",
-            "top": 1255,
-            "height": 547,
-            "imageShare": 0,
-            "align": {
-              "heading": "start",
-              "text": "start"
-            }
+            "top": 1279,
+            "height": 710,
+            "imageShare": 0
           },
           {
             "id": "proof-1",
             "type": "proof",
-            "top": 1802,
-            "height": 432,
+            "top": 1989,
+            "height": 444,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1608,14 +1609,14 @@
           {
             "id": "proof-2",
             "type": "proof",
-            "top": 2234,
-            "height": 282,
+            "top": 2433,
+            "height": 294,
             "imageShare": 0
           },
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 2516,
+            "top": 2727,
             "height": 860,
             "imageShare": 0,
             "align": {
@@ -1626,8 +1627,8 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 3375,
-            "height": 564,
+            "top": 3586,
+            "height": 569,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -1636,8 +1637,8 @@
           {
             "id": "m6",
             "type": "iconList",
-            "top": 3939,
-            "height": 1017,
+            "top": 4155,
+            "height": 996,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -1646,8 +1647,8 @@
           {
             "id": "m4",
             "type": "splitMedia",
-            "top": 4957,
-            "height": 418,
+            "top": 5151,
+            "height": 442,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1657,8 +1658,8 @@
           {
             "id": "m5",
             "type": "proof",
-            "top": 5374,
-            "height": 319,
+            "top": 5592,
+            "height": 343,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1668,15 +1669,15 @@
           {
             "id": "m5-charts",
             "type": "charts",
-            "top": 5693,
-            "height": 522,
+            "top": 5935,
+            "height": 534,
             "imageShare": 0
           },
           {
             "id": "m7",
             "type": "iconList",
-            "top": 6216,
-            "height": 1465,
+            "top": 6470,
+            "height": 1430,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -1685,8 +1686,8 @@
           {
             "id": "iconList-1",
             "type": "iconList",
-            "top": 7680,
-            "height": 860,
+            "top": 7900,
+            "height": 871,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1694,17 +1695,10 @@
             }
           },
           {
-            "id": "media-module-budget-1",
-            "type": "gallery",
-            "top": 8540,
-            "height": 341,
-            "imageShare": 0.86
-          },
-          {
             "id": "m8",
             "type": "proof",
-            "top": 8881,
-            "height": 396,
+            "top": 8771,
+            "height": 420,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1714,30 +1708,25 @@
           {
             "id": "m8-steps",
             "type": "process",
-            "top": 9276,
-            "height": 442,
-            "imageShare": 0,
-            "align": {
-              "heading": "start",
-              "text": "start"
-            }
+            "top": 9190,
+            "height": 556,
+            "imageShare": 0
           },
           {
             "id": "process-1",
             "type": "process",
-            "top": 9718,
-            "height": 1254,
+            "top": 9746,
+            "height": 1042,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
             "id": "proof-3",
             "type": "proof",
-            "top": 10972,
-            "height": 412,
+            "top": 10788,
+            "height": 436,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1745,10 +1734,17 @@
             }
           },
           {
+            "id": "media-module-budget-1",
+            "type": "gallery",
+            "top": 11225,
+            "height": 365,
+            "imageShare": 0.8
+          },
+          {
             "id": "proof-4",
             "type": "proof",
-            "top": 11384,
-            "height": 477,
+            "top": 11589,
+            "height": 501,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1758,8 +1754,8 @@
           {
             "id": "m9",
             "type": "iconList",
-            "top": 11861,
-            "height": 564,
+            "top": 12090,
+            "height": 601,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -1768,9 +1764,9 @@
           {
             "id": "m10",
             "type": "splitMedia",
-            "top": 12425,
-            "height": 945,
-            "imageShare": 0.33,
+            "top": 12691,
+            "height": 969,
+            "imageShare": 0.32,
             "align": {
               "heading": "start",
               "text": "start"
@@ -1779,8 +1775,8 @@
           {
             "id": "m11",
             "type": "proof",
-            "top": 13370,
-            "height": 345,
+            "top": 13660,
+            "height": 369,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1790,37 +1786,37 @@
           {
             "id": "m11-charts",
             "type": "charts",
-            "top": 13715,
+            "top": 14028,
             "height": 172,
             "imageShare": 0
           },
           {
             "id": "proof-5",
             "type": "proof",
-            "top": 13887,
+            "top": 14200,
             "height": 156,
             "imageShare": 0
           },
           {
             "id": "proof-6",
             "type": "proof",
-            "top": 14042,
+            "top": 14356,
             "height": 246,
             "imageShare": 0
           },
           {
             "id": "proof-7",
             "type": "proof",
-            "top": 14288,
-            "height": 333,
+            "top": 14602,
+            "height": 345,
             "imageShare": 0
           },
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 14621,
-            "height": 932,
-            "imageShare": 0.34,
+            "top": 14947,
+            "height": 956,
+            "imageShare": 0.33,
             "align": {
               "heading": "start",
               "text": "start"
@@ -1829,9 +1825,9 @@
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 15553,
-            "height": 841,
-            "imageShare": 0.37,
+            "top": 15903,
+            "height": 865,
+            "imageShare": 0.36,
             "align": {
               "heading": "start",
               "text": "start"
@@ -1840,8 +1836,8 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 16394,
-            "height": 182,
+            "top": 16768,
+            "height": 206,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -1850,9 +1846,9 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 16577,
-            "height": 449,
-            "imageShare": 0.75,
+            "top": 16975,
+            "height": 485,
+            "imageShare": 0.7,
             "align": {
               "heading": "start",
               "text": "start",
@@ -1888,7 +1884,7 @@
               },
               "body": {
                 "family": "DM Sans",
-                "weight": 700
+                "weight": 400
               },
               "button": {
                 "family": "DM Sans",
@@ -1921,7 +1917,7 @@
               },
               "body": {
                 "family": "DM Sans",
-                "weight": 700
+                "weight": 400
               },
               "button": {
                 "family": "DM Sans",
@@ -1941,9 +1937,9 @@
       "words": 983,
       "route": "/case-studies/",
       "status": "authored",
-      "source": "457510f5acb23380f79763df",
+      "source": "6a2beec229b674e35c2a6112",
       "rules": "896e2a6360c1caaa",
-      "shots": "a27124d059e578b77c0ca0ca",
+      "shots": "82abf648297fc42ca989852b",
       "images": [
         "docs/research/design-review/general--shortest-desktop-1.png",
         "docs/research/design-review/general--shortest-desktop-2.png",
@@ -1987,18 +1983,14 @@
             "id": "overview-steps",
             "type": "process",
             "top": 1515,
-            "height": 461,
-            "imageShare": 0,
-            "align": {
-              "heading": "start",
-              "text": "start"
-            }
+            "height": 487,
+            "imageShare": 0
           },
           {
             "id": "cases",
             "type": "orderCase",
-            "top": 1976,
-            "height": 540,
+            "top": 2002,
+            "height": 544,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2008,7 +2000,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 2516,
+            "top": 2545,
             "height": 230,
             "imageShare": 0,
             "align": {
@@ -2018,8 +2010,8 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 2746,
-            "height": 334,
+            "top": 2776,
+            "height": 788,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2029,18 +2021,14 @@
           {
             "id": "faq-steps",
             "type": "process",
-            "top": 3080,
-            "height": 331,
-            "imageShare": 0,
-            "align": {
-              "heading": "start",
-              "text": "start"
-            }
+            "top": 3563,
+            "height": 395,
+            "imageShare": 0
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 3411,
+            "top": 3959,
             "height": 734,
             "imageShare": 0.8,
             "align": {
@@ -2074,7 +2062,7 @@
             "id": "overview",
             "type": "intro",
             "top": 899,
-            "height": 506,
+            "height": 530,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2084,19 +2072,15 @@
           {
             "id": "overview-steps",
             "type": "process",
-            "top": 1405,
-            "height": 598,
-            "imageShare": 0,
-            "align": {
-              "heading": "start",
-              "text": "start"
-            }
+            "top": 1429,
+            "height": 736,
+            "imageShare": 0
           },
           {
             "id": "cases",
             "type": "orderCase",
-            "top": 2003,
-            "height": 686,
+            "top": 2165,
+            "height": 714,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2106,8 +2090,8 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 2689,
-            "height": 247,
+            "top": 2879,
+            "height": 271,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -2116,8 +2100,8 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 2937,
-            "height": 510,
+            "top": 3150,
+            "height": 1600,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2127,20 +2111,16 @@
           {
             "id": "faq-steps",
             "type": "process",
-            "top": 3447,
-            "height": 493,
-            "imageShare": 0,
-            "align": {
-              "heading": "start",
-              "text": "start"
-            }
+            "top": 4750,
+            "height": 607,
+            "imageShare": 0
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 3940,
-            "height": 495,
-            "imageShare": 0.77,
+            "top": 5357,
+            "height": 531,
+            "imageShare": 0.72,
             "align": {
               "heading": "start",
               "text": "start",
@@ -2178,7 +2158,7 @@
               },
               "body": {
                 "family": "DM Sans",
-                "weight": 700
+                "weight": 400
               },
               "button": {
                 "family": "DM Sans",
@@ -2211,7 +2191,7 @@
               },
               "body": {
                 "family": "DM Sans",
-                "weight": 700
+                "weight": 400
               },
               "button": {
                 "family": "DM Sans",
@@ -2231,9 +2211,9 @@
       "words": 701,
       "route": "/terms-and-conditions/",
       "status": "authored",
-      "source": "7fc7e835c117304fb0232496",
+      "source": "a90f9fcacb28f0c75bec9e41",
       "rules": "896e2a6360c1caaa",
-      "shots": "f9ecc4c33d8ce2f683727d57",
+      "shots": "2d0702d6f8fd39893d882fa0",
       "images": [
         "docs/research/design-review/privacy-desktop-1.png",
         "docs/research/design-review/privacy-desktop-2.png",
@@ -2269,7 +2249,7 @@
             "id": "m3",
             "type": "iconList",
             "top": 943,
-            "height": 918,
+            "height": 866,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2279,8 +2259,8 @@
           {
             "id": "m2",
             "type": "iconList",
-            "top": 1862,
-            "height": 601,
+            "top": 1810,
+            "height": 562,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2290,28 +2270,28 @@
           {
             "id": "proof-1",
             "type": "proof",
-            "top": 2462,
+            "top": 2371,
             "height": 217,
             "imageShare": 0
           },
           {
             "id": "proof-1-charts",
             "type": "charts",
-            "top": 2679,
+            "top": 2588,
             "height": 133,
             "imageShare": 0
           },
           {
             "id": "proof-2",
             "type": "proof",
-            "top": 2812,
+            "top": 2721,
             "height": 207,
             "imageShare": 0
           },
           {
             "id": "process-1",
             "type": "process",
-            "top": 3019,
+            "top": 2928,
             "height": 319,
             "imageShare": 0,
             "align": {
@@ -2322,7 +2302,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 3338,
+            "top": 3247,
             "height": 230,
             "imageShare": 0,
             "align": {
@@ -2332,8 +2312,8 @@
           {
             "id": "cta-steps",
             "type": "process",
-            "top": 3568,
-            "height": 461,
+            "top": 3477,
+            "height": 567,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2343,7 +2323,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 4029,
+            "top": 4044,
             "height": 734,
             "imageShare": 0.8,
             "align": {
@@ -2358,7 +2338,7 @@
             "id": "hero",
             "type": "hero",
             "top": 109,
-            "height": 247,
+            "height": 259,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2368,8 +2348,8 @@
           {
             "id": "overview",
             "type": "intro",
-            "top": 356,
-            "height": 556,
+            "top": 368,
+            "height": 592,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2379,8 +2359,8 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 912,
-            "height": 1618,
+            "top": 960,
+            "height": 1668,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2390,8 +2370,8 @@
           {
             "id": "m2",
             "type": "iconList",
-            "top": 2529,
-            "height": 1024,
+            "top": 2627,
+            "height": 997,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2401,29 +2381,29 @@
           {
             "id": "proof-1",
             "type": "proof",
-            "top": 3553,
-            "height": 355,
+            "top": 3624,
+            "height": 367,
             "imageShare": 0
           },
           {
             "id": "proof-1-charts",
             "type": "charts",
-            "top": 3908,
+            "top": 3991,
             "height": 139,
             "imageShare": 0
           },
           {
             "id": "proof-2",
             "type": "proof",
-            "top": 4047,
-            "height": 294,
+            "top": 4130,
+            "height": 306,
             "imageShare": 0
           },
           {
             "id": "process-1",
             "type": "process",
-            "top": 4341,
-            "height": 598,
+            "top": 4436,
+            "height": 622,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2433,8 +2413,8 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 4938,
-            "height": 184,
+            "top": 5057,
+            "height": 208,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -2443,8 +2423,8 @@
           {
             "id": "cta-steps",
             "type": "process",
-            "top": 5122,
-            "height": 573,
+            "top": 5265,
+            "height": 675,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2454,9 +2434,9 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 5694,
-            "height": 425,
-            "imageShare": 0.75,
+            "top": 5939,
+            "height": 461,
+            "imageShare": 0.69,
             "align": {
               "heading": "start",
               "text": "start",
@@ -2545,9 +2525,9 @@
       "words": 132,
       "route": "/privacy-policy/",
       "status": "authored",
-      "source": "145a719760a79f3053ee7d65",
+      "source": "16d995556db25e444d1f925e",
       "rules": "896e2a6360c1caaa",
-      "shots": "18b29668dcce80470222c20c",
+      "shots": "079d7b54013b531a6f8a5cbe",
       "images": [
         "docs/research/design-review/privacy--shortest-desktop-1.png",
         "docs/research/design-review/privacy--shortest-mobile-1.png"
@@ -2604,7 +2584,7 @@
             "id": "hero",
             "type": "hero",
             "top": 109,
-            "height": 176,
+            "height": 188,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2614,8 +2594,8 @@
           {
             "id": "overview",
             "type": "intro",
-            "top": 284,
-            "height": 571,
+            "top": 296,
+            "height": 607,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2625,8 +2605,8 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 855,
-            "height": 184,
+            "top": 903,
+            "height": 208,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -2635,9 +2615,9 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 1039,
-            "height": 392,
-            "imageShare": 0.73,
+            "top": 1111,
+            "height": 428,
+            "imageShare": 0.67,
             "align": {
               "heading": "start",
               "text": "start",
@@ -2726,9 +2706,9 @@
       "words": 496,
       "route": "/blog/",
       "status": "authored",
-      "source": "735a361ad2524c156049279c",
+      "source": "34290059ab3b6cc8a95906a2",
       "rules": "896e2a6360c1caaa",
-      "shots": "03e6853e2ef996047ee1df6e",
+      "shots": "cc86667cd5363fb80a8bec39",
       "images": [
         "docs/research/design-review/blog_hub-desktop-1.png",
         "docs/research/design-review/blog_hub-mobile-1.png",
@@ -2740,9 +2720,9 @@
           {
             "id": "hero",
             "type": "hero",
-            "top": 118,
+            "top": 79,
             "height": 293,
-            "imageShare": 0,
+            "imageShare": 1,
             "align": {
               "heading": "start",
               "text": "start"
@@ -2752,7 +2732,7 @@
             "id": "overview",
             "type": "intro",
             "top": 411,
-            "height": 408,
+            "height": 437,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2762,8 +2742,8 @@
           {
             "id": "overview-steps",
             "type": "process",
-            "top": 819,
-            "height": 396,
+            "top": 848,
+            "height": 487,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2773,8 +2753,8 @@
           {
             "id": "table-1",
             "type": "table",
-            "top": 1215,
-            "height": 940,
+            "top": 1335,
+            "height": 1324,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -2783,7 +2763,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 2154,
+            "top": 2659,
             "height": 734,
             "imageShare": 0.8,
             "align": {
@@ -2797,19 +2777,19 @@
           {
             "id": "hero",
             "type": "hero",
-            "top": 109,
-            "height": 233,
-            "imageShare": 0,
+            "top": 70,
+            "height": 275,
+            "imageShare": 1,
             "align": {
-              "heading": "start",
+              "heading": "centre",
               "text": "start"
             }
           },
           {
             "id": "overview",
             "type": "intro",
-            "top": 342,
-            "height": 532,
+            "top": 384,
+            "height": 556,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2819,8 +2799,8 @@
           {
             "id": "overview-steps",
             "type": "process",
-            "top": 874,
-            "height": 507,
+            "top": 940,
+            "height": 594,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2830,8 +2810,8 @@
           {
             "id": "table-1",
             "type": "table",
-            "top": 1382,
-            "height": 2969,
+            "top": 1534,
+            "height": 3070,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -2840,9 +2820,9 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 4350,
-            "height": 470,
-            "imageShare": 0.76,
+            "top": 4604,
+            "height": 506,
+            "imageShare": 0.71,
             "align": {
               "heading": "start",
               "text": "start",
@@ -2870,7 +2850,7 @@
             "used": {
               "h1": {
                 "family": "DM Sans",
-                "weight": 400
+                "weight": 700
               },
               "h2": {
                 "family": "DM Sans",
@@ -2891,7 +2871,7 @@
         "mobile": {
           "h1": {
             "text": "The Strandmill Blog",
-            "lines": 1,
+            "lines": 2,
             "fontSize": "38px"
           },
           "fonts": {
@@ -2903,7 +2883,7 @@
             "used": {
               "h1": {
                 "family": "DM Sans",
-                "weight": 400
+                "weight": 700
               },
               "h2": {
                 "family": "DM Sans",
@@ -2931,15 +2911,16 @@
       "words": 715,
       "route": "/contact-us/",
       "status": "authored",
-      "source": "6142bd7d737a47e040818eb1",
+      "source": "47feaa0945db35b2103892ae",
       "rules": "896e2a6360c1caaa",
-      "shots": "474223e70aa5ce494015e579",
+      "shots": "1090d09d70b207525029578f",
       "images": [
         "docs/research/design-review/contact-desktop-1.png",
         "docs/research/design-review/contact-desktop-2.png",
         "docs/research/design-review/contact-mobile-1.png",
         "docs/research/design-review/contact-mobile-2.png",
-        "docs/research/design-review/contact-mobile-3.png"
+        "docs/research/design-review/contact-mobile-3.png",
+        "docs/research/design-review/contact-mobile-4.png"
       ],
       "blocks": {
         "desktop": [
@@ -2977,7 +2958,7 @@
             "id": "overview-steps",
             "type": "process",
             "top": 815,
-            "height": 447,
+            "height": 563,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2987,8 +2968,8 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 1262,
-            "height": 791,
+            "top": 1378,
+            "height": 739,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2998,8 +2979,8 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 2053,
-            "height": 334,
+            "top": 2117,
+            "height": 533,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3009,7 +2990,7 @@
           {
             "id": "form",
             "type": "form",
-            "top": 2387,
+            "top": 2650,
             "height": 574,
             "imageShare": 0.29,
             "align": {
@@ -3019,8 +3000,8 @@
           {
             "id": "channels",
             "type": "contactChannels",
-            "top": 2961,
-            "height": 354,
+            "top": 3224,
+            "height": 378,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -3029,7 +3010,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 3315,
+            "top": 3602,
             "height": 734,
             "imageShare": 0.8,
             "align": {
@@ -3044,7 +3025,7 @@
             "id": "hero",
             "type": "hero",
             "top": 109,
-            "height": 341,
+            "height": 353,
             "imageShare": 0,
             "align": {
               "heading": "centre",
@@ -3055,15 +3036,15 @@
           {
             "id": "trustBar",
             "type": "trustBar",
-            "top": 450,
+            "top": 462,
             "height": 181,
             "imageShare": 0
           },
           {
             "id": "overview",
             "type": "intro",
-            "top": 631,
-            "height": 535,
+            "top": 643,
+            "height": 559,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3073,8 +3054,8 @@
           {
             "id": "overview-steps",
             "type": "process",
-            "top": 1166,
-            "height": 711,
+            "top": 1202,
+            "height": 849,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3084,8 +3065,8 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 1877,
-            "height": 1278,
+            "top": 2051,
+            "height": 1250,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3095,8 +3076,8 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 3155,
-            "height": 456,
+            "top": 3301,
+            "height": 883,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3106,9 +3087,9 @@
           {
             "id": "form",
             "type": "form",
-            "top": 3611,
-            "height": 1085,
-            "imageShare": 0.22,
+            "top": 4184,
+            "height": 1109,
+            "imageShare": 0.21,
             "align": {
               "heading": "start"
             }
@@ -3116,8 +3097,8 @@
           {
             "id": "channels",
             "type": "contactChannels",
-            "top": 4696,
-            "height": 1010,
+            "top": 5293,
+            "height": 1058,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -3126,9 +3107,9 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 5706,
-            "height": 434,
-            "imageShare": 0.75,
+            "top": 6351,
+            "height": 470,
+            "imageShare": 0.69,
             "align": {
               "heading": "start",
               "text": "start",
@@ -3217,9 +3198,9 @@
       "words": 2468,
       "route": "/swimwear-accessories/",
       "status": "authored",
-      "source": "fc9b70e8b50ef5d23750c68b",
+      "source": "096fdf5a39b719b603ff4aca",
       "rules": "896e2a6360c1caaa",
-      "shots": "f95b743a0a8c92fc1552f723",
+      "shots": "7432e3dfe175bd2bbac7b363",
       "images": [
         "docs/research/design-review/product_manufacturer-desktop-1.png",
         "docs/research/design-review/product_manufacturer-desktop-2.png",
@@ -3271,7 +3252,7 @@
             "id": "iconList-1",
             "type": "iconList",
             "top": 1304,
-            "height": 469,
+            "height": 443,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -3280,7 +3261,7 @@
           {
             "id": "featureGrid-1",
             "type": "featureGrid",
-            "top": 1772,
+            "top": 1746,
             "height": 407,
             "imageShare": 0,
             "align": {
@@ -3291,7 +3272,7 @@
           {
             "id": "process-1",
             "type": "process",
-            "top": 2180,
+            "top": 2154,
             "height": 367,
             "imageShare": 0,
             "align": {
@@ -3302,8 +3283,8 @@
           {
             "id": "iconList-2",
             "type": "iconList",
-            "top": 2547,
-            "height": 414,
+            "top": 2521,
+            "height": 394,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -3312,15 +3293,15 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 2961,
+            "top": 2915,
             "height": 806,
             "imageShare": 0.89
           },
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 3767,
-            "height": 332,
+            "top": 3722,
+            "height": 326,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3330,8 +3311,8 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 4099,
-            "height": 918,
+            "top": 4048,
+            "height": 866,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -3340,8 +3321,8 @@
           {
             "id": "m4",
             "type": "featureGrid",
-            "top": 5018,
-            "height": 430,
+            "top": 4915,
+            "height": 425,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3351,8 +3332,8 @@
           {
             "id": "m4-2",
             "type": "featureGrid",
-            "top": 5448,
-            "height": 349,
+            "top": 5339,
+            "height": 343,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3362,8 +3343,8 @@
           {
             "id": "m5",
             "type": "splitMedia",
-            "top": 5796,
-            "height": 312,
+            "top": 5682,
+            "height": 311,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3373,8 +3354,8 @@
           {
             "id": "m6",
             "type": "table",
-            "top": 6109,
-            "height": 852,
+            "top": 5994,
+            "height": 903,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3384,7 +3365,7 @@
           {
             "id": "m7",
             "type": "splitMedia",
-            "top": 6961,
+            "top": 6897,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -3395,8 +3376,8 @@
           {
             "id": "m8",
             "type": "featureGrid",
-            "top": 7718,
-            "height": 354,
+            "top": 7654,
+            "height": 348,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3406,8 +3387,8 @@
           {
             "id": "m8-2",
             "type": "featureGrid",
-            "top": 8072,
-            "height": 298,
+            "top": 8003,
+            "height": 292,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3417,7 +3398,7 @@
           {
             "id": "m9",
             "type": "featureGrid",
-            "top": 8370,
+            "top": 8295,
             "height": 586,
             "imageShare": 0,
             "align": {
@@ -3427,8 +3408,8 @@
           {
             "id": "m10",
             "type": "iconList",
-            "top": 8955,
-            "height": 414,
+            "top": 8880,
+            "height": 394,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -3437,15 +3418,15 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 9369,
+            "top": 9275,
             "height": 806,
             "imageShare": 0.89
           },
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 10176,
-            "height": 448,
+            "top": 10081,
+            "height": 423,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3455,7 +3436,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 10624,
+            "top": 10504,
             "height": 266,
             "imageShare": 0,
             "align": {
@@ -3465,8 +3446,8 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 10890,
-            "height": 500,
+            "top": 10770,
+            "height": 597,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3476,14 +3457,14 @@
           {
             "id": "faq-charts",
             "type": "charts",
-            "top": 11390,
-            "height": 397,
+            "top": 11366,
+            "height": 396,
             "imageShare": 0
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 11787,
+            "top": 11763,
             "height": 281,
             "imageShare": 0,
             "align": {
@@ -3517,7 +3498,7 @@
             "id": "overview",
             "type": "intro",
             "top": 1224,
-            "height": 428,
+            "height": 452,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3527,8 +3508,8 @@
           {
             "id": "iconList-1",
             "type": "iconList",
-            "top": 1652,
-            "height": 737,
+            "top": 1676,
+            "height": 735,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -3537,8 +3518,8 @@
           {
             "id": "featureGrid-1",
             "type": "featureGrid",
-            "top": 2389,
-            "height": 722,
+            "top": 2411,
+            "height": 718,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3548,8 +3529,8 @@
           {
             "id": "process-1",
             "type": "process",
-            "top": 3111,
-            "height": 969,
+            "top": 3129,
+            "height": 993,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3559,8 +3540,8 @@
           {
             "id": "iconList-2",
             "type": "iconList",
-            "top": 4079,
-            "height": 656,
+            "top": 4121,
+            "height": 660,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -3569,15 +3550,15 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 4735,
-            "height": 341,
-            "imageShare": 0.86
+            "top": 4781,
+            "height": 365,
+            "imageShare": 0.8
           },
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 5075,
-            "height": 627,
+            "top": 5146,
+            "height": 633,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3587,8 +3568,8 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 5702,
-            "height": 1415,
+            "top": 5779,
+            "height": 1387,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -3597,8 +3578,8 @@
           {
             "id": "m4",
             "type": "featureGrid",
-            "top": 7117,
-            "height": 1153,
+            "top": 7166,
+            "height": 1141,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3608,8 +3589,8 @@
           {
             "id": "m4-2",
             "type": "featureGrid",
-            "top": 8270,
-            "height": 753,
+            "top": 8306,
+            "height": 747,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3619,8 +3600,8 @@
           {
             "id": "m5",
             "type": "splitMedia",
-            "top": 9022,
-            "height": 540,
+            "top": 9053,
+            "height": 563,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3630,8 +3611,8 @@
           {
             "id": "m6",
             "type": "table",
-            "top": 9562,
-            "height": 1930,
+            "top": 9616,
+            "height": 1954,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3641,9 +3622,9 @@
           {
             "id": "m7",
             "type": "splitMedia",
-            "top": 11492,
-            "height": 780,
-            "imageShare": 0.4,
+            "top": 11570,
+            "height": 804,
+            "imageShare": 0.39,
             "align": {
               "heading": "start",
               "text": "start"
@@ -3652,8 +3633,8 @@
           {
             "id": "m8",
             "type": "featureGrid",
-            "top": 12272,
-            "height": 880,
+            "top": 12374,
+            "height": 874,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3663,8 +3644,8 @@
           {
             "id": "m8-2",
             "type": "featureGrid",
-            "top": 13152,
-            "height": 541,
+            "top": 13247,
+            "height": 535,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3674,8 +3655,8 @@
           {
             "id": "m9",
             "type": "featureGrid",
-            "top": 13693,
-            "height": 1200,
+            "top": 13782,
+            "height": 1220,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -3684,8 +3665,8 @@
           {
             "id": "m10",
             "type": "iconList",
-            "top": 14892,
-            "height": 681,
+            "top": 15002,
+            "height": 686,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -3694,15 +3675,15 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 15573,
-            "height": 341,
-            "imageShare": 0.86
+            "top": 15687,
+            "height": 365,
+            "imageShare": 0.8
           },
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 15914,
-            "height": 444,
+            "top": 16052,
+            "height": 468,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3712,8 +3693,8 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 16358,
-            "height": 490,
+            "top": 16520,
+            "height": 514,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -3722,8 +3703,8 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 16848,
-            "height": 743,
+            "top": 17034,
+            "height": 966,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3733,15 +3714,15 @@
           {
             "id": "faq-charts",
             "type": "charts",
-            "top": 17591,
-            "height": 624,
+            "top": 17999,
+            "height": 635,
             "imageShare": 0
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 18215,
-            "height": 338,
+            "top": 18634,
+            "height": 356,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3835,9 +3816,9 @@
       "words": 918,
       "route": "/watersports-apparel-manufacturer/",
       "status": "authored",
-      "source": "83673a004405993ec18ba4fb",
+      "source": "f94b4c5d8fa3788bc2fd0979",
       "rules": "896e2a6360c1caaa",
-      "shots": "058f0b879c8f86dad76ca7b6",
+      "shots": "6df98f0896c058f49a6f718f",
       "images": [
         "docs/research/design-review/product_manufacturer--shortest-desktop-1.png",
         "docs/research/design-review/product_manufacturer--shortest-desktop-2.png",
@@ -3907,7 +3888,7 @@
             "id": "splitMedia-2-steps",
             "type": "process",
             "top": 2906,
-            "height": 526,
+            "height": 647,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3917,15 +3898,15 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 3432,
+            "top": 3553,
             "height": 806,
             "imageShare": 0.89
           },
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 4238,
-            "height": 448,
+            "top": 4359,
+            "height": 423,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3935,7 +3916,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 4687,
+            "top": 4782,
             "height": 266,
             "imageShare": 0,
             "align": {
@@ -3945,8 +3926,8 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 4952,
-            "height": 272,
+            "top": 5048,
+            "height": 394,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3956,7 +3937,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 5225,
+            "top": 5442,
             "height": 306,
             "imageShare": 0,
             "align": {
@@ -3990,7 +3971,7 @@
             "id": "overview",
             "type": "intro",
             "top": 1166,
-            "height": 561,
+            "height": 585,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4000,15 +3981,15 @@
           {
             "id": "overview-charts",
             "type": "charts",
-            "top": 1727,
-            "height": 246,
+            "top": 1751,
+            "height": 258,
             "imageShare": 0
           },
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 1973,
-            "height": 1296,
+            "top": 2009,
+            "height": 1308,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4018,15 +3999,15 @@
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 3269,
-            "height": 591,
-            "imageShare": 0.53
+            "top": 3317,
+            "height": 603,
+            "imageShare": 0.52
           },
           {
             "id": "splitMedia-2-steps",
             "type": "process",
-            "top": 3859,
-            "height": 663,
+            "top": 3919,
+            "height": 780,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4036,15 +4017,15 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 4522,
-            "height": 341,
-            "imageShare": 0.86
+            "top": 4699,
+            "height": 365,
+            "imageShare": 0.8
           },
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 4863,
-            "height": 444,
+            "top": 5064,
+            "height": 468,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4054,8 +4035,8 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 5307,
-            "height": 554,
+            "top": 5532,
+            "height": 578,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -4064,8 +4045,8 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 5860,
-            "height": 410,
+            "top": 6109,
+            "height": 684,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4075,8 +4056,8 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 6270,
-            "height": 345,
+            "top": 6793,
+            "height": 381,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4169,9 +4150,9 @@
       "words": 2812,
       "route": "/swimwear-consulting/",
       "status": "authored",
-      "source": "db068f7b118eb2822cef03ef",
+      "source": "6421c287a17dd8cc3da34cf6",
       "rules": "896e2a6360c1caaa",
-      "shots": "54626b26e44aabf5cdff15b2",
+      "shots": "9ca5c003affe690d1eef4a45",
       "images": [
         "docs/research/design-review/solution-desktop-1.png",
         "docs/research/design-review/solution-desktop-2.png",
@@ -4186,7 +4167,8 @@
         "docs/research/design-review/solution-mobile-7.png",
         "docs/research/design-review/solution-mobile-8.png",
         "docs/research/design-review/solution-mobile-9.png",
-        "docs/research/design-review/solution-mobile-10.png"
+        "docs/research/design-review/solution-mobile-10.png",
+        "docs/research/design-review/solution-mobile-11.png"
       ],
       "blocks": {
         "desktop": [
@@ -4246,7 +4228,7 @@
             "id": "m2",
             "type": "featureGrid",
             "top": 2341,
-            "height": 362,
+            "height": 356,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4256,8 +4238,8 @@
           {
             "id": "m2-2",
             "type": "featureGrid",
-            "top": 2703,
-            "height": 323,
+            "top": 2698,
+            "height": 318,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4267,8 +4249,8 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 3026,
-            "height": 944,
+            "top": 3015,
+            "height": 892,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4278,15 +4260,15 @@
           {
             "id": "media-module-budget-2",
             "type": "gallery",
-            "top": 3970,
+            "top": 3907,
             "height": 806,
             "imageShare": 0.89
           },
           {
             "id": "iconList-1",
             "type": "iconList",
-            "top": 4777,
-            "height": 863,
+            "top": 4714,
+            "height": 818,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4296,8 +4278,8 @@
           {
             "id": "m4",
             "type": "featureGrid",
-            "top": 5640,
-            "height": 311,
+            "top": 5531,
+            "height": 305,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4307,8 +4289,8 @@
           {
             "id": "m4-2",
             "type": "featureGrid",
-            "top": 5951,
-            "height": 257,
+            "top": 5837,
+            "height": 252,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4318,15 +4300,15 @@
           {
             "id": "splitMedia-3",
             "type": "splitMedia",
-            "top": 6208,
-            "height": 459,
+            "top": 6088,
+            "height": 436,
             "imageShare": 0
           },
           {
             "id": "m5",
             "type": "featureGrid",
-            "top": 6667,
-            "height": 362,
+            "top": 6524,
+            "height": 356,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4336,8 +4318,8 @@
           {
             "id": "m5-2",
             "type": "featureGrid",
-            "top": 7029,
-            "height": 272,
+            "top": 6880,
+            "height": 267,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4347,14 +4329,14 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 7301,
+            "top": 7147,
             "height": 806,
             "imageShare": 0.89
           },
           {
             "id": "m6",
             "type": "splitMedia",
-            "top": 8107,
+            "top": 7953,
             "height": 448,
             "imageShare": 0,
             "align": {
@@ -4365,8 +4347,8 @@
           {
             "id": "m7",
             "type": "featureGrid",
-            "top": 8555,
-            "height": 362,
+            "top": 8401,
+            "height": 356,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4376,8 +4358,8 @@
           {
             "id": "m7-2",
             "type": "featureGrid",
-            "top": 8917,
-            "height": 298,
+            "top": 8758,
+            "height": 292,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4387,8 +4369,8 @@
           {
             "id": "iconList-2",
             "type": "iconList",
-            "top": 9215,
-            "height": 706,
+            "top": 9050,
+            "height": 667,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -4397,8 +4379,8 @@
           {
             "id": "m8",
             "type": "process",
-            "top": 9921,
-            "height": 614,
+            "top": 9717,
+            "height": 771,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4408,15 +4390,15 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 10535,
+            "top": 10488,
             "height": 806,
             "imageShare": 0.89
           },
           {
             "id": "iconList-3",
             "type": "iconList",
-            "top": 11341,
-            "height": 630,
+            "top": 11294,
+            "height": 591,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -4425,8 +4407,8 @@
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 11971,
-            "height": 456,
+            "top": 11885,
+            "height": 431,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4436,7 +4418,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 12428,
+            "top": 12316,
             "height": 274,
             "imageShare": 0,
             "align": {
@@ -4446,8 +4428,8 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 12701,
-            "height": 621,
+            "top": 12590,
+            "height": 692,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4457,8 +4439,8 @@
           {
             "id": "faq-steps",
             "type": "process",
-            "top": 13323,
-            "height": 365,
+            "top": 13282,
+            "height": 397,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4468,7 +4450,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 13688,
+            "top": 13679,
             "height": 734,
             "imageShare": 0.8,
             "align": {
@@ -4502,7 +4484,7 @@
             "id": "overview",
             "type": "intro",
             "top": 875,
-            "height": 317,
+            "height": 341,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4512,8 +4494,8 @@
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 1191,
-            "height": 1464,
+            "top": 1215,
+            "height": 1487,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4523,9 +4505,9 @@
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 2656,
-            "height": 1022,
-            "imageShare": 0.31,
+            "top": 2703,
+            "height": 1046,
+            "imageShare": 0.3,
             "align": {
               "heading": "start",
               "text": "start"
@@ -4534,8 +4516,8 @@
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 3678,
-            "height": 851,
+            "top": 3749,
+            "height": 845,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4545,8 +4527,8 @@
           {
             "id": "m2-2",
             "type": "featureGrid",
-            "top": 4528,
-            "height": 891,
+            "top": 4593,
+            "height": 879,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4556,8 +4538,8 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 5419,
-            "height": 1659,
+            "top": 5472,
+            "height": 1683,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4567,15 +4549,15 @@
           {
             "id": "media-module-budget-2",
             "type": "gallery",
-            "top": 7077,
-            "height": 341,
-            "imageShare": 0.86
+            "top": 7154,
+            "height": 365,
+            "imageShare": 0.8
           },
           {
             "id": "iconList-1",
             "type": "iconList",
-            "top": 7418,
-            "height": 1680,
+            "top": 7519,
+            "height": 1711,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4585,7 +4567,7 @@
           {
             "id": "m4",
             "type": "featureGrid",
-            "top": 9098,
+            "top": 9229,
             "height": 603,
             "imageShare": 0,
             "align": {
@@ -4596,8 +4578,8 @@
           {
             "id": "m4-2",
             "type": "featureGrid",
-            "top": 9701,
-            "height": 586,
+            "top": 9832,
+            "height": 574,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4607,15 +4589,15 @@
           {
             "id": "splitMedia-3",
             "type": "splitMedia",
-            "top": 10286,
-            "height": 1297,
+            "top": 10406,
+            "height": 1308,
             "imageShare": 0
           },
           {
             "id": "m5",
             "type": "featureGrid",
-            "top": 11583,
-            "height": 887,
+            "top": 11714,
+            "height": 875,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4625,8 +4607,8 @@
           {
             "id": "m5-2",
             "type": "featureGrid",
-            "top": 12471,
-            "height": 763,
+            "top": 12589,
+            "height": 751,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4636,15 +4618,15 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 13234,
-            "height": 341,
-            "imageShare": 0.86
+            "top": 13340,
+            "height": 365,
+            "imageShare": 0.8
           },
           {
             "id": "m6",
             "type": "splitMedia",
-            "top": 13574,
-            "height": 1101,
+            "top": 13705,
+            "height": 1124,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4654,8 +4636,8 @@
           {
             "id": "m7",
             "type": "featureGrid",
-            "top": 14675,
-            "height": 912,
+            "top": 14829,
+            "height": 900,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4665,8 +4647,8 @@
           {
             "id": "m7-2",
             "type": "featureGrid",
-            "top": 15587,
-            "height": 541,
+            "top": 15729,
+            "height": 535,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4676,8 +4658,8 @@
           {
             "id": "iconList-2",
             "type": "iconList",
-            "top": 16128,
-            "height": 1035,
+            "top": 16264,
+            "height": 1176,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -4686,8 +4668,8 @@
           {
             "id": "m8",
             "type": "process",
-            "top": 17164,
-            "height": 1159,
+            "top": 17440,
+            "height": 1312,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4697,15 +4679,15 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 18323,
-            "height": 341,
-            "imageShare": 0.86
+            "top": 18752,
+            "height": 365,
+            "imageShare": 0.8
           },
           {
             "id": "iconList-3",
             "type": "iconList",
-            "top": 18663,
-            "height": 1099,
+            "top": 19117,
+            "height": 1071,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -4714,8 +4696,8 @@
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 19762,
-            "height": 442,
+            "top": 20188,
+            "height": 466,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4725,8 +4707,8 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 20205,
-            "height": 446,
+            "top": 20654,
+            "height": 470,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -4735,8 +4717,8 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 20651,
-            "height": 925,
+            "top": 21125,
+            "height": 1096,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4746,8 +4728,8 @@
           {
             "id": "faq-steps",
             "type": "process",
-            "top": 21576,
-            "height": 902,
+            "top": 22221,
+            "height": 982,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4757,9 +4739,9 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 22478,
-            "height": 439,
-            "imageShare": 0.75,
+            "top": 23203,
+            "height": 475,
+            "imageShare": 0.69,
             "align": {
               "heading": "start",
               "text": "start",
@@ -4797,7 +4779,7 @@
               },
               "body": {
                 "family": "DM Sans",
-                "weight": 700
+                "weight": 400
               },
               "button": {
                 "family": "DM Sans",
@@ -4830,7 +4812,7 @@
               },
               "body": {
                 "family": "DM Sans",
-                "weight": 700
+                "weight": 400
               },
               "button": {
                 "family": "DM Sans",
@@ -4850,9 +4832,9 @@
       "words": 1684,
       "route": "/custom-swimwear-printing/",
       "status": "authored",
-      "source": "83df6ba33ddd18a6f34ca6e7",
+      "source": "d22c217b9884e15b5a00b936",
       "rules": "896e2a6360c1caaa",
-      "shots": "91cfd822ac3744013653d437",
+      "shots": "3dbb6e309d12fa5f88da03cd",
       "images": [
         "docs/research/design-review/solution--shortest-desktop-1.png",
         "docs/research/design-review/solution--shortest-desktop-2.png",
@@ -4912,7 +4894,7 @@
             "id": "splitMedia-1-steps",
             "type": "process",
             "top": 2097,
-            "height": 526,
+            "height": 647,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4922,8 +4904,8 @@
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 2623,
-            "height": 470,
+            "top": 2744,
+            "height": 459,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4933,8 +4915,8 @@
           {
             "id": "m2-2",
             "type": "featureGrid",
-            "top": 3093,
-            "height": 433,
+            "top": 3203,
+            "height": 422,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4944,8 +4926,8 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 3526,
-            "height": 520,
+            "top": 3625,
+            "height": 494,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4955,7 +4937,7 @@
           {
             "id": "m4",
             "type": "splitMedia",
-            "top": 4046,
+            "top": 4119,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -4966,8 +4948,8 @@
           {
             "id": "m5",
             "type": "iconList",
-            "top": 4803,
-            "height": 363,
+            "top": 4876,
+            "height": 343,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -4976,7 +4958,7 @@
           {
             "id": "m6",
             "type": "splitMedia",
-            "top": 5166,
+            "top": 5220,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -4987,8 +4969,8 @@
           {
             "id": "m7",
             "type": "process",
-            "top": 5924,
-            "height": 690,
+            "top": 5977,
+            "height": 822,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -4997,8 +4979,8 @@
           {
             "id": "m8",
             "type": "iconList",
-            "top": 6614,
-            "height": 816,
+            "top": 6799,
+            "height": 764,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -5007,8 +4989,8 @@
           {
             "id": "m10",
             "type": "featureGrid",
-            "top": 7431,
-            "height": 365,
+            "top": 7564,
+            "height": 360,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -5018,14 +5000,14 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 7796,
+            "top": 7923,
             "height": 806,
             "imageShare": 0.89
           },
           {
             "id": "m12",
             "type": "proof",
-            "top": 8602,
+            "top": 8730,
             "height": 219,
             "imageShare": 0,
             "align": {
@@ -5036,8 +5018,8 @@
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 8821,
-            "height": 456,
+            "top": 8949,
+            "height": 431,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -5047,7 +5029,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 9277,
+            "top": 9379,
             "height": 233,
             "imageShare": 0,
             "align": {
@@ -5057,8 +5039,8 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 9510,
-            "height": 345,
+            "top": 9612,
+            "height": 467,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -5068,14 +5050,14 @@
           {
             "id": "faq-charts",
             "type": "charts",
-            "top": 9855,
-            "height": 269,
+            "top": 10079,
+            "height": 268,
             "imageShare": 0
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 10124,
+            "top": 10347,
             "height": 734,
             "imageShare": 0.8,
             "align": {
@@ -5109,7 +5091,7 @@
             "id": "overview",
             "type": "intro",
             "top": 899,
-            "height": 364,
+            "height": 388,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -5119,9 +5101,9 @@
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 1262,
-            "height": 774,
-            "imageShare": 0.18,
+            "top": 1286,
+            "height": 798,
+            "imageShare": 0.17,
             "align": {
               "heading": "start",
               "text": "start"
@@ -5130,8 +5112,8 @@
           {
             "id": "splitMedia-1-steps",
             "type": "process",
-            "top": 2036,
-            "height": 842,
+            "top": 2084,
+            "height": 1035,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -5141,8 +5123,8 @@
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 2878,
-            "height": 1143,
+            "top": 3119,
+            "height": 1125,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -5152,8 +5134,8 @@
           {
             "id": "m2-2",
             "type": "featureGrid",
-            "top": 4020,
-            "height": 727,
+            "top": 4244,
+            "height": 721,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -5163,8 +5145,8 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 4747,
-            "height": 884,
+            "top": 4965,
+            "height": 914,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -5174,9 +5156,9 @@
           {
             "id": "m4",
             "type": "splitMedia",
-            "top": 5631,
-            "height": 982,
-            "imageShare": 0.32,
+            "top": 5879,
+            "height": 1006,
+            "imageShare": 0.31,
             "align": {
               "heading": "start",
               "text": "start"
@@ -5185,8 +5167,8 @@
           {
             "id": "m5",
             "type": "iconList",
-            "top": 6613,
-            "height": 571,
+            "top": 6885,
+            "height": 602,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -5195,9 +5177,9 @@
           {
             "id": "m6",
             "type": "splitMedia",
-            "top": 7184,
-            "height": 712,
-            "imageShare": 0.44,
+            "top": 7486,
+            "height": 736,
+            "imageShare": 0.43,
             "align": {
               "heading": "start",
               "text": "start"
@@ -5206,8 +5188,8 @@
           {
             "id": "m7",
             "type": "process",
-            "top": 7896,
-            "height": 1168,
+            "top": 8222,
+            "height": 1371,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -5216,8 +5198,8 @@
           {
             "id": "m8",
             "type": "iconList",
-            "top": 9064,
-            "height": 1344,
+            "top": 9593,
+            "height": 1303,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -5226,8 +5208,8 @@
           {
             "id": "m10",
             "type": "featureGrid",
-            "top": 10408,
-            "height": 943,
+            "top": 10896,
+            "height": 937,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -5237,15 +5219,15 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 11350,
-            "height": 341,
-            "imageShare": 0.86
+            "top": 11832,
+            "height": 365,
+            "imageShare": 0.8
           },
           {
             "id": "m12",
             "type": "proof",
-            "top": 11691,
-            "height": 248,
+            "top": 12197,
+            "height": 272,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -5255,8 +5237,8 @@
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 11938,
-            "height": 446,
+            "top": 12468,
+            "height": 470,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -5266,8 +5248,8 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 12384,
-            "height": 389,
+            "top": 12938,
+            "height": 413,
             "imageShare": 0,
             "align": {
               "heading": "start"
@@ -5276,8 +5258,8 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 12773,
-            "height": 470,
+            "top": 13351,
+            "height": 744,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -5287,16 +5269,16 @@
           {
             "id": "faq-charts",
             "type": "charts",
-            "top": 13243,
-            "height": 405,
+            "top": 14095,
+            "height": 416,
             "imageShare": 0
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 13648,
-            "height": 479,
-            "imageShare": 0.76,
+            "top": 14510,
+            "height": 515,
+            "imageShare": 0.71,
             "align": {
               "heading": "start",
               "text": "start",
@@ -5335,7 +5317,7 @@
               },
               "body": {
                 "family": "DM Sans",
-                "weight": 700
+                "weight": 400
               },
               "button": {
                 "family": "DM Sans",
@@ -5368,7 +5350,7 @@
               },
               "body": {
                 "family": "DM Sans",
-                "weight": 700
+                "weight": 400
               },
               "button": {
                 "family": "DM Sans",
