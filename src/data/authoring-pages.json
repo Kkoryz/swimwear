@@ -143,12 +143,6 @@
             "paragraphs": [
               "Our dedicated children's lines run from babies to older children and include shorts, sets and boys' pieces with rubber patch labels. We take care of everything from printing to finishing, using soft fabrics, smooth stitching and strong seams, and we test samples for stretch and durability."
             ]
-          },
-          {
-            "heading": "Matching family sets",
-            "paragraphs": [
-              "We cut matching adult and children's pieces from a single print run, and we agree the fabric quantities for every size group beforehand. Separate runs cause shade and alignment differences that show when the pieces are worn side by side."
-            ]
           }
         ],
         "variant": "outline-numbered",
@@ -163,6 +157,12 @@
         "continues": "m2",
         "items": [
           {
+            "heading": "Matching family sets",
+            "paragraphs": [
+              "We cut matching adult and children's pieces from a single print run, and we agree the fabric quantities for every size group beforehand. Separate runs cause shade and alignment differences that show when the pieces are worn side by side."
+            ]
+          },
+          {
             "heading": "Coordinated couples' swimwear",
             "paragraphs": [
               "We also make paired swimwear for couples, building coordinated looks around the fabric, print and style specifications you choose."
@@ -173,7 +173,19 @@
             "paragraphs": [
               "We make cover-ups, sarongs, pareos and kaftans to go with your swimwear, in the silhouettes, fabrics, prints and trims you pick."
             ]
-          },
+          }
+        ],
+        "variant": "outline-numbered",
+        "mediaKind": "product"
+      },
+      {
+        "id": "m2-3",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m2"
+        ],
+        "continues": "m2",
+        "items": [
           {
             "heading": "Resort clothing and accessories",
             "paragraphs": [
@@ -217,12 +229,6 @@
             "paragraphs": [
               "We develop tankini tops that pair with several bottoms and choose the coverage, breathability and stretch. For bandeaus, extra-stretch fabrics, the right linings and sample adjustments give a secure, comfortable grip."
             ]
-          },
-          {
-            "heading": "Long-sleeve and performance styles",
-            "paragraphs": [
-              "We test long-sleeve samples for UV resistance and stretch and keep plus-size proportions balanced. Performance styles use compression, resistance and speed-focused fabrics, hydrodynamic patterns and reinforced seams, and we test the samples for performance accuracy."
-            ]
           }
         ],
         "variant": "outline-numbered",
@@ -238,6 +244,12 @@
         "continues": "m2",
         "items": [
           {
+            "heading": "Long-sleeve and performance styles",
+            "paragraphs": [
+              "We test long-sleeve samples for UV resistance and stretch and keep plus-size proportions balanced. Performance styles use compression, resistance and speed-focused fabrics, hydrodynamic patterns and reinforced seams, and we test the samples for performance accuracy."
+            ]
+          },
+          {
             "heading": "Fabric sourcing options",
             "paragraphs": [
               "Our [fabric sourcing](/swimwear-fabrics-sourcing/) includes nylon/polyester-spandex blends, such as 80% nylon 20% spandex, with matching linings. Chlorine-resistant LYCRA Xtra Life, ECONYL recycled nylon, REPREVE recycled polyester and Italian Carvico are available on request."
@@ -248,7 +260,19 @@
             "paragraphs": [
               "Our [Custom Printing service](/custom-swimwear-printing/) prints polyester and sun-protection fabrics on our factory's thermal sublimation printer before cutting, so printing and manufacturing happen in the same place."
             ]
-          },
+          }
+        ],
+        "variant": "outline-numbered",
+        "mediaKind": "product"
+      },
+      {
+        "id": "featureGrid-3",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m2_2"
+        ],
+        "continues": "m2",
+        "items": [
           {
             "heading": "Embroidery service limits",
             "paragraphs": [
@@ -275,11 +299,30 @@
         "heading": "OEM Swimwear Production, From Sample to Shipment",
         "items": [
           {
+            "heading": "Development service",
+            "paragraphs": [
+              "Our [Development service](/development/) turns your concepts into production-ready samples in 10 to 15 days. Grading from XS to 3XL is free, and we grade against US, EU or UK charts, your own fit references, or charts we develop for your market."
+            ],
+            "placeholder": true
+          },
+          {
             "heading": "OEM production",
             "paragraphs": [
               "If you already have tested patterns and a tech pack, OEM is your route. We produce to your existing specifications and check every stage against them."
             ]
-          },
+          }
+        ],
+        "variant": "outline-numbered",
+        "mediaKind": "product"
+      },
+      {
+        "id": "m3-2",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m3"
+        ],
+        "continues": "m3",
+        "items": [
           {
             "heading": "ODM design development",
             "paragraphs": [
@@ -291,20 +334,13 @@
             "paragraphs": [
               "You can start with a design, a picture or just an idea. Our team handles the patterns, grading and fit development, which means less design back-and-forth for you."
             ]
-          },
-          {
-            "heading": "Development service",
-            "paragraphs": [
-              "Our [Development service](/development/) turns your concepts into production-ready samples in 10 to 15 days. Grading from XS to 3XL is free, and we grade against US, EU or UK charts, your own fit references, or charts we develop for your market."
-            ],
-            "placeholder": true
           }
         ],
         "variant": "outline-numbered",
         "mediaKind": "product"
       },
       {
-        "id": "featureGrid-3",
+        "id": "featureGrid-4",
         "type": "featureGrid",
         "sourceSectionIds": [
           "m3_2"
@@ -327,6 +363,25 @@
             "paragraphs": [
               "You choose where your logo goes. We confirm the label type and position during sampling, before we make your branded collection."
             ]
+          }
+        ],
+        "variant": "outline-numbered",
+        "mediaKind": "product",
+        "continues": "m3"
+      },
+      {
+        "id": "featureGrid-5",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m3_2"
+        ],
+        "continues": "m3",
+        "items": [
+          {
+            "heading": "Launch service packages",
+            "paragraphs": [
+              "The starter pack in our [Launch service](/swimwear-launch-services/) contains three finished samples, twenty fabric swatches, a stock-style catalogue and a launch guide. We also offer separate packages for designing, developing and manufacturing your first collection, as well as consulting."
+            ]
           },
           {
             "heading": "Labels against wet skin",
@@ -336,11 +391,10 @@
           }
         ],
         "variant": "outline-numbered",
-        "mediaKind": "product",
-        "continues": "m3"
+        "mediaKind": "product"
       },
       {
-        "id": "featureGrid-4",
+        "id": "featureGrid-6",
         "type": "featureGrid",
         "sourceSectionIds": [
           "m3_2"
@@ -358,19 +412,13 @@
             "paragraphs": [
               "Our [Swimwear Packaging & Custom Brand Labels service](/swimwear-packaging-custom-brand-labels/) includes a heat-transfer label, a hygiene liner and a hang tag, carrying your inside-back logo, washing instructions and size information. You can also add branded clips, silicone logos and fabric tags."
             ]
-          },
-          {
-            "heading": "Launch service packages",
-            "paragraphs": [
-              "The starter pack in our [Launch service](/swimwear-launch-services/) contains three finished samples, twenty fabric swatches, a stock-style catalogue and a launch guide. We also offer separate packages for designing, developing and manufacturing your first collection, as well as consulting."
-            ]
           }
         ],
         "variant": "outline-numbered",
         "mediaKind": "product"
       },
       {
-        "id": "featureGrid-5",
+        "id": "featureGrid-7",
         "type": "featureGrid",
         "sourceSectionIds": [
           "m3_3"
@@ -400,7 +448,7 @@
         "continues": "m3"
       },
       {
-        "id": "featureGrid-6",
+        "id": "featureGrid-8",
         "type": "featureGrid",
         "sourceSectionIds": [
           "m3_3"
@@ -430,7 +478,7 @@
         "mediaKind": "product"
       },
       {
-        "id": "featureGrid-7",
+        "id": "featureGrid-9",
         "type": "featureGrid",
         "sourceSectionIds": [
           "m3_4"
@@ -460,7 +508,7 @@
         "continues": "m3"
       },
       {
-        "id": "featureGrid-8",
+        "id": "featureGrid-10",
         "type": "featureGrid",
         "sourceSectionIds": [
           "m3_4"
@@ -1990,12 +2038,6 @@
             "paragraphs": [
               "We match the construction to cup size and use. Foam cups or power mesh give lighter support. Larger cups and active styles need underwire, reinforced elastics and adjustable straps and hardware to keep their shape when wet."
             ]
-          },
-          {
-            "heading": "Structure trade-offs",
-            "paragraphs": [
-              "Lighter builds stretch out quickly under heavier busts. Underwire and extra hardware add cost and development time, and they make lounging tops less soft and packable."
-            ]
           }
         ],
         "mediaKind": "material"
@@ -2009,6 +2051,12 @@
         "continues": "m2",
         "items": [
           {
+            "heading": "Structure trade-offs",
+            "paragraphs": [
+              "Lighter builds stretch out quickly under heavier busts. Underwire and extra hardware add cost and development time, and they make lounging tops less soft and packable."
+            ]
+          },
+          {
             "heading": "Lining and coverage",
             "paragraphs": [
               "You can choose full or front-only swim lining in nude, white, black or a shade matched to the shell, and you can ask for recycled lining. White and pale colours need full lining, double layers, a lined front panel or a heavier shell fabric."
@@ -2019,7 +2067,18 @@
             "paragraphs": [
               "We work with your own fabric, cups and underwires. Send 2 cups and 2 underwires per cup size for sample fit, chlorine and salt-water checks. Then supply the bulk components with 3% extra cups and underwires."
             ]
-          },
+          }
+        ],
+        "mediaKind": "material"
+      },
+      {
+        "id": "m2-3",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m2"
+        ],
+        "continues": "m2",
+        "items": [
           {
             "heading": "Sourcing choices",
             "paragraphs": [
@@ -3588,12 +3647,6 @@
             "paragraphs": [
               "Nylon doesn't take sublimation printing, so for busy all-over sublimation prints we use polyester, not recycled nylon."
             ]
-          },
-          {
-            "heading": "Movement and shape",
-            "paragraphs": [
-              "For longer, boardshort-style cuts, tightly woven non-stretch quick-dry polyester holds a crisp shape. For paddling and hard swimming, 4-way stretch with spandex moves with you. Short-inseam trunks use a lighter quick-dry fabric with a built-in liner."
-            ]
           }
         ],
         "mediaKind": "material"
@@ -3607,6 +3660,12 @@
         "continues": "m2",
         "items": [
           {
+            "heading": "Movement and shape",
+            "paragraphs": [
+              "For longer, boardshort-style cuts, tightly woven non-stretch quick-dry polyester holds a crisp shape. For paddling and hard swimming, 4-way stretch with spandex moves with you. Short-inseam trunks use a lighter quick-dry fabric with a built-in liner."
+            ]
+          },
+          {
             "heading": "Liner choices",
             "paragraphs": [
               "Our standard lining is a soft polyester mesh. To suit your market, you can switch to a soft knit brief-style lining or a compression liner, or have the trunks made unlined."
@@ -3617,7 +3676,18 @@
             "paragraphs": [
               "Our [fabric sourcing](/swimwear-fabrics-sourcing/) covers nylon and polyester blended with spandex, including 80% nylon 20% spandex with matching linings. On request, we also source chlorine-resistant LYCRA Xtra Life, ECONYL recycled nylon, REPREVE recycled polyester and Italian Carvico."
             ]
-          },
+          }
+        ],
+        "mediaKind": "material"
+      },
+      {
+        "id": "m2-3",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m2"
+        ],
+        "continues": "m2",
+        "items": [
           {
             "heading": "Production credentials",
             "paragraphs": [
@@ -4162,12 +4232,6 @@
             "paragraphs": [
               "PBT polyester and chlorine-resistant elastane such as LYCRA Xtra Life hold their shape longer than standard spandex, but they give up some softness and stretch. PBT is firmer and resists chlorine better. Elastane stays softer and stretchier, and it keeps a close fit through weekly lessons."
             ]
-          },
-          {
-            "heading": "Skin and sun coverage",
-            "paragraphs": [
-              "We choose skin-friendly fabrics, including UPF 50+ materials that block UV rays. Long sleeves give more coverage, and that includes our made-to-order girls' one-pieces."
-            ]
           }
         ],
         "mediaKind": "material"
@@ -4181,6 +4245,12 @@
         "continues": "m2",
         "items": [
           {
+            "heading": "Skin and sun coverage",
+            "paragraphs": [
+              "We choose skin-friendly fabrics, including UPF 50+ materials that block UV rays. Long sleeves give more coverage, and that includes our made-to-order girls' one-pieces."
+            ]
+          },
+          {
             "heading": "Standard UPF testing",
             "paragraphs": [
               "Our UPF 50+ fabrics are tested to AS/NZS 4399, and we supply the documentation. The rating applies to the fabric dry and relaxed, as it was tested."
@@ -4191,7 +4261,18 @@
             "paragraphs": [
               "If you want to make claims about performance after washing, we arrange accredited-lab testing after 20 or 40 wash cycles, plus wet and stretched testing. You pay the lab fees at cost."
             ]
-          },
+          }
+        ],
+        "mediaKind": "material"
+      },
+      {
+        "id": "m2-3",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m2"
+        ],
+        "continues": "m2",
+        "items": [
           {
             "heading": "Sourcing and toddler certification",
             "paragraphs": [
@@ -5314,12 +5395,6 @@
             "paragraphs": [
               "Our baby chart goes by height and weight: 0–3M is 55–62 cm and 4–6 kg; 3–6M is 62–68 cm and 6–8 kg; 6–12M is 68–76 cm and 8–10 kg; 12–18M is 76–82 cm and 10–11.5 kg; 18–24M is 82–88 cm and 11.5–13 kg."
             ]
-          },
-          {
-            "heading": "Toddler base chart",
-            "paragraphs": [
-              "Our toddler chart goes by height: 2T is 88–94 cm, 3T is 94–100 cm and 4T is 100–106 cm."
-            ]
           }
         ],
         "mediaKind": "product"
@@ -5333,6 +5408,12 @@
         "continues": "m2",
         "items": [
           {
+            "heading": "Toddler base chart",
+            "paragraphs": [
+              "Our toddler chart goes by height: 2T is 88–94 cm, 3T is 94–100 cm and 4T is 100–106 cm."
+            ]
+          },
+          {
             "heading": "Matching gift sets",
             "paragraphs": [
               "You can pair a swimsuit with one or two matching hats, headbands or swim nappies. The print and size stay consistent, so the pieces make one coordinated gift."
@@ -5343,7 +5424,18 @@
             "paragraphs": [
               "We label every component for packing and restocking and pack it in your gift box, printed pouch or hanger card. Then we ship in 5-ply export cartons marked with the style, colour and size breakdown."
             ]
-          },
+          }
+        ],
+        "mediaKind": "product"
+      },
+      {
+        "id": "m2-3",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m2"
+        ],
+        "continues": "m2",
+        "items": [
           {
             "heading": "Matching accessories",
             "paragraphs": [
@@ -5771,11 +5863,29 @@
         "heading": "Soft, Secure Construction for Every Splash",
         "items": [
           {
+            "heading": "Baby fit construction",
+            "paragraphs": [
+              "Our [baby swimwear construction](/baby-swimwear-manufacturer/) pairs gentle elastic and covered seams with 180 to 200 gsm fabric, at least 18% spandex and a full lining. A 110 to 130 gsm seat lining keeps the seat from sagging when it gets wet."
+            ],
+            "placeholder": true
+          },
+          {
             "heading": "Skin-contact finishes",
             "paragraphs": [
               "We line the front and seat, finish skin-contact seams flat or covered, and enclose the waist and leg elastic. These finishes deal with friction as toddlers crawl, sit and move around in wet suits."
             ]
-          },
+          }
+        ],
+        "mediaKind": "product"
+      },
+      {
+        "id": "m3-2",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m3"
+        ],
+        "continues": "m3",
+        "items": [
           {
             "heading": "Lining trade-off",
             "paragraphs": [
@@ -5786,13 +5896,6 @@
             "heading": "Children’s construction options",
             "paragraphs": [
               "Our [children’s swimwear](/children-s-swimwear-manufacturer/) comes with guarded zips, 3-snap crotches and a choice of liners. We carry out 90 N attachment testing and EN 1811 nickel testing, and we put no removable decorations on styles for under-3s. Lead stays within CPSIA limits of 100 ppm for metal and 90 ppm for coatings."
-            ],
-            "placeholder": true
-          },
-          {
-            "heading": "Baby fit construction",
-            "paragraphs": [
-              "Our [baby swimwear construction](/baby-swimwear-manufacturer/) pairs gentle elastic and covered seams with 180 to 200 gsm fabric, at least 18% spandex and a full lining. A 110 to 130 gsm seat lining keeps the seat from sagging when it gets wet."
             ],
             "placeholder": true
           }
@@ -6116,11 +6219,28 @@
         "heading": "Matching Prints Across Tunic, Leggings and Hijab",
         "items": [
           {
+            "heading": "Labels and packaging",
+            "paragraphs": [
+              "Our [Swimwear Packaging & Custom Brand Labels service](/swimwear-packaging-custom-brand-labels/) covers branding, tags and packaging that fits your budget. Packaging with your company name and logo is quoted based on the format you choose."
+            ]
+          },
+          {
             "heading": "Colour across pieces",
             "paragraphs": [
               "We print the tunic, leggings and hijab for each set together so their shades match. We line up motifs across side seams and shoulder joins during cutting, because that's the stage that controls seam matching."
             ]
-          },
+          }
+        ],
+        "mediaKind": "product"
+      },
+      {
+        "id": "featureGrid-3",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "overview_2_3"
+        ],
+        "continues": "featureGrid-2",
+        "items": [
           {
             "heading": "Custom print service",
             "paragraphs": [
@@ -6132,12 +6252,6 @@
             "heading": "New style development",
             "paragraphs": [
               "With our [OEM and ODM development](/development/), we start your new modest swim style from your own design, a picture or just an idea."
-            ]
-          },
-          {
-            "heading": "Labels and packaging",
-            "paragraphs": [
-              "Our [Swimwear Packaging & Custom Brand Labels service](/swimwear-packaging-custom-brand-labels/) covers branding, tags and packaging that fits your budget. Packaging with your company name and logo is quoted based on the format you choose."
             ]
           }
         ],
@@ -6376,12 +6490,6 @@
             "paragraphs": [
               "We swim in every prototype to check drag, shifting, cling and opacity, check it again dry, and show you how it stays down instead of floating up. Before you approve bulk, have your own swimmer try it wet, after washing, through full strokes. That trial shows behaviour that dry swatches don't."
             ]
-          },
-          {
-            "heading": "Lining and silhouette",
-            "paragraphs": [
-              "Light shades need a front lining. Full or front-only tunic lining, a relaxed A-line with 4 to 6 cm of extra hip ease, and overlays at the chest and hips all reduce cling and hide the body's contours."
-            ]
           }
         ],
         "mediaKind": "material"
@@ -6395,6 +6503,12 @@
         "continues": "m3",
         "items": [
           {
+            "heading": "Lining and silhouette",
+            "paragraphs": [
+              "Light shades need a front lining. Full or front-only tunic lining, a relaxed A-line with 4 to 6 cm of extra hip ease, and overlays at the chest and hips all reduce cling and hide the body's contours."
+            ]
+          },
+          {
             "heading": "Surface and shade",
             "paragraphs": [
               "Matt or textured fabrics, a heavier 220 gsm tunic option, darker shades and all-over prints all show less of the body's outline when wet."
@@ -6405,7 +6519,18 @@
             "paragraphs": [
               "Our [Swimwear Fabrics & Sourcing service](/swimwear-fabrics-sourcing/) supplies nylon/polyester-spandex fabrics with matching linings, including 80% nylon 20% spandex. On request it also supplies LYCRA Xtra Life, ECONYL recycled nylon, REPREVE recycled polyester and Italian Carvico."
             ]
-          },
+          }
+        ],
+        "mediaKind": "material"
+      },
+      {
+        "id": "m3-3",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m3"
+        ],
+        "continues": "m3",
+        "items": [
           {
             "heading": "Standard UPF evidence",
             "paragraphs": [
@@ -6449,12 +6574,6 @@
             "paragraphs": [
               "We control the elastic tension at the neck, cuffs and ankles and add silicone-backed elastic at the cuffs and ankles. Ties and drawcords stay within easy reach, and hoods are shaped to stay in place without pressing on the throat."
             ]
-          },
-          {
-            "heading": "Detachable garment parts",
-            "paragraphs": [
-              "Detachable sleeves and skirts fasten with resin snaps or concealed zips, and each fastening is attached at a reinforced point."
-            ]
           }
         ],
         "mediaKind": "product"
@@ -6468,6 +6587,12 @@
         "continues": "m4",
         "items": [
           {
+            "heading": "Detachable garment parts",
+            "paragraphs": [
+              "Detachable sleeves and skirts fasten with resin snaps or concealed zips, and each fastening is attached at a reinforced point."
+            ]
+          },
+          {
             "heading": "One-piece access",
             "paragraphs": [
               "You can choose pull-on, full-length front zip, centre-back zip or half neck zip. Zipped styles have a fabric garage at the top and corrosion-resistant swim zips that work easily when wet."
@@ -6478,7 +6603,18 @@
             "paragraphs": [
               "For light shaping, we add a shelf bra with wire-free, removable contour cups inside your tunic or swim dress."
             ]
-          },
+          }
+        ],
+        "mediaKind": "product"
+      },
+      {
+        "id": "m4-3",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m4"
+        ],
+        "continues": "m4",
+        "items": [
           {
             "heading": "Integrated lower lining",
             "paragraphs": [
@@ -6746,6 +6882,24 @@
             "paragraphs": [
               "You compare the two fabrics in full-length samples worn wet. Soaked tunics and leggings show differences in weight, cling and drying time that small dry swatches hide."
             ]
+          }
+        ],
+        "mediaKind": "material"
+      },
+      {
+        "id": "m2-2",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m2"
+        ],
+        "continues": "m2",
+        "items": [
+          {
+            "heading": "Fabric sourcing service",
+            "paragraphs": [
+              "Through [Swimwear Fabrics & Sourcing](/swimwear-fabrics-sourcing/), we offer 80% nylon 20% spandex blends, matching linings and UPF 50+ options, and on request LYCRA Xtra Life, ECONYL, REPREVE and Carvico fabrics. We test them for chlorine resistance, colourfastness, stretch, recovery, strength, softness and durability."
+            ],
+            "placeholder": true
           },
           {
             "heading": "Sampling trade-off",
@@ -6757,7 +6911,7 @@
         "mediaKind": "material"
       },
       {
-        "id": "m2-2",
+        "id": "m2-3",
         "type": "featureGrid",
         "sourceSectionIds": [
           "m2"
@@ -6775,13 +6929,6 @@
             "paragraphs": [
               "If you choose recycled polyamide, we offer fabric spun from reclaimed fishing nets and supply its certification with the fabric."
             ]
-          },
-          {
-            "heading": "Fabric sourcing service",
-            "paragraphs": [
-              "Through [Swimwear Fabrics & Sourcing](/swimwear-fabrics-sourcing/), we offer 80% nylon 20% spandex blends, matching linings and UPF 50+ options, and on request LYCRA Xtra Life, ECONYL, REPREVE and Carvico fabrics. We test them for chlorine resistance, colourfastness, stretch, recovery, strength, softness and durability."
-            ],
-            "placeholder": true
           }
         ],
         "mediaKind": "material"
@@ -8381,12 +8528,6 @@
             "paragraphs": [
               "Send us your swimwear artwork or a reference swatch. We match the print and colour on the resort fabric itself so your two ranges go together."
             ]
-          },
-          {
-            "heading": "Print matching costs",
-            "paragraphs": [
-              "If we match large motifs across seams or coordinated pieces, each garment uses 10% to 20% more fabric and needs extra time for single-layer cutting, so your unit cost goes up. If we match only at the centre front and key seams, you keep most of the visual impact and waste less fabric."
-            ]
           }
         ],
         "mediaKind": "product"
@@ -8400,6 +8541,12 @@
         "continues": "m3",
         "items": [
           {
+            "heading": "Print matching costs",
+            "paragraphs": [
+              "If we match large motifs across seams or coordinated pieces, each garment uses 10% to 20% more fabric and needs extra time for single-layer cutting, so your unit cost goes up. If we match only at the centre front and key seams, you keep most of the visual impact and waste less fabric."
+            ]
+          },
+          {
             "heading": "Engineered placement prints",
             "paragraphs": [
               "With engineered prints, we don't have to match the full repeat on every panel, but you need artwork for each panel and size. The higher setup cost pays off only on large enough orders."
@@ -8410,7 +8557,18 @@
             "paragraphs": [
               "Our [Custom Printing service](/custom-swimwear-printing/) digitally prints soft polyester knit to match your swimsuit fabrics. We then make it into cover-ups, dresses or short suits."
             ]
-          },
+          }
+        ],
+        "mediaKind": "product"
+      },
+      {
+        "id": "m3-3",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m3"
+        ],
+        "continues": "m3",
+        "items": [
           {
             "heading": "Retail-ready brand presentation",
             "paragraphs": [
@@ -9744,12 +9902,6 @@
             "paragraphs": [
               "If you already have stock, ship us your finished swimsuits and we'll embroider them as a standalone job from 50 pieces per design. Add 3% spare garments per design to cover setup and normal loss."
             ]
-          },
-          {
-            "heading": "Arrival checks and compensation",
-            "paragraphs": [
-              "We inspect your garments when they arrive and report any shortages or defects within 3 business days, before we stitch anything. If our error damages more garments than the spares cover, we pay you back at the documented purchase cost."
-            ]
           }
         ],
         "variant": "cards",
@@ -9764,6 +9916,12 @@
         "continues": "m4",
         "items": [
           {
+            "heading": "Arrival checks and compensation",
+            "paragraphs": [
+              "We inspect your garments when they arrive and report any shortages or defects within 3 business days, before we stitch anything. If our error damages more garments than the spares cover, we pay you back at the documented purchase cost."
+            ]
+          },
+          {
             "heading": "Garment order minimums",
             "paragraphs": [
               "Garment orders start at 50 pieces per style in each colour, so small and growing labels can order with us."
@@ -9774,7 +9932,19 @@
             "paragraphs": [
               "We agree first-trial quantities with you case by case. How flexible we can be depends on what production allows for your order."
             ]
-          },
+          }
+        ],
+        "variant": "cards",
+        "mediaKind": "product"
+      },
+      {
+        "id": "m4-3",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m4"
+        ],
+        "continues": "m4",
+        "items": [
           {
             "heading": "Launch service scope",
             "paragraphs": [
@@ -10239,11 +10409,29 @@
         "heading": "Sales Channels, Online Returns and Wholesale Timing",
         "items": [
           {
+            "heading": "Wholesale cash trade-off",
+            "paragraphs": [
+              "Wholesale ties up cash in production earlier and earns a lower margin per unit than direct sales, so we let its calendar set production dates before we build your online pricing."
+            ]
+          },
+          {
             "heading": "Channel strategy outputs",
             "paragraphs": [
               "We plan your mix of direct-to-consumer and wholesale sales. You get a channel strategy, a pricing and promotions framework, and an e-commerce roadmap."
             ]
-          },
+          }
+        ],
+        "variant": "cards",
+        "mediaKind": "process"
+      },
+      {
+        "id": "m4-2",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m4"
+        ],
+        "continues": "m4",
+        "items": [
           {
             "heading": "Online fit and returns",
             "paragraphs": [
@@ -10254,12 +10442,6 @@
             "heading": "Wholesale calendar first",
             "paragraphs": [
               "Buyers place orders 6 to 9 months before the selling season. We schedule line sheets, samples and production around those windows so bulk orders arrive before stores need them. If you miss the window, you lose that season."
-            ]
-          },
-          {
-            "heading": "Wholesale cash trade-off",
-            "paragraphs": [
-              "Wholesale ties up cash in production earlier and earns a lower margin per unit than direct sales, so we let its calendar set production dates before we build your online pricing."
             ]
           }
         ],
@@ -13208,12 +13390,6 @@
             "paragraphs": [
               "Standard hardware starts at 100 to 500 pieces per colour or size, depending on the item. Resin O-rings start at 100 pieces per colour."
             ]
-          },
-          {
-            "heading": "Custom hardware minimums",
-            "paragraphs": [
-              "Logo or embossed stoppers, clasps, hooks, sliders and rings, along with special finishes, start at 1,000 pieces per item. Logo or embossed metal tags start at 100 pieces."
-            ]
           }
         ],
         "variant": "cards",
@@ -13228,6 +13404,12 @@
         "continues": "featureGrid-1",
         "items": [
           {
+            "heading": "Custom hardware minimums",
+            "paragraphs": [
+              "Logo or embossed stoppers, clasps, hooks, sliders and rings, along with special finishes, start at 1,000 pieces per item. Logo or embossed metal tags start at 100 pieces."
+            ]
+          },
+          {
             "heading": "Mould development charges",
             "paragraphs": [
               "Each custom logo ring, slider, hook, clasp or stopper carries a USD 200 mould development fee. Its design sets the unit price."
@@ -13238,7 +13420,19 @@
             "paragraphs": [
               "Once you've paid, your logo mould belongs only to you. We store it free for 2 years after your last order, reuse it with no further mould fee and ship it to you whenever you ask."
             ]
-          },
+          }
+        ],
+        "variant": "cards",
+        "mediaKind": "product"
+      },
+      {
+        "id": "featureGrid-3",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m6_2"
+        ],
+        "continues": "featureGrid-1",
+        "items": [
           {
             "heading": "Stock and samples",
             "paragraphs": [
@@ -13556,11 +13750,30 @@
         "heading": "Fabric Blends, Branded Fabrics and Mill Minimums",
         "items": [
           {
+            "heading": "Swimwear hardware",
+            "paragraphs": [
+              "Our [Swimwear Hardware](/swimwear-hardware/) range includes power mesh, adjustable bra straps, braided cords and chlorine-resistant elastics. Our nylon/spandex or polyester straps and elastics come in widths from 3 to 25 mm. They recover at least 95% of their stretch after 100 cycles and hold up to more than 200 hours of chlorine exposure."
+            ],
+            "placeholder": true
+          },
+          {
             "heading": "Blends and specialist fabrics",
             "paragraphs": [
               "We make nylon-spandex and polyester-spandex swimwear with matching linings. On request, we source chlorine-resistant elastane, recycled nylon, recycled polyester and Italian fabrics."
             ]
-          },
+          }
+        ],
+        "variant": "cards",
+        "mediaKind": "material"
+      },
+      {
+        "id": "featureGrid-2",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "overview_2"
+        ],
+        "continues": "featureGrid-1",
+        "items": [
           {
             "heading": "Other mills’ minimums",
             "paragraphs": [
@@ -13572,13 +13785,6 @@
             "paragraphs": [
               "Our [quotation process](/request-a-quote/) starts with choosing your fabric, ribbon, hardware and tags. This takes about a week, or longer depending on the suppliers. We then use the component quantities per piece and your bulk order size to set your estimated production cost and total product cost."
             ]
-          },
-          {
-            "heading": "Swimwear hardware",
-            "paragraphs": [
-              "Our [Swimwear Hardware](/swimwear-hardware/) range includes power mesh, adjustable bra straps, braided cords and chlorine-resistant elastics. Our nylon/spandex or polyester straps and elastics come in widths from 3 to 25 mm. They recover at least 95% of their stretch after 100 cycles and hold up to more than 200 hours of chlorine exposure."
-            ],
-            "placeholder": true
           }
         ],
         "variant": "cards",
@@ -13782,11 +13988,29 @@
         "heading": "Chlorine, Salt Water and UPF Performance",
         "items": [
           {
+            "heading": "Additional claim testing",
+            "paragraphs": [
+              "If you want to claim more than the dry, relaxed rating, you need extra testing. We can arrange wet, stretched, selected-colourway, EU EN 13758-1 or US AATCC 183 tests through an accredited lab, and you pay the fees at cost."
+            ]
+          },
+          {
             "heading": "Pool and training",
             "paragraphs": [
               "If your styles are for regular use in chlorinated pools and for training, we choose recycled performance fabric or a fabric built on chlorine-resistant elastane such as LYCRA Xtra Life."
             ]
-          },
+          }
+        ],
+        "variant": "cards",
+        "mediaKind": "material"
+      },
+      {
+        "id": "m5-2",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m5"
+        ],
+        "continues": "m5",
+        "items": [
           {
             "heading": "Beach and fashion",
             "paragraphs": [
@@ -13797,12 +14021,6 @@
             "heading": "Standard UPF testing",
             "paragraphs": [
               "Our UPF 50+ fabrics are tested to AS/NZS 4399, the Australia and New Zealand standard, and we give you the documentation. The rating applies to the fabric when it's dry and relaxed."
-            ]
-          },
-          {
-            "heading": "Additional claim testing",
-            "paragraphs": [
-              "If you want to claim more than the dry, relaxed rating, you need extra testing. We can arrange wet, stretched, selected-colourway, EU EN 13758-1 or US AATCC 183 tests through an accredited lab, and you pay the fees at cost."
             ]
           }
         ],
@@ -14323,12 +14541,6 @@
             "paragraphs": [
               "Bulk production takes 35 to 40 days once you've approved the sample and we've received your deposit. Your order size and the season set where you fall in that range."
             ]
-          },
-          {
-            "heading": "Production payments",
-            "paragraphs": [
-              "You pay a 50% deposit when you confirm your order and the other 50% before we ship the goods."
-            ]
           }
         ],
         "variant": "cards",
@@ -14343,6 +14555,12 @@
         "continues": "m2",
         "items": [
           {
+            "heading": "Production payments",
+            "paragraphs": [
+              "You pay a 50% deposit when you confirm your order and the other 50% before we ship the goods."
+            ]
+          },
+          {
             "heading": "Shipping terms",
             "paragraphs": [
               "You can choose FOB, CIF or DDP. With worldwide DDP you get one all-in price delivered to your door, and we handle duties, customs and freight."
@@ -14354,7 +14572,19 @@
               "Our [Fabric sourcing](/swimwear-fabrics-sourcing/) covers 80% nylon/20% spandex as well as your own textiles. If you supply fabric, give us the mill name or code. We report any shortages or defects within 3 business days, before cutting. If our error causes damage beyond the 5% overage, we pay you back at the documented purchase cost."
             ],
             "placeholder": true
-          },
+          }
+        ],
+        "variant": "cards",
+        "mediaKind": "process"
+      },
+      {
+        "id": "m2-3",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m2"
+        ],
+        "continues": "m2",
+        "items": [
           {
             "heading": "Custom printing",
             "paragraphs": [
@@ -16306,12 +16536,6 @@
             "paragraphs": [
               "If you ask, we source imported GRS- or OEKO-TEX-certified recycled fabrics, regenerated Lycra, and waste-regenerated fabrics coloured with OEKO-TEX-certified dyes. Branded or imported certified options cost more and come in fewer colours with less stock, so a tight budget or deadline narrows your choice."
             ]
-          },
-          {
-            "heading": "Swimwear Fabric Construction",
-            "paragraphs": [
-              "We make your swimwear in nylon or polyester blended with spandex, such as 80% nylon 20% spandex, with matching linings. Chlorine-resistant LYCRA Xtra Life is available if you ask for it."
-            ]
           }
         ],
         "mediaKind": "material"
@@ -16325,6 +16549,12 @@
         "continues": "m2",
         "items": [
           {
+            "heading": "Swimwear Fabric Construction",
+            "paragraphs": [
+              "We make your swimwear in nylon or polyester blended with spandex, such as 80% nylon 20% spandex, with matching linings. Chlorine-resistant LYCRA Xtra Life is available if you ask for it."
+            ]
+          },
+          {
             "heading": "Production And Waste",
             "paragraphs": [
               "We use water-saving, low-carbon production processes, manage production waste strictly and follow carbon-neutral packaging strategies. Choosing recycled polyester helps your line cut plastic waste."
@@ -16335,7 +16565,18 @@
             "paragraphs": [
               "Our production carries PETA's 'Cruelty Free' stamp and the 'PETA-Approved Vegan' logo, and our process involves no animal testing."
             ]
-          },
+          }
+        ],
+        "mediaKind": "material"
+      },
+      {
+        "id": "m2-3",
+        "type": "featureGrid",
+        "sourceSectionIds": [
+          "m2"
+        ],
+        "continues": "m2",
+        "items": [
           {
             "heading": "Retail-ready Packaging Service",
             "paragraphs": [

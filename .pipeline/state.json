@@ -65,9 +65,9 @@
   "modules": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T07:19:58.847Z",
+    "at": "2026-11-14T07:25:42.084Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T07-19-53-295Z/modules.log"
+    "log": ".pipeline/logs/2026-11-14T07-25-36-409Z/modules.log"
   },
   "template-gaps": {
     "status": "passed",
@@ -79,9 +79,9 @@
   "treatment": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T07:19:59.364Z",
+    "at": "2026-11-14T07:25:42.094Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T07-19-53-295Z/treatment.log"
+    "log": ".pipeline/logs/2026-11-14T07-25-36-409Z/treatment.log"
   },
   "fonts": {
     "status": "passed",
@@ -99,10 +99,10 @@
   },
   "import": {
     "status": "passed",
-    "hash": "d66ae37c03e268d3",
-    "at": "2026-11-14T07:20:01.927Z",
+    "hash": "d1ee6e09e9f2a550",
+    "at": "2026-11-14T07:25:42.874Z",
     "seconds": 1,
-    "log": ".pipeline/logs/2026-11-14T07-19-53-295Z/import.log"
+    "log": ".pipeline/logs/2026-11-14T07-25-36-409Z/import.log"
   },
   "site-media": {
     "status": "passed",

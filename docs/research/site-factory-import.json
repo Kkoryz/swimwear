@@ -154,6 +154,10 @@
           "type": "featureGrid"
         },
         {
+          "id": "m2-3",
+          "type": "featureGrid"
+        },
+        {
           "id": "featureGrid-1",
           "type": "featureGrid"
         },
@@ -162,11 +166,15 @@
           "type": "featureGrid"
         },
         {
+          "id": "featureGrid-3",
+          "type": "featureGrid"
+        },
+        {
           "id": "m3",
           "type": "featureGrid"
         },
         {
-          "id": "featureGrid-3",
+          "id": "m3-2",
           "type": "featureGrid"
         },
         {
@@ -187,6 +195,14 @@
         },
         {
           "id": "featureGrid-8",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-9",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-10",
           "type": "featureGrid"
         },
         {
@@ -297,7 +313,7 @@
         "owner:typical-timeline"
       ],
       "inputKey": "bd6231d443d7221d",
-      "outputHash": "ffa5df45f44cda46"
+      "outputHash": "e9a8cb343f84e826"
     },
     {
       "pageId": "c-a0d1d7027027:product",
@@ -850,6 +866,10 @@
           "type": "featureGrid"
         },
         {
+          "id": "m2-3",
+          "type": "featureGrid"
+        },
+        {
           "id": "m4",
           "type": "featureGrid"
         },
@@ -936,7 +956,7 @@
         "owner:typical-timeline"
       ],
       "inputKey": "60efdc0c79eac5e7",
-      "outputHash": "2050d428256e4bb1"
+      "outputHash": "dc268ccc68af2c8b"
     },
     {
       "pageId": "c-6e0b54e5523e:product",
@@ -1515,6 +1535,10 @@
           "type": "featureGrid"
         },
         {
+          "id": "m2-3",
+          "type": "featureGrid"
+        },
+        {
           "id": "m3",
           "type": "iconList"
         },
@@ -1607,7 +1631,7 @@
         "owner:typical-timeline"
       ],
       "inputKey": "0639d9a15279c4a8",
-      "outputHash": "fea119ebd9d026ad"
+      "outputHash": "240c9533e9ceb68e"
     },
     {
       "pageId": "c-3d3fc0c8dc39:product",
@@ -1772,6 +1796,10 @@
           "type": "featureGrid"
         },
         {
+          "id": "m2-3",
+          "type": "featureGrid"
+        },
+        {
           "id": "m3",
           "type": "featureGrid"
         },
@@ -1886,7 +1914,7 @@
         "owner:typical-timeline"
       ],
       "inputKey": "89eb9c23e5b044c5",
-      "outputHash": "448ce9f2625fefe5"
+      "outputHash": "e9f789c447692208"
     },
     {
       "pageId": "inferred:product:6",
@@ -2242,6 +2270,10 @@
           "type": "featureGrid"
         },
         {
+          "id": "m2-3",
+          "type": "featureGrid"
+        },
+        {
           "id": "m3",
           "type": "table"
         },
@@ -2331,7 +2363,7 @@
         "owner:typical-timeline"
       ],
       "inputKey": "4961e9a9ff1d213e",
-      "outputHash": "25e8a96f0dbaa9c8"
+      "outputHash": "79d2c420c7302139"
     },
     {
       "pageId": "inferred:product:8",
@@ -2430,6 +2462,10 @@
           "type": "featureGrid"
         },
         {
+          "id": "m3-2",
+          "type": "featureGrid"
+        },
+        {
           "id": "m4",
           "type": "featureGrid"
         },
@@ -2505,7 +2541,7 @@
         "owner:typical-timeline"
       ],
       "inputKey": "28b76834815d502a",
-      "outputHash": "5b749b6749b9926c"
+      "outputHash": "aab4036c3a6bfc50"
     },
     {
       "pageId": "inferred:product:10",
@@ -2646,6 +2682,10 @@
           "type": "featureGrid"
         },
         {
+          "id": "featureGrid-3",
+          "type": "featureGrid"
+        },
+        {
           "id": "splitMedia-2",
           "type": "splitMedia"
         },
@@ -2678,11 +2718,19 @@
           "type": "featureGrid"
         },
         {
+          "id": "m3-3",
+          "type": "featureGrid"
+        },
+        {
           "id": "m4",
           "type": "featureGrid"
         },
         {
           "id": "m4-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4-3",
           "type": "featureGrid"
         },
         {
@@ -2769,7 +2817,7 @@
         "owner:typical-timeline"
       ],
       "inputKey": "5b96c1c0f00aca34",
-      "outputHash": "59400f3848dd8f90"
+      "outputHash": "04ac303a028241b1"
     },
     {
       "pageId": "inferred:product:3",
@@ -2859,6 +2907,10 @@
           "type": "featureGrid"
         },
         {
+          "id": "m2-3",
+          "type": "featureGrid"
+        },
+        {
           "id": "m3",
           "type": "iconList"
         },
@@ -2943,7 +2995,7 @@
         "owner:typical-timeline"
       ],
       "inputKey": "ac43c9b0083b346a",
-      "outputHash": "23e75f27389fe468"
+      "outputHash": "77e98ae2275ef6d6"
     },
     {
       "pageId": "group:watersports-apparel",
@@ -3491,6 +3543,10 @@
           "type": "featureGrid"
         },
         {
+          "id": "m3-3",
+          "type": "featureGrid"
+        },
+        {
           "id": "m4",
           "type": "splitMedia"
         },
@@ -3574,7 +3630,7 @@
         "owner:typical-timeline"
       ],
       "inputKey": "095f12d129e4717b",
-      "outputHash": "7e07850a80e267d3"
+      "outputHash": "8375e990c72c729e"
     },
     {
       "pageId": "inferred:product:11",
@@ -3976,6 +4032,10 @@
           "type": "featureGrid"
         },
         {
+          "id": "m4-3",
+          "type": "featureGrid"
+        },
+        {
           "id": "cases",
           "type": "orderCase"
         },
@@ -4079,7 +4139,7 @@
         "owner:typical-timeline"
       ],
       "inputKey": "98bd6d07aca1834d",
-      "outputHash": "8062fe54e50c591b"
+      "outputHash": "8dd860615be084e7"
     },
     {
       "pageId": "c-c48d984954c3:service",
@@ -4232,6 +4292,10 @@
           "type": "featureGrid"
         },
         {
+          "id": "m4-2",
+          "type": "featureGrid"
+        },
+        {
           "id": "splitMedia-3",
           "type": "splitMedia"
         },
@@ -4347,7 +4411,7 @@
         "owner:typical-timeline"
       ],
       "inputKey": "707108ae7e97c15c",
-      "outputHash": "ab815b0b5b6e79d4"
+      "outputHash": "86e8b73427bf001a"
     },
     {
       "pageId": "c-05134426bcd1:service",
@@ -5273,6 +5337,10 @@
           "type": "featureGrid"
         },
         {
+          "id": "featureGrid-3",
+          "type": "featureGrid"
+        },
+        {
           "id": "m7",
           "type": "iconList"
         },
@@ -5367,7 +5435,7 @@
         "owner:typical-timeline"
       ],
       "inputKey": "8eeb0cc7363d56dc",
-      "outputHash": "5e56448d1f3ed02c"
+      "outputHash": "60ee4dc98e3af494"
     },
     {
       "pageId": "c-3055c652c816:service",
@@ -5507,6 +5575,10 @@
           "type": "featureGrid"
         },
         {
+          "id": "featureGrid-2",
+          "type": "featureGrid"
+        },
+        {
           "id": "iconList-1",
           "type": "iconList"
         },
@@ -5532,6 +5604,10 @@
         },
         {
           "id": "m5",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m5-2",
           "type": "featureGrid"
         },
         {
@@ -5634,7 +5710,7 @@
         "owner:typical-timeline"
       ],
       "inputKey": "3ff9daddb178cafa",
-      "outputHash": "2e32c22d0d5d0931"
+      "outputHash": "04c362b2f922670e"
     },
     {
       "pageId": "c-f7c91fefc9c3:service",
@@ -5744,6 +5820,10 @@
         },
         {
           "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-3",
           "type": "featureGrid"
         },
         {
@@ -5872,7 +5952,7 @@
         "owner:typical-timeline"
       ],
       "inputKey": "f169bc91574064af",
-      "outputHash": "229d40de4b9b909c"
+      "outputHash": "1aa7526fe760d88a"
     },
     {
       "pageId": "site:about",
@@ -6652,6 +6732,10 @@
           "type": "featureGrid"
         },
         {
+          "id": "m2-3",
+          "type": "featureGrid"
+        },
+        {
           "id": "m3",
           "type": "iconList"
         },
@@ -6706,7 +6790,7 @@
         "owner:typical-timeline"
       ],
       "inputKey": "84f727425fce458a",
-      "outputHash": "d6c4adddae8864a8"
+      "outputHash": "27143179b617f5cd"
     },
     {
       "pageId": "site:privacy",
@@ -7690,42 +7774,20 @@
   ],
   "changed": [
     "/",
-    "/women-s-swimwear-manufacturer/",
-    "/one-piece-swimsuit-manufacturer/",
     "/bikini-manufacturer/",
-    "/men-s-swimwear-manufacturer/",
-    "/boardshorts-manufacturer/",
     "/swim-trunks-manufacturer/",
     "/children-s-swimwear-manufacturer/",
-    "/teen-swimwear-manufacturer/",
     "/baby-swimwear-manufacturer/",
     "/toddler-swimwear-manufacturer/",
     "/modest-swimwear-manufacturer/",
     "/burkini-manufacturer/",
-    "/watersports-apparel-manufacturer/",
-    "/rash-guard-manufacturer/",
     "/resort-wear-manufacturer/",
-    "/cover-up-manufacturer/",
     "/swimwear-embroidery/",
     "/swimwear-consulting/",
-    "/development/",
-    "/swimwear-packaging-custom-brand-labels/",
-    "/custom-swimwear-printing/",
     "/swimwear-hardware/",
     "/swimwear-fabrics-sourcing/",
     "/swimwear-launch-services/",
-    "/about-us/",
-    "/contact-us/",
-    "/faq/",
-    "/blog/",
-    "/case-studies/",
-    "/sustainability/",
-    "/privacy-policy/",
-    "/terms-and-conditions/",
-    "/request-a-quote/",
-    "/swimwear-accessories/",
-    "/plus-size-swimwear-manufacturer/",
-    "/couples-matching-swimsuit-manufacturer/"
+    "/sustainability/"
   ],
   "upstream": {
     "codeVersion": "4e26cfbd15069347875fa8e54b1ba7f6167c49a2",
