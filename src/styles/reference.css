@@ -246,8 +246,12 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
 
 /* A section's charts stand a little further from the next section than the template's half section space, so a chart
    panel in the page's tint does not read as a notch of a tinted band under it (1rem more keeps every charts boundary
-   under --authoring-max-boundary-gap: the audit measured 125-151px there). */
-.block--charts { padding-bottom: calc(var(--section-space) / 2 + 1rem); }
+   under --authoring-max-boundary-gap: the audit measured 125-151px there). Phones keep the template's half section
+   space: there the panel's padding and its wrapped caption already stand as blank space under the bars, and the 1rem
+   more ran the burkini page's charts-to-process boundary to 183px (boundary_gap, 176 at most). */
+@media (min-width: 768px) {
+  .block--charts { padding-bottom: calc(var(--section-space) / 2 + 1rem); }
+}
 /* Phones: the wide row's photo (stacked under its text) shows in its own shape, not the desktop strip cut from it. */
 @media (max-width: 767px) {
   
