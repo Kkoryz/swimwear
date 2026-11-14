@@ -177,14 +177,14 @@
   "photo-focus": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T09:45:25.231Z",
-    "seconds": 16,
+    "at": "2026-11-14T10:22:14.008Z",
+    "seconds": 0,
     "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/photo-focus.log"
   },
   "phone-heroes": {
     "status": "passed",
-    "hash": "d517ed93ae46113b",
-    "at": "2026-11-14T09:45:26.931Z",
+    "hash": "23969a2ac811f696",
+    "at": "2026-11-14T10:22:15.412Z",
     "seconds": 1,
     "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/phone-heroes.log"
   },
