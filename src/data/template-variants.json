@@ -58,7 +58,7 @@
           "srcset": "/media/photos/women-s-swimwear-hero-1-480.webp 480w, /media/photos/women-s-swimwear-hero-1-960.webp 960w, /media/photos/women-s-swimwear-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A smiling woman in a cherry-print bikini and red overshirt sits on a stone terrace overlooking the ocean.",
+          "alt": "Colourful swimwear with bow ties arranged on hangers and folded on rumpled ivory linen.",
           "category": "women's swimwear"
         },
         "/one-piece-swimsuit-manufacturer/": {
@@ -122,7 +122,7 @@
           "srcset": "/media/photos/baby-swimwear-hero-1-480.webp 480w, /media/photos/baby-swimwear-hero-1-960.webp 960w, /media/photos/baby-swimwear-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "Baby swimwear on hangers and folded on sunlit travertine with patterned shadows.",
+          "alt": "Baby swimsuits, sun suits and swim nappies in solid colours and strawberry prints against a sage-green background.",
           "category": "baby swimwear"
         },
         "/toddler-swimwear-manufacturer/": {
@@ -130,24 +130,24 @@
           "srcset": "/media/photos/toddler-swimwear-hero-1-480.webp 480w, /media/photos/toddler-swimwear-hero-1-960.webp 960w, /media/photos/toddler-swimwear-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "Colourful toddler swimwear hangs and sits folded against a sunlit sandstone wall.",
+          "alt": "Colourful toddler swimwear hangs and lies folded against a sand-coloured wall with palm shadows.",
           "category": "toddler swimwear"
         },
         "/modest-swimwear-manufacturer/": {
+          "src": "/media/photos/modest-swimwear-hero-1-960.webp",
+          "srcset": "/media/photos/modest-swimwear-hero-1-480.webp 480w, /media/photos/modest-swimwear-hero-1-960.webp 960w, /media/photos/modest-swimwear-hero-1-1536.webp 1536w",
+          "width": 960,
+          "height": 640,
+          "alt": "A woman in beige modest swimwear reclines beside a weathered green door with her eyes closed.",
+          "category": "modest swimwear"
+        },
+        "/burkini-manufacturer/": {
           "src": "/media/photos/general-hero-1-960.webp",
           "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
           "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
           "category": "general"
-        },
-        "/burkini-manufacturer/": {
-          "src": "/media/photos/burkini-hero-1-960.webp",
-          "srcset": "/media/photos/burkini-hero-1-480.webp 480w, /media/photos/burkini-hero-1-960.webp 960w, /media/photos/burkini-hero-1-1536.webp 1536w",
-          "width": 960,
-          "height": 640,
-          "alt": "A woman in a cobalt blue burkini reclines on striped cushions beside weathered white stone steps.",
-          "category": "burkini"
         },
         "/watersports-apparel-manufacturer/": {
           "src": "/media/photos/general-hero-1-960.webp",
@@ -162,7 +162,7 @@
           "srcset": "/media/photos/rash-guard-hero-1-480.webp 480w, /media/photos/rash-guard-hero-1-960.webp 960w, /media/photos/rash-guard-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in a forest green rash guard leans against a cream stucco pillar beside a woven tote bag.",
+          "alt": "A grey-haired woman in a cream rash guard holds a fig beside a woven tote and a weathered green door.",
           "category": "rash guard"
         },
         "/resort-wear-manufacturer/": {
@@ -174,12 +174,12 @@
           "category": "resort wear"
         },
         "/cover-up-manufacturer/": {
-          "src": "/media/photos/general-hero-1-960.webp",
-          "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
+          "src": "/media/photos/cover-up-hero-1-960.webp",
+          "srcset": "/media/photos/cover-up-hero-1-480.webp 480w, /media/photos/cover-up-hero-1-960.webp 960w, /media/photos/cover-up-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
-          "category": "general"
+          "alt": "A woman in a strawberry-print cover-up reclines in a hammock among lemon trees and terracotta pots.",
+          "category": "cover up"
         },
         "/swimwear-embroidery/": {
           "src": "/media/photos/general-hero-2-960.webp",
@@ -202,74 +202,58 @@
           "srcset": "/media/photos/general-hero-4-480.webp 480w, /media/photos/general-hero-4-960.webp 960w, /media/photos/general-hero-4-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A blonde woman in floral swimwear holds leather sandals while resting on a sunlit garden patio.",
+          "alt": "A woman in floral swimwear reclines on a linen sheet, holding leather sandals beneath ochre patio arches.",
           "category": "general"
         },
         "/swimwear-packaging-custom-brand-labels/": {
+          "src": "/media/photos/swimwear-packaging-brand-labels-hero-1-960.webp",
+          "srcset": "/media/photos/swimwear-packaging-brand-labels-hero-1-480.webp 480w, /media/photos/swimwear-packaging-brand-labels-hero-1-960.webp 960w, /media/photos/swimwear-packaging-brand-labels-hero-1-1536.webp 1536w",
+          "width": 960,
+          "height": 640,
+          "alt": "Colourful swimsuits, drawstring bags, hang tags and woven labels arranged on a wooden tabletop.",
+          "category": "swimwear packaging brand labels"
+        },
+        "/custom-swimwear-printing/": {
           "src": "/media/photos/general-hero-1-960.webp",
           "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
           "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
-          "category": "general"
-        },
-        "/custom-swimwear-printing/": {
-          "src": "/media/photos/general-hero-2-960.webp",
-          "srcset": "/media/photos/general-hero-2-480.webp 480w, /media/photos/general-hero-2-960.webp 960w, /media/photos/general-hero-2-1536.webp 1536w",
-          "width": 960,
-          "height": 640,
-          "alt": "A woman in cherry-print swimwear sits in a chair holding a cup beside coastal dunes in warm evening light.",
           "category": "general"
         },
         "/swimwear-hardware/": {
-          "src": "/media/photos/general-hero-3-960.webp",
-          "srcset": "/media/photos/general-hero-3-480.webp 480w, /media/photos/general-hero-3-960.webp 960w, /media/photos/general-hero-3-1536.webp 1536w",
+          "src": "/media/photos/swimwear-hardware-hero-1-960.webp",
+          "srcset": "/media/photos/swimwear-hardware-hero-1-480.webp 480w, /media/photos/swimwear-hardware-hero-1-960.webp 960w, /media/photos/swimwear-hardware-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in navy swimwear and a patterned wrap sits beneath a pine by the sea, holding a fig near her lips.",
-          "category": "general"
+          "alt": "Colourful swimwear with gold rings, sliders, clasps and hooks arranged against a sage-green background.",
+          "category": "swimwear hardware"
         },
         "/swimwear-fabrics-sourcing/": {
-          "src": "/media/photos/general-hero-4-960.webp",
-          "srcset": "/media/photos/general-hero-4-480.webp 480w, /media/photos/general-hero-4-960.webp 960w, /media/photos/general-hero-4-1536.webp 1536w",
+          "src": "/media/photos/general-hero-2-960.webp",
+          "srcset": "/media/photos/general-hero-2-480.webp 480w, /media/photos/general-hero-2-960.webp 960w, /media/photos/general-hero-2-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A blonde woman in floral swimwear holds leather sandals while resting on a sunlit garden patio.",
+          "alt": "A woman in cherry-print swimwear sits in a chair holding a cup beside coastal dunes in warm evening light.",
           "category": "general"
         },
         "/swimwear-launch-services/": {
-          "src": "/media/photos/general-hero-1-960.webp",
-          "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
+          "src": "/media/photos/general-hero-3-960.webp",
+          "srcset": "/media/photos/general-hero-3-480.webp 480w, /media/photos/general-hero-3-960.webp 960w, /media/photos/general-hero-3-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
+          "alt": "A woman in navy swimwear and a patterned wrap sits beneath a pine by the sea, holding a fig near her lips.",
           "category": "general"
         },
         "/about-us/": {
-          "src": "/media/photos/general-hero-2-960.webp",
-          "srcset": "/media/photos/general-hero-2-480.webp 480w, /media/photos/general-hero-2-960.webp 960w, /media/photos/general-hero-2-1536.webp 1536w",
+          "src": "/media/photos/general-hero-4-960.webp",
+          "srcset": "/media/photos/general-hero-4-480.webp 480w, /media/photos/general-hero-4-960.webp 960w, /media/photos/general-hero-4-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in cherry-print swimwear sits in a chair holding a cup beside coastal dunes in warm evening light.",
+          "alt": "A woman in floral swimwear reclines on a linen sheet, holding leather sandals beneath ochre patio arches.",
           "category": "general"
         },
         "/contact-us/": {
-          "src": "/media/photos/general-hero-3-960.webp",
-          "srcset": "/media/photos/general-hero-3-480.webp 480w, /media/photos/general-hero-3-960.webp 960w, /media/photos/general-hero-3-1536.webp 1536w",
-          "width": 960,
-          "height": 640,
-          "alt": "A woman in navy swimwear and a patterned wrap sits beneath a pine by the sea, holding a fig near her lips.",
-          "category": "general"
-        },
-        "/faq/": {
-          "src": "/media/photos/general-hero-4-960.webp",
-          "srcset": "/media/photos/general-hero-4-480.webp 480w, /media/photos/general-hero-4-960.webp 960w, /media/photos/general-hero-4-1536.webp 1536w",
-          "width": 960,
-          "height": 640,
-          "alt": "A blonde woman in floral swimwear holds leather sandals while resting on a sunlit garden patio.",
-          "category": "general"
-        },
-        "/case-studies/": {
           "src": "/media/photos/general-hero-1-960.webp",
           "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
           "width": 960,
@@ -277,7 +261,7 @@
           "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
           "category": "general"
         },
-        "/sustainability/": {
+        "/faq/": {
           "src": "/media/photos/general-hero-2-960.webp",
           "srcset": "/media/photos/general-hero-2-480.webp 480w, /media/photos/general-hero-2-960.webp 960w, /media/photos/general-hero-2-1536.webp 1536w",
           "width": 960,
@@ -285,7 +269,7 @@
           "alt": "A woman in cherry-print swimwear sits in a chair holding a cup beside coastal dunes in warm evening light.",
           "category": "general"
         },
-        "/privacy-policy/": {
+        "/case-studies/": {
           "src": "/media/photos/general-hero-3-960.webp",
           "srcset": "/media/photos/general-hero-3-480.webp 480w, /media/photos/general-hero-3-960.webp 960w, /media/photos/general-hero-3-1536.webp 1536w",
           "width": 960,
@@ -293,20 +277,36 @@
           "alt": "A woman in navy swimwear and a patterned wrap sits beneath a pine by the sea, holding a fig near her lips.",
           "category": "general"
         },
-        "/terms-and-conditions/": {
+        "/sustainability/": {
           "src": "/media/photos/general-hero-4-960.webp",
           "srcset": "/media/photos/general-hero-4-480.webp 480w, /media/photos/general-hero-4-960.webp 960w, /media/photos/general-hero-4-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A blonde woman in floral swimwear holds leather sandals while resting on a sunlit garden patio.",
+          "alt": "A woman in floral swimwear reclines on a linen sheet, holding leather sandals beneath ochre patio arches.",
           "category": "general"
         },
-        "/request-a-quote/": {
+        "/privacy-policy/": {
           "src": "/media/photos/general-hero-1-960.webp",
           "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
           "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
+          "category": "general"
+        },
+        "/terms-and-conditions/": {
+          "src": "/media/photos/general-hero-2-960.webp",
+          "srcset": "/media/photos/general-hero-2-480.webp 480w, /media/photos/general-hero-2-960.webp 960w, /media/photos/general-hero-2-1536.webp 1536w",
+          "width": 960,
+          "height": 640,
+          "alt": "A woman in cherry-print swimwear sits in a chair holding a cup beside coastal dunes in warm evening light.",
+          "category": "general"
+        },
+        "/request-a-quote/": {
+          "src": "/media/photos/general-hero-3-960.webp",
+          "srcset": "/media/photos/general-hero-3-480.webp 480w, /media/photos/general-hero-3-960.webp 960w, /media/photos/general-hero-3-1536.webp 1536w",
+          "width": 960,
+          "height": 640,
+          "alt": "A woman in navy swimwear and a patterned wrap sits beneath a pine by the sea, holding a fig near her lips.",
           "category": "general"
         },
         "/swimwear-accessories/": {
@@ -326,19 +326,19 @@
           "category": "general"
         },
         "/couples-matching-swimsuit-manufacturer/": {
-          "src": "/media/photos/general-hero-1-960.webp",
-          "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
+          "src": "/media/photos/couples-matching-swimsuit-hero-1-960.webp",
+          "srcset": "/media/photos/couples-matching-swimsuit-hero-1-480.webp 480w, /media/photos/couples-matching-swimsuit-hero-1-960.webp 960w, /media/photos/couples-matching-swimsuit-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in black swimwear and a straw hat sits on a sunny tiled terrace beside lemon trees and pink flowers.",
-          "category": "general"
+          "alt": "A blonde woman in a cream swimsuit with green trim reclines beside a straw hat in a sunlit garden.",
+          "category": "couples matching swimsuit"
         },
         "/blog/": {
-          "src": "/media/photos/general-hero-2-960.webp",
-          "srcset": "/media/photos/general-hero-2-480.webp 480w, /media/photos/general-hero-2-960.webp 960w, /media/photos/general-hero-2-1536.webp 1536w",
+          "src": "/media/photos/general-hero-4-960.webp",
+          "srcset": "/media/photos/general-hero-4-480.webp 480w, /media/photos/general-hero-4-960.webp 960w, /media/photos/general-hero-4-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in cherry-print swimwear sits in a chair holding a cup beside coastal dunes in warm evening light.",
+          "alt": "A woman in floral swimwear reclines on a linen sheet, holding leather sandals beneath ochre patio arches.",
           "category": "general"
         }
       },
@@ -418,7 +418,7 @@
             "srcset": "/media/photos/general-process-1-480.webp 480w, /media/photos/general-process-1-960.webp 960w, /media/photos/general-process-1-1536.webp 1536w",
             "width": 960,
             "height": 640,
-            "alt": "A worker inspects a coral bikini top with dark green trim beside stacks of matching swimwear.",
+            "alt": "A worker inspects a black swimsuit with dark green trim beside stacks of swimwear on a factory table.",
             "category": "general"
           },
           {
@@ -426,7 +426,7 @@
             "srcset": "/media/photos/general-process-2-480.webp 480w, /media/photos/general-process-2-960.webp 960w, /media/photos/general-process-2-1536.webp 1536w",
             "width": 960,
             "height": 640,
-            "alt": "A worker sews black lace-up swimwear at a sewing machine in a bright workshop.",
+            "alt": "A worker sews grey swimwear at a sewing machine in a bright workshop.",
             "category": "general"
           },
           {
@@ -434,7 +434,7 @@
             "srcset": "/media/photos/general-process-3-480.webp 480w, /media/photos/general-process-3-960.webp 960w, /media/photos/general-process-3-1536.webp 1536w",
             "width": 960,
             "height": 640,
-            "alt": "A worker inspects a floral bikini top at a factory table stacked with swimwear.",
+            "alt": "A worker inspects a red and navy checked bikini at a factory table stacked with matching swimwear.",
             "category": "general"
           }
         ],
@@ -511,7 +511,7 @@
               "srcset": "/media/photos/one-piece-swimsuit-product-construction-bust-support-and-trim-details-480.webp 480w, /media/photos/one-piece-swimsuit-product-construction-bust-support-and-trim-details-960.webp 960w",
               "width": 960,
               "height": 960,
-              "alt": "A woman reclines on a rock wearing a green strawberry-print swimsuit, open olive shirt and straw hat.",
+              "alt": "A woman in a green and cream swimsuit and straw hat hugs her knees beside terracotta garden pots.",
               "category": "one piece swimsuit",
               "topic": "Construction, Bust Support and Trim Details"
             }
@@ -546,7 +546,7 @@
               "srcset": "/media/photos/men-s-swimwear-lifestyle-1-480.webp 480w, /media/photos/men-s-swimwear-lifestyle-1-960.webp 960w, /media/photos/men-s-swimwear-lifestyle-1-1536.webp 1536w",
               "width": 960,
               "height": 640,
-              "alt": "A man in patterned swim trunks sits cross-legged on a terrace overlooking the ocean, writing in a notebook.",
+              "alt": "A man in palm-print swim briefs and an olive overshirt lifts his hair on a stone terrace overlooking the sea.",
               "category": "men's swimwear"
             }
           ]
@@ -649,7 +649,7 @@
               "srcset": "/media/photos/modest-swimwear-product-wholesale-stock-and-ready-made-modest-designs-480.webp 480w, /media/photos/modest-swimwear-product-wholesale-stock-and-ready-made-modest-designs-960.webp 960w",
               "width": 960,
               "height": 960,
-              "alt": "A woman in floral olive swimwear holds leaves and a striped towel on a stone terrace overlooking the ocean.",
+              "alt": "A woman in shell-print modest swimwear leans against a stone pillar on a terrace overlooking the sea.",
               "category": "modest swimwear",
               "topic": "Wholesale Stock and Ready-Made Modest Designs"
             }
@@ -706,7 +706,7 @@
               "srcset": "/media/photos/rash-guard-lifestyle-1-480.webp 480w, /media/photos/rash-guard-lifestyle-1-960.webp 960w, /media/photos/rash-guard-lifestyle-1-1536.webp 1536w",
               "width": 960,
               "height": 640,
-              "alt": "A woman in an indigo tie-dye rash guard rests on a stone terrace beneath a fig tree overlooking the ocean.",
+              "alt": "A woman in a coral leaf-print rash guard holds lavender near her nose on a terrace overlooking the sea.",
               "category": "rash guard"
             }
           ]
@@ -738,8 +738,56 @@
               "srcset": "/media/photos/cover-up-lifestyle-2-480.webp 480w, /media/photos/cover-up-lifestyle-2-960.webp 960w, /media/photos/cover-up-lifestyle-2-1536.webp 1536w",
               "width": 960,
               "height": 640,
-              "alt": "A woman in a green leaf-print cover-up rests her cheek on folded arms at a weathered table beside the sea.",
+              "alt": "A blonde woman in an olive patterned cover-up holds a cup while seated on a stone step beside the sea.",
               "category": "cover up"
+            }
+          ]
+        },
+        "/swimwear-packaging-custom-brand-labels/": {
+          "lifestyle": [
+            {
+              "src": "/media/photos/swimwear-packaging-brand-labels-lifestyle-1-960.webp",
+              "srcset": "/media/photos/swimwear-packaging-brand-labels-lifestyle-1-480.webp 480w, /media/photos/swimwear-packaging-brand-labels-lifestyle-1-960.webp 960w, /media/photos/swimwear-packaging-brand-labels-lifestyle-1-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "Olive and cream garment bags, blank hang tags and woven labels lie flat on rippled sand in warm sunlight.",
+              "category": "swimwear packaging brand labels"
+            },
+            {
+              "src": "/media/photos/swimwear-packaging-brand-labels-lifestyle-2-960.webp",
+              "srcset": "/media/photos/swimwear-packaging-brand-labels-lifestyle-2-480.webp 480w, /media/photos/swimwear-packaging-brand-labels-lifestyle-2-960.webp 960w, /media/photos/swimwear-packaging-brand-labels-lifestyle-2-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "Beige drawstring bags, hang tags, woven labels and swimwear with a gold-tone clasp rest on sunlit sand.",
+              "category": "swimwear packaging brand labels"
+            }
+          ]
+        },
+        "/swimwear-hardware/": {
+          "lifestyle": [
+            {
+              "src": "/media/photos/swimwear-hardware-lifestyle-1-960.webp",
+              "srcset": "/media/photos/swimwear-hardware-lifestyle-1-480.webp 480w, /media/photos/swimwear-hardware-lifestyle-1-960.webp 960w, /media/photos/swimwear-hardware-lifestyle-1-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "Charcoal swimwear with green stitching and gold rings, sliders, clasps and hooks on sunlit wooden decking.",
+              "category": "swimwear hardware"
+            },
+            {
+              "src": "/media/photos/swimwear-hardware-lifestyle-2-960.webp",
+              "srcset": "/media/photos/swimwear-hardware-lifestyle-2-480.webp 480w, /media/photos/swimwear-hardware-lifestyle-2-960.webp 960w, /media/photos/swimwear-hardware-lifestyle-2-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "Charcoal swimwear and gold-tone rings, sliders, a clasp and a hook rest on a sandy surface with palm shadows.",
+              "category": "swimwear hardware"
+            },
+            {
+              "src": "/media/photos/swimwear-hardware-lifestyle-3-960.webp",
+              "srcset": "/media/photos/swimwear-hardware-lifestyle-3-480.webp 480w, /media/photos/swimwear-hardware-lifestyle-3-960.webp 960w, /media/photos/swimwear-hardware-lifestyle-3-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "Colourful swimwear and metal rings, sliders, clasps and hooks arranged on sunlit blush stucco.",
+              "category": "swimwear hardware"
             }
           ]
         },
@@ -819,9 +867,9 @@
         "/swimwear-embroidery/": "general",
         "/swimwear-consulting/": "general",
         "/development/": "general",
-        "/swimwear-packaging-custom-brand-labels/": "general",
+        "/swimwear-packaging-custom-brand-labels/": "swimwear packaging brand labels",
         "/custom-swimwear-printing/": "general",
-        "/swimwear-hardware/": "general",
+        "/swimwear-hardware/": "swimwear hardware",
         "/swimwear-fabrics-sourcing/": "general",
         "/swimwear-launch-services/": "general",
         "/about-us/": "general",

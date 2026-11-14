@@ -458,20 +458,14 @@
           [
             "bikini-hero-1",
             "the page hero"
-          ],
-          [
-            "bikini-lifestyle-1",
-            "a photo of the product in use"
           ]
         ]
       },
       "read": {
-        "bikini-hero-1": 4,
-        "bikini-lifestyle-1": 0
+        "bikini-hero-1": 4
       },
       "slots": {
-        "bikini-hero-1": 4,
-        "bikini-lifestyle-1": 0
+        "bikini-hero-1": 4
       }
     },
     "boardshorts": {
@@ -851,20 +845,12 @@
             "a photo of the product for the page as a whole"
           ],
           [
-            "general-product-4",
-            "a photo of the product for the page as a whole"
-          ],
-          [
             "general-product-5",
             "a photo of the product for the page as a whole"
           ],
           [
             "general-product-wholesale-swimwear-ready-to-brand-and-ship",
             "Wholesale Swimwear, Ready to Brand and Ship"
-          ],
-          [
-            "general-product-quality-checked-at-every-stage-of-your-order",
-            "Quality Checked at Every Stage of Your Order"
           ],
           [
             "general-product-starting-with-samples-before-bulk",
@@ -895,10 +881,6 @@
             "a photo of the product in use"
           ],
           [
-            "general-lifestyle-4",
-            "a photo of the product in use"
-          ],
-          [
             "general-lifestyle-5",
             "a photo of the product in use"
           ]
@@ -912,10 +894,8 @@
         "general-product-1": 0,
         "general-product-2": 1,
         "general-product-3": 0,
-        "general-product-4": 1,
-        "general-product-5": 0,
+        "general-product-5": 1,
         "general-product-wholesale-swimwear-ready-to-brand-and-ship": 0,
-        "general-product-quality-checked-at-every-stage-of-your-order": 1,
         "general-product-starting-with-samples-before-bulk": 2,
         "general-process-1": 5,
         "general-process-2": 6,
@@ -923,8 +903,7 @@
         "general-lifestyle-1": 0,
         "general-lifestyle-2": 3,
         "general-lifestyle-3": 0,
-        "general-lifestyle-4": 3,
-        "general-lifestyle-5": 0
+        "general-lifestyle-5": 3
       },
       "slots": {
         "general-hero-1": 4,
@@ -934,10 +913,8 @@
         "general-product-1": 0,
         "general-product-2": 1,
         "general-product-3": 0,
-        "general-product-4": 1,
-        "general-product-5": 0,
+        "general-product-5": 1,
         "general-product-wholesale-swimwear-ready-to-brand-and-ship": 0,
-        "general-product-quality-checked-at-every-stage-of-your-order": 1,
         "general-product-starting-with-samples-before-bulk": 2,
         "general-process-1": 5,
         "general-process-2": 6,
@@ -945,8 +922,7 @@
         "general-lifestyle-1": 0,
         "general-lifestyle-2": 3,
         "general-lifestyle-3": 0,
-        "general-lifestyle-4": 3,
-        "general-lifestyle-5": 0
+        "general-lifestyle-5": 3
       }
     },
     "men's swimwear": {
@@ -1795,22 +1771,6 @@
           "Related products and services",
           "Frequently Asked Questions",
           "Ready to Discuss Your Project?",
-          "Branded and Ready to Sell, or Packed in Your Own Materials",
-          "Branding Add-On Costs and Supplying Your Own Materials",
-          "Packed and Labelled in Our Own Guangzhou Factory",
-          "Minimum Orders, Trial Runs and Sample Fees",
-          "Custom Swimwear Labels, Branded Bags and Lead Times",
-          "Compostable Corn-Starch Garment Bags and Eco Zip-Lock Bags",
-          "Tagless Heat Transfer Labels Printed Inside Each Piece",
-          "DTF Logo Transfers for the Outside of the Suit",
-          "Embroidered Logos for Stretch Swim Fabrics",
-          "Hang Tag Shapes, Paper Stocks and Finishes",
-          "Kraft Paper, Plastic and Recycled-Content Hygiene Liners",
-          "Production Timeline, Payment and Shipping Terms",
-          "What buyers say",
-          "Related products and services",
-          "Frequently Asked Questions",
-          "Start Your Packaging and Label Project with Strandmill",
           "Custom Swimwear Prints Made in Our Own Facility",
           "Factory-Direct Sublimation Printing from Guangzhou",
           "Printable Swim Fabrics, Including Recycled Options",
@@ -1826,21 +1786,6 @@
           "Related products and services",
           "Frequently Asked Questions",
           "Ready to Start Your Swimwear Print Project?",
-          "Swimwear Hardware for Every Strap and Closure",
-          "Swimwear Hardware Types, Sizes and Materials",
-          "Our Own Factory in Guangzhou",
-          "Metals, Plating and Surface Finishes",
-          "Custom Colours and Logo Branding on Metal Parts",
-          "Pull Strength, Cycle and Temperature Ratings",
-          "Choosing and Fitting Hardware to Your Design",
-          "Costing, Sampling and Checks on Supplied Hardware",
-          "Minimum Orders, Lead Times, Payment and Shipping",
-          "Trims, Hardware Minimums and Logo Mould Fees",
-          "Quality Control and Hardware Testing",
-          "What buyers say",
-          "Related products and services",
-          "Frequently Asked Questions",
-          "Discuss Your Swimwear Hardware Project",
           "Swim Fabrics Imported Direct from Italian Mills",
           "Fabric Blends, Branded Fabrics and Mill Minimums",
           "Order Minimums, Deposits and Shipping Terms",
@@ -2091,6 +2036,47 @@
         ]
       },
       {
+        "category": "swimwear hardware",
+        "headings": [
+          "Swimwear Hardware for Every Strap and Closure",
+          "Swimwear Hardware Types, Sizes and Materials",
+          "Our Own Factory in Guangzhou",
+          "Metals, Plating and Surface Finishes",
+          "Custom Colours and Logo Branding on Metal Parts",
+          "Pull Strength, Cycle and Temperature Ratings",
+          "Choosing and Fitting Hardware to Your Design",
+          "Costing, Sampling and Checks on Supplied Hardware",
+          "Minimum Orders, Lead Times, Payment and Shipping",
+          "Trims, Hardware Minimums and Logo Mould Fees",
+          "Quality Control and Hardware Testing",
+          "What buyers say",
+          "Related products and services",
+          "Frequently Asked Questions",
+          "Discuss Your Swimwear Hardware Project"
+        ]
+      },
+      {
+        "category": "swimwear packaging brand labels",
+        "headings": [
+          "Branded and Ready to Sell, or Packed in Your Own Materials",
+          "Branding Add-On Costs and Supplying Your Own Materials",
+          "Packed and Labelled in Our Own Guangzhou Factory",
+          "Minimum Orders, Trial Runs and Sample Fees",
+          "Custom Swimwear Labels, Branded Bags and Lead Times",
+          "Compostable Corn-Starch Garment Bags and Eco Zip-Lock Bags",
+          "Tagless Heat Transfer Labels Printed Inside Each Piece",
+          "DTF Logo Transfers for the Outside of the Suit",
+          "Embroidered Logos for Stretch Swim Fabrics",
+          "Hang Tag Shapes, Paper Stocks and Finishes",
+          "Kraft Paper, Plastic and Recycled-Content Hygiene Liners",
+          "Production Timeline, Payment and Shipping Terms",
+          "What buyers say",
+          "Related products and services",
+          "Frequently Asked Questions",
+          "Start Your Packaging and Label Project with Strandmill"
+        ]
+      },
+      {
         "category": "teen swimwear",
         "headings": [
           "Custom Teen Swimsuits Sized by Age or Height",
@@ -2155,24 +2141,26 @@
     "by": {
       "baby swimwear": "baby swimsuits, sun suits and swim nappies",
       "bikini": "bikini sets and separates",
-      "boardshorts": "printed boardshorts for surf and resort",
-      "burkini": "full-coverage burkini sets with hoods",
+      "boardshorts": "men's boardshorts",
+      "burkini": "burkini tunics, leggings and swim hoods",
       "children's swimwear": "kids' swimsuits, rash guard sets and sun suits",
-      "couples matching swimsuit": "matching his-and-hers swimsuits and trunks",
-      "cover up": "beach cover-ups, kaftans, sarongs and kimonos",
-      "general": "bikinis, one-piece swimsuits and swim trunks",
-      "men's swimwear": "men's swim trunks, briefs and jammers",
+      "couples matching swimsuit": "matching his-and-hers swimsuits and swim trunks",
+      "cover up": "kaftans, sarongs and kimono cover-ups",
+      "general": "bikinis, one-piece swimsuits, swim trunks and cover-ups",
+      "men's swimwear": "men's swim trunks, briefs and boardshorts",
       "modest swimwear": "modest swim tunics, leggings and swim hijabs",
-      "one piece swimsuit": "one-piece swimsuits with cut-outs and open backs",
-      "plus size swimwear": "plus-size swimsuits, tankinis and swim dresses",
+      "one piece swimsuit": "women's one-piece swimsuits",
+      "plus size swimwear": "plus-size one-pieces, tankinis and swim dresses",
       "rash guard": "long- and short-sleeve rash guards",
-      "resort wear": "resort dresses, shirts and lightweight beach sets",
-      "swim trunks": "quick-dry swim trunks with liners",
-      "swimwear accessories": "swimwear hardware, labels, straps, cups and packaging",
+      "resort wear": "resort dresses, kaftans, shirts and wide-leg trousers",
+      "swim trunks": "men's swim trunks",
+      "swimwear accessories": "swimwear trims, hardware, cups, labels and hygiene liners",
+      "swimwear hardware": "metal rings, sliders, clasps and hooks for swimwear",
+      "swimwear packaging brand labels": "woven labels, hang tags and branded garment bags",
       "teen swimwear": "teen bikinis, one-pieces and tankinis",
       "toddler swimwear": "toddler swimsuits, rash guard sets and swim shorts",
       "watersports apparel": "long-sleeve rash guards, surf leggings and paddle suits",
-      "women's swimwear": "women's bikinis, one-pieces and tankinis"
+      "women's swimwear": "bikinis, one-piece swimsuits and tankinis"
     },
     "worn": {
       "baby swimwear": true,
@@ -2191,6 +2179,8 @@
       "resort wear": true,
       "swim trunks": true,
       "swimwear accessories": false,
+      "swimwear hardware": false,
+      "swimwear packaging brand labels": false,
       "teen swimwear": true,
       "toddler swimwear": true,
       "watersports apparel": true,
@@ -2213,6 +2203,8 @@
       "resort wear": true,
       "swim trunks": true,
       "swimwear accessories": false,
+      "swimwear hardware": false,
+      "swimwear packaging brand labels": false,
       "teen swimwear": true,
       "toddler swimwear": true,
       "watersports apparel": true,

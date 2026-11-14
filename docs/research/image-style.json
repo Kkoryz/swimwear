@@ -145,124 +145,6 @@
         }
       ]
     },
-    "hero": {
-      "refs": [
-        "docs/research/reference-assets/24fca0584319aea101df.webp",
-        "docs/research/reference-assets/752b39987d27ddfbcae1.webp",
-        "docs/research/reference-pages/manufacturer/reference-assets/8e60c41e2dafe692b2e3.webp",
-        "docs/research/reference-pages/manufacturer/reference-assets/8b29f10bedff27d34759.webp",
-        "docs/research/reference-pages/solution/reference-assets/5de26ce436af9711e48a.webp",
-        "docs/research/reference-pages/solution/reference-assets/ca3d3a24b907a25b738f.webp",
-        "docs/research/reference-pages/about/reference-assets/921805b737ed407e06a7.webp",
-        "docs/research/reference-pages/about/reference-assets/8ae4ec5601f3bfc7542f.webp"
-      ],
-      "profile": {
-        "summary": "Bright, sun-lit outdoor swimwear photographs in tropical beach and garden locations, alongside high-key daylight photographs of an empty working sewing floor, all shot as clean, natural-looking digital photography with true-to-life colour.",
-        "settings": "Sandy tropical beaches with turquoise sea and breaking white surf behind a white 1960s convertible with red upholstery; a rough whitewashed limestone wall in full sun next to a pale concrete path; a shaded tropical garden with large banana leaves, bamboo poles, palm trunks, a weathered grey-white wall and a dark pool edge; tall pale beach grass and flowering vines in sand dunes; a garment factory sewing room with rows of cream industrial sewing machines on white tables with orange-edged tops, wooden chairs, cardboard boxes, beige ceramic floor tiles, overhead fluorescent rails, large bright windows and stacks of teal and black fabric.",
-        "background": "Real locations with no studio backdrops. Backgrounds stay recognisable but are softened by depth of field: sea and sky as broad blue bands, foliage as blurred green masses, and stone walls as close, textured, sunlit surfaces filling the frame. Wide banner versions fade into a dark slate-navy gradient across the left third, leaving room for text. Factory shots show deep, receding rows of machines toward a bright window wall.",
-        "colour": "Natural to slightly raised saturation. Strong cerulean sky, turquoise and teal sea, chalk white and cream stone, sand beige, olive and leaf green, and warm golden-brown skin tones, with accents of tomato red, cobalt blue and coral floral print. Garden shots are warmer and amber-tinted with deep green shadows. Factory shots are high-key with cool whites, cream machine bodies, pale beige tiles, small teal and red accents and warm orange table edges. No heavy colour grade.",
-        "lighting": "Outdoor shots use hard, direct tropical sun from high or side angles, with crisp dark shadows, bright highlights on stone and car paint, and squinting or eyes-closed faces turned toward the sun. Garden and dune shots use low, warm late-afternoon sun coming through leaves and grass, with dappled light, rim light on hair and some flare haze. Factory shots use even overhead fluorescent tubes plus flat window daylight, bright and nearly shadowless. No flash or studio strobes.",
-        "rendering": "Clean full-frame digital look. Portrait shots use roughly 50–85mm focal lengths with moderately shallow depth of field and a soft but readable background, sometimes with blurred grass blades in the foreground. Subjects are sharp, with low noise and no visible film grain. Retouching is light: skin keeps pores, fine body hair, sand specks, tan variation and natural creases, and fabric texture and stitching stay visible. Factory shots use a wide lens with deep focus, sharp detail across the room and slightly lifted exposure.",
-        "casting": "Adult women in their twenties with a mix of skin tones, from light to deep brown, and long dark, brown or sun-streaked hair. Some frames show one woman, others a group of three. Factory images show no people, only workstations.",
-        "poseAndEnergy": "Relaxed, posed-candid fashion poses with slight movement: leaning on a car, a wall or stone, reclining, sitting on the car's rear deck while looking back over a shoulder, shading eyes with a raised arm, adjusting a strap, sipping from a fruit or holding a flowering stem. The mood is sunny, carefree holiday fashion, with closed-eye sun-soaking moments and occasional open laughs. Factory shots are still, orderly and quiet, like a working floor between shifts.",
-        "framing": "Wide panoramic banners about 2.7:1 with subjects in the right half to two-thirds and text space on the left, plus tall portrait crops about 1:2 to 3:4. People are cropped from mid-thigh or knee up, sometimes as tight torso crops with the head cut off. Camera height is at the subject or slightly lower. Group shots are spread in a loose row or staggered in depth. Factory frames use a diagonal one-point perspective down rows of tables, shot from standing eye height.",
-        "avoid": "Studio seamless backdrops, night or overcast scenes, black-and-white, heavy film grain or vintage film emulation, strong teal-and-orange cinematic grading, HDR halos, on-camera flash, plastic airbrushed skin, fully blurred bokeh-only backgrounds, urban street or office settings, people posed inside the factory shots, and dark, moody or desaturated factory lighting."
-      },
-      "shots": {
-        "framings": [
-          {
-            "text": "Three-quarter shot at eye level from about 2 m: frame the model from the top of the head to mid-thigh, with the body filling most of the frame height",
-            "photos": 3
-          },
-          {
-            "text": "Close wide horizontal shot from slightly above the seated model: frame from the head to the knees, with the body stretched diagonally across the full frame width",
-            "photos": 1
-          }
-        ],
-        "poses": [
-          {
-            "text": "The model stands with the body slightly turned and the head tilted down, holding a flowering vine at chest height with one hand while the other hand rests at the waist holding the stem",
-            "photos": 1
-          },
-          {
-            "text": "The model sits on the ground leaning back on one straight arm, with one knee raised and the other hand on top of the head, tilting the head back with eyes closed",
-            "photos": 1
-          },
-          {
-            "text": "The model leans one shoulder against a wall with the head tilted back and eyes closed, one hand resting on the hip and the other arm hanging down with the hand on the thigh",
-            "photos": 1
-          },
-          {
-            "text": "The model stands smiling with eyes closed and sips through a straw from a fruit held near the face, while the other arm hangs relaxed with the hand touching a leaf behind",
-            "photos": 1
-          }
-        ]
-      },
-      "range": {
-        "colourfulness": {
-          "min": 20,
-          "max": 54
-        },
-        "brightness": {
-          "min": 64,
-          "max": 169
-        },
-        "contrast": {
-          "min": 35,
-          "max": 68
-        }
-      },
-      "stats": [
-        {
-          "path": "docs/research/reference-assets/24fca0584319aea101df.webp",
-          "colourfulness": 47,
-          "brightness": 125,
-          "contrast": 68
-        },
-        {
-          "path": "docs/research/reference-assets/752b39987d27ddfbcae1.webp",
-          "colourfulness": 54,
-          "brightness": 112,
-          "contrast": 40
-        },
-        {
-          "path": "docs/research/reference-pages/manufacturer/reference-assets/8e60c41e2dafe692b2e3.webp",
-          "colourfulness": 44,
-          "brightness": 144,
-          "contrast": 60
-        },
-        {
-          "path": "docs/research/reference-pages/manufacturer/reference-assets/8b29f10bedff27d34759.webp",
-          "colourfulness": 41,
-          "brightness": 156,
-          "contrast": 66
-        },
-        {
-          "path": "docs/research/reference-pages/solution/reference-assets/5de26ce436af9711e48a.webp",
-          "colourfulness": 42,
-          "brightness": 84,
-          "contrast": 45
-        },
-        {
-          "path": "docs/research/reference-pages/solution/reference-assets/ca3d3a24b907a25b738f.webp",
-          "colourfulness": 40,
-          "brightness": 64,
-          "contrast": 35
-        },
-        {
-          "path": "docs/research/reference-pages/about/reference-assets/921805b737ed407e06a7.webp",
-          "colourfulness": 29,
-          "brightness": 169,
-          "contrast": 53
-        },
-        {
-          "path": "docs/research/reference-pages/about/reference-assets/8ae4ec5601f3bfc7542f.webp",
-          "colourfulness": 20,
-          "brightness": 166,
-          "contrast": 53
-        }
-      ]
-    },
     "lifestyle": {
       "refs": [
         "docs/research/reference-assets/ffcb2b3686ba8bc38a72.webp",
@@ -409,6 +291,124 @@
           "colourfulness": 51,
           "brightness": 159,
           "contrast": 59
+        }
+      ]
+    },
+    "hero": {
+      "refs": [
+        "docs/research/reference-assets/24fca0584319aea101df.webp",
+        "docs/research/reference-assets/752b39987d27ddfbcae1.webp",
+        "docs/research/reference-pages/manufacturer/reference-assets/8e60c41e2dafe692b2e3.webp",
+        "docs/research/reference-pages/manufacturer/reference-assets/8b29f10bedff27d34759.webp",
+        "docs/research/reference-pages/solution/reference-assets/5de26ce436af9711e48a.webp",
+        "docs/research/reference-pages/solution/reference-assets/ca3d3a24b907a25b738f.webp",
+        "docs/research/reference-pages/about/reference-assets/921805b737ed407e06a7.webp",
+        "docs/research/reference-pages/about/reference-assets/8ae4ec5601f3bfc7542f.webp"
+      ],
+      "profile": {
+        "summary": "Bright, sun-lit outdoor swimwear photographs in tropical beach and garden locations, alongside high-key daylight photographs of an empty working sewing floor, all shot as clean, natural-looking digital photography with true-to-life colour.",
+        "settings": "Sandy tropical beaches with turquoise sea and breaking white surf behind a white 1960s convertible with red upholstery; a rough whitewashed limestone wall in full sun next to a pale concrete path; a shaded tropical garden with large banana leaves, bamboo poles, palm trunks, a weathered grey-white wall and a dark pool edge; tall pale beach grass and flowering vines in sand dunes; a garment factory sewing room with rows of cream industrial sewing machines on white tables with orange-edged tops, wooden chairs, cardboard boxes, beige ceramic floor tiles, overhead fluorescent rails, large bright windows and stacks of teal and black fabric.",
+        "background": "Real locations with no studio backdrops. Backgrounds stay recognisable but are softened by depth of field: sea and sky as broad blue bands, foliage as blurred green masses, and stone walls as close, textured, sunlit surfaces filling the frame. Wide banner versions fade into a dark slate-navy gradient across the left third, leaving room for text. Factory shots show deep, receding rows of machines toward a bright window wall.",
+        "colour": "Natural to slightly raised saturation. Strong cerulean sky, turquoise and teal sea, chalk white and cream stone, sand beige, olive and leaf green, and warm golden-brown skin tones, with accents of tomato red, cobalt blue and coral floral print. Garden shots are warmer and amber-tinted with deep green shadows. Factory shots are high-key with cool whites, cream machine bodies, pale beige tiles, small teal and red accents and warm orange table edges. No heavy colour grade.",
+        "lighting": "Outdoor shots use hard, direct tropical sun from high or side angles, with crisp dark shadows, bright highlights on stone and car paint, and squinting or eyes-closed faces turned toward the sun. Garden and dune shots use low, warm late-afternoon sun coming through leaves and grass, with dappled light, rim light on hair and some flare haze. Factory shots use even overhead fluorescent tubes plus flat window daylight, bright and nearly shadowless. No flash or studio strobes.",
+        "rendering": "Clean full-frame digital look. Portrait shots use roughly 50–85mm focal lengths with moderately shallow depth of field and a soft but readable background, sometimes with blurred grass blades in the foreground. Subjects are sharp, with low noise and no visible film grain. Retouching is light: skin keeps pores, fine body hair, sand specks, tan variation and natural creases, and fabric texture and stitching stay visible. Factory shots use a wide lens with deep focus, sharp detail across the room and slightly lifted exposure.",
+        "casting": "Adult women in their twenties with a mix of skin tones, from light to deep brown, and long dark, brown or sun-streaked hair. Some frames show one woman, others a group of three. Factory images show no people, only workstations.",
+        "poseAndEnergy": "Relaxed, posed-candid fashion poses with slight movement: leaning on a car, a wall or stone, reclining, sitting on the car's rear deck while looking back over a shoulder, shading eyes with a raised arm, adjusting a strap, sipping from a fruit or holding a flowering stem. The mood is sunny, carefree holiday fashion, with closed-eye sun-soaking moments and occasional open laughs. Factory shots are still, orderly and quiet, like a working floor between shifts.",
+        "framing": "Wide panoramic banners about 2.7:1 with subjects in the right half to two-thirds and text space on the left, plus tall portrait crops about 1:2 to 3:4. People are cropped from mid-thigh or knee up, sometimes as tight torso crops with the head cut off. Camera height is at the subject or slightly lower. Group shots are spread in a loose row or staggered in depth. Factory frames use a diagonal one-point perspective down rows of tables, shot from standing eye height.",
+        "avoid": "Studio seamless backdrops, night or overcast scenes, black-and-white, heavy film grain or vintage film emulation, strong teal-and-orange cinematic grading, HDR halos, on-camera flash, plastic airbrushed skin, fully blurred bokeh-only backgrounds, urban street or office settings, people posed inside the factory shots, and dark, moody or desaturated factory lighting."
+      },
+      "shots": {
+        "framings": [
+          {
+            "text": "Three-quarter shot at eye level from about 2 m: frame the model from the top of the head to mid-thigh, with the body filling most of the frame height",
+            "photos": 3
+          },
+          {
+            "text": "Close wide horizontal shot from slightly above the seated model: frame from the head to the knees, with the body stretched diagonally across the full frame width",
+            "photos": 1
+          }
+        ],
+        "poses": [
+          {
+            "text": "The model stands with the body slightly turned and the head tilted down, holding a flowering vine at chest height with one hand while the other hand rests at the waist holding the stem",
+            "photos": 1
+          },
+          {
+            "text": "The model sits on the ground leaning back on one straight arm, with one knee raised and the other hand on top of the head, tilting the head back with eyes closed",
+            "photos": 1
+          },
+          {
+            "text": "The model leans one shoulder against a wall with the head tilted back and eyes closed, one hand resting on the hip and the other arm hanging down with the hand on the thigh",
+            "photos": 1
+          },
+          {
+            "text": "The model stands smiling with eyes closed and sips through a straw from a fruit held near the face, while the other arm hangs relaxed with the hand touching a leaf behind",
+            "photos": 1
+          }
+        ]
+      },
+      "range": {
+        "colourfulness": {
+          "min": 20,
+          "max": 54
+        },
+        "brightness": {
+          "min": 64,
+          "max": 169
+        },
+        "contrast": {
+          "min": 35,
+          "max": 68
+        }
+      },
+      "stats": [
+        {
+          "path": "docs/research/reference-assets/24fca0584319aea101df.webp",
+          "colourfulness": 47,
+          "brightness": 125,
+          "contrast": 68
+        },
+        {
+          "path": "docs/research/reference-assets/752b39987d27ddfbcae1.webp",
+          "colourfulness": 54,
+          "brightness": 112,
+          "contrast": 40
+        },
+        {
+          "path": "docs/research/reference-pages/manufacturer/reference-assets/8e60c41e2dafe692b2e3.webp",
+          "colourfulness": 44,
+          "brightness": 144,
+          "contrast": 60
+        },
+        {
+          "path": "docs/research/reference-pages/manufacturer/reference-assets/8b29f10bedff27d34759.webp",
+          "colourfulness": 41,
+          "brightness": 156,
+          "contrast": 66
+        },
+        {
+          "path": "docs/research/reference-pages/solution/reference-assets/5de26ce436af9711e48a.webp",
+          "colourfulness": 42,
+          "brightness": 84,
+          "contrast": 45
+        },
+        {
+          "path": "docs/research/reference-pages/solution/reference-assets/ca3d3a24b907a25b738f.webp",
+          "colourfulness": 40,
+          "brightness": 64,
+          "contrast": 35
+        },
+        {
+          "path": "docs/research/reference-pages/about/reference-assets/921805b737ed407e06a7.webp",
+          "colourfulness": 29,
+          "brightness": 169,
+          "contrast": 53
+        },
+        {
+          "path": "docs/research/reference-pages/about/reference-assets/8ae4ec5601f3bfc7542f.webp",
+          "colourfulness": 20,
+          "brightness": 166,
+          "contrast": 53
         }
       ]
     },
@@ -766,12 +766,6 @@
           "Sit leaning back on one straight arm, tilt the head down onto the shoulder, and look straight into the camera",
           "Lie on the back on the sand with both arms stretched above the head and one knee bent, eyes closed, face turned up"
         ],
-        "hero": [
-          "The model stands with the body slightly turned and the head tilted down, holding a flowering vine at chest height with one hand while the other hand rests at the waist holding the stem",
-          "The model sits on the ground leaning back on one straight arm, with one knee raised and the other hand on top of the head, tilting the head back with eyes closed",
-          "The model leans one shoulder against a wall with the head tilted back and eyes closed, one hand resting on the hip and the other arm hanging down with the hand on the thigh",
-          "The model stands smiling with eyes closed and sips through a straw from a fruit held near the face, while the other arm hangs relaxed with the hand touching a leaf behind"
-        ],
         "lifestyle": [
           "The model reclines in a garden chair with both legs stretched out onto a table, holding a rose near the chest or face",
           "The model sits on a blanket, leaning back on one straight arm with the legs bent to the side, and reads a book held up in the other hand",
@@ -781,6 +775,12 @@
           "The model twirls with the arms swinging out and the hair flying, laughing with the eyes closed",
           "The model stands holding a wicker basket in one hand and a rose in the other, looking down at the flowers",
           "The model stands with the back turned three-quarters to the camera, holding a rose out in front and looking down over the shoulder"
+        ],
+        "hero": [
+          "The model stands with the body slightly turned and the head tilted down, holding a flowering vine at chest height with one hand while the other hand rests at the waist holding the stem",
+          "The model sits on the ground leaning back on one straight arm, with one knee raised and the other hand on top of the head, tilting the head back with eyes closed",
+          "The model leans one shoulder against a wall with the head tilted back and eyes closed, one hand resting on the hip and the other arm hanging down with the hand on the thigh",
+          "The model stands smiling with eyes closed and sips through a straw from a fruit held near the face, while the other arm hangs relaxed with the hand touching a leaf behind"
         ],
         "site": [
           "The model leans against a wall or post with head tilted back and eyes closed, one hand resting at the hip or thigh",
@@ -823,492 +823,492 @@
     "poses": {
       "product": [
         {
-          "text": "Lean one shoulder against a whitewashed post, hold a halved peach near the chin, and look down to the side with eyes half-closed",
+          "text": "Lean forward with both forearms resting on a low wall, hold a halved peach near the chin, and look down to the side with eyes half-closed",
           "photos": 1
         },
         {
-          "text": "Sit on a low step with the forearms resting on the knees, hold a lemon loosely in both hands, and look calmly into the camera",
+          "text": "Stand with one hip dropped, hold a lemon against the collarbone with one hand, and gaze past the camera with lowered lids",
           "photos": 1
         },
         {
-          "text": "Stand side-on with one hand raised to shade the eyes and the other resting on the hip, face tilted up toward the sun",
+          "text": "Stand side-on with the shoulder blades against a pillar, lift the chin with eyes closed, and clasp both hands loosely behind the back",
           "photos": 1
         },
         {
-          "text": "Kneel upright with both hands clasped behind the head, chin lifted and eyes closed",
+          "text": "Lean back against a doorframe facing the camera, tilt the head to one side with eyes closed, and hook one thumb into the waistband",
           "photos": 1
         },
         {
-          "text": "Sit with the knees drawn up and the arms wrapped around them, cheek resting on one knee, looking into the camera",
+          "text": "Sit leaning back on both hands with the legs crossed at the ankle, tilt the head to one side, and look calmly into the camera",
           "photos": 1
         },
         {
-          "text": "Lie on one side on the sand propped on an elbow, head resting in the hand, eyes lowered",
+          "text": "Kneel sitting back on the heels with one hand on the thigh, tilt the head, and look straight into the camera with a soft smile",
           "photos": 1
         },
         {
-          "text": "Stand facing the camera, one hand brushing the hair back from the face and the other arm hanging loose, gaze lowered",
+          "text": "Lie on the side on the sand propped on one elbow, rest the other arm along the hip, and close the eyes with the face toward the sun",
           "photos": 1
         },
         {
-          "text": "Lie on the stomach on the sand propped on both forearms, chin resting on stacked hands, looking past the camera",
-          "photos": 1
-        }
-      ],
-      "hero": [
-        {
-          "text": "The model stands turned three-quarters, lifting a trailing branch of blossom over one shoulder with both hands, head tilted down and eyes lowered",
-          "photos": 1
-        },
-        {
-          "text": "The model stands in a doorway with one hand on the frame above the head, looking down at a single flower held in the other hand",
-          "photos": 1
-        },
-        {
-          "text": "The model kneels sitting back on the heels, both hands running through the hair, face tilted up with eyes closed",
-          "photos": 1
-        },
-        {
-          "text": "The model sits on the ground hugging one raised knee, head resting back against a wall, smiling with eyes closed",
-          "photos": 1
-        },
-        {
-          "text": "The model stands with the back against a wall, both palms flat on the stone at hip height, chin lifted and eyes half-closed",
-          "photos": 1
-        },
-        {
-          "text": "The model leans sideways on a pillar with the arms folded loosely and the head resting on the stone, looking calmly into the camera",
-          "photos": 1
-        },
-        {
-          "text": "The model stands laughing with the head thrown back, holding a split coconut near the chest with both hands",
-          "photos": 1
-        },
-        {
-          "text": "The model stands biting into a slice of watermelon held in one hand, the other hand resting on a broad leaf alongside, looking into the camera",
+          "text": "Lie on the stomach on a towel with the chin resting on folded arms, eyes closed, and one foot raised behind",
           "photos": 1
         }
       ],
       "lifestyle": [
         {
-          "text": "The model lounges sideways across a garden chair with the legs draped over one armrest, holding a peach near the lips",
+          "text": "The model sits sideways in a garden chair with one leg drawn up and an arm draped over the backrest, holding a sprig of lavender under the nose",
           "photos": 1
         },
         {
-          "text": "The model reclines on a sun lounger with one arm behind the head and a straw hat resting on the stomach, eyes closed",
+          "text": "The model reclines on a sun lounger with the ankles crossed, one hand behind the head and the other holding a glass of lemonade on the stomach",
           "photos": 1
         },
         {
-          "text": "The model lies on the stomach on a blanket, propped on the elbows and reading an open book, feet crossed in the air",
+          "text": "The model lies on the stomach on a blanket with the elbows propped, reading an open book laid on the ground",
           "photos": 1
         },
         {
-          "text": "The model sits cross-legged on a linen throw, writing in a notebook on the lap, head tilted down",
+          "text": "The model sits cross-legged on a linen throw with a closed book on the lap, looking up from it with a slight smile",
           "photos": 1
         },
         {
-          "text": "The model sits backwards astride a wooden chair, arms folded on the backrest and chin on the forearms, looking into the camera",
+          "text": "The model sits backwards on a wooden chair with the forearms folded over the backrest and the chin resting on them, looking into the camera",
           "photos": 1
         },
         {
-          "text": "The model leans one hip against a stool with one hand on the seat and the other holding a glass of lemonade, looking into the camera",
+          "text": "The model stands beside a tall stool with one elbow on the seat and the cheek resting in the hand, gazing into the camera",
           "photos": 1
         },
         {
-          "text": "The model sits on the edge of a stone ledge with both hands on the ledge and feet dangling, looking back over the shoulder into the camera",
+          "text": "The model sits on a stone step with the knees together and both hands around a cup, looking over the rim into the camera",
           "photos": 1
         },
         {
-          "text": "The model sits on a low wall with one knee drawn up and an arm draped over it, head tilted, looking into the camera",
+          "text": "The model sits on a low wall with one leg dangling and an arm wrapped around the other raised knee, head tilted, looking into the camera",
           "photos": 1
         },
         {
-          "text": "The model kneels beside a stool with both forearms on the seat next to a bowl of cherries, cheek on the arms, eyes half-closed",
+          "text": "The model kneels beside a low table and rests the chin on stacked hands next to a vase of peonies, eyes lowered",
           "photos": 1
         },
         {
-          "text": "The model sits on the ground leaning sideways against a large terracotta pot, arms folded, head resting near a spray of flowers",
+          "text": "The model sits on the floor with the back against a stool, the head tipped back onto the seat and a bunch of daisies held loosely on the lap",
           "photos": 1
         },
         {
-          "text": "The model walks barefoot mid-stride, one arm swinging and the other holding the end of a towel, laughing with the head turned",
+          "text": "The model walks toward the camera mid-stride, laughing and pushing the hair back with one hand",
           "photos": 1
         },
         {
-          "text": "The model spins slowly with both arms raised overhead, face tilted up, smiling with eyes closed",
+          "text": "The model shakes out wet hair with the head tipped to one side, laughing with the eyes closed",
           "photos": 1
         },
         {
-          "text": "The model stands holding a cotton tote of lemons against the hip, looking down into the bag",
+          "text": "The model stands with a woven tote on one shoulder and a lemon in the other hand, looking down at the fruit",
           "photos": 1
         },
         {
-          "text": "The model stands holding a bunch of fresh herbs in both hands near the face, breathing in with eyes closed",
+          "text": "The model crouches beside a flower bed with a pair of garden snips, cutting a stem and looking down at the blooms",
           "photos": 1
         },
         {
-          "text": "The model stands with the back turned, looking over one shoulder into the camera while tucking a flower behind the ear",
+          "text": "The model stands with the back to the camera, both hands lifting the hair off the neck, the face turned in profile over one shoulder",
           "photos": 1
         },
         {
-          "text": "The model stands side-on holding a fan of palm leaf near the chest, looking down over the shoulder",
+          "text": "The model walks away along a garden path trailing a fern frond in one hand and glancing back over the shoulder",
+          "photos": 1
+        }
+      ],
+      "hero": [
+        {
+          "text": "The model stands facing slightly away with the head bowed, lifting a trailing wisteria branch over one shoulder with both hands",
+          "photos": 1
+        },
+        {
+          "text": "The model stands under a climbing rose with one arm raised to hold a stem overhead and the other hanging loose, eyes lowered to the flowers",
+          "photos": 1
+        },
+        {
+          "text": "The model sits on the ground hugging one raised knee with the other leg stretched out, the head tipped back and eyes closed to the sun",
+          "photos": 1
+        },
+        {
+          "text": "The model lies back on one elbow in the grass with the other hand running through the hair, the chin lifted and eyes closed",
+          "photos": 1
+        },
+        {
+          "text": "The model stands with the back flat against a wall, both palms pressed to the stone at the sides, the head turned to one side with eyes closed",
+          "photos": 1
+        },
+        {
+          "text": "The model rests the side of the head against a wall with the arms folded loosely across the chest, eyes half-closed in the sun",
+          "photos": 1
+        },
+        {
+          "text": "The model stands laughing with the eyes closed, biting into a slice of watermelon held in both hands",
+          "photos": 1
+        },
+        {
+          "text": "The model stands smiling, sipping from a coconut through a metal straw held in one hand, the other hand tucked into the waistband",
           "photos": 1
         }
       ],
       "site": [
         {
-          "text": "The model leans back against a wall with the arms folded loosely and the head turned to one side, eyes closed",
+          "text": "The model leans the back against a doorframe with the arms folded loosely and the eyes closed, face tipped toward the sun",
           "photos": 1
         },
         {
-          "text": "The model leans one shoulder against a post with one hand raised to the collarbone, chin tipped up toward the sun",
+          "text": "The model leans one shoulder on a pillar with one hand resting on the collarbone and the gaze lowered",
           "photos": 1
         },
         {
-          "text": "The model sits on the ground hugging both knees with the head tilted back and eyes closed",
+          "text": "The model sits on the ground hugging both knees with the cheek resting on them, looking into the camera",
           "photos": 1
         },
         {
-          "text": "The model sits on the ground propped on both hands behind, legs stretched out and crossed at the ankles, looking into the camera",
+          "text": "The model sits on the ground leaning back on both hands with the legs stretched out and crossed at the ankles",
           "photos": 1
         },
         {
-          "text": "The model sits sideways in a garden chair with the knees drawn up, holding a cup of tea near the face",
+          "text": "The model sits low in a deck chair with one leg crossed over the other and holds a sprig of jasmine at the lips",
           "photos": 1
         },
         {
-          "text": "The model sits back in a garden chair with one ankle resting on the opposite knee, holding a fig near the lips",
+          "text": "The model reclines in a hammock with one arm behind the head and a single flower resting on the chest",
           "photos": 1
         },
         {
-          "text": "The model stands facing the camera holding a sprig of blossom against the cheek, eyes lowered",
+          "text": "The model stands in profile and lifts a flower to the nose with the eyes closed",
           "photos": 1
         },
         {
-          "text": "The model stands looking down at a small bunch of wildflowers cupped in both hands at the waist",
+          "text": "The model stands facing the camera, turning a leaf in both hands at the waist and looking down at it",
           "photos": 1
         },
         {
-          "text": "The model leans an elbow on a wall top, holding a lemon up near the face and looking off to one side",
+          "text": "The model leans on a table on one elbow and holds a fig up near the mouth, looking off to the side",
           "photos": 1
         },
         {
-          "text": "The model sits leaning forward over the knees, holding a slice of melon in both hands and looking past the camera",
+          "text": "The model leans on a windowsill and holds a wedge of orange near the cheek, gazing out of frame",
           "photos": 1
         },
         {
-          "text": "The model lies on the back with one arm across the forehead and the other resting on the stomach, eyes closed",
+          "text": "The model lies on the side on a linen sheet with the head resting on one bent arm and the eyes closed",
           "photos": 1
         },
         {
-          "text": "The model lies on one side with the head resting on an outstretched arm, eyes closed and a faint smile",
+          "text": "The model lies on the back with one hand on the stomach and the other draped over the forehead, eyes closed",
           "photos": 1
         },
         {
-          "text": "The model stands beside a stool with one knee resting on the seat and both hands on the knee, looking into the camera",
+          "text": "The model stands behind a chair leaning on the backrest with both forearms, looking into the camera",
           "photos": 1
         },
         {
-          "text": "The model sits on a stool leaning forward with elbows on the knees and chin in the hands, looking into the camera",
+          "text": "The model stands with one foot up on a stool and an elbow resting on the raised knee, looking into the camera",
           "photos": 1
         },
         {
-          "text": "The model sits on a step with one hand behind for support and the other tucking the hair behind the ear, looking into the camera",
+          "text": "The model sits on a wall with the knees drawn up and both arms wrapped around them, head tilted, looking into the camera",
           "photos": 1
         },
         {
-          "text": "The model perches on a windowsill with both hands on the sill and one foot drawn up, looking calmly into the camera",
+          "text": "The model sits on a step leaning forward with the elbows on the knees and the chin in one hand, looking into the camera",
           "photos": 1
         },
         {
-          "text": "The model kneels beside a low table with the arms folded on its top and the cheek resting on them, eyes half-closed",
+          "text": "The model kneels and rests the folded arms and one cheek on the seat of a chair, eyes lowered",
           "photos": 1
         },
         {
-          "text": "The model sits on the floor leaning back against a stool with the head resting on the seat, eyes closed",
+          "text": "The model sits on the floor with the legs tucked to one side and the head resting against the side of a stool, eyes closed",
           "photos": 1
         },
         {
-          "text": "The model stands with the back three-quarters to the camera, one hand at the nape of the neck, looking down over the shoulder",
+          "text": "The model stands half turned away holding a palm frond over one shoulder and glancing down over that shoulder",
           "photos": 1
         },
         {
-          "text": "The model stands turned away, holding a sprig of leaves up beside the face and glancing back over the shoulder",
+          "text": "The model walks away along a path holding a single tulip at the side and looks back over one shoulder",
           "photos": 1
         },
         {
-          "text": "The model lies against a sloping rock propped on both elbows, face tilted up to the sun with eyes closed",
+          "text": "The model reclines along a low wall propped on both elbows, one knee raised and the head tipped back with eyes closed",
           "photos": 1
         },
         {
-          "text": "The model reclines on a low cushion against a wall, one arm resting along the cushion top and legs crossed at the ankles, gazing down",
+          "text": "The model reclines on a daybed against cushions with one arm above the head, one knee bent and the eyes closed",
           "photos": 1
         }
       ]
     },
     "scenes": [
       {
-        "text": "a sun-drenched terracotta-tiled terrace with potted lemon trees, whitewashed balustrades and trailing bougainvillea in crisp late-afternoon shadows",
+        "text": "a terraced kitchen garden with terracotta pots, lemon trees in tubs, rosemary hedges and a whitewashed potting shed, in late afternoon sun with long dappled shadows",
         "photos": 1
       },
       {
-        "text": "a garden patio under a vine-covered pergola with cast-iron furniture and dappled leaf light on stone paving",
+        "text": "a shaded arcaded patio with ochre-washed arches, potted palms and trailing bougainvillea, with warm sun slanting through the arches",
         "photos": 1
       },
       {
-        "text": "a quiet shingle cove at low tide with smooth pale rocks in warm late-afternoon sun",
+        "text": "a quiet rocky cove with pale shingle and clear shallow water at sunset, the light low and amber",
         "photos": 1
       },
       {
-        "text": "a wide dune shore with pale grasses and the sea beyond in golden low evening light",
+        "text": "a wide dune shore with sea grass and pale sand in early morning sun, soft and golden",
         "photos": 1
       },
       {
-        "text": "a sunbaked cream stucco wall with a deep doorway shadow in hard afternoon light",
+        "text": "a sun-baked whitewashed courtyard wall with a weathered green wooden door in hard afternoon light",
         "photos": 1
       },
       {
-        "text": "a rough whitewashed stone stairway with crisp step shadows in strong low sun",
+        "text": "a narrow whitewashed lane with worn stone steps and a fig tree overhanging the wall, in hard late-day sun",
         "photos": 1
       },
       {
-        "text": "a grassy headland above the sea with a lone pine in warm golden late-afternoon light",
+        "text": "a grassy headland above the sea with wildflowers and a lone pine in bright late-afternoon sun",
         "photos": 1
       },
       {
-        "text": "a stone lookout terrace over the ocean with a fig tree casting leaf shadows in clear bright sun",
+        "text": "a hillside stone terrace above the sea with olive trees and a low parapet in clear golden afternoon light",
         "photos": 1
       }
     ],
     "settings": [
       {
-        "text": "a sunlit warm ivory limewash wall with soft palm frond shadows",
+        "text": "a warm sand-coloured limewashed wall with soft palm-frond shadows",
         "photos": 1
       },
       {
-        "text": "a blush-pink plaster wall in low sun with diagonal shutter-slat shadows",
+        "text": "a pale blush stucco wall in slanting sun with faint leaf shadows",
         "photos": 1
       },
       {
-        "text": "sun-warmed sand-coloured terracotta tiles in bright sun with crisp leaf shadows",
+        "text": "sun-warmed terracotta floor tiles with crisp lattice shadows",
         "photos": 1
       },
       {
-        "text": "pale travertine slabs in hard sunlight with lacy wrought-iron patterned shadows",
+        "text": "pale travertine slabs in hard sun with soft-edged dappled shadows",
         "photos": 1
       },
       {
-        "text": "a rough chalk-white rendered wall with deep pitted texture in hard direct sun",
+        "text": "a chalky white sandstone wall in hard sunlight with deep raking texture",
         "photos": 1
       },
       {
-        "text": "a coarse pale sandstone block wall in strong raking late-afternoon light",
+        "text": "a rough whitewashed brick wall in direct low sun",
         "photos": 1
       },
       {
-        "text": "a rumpled cream linen sheet in soft warm daylight",
+        "text": "a rumpled ivory linen sheet in warm window light",
         "photos": 1
       },
       {
-        "text": "a creased natural ecru cotton canvas in diffuse golden light",
+        "text": "a creased cream muslin cloth in soft golden daylight",
         "photos": 1
       },
       {
-        "text": "a chalky white painted brick wall in soft open shade",
+        "text": "a chalk-white rendered wall in cool open shade",
         "photos": 1
       },
       {
-        "text": "a peeling cream-painted plaster surface in cool even shade",
+        "text": "a pale peeling limewash wall in soft even shade",
         "photos": 1
       },
       {
-        "text": "a sun-bleached teak deck surface in bright daylight",
+        "text": "sun-bleached grey decking boards in bright sun",
         "photos": 1
       },
       {
-        "text": "a pale raw oak board surface in warm late-afternoon light",
+        "text": "a honey-toned raw oak tabletop in soft daylight",
         "photos": 1
       },
       {
-        "text": "smooth damp sand catching low golden sun with a soft sheen",
+        "text": "damp packed shoreline sand with fine ripples in low golden sun",
         "photos": 1
       },
       {
-        "text": "wind-rippled pale dune sand in low warm side light with long shadows",
+        "text": "pale fine dune sand with soft wind ripples and long warm shadows",
         "photos": 1
       },
       {
-        "text": "a deep sage plaster wall in soft shade with a warm haze of sun flare at one edge",
+        "text": "a faded sage-green painted wall in deep shade with a warm light leak at the edge",
         "photos": 1
       },
       {
-        "text": "a weathered olive-green painted timber wall in shade with a soft golden light leak",
+        "text": "an olive-washed render wall in shadow with a sliver of hard sun across it",
         "photos": 1
       }
     ],
     "prints": [
       {
-        "text": "dense all-over small painterly hibiscus blooms in coral and peach with sage leaves",
+        "text": "Small tossed painterly lemons with olive leaves and tiny white blossoms, dense all-over, in lemon yellow and sage",
         "photos": 1
       },
       {
-        "text": "medium-scale tossed watercolour peonies in candy pink and tomato red with mint leaf sprigs",
+        "text": "Medium-scale watercolour hibiscus blooms in coral and candy pink with fern-green leaves, tossed all-over",
         "photos": 1
       },
       {
-        "text": "small scattered painterly lemons with olive-green leaves and sunflower-yellow highlights",
+        "text": "Ditsy painterly daisies in white with sunflower-yellow centres and tiny mint sprigs, dense all-over",
         "photos": 1
       },
       {
-        "text": "medium-scale brushstroke tiger stripes in espresso brown and black",
+        "text": "Medium-scale brushstroke palm-frond silhouettes in deep fern green and olive, tossed non-directional",
         "photos": 1
       },
       {
-        "text": "small-scale painterly cheetah spots in espresso brown and tan",
+        "text": "Small scattered painterly cherries in cherry red with sage stems, dense all-over",
         "photos": 1
       },
       {
-        "text": "medium-scale blurred indigo shibori grid tie-dye",
+        "text": "Medium-scale loose painterly peonies and rosebuds in peach, rose and tomato red with sage leaves",
         "photos": 1
       },
       {
-        "text": "medium-scale loose painterly palm and banana leaves in fern and olive green",
+        "text": "Small brushstroke tiger-stripe marks in espresso brown and black, all-over and non-directional",
         "photos": 1
       },
       {
-        "text": "small all-over tossed cherries in cherry red with forest-green stems",
+        "text": "Medium-scale soft-edged painterly giraffe patches in caramel and espresso brown",
         "photos": 1
       },
       {
-        "text": "dense ditsy wild strawberry blossoms and berries in tomato red and blush with sage leaves",
+        "text": "Blurred shibori-style folded grid in olive green and white",
         "photos": 1
       },
       {
-        "text": "medium-scale tossed painterly camellias in rose pink and coral with deep forest-green leaves",
+        "text": "Soft blurred spiral tie-dye in blush and coral",
         "photos": 1
       },
       {
-        "text": "small irregular brushed polka dots in cherry red",
+        "text": "Small painterly poppies in tomato red with powder-blue buds and sage stems, tossed all-over",
         "photos": 1
       },
       {
-        "text": "medium-scale blurred indigo spiral tie-dye",
+        "text": "Medium-scale tossed banana leaves in fern green with tiny candy-pink blossoms",
         "photos": 1
       },
       {
-        "text": "medium-scale painterly gingham check in sage and olive green with soft bleeding lines",
+        "text": "Ditsy painterly strawberries with small white flowers and mint leaves in cherry red",
         "photos": 1
       },
       {
-        "text": "small tossed painterly daisies with lemon-yellow centres and mint stems",
+        "text": "Medium-scale irregular brushstroke spots in espresso and black, scattered all-over",
         "photos": 1
       },
       {
-        "text": "medium-scale brushstroke giraffe patches in espresso brown with black outlines",
+        "text": "Small watercolour sweet peas in candy pink, coral and apricot with sage tendrils",
         "photos": 1
       },
       {
-        "text": "small-to-medium all-over painterly bougainvillea clusters in hot pink and coral with olive leaves",
+        "text": "Medium-scale painterly seashells and starfish in coral and peach, tossed",
         "photos": 1
       },
       {
-        "text": "small tossed painterly seashells and starfish in coral and sand tan",
+        "text": "Small painterly orange slices and blossoms in tangerine and lemon yellow with olive leaves",
         "photos": 1
       },
       {
-        "text": "medium-scale uneven brushstroke stripes in forest green and lemon yellow",
+        "text": "Medium-scale blurred brushstroke snakeskin scales in espresso and taupe",
         "photos": 1
       },
       {
-        "text": "dense ditsy painterly marigolds in apricot and tomato red with sage leaves",
+        "text": "Small hand-painted irregular gingham check in cherry red with soft brush-edged lines",
         "photos": 1
       },
       {
-        "text": "medium-scale tossed painterly figs and fig leaves in dusty rose and olive green",
+        "text": "Medium-scale loose painterly bougainvillea clusters in hot pink and coral with fern-green leaves",
         "photos": 1
       }
     ],
     "details": [
       {
-        "text": "Contrast bound edges in dark forest-green binding",
+        "text": "Contrast bias binding in dark forest green along all edges",
         "photos": 1
       },
       {
-        "text": "Flat ecru crochet lace tape topstitched along seams",
+        "text": "Ecru crochet lace tape inset along a seam and threaded with black cord in a lattice",
         "photos": 1
       },
       {
-        "text": "Round black drawcord finished with small brushed-gold metal bullet tips",
+        "text": "Round black drawcord ending in small brushed-gold metal bullet tips",
         "photos": 1
       },
       {
-        "text": "Narrow elastic casing channels threaded with a self-fabric drawstring",
+        "text": "Self-fabric ties knotted into a bow with long tails",
         "photos": 1
       },
       {
-        "text": "Small gold metal ring-and-slider adjusters on straps and ties",
+        "text": "Small gold-tone metal slider adjusters on adjustable ties",
         "photos": 1
       },
       {
-        "text": "Gathered seams with a soft scrunch effect",
+        "text": "Gathered scrunch seam over an elastic casing channel",
         "photos": 1
       },
       {
-        "text": "Self-fabric spaghetti ties finished with small knotted ends",
+        "text": "Ladder lacing in thin cord through small gold metal eyelets along a side seam",
         "photos": 1
       },
       {
-        "text": "Black cord lattice lacing through small silver metal eyelets",
+        "text": "Gold-tone metal hook clasp closure",
         "photos": 1
       },
       {
-        "text": "Contrast forest-green topstitching along all seams",
+        "text": "Short exposed gold metal zip with a round ring pull",
         "photos": 1
       },
       {
-        "text": "Small gold metal toggle and loop closure",
+        "text": "Clean turned edge topstitched in contrast forest-green thread",
         "photos": 1
       },
       {
-        "text": "Concealed coil zip with a gold metal tab puller",
+        "text": "Small gold metal D-ring tab set into a seam",
         "photos": 1
       },
       {
-        "text": "Self-fabric bows with long tails knotted at the back",
+        "text": "Rolled tubular spaghetti-cord edging in a contrast colour",
         "photos": 1
       }
     ],
     "childPrints": [
       {
-        "text": "small tossed painterly strawberries in cherry red with mint leaves",
+        "text": "Small scattered painterly strawberries in cherry red with mint leaves",
         "photos": 1
       },
       {
-        "text": "plain sunflower yellow",
+        "text": "Ditsy daisies in white with sunflower-yellow centres",
         "photos": 1
       },
       {
-        "text": "simple scattered lemon slices in lemon yellow and sage green",
+        "text": "Plain sunflower yellow",
         "photos": 1
       },
       {
-        "text": "small tossed daisies in optic white with yellow centres",
+        "text": "Plain powder blue",
         "photos": 1
       },
       {
-        "text": "simple painterly seashells in coral and sand tan",
+        "text": "Simple hand-drawn lemon slices in lemon yellow and sage",
         "photos": 1
       },
       {
-        "text": "plain powder blue",
+        "text": "Simple painted seashells and starfish in coral and peach",
         "photos": 1
       },
       {
-        "text": "simple brushstroke rainbow arcs in coral, lemon yellow and sage green",
+        "text": "Soft hand-painted polka dots in candy pink",
         "photos": 1
       },
       {
-        "text": "small ditsy rosebuds in candy pink with sage leaves",
+        "text": "Simple brushstroke rainbows in coral, peach and sage",
         "photos": 1
       }
     ]
