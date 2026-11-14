@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "1090d09d70b207525029578f",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "contact",
+  "route": "/contact-us/",
+  "findings": [
+    {
+      "block": "hero",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The REQUEST A QUOTE button touches the top edge of the tinted trustBar band directly below it, with no white space under it. The plain hero has no bottom padding (template.css: .page-hero[data-variant=\"plain\"] .page-hero__inner padding-block: … 0) and relies on the next section's top padding, which here is painted in the tint.",
+      "reference": "The competitor's plain title and lead (hero:plain) have clear white space under them before the next module starts.",
+      "fix": "In template.css give the plain hero's inner a bottom padding (e.g. padding-block: calc(var(--section-space) / 2)), at least when the next block carries a background, so a tinted neighbour never starts under the hero's button."
+    },
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "At desktop the hero button is only a few pixels above the tinted trustBar band, so the button looks pushed into the band.",
+      "reference": "The competitor leaves an open white gap under its centred title and lead before the next module.",
+      "fix": "Same template change: bottom padding on the plain hero's inner (.page-hero[data-variant=\"plain\"] .page-hero__inner)."
+    },
+    {
+      "block": "m3",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The item titles are bold now, but they still use the site's fixed --size-subheading of 1.625rem (26px). On a phone that is almost the size of the section's fitted H2 (about 28px), so 'Contact channels' and the other titles look like a row of section headings. The last review raised this and the size is still unfixed.",
+      "reference": "The competitor sets each heading level clearly smaller than the one above it (22px titles under 52–60px h2s).",
+      "fix": "In reference.css stop holding --size-subheading at 1.625rem on phones: let it scale down (e.g. clamp(1.125rem, 2vw + 0.5rem, 1.625rem), or a ≤767px override of about 1.125–1.25rem), or set it on .block--icon-list alone, so the item titles stay well under the H2."
+    },
+    {
+      "block": "form",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The consent checkbox is full size now, but before it is ticked its border is the browser's default pale grey, which almost disappears on the tint. accent-color only colours the ticked state.",
+      "reference": "Every control in the competitor's form has a clear 1px solid black outline.",
+      "fix": "In reference.css give the checkbox (:is(.form-block__form, .cta__form) input[type=\"checkbox\"]) a visible unticked state: appearance: none with a 1px solid #000 border, a white fill and a ticked style, or an outline of 1px solid #262626."
+    },
+    {
+      "block": "form",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The consent line still ends 'as described in the privacy policy. Privacy policy': the words appear twice because the sentence repeats the link that follows it.",
+      "reference": "The competitor's form has no repeated text.",
+      "fix": "End the consent copy before the link (e.g. '…as described in our') or make 'privacy policy' inside the sentence the link."
+    },
+    {
+      "block": "form",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The 'Send an enquiry' heading sits over the photo column only. The form column starts level with the heading, so the form's top (the Name label) is about 40px above the photo's top while their bottoms are level, and the two columns don't share a top edge.",
+      "reference": "The competitor's photo and form both start under their headings at the same height, so the two columns line up.",
+      "fix": "In reference.css let the form block's heading span both columns (grid-column: 1 / -1 on .block--form .block__heading), or start the form at the photo's top, so the photo and form share their top and bottom edges."
+    },
+    {
+      "block": "overview-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "With the list layout, the left column holds only the one-line lead 'How a free quote moves from your files to a confirmed order' in plain body text. It reads as a stray caption beside the large numbered steps, above an empty column about 450px tall.",
+      "reference": "In the competitor's process:list the left column holds a heading and text, set more strongly than the step text, beside the steps 01–03.",
+      "fix": "In reference.css, when a process block has no heading, set its lead in the subheading style (e.g. .block--process .block__lead at font-weight 700 and the subheading size) and keep it in view beside the steps (position: sticky), so the left column reads as the steps' heading."
+    },
+    {
+      "block": "header",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The navigation doesn't mark the current page: 'Contact Us' looks the same as the other links.",
+      "reference": "The competitor marks the current page in its navigation: 'Contact Us' is greyed and underlined.",
+      "fix": "In reference.css style the header's current link (.site-header a[aria-current=\"page\"]) with an underline (text-decoration: underline; text-underline-offset: 6px) or a lighter colour, as the competitor does."
+    }
+  ]
+}

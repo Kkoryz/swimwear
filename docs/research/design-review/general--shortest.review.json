@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "a27124d059e578b77c0ca0ca",
+  "shots": "82abf648297fc42ca989852b",
   "rules": "896e2a6360c1caaa",
   "pageType": "general--shortest",
   "route": "/case-studies/",
@@ -11,27 +11,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The two order-case cards sit in a narrow centred column (about 920–1288 px of the 1440 frame) while the heading 'A recent order' starts on the content's left edge, which leaves roughly 330 px of empty tint to the left of the cards and as much to the right, so the cards float mid-page instead of following their heading.",
-      "reference": "The competitor's card sets start on the content's left edge under their heading and fill the content width, e.g. home section 7's outlined cards in a row.",
-      "fix": "In patterns.css, `.order-cases { max-width: 46rem; margin-inline: auto; }` should not centre when headings start: under `body[data-heading-align=\"start\"]` set `.order-cases { margin-inline: 0; }` (or lay two or three cases side by side in a grid of equal columns from the left edge)."
-    },
-    {
-      "block": "overview-steps",
-      "viewport": "desktop",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "The six steps look like a plain ordered list: small default numerals, step titles ('Brief or tech pack', 'Sample' …) in the same size and weight as their details, and the caption 'How a typical order moves through our factory' at body size alone in the left column over about 360 px of empty space.",
-      "reference": "The competitor sets steps out as a module: six columns, each with a number, a bold title and text over a hairline (start-here section 6, process:timeline), or numbered steps with blue numerals beside a left heading (process:list).",
-      "fix": "In template-variants.json give the general page type a process variant (`pageTypes.general.process: \"timeline\"`, matching the competitor's six-step columns); in reference.css set the step title of `.block--process` to font-weight 700 so it stands apart from its detail."
-    },
-    {
-      "block": "faq-steps",
-      "viewport": "desktop",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "The four takeover steps have the same plain-list treatment: default numerals, titles at the weight of their text, and the caption at body size alone in the left column over an empty column.",
-      "reference": "The competitor's numbered steps: number, bold title and text over a hairline (process:timeline / process:list).",
-      "fix": "Covered by the same change as overview-steps: a process variant for the general page type in template-variants.json (`timeline`), and a 700 weight for the step title of `.block--process` in reference.css."
+      "issue": "The two order-case cards still stand in a narrow centred column (about 350–1090 px of the 1440 frame) under a heading, 'A recent order', that starts on the content's left edge, which leaves about 330 px of empty tint on each side. The cards float mid-page instead of following their heading.",
+      "reference": "The competitor's card sets start on the content's left edge under their heading and fill the content width (home section 7: outlined cards in a row, 1px outline, about 28 px gutter).",
+      "fix": "In patterns.css, stop centring `.order-cases` (max-width plus margin-inline: auto) when headings start: under `body[data-heading-align=\"start\"]` set `.order-cases { margin-inline: 0; }`. Better still, set the cases side by side in a grid of equal columns from the left edge."
     },
     {
       "block": "faq",
@@ -39,36 +21,36 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "'Frequently Asked Questions' breaks into three one-word lines in the narrow left column of the two-column FAQ, so the heading looks stacked rather than sized to its words.",
-      "reference": "The competitor's FAQ (home 16) sets the 52px h2 across the width on one line, with the questions in columns below it.",
-      "fix": "In the faq two-column layout, widen the heading column, or set the heading above the questions when the template's fit would break it into one word per line."
+      "issue": "In the narrow left column of the two-column FAQ, 'Frequently Asked Questions' still breaks into three one-word lines, so the heading looks stacked rather than sized to its words.",
+      "reference": "The competitor's FAQ (home section 16) sets its heading across the width on one line, with the questions below it on hairline rows.",
+      "fix": "In the faq two-column layout, widen the heading column. Or, when the template's fit would leave one word per line, set the heading above the questions."
     },
     {
-      "block": "cases",
+      "block": "faq-steps",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "Each order-case card carries a thick 3px aqua rule down its left edge, curved by the card radius, which the competitor's cards never use.",
-      "reference": "The competitor's cards are outlined in 1px (black or #979797) with 6–10px corners, no accent rule and no shadow.",
-      "fix": "In reference.css override `.order-case` to `border: 1px solid #979797; border-left-width: 1px;` (keeping its radius) in place of the 3px accent left border."
+      "issue": "The timeline rows are divided by solid black 1px rules (`.process-timeline__row` uses `--border-color`, #000000), directly under the FAQ's light 18% hairlines. One tinted section ends up with two weights of rule, and the steps read as heavier than the rest of the page.",
+      "reference": "The competitor separates FAQ rows, table facts and timeline steps with light hairlines only, never solid black rules.",
+      "fix": "In reference.css set `.block--process .process-timeline__row { border-bottom-color: color-mix(in srgb, var(--text-primary) 18%, transparent); }`, the same hairline the FAQ rows and tables use."
     },
     {
-      "block": "footer",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "In the footer's brand column the STRANDMILL wordmark is set left, while the email, phone, address, hours and page links under it are centred, so the column has two alignments.",
-      "reference": "The competitor's footer brand column centres its logo, 'STAY CONNECTED', icons and links on one axis.",
-      "fix": "In reference.css centre `.site-footer__brand` (text-align / justify-self from `--footer-brand-align: center`) to match the centred lines under it."
-    },
-    {
-      "block": "footer",
+      "block": "overview-steps",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "On phones the STRANDMILL wordmark starts on the left edge while every contact line and page link under it is centred.",
-      "reference": "The competitor's phone footer centres its logo, 'STAY CONNECTED' and links.",
-      "fix": "Same change as on desktop: centre `.site-footer__brand` in reference.css, following `--footer-brand-align: center`."
+      "issue": "On phones the six step rows are divided by solid black full-width rules, which look heavy against the light text. The same rows on desktop use the same black rule, unlike every other row list on the page.",
+      "reference": "The competitor's step and list rows sit over light hairlines.",
+      "fix": "The same change as faq-steps: an 18% hairline on `.block--process .process-timeline__row` in reference.css."
+    },
+    {
+      "block": "faq",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The open first answer is a single unbroken paragraph of about 370 words. That is about 40 lines on a phone, and a dense block in the desktop column too, covering three separate client projects, certifications and shipping terms.",
+      "reference": "The competitor's FAQ answers are short paragraphs under each question.",
+      "fix": "In Site Factory, split the answer into short paragraphs (one per project, then one for certifications, testing and shipping), or shorten it and point to the cases section."
     }
   ]
 }

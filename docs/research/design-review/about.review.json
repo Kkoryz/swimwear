@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "26164d6581bff45c33533879",
+  "shots": "f1403616be62d2d6475ebc9c",
   "rules": "896e2a6360c1caaa",
   "pageType": "about",
   "route": "/about-us/",
@@ -11,9 +11,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The 30-word bold lead ('Since 2011 we have run bulk lines…') and the aqua CONTACT US pill still sit on the hero photo under the centred title, though the competitor's lead here is zero words; this breaks the rule that a much longer lead stands under the hero.",
-      "reference": "The competitor's About hero is the sewing-floor photo with only the centred white H1 (Maison 700) on it: no lead, no button.",
-      "fix": "Make the on-photo lead limit apply per page type (heroText.leadWords is 27 for the whole site; the about reference has 0), so that PageHero.astro's heroLeadShown() moves the about lead into the block under the hero."
+      "issue": "The 30-word lead ('Since 2011 we have run bulk lines…') and the aqua CONTACT US pill still sit on the photo under the centred title, running to four centred lines that end on 'order size.', though the competitor's lead here has no words; this breaks the rule that a much longer lead stands under the hero.",
+      "reference": "The competitor's About hero is the factory-floor photo with only the centred white H1 (Maison 700) on it: no lead, no button.",
+      "fix": "Make the on-photo lead limit apply per page type (heroText.leadWords is site-wide; the about reference has 0), so that PageHero.astro's heroLeadShown() moves the about lead and its button into the block under the hero."
     },
     {
       "block": "hero",
@@ -21,7 +21,7 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "On phones the same lead runs to four lines of small bold centred text over the busy floral photo, between the three-line title and the button, so most of the hero is text over a picture.",
+      "issue": "On phones the same lead runs to four lines of small centred text over the busy photo, between the three-line title and a large aqua pill, so most of the hero is text over a picture.",
       "reference": "The competitor's phone hero carries only the white H1 over the photo; its text follows under the photo.",
       "fix": "The same per-page-type lead limit in PageHero.astro (heroLeadShown()), so the about lead goes under the hero at every width."
     },
@@ -39,28 +39,37 @@
       "viewport": "mobile",
       "severity": "P1",
       "scope": "site",
-      "issue": "The check-list item headings ('Checks throughout production', 'Experienced inspection team') are still regular weight at almost the h2's size and wrap into two loosely spaced lines, so they read like enlarged body text rather than a level under the heading (desktop too); the repair was removed in 96b1300 and the shots show it is still needed.",
-      "reference": "The competitor sets its sub-headings in Maison 700, and our own featureGrid card titles on this page are bold.",
-      "fix": "In reference.css, put back `.block--icon-list .icon-list__item h3 { font-weight: 700; line-height: 1.25; }` and leave the size to the template."
+      "issue": "On phones the check-list item titles ('Checks throughout production', 'Agreed inspection criteria') are set at about 26px, the same size as the section's h2 above them (fitted down to about 26-27px), so the two heading levels can't be told apart and each item title wraps to two heavy lines.",
+      "reference": "The competitor's sub-headings stay clearly a step below its section headings at every width.",
+      "fix": "In reference.css, keep the site's `--size-subheading: 1.625rem` to desktop (move it into a min-width media query, or drop it inside the existing `@media (max-width: 767px)` :root block) so the template's smaller subheading size applies on phones; no heading size is set by hand."
     },
     {
       "block": "m6",
       "viewport": "mobile",
       "severity": "P1",
       "scope": "site",
-      "issue": "As in m5, 'Certifications held', 'Production audit requirements' and 'Market compliance paperwork' are regular weight, almost h2-sized and loosely wrapped, so they don't stand apart from their text.",
-      "reference": "The competitor's sub-headings are Maison 700.",
-      "fix": "The same `.block--icon-list .icon-list__item h3 { font-weight: 700; line-height: 1.25; }` rule in reference.css covers this block."
+      "issue": "As in m5, 'Certifications held', 'Production audit requirements' and 'Market compliance paperwork' are as large as the h2 'Certifications and Compliance Paperwork' and wrap to two lines each.",
+      "reference": "The competitor's sub-headings are a level below its section headings.",
+      "fix": "The same change to the site's --size-subheading override in reference.css covers this block."
     },
     {
-      "block": "footer",
+      "block": "m3",
       "viewport": "mobile",
-      "severity": "P1",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The card titles ('First-time and emerging brands', 'Established and apparel labels') are about 24px on phones, larger than on desktop and almost the size of the section h2 'The Brands We Work With Directly', so the cards' titles compete with the section heading (m3-2 the same).",
+      "reference": "The competitor's card titles sit clearly under its section headings.",
+      "fix": "In reference.css, remove `--size-card-heading: 1.5rem` from the `@media (max-width: 767px) { :root:root { … } }` block so the phone card titles keep the site's 1.375rem."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "The 'STRANDMILL' wordmark sits on the left edge while the email, phone, address, hours and page links under it are centred, so the brand column has two alignments.",
-      "reference": "The competitor's footer brand column (monogram, STAY CONNECTED, links) is centred as one block on phones and on desktop.",
-      "fix": "template.css `.site-footer__brand { justify-self: start }` overrides the column's --footer-brand-align; make the brand follow the column, e.g. `justify-self: stretch; text-align: var(--footer-brand-align, start)`."
+      "issue": "The logo row, testimonials and FAQ all stand on white one after the other (the same at 390px), so 'What buyers say' and 'Frequently Asked Questions' run together with no change of ground, while every section above them alternates.",
+      "reference": "The site rule: neighbouring plain sections alternate white and tinted grounds, set by the template.",
+      "fix": "Have the template's section-surface alternation count the testimonials block (now on the page's alternating surface after the mint band was removed) so it or the FAQ takes the tint."
     },
     {
       "block": "m5",
@@ -73,96 +82,23 @@
       "fix": "In the template's layout pass, when two adjacent iconList sections share the list-beside-heading shape, set the other in a different arrangement (e.g. a check grid under its heading)."
     },
     {
-      "block": "m5",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The check marks are small and pale aqua on white (well under 3:1), and they sit above the first line of their item heading instead of level with it; m6 is the same. The repair was removed in 96b1300.",
-      "reference": "The competitor's check lists use clearly visible marks set level with the item text.",
-      "fix": "In reference.css, put back `.block--icon-list .icon-list__icon { color: var(--accent-text); margin-top: 0; }` and `.block--icon-list .icon-list__item { align-items: baseline; }`."
-    },
-    {
       "block": "m4",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "The six steps wrap into two rows of three, but the connecting line runs only through the first row (and past marker 03 to the edge), so steps 04–06 look detached from the sequence.",
+      "issue": "The six steps wrap into two rows of three, but the connecting line still runs only through the first row (and past marker 03 to the edge), so steps 04–06 look detached from the sequence.",
       "reference": "The competitor's six-step module sets every step over the same hairline.",
       "fix": "Draw the process rule per row (on each step's marker row rather than a single `.process-steps::before`), ending at the row's last marker."
     },
     {
-      "block": "m4",
+      "block": "hero",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "The step titles ('Final sample approval', 'Order confirmation' …) are regular weight at almost body size, so each title barely stands apart from its text (desktop too). The bold rule was removed in 96b1300.",
-      "reference": "The competitor's step and card titles are bold (Maison 700).",
-      "fix": "In reference.css, put back `.block--process :is(.process-step__title, .point-list__title) { font-weight: 700; }`."
-    },
-    {
-      "block": "trustBar",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "'100,000 pieces' wraps to two lines while '2011' beside it takes one, so 'MONTHLY CAPACITY' sits about 24px below 'FOUNDED' in the same row; the balancing rule was removed in 96b1300.",
-      "reference": "The competitor's figure columns keep value and label level across a row.",
-      "fix": "In reference.css, put back `.trust-bar__value { text-wrap: balance; }` and `.trust-bar__item { align-content: space-between; }`."
-    },
-    {
-      "block": "owner-logos",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The moving logo row is cut with a hard edge at the content gutters, slicing wordmarks mid-letter ('HFOLD SICS' at the left, 'S' at the right).",
-      "reference": "The competitor's logo marquee runs across the width with no visible cut-off.",
-      "fix": "In reference.css, fade the moving viewport's ends: `.logos-marquee[data-marquee-run] .logos-marquee__viewport { mask-image: linear-gradient(to right, transparent, #000 2rem, #000 calc(100% - 2rem), transparent); }`."
-    },
-    {
-      "block": "owner-logos",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The six wordmarks stand still in the left three-quarters of the row, leaving the right of the band empty, and 'NORTHFOLD BASICS' and 'HARBOUR KNIT CO.' wrap to two lines, so their names and notes sit off the line of the four others.",
-      "reference": "The competitor's logo row runs across the full width with every mark on one line.",
-      "fix": "In reference.css, spread the resting row across the content (`.logos-marquee:not([data-marquee-run]) .logos-marquee__row { justify-content: space-between; }`) and keep the names on one line (`.logos__name { white-space: nowrap; }`)."
-    },
-    {
-      "block": "owner-testimonials",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "Both quote cards fit in view, but they keep a narrow slide width at the left of the sage band, leaving about two-thirds of the band empty on the right.",
-      "reference": "The competitor's testimonial slider fills its band with quote cards (several in view, 20px apart).",
-      "fix": "In reference.css, let the cards share the row when all of them fit: `.testimonials[data-variant=\"carousel\"] .track__item { flex-grow: 1; }`."
-    },
-    {
-      "block": "faq",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "Every question is closed, so the section shows only three short navy lines beside a large heading and no answer text.",
-      "reference": "The competitor's FAQ accordion opens its first answer.",
-      "fix": "In template-variants.json, set `components.faqFirst` to \"open\" (the template's default)."
-    },
-    {
-      "block": "footer",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "template",
-      "gap": "other",
-      "issue": "On desktop too, the wordmark starts at the column's left edge while the contact lines and page links under it are centred.",
-      "reference": "The competitor's desktop brand column is centred top to bottom.",
-      "fix": "The same template.css fix on `.site-footer__brand` (take the column's --footer-brand-align)."
-    },
-    {
-      "block": "footer",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The rule meant to stand beside the brand column is drawn in black at 30% opacity on the #003049 navy and can't be seen, so the brand column and the link columns run together.",
-      "reference": "The competitor separates its centred brand column from the link columns with a thin light vertical rule.",
-      "fix": "In reference.css, change `.site-footer__brand-column`'s border-right to a light rule, e.g. `1px solid rgb(255 255 255 / 0.3)`."
+      "issue": "In the tall phone frame the photo is cut to its centre, a stone wall and roses, and only the sitter's lap shows at the lower right edge, so the crop keeps the empty part of the picture behind the text.",
+      "reference": "The competitor's phone hero crops its photo so the scene it shows stays in the frame.",
+      "fix": "In reference.css, set object-position on the about hero image for phones (e.g. toward the right and top) so the sitter stays in the frame."
     }
   ]
 }

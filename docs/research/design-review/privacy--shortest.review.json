@@ -1,65 +1,36 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "18b29668dcce80470222c20c",
+  "shots": "079d7b54013b531a6f8a5cbe",
   "rules": "896e2a6360c1caaa",
   "pageType": "privacy--shortest",
   "route": "/privacy-policy/",
   "findings": [
     {
-      "block": "footer",
-      "viewport": "desktop",
-      "severity": "P1",
-      "scope": "template",
-      "gap": "other",
-      "issue": "In the footer's brand column the STRANDMILL name sits on the column's left edge while the email, phone, address, hours and page links under it are centred, so the column reads as two alignments.",
-      "reference": "The competitor centres its whole brand column as one: logo, STAY CONNECTED, social icons and links all on the column's centre line.",
-      "fix": "In template.css (line 297), change `.site-footer__brand { justify-self: start }` to `justify-self: var(--footer-brand-align, start)` (or stretch it), so the name follows `.site-footer__brand-column { text-align: var(--footer-brand-align) }` like its contact lines and links; this site sets --footer-brand-align: center."
-    },
-    {
-      "block": "footer",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "template",
-      "gap": "other",
-      "issue": "On phones the STRANDMILL name is left-aligned above a stack of centred contact lines and links, so the name looks unattached to the block it heads.",
-      "reference": "The competitor's phone footer centres the logo, STAY CONNECTED and its links together above the folded groups.",
-      "fix": "Same fix as on desktop: let `.site-footer__brand` follow --footer-brand-align instead of `justify-self: start` in template.css."
-    },
-    {
-      "block": "footer",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The thin rule meant to separate the brand column from the link columns can't be seen: it is drawn in black at 30% on the dark navy footer.",
-      "reference": "The competitor's footer shows a faint light vertical rule between the brand column and the link columns.",
-      "fix": "In reference.css, change `.site-footer__brand-column { border-right: 1px solid rgb(0 0 0 / 0.3) }` (≥1024px) to a light rule such as `rgb(255 255 255 / 0.15)`."
-    },
-    {
-      "block": "related",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The only related link (Terms and Conditions) is one outlined bar that runs the full ~1400px content width, with a small label at the far left and its arrow at the far right, so it looks like an empty form field rather than a link.",
-      "reference": "The competitor's about page has no matching module; it links onward with short inline text links that stay their own length.",
-      "fix": "In reference.css, set the relatedPages list to a grid of capped tracks (e.g. `grid-template-columns: repeat(auto-fill, minmax(18rem, 24rem))`) so a lone item takes one card's width instead of stretching across the row."
-    },
-    {
       "block": "related",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "content",
-      "issue": "The heading 'Related products and services' sits over a single link to Terms and Conditions, which is neither a product nor a service.",
+      "issue": "Still open from the last review: the heading 'Related products and services' sits over a single link to Terms and Conditions, which is neither a product nor a service, so the heading promises what the section doesn't give.",
       "reference": "The competitor's onward links say where they lead (e.g. 'Read the full group story … at PT King Trading').",
-      "fix": "Site Factory: retitle the section to fit its link (e.g. 'Related policies'), or link the products and services pages the heading names."
+      "fix": "Site Factory: retitle the section to match its link (e.g. 'Related policies'), or link the product and service pages the heading names."
     },
     {
       "block": "related",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "The tinted related band has about 25px of top and bottom padding, half the gap of the intro section above it (~50px), so its heading sits close to the band's top edge.",
+      "issue": "Still open from the last review: on phones the tinted related band has about 38px above its heading and below its button, roughly half the intro section's top gap (~73px), so the heading sits close to the band's top edge and the band looks cramped.",
       "reference": "The competitor keeps one even vertical gap between its content sections.",
-      "fix": "In reference.css, give the relatedPages section the same block padding as the other plain sections (the template's section padding, not a reduced one)."
+      "fix": "In reference.css, give the relatedPages section (`.block--related-pages` or the template's equivalent) the template's normal section block padding instead of the reduced one, so it matches the overview section."
+    },
+    {
+      "block": "cta",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The closing photo panel has about 44px of white above it but about 88px of white under it before the footer (34px / 73px on phones), so the page ends on an empty white strip between the photo and the navy footer.",
+      "reference": "The competitor's last content section runs straight into its footer with no extra white band.",
+      "fix": "In reference.css, make the cta block's bottom padding equal its top padding (or remove the extra margin above `.site-footer`), so the space above and below the photo panel is the same."
     }
   ]
 }

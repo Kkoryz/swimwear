@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "2d0702d6f8fd39893d882fa0",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "privacy",
+  "route": "/terms-and-conditions/",
+  "findings": [
+    {
+      "block": "proof-1",
+      "viewport": "desktop",
+      "severity": "P0",
+      "scope": "template",
+      "issue": "This is still open from the last review. proof-1 has no top padding: its first line ('Orders start at 50 pieces…') sits on the top edge of the section, right under m2's last item ('…within one business day.'), so the section label covers it and the two sections run together. proof-2 does the same under proof-1-charts ('Once you've approved…' is cut by its label).",
+      "reference": "The competitor's text sections leave a clear gap above their first line, the same gap as between its other sections.",
+      "fix": "Keep the normal .block padding-block (calc(var(--section-space) / 2)) at the top of .block--proof[data-variant=\"band\"] when it follows a section with the same background, instead of setting it to 0. Do the same for proof-2 under proof-1-charts."
+    },
+    {
+      "block": "proof-1",
+      "viewport": "mobile",
+      "severity": "P0",
+      "scope": "template",
+      "issue": "This is still open from the last review. On phones proof-1 and proof-2 also start flush with their top edge: 'Orders start at 50 pieces…' and 'Once you've approved…' touch the section above and sit under its label.",
+      "reference": "The competitor's mobile text blocks have the same top gap as every other section.",
+      "fix": "Same fix as on desktop: give .block--proof its normal top padding when it follows a neighbour with the same background."
+    },
+    {
+      "block": "proof-1",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "issue": "This is still open from the last review. The white/tint alternation breaks after m3: m2, proof-1, proof-1-charts (white, with only an inset tinted card) and proof-2 are four white sections in a row, at both widths.",
+      "reference": "The competitor separates neighbouring sections by their background.",
+      "fix": "Have the template's alternation count the proof-1 / proof-1-charts / proof-2 group as one plain section and tint it through --section-tint. The order then reads m2 (white), proof group (tint), process-1 (white), and the rest shifts to match."
+    },
+    {
+      "block": "cta-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "issue": "The steps are now styled (large numbers, bold step names, rules between them), but the section title 'From your brief to shipment: the typical order path' is still a small body-size line. The left column therefore carries no heading and stands mostly empty beside six steps.",
+      "reference": "The competitor's step modules set a section heading over the steps, at heading weight and size.",
+      "fix": "Render the process list variant's title as the section h2, fitted by the template like the other headings and starting on the content's left edge, so the list stands beside a real heading."
+    },
+    {
+      "block": "cta-steps",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "template",
+      "issue": "On phones the order path still opens with a small paragraph ('From your brief to shipment: the typical order path') rather than a heading, so it reads as a continuation of the related block and not as its own section.",
+      "reference": "The competitor's mobile steps stack under a section heading.",
+      "fix": "Same as on desktop: set the process list variant's title as the section h2."
+    },
+    {
+      "block": "m2",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "This is still open from the last review. Two iconList sections of the same shape stand one under the other: m3, then m2, each with a heading on the left and a column of check-marked short items on the right. Only the background changes, so the page repeats one layout twice.",
+      "reference": "The competitor doesn't repeat a module back to back. The site's own rule sets one of two same-shaped neighbours out differently.",
+      "fix": "When two iconList sections are neighbours, let the template set one of them in another arrangement, e.g. m2's items as a two-column grid under its heading."
+    },
+    {
+      "block": "m3",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "issue": "The heading 'Quality Claims, Returns and Outside Vendor Liability' breaks over four uneven lines, leaving 'Outside' alone on the third line. m2's heading also leaves 'Shipping' alone on a line.",
+      "reference": "The competitor's section headings break into even lines.",
+      "fix": "Apply text-wrap: balance to the section h2 in the template's heading fit, so its lines break evenly without changing the fitted size."
+    },
+    {
+      "block": "related",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The heading 'Related products and services' sits over a single link, 'Privacy Policy', which is neither a product nor a service, so the heading promises something the section doesn't hold (same on mobile).",
+      "reference": "The competitor's related-link blocks list pages that match their heading.",
+      "fix": "In Site Factory, either link the order-related product or service pages here, or retitle the block to fit its link (e.g. 'Related policies')."
+    }
+  ]
+}
