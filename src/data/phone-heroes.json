@@ -1,0 +1,184 @@
+{
+  "frames": {
+    "hero": {
+      "byPageType": {
+        "home": 0.54,
+        "about": 0.71,
+        "product_manufacturer": 0.7,
+        "solution": 0.45
+      }
+    },
+    "cta": {
+      "byPageType": {
+        "home": 0.64
+      }
+    }
+  },
+  "crops": {
+    "/media/photos/general-hero-1-960.webp": {
+      "0.54": {
+        "src": "/media/photos/general-hero-1-960-phone-54.webp",
+        "width": 346,
+        "height": 641
+      },
+      "0.70": {
+        "src": "/media/photos/general-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      },
+      "0.45": {
+        "src": "/media/photos/general-hero-1-960-phone-45.webp",
+        "width": 288,
+        "height": 640
+      }
+    },
+    "/media/photos/general-lifestyle-5-960.webp": {
+      "0.64": {
+        "src": "/media/photos/general-lifestyle-5-960-phone-64.webp",
+        "width": 410,
+        "height": 641
+      }
+    },
+    "/media/photos/women-s-swimwear-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/women-s-swimwear-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    },
+    "/media/photos/one-piece-swimsuit-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/one-piece-swimsuit-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    },
+    "/media/photos/bikini-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/bikini-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    },
+    "/media/photos/men-s-swimwear-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/men-s-swimwear-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    },
+    "/media/photos/swim-trunks-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/swim-trunks-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    },
+    "/media/photos/children-s-swimwear-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/children-s-swimwear-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    },
+    "/media/photos/teen-swimwear-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/teen-swimwear-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    },
+    "/media/photos/baby-swimwear-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/baby-swimwear-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    },
+    "/media/photos/toddler-swimwear-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/toddler-swimwear-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    },
+    "/media/photos/burkini-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/burkini-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    },
+    "/media/photos/rash-guard-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/rash-guard-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    },
+    "/media/photos/resort-wear-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/resort-wear-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    },
+    "/media/photos/general-hero-2-960.webp": {
+      "0.45": {
+        "src": "/media/photos/general-hero-2-960-phone-45.webp",
+        "width": 288,
+        "height": 640
+      },
+      "0.71": {
+        "src": "/media/photos/general-hero-2-960-phone-71.webp",
+        "width": 454,
+        "height": 639
+      }
+    },
+    "/media/photos/general-hero-3-960.webp": {
+      "0.45": {
+        "src": "/media/photos/general-hero-3-960-phone-45.webp",
+        "width": 288,
+        "height": 640
+      }
+    },
+    "/media/photos/general-hero-4-960.webp": {
+      "0.45": {
+        "src": "/media/photos/general-hero-4-960-phone-45.webp",
+        "width": 288,
+        "height": 640
+      }
+    },
+    "/media/photos/swimwear-accessories-hero-1-960.webp": {
+      "0.70": {
+        "src": "/media/photos/swimwear-accessories-hero-1-960-phone-70.webp",
+        "width": 448,
+        "height": 640
+      }
+    }
+  },
+  "soft": [
+    "/media/photos/general-hero-1-960-phone-54.webp (346px wide, from 960x640)",
+    "/media/photos/general-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/general-hero-1-960-phone-45.webp (288px wide, from 960x640)",
+    "/media/photos/general-lifestyle-5-960-phone-64.webp (410px wide, from 960x640)",
+    "/media/photos/women-s-swimwear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/one-piece-swimsuit-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/bikini-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/men-s-swimwear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/swim-trunks-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/children-s-swimwear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/teen-swimwear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/baby-swimwear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/toddler-swimwear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/burkini-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/rash-guard-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/resort-wear-hero-1-960-phone-70.webp (448px wide, from 960x640)",
+    "/media/photos/general-hero-2-960-phone-45.webp (288px wide, from 960x640)",
+    "/media/photos/general-hero-2-960-phone-71.webp (454px wide, from 960x640)",
+    "/media/photos/general-hero-3-960-phone-45.webp (288px wide, from 960x640)",
+    "/media/photos/general-hero-4-960-phone-45.webp (288px wide, from 960x640)",
+    "/media/photos/swimwear-accessories-hero-1-960-phone-70.webp (448px wide, from 960x640)"
+  ],
+  "unfocused": []
+}
