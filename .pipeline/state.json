@@ -197,10 +197,10 @@
   },
   "blog": {
     "status": "passed",
-    "hash": "a978ae0fc60f7c1d",
-    "at": "2026-11-14T10:22:15.818Z",
+    "hash": "80e7a8df729844c0",
+    "at": "2026-11-14T11:16:55.495Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/blog.log"
+    "log": ".pipeline/logs/2026-11-14T10-49-24-604Z/blog.log"
   },
   "template-check": {
     "status": "passed",
