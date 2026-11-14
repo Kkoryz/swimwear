@@ -31,7 +31,6 @@
   --size-hero: clamp(2.375rem, 6.111vw, 5.5rem);
   --size-display: clamp(2rem, 4.167vw, 3.75rem);
   --size-card-heading: 1.375rem;
-  --size-subheading: 1.625rem;
   --size-body: 1.0625rem;
   --line-body: 1.5;
   --weight-heading: 700;
@@ -79,11 +78,15 @@
   --channel-icon-color: #0b2a4a;
 
   --footer-brand-align: center;
-  --surface-testimonial: #ffffff;
   --carousel-gap: 1.25rem;
 }
+/* The locked sub-heading size is the competitor's desktop one; on phones the template's smaller step applies, so an
+   item title stays a level under its section heading (the card titles keep the site's size there too). */
+@media (min-width: 768px) {
+  :root:root { --size-subheading: 1.625rem; }
+}
 @media (max-width: 767px) {
-  :root:root { --size-card-heading: 1.5rem; --header-height: 70.17px; }
+  :root:root { --header-height: 70.17px; }
 }
 
 /* Dark and photo surfaces: the eyebrow and inline links turn white, as the competitor's do on navy and on photos. */
@@ -129,6 +132,8 @@ main[data-authoring-page] :is(.text-flow, .block__lead, .page-lead, .page-hero__
 .site-nav__link { padding: 0.8125rem 1.25rem; font-size: 1rem; font-weight: 500; line-height: 1.25; }
 @media (min-width: 1024px) and (max-width: 1279px) { .site-nav__link { padding-inline: 0.75rem; } }
 .site-nav__item:hover > .site-nav__link, .site-nav__item:focus-within > .site-nav__link, .site-nav__link[aria-current="page"] { color: #d3ebfd; }
+/* The current page is marked as the competitor marks it: lighter and underlined. */
+.site-nav__link[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; }
 .site-nav__dropdown { --text-primary: #000000; --text-muted: var(--surface-header); border-radius: 0; }
 .site-nav__dropdown .site-nav__sublink { font-size: 1rem; font-weight: 400; line-height: 1.25; }
 .site-nav__dropdown a:hover, .site-nav__dropdown a:focus-visible, .site-nav__dropdown [aria-current="page"] { color: var(--surface-header); background: #d3ebfd; }
@@ -140,6 +145,8 @@ main[data-authoring-page] :is(.text-flow, .block__lead, .page-lead, .page-hero__
 .page-hero[data-variant="media-overlay"] .page-hero__lead { font-family: var(--font-body); letter-spacing: 0; line-height: 1.7; }
 main[data-page-type="home"] .page-hero[data-variant="media-overlay"] .page-hero__lead { font-weight: 700; }
 .page-hero__actions { gap: 0.75rem; }
+/* Phones: a hero button keeps its label on one line, as the closing button does (narrower side padding). */
+@media (max-width: 767px) { .page-hero .page-hero__actions .button { padding-inline: 1rem; letter-spacing: 0; } }
 .page-hero[data-variant="media-overlay"] {
   --button-secondary-bg: #f6f3ec;
   --button-secondary-text: #111111;
@@ -150,6 +157,9 @@ main[data-page-type="home"] .page-hero[data-variant="media-overlay"] .page-hero_
    at 3:1 over a white patch of photo. */
 main[data-hero-photo] .page-hero[data-variant="media-overlay"] { --hero-overlay: rgb(0 0 0 / 0.55); }
 @media (max-width: 767px) { .page-hero[data-variant="media-overlay"] { --size-lead: 0.875rem; --hero-min-height: 150vw; } }
+/* Phones: the copy sits in the lower part of the frame, the photo's free area above the title (the competitor's phone
+   heroes end just under their last button). */
+@media (max-width: 767px) { .page-hero[data-variant="media-overlay"] .page-hero__inner { align-items: end; } }
 /* Copy on the left (desktop): dark under the copy as far as its end, 0.3 by 8rem past it, clear by 20rem past it, so
    the subject on the right of the photo keeps its light. */
 @media (min-width: 1024px) {
@@ -222,8 +232,25 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
   .block--split:not([data-variant="stacked"]) .split[data-layout="split"] > .split__charts { grid-template-rows: none; }
 }
 
-/* Related pages: a lone link is a link card of its own width, not a bar across the page. */
+/* A comparison chart on phones: the label column gives the values room, the cells a narrower inset, so a value keeps
+   to a line or two. */
+@media (max-width: 599px) {
+  .chart-comparison :is(th, td) { padding-inline: 0.4rem; }
+  .chart-comparison tr > :first-child { width: 32%; }
+}
+
+/* Answer cards (table cards): light cards in the competitor's 1px outline, a bold title over the label and answer. */
+.block--table .table-card { --heading-color: var(--text-primary); border: 1px solid var(--border-color); background: var(--surface-primary); color: var(--text-primary); }
+.block--table .table-card__title { color: var(--text-primary); font-weight: 700; }
+.block--table .table-card__row { border-bottom-color: color-mix(in srgb, var(--text-primary) 18%, transparent); }
+.block--table .table-card__row dt { color: var(--text-muted); }
+
+/* Related pages: a lone link is a link card of its own width, not a bar across the page. The link cards carry the
+   light hairline of the page's other rows, not a dark outline. The section takes a whole section space inside its own
+   surface (the half each block owns left its heading close to the top of a tinted band). */
 .related-pages--grid .related-links:has(> li:only-child) { width: fit-content; max-width: 100%; }
+.block .related-pages--grid .related-links__link { border-color: color-mix(in srgb, var(--text-primary) 18%, transparent); }
+.block--related { padding-block: var(--section-space); }
 
 /* Cards: 1px black outline, 6px corners, 32px inset, no shadow; the number in the title's own type. */
 .block--grid { --grid-gap: 1.75rem; }
@@ -263,9 +290,9 @@ main[data-page-type="solution"] [data-variant="outlined"] .feature-card { border
 .block--stats[data-variant="trust-bar"] .stats { text-align: start; }
 .block--stats[data-variant="trust-bar"] .stats__item { padding-top: 1rem; border-top: 1px solid rgb(255 255 255 / 0.35); }
 .block--stats[data-variant="trust-bar"] .stats__label { font-family: var(--font-ui); font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; }
-/* Trust bar under the hero: a figure balances its lines, and the labels of a row sit level at its foot. */
+/* Trust bar under the hero: a figure balances its lines and stands directly over its label, from the top of its cell. */
 .trust-bar__value, .block--stats[data-variant="trust-bar"] .stats__value { text-wrap: balance; }
-.trust-bar__item { align-content: space-between; }
+.trust-bar__item { align-content: start; }
 
 /* Steps: bold step titles over regular text (the competitor's sub-heads are Maison 700). */
 .block--process { --size-subheading: 1.0625rem; }
@@ -275,12 +302,26 @@ main[data-page-type="solution"] [data-variant="outlined"] .feature-card { border
 .block--process .point-list__items[data-numbered] { padding-left: 0; list-style: none; counter-reset: step; gap: 0; }
 .block--process .point-list__items[data-numbered] > .point-list__item { position: relative; padding-block: 1rem; padding-left: 3.5rem; border-top: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent); counter-increment: step; }
 .block--process .point-list__items[data-numbered] > .point-list__item::before { content: counter(step, decimal-leading-zero); position: absolute; top: 1rem; left: 0; font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1; color: var(--accent-text); }
-/* The timeline starts on the content's left edge under its heading. */
+/* The list's intro stays in view beside the longer steps; an intro without a heading of its own is set as the steps'
+   lead, in the heading face at the sub-heading size, so the column reads as their heading, not a stray caption. */
+@media (min-width: 900px) { .block--process .point-list__intro { position: sticky; top: 6rem; } }
+.block--process .point-list__intro:not(:has(h2)) > .block__lead { font-family: var(--font-display); font-size: var(--size-subheading); font-weight: var(--weight-heading); line-height: 1.3; color: var(--heading-color, var(--text-primary)); }
+/* The timeline starts on the content's left edge under its heading; its rows part on the light hairline of the FAQ
+   rows and tables, not a black rule. */
 body[data-heading-align="start"] .block--process .process-timeline { margin-inline: 0; }
+.block--process .process-timeline__row { border-bottom-color: color-mix(in srgb, var(--text-primary) 18%, transparent); }
 /* The band's numbers start on the step titles' edge; its button stands clear of the last step's text. */
 .block--process[data-variant="band"] { --process-marker-bg: transparent; --process-marker-text: var(--text-inverse); }
 .block--process[data-variant="band"] .process-step__marker { width: auto; place-items: center start; }
 .block--process .process__cta { margin-top: 2rem; }
+/* Phones: each band step sets its number beside its title and text, the steps parted by the band's hairline (the
+   competitor's phone step band), not three loose lines a grid gap apart. */
+@media (max-width: 767px) {
+  .block--process[data-variant="band"] .process-steps { row-gap: 0; }
+  .block--process[data-variant="band"] .process-step { grid-template-columns: auto minmax(0, 1fr); column-gap: 1rem; row-gap: 0.25rem; padding-block: 1.25rem; border-top: 1px solid var(--process-rule); }
+  .block--process[data-variant="band"] .process-step > * { grid-column: 2; }
+  .block--process[data-variant="band"] .process-step > .process-step__marker { grid-column: 1; grid-row: 1 / -1; align-self: start; height: auto; }
+}
 /* The band's enquiry button stays in the steps' flow: under the first step of their last row (this site's headings
    start on the content's left edge), not centred under steps set from the left. A short last row the template centres
    starts some tracks in (gridPlan --tracks, --start), and the button with it. */
@@ -295,9 +336,8 @@ body[data-heading-align="start"] .block--process .process-timeline { margin-inli
   .block--process[data-variant="band"] .process__cta { padding-inline-start: calc(var(--steps-skip, 0) * ((100% - (var(--steps-tracks, 1) - 1) * var(--grid-gap)) / var(--steps-tracks, 1) + var(--grid-gap))); }
 }
 
-/* FAQ: navy Maison Neue 700 15px questions on hairline rows, the mark at the right (home); separate rounded bars
-   (solution). */
-.block--faq { --size-subheading: 0.9375rem; }
+/* FAQ: navy Maison Neue 700 questions on hairline rows, the mark at the right (home); separate rounded bars
+   (solution). The questions take the template's sub-heading size, a step over their answers. */
 main[data-page-type="home"] .block--faq { --size-display: clamp(2rem, 3.611vw, 3.25rem); }
 .block--faq:not([data-variant="dark-cards"]) .faq__item h3 { font-family: var(--font-hero); font-weight: 700; line-height: 1.4; color: var(--surface-dark); }
 .block--faq:not([data-variant="dark-cards"]) .faq__item summary::after { color: var(--surface-dark); }
@@ -311,10 +351,18 @@ main[data-page-type="home"] .block--faq { --size-display: clamp(2rem, 3.611vw, 3
    (the template's wrapping row set it beside the 70ch paragraph). */
 .block--cta[data-variant="inline"] .cta__content { flex-direction: column; align-items: flex-start; }
 
-/* Closing photo band: the copy on the darker left of the photo, solid white pills with dark text, h2 60/84. */
+/* Closing photo band: the copy on the darker left of the photo, solid white pills with dark text, the heading set as
+   tight as the other headings. As the page's last section it runs into the footer with the same space under it as
+   above it. */
 [data-variant="image-band"] .cta { min-height: clamp(320px, 42vw, 614px); --cta-overlay: rgb(0 0 0 / 0.55); }
 [data-variant="image-band"] .cta__content { max-width: 40rem; }
-[data-variant="image-band"] .cta__heading { line-height: 1.4; }
+[data-variant="image-band"] .cta__heading { line-height: 1.1; }
+.block--cta[data-variant="image-band"]:last-child { padding-bottom: calc(var(--section-space) / 2); }
+/* Phones: a narrower inset and a smaller label keep the full-width pill's label on one line. */
+@media (max-width: 767px) {
+  [data-variant="image-band"] .cta { padding-inline: 1.25rem; }
+  [data-variant="image-band"] .cta .button { font-size: 0.8125rem; }
+}
 [data-variant="image-band"] .cta .button--primary { background: #ffffff; color: #000000; border: 1px solid #ffffff; }
 [data-variant="image-band"] .cta .button--primary:hover { background: var(--accent); color: var(--accent-contrast); border-color: var(--accent); }
 /* Phones: a closing button runs its column's width, its label on one line (the competitor's full-width pills). */
@@ -337,10 +385,22 @@ main[data-page-type="home"] .block--faq { --size-display: clamp(2rem, 3.611vw, 3
 /* Contact: square black-outlined fields, a full-width dark SEND bar, a photo with rounded corners, channel cards with
    a black label bar. */
 .form-block__media { --radius-media: 10px; }
+/* Photo and form (form media): the heading runs over both columns, so the photo and the form start level under it and
+   the photo runs the form's height (at least its own shape), the two sharing their top and bottom edges; a form
+   shorter than the photo sits level with its middle. */
+@media (min-width: 900px) {
+  .form-block[data-variant="media"]:has(> .form-block__intro > .form-block__media) { row-gap: 1rem; }
+  .form-block[data-variant="media"] > .form-block__intro:has(> .form-block__media) { display: contents; }
+  .form-block[data-variant="media"] > .form-block__intro:has(> .form-block__media) > * { grid-column: 1 / -1; }
+  .form-block[data-variant="media"] > .form-block__intro > .form-block__media { grid-column: 1; width: 100%; height: 100%; margin-top: 0; }
+  .form-block[data-variant="media"]:has(> .form-block__intro > .form-block__media) > .form-block__form { grid-column: 2; align-self: center; }
+}
 :is(.form-block__form, .cta__form) .button--primary { width: 100%; min-height: 37px; border-radius: 0; background: #262626; color: #ffffff; font-size: 0.9375rem; font-weight: 400; }
 :is(.form-block__form, .cta__form) .button--primary:hover { background: #000000; color: #ffffff; }
-/* The consent tick: full size, outlined, ticked in the bar's near-black. */
-:is(.form-block__form, .cta__form) input[type="checkbox"] { flex: none; width: 1.25rem; height: 1.25rem; margin-top: 0.15rem; accent-color: #262626; }
+/* The consent tick: full size, a white box in the fields' 1px black outline before it is ticked, filled in the bar's
+   near-black with a white tick after. */
+:is(.form-block__form, .cta__form) input[type="checkbox"] { flex: none; width: 1.25rem; height: 1.25rem; margin-top: 0.15rem; appearance: none; border: 1px solid #000000; border-radius: 0; background: #ffffff; cursor: pointer; }
+:is(.form-block__form, .cta__form) input[type="checkbox"]:checked { border-color: #262626; background: #262626 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E") center / 80% no-repeat; }
 .contact-channels { --grid-gap: 0.625rem; }
 /* The channel cards share the content's width from its left edge, under their heading, with the heading's gap. */
 .block .contact-channels__heading { margin-bottom: 1.5rem !important; }
@@ -359,7 +419,8 @@ main[data-page-type="home"] .block--faq { --size-display: clamp(2rem, 3.611vw, 3
 .logos-marquee:not([data-marquee-run]) .logos-marquee__row { flex: 1 1 auto; justify-content: space-between; padding-right: 0; }
 .logos-marquee:not([data-marquee-run]) .logos-marquee__row .logos__item { flex: 0 0 auto; min-width: var(--logos-item-width, 10rem); }
 .logos-marquee:not([data-marquee-run]) .logos__name { white-space: nowrap; }
-/* Testimonials: white quote cards on the page's alternating surface; when every card is in view they share the row. */
+/* Testimonials: the quote cards take the template's card fill (the beige on white, white inside a tinted band), so a
+   card's inset reads as a panel; when every card is in view they share the row. */
 .testimonials[data-variant="carousel"] .track[data-fits] .track__item { flex-grow: 1; }
 
 /* Footer: #003049, the brand column centred beside a thin rule, uppercase column titles, 16/24 links 36px apart,

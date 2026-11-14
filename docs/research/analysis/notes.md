@@ -166,9 +166,14 @@ module; nothing faked in CSS):
   copy of the rule in reference.css would only hold the card apart from the template's own.
 - **Phone hero portrait** (`/swimwear-consulting/`, hero mobile, design-gate P2): `phoneHeroes` is written by
   `apply-reference-analysis.mjs` only when the heroes have phone sources, and this library's heroes have none (no portrait
-  twin to show); the template has no hook to set the copy in the lower part of the frame either.
+  twin to show). (The copy now sits in the lower part of the phone frame: reference.css, design-gate repair.)
 - **Contact hours on one line** (`/contact-us/`, channels): the cards now share the content width, which gives the time
   room; keeping "9:00-18:00" together needs a non-breaking dash in the copy or a hook on the hours value alone.
+- **Testimonial parts level across the row** (`/`, owner-testimonials, design-gate P2): the testimonials are the
+  carousel variant, whose `.track__items` is a flex row, so a card cannot take shared row tracks (subgrid) from it.
+  Levelling the rule and attribution across the cards needs the template to give the testimonial cards row tracks of
+  their own (as feature cards have through `--card-rows`); setting grid rows and spans on the items is the template's,
+  and pinning the attribution by hand would hold one part apart from its card.
 
 ## Asked against the site rules
 
@@ -187,3 +192,23 @@ the rules allow was repaired):
 - `/faq/`, `/terms-and-conditions/`, `/privacy-policy/` related: `grid-template-columns: repeat(auto-fill, minmax(18rem,
   24rem))` sets the related grid's columns and a fixed card width. Repaired instead: a lone related link is as wide as
   its own label (`width: fit-content` on a one-link list).
+
+Design-gate repair (2026-11-14):
+
+- `/swimwear-consulting/` m8 (desktop, P2): the list steps' titles (`.point-list__title`) "one step above the body
+  size" is a font-size on a heading; titles and headings are sized by the template, no rule sets their font-size. (Its
+  weight 700 and accent numerals stay.)
+- `/blog/` table-1 (desktop, P1), the part that asks "a step-up size" for each card's topic: the topic is the card's
+  `h3` (`.table-card__title`), a heading the template sizes. Repaired: light cards in the 1px outline with the card
+  radius, black text, muted labels, light row rules, the topic in bold.
+- `/about-us/` hero (mobile, P2) and `/blog/` hero (desktop, P2): an `object-position` on the about hero image and a
+  `--hero-focal` for the blog hub move a photo's crop by hand. Treatment practice (Photos): every cut photo is centred
+  on its subject by the template, and the treatment sets no `object-position` or `--*-focal`. Where the judged focal
+  point misses the subject, that is the template's (art direction).
+- `/custom-swimwear-printing/` splitMedia-1 (mobile, P2), again: `aspect-ratio: 4 / 3` for the wide row's photo on
+  phones is a frame shape copied from the competitor; the template sets frame ratios from the photos.
+- `/watersports-apparel-manufacturer/` overview (desktop, P2): the running text already holds to `max-width: 70ch`
+  (reference.css, every `.block p`), the value the finding's fix and treatment practice ask for, and the layout audit
+  (`long_measure`, measured in the paragraph's own ch) passes it. The reviewer counted letters: DM Sans's "0" (the
+  `ch` unit) is wide, so 70ch holds about 95 average letters. Bringing the column to 70 letters would set the measure
+  near 52ch, well under the practice's "about 70ch"; left at 70ch.
