@@ -24,28 +24,5 @@ person decides, in the site's docs/research/template-gap-decisions.json: `templa
 
 | Site | Section | Module now | Share of the page | Decision | Competitor section |
 |---|---|---|---|---|---|
-| site13-strandmill | home 11 | gallery:product-cards | 20% (2106 px) | **waiting** | GAP: one composite section: two-tone h2, a white price card joined to a photo, a navy 'every price includes' check-list panel, a small-print check list, then four example-price cards (photo half beside an aqua, steel, light-blue or navy body with prices). The photos of the two lower cards never loaded in the capture |
-| site13-strandmill | solution 6 | featureGrid:boxed | 19% (1516 px) | **waiting** | GAP: no joined bordered two-panel comparison of tall images, and no two-column text-and-button row under it; eyebrow, heading and lead, then two navy title bars over a handover sheet and a mock-up photo set |
-
-Waiting: copy into the site's decisions file and choose one decision each:
-
-```json
-{
-  "decisions": [
-    {
-      "pageType": "home",
-      "index": 11,
-      "why": "GAP: one composite section: two-tone h2, a white price card joined to a photo, a navy 'every price includes' check-list panel, a small-print check list, then four example-price cards (photo half beside an aqua, steel, light-blue or navy body with prices). The photos of the two lower cards never loaded in the capture",
-      "decision": "template | accept",
-      "note": ""
-    },
-    {
-      "pageType": "solution",
-      "index": 6,
-      "why": "GAP: no joined bordered two-panel comparison of tall images, and no two-column text-and-button row under it; eyebrow, heading and lead, then two navy title bars over a handover sheet and a mock-up photo set",
-      "decision": "template | accept",
-      "note": ""
-    }
-  ]
-}
-```
+| site13-strandmill | home 11 | gallery:product-cards | 20% (2106 px) | accept: 08 2026-11-14: the competitor's example-price cards; the Strandmill package has no price-card content (prices come only from the owner's facts), so the nearest module stays. Provisional, listed for the owner. | GAP: one composite section: two-tone h2, a white price card joined to a photo, a navy 'every price includes' check-list panel, a small-print check list, then four example-price cards (photo half beside an aqua, steel, light-blue or navy body with prices). The photos of the two lower cards never loaded in the capture |
+| site13-strandmill | solution 6 | featureGrid:boxed | 19% (1516 px) | accept: 08 2026-11-14: a handover-sheet vs mock-up comparison specific to the competitor's launch service; no section of the package asks for it, so the nearest module stays. Provisional, listed for the owner. | GAP: no joined bordered two-panel comparison of tall images, and no two-column text-and-button row under it; eyebrow, heading and lead, then two navy title bars over a handover sheet and a mock-up photo set |
