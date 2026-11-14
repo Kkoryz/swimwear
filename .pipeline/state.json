@@ -239,9 +239,9 @@
   },
   "audits": {
     "status": "passed",
-    "hash": "a3c6d8bceefbb1e6",
-    "at": "2026-11-14T10:24:17.044Z",
-    "seconds": 115,
+    "hash": "7574ce1568fed69e",
+    "at": "2026-11-14T10:30:02.541Z",
+    "seconds": 114,
     "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/audits.log"
   },
   "design-shots": {
