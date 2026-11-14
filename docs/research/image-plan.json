@@ -3162,7 +3162,7 @@
         "docs/research/reference-assets/aec819f0cc185d6764c1.webp"
       ],
       "brief": "a model wearing boardshorts in a relaxed everyday moment | olive green | in their thirties, white, with fair skin and straight blonde hair | f1c21c7dfc0f2f6184bb.webp | aec819f0cc185d6764c1.webp",
-      "status": "generated",
+      "status": "rejected-review",
       "products": "printed boardshorts for surf and resort",
       "print": "small-scale painterly cheetah spots in espresso brown and tan",
       "detail": "Contrast forest-green topstitching along all seams",
@@ -3248,13 +3248,14 @@
         "width": 960,
         "height": 640
       },
-      "reviewNote": "same person as photo 9",
+      "reviewNote": "image-fit: not the subject of /boardshorts-manufacturer/",
       "coverUp": true,
       "modestCut": true,
       "libraryReview": {
         "passed": true,
         "at": "2026-11-14T09:32:09.228Z"
-      }
+      },
+      "fitRemakes": 1
     },
     {
       "id": "swim-trunks-hero-1",
