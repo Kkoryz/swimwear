@@ -134,10 +134,10 @@
   },
   "calibrate": {
     "status": "passed",
-    "hash": "e04cf30b9583f305",
-    "at": "2026-11-14T07:26:56.524Z",
-    "seconds": 55,
-    "log": ".pipeline/logs/2026-11-14T07-25-54-662Z/calibrate.log"
+    "hash": "3e5c67c4861c707a",
+    "at": "2026-11-14T09:22:00.013Z",
+    "seconds": 54,
+    "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/calibrate.log"
   },
   "article-rhythm": {
     "status": "passed",

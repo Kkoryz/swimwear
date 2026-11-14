@@ -1009,7 +1009,7 @@
       "cta:image-band+photo": {
         "base": 734,
         "perWord": 0,
-        "visual": 0.83,
+        "visual": 0.82,
         "before": 0.06,
         "after": 0.12
       },
@@ -1056,25 +1056,25 @@
         "after": 0.53
       },
       "gallery:*": {
-        "base": 799,
+        "base": 801,
         "perWord": 0,
         "visual": 0.92,
         "before": 0.05,
         "after": 0.05
       },
       "gallery:band": {
-        "base": 806,
+        "base": 807,
         "perWord": 0,
         "visual": 0.92,
         "before": 0.05,
         "after": 0.05
       },
       "gallery:grid": {
-        "base": 385,
+        "base": 579,
         "perWord": 0,
-        "visual": 0.81,
-        "before": 0.11,
-        "after": 0.11
+        "visual": 0.84,
+        "before": 0.07,
+        "after": 0.07
       },
       "hero:*": {
         "base": 423,
@@ -1210,10 +1210,10 @@
         "after": 0.37
       },
       "splitMedia:*": {
-        "base": 704,
+        "base": 698,
         "perWord": 0,
-        "visual": 0.38,
-        "before": 0.23,
+        "visual": 0.37,
+        "before": 0.22,
         "after": 0.22
       },
       "splitMedia:panel": {
@@ -1224,11 +1224,11 @@
         "after": 0.57
       },
       "splitMedia:single": {
-        "base": 656,
+        "base": 660,
         "perWord": 0,
         "visual": 0.34,
-        "before": 0.23,
-        "after": 0.25
+        "before": 0.22,
+        "after": 0.24
       },
       "stats:*": {
         "base": 269,
@@ -1436,7 +1436,7 @@
       "charts:@product_manufacturer": {
         "base": 147,
         "perWord": 6.23,
-        "visual": 0.94,
+        "visual": 0.93,
         "before": 0,
         "after": 0.16
       },
@@ -1462,9 +1462,9 @@
         "after": 1
       },
       "gallery:band@home": {
-        "base": 810,
+        "base": 812,
         "perWord": 0,
-        "visual": 0.92,
+        "visual": 0.91,
         "before": 0.05,
         "after": 0.06
       },
@@ -1497,11 +1497,11 @@
         "after": 0.43
       },
       "gallery:grid@home": {
-        "base": 385,
+        "base": 579,
         "perWord": 0,
-        "visual": 0.81,
-        "before": 0.11,
-        "after": 0.11
+        "visual": 0.84,
+        "before": 0.07,
+        "after": 0.07
       },
       "splitMedia:tinted": {
         "base": 728,
@@ -1595,37 +1595,37 @@
         "after": 1
       },
       "splitMedia:wide": {
-        "base": 751,
-        "perWord": 2.95,
-        "visual": 0.63,
-        "before": 0.27,
-        "after": 0.1
+        "base": 755,
+        "perWord": 2.91,
+        "visual": 0.62,
+        "before": 0.31,
+        "after": 0.08
       },
       "splitMedia:wide@solution": {
-        "base": 751,
-        "perWord": 2.95,
-        "visual": 0.63,
-        "before": 0.27,
-        "after": 0.1
+        "base": 755,
+        "perWord": 2.91,
+        "visual": 0.62,
+        "before": 0.31,
+        "after": 0.08
       },
       "splitMedia:single@solution": {
-        "base": 644,
+        "base": 657,
         "perWord": 0,
-        "visual": 0.34,
-        "before": 0.19,
-        "after": 0.23
+        "visual": 0.35,
+        "before": 0.18,
+        "after": 0.21
       },
       "process:band": {
         "base": 164,
         "perWord": 4.03,
-        "visual": 0.43,
+        "visual": 0.44,
         "before": 0.29,
         "after": 0.31
       },
       "process:band@solution": {
         "base": 164,
         "perWord": 4.03,
-        "visual": 0.43,
+        "visual": 0.44,
         "before": 0.29,
         "after": 0.31
       },
@@ -1653,7 +1653,7 @@
       "table:grid@solution": {
         "base": 293,
         "perWord": 1.95,
-        "visual": 0.75,
+        "visual": 0.74,
         "before": 0.2,
         "after": 0.06
       },
@@ -1723,14 +1723,14 @@
       "charts:@solution": {
         "base": 167,
         "perWord": 4.5,
-        "visual": 0.9,
+        "visual": 0.92,
         "before": 0,
         "after": 0.16
       },
       "cta:image-band+photo@solution": {
         "base": 734,
         "perWord": 0,
-        "visual": 0.83,
+        "visual": 0.82,
         "before": 0.06,
         "after": 0.12
       },
@@ -1870,7 +1870,7 @@
       "cta:image-band+photo@general": {
         "base": 734,
         "perWord": 0,
-        "visual": 0.83,
+        "visual": 0.82,
         "before": 0.06,
         "after": 0.12
       },
@@ -1912,7 +1912,7 @@
       "charts:@general": {
         "base": 161,
         "perWord": 7.29,
-        "visual": 0.95,
+        "visual": 0.96,
         "before": 0,
         "after": 0.14
       },

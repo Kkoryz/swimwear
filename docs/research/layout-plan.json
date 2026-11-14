@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-layout-plan-v1",
-  "madeAt": "2026-11-14T09:21:05.413Z",
+  "madeAt": "2026-11-14T09:21:59.819Z",
   "maxWalls": 12,
   "headingModel": "the site's layout audit (882 headings)",
   "context": {
@@ -58,8 +58,8 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 810,
-            "visualPx": 745,
+            "heightPx": 812,
+            "visualPx": 739,
             "pictured": true,
             "before": 41,
             "after": 49
@@ -97,8 +97,8 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 810,
-            "visualPx": 745,
+            "heightPx": 812,
+            "visualPx": 739,
             "pictured": true,
             "before": 41,
             "after": 49
@@ -144,8 +144,8 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 810,
-            "visualPx": 745,
+            "heightPx": 812,
+            "visualPx": 739,
             "pictured": true,
             "before": 41,
             "after": 49
@@ -310,8 +310,8 @@
             "product"
           ],
           "estimate": {
-            "heightPx": 799,
-            "visualPx": 735,
+            "heightPx": 801,
+            "visualPx": 737,
             "pictured": true,
             "before": 40,
             "after": 40
@@ -674,8 +674,8 @@
             "lifestyle"
           ],
           "estimate": {
-            "heightPx": 810,
-            "visualPx": 745,
+            "heightPx": 812,
+            "visualPx": 739,
             "pictured": true,
             "before": 41,
             "after": 49
@@ -751,8 +751,8 @@
       ],
       "words": 2086,
       "estimate": {
-        "heightPx": 16269,
-        "visualAreaPct": 50.6,
+        "heightPx": 16279,
+        "visualAreaPct": 50.4,
         "longestTextOnlyPx": 1007,
         "wordsPer1000px": 128
       },
@@ -778,8 +778,8 @@
         "cap": 6,
         "estimate": {
           "words": 2086,
-          "heightPx": 13839,
-          "visualAreaPct": 43.3,
+          "heightPx": 13843,
+          "visualAreaPct": 43.2,
           "wordsPer1000px": 151,
           "longestTextOnlyPx": 1423
         },
@@ -5933,7 +5933,7 @@
       "words": 1388,
       "estimate": {
         "heightPx": 6988,
-        "visualAreaPct": 25.8,
+        "visualAreaPct": 25.7,
         "longestTextOnlyPx": 2256,
         "wordsPer1000px": 199
       },
@@ -5960,7 +5960,7 @@
         "estimate": {
           "words": 1388,
           "heightPx": 6988,
-          "visualAreaPct": 25.8,
+          "visualAreaPct": 25.7,
           "wordsPer1000px": 199,
           "longestTextOnlyPx": 2256
         },
@@ -7650,7 +7650,7 @@
       "words": 1952,
       "estimate": {
         "heightPx": 9944,
-        "visualAreaPct": 48,
+        "visualAreaPct": 47.9,
         "longestTextOnlyPx": 1732,
         "wordsPer1000px": 196
       },
@@ -7677,7 +7677,7 @@
         "estimate": {
           "words": 1952,
           "heightPx": 9138,
-          "visualAreaPct": 44.1,
+          "visualAreaPct": 44,
           "wordsPer1000px": 214,
           "longestTextOnlyPx": 2873
         },
@@ -7734,10 +7734,10 @@
           ],
           "estimate": {
             "heightPx": 1084,
-            "visualPx": 683,
+            "visualPx": 672,
             "pictured": true,
-            "before": 293,
-            "after": 108
+            "before": 336,
+            "after": 87
           },
           "heading": {
             "text": "Branding from Small Tags to Full Garments, Made in Our Own Factory",
@@ -7756,11 +7756,11 @@
             "material"
           ],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           },
           "heading": {
             "text": "Which Swim Fabrics Take Embroidery Well",
@@ -7799,7 +7799,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 370,
-            "visualPx": 159,
+            "visualPx": 163,
             "pictured": true,
             "before": 107,
             "after": 115
@@ -7923,11 +7923,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           },
           "heading": {
             "text": "Artwork Digitising and Saved DST Stitch Files",
@@ -7945,7 +7945,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 422,
-            "visualPx": 181,
+            "visualPx": 186,
             "pictured": true,
             "before": 122,
             "after": 131
@@ -7964,11 +7964,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 937,
-            "visualPx": 590,
+            "heightPx": 938,
+            "visualPx": 582,
             "pictured": true,
-            "before": 253,
-            "after": 94
+            "before": 291,
+            "after": 75
           },
           "heading": {
             "text": "Working from Your Existing Embroidery Files",
@@ -8201,7 +8201,7 @@
           ],
           "estimate": {
             "heightPx": 734,
-            "visualPx": 609,
+            "visualPx": 602,
             "pictured": true,
             "before": 44,
             "after": 88
@@ -8215,10 +8215,10 @@
       ],
       "words": 2166,
       "estimate": {
-        "heightPx": 13069,
+        "heightPx": 13096,
         "visualAreaPct": 36.1,
         "longestTextOnlyPx": 2293,
-        "wordsPer1000px": 166
+        "wordsPer1000px": 165
       },
       "band": {
         "wordsPer1000px": {
@@ -8242,9 +8242,9 @@
         "cap": 12,
         "estimate": {
           "words": 2166,
-          "heightPx": 13069,
+          "heightPx": 13096,
           "visualAreaPct": 36.1,
-          "wordsPer1000px": 166,
+          "wordsPer1000px": 165,
           "longestTextOnlyPx": 2293
         },
         "limits": []
@@ -8297,11 +8297,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           },
           "heading": {
             "text": "What Our Consulting Covers and How It Differs From Design Support",
@@ -8320,11 +8320,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           },
           "heading": {
             "text": "Senior Consultants Backed by Our Own Factory",
@@ -8516,11 +8516,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           }
         },
         {
@@ -8604,11 +8604,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           },
           "heading": {
             "text": "Process Improvement and Team Structure",
@@ -8847,7 +8847,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 341,
-            "visualPx": 147,
+            "visualPx": 150,
             "pictured": true,
             "before": 99,
             "after": 106
@@ -8867,7 +8867,7 @@
           ],
           "estimate": {
             "heightPx": 734,
-            "visualPx": 609,
+            "visualPx": 602,
             "pictured": true,
             "before": 44,
             "after": 88
@@ -8881,8 +8881,8 @@
       ],
       "words": 2562,
       "estimate": {
-        "heightPx": 14864,
-        "visualAreaPct": 36.1,
+        "heightPx": 14916,
+        "visualAreaPct": 36.3,
         "longestTextOnlyPx": 2072,
         "wordsPer1000px": 172
       },
@@ -8908,8 +8908,8 @@
         "cap": 12,
         "estimate": {
           "words": 2562,
-          "heightPx": 13252,
-          "visualAreaPct": 29.3,
+          "heightPx": 13304,
+          "visualAreaPct": 29.5,
           "wordsPer1000px": 193,
           "longestTextOnlyPx": 3726
         },
@@ -8965,11 +8965,11 @@
             "product"
           ],
           "estimate": {
-            "heightPx": 928,
-            "visualPx": 585,
+            "heightPx": 930,
+            "visualPx": 576,
             "pictured": true,
-            "before": 251,
-            "after": 93
+            "before": 288,
+            "after": 74
           },
           "heading": {
             "text": "Quality Checked at Every Stage of Your Order",
@@ -8987,7 +8987,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 382,
-            "visualPx": 164,
+            "visualPx": 168,
             "pictured": true,
             "before": 111,
             "after": 118
@@ -9085,11 +9085,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           }
         },
         {
@@ -9199,11 +9199,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           },
           "heading": {
             "text": "Hardware, Labels and Packaging Alongside Your Samples",
@@ -9318,11 +9318,11 @@
             "product"
           ],
           "estimate": {
-            "heightPx": 893,
-            "visualPx": 562,
+            "heightPx": 895,
+            "visualPx": 555,
             "pictured": true,
-            "before": 241,
-            "after": 89
+            "before": 277,
+            "after": 72
           },
           "heading": {
             "text": "Starting With Samples Before Bulk",
@@ -9462,7 +9462,7 @@
           ],
           "estimate": {
             "heightPx": 734,
-            "visualPx": 609,
+            "visualPx": 602,
             "pictured": true,
             "before": 44,
             "after": 88
@@ -9476,9 +9476,9 @@
       ],
       "words": 2158,
       "estimate": {
-        "heightPx": 13795,
-        "visualAreaPct": 39.3,
-        "longestTextOnlyPx": 2231,
+        "heightPx": 13825,
+        "visualAreaPct": 39.2,
+        "longestTextOnlyPx": 2214,
         "wordsPer1000px": 156
       },
       "band": {
@@ -9503,10 +9503,10 @@
         "cap": 12,
         "estimate": {
           "words": 2158,
-          "heightPx": 12989,
+          "heightPx": 13019,
           "visualAreaPct": 36,
           "wordsPer1000px": 166,
-          "longestTextOnlyPx": 2405
+          "longestTextOnlyPx": 2431
         },
         "limits": []
       }
@@ -9580,7 +9580,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 446,
-            "visualPx": 192,
+            "visualPx": 196,
             "pictured": true,
             "before": 129,
             "after": 138
@@ -9599,11 +9599,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 1108,
-            "visualPx": 698,
+            "heightPx": 1107,
+            "visualPx": 686,
             "pictured": true,
-            "before": 299,
-            "after": 111
+            "before": 343,
+            "after": 89
           },
           "heading": {
             "text": "Packed and Labelled in Our Own Guangzhou Factory",
@@ -9621,7 +9621,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 571,
-            "visualPx": 246,
+            "visualPx": 251,
             "pictured": true,
             "before": 166,
             "after": 177
@@ -9836,11 +9836,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           },
           "heading": {
             "text": "Embroidered Logos for Stretch Swim Fabrics",
@@ -10003,7 +10003,7 @@
           ],
           "estimate": {
             "heightPx": 734,
-            "visualPx": 609,
+            "visualPx": 602,
             "pictured": true,
             "before": 44,
             "after": 88
@@ -10017,7 +10017,7 @@
       ],
       "words": 2428,
       "estimate": {
-        "heightPx": 13106,
+        "heightPx": 13118,
         "visualAreaPct": 41.4,
         "longestTextOnlyPx": 1985,
         "wordsPer1000px": 185
@@ -10044,7 +10044,7 @@
         "cap": 12,
         "estimate": {
           "words": 2428,
-          "heightPx": 13106,
+          "heightPx": 13118,
           "visualAreaPct": 41.4,
           "wordsPer1000px": 185,
           "longestTextOnlyPx": 1985
@@ -10101,11 +10101,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 1025,
-            "visualPx": 646,
+            "heightPx": 1026,
+            "visualPx": 636,
             "pictured": true,
-            "before": 277,
-            "after": 103
+            "before": 318,
+            "after": 82
           },
           "heading": {
             "text": "Factory-Direct Sublimation Printing from Guangzhou",
@@ -10219,11 +10219,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           },
           "heading": {
             "text": "Artwork Files, Repeats and Design Support",
@@ -10268,11 +10268,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           },
           "heading": {
             "text": "Pantone Colour Matching for Your Prints",
@@ -10484,7 +10484,7 @@
           ],
           "estimate": {
             "heightPx": 734,
-            "visualPx": 609,
+            "visualPx": 602,
             "pictured": true,
             "before": 44,
             "after": 88
@@ -10498,10 +10498,10 @@
       ],
       "words": 1613,
       "estimate": {
-        "heightPx": 10237,
+        "heightPx": 10264,
         "visualAreaPct": 36.1,
-        "longestTextOnlyPx": 1773,
-        "wordsPer1000px": 158
+        "longestTextOnlyPx": 1763,
+        "wordsPer1000px": 157
       },
       "band": {
         "wordsPer1000px": {
@@ -10525,10 +10525,10 @@
         "cap": 12,
         "estimate": {
           "words": 1613,
-          "heightPx": 10237,
+          "heightPx": 10264,
           "visualAreaPct": 36.1,
-          "wordsPer1000px": 158,
-          "longestTextOnlyPx": 1773
+          "wordsPer1000px": 157,
+          "longestTextOnlyPx": 1763
         },
         "limits": []
       }
@@ -10603,11 +10603,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 975,
-            "visualPx": 614,
+            "heightPx": 976,
+            "visualPx": 605,
             "pictured": true,
-            "before": 263,
-            "after": 98
+            "before": 303,
+            "after": 78
           },
           "heading": {
             "text": "Our Own Factory in Guangzhou",
@@ -10989,7 +10989,7 @@
           ],
           "estimate": {
             "heightPx": 734,
-            "visualPx": 609,
+            "visualPx": 602,
             "pictured": true,
             "before": 44,
             "after": 88
@@ -11003,8 +11003,8 @@
       ],
       "words": 2195,
       "estimate": {
-        "heightPx": 12047,
-        "visualAreaPct": 41,
+        "heightPx": 12048,
+        "visualAreaPct": 40.9,
         "longestTextOnlyPx": 1623,
         "wordsPer1000px": 182
       },
@@ -11030,8 +11030,8 @@
         "cap": 12,
         "estimate": {
           "words": 2195,
-          "heightPx": 11241,
-          "visualAreaPct": 37.3,
+          "heightPx": 11242,
+          "visualAreaPct": 37.2,
           "wordsPer1000px": 195,
           "longestTextOnlyPx": 2961
         },
@@ -11208,11 +11208,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 931,
-            "visualPx": 586,
+            "heightPx": 933,
+            "visualPx": 578,
             "pictured": true,
-            "before": 251,
-            "after": 93
+            "before": 289,
+            "after": 75
           },
           "heading": {
             "text": "Our Own Guangzhou Factory for Fabric Sourcing",
@@ -11278,11 +11278,11 @@
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           },
           "heading": {
             "text": "Which Fabrics Take Digital Prints",
@@ -11352,11 +11352,11 @@
             "material"
           ],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           },
           "heading": {
             "text": "Recycled Content and Fabric Certifications",
@@ -11373,11 +11373,11 @@
           "surface": "tinted",
           "slots": [],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           },
           "heading": {
             "text": "Swim Fabric Swatch Kits and Samples",
@@ -11424,11 +11424,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           },
           "heading": {
             "text": "Wet Opacity, Linings and Fabric Care",
@@ -11447,11 +11447,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 644,
-            "visualPx": 219,
+            "heightPx": 657,
+            "visualPx": 230,
             "pictured": true,
-            "before": 122,
-            "after": 148
+            "before": 118,
+            "after": 138
           },
           "heading": {
             "text": "Chlorine Resistance and Fabric Testing",
@@ -11589,7 +11589,7 @@
           ],
           "estimate": {
             "heightPx": 734,
-            "visualPx": 609,
+            "visualPx": 602,
             "pictured": true,
             "before": 44,
             "after": 88
@@ -11603,10 +11603,10 @@
       ],
       "words": 1776,
       "estimate": {
-        "heightPx": 12402,
-        "visualAreaPct": 39.2,
-        "longestTextOnlyPx": 1873,
-        "wordsPer1000px": 143
+        "heightPx": 12469,
+        "visualAreaPct": 39.4,
+        "longestTextOnlyPx": 1911,
+        "wordsPer1000px": 142
       },
       "band": {
         "wordsPer1000px": {
@@ -11630,10 +11630,10 @@
         "cap": 12,
         "estimate": {
           "words": 1776,
-          "heightPx": 12402,
-          "visualAreaPct": 39.2,
-          "wordsPer1000px": 143,
-          "longestTextOnlyPx": 1873
+          "heightPx": 12469,
+          "visualAreaPct": 39.4,
+          "wordsPer1000px": 142,
+          "longestTextOnlyPx": 1911
         },
         "limits": []
       }
@@ -11686,7 +11686,7 @@
           "slots": [],
           "estimate": {
             "heightPx": 357,
-            "visualPx": 154,
+            "visualPx": 157,
             "pictured": true,
             "before": 104,
             "after": 111
@@ -11957,11 +11957,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 931,
-            "visualPx": 586,
+            "heightPx": 933,
+            "visualPx": 578,
             "pictured": true,
-            "before": 251,
-            "after": 93
+            "before": 289,
+            "after": 75
           },
           "heading": {
             "text": "An Online Store Ready on Launch Day",
@@ -12075,7 +12075,7 @@
           ],
           "estimate": {
             "heightPx": 734,
-            "visualPx": 609,
+            "visualPx": 602,
             "pictured": true,
             "before": 44,
             "after": 88
@@ -12089,9 +12089,9 @@
       ],
       "words": 2042,
       "estimate": {
-        "heightPx": 10582,
+        "heightPx": 10584,
         "visualAreaPct": 34,
-        "longestTextOnlyPx": 2129,
+        "longestTextOnlyPx": 2111,
         "wordsPer1000px": 193
       },
       "band": {
@@ -12116,10 +12116,10 @@
         "cap": 10,
         "estimate": {
           "words": 2042,
-          "heightPx": 10582,
+          "heightPx": 10584,
           "visualAreaPct": 34,
           "wordsPer1000px": 193,
-          "longestTextOnlyPx": 2129
+          "longestTextOnlyPx": 2111
         },
         "limits": []
       }
@@ -12173,11 +12173,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 704,
-            "visualPx": 268,
+            "heightPx": 698,
+            "visualPx": 258,
             "pictured": true,
-            "before": 162,
-            "after": 155
+            "before": 154,
+            "after": 154
           },
           "heading": {
             "text": "Our Story: One Guangzhou Factory Since 2011",
@@ -12247,11 +12247,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 704,
-            "visualPx": 268,
+            "heightPx": 698,
+            "visualPx": 258,
             "pictured": true,
-            "before": 162,
-            "after": 155
+            "before": 154,
+            "after": 154
           },
           "heading": {
             "text": "Everything Under One Roof, From Pattern to Carton",
@@ -12270,11 +12270,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 704,
-            "visualPx": 268,
+            "heightPx": 698,
+            "visualPx": 258,
             "pictured": true,
-            "before": 162,
-            "after": 155
+            "before": 154,
+            "after": 154
           },
           "heading": {
             "text": "Order Minimums for Small and Growing Labels",
@@ -12452,8 +12452,8 @@
       ],
       "words": 1138,
       "estimate": {
-        "heightPx": 7162,
-        "visualAreaPct": 36,
+        "heightPx": 7144,
+        "visualAreaPct": 35.6,
         "longestTextOnlyPx": 1329,
         "wordsPer1000px": 159
       },
@@ -12479,8 +12479,8 @@
         "cap": 10,
         "estimate": {
           "words": 1138,
-          "heightPx": 7162,
-          "visualAreaPct": 36,
+          "heightPx": 7144,
+          "visualAreaPct": 35.6,
           "wordsPer1000px": 159,
           "longestTextOnlyPx": 1329
         },
@@ -12648,7 +12648,7 @@
           ],
           "estimate": {
             "heightPx": 734,
-            "visualPx": 609,
+            "visualPx": 602,
             "pictured": true,
             "before": 44,
             "after": 88
@@ -12663,7 +12663,7 @@
       "words": 535,
       "estimate": {
         "heightPx": 3943,
-        "visualAreaPct": 31.2,
+        "visualAreaPct": 31.1,
         "longestTextOnlyPx": 2659,
         "wordsPer1000px": 136
       },
@@ -13097,11 +13097,11 @@
             "material"
           ],
           "estimate": {
-            "heightPx": 704,
-            "visualPx": 268,
+            "heightPx": 698,
+            "visualPx": 258,
             "pictured": true,
-            "before": 162,
-            "after": 155
+            "before": 154,
+            "after": 154
           },
           "heading": {
             "text": "Test Reports & Certifications",
@@ -13189,11 +13189,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 704,
-            "visualPx": 268,
+            "heightPx": 698,
+            "visualPx": 258,
             "pictured": true,
-            "before": 162,
-            "after": 155
+            "before": 154,
+            "after": 154
           },
           "heading": {
             "text": "Customs & Export Documents",
@@ -13212,11 +13212,11 @@
             "process"
           ],
           "estimate": {
-            "heightPx": 704,
-            "visualPx": 268,
+            "heightPx": 698,
+            "visualPx": 258,
             "pictured": true,
-            "before": 162,
-            "after": 155
+            "before": 154,
+            "after": 154
           },
           "heading": {
             "text": "Dispatch & Delivery to Your Door",
@@ -13260,7 +13260,7 @@
           ],
           "estimate": {
             "heightPx": 734,
-            "visualPx": 609,
+            "visualPx": 602,
             "pictured": true,
             "before": 44,
             "after": 88
@@ -13274,10 +13274,10 @@
       ],
       "words": 2015,
       "estimate": {
-        "heightPx": 14666,
-        "visualAreaPct": 28.2,
+        "heightPx": 14648,
+        "visualAreaPct": 28,
         "longestTextOnlyPx": 1808,
-        "wordsPer1000px": 137
+        "wordsPer1000px": 138
       },
       "band": {
         "wordsPer1000px": {
@@ -13301,9 +13301,9 @@
         "cap": 12,
         "estimate": {
           "words": 2015,
-          "heightPx": 13860,
-          "visualAreaPct": 24.5,
-          "wordsPer1000px": 145,
+          "heightPx": 13842,
+          "visualAreaPct": 24.2,
+          "wordsPer1000px": 146,
           "longestTextOnlyPx": 2352
         },
         "limits": []
@@ -13466,7 +13466,7 @@
           ],
           "estimate": {
             "heightPx": 734,
-            "visualPx": 609,
+            "visualPx": 602,
             "pictured": true,
             "before": 44,
             "after": 88
@@ -13481,7 +13481,7 @@
       "words": 455,
       "estimate": {
         "heightPx": 4044,
-        "visualAreaPct": 37.3,
+        "visualAreaPct": 37.1,
         "longestTextOnlyPx": 2454,
         "wordsPer1000px": 113
       },
@@ -13508,7 +13508,7 @@
         "estimate": {
           "words": 455,
           "heightPx": 4044,
-          "visualAreaPct": 37.3,
+          "visualAreaPct": 37.1,
           "wordsPer1000px": 113,
           "longestTextOnlyPx": 2454
         },
@@ -13666,7 +13666,7 @@
           ],
           "estimate": {
             "heightPx": 734,
-            "visualPx": 609,
+            "visualPx": 602,
             "pictured": true,
             "before": 44,
             "after": 88
@@ -13681,7 +13681,7 @@
       "words": 749,
       "estimate": {
         "heightPx": 5192,
-        "visualAreaPct": 46.3,
+        "visualAreaPct": 46.2,
         "longestTextOnlyPx": 1629,
         "wordsPer1000px": 144
       },
@@ -13708,7 +13708,7 @@
         "estimate": {
           "words": 749,
           "heightPx": 4386,
-          "visualAreaPct": 37.9,
+          "visualAreaPct": 37.8,
           "wordsPer1000px": 171,
           "longestTextOnlyPx": 2591
         },
@@ -13789,7 +13789,7 @@
           ],
           "estimate": {
             "heightPx": 734,
-            "visualPx": 609,
+            "visualPx": 602,
             "pictured": true,
             "before": 44,
             "after": 88
@@ -13804,7 +13804,7 @@
       "words": 125,
       "estimate": {
         "heightPx": 1813,
-        "visualAreaPct": 54.4,
+        "visualAreaPct": 54,
         "longestTextOnlyPx": 763,
         "wordsPer1000px": 69
       },
@@ -14013,7 +14013,7 @@
           ],
           "estimate": {
             "heightPx": 734,
-            "visualPx": 609,
+            "visualPx": 602,
             "pictured": true,
             "before": 44,
             "after": 88
@@ -14028,7 +14028,7 @@
       "words": 761,
       "estimate": {
         "heightPx": 5007,
-        "visualAreaPct": 26.7,
+        "visualAreaPct": 26.6,
         "longestTextOnlyPx": 2452,
         "wordsPer1000px": 152
       },
@@ -14211,7 +14211,7 @@
           ],
           "estimate": {
             "heightPx": 734,
-            "visualPx": 609,
+            "visualPx": 602,
             "pictured": true,
             "before": 44,
             "after": 88
@@ -14226,7 +14226,7 @@
       "words": 801,
       "estimate": {
         "heightPx": 4753,
-        "visualAreaPct": 42.2,
+        "visualAreaPct": 42.1,
         "longestTextOnlyPx": 1580,
         "wordsPer1000px": 169
       },
@@ -14253,7 +14253,7 @@
         "estimate": {
           "words": 801,
           "heightPx": 4753,
-          "visualAreaPct": 42.2,
+          "visualAreaPct": 42.1,
           "wordsPer1000px": 169,
           "longestTextOnlyPx": 1580
         },
@@ -15657,7 +15657,7 @@
       "words": 1264,
       "estimate": {
         "heightPx": 8397,
-        "visualAreaPct": 29.5,
+        "visualAreaPct": 29.4,
         "longestTextOnlyPx": 1205,
         "wordsPer1000px": 151
       },
@@ -15684,7 +15684,7 @@
         "estimate": {
           "words": 1264,
           "heightPx": 8397,
-          "visualAreaPct": 29.5,
+          "visualAreaPct": 29.4,
           "wordsPer1000px": 151,
           "longestTextOnlyPx": 1205
         },
