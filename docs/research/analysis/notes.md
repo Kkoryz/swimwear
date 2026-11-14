@@ -127,8 +127,8 @@ module; nothing faked in CSS):
 - **FAQ two-column** (home): the competitor puts the eyebrow and heading above two columns of questions; the template's
   two-column variant sets the heading beside one column of questions.
 - **FAQ first answer per page type**: `faqFirst` is site-wide. The home FAQ starts closed, while the solution FAQ opens
-  its first answer; the site uses `closed`. The solution bars' ▸ marker sits at the left of the question; the
-  template's mark sits at the right.
+  its first answer; the site uses `open` (design review: the about FAQ showed three closed questions and no answer).
+  The solution bars' ▸ marker sits at the left of the question; the template's mark sits at the right.
 - **Heading alignment per page type**: the competitor centres its headings on the manufacturer, about and contact
   pages, and sets them on the left on home and solution. `headingAlign` is site-wide (`start`), and the site rules keep
   every section heading on the left edge. Only the about and contact page titles are centred (`--hero-align`).
@@ -157,3 +157,33 @@ module; nothing faked in CSS):
   stands away from the text it ends on any site using the band with its button. The treatment sets it under the first
   step of the last row (reference.css); the template's default would do better to follow `headingAlign` and the last
   row's start.
+- **Home hero title weight** (`/`, hero, design-gate P2): the title is already set at 800 (reference.css), the heaviest
+  weight `fonts.css` declares for DM Sans; a heavier title than the shots show needs the fonts step (a heavier instance
+  or face), not the treatment.
+- **Card rows already shared** (`/`, featureGrid-2, design-gate P2): the template already gives each card the row's
+  tracks (patterns.css `.feature-grid > .feature-card` subgrid over `--card-rows`, 3 for numbered cards), which is the
+  rule the finding asks for; a card text still starting a line lower needs looking into in the template, and a second
+  copy of the rule in reference.css would only hold the card apart from the template's own.
+- **Phone hero portrait** (`/swimwear-consulting/`, hero mobile, design-gate P2): `phoneHeroes` is written by
+  `apply-reference-analysis.mjs` only when the heroes have phone sources, and this library's heroes have none (no portrait
+  twin to show); the template has no hook to set the copy in the lower part of the frame either.
+- **Contact hours on one line** (`/contact-us/`, channels): the cards now share the content width, which gives the time
+  room; keeping "9:00-18:00" together needs a non-breaking dash in the copy or a hook on the hours value alone.
+
+## Asked against the site rules
+
+Findings of scope "site" not repaired as asked, because the asked fix breaks one of the site's layout rules (the part
+the rules allow was repaired):
+
+- `/swimwear-consulting/` m8 and `/swimwear-accessories/` featureGrid-1 (and process-1): the step and point titles were
+  to be set "one step above the body size" / "at least the item text's size". Titles and headings are sized by the
+  template to their own words; no rule sets their font-size. Repaired: weight 700, numbered accent numerals, check
+  markers.
+- `/custom-swimwear-printing/` splitMedia-1 (mobile): an `aspect-ratio: 4 / 3` for the wide row's photo on phones is a
+  frame shape copied from the competitor; the template sets frame ratios from the photos (treatment practice, Photos).
+- `/` owner-testimonials and `/swimwear-accessories/` owner-testimonials: `grid-template-columns: repeat(auto-fit, ...)`
+  / `repeat(3, 1fr)` sets a grid's columns, which are the template's. Repaired instead through the carousel: when every
+  card is in view the cards share the row (`.track[data-fits] .track__item { flex-grow: 1 }`).
+- `/faq/`, `/terms-and-conditions/`, `/privacy-policy/` related: `grid-template-columns: repeat(auto-fill, minmax(18rem,
+  24rem))` sets the related grid's columns and a fixed card width. Repaired instead: a lone related link is as wide as
+  its own label (`width: fit-content` on a one-link list).

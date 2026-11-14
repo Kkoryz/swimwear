@@ -20,7 +20,7 @@
     "splitMedia": "alternate",
     "proof": "band",
     "faq": "two-column",
-    "faqFirst": "closed",
+    "faqFirst": "open",
     "cta": "image-band",
     "testimonials": "carousel",
     "logos": "marquee",
@@ -28,7 +28,7 @@
     "form": "media",
     "blog": {
       "hub": {
-        "header": "plain",
+        "header": "banner",
         "card": "bordered"
       },
       "post": {
@@ -952,7 +952,18 @@
       "contact": {
         "featureGrid": "columns",
         "form": "media",
-        "contactChannels": "cards"
+        "contactChannels": "cards",
+        "process": "list"
+      },
+      "general": {
+        "process": "timeline"
+      },
+      "blog_hub": {
+        "blocks": {
+          "table-1": {
+            "variant": "cards"
+          }
+        }
       },
       "product_manufacturer": {
         "splitSequence": [

@@ -51,8 +51,9 @@
   --container-max: 87.5rem;
   --gutter: 20px;
   /* The competitor pads its sections in vw steps (2vw, 3vw, 4vw, 6vw); the gap between two sections' content is two
-     paddings. 6vw at 1440 (86.4px, its MOQ band's padding), 48px on phones. */
-  --section-space: clamp(3rem, 6vw, 5.4rem);
+     paddings. 6vw at 1440 (86.4px, its MOQ band's padding); 72px on phones (its phone sections leave 60-80px above a
+     heading). */
+  --section-space: clamp(4.5rem, 6vw, 5.4rem);
   --header-height: 79.1563px;
   --grid-gap: 1.75rem;
 
@@ -72,7 +73,6 @@
   --channel-card-border: 1px solid #979797;
   --channel-card-radius: 10px;
   --channel-card-padding: 0.9375rem 0.9375rem 1.5rem;
-  --channel-card-width: 15.3125rem;
   --channel-icon-box: 4.625rem;
   --channel-icon-size: 2.25rem;
   --channel-icon-bg: transparent;
@@ -101,10 +101,14 @@
 .block h2 { line-height: 1; }
 .eyebrow { font-weight: 600; line-height: 1.3; }
 .page-hero h1 { line-height: 1.1; }
-.feature-card__title { font-weight: 700; line-height: 1.5; }
+/* Card titles set solid, wrapping only between words (the competitor never hyphenates a heading). */
+.feature-card__title { font-weight: 700; line-height: 1.25; }
+.feature-grid .feature-card .feature-card__title { hyphens: manual; }
 .stats__value { font-weight: 700; }
-/* Running text holds to a reading column (about 70 characters) at every width. */
+/* Running text holds to a reading column (about 70 characters) at every width; the larger lead of a text flow to the
+   same line width as the runs under it. */
 main[data-authoring-page] .block p, .page-hero__lead { max-width: 70ch; }
+main[data-authoring-page] .block p.text-flow__lead { max-width: 62ch; }
 /* Inline links: the competitor's underlined blue (darkened to pass AA, global.css --link). */
 main[data-authoring-page] :is(.text-flow, .block__lead, .page-lead, .page-hero__lead, .faq__item, .cta__text, .point-list__item, .band__copy) a:not(.button) { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
 
@@ -132,23 +136,26 @@ main[data-authoring-page] :is(.text-flow, .block__lead, .page-lead, .page-hero__
 /* Hero (home, solution: photo with the copy on the left; about: centred title on the photo; contact: plain centred
    title; manufacturer: bare photo banner with the title under it). */
 .page-hero[data-variant="media-overlay"] .eyebrow { --tracking-eyebrow: 0.9px; }
-.page-hero[data-variant="media-overlay"] .page-hero__lead { font-family: var(--font-body); font-weight: 700; letter-spacing: 0; line-height: 1.7; }
+/* The lead in the body face at its regular weight (solution: regular, only key phrases bold); the home lead is bold. */
+.page-hero[data-variant="media-overlay"] .page-hero__lead { font-family: var(--font-body); letter-spacing: 0; line-height: 1.7; }
+main[data-page-type="home"] .page-hero[data-variant="media-overlay"] .page-hero__lead { font-weight: 700; }
 .page-hero__actions { gap: 0.75rem; }
 .page-hero[data-variant="media-overlay"] {
   --button-secondary-bg: #f6f3ec;
   --button-secondary-text: #111111;
   --button-secondary-border: #f6f3ec;
-  /* Text across the photo (tablets, phones): an even overlay. 0.55 keeps the white eyebrow at 4.5:1 and the aqua title
-     at 3:1 over a white patch of photo. */
-  --hero-overlay: rgb(0 0 0 / 0.55);
   --hero-min-height: clamp(560px, 62.5vw, 900px);
 }
+/* Text across the photo (tablets, phones): an even overlay. 0.55 keeps the white eyebrow at 4.5:1 and the aqua title
+   at 3:1 over a white patch of photo. */
+main[data-hero-photo] .page-hero[data-variant="media-overlay"] { --hero-overlay: rgb(0 0 0 / 0.55); }
 @media (max-width: 767px) { .page-hero[data-variant="media-overlay"] { --size-lead: 0.875rem; --hero-min-height: 150vw; } }
-/* Copy on the left (desktop): dark under the copy, 0.32 by about 12rem past its end, clear toward the right edge. */
+/* Copy on the left (desktop): dark under the copy as far as its end, 0.3 by 8rem past it, clear by 20rem past it, so
+   the subject on the right of the photo keeps its light. */
 @media (min-width: 1024px) {
-  .page-hero[data-variant="media-overlay"] {
+  main[data-hero-photo] .page-hero[data-variant="media-overlay"] {
     --hero-copy-end: calc(max(0px, (100% - var(--container-max) - 2 * var(--gutter)) / 2) + var(--gutter) + 46rem);
-    --hero-overlay: linear-gradient(to right, rgb(0 0 0 / 0.6) 0, rgb(0 0 0 / 0.55) calc(var(--hero-copy-end) + 2rem), rgb(0 0 0 / 0.32) calc(var(--hero-copy-end) + 12rem), rgb(0 0 0 / 0) calc(var(--hero-copy-end) + 30rem));
+    --hero-overlay: linear-gradient(to right, rgb(0 0 0 / 0.6) 0, rgb(0 0 0 / 0.55) var(--hero-copy-end), rgb(0 0 0 / 0.3) calc(var(--hero-copy-end) + 8rem), rgb(0 0 0 / 0) calc(var(--hero-copy-end) + 20rem));
   }
 }
 main[data-page-type="home"] .page-hero[data-variant="media-overlay"] h1 { color: var(--accent); font-weight: 800; }
@@ -188,9 +195,35 @@ main[data-page-type="product_manufacturer"] .button { min-height: 44px; padding:
 main[data-page-type="product_manufacturer"] .button--primary { background: #000000; color: #ffffff; }
 main[data-page-type="product_manufacturer"] .button--primary:hover { background: var(--surface-dark); color: var(--text-inverse); }
 .block--page-lead { --size-lead: clamp(1.0625rem, 1.4vw, 1.25rem); }
+/* Blog hub: the title on its photo band, bold as the competitor's page titles (its size stays the template's). */
+.blog-hub-hero h1 { font-weight: 700; }
 
 /* Text sections: plain text on the page (the competitor's text sections carry no panel). */
 .block--proof[data-variant="band"] .text-block { padding: 0; border-radius: 0; background: transparent; }
+
+/* Order cases: the competitor's 1px grey outline, no accent rule. */
+.order-case { border: 1px solid #979797; }
+
+/* Tables: single light row rules, no cell grid (the competitor's facts carry hairlines only). A table's long column
+   keeps to a reading line: the table holds about 70 characters of text beside its label columns, from the heading's
+   left edge. A chart panel's scroll shade takes the panel's own colour. */
+.prose__table th, .prose__table td { border: 0; border-bottom: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent); }
+.block--table .table-block__scroll { max-width: calc(70ch + 20rem); }
+.prose__chart .prose__table[data-scroll="sideways"] {
+  background:
+    linear-gradient(to right, var(--surface-secondary), var(--surface-secondary) 30%, transparent) left center / 2.5rem 100% no-repeat local,
+    linear-gradient(to left, var(--surface-secondary), var(--surface-secondary) 30%, transparent) right center / 2.5rem 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, rgb(0 0 0 / 0.2), transparent) left center / 0.9rem 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, rgb(0 0 0 / 0.2), transparent) right center / 0.9rem 100% no-repeat scroll;
+}
+
+/* A split row's charts in the photo's place: each chart at its own height, the set level with the copy's middle. */
+@media (min-width: 900px) {
+  .block--split:not([data-variant="stacked"]) .split[data-layout="split"] > .split__charts { grid-template-rows: none; }
+}
+
+/* Related pages: a lone link is a link card of its own width, not a bar across the page. */
+.related-pages--grid .related-links:has(> li:only-child) { width: fit-content; max-width: 100%; }
 
 /* Cards: 1px black outline, 6px corners, 32px inset, no shadow; the number in the title's own type. */
 .block--grid { --grid-gap: 1.75rem; }
@@ -198,6 +231,21 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
 [data-pattern="outline-numbered"] .feature-card__number { font-family: var(--font-display); font-size: var(--size-card-heading); font-weight: 700; line-height: 1.5; color: var(--text-primary); }
 [data-pattern="numbered"] .feature-card__number { font-size: 1.75rem; font-weight: 500; line-height: 1.2; color: var(--accent-text); }
 [data-pattern="boxed"] .feature-card__title { border-radius: 0; }
+/* Solution: the cards are filled panels without an outline (beige on white, white on the tinted band: the tint sets
+   --surface-secondary to white inside it). */
+main[data-page-type="solution"] [data-variant="outlined"] .feature-card { border-color: transparent; background: var(--surface-secondary); }
+/* Points beside their heading (bullets): a bold title over its text, the accent check as the marker. */
+.point-list__title { font-weight: 700; }
+.point-list__items:not([data-numbered]) { list-style-type: "\2713\00A0\00A0"; }
+.point-list__items:not([data-numbered]) > .point-list__item::marker { color: var(--accent-text); font-weight: 700; }
+/* The intro and its points stack at the list's own gap on phones (the lead's bottom margin added a second gap). */
+.point-list__intro > .block__lead:last-child { margin-bottom: 0 !important; }
+@media (max-width: 899px) { .point-list { row-gap: 1.25rem; } }
+
+/* Check lists: bold item titles set solid, the check in the light-surface blue, level with the title's first line. */
+.icon-list__item { align-items: baseline; }
+.icon-list__icon { color: var(--accent-text); margin-top: 0; }
+.block--icon-list .icon-list__item h3 { font-weight: 700; line-height: 1.25; }
 
 /* Text and photo rows: the manufacturer's sampling panel is blush and square. */
 .block--split[data-variant="panel"] .split__copy {
@@ -215,10 +263,24 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
 .block--stats[data-variant="trust-bar"] .stats { text-align: start; }
 .block--stats[data-variant="trust-bar"] .stats__item { padding-top: 1rem; border-top: 1px solid rgb(255 255 255 / 0.35); }
 .block--stats[data-variant="trust-bar"] .stats__label { font-family: var(--font-ui); font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; }
+/* Trust bar under the hero: a figure balances its lines, and the labels of a row sit level at its foot. */
+.trust-bar__value, .block--stats[data-variant="trust-bar"] .stats__value { text-wrap: balance; }
+.trust-bar__item { align-content: space-between; }
 
-/* Steps: the solution page's numbered columns over a hairline on navy (small numbers, no filled marker). */
+/* Steps: bold step titles over regular text (the competitor's sub-heads are Maison 700). */
 .block--process { --size-subheading: 1.0625rem; }
+.block--process :is(.process-step__title, .point-list__title) { font-weight: 700; }
+/* The list variant: each step under a light hairline, its zero-padded number large and bold in the light-surface blue
+   in a column of its own (the competitor's process list, 01 02 03). */
+.block--process .point-list__items[data-numbered] { padding-left: 0; list-style: none; counter-reset: step; gap: 0; }
+.block--process .point-list__items[data-numbered] > .point-list__item { position: relative; padding-block: 1rem; padding-left: 3.5rem; border-top: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent); counter-increment: step; }
+.block--process .point-list__items[data-numbered] > .point-list__item::before { content: counter(step, decimal-leading-zero); position: absolute; top: 1rem; left: 0; font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1; color: var(--accent-text); }
+/* The timeline starts on the content's left edge under its heading. */
+body[data-heading-align="start"] .block--process .process-timeline { margin-inline: 0; }
+/* The band's numbers start on the step titles' edge; its button stands clear of the last step's text. */
 .block--process[data-variant="band"] { --process-marker-bg: transparent; --process-marker-text: var(--text-inverse); }
+.block--process[data-variant="band"] .process-step__marker { width: auto; place-items: center start; }
+.block--process .process__cta { margin-top: 2rem; }
 /* The band's enquiry button stays in the steps' flow: under the first step of their last row (this site's headings
    start on the content's left edge), not centred under steps set from the left. A short last row the template centres
    starts some tracks in (gridPlan --tracks, --start), and the button with it. */
@@ -249,12 +311,14 @@ main[data-page-type="home"] .block--faq { --size-display: clamp(2rem, 3.611vw, 3
    (the template's wrapping row set it beside the 70ch paragraph). */
 .block--cta[data-variant="inline"] .cta__content { flex-direction: column; align-items: flex-start; }
 
-/* Closing photo band: the copy on the darker left of the photo, white-outlined pills, h2 60/84. */
+/* Closing photo band: the copy on the darker left of the photo, solid white pills with dark text, h2 60/84. */
 [data-variant="image-band"] .cta { min-height: clamp(320px, 42vw, 614px); --cta-overlay: rgb(0 0 0 / 0.55); }
 [data-variant="image-band"] .cta__content { max-width: 40rem; }
 [data-variant="image-band"] .cta__heading { line-height: 1.4; }
-[data-variant="image-band"] .cta .button--primary { background: transparent; color: var(--text-inverse); border: 1px solid currentColor; }
-[data-variant="image-band"] .cta .button--primary:hover { background: var(--text-inverse); color: #000000; }
+[data-variant="image-band"] .cta .button--primary { background: #ffffff; color: #000000; border: 1px solid #ffffff; }
+[data-variant="image-band"] .cta .button--primary:hover { background: var(--accent); color: var(--accent-contrast); border-color: var(--accent); }
+/* Phones: a closing button runs its column's width, its label on one line (the competitor's full-width pills). */
+@media (max-width: 767px) { .block--cta .cta .button { width: 100%; padding-inline: 1rem; letter-spacing: 0; } }
 @media (min-width: 1024px) {
   [data-variant="image-band"] .cta {
     --cta-copy-end: calc(clamp(2rem, 5vw, 4rem) + 40rem);
@@ -273,25 +337,40 @@ main[data-page-type="home"] .block--faq { --size-display: clamp(2rem, 3.611vw, 3
 /* Contact: square black-outlined fields, a full-width dark SEND bar, a photo with rounded corners, channel cards with
    a black label bar. */
 .form-block__media { --radius-media: 10px; }
-:is(.form-block__form, .cta__form) .button--primary { min-height: 37px; border-radius: 0; background: #262626; color: #ffffff; font-size: 0.9375rem; font-weight: 400; }
+:is(.form-block__form, .cta__form) .button--primary { width: 100%; min-height: 37px; border-radius: 0; background: #262626; color: #ffffff; font-size: 0.9375rem; font-weight: 400; }
 :is(.form-block__form, .cta__form) .button--primary:hover { background: #000000; color: #ffffff; }
+/* The consent tick: full size, outlined, ticked in the bar's near-black. */
+:is(.form-block__form, .cta__form) input[type="checkbox"] { flex: none; width: 1.25rem; height: 1.25rem; margin-top: 0.15rem; accent-color: #262626; }
 .contact-channels { --grid-gap: 0.625rem; }
+/* The channel cards share the content's width from its left edge, under their heading, with the heading's gap. */
+.block .contact-channels__heading { margin-bottom: 1.5rem !important; }
+.contact-channels[data-variant="cards"] { justify-content: flex-start; }
+.contact-channels[data-variant="cards"] > .contact-channel { flex: 1 1 0; min-width: min(100%, 10rem); }
+@media (max-width: 599px) { .contact-channels[data-variant="cards"] > .contact-channel { flex-basis: 100%; } }
 .contact-channels[data-variant="cards"] .contact-channel { gap: 0.75rem; }
 .contact-channels[data-variant="cards"] .contact-channel__name { justify-self: stretch; padding: 0.5rem 1rem; border-radius: 8px; background: #000000; color: #ffffff; font-family: var(--font-ui); font-size: 1.25rem; font-weight: 700; letter-spacing: 0; line-height: 1.5; text-transform: none; }
 .contact-channels[data-variant="list"] .contact-channel { padding: 1rem 1.25rem; border: 1px solid #979797; border-radius: var(--radius-card); background: var(--surface-primary); }
 
-/* Logos: bare marks in one moving row, no tiles. Testimonials: white quote cards on the sage band. */
+/* Logos: bare marks in one moving row, no tiles; a name keeps to one line. The moving row fades out at both ends; at
+   rest it spreads across the content. */
 .logos__item, .logos__item[data-wordmark] { border-color: transparent; background: transparent; }
-.block--testimonials { background: var(--surface-band-mint); }
+.logos-marquee[data-marquee-run] .logos-marquee__viewport { mask-image: linear-gradient(to right, transparent, #000 2rem, #000 calc(100% - 2rem), transparent); }
+.logos-marquee:not([data-marquee-run]) .logos-marquee__rail { width: 100%; }
+.logos-marquee:not([data-marquee-run]) .logos-marquee__row { flex: 1 1 auto; justify-content: space-between; padding-right: 0; }
+.logos-marquee:not([data-marquee-run]) .logos-marquee__row .logos__item { flex: 0 0 auto; min-width: var(--logos-item-width, 10rem); }
+.logos-marquee:not([data-marquee-run]) .logos__name { white-space: nowrap; }
+/* Testimonials: white quote cards on the page's alternating surface; when every card is in view they share the row. */
+.testimonials[data-variant="carousel"] .track[data-fits] .track__item { flex-grow: 1; }
 
 /* Footer: #003049, the brand column centred beside a thin rule, uppercase column titles, 16/24 links 36px apart,
    centred legal lines; on phones the groups fold under letter-spaced titles with a chevron. */
 .site-footer { padding-block: 3.5rem 2rem; background: var(--surface-footer); }
-.site-footer__brand { font-family: var(--font-ui); font-size: 1.25rem; font-weight: 600; letter-spacing: 4px; line-height: 1.3; text-transform: uppercase; }
+/* The brand name takes its column's alignment (centred), as the contact lines and links under it do. */
+.site-footer__brand { justify-self: var(--footer-brand-align, start); text-align: var(--footer-brand-align, start); font-family: var(--font-ui); font-size: 1.25rem; font-weight: 600; letter-spacing: 4px; line-height: 1.3; text-transform: uppercase; }
 .site-footer__contact { font-size: 1rem; gap: 0.75rem; }
 .site-footer__title { font-family: var(--font-ui); font-size: 1.125rem; font-weight: 600; letter-spacing: 0.3px; line-height: 1.3; text-transform: uppercase; }
 .site-footer__links { gap: 0.75rem; font-size: 1rem; line-height: 1.5; }
-@media (min-width: 1024px) { .site-footer__brand-column { padding-right: 2rem; border-right: 1px solid rgb(0 0 0 / 0.3); } }
+@media (min-width: 1024px) { .site-footer__brand-column { padding-right: 2rem; border-right: 1px solid rgb(255 255 255 / 0.3); } }
 .site-footer__bottom { margin-top: 3rem; padding-top: 0; border-top: 0; font-size: 0.875rem; line-height: 1.5; }
 .site-footer__bottom-inner { flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; }
 .site-footer__legal { justify-content: center; }
