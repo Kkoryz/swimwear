@@ -204,10 +204,10 @@
   },
   "template-check": {
     "status": "passed",
-    "hash": "4bf85ffd5624c5d3",
-    "at": "2026-11-14T09:46:14.373Z",
+    "hash": "6fec40c035985ec9",
+    "at": "2026-11-14T11:17:42.799Z",
     "seconds": 47,
-    "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/template-check.log"
+    "log": ".pipeline/logs/2026-11-14T10-49-24-604Z/template-check.log"
   },
   "build": {
     "status": "passed",
