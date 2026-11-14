@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "7da291e4d584137d498be559",
+  "shots": "15f11880a52630bfa1c878ab",
   "rules": "896e2a6360c1caaa",
   "pageType": "blog_hub",
   "route": "/blog/",
@@ -11,9 +11,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "Still open from the last review: the hero's lead (about 40 words) still sits on the photo. At 390 px it runs five centred lines right under the two-line H1, with the 'g' of 'Blog' almost touching its first line, and fills the whole 275 px band. At 1440 px it fills the band under the title too, so the photo shows only as a dark texture behind text.",
+      "issue": "Still open from the last review: the hero's 40-word lead still sits on the photo. At 390 px it runs five centred lines just under the two-line H1, with the descender of 'Blog' about 12 px from its first line, and fills the whole 275 px band. At 1440 px it takes three lines under the title, so the photo reads only as dark texture behind the text.",
       "reference": "The competitor's matching page puts only its bold title on the photo, with no lead, and starts its running text on white under the photo band.",
-      "fix": "Apply the template's rule that a hero lead much longer than the competitor's stands under the hero: render .blog-hub-hero__lead under the banner, on white, as the page's lead, and keep only the H1 on the photo."
+      "fix": "Apply the template's rule that a hero lead much longer than the competitor's stands under the hero: render .blog-hub-hero__lead under the banner on white as the page's lead, and keep only the H1 on the photo."
     },
     {
       "block": "overview-steps",
@@ -21,18 +21,18 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "Still open from the last review: the three plain sections after the hero (overview, overview-steps, table-1) still all sit on white one under the other, at both widths, so only padding separates them.",
+      "issue": "Still open from the last review: the three plain sections after the hero (overview, overview-steps, table-1) all still sit on white one under another, at both widths, so only padding separates them.",
       "reference": "The site's rule, which follows the competitor's banded pages, is that neighbouring plain sections alternate white and tinted backgrounds.",
-      "fix": "The template should alternate the plain sections' backgrounds so that overview-steps, between the white overview and the white table-1, takes var(--section-tint)."
+      "fix": "The template's alternation should give overview-steps, between the white overview and the white table-1, the var(--section-tint) background."
     },
     {
       "block": "overview-steps",
       "viewport": "desktop",
       "severity": "P1",
       "scope": "content",
-      "issue": "Still open from the last review: the process section still has no heading. Its left column holds only the small bold line 'Quality checks at every stage of an order.' (about body size at 1440 px) beside the five steps, between H2 sections above and below, and leaves most of that column empty.",
-      "reference": "The competitor's process lists open with an H2 above their lead, in the left column beside the steps.",
-      "fix": "Site Factory should give the overview-steps visual (blog page copy) a heading, for example 'Quality Checks at Every Stage', so the block renders an H2 above the caption line."
+      "issue": "Still open from the last review: the process section still has no H2. Its left column holds only the lead 'Quality checks at every stage of an order.', now set at card-heading size, between H2 sections above and below, and leaves most of the column empty beside the five steps.",
+      "reference": "The competitor's numbered-steps module opens its left column with an H2 above its text, beside the numbered steps.",
+      "fix": "Site Factory should give the overview-steps copy a heading (e.g. 'Quality Checks at Every Stage') so the block renders an H2 above the lead line."
     },
     {
       "block": "hero",
@@ -40,9 +40,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "At 390 px the H1 'The Strandmill Blog' is held at 38 px and breaks into a centred 'The Strandmill' over one orphan word, 'Blog'.",
-      "reference": "The competitor's phone hero title keeps to its line(s) without leaving a single word on its last line.",
-      "fix": "The template's title fit should size a short title to its own words at phone widths: about 32 px keeps these three words on one line, or the fit can balance the lines (text-wrap: balance) so no line holds a lone word. No fixed font-size in reference.css."
+      "issue": "Still open from the last review: at 390 px the H1 'The Strandmill Blog' (38 px) still breaks into a centred 'The Strandmill' with the one word 'Blog' alone on its second line.",
+      "reference": "The competitor's phone hero title keeps to its line without leaving one word alone on its last line.",
+      "fix": "The template's title fit should size a short title to its own words at phone widths (one line at about 32 px), or balance the lines (text-wrap: balance) so no line holds a lone word. No fixed font-size in reference.css."
     },
     {
       "block": "hero",
@@ -50,27 +50,18 @@
       "severity": "P2",
       "scope": "template",
       "gap": "art-direction",
-      "issue": "Still open from the last review: at 390 px the hero is a 275 px band cut from a wide photo, so the photo barely reads behind its text. The competitor's phone hero is a tall portrait photo that fills most of the first screen.",
+      "issue": "Still open from the last review: at 390 px the hero is a 275 px band cut from a wide photo and is covered by text, so the photo barely reads.",
       "reference": "The competitor's phone hero shows its factory photo as a tall portrait frame (about 550 px at 390 px wide) with only the title over it.",
       "fix": "Let the hero take a portrait crop or a separate portrait photo on phones (art direction per breakpoint) instead of stretching the wide photo's frame, which would cut the photo away."
     },
     {
       "block": "table-1",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "content",
-      "issue": "Still open from the last review: each of the ten cards repeats the same grey sub-label 'What this means for you' between its title and its text. The line adds no information, makes the set read as boilerplate, and at 390 px adds ten more lines to a 3,100 px stack.",
-      "reference": "The competitor's outlined cards carry only a title and its text, with no repeated label.",
-      "fix": "Site Factory should drop the repeated 'What this means for you' column label from the table-1 rows, or give each row its own short line, so each card shows its title and then its text."
-    },
-    {
-      "block": "header",
       "viewport": "mobile",
       "severity": "P2",
-      "scope": "site",
-      "issue": "At 390 px the menu toggle shows as a small three-bar icon about 14 px wide, half the size of the competitor's, so it reads as a weak control and looks small to tap.",
-      "reference": "The competitor's phone header shows its hamburger as three white bars about 26 px wide on the blue bar, level with the wordmark.",
-      "fix": "In reference.css, enlarge the header's menu-toggle icon (bar width and thickness) to about 24-26 px and make sure the button's hit area is at least 44 x 44 px."
+      "scope": "content",
+      "issue": "Still open from the last review: each of the ten outlined cards repeats the same grey label 'What this means for you' between its title and its text. The line adds nothing, makes the set read as boilerplate, and adds ten lines to a stack of about 3,100 px at 390 px.",
+      "reference": "The competitor's outlined cards carry only a title (bold) and its text, with no repeated label.",
+      "fix": "Site Factory should drop the repeated 'What this means for you' column label from the table-1 rows, or give each row its own short line, so each card shows its title and then its text."
     }
   ]
 }

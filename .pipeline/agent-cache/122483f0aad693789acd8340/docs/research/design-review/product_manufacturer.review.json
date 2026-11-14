@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "50553bad53b0a7f0a4c3a6ba",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "product_manufacturer",
+  "route": "/swimwear-accessories/",
+  "findings": [
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Still open: the hero button 'Request a quote for swimwear accessories' still sits right on the tinted trust bar, with almost no white under it on desktops and none at 390px, because the media-banner hero has no bottom padding of its own.",
+      "reference": "The competitor leaves about 40px or more of white under its hero buttons ('Request Price', 'Book a Call') before the next section starts.",
+      "fix": "In template.css give .page-hero[data-variant=\"media-banner\"] .page-hero__inner a bottom padding (e.g. calc(var(--section-space) / 2)), so the space under the button sits on the hero's white and not inside the trust bar's tint."
+    },
+    {
+      "block": "featureGrid-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "Still open: featureGrid-1 is set out as a check list beside its heading right under iconList-1, which has the same shape, so two same-shape sections stand one under the other. m9 (a featureGrid set out as a two-column check list) followed by m10 (an iconList) repeats this further down.",
+      "reference": "The site rule is that when two same-shape sections meet, the template sets only one of them out as a list beside its heading. The competitor never stacks two lists laid out the same way.",
+      "fix": "In the template's same-shape check, count an iconList as already being a list beside its heading. A featureGrid next to an iconList then keeps its card grid (featureGrid-1 after iconList-1, m9 before m10)."
+    },
+    {
+      "block": "iconList-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Still open: on desktops the iconList item titles ('Standalone orders', 'Exposure and finish', 'Colour approval') and the faq questions are fitted almost as large as their section heading, while the point lists in featureGrid-1 and m9 use small bold titles, so the page shows two list-title sizes and the item level crowds the heading.",
+      "reference": "The competitor keeps its bold sub-heads ('Pricing Custom Swimwear Designs', 'Ready Designs', 'Custom Designs') just above body size, clearly below its section headings.",
+      "fix": "In the shared heading-fit step, cap the fitted size of an item h3 (icon-list item, faq question) at desktop widths as is already done on phones, e.g. at about 0.65 of its section h2's fitted size."
+    },
+    {
+      "block": "related",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Still open: the related-links section is white right after the white owner-testimonials section (at both widths), so two plain sections in a row share one background while the rest of the page alternates.",
+      "reference": "The site rule is that neighbouring plain sections alternate white and tinted backgrounds, set by the template.",
+      "fix": "In the template's surface alternation, count owner-testimonials after the photo wall media-module-budget-1, so that related takes the --section-tint surface."
+    },
+    {
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The beige frame is gone, but the photo of the blush panel row still sits inset in the blush: about 40px of blush above and below it, with its outer edge on the content column and not the section's edge. At 390px the same padding leaves a blush strip of about 35px under the photo before m8.",
+      "reference": "The competitor's 'Sampling' split runs its photo to the panel's top, bottom and outer edge, so the blush copy panel and the photo meet as two flush halves.",
+      "fix": "In src/styles/reference.css set .block--split[data-variant=\"panel\"] to padding-block: 0 and let its media column run to the section's outer edge (the copy column keeps its own padding). Below 768px, also drop the bottom padding under the photo."
+    }
+  ]
+}

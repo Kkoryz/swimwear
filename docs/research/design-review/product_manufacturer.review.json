@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "2fbfb74d81bc05271400f15f",
+  "shots": "50553bad53b0a7f0a4c3a6ba",
   "rules": "896e2a6360c1caaa",
   "pageType": "product_manufacturer",
   "route": "/swimwear-accessories/",
@@ -11,7 +11,7 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "Still open: the hero button 'Request a quote for swimwear accessories' sits only about 10px above the tinted trust bar on desktops and touches it at 390px, because the media-banner hero has no bottom padding of its own.",
+      "issue": "Still open: the hero button 'Request a quote for swimwear accessories' still sits right on the tinted trust bar, with almost no white under it on desktops and none at 390px, because the media-banner hero has no bottom padding of its own.",
       "reference": "The competitor leaves about 40px or more of white under its hero buttons ('Request Price', 'Book a Call') before the next section starts.",
       "fix": "In template.css give .page-hero[data-variant=\"media-banner\"] .page-hero__inner a bottom padding (e.g. calc(var(--section-space) / 2)), so the space under the button sits on the hero's white and not inside the trust bar's tint."
     },
@@ -31,7 +31,7 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "Still open: on desktops the iconList item titles ('Standalone orders', 'Exposure and finish', 'Colour approval') are fitted to about 26px bold under a section heading of about 32px, so the item level reads almost as heavy as the heading. The point lists in featureGrid-1 and m9 use small bold titles of about 16px, so the page shows two list-title sizes. The faq questions repeat this beside their heading.",
+      "issue": "Still open: on desktops the iconList item titles ('Standalone orders', 'Exposure and finish', 'Colour approval') and the faq questions are fitted almost as large as their section heading, while the point lists in featureGrid-1 and m9 use small bold titles, so the page shows two list-title sizes and the item level crowds the heading.",
       "reference": "The competitor keeps its bold sub-heads ('Pricing Custom Swimwear Designs', 'Ready Designs', 'Custom Designs') just above body size, clearly below its section headings.",
       "fix": "In the shared heading-fit step, cap the fitted size of an item h3 (icon-list item, faq question) at desktop widths as is already done on phones, e.g. at about 0.65 of its section h2's fitted size."
     },
@@ -47,21 +47,12 @@
     },
     {
       "block": "m7",
-      "viewport": "mobile",
+      "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "Partly open from the last review: at 390px the blush panel and its photo now run to the sides, but the section's block padding still shows a beige strip of about 30px above the blush panel and under the photo, so the blush-and-photo pair still sits framed in beige. On desktops the same beige frame surrounds the pair on all four sides.",
-      "reference": "The competitor's 'Sampling' split runs its blush copy panel and its photo edge to edge; the blush is the section's only colour, with no second band around it.",
-      "fix": "In src/styles/reference.css give .block--split[data-variant=\"panel\"] the panel's blush as its surface (or, below 768px, set its padding-block to 0 so the panel and photo meet the neighbouring sections), so no beige frame shows around the blush panel."
-    },
-    {
-      "block": "faq-charts",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "Still open: values still break into stacks of three or four lines ('Custom- / moulded, / plus mould / fee', 'Rose gold, / gunmetal or / matte black'). The fixed table layout for small charts (.chart-comparison table:not(:has(thead th:nth-of-type(3)))) still misses this chart, because its empty label header counts as a third th.",
-      "reference": "The competitor keeps short figures to one or two lines on phones.",
-      "fix": "In src/styles/reference.css, below 768px, apply table-layout: fixed to charts of up to three columns (:not(:has(thead th:nth-of-type(4)))) and drop the chart panel's inline padding, so the table uses the column's full width."
+      "issue": "The beige frame is gone, but the photo of the blush panel row still sits inset in the blush: about 40px of blush above and below it, with its outer edge on the content column and not the section's edge. At 390px the same padding leaves a blush strip of about 35px under the photo before m8.",
+      "reference": "The competitor's 'Sampling' split runs its photo to the panel's top, bottom and outer edge, so the blush copy panel and the photo meet as two flush halves.",
+      "fix": "In src/styles/reference.css set .block--split[data-variant=\"panel\"] to padding-block: 0 and let its media column run to the section's outer edge (the copy column keeps its own padding). Below 768px, also drop the bottom padding under the photo."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "f16753d6a5e8adfcc9f8edb6",
+  "shots": "beaa9d1d72f9b1d576ce06e4",
   "rules": "896e2a6360c1caaa",
   "pageType": "contact",
   "route": "/contact-us/",
@@ -11,9 +11,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The REQUEST A QUOTE button still ends right on the top edge of the tinted trustBar band, with no white space under it, because the plain hero's inner still has no bottom padding.",
-      "reference": "Under its centred title and lead, the competitor's plain hero (hero:plain) leaves clear white space before the next module starts.",
-      "fix": "In template.css, give .page-hero[data-variant=\"plain\"] .page-hero__inner a bottom padding (e.g. padding-block: calc(var(--section-space) / 2)) so that a tinted neighbour never starts right under the hero's button."
+      "issue": "The REQUEST A QUOTE button still ends right on the top edge of the tinted trustBar band with no white space under it, because the plain hero's inner still has no bottom padding.",
+      "reference": "The competitor's plain hero (hero:plain) leaves clear white space under its centred title and lead before the next module starts.",
+      "fix": "In template.css, give .page-hero[data-variant=\"plain\"] .page-hero__inner a bottom padding (e.g. padding-block-end: calc(var(--section-space) / 2)) so a tinted neighbour never starts right under the hero's button."
     },
     {
       "block": "hero",
@@ -26,29 +26,29 @@
       "fix": "The same template change: give .page-hero[data-variant=\"plain\"] .page-hero__inner a bottom padding."
     },
     {
-      "block": "faq",
-      "viewport": "desktop",
+      "block": "hero",
+      "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "The FAQ's question column starts about 130px further left than the right column of the process, iconList and form sections above and below it, so the page's two-column split jumps at this one section.",
-      "reference": "The competitor's modules keep one column grid down the page.",
-      "fix": "In reference.css, give .block--faq[data-variant=\"two-column\"] the same column ratio as the process and iconList splits (the same grid-template-columns), so its questions start on the shared right-column edge."
+      "issue": "On phones the centred hero lead ends in a short last line ('is made.'), which looks like a stray fragment under four full centred lines.",
+      "reference": "The competitor's centred phone lead ends in a line close to the length of the lines above it.",
+      "fix": "In reference.css, set text-wrap: balance (or pretty) on .page-hero__lead so the centred lines even out."
     },
     {
-      "block": "faq",
-      "viewport": "desktop",
+      "block": "channels",
+      "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "The first question sits about 20px lower than the 'Frequently Asked Questions' heading beside it, because the summary's 1.25rem top padding pushes it down, so the heading and the list are not level.",
-      "reference": "In the competitor's side-by-side modules, the heading and the first item start on one line.",
-      "fix": "In reference.css, set padding-top: 0 on .block--faq[data-variant=\"two-column\"] .faq__item:first-child summary (or remove the first item's top padding) so the first question is level with the heading."
+      "issue": "Stacked one per row on phones, the four contact cards each carry a full-width black label bar set as large as on desktop, so four heavy black bars dominate the screen.",
+      "reference": "The competitor's channel cards on phones keep a compact black pill label with small type in each card.",
+      "fix": "In reference.css under max-width: 767px, size the label of .contact-channels[data-variant=\"cards\"] .contact-channel down (smaller font-size and padding-block), keeping the card's one-column stack."
     },
     {
       "block": "form",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "content",
-      "issue": "The consent line still ends '…as described in the privacy policy. Privacy policy', which repeats the link's words right after the sentence (the same on mobile).",
+      "issue": "The consent line still ends '…as described in the privacy policy. Privacy policy', repeating the link's words right after the sentence (the same on mobile).",
       "reference": "The competitor's form has no repeated text.",
       "fix": "End the consent copy before the link (e.g. '…as described in our') or make 'privacy policy' inside the sentence the link."
     },

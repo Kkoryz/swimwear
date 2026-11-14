@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "28e27897c8997290ecb416bb",
+  "shots": "b132551b635b87b0151f64e0",
   "rules": "896e2a6360c1caaa",
   "pageType": "solution",
   "route": "/swimwear-consulting/",
@@ -11,9 +11,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "Still not fixed in the current shots: splitMedia-3 is tinted beige right after the tinted m4/m4-2 card set, so two neighbouring plain sections share one background. At 390 px the m4-2 cards run straight into the split row's lead paragraph with almost no gap.",
-      "reference": "The competitor alternates its sections between white, beige and navy, so neighbouring sections always differ.",
-      "fix": "Make the template's tint alternation count splitMedia-3 as the section after the m4 set, so it renders white through --section-tint."
+      "issue": "Still not fixed in the current shots: splitMedia-3 is tinted beige directly after the tinted m4/m4-2 card set, so two neighbouring plain sections share one background. Its lead paragraph also starts about 10px under the m4-2 cards; at 390 px it starts at the section's top edge with no gap at all.",
+      "reference": "The competitor alternates its sections between white, beige and navy, so neighbouring sections always differ, and each section opens after a full section gap.",
+      "fix": "Make the template's tint alternation count splitMedia-3 as the section after the m4 set, so it renders white through --section-tint, with the template's normal section padding above its copy."
     },
     {
       "block": "owner-testimonials",
@@ -30,19 +30,9 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "content",
-      "issue": "Still not fixed in the current shots: the navy step band has no heading. After the FAQ it reads as five loose figures and a button under an empty strip of navy padding (same at 390 px, where about 70 px of bare navy comes before step 01).",
+      "issue": "Still not fixed in the current shots: the navy step band has no heading. After the FAQ it reads as five loose figures and a button under an empty strip of navy padding (same at 390 px, where about 70px of bare navy comes before step 01).",
       "reference": "The competitor's navy six-step band opens with an eyebrow and an h2 ('HOW IT WORKS' / 'Six steps from Costing to delivery') above its columns.",
       "fix": "Add a section heading to the faq-steps block in the page copy, for example a consulting timeline title."
-    },
-    {
-      "block": "m6",
-      "viewport": "mobile",
-      "severity": "P1",
-      "scope": "template",
-      "gap": "layout",
-      "issue": "Still not fixed in the current shots: at 390 px the three-column comparison table squeezes its values to one or two words per line ('Process / map, KPI / dashboard / and cost- / reduction / roadmap'), and the column header 'Organizational' is cut off at the cell edge ('Organizationa'). splitMedia-1 ('Positioning, / unit / economics, …') and splitMedia-3 ('Go-to- / market plan, / marketing / mix …') do the same.",
-      "reference": "The competitor's page has no tables. At 390 px its two-part comparisons ('Planning your collection' / 'What sells and what doesnt') stack as full-width panels with normal line lengths.",
-      "fix": "At narrow widths, show the comparison table as stacked rows: each row label becomes a small heading over its two values, and each value carries its column name, instead of a three-column grid."
     },
     {
       "block": "splitMedia-3",
@@ -54,12 +44,22 @@
       "fix": "Add a section heading to splitMedia-3 in the copy, for example one on the sales and marketing strategy."
     },
     {
+      "block": "m6",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "Partly fixed: the column header 'Organizational structure and talent' is no longer cut off. But at 390 px the three-column comparison table still squeezes its values to one or two words per line ('Process map, / KPI dashboard / and cost- / reduction / roadmap'). splitMedia-1 ('Positioning, / unit / economics, …') and splitMedia-3 ('Go-to-market / plan, marketing / mix, funnel …') do the same.",
+      "reference": "The competitor's page has no tables. At 390 px its two-part comparisons ('Planning your collection' / 'What sells and what doesnt') stack as full-width panels with normal line lengths.",
+      "fix": "At narrow widths, show the comparison table as stacked rows: each row label becomes a small heading over its two values, and each value carries its column name, instead of a three-column grid."
+    },
+    {
       "block": "hero",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "At 390 px the page title is fitted down to 26px over three lines, which is no larger than the section headings below it. 'Frequently Asked Questions' and 'Swimwear Brand Consulting Built on…' are set at the same size, so the title does not stand above the h2 level.",
+      "issue": "Still not fixed in the current shots: at 390 px the page title is fitted down to 26px over three lines, no larger than the section headings below it ('Swimwear Brand Consulting Built on…', 'Frequently Asked Questions'), so the title does not stand above the h2 level.",
       "reference": "The competitor's phone hero headline ('Your first collection, step by step.', about 38px) is clearly larger than its section h2s (32px).",
       "fix": "In the template's heading fit for phones, keep the page title at least one step above the section heading size, letting it take a fourth line instead of shrinking to the h2 size. Leave font-size and the fit variables untouched in reference.css."
     },
@@ -69,7 +69,7 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "Still not fixed in the current shots: the step titles ('Agree the engagement', 'Diagnose the business') are set at body size, only bolder, so each title and its description read as one block next to the large blue numerals (at 390 px the title is no larger than the text under it). This was re-scoped from site to template because .point-list__title is an h3, and only the template may size it.",
+      "issue": "Still not fixed in the current shots: the step titles ('Agree the engagement', 'Diagnose the business') are set at body size, only bolder, so each title and its description read as one block beside the large blue numerals (at 390 px the title is no larger than the text under it).",
       "reference": "The competitor's 01–03 steps set the title ('Custom Designs', 22px) clearly larger than its body text, beside a large blue numeral.",
       "fix": "In the template's heading sizing, give the process list variant's step titles (.point-list__title) a level above body text, so each heading level stays smaller than the one above and larger than the text it heads."
     }

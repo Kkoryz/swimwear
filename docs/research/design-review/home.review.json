@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "0fdd9d1d375a7c90d1c30926",
+  "shots": "f6c9c98f9180a79273d5434a",
   "rules": "896e2a6360c1caaa",
   "pageType": "home",
   "route": "/",
@@ -112,13 +112,13 @@
       "fix": "Apply the template's rule for long hero leads on the home page: render the lead under the hero, at the start of the section after it, and keep only the H1 and the button on the photo."
     },
     {
-      "block": "owner-testimonials",
+      "block": "hero",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "In the three testimonial cards, the third card's rule and attribution still sit about 13 px lower than the other two. The attributions are pinned to the foot and the third has only one line, so the parts of one row are out of line.",
-      "reference": "The competitor's testimonial cards align their quote, rule and name across the row.",
-      "fix": "In reference.css, make the testimonial item a subgrid (on the track: grid-template-rows: auto auto; on each item: grid-row: span 2; grid-template-rows: subgrid). The rules then sit level across the row, with each attribution starting under its rule."
+      "issue": "The hero H1 (\"Swimwear Manufacturer With Our Own Factory in Guangzhou\") is set in a semibold weight, a step lighter than the competitor's hero title, so the opening reads softer than the reference at both widths.",
+      "reference": "The competitor's hero title \"Launch Your Swim Label\" is set in a heavy, black-weight display face in the same pale-blue colour.",
+      "fix": "In reference.css raise font-weight on .page-hero h1 to 800 (or the display font's heaviest weight). Leave its size and fit variables untouched."
     },
     {
       "block": "related",
