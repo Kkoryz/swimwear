@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "bde6bf9702a04112",
+  "shots": "fc3d4e58fbdba28b",
   "status": "passed",
   "findings": [
     {
@@ -146,13 +146,13 @@
       "pageType": "home",
       "review": "home",
       "route": "/",
-      "block": "owner-testimonials",
+      "block": "hero",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "In the three testimonial cards, the third card's rule and attribution still sit about 13 px lower than the other two. The attributions are pinned to the foot and the third has only one line, so the parts of one row are out of line.",
-      "reference": "The competitor's testimonial cards align their quote, rule and name across the row.",
-      "fix": "In reference.css, make the testimonial item a subgrid (on the track: grid-template-rows: auto auto; on each item: grid-row: span 2; grid-template-rows: subgrid). The rules then sit level across the row, with each attribution starting under its rule."
+      "issue": "The hero H1 (\"Swimwear Manufacturer With Our Own Factory in Guangzhou\") is set in a semibold weight, a step lighter than the competitor's hero title, so the opening reads softer than the reference at both widths.",
+      "reference": "The competitor's hero title \"Launch Your Swim Label\" is set in a heavy, black-weight display face in the same pale-blue colour.",
+      "fix": "In reference.css raise font-weight on .page-hero h1 to 800 (or the display font's heaviest weight). Leave its size and fit variables untouched."
     },
     {
       "pageType": "home",
@@ -175,9 +175,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The 30-word lead ('Since 2011 we have run bulk lines…') and the aqua CONTACT US pill still sit on the photo under the centred title, in four centred lines that end on 'order size.'. The competitor's About hero has no lead at all, and the site rule puts a lead much longer than the competitor's under the hero.",
-      "reference": "The competitor's About hero is the sewing-floor photo with only the centred white H1 on it: no lead and no button.",
-      "fix": "Apply the on-photo lead limit per page type instead of site-wide (heroText.leadWords; the about reference has 0 words), so that PageHero.astro's heroLeadShown() moves the about lead and its button into the block under the hero."
+      "issue": "The 30-word lead ('Since 2011 we have run bulk lines…') and the aqua CONTACT US pill are still on the photo, centred in four lines under the title, though the site rule puts a lead much longer than the competitor's under the hero.",
+      "reference": "The competitor's About hero is the factory photo with only the centred white H1 on it: no lead and no button.",
+      "fix": "Set the on-photo lead limit per page type (heroText.leadWords; the about reference has 0 words), so PageHero.astro's heroLeadShown() moves the about lead and its button into the block under the hero."
     },
     {
       "pageType": "about",
@@ -188,8 +188,8 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "On phones the same lead still runs to four lines of small centred text over the busy rose-and-wall photo, between the three-line title and the large aqua pill, so the whole lower half of the hero is text over the picture.",
-      "reference": "The competitor's phone hero carries only the white H1 over the photo; its text follows under the photo.",
+      "issue": "On phones the same lead still runs to four lines of small centred text over the busy rose-and-wall photo, between the three-line title and the large aqua pill, so the lower half of the hero is all text over the picture.",
+      "reference": "The competitor's phone hero carries only the white H1 over the photo; its text comes after the photo.",
       "fix": "Use the same per-page-type lead limit in PageHero.astro (heroLeadShown()), so the about lead and its button go under the hero at every width."
     },
     {
@@ -201,9 +201,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "On /about-us/ the 'About Us' nav item still looks like the others. No component in src/ sets aria-current on a nav link, so the treatment's `.site-nav__link[aria-current=\"page\"]` rule (lighter #d3ebfd plus an underline) never applies.",
+      "issue": "On /about-us/ the 'About Us' nav item still looks like the other items: no component in src/ sets aria-current on a nav link (only Breadcrumbs and pagination do), so the treatment's `.site-nav__link[aria-current=\"page\"]` rule (lighter #d3ebfd, underline) never applies.",
       "reference": "The competitor's header shows the current page's item ('About') in a lighter tone.",
-      "fix": "In SiteHeader.astro, set aria-current=\"page\" on the nav link (and the dropdown link) whose route matches the current page."
+      "fix": "In SiteHeader.astro, set aria-current=\"page\" on the nav link (and dropdown sublink) whose route matches the current page."
     },
     {
       "pageType": "about",
@@ -213,7 +213,7 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "content",
-      "issue": "Two of the four figures still read as cut-off phrases ('65 that' over 'SAMPLING TEAM', '55 custom' over 'DAILY SAMPLES'). On phones '100,000 pieces' wraps to two lines, so its label 'MONTHLY CAPACITY' sits lower than 'FOUNDED' beside it in the 2×2 grid.",
+      "issue": "Two of the four figures still read as cut-off phrases ('65 that' over 'SAMPLING TEAM', '55 custom' over 'DAILY SAMPLES'). On phones '100,000 pieces' wraps to two lines, so 'MONTHLY CAPACITY' sits lower than 'FOUNDED' beside it.",
       "reference": "The competitor's figure rows set a short value over a clear uppercase label.",
       "fix": "Site Factory: rewrite the value/label pairs, e.g. '65' / 'person sampling team', '55' / 'custom samples a day', '100,000' / 'pieces a month'."
     },
@@ -226,8 +226,8 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "The six steps wrap into two rows of three, but the connecting line still runs only through the first row and goes on past marker 03 to the column's edge, while steps 04–06 have no line. The second row looks cut off from the sequence.",
-      "reference": "The competitor's six-step module sets every step on the same hairline.",
+      "issue": "The six steps wrap into two rows of three, but the connecting line still runs only through the first row and on past marker 03 to the column edge, while steps 04–06 have no line, so the second row looks detached from the sequence.",
+      "reference": "The competitor's step module sets every step on the same hairline.",
       "fix": "Draw the process rule per row, on each row's marker line instead of one line across the whole step list, and end it at the row's last marker."
     },
     {
@@ -239,9 +239,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "After m6's tint, the logo row, the testimonials and the FAQ still stand on white one after another (the same at 390px). Three plain sections run together while every section above them alternates.",
-      "reference": "The site rule: neighbouring plain sections alternate white and tinted backgrounds, and the template sets this.",
-      "fix": "Make the template's section-surface alternation count the logos and testimonials blocks, so that the testimonials section (or the FAQ) takes --section-tint and breaks the white run."
+      "issue": "After m6's tint, the logo row, the testimonials and the FAQ still stand on white one after another (the same at 390px), while every section above them alternates.",
+      "reference": "The site rule: neighbouring plain sections alternate white and tinted backgrounds, set by the template.",
+      "fix": "Make the template's section-surface alternation count the logos and testimonials blocks, so the testimonials section takes --section-tint and breaks up the white run."
     },
     {
       "pageType": "about",
@@ -254,7 +254,7 @@
       "gap": "layout",
       "issue": "m5 ('How We Check Quality at Every Stage') and m6 ('Certifications and Compliance Paperwork') are still both a heading with a check list of short items beside it, one under the other, so only the background changes between them.",
       "reference": "The site rule: two sections of the same shape do not stand one under the other; the template sets only one of them out as a list beside its heading.",
-      "fix": "In the template's layout pass, when two adjacent iconList sections share the list-beside-heading shape, lay out the second one differently (e.g. as a check grid under its heading)."
+      "fix": "In the template's layout pass, when two adjacent iconList sections both have the list-beside-heading shape, set the second one out differently (e.g. a two-column check grid under its heading)."
     },
     {
       "pageType": "about",
@@ -267,19 +267,43 @@
       "gap": "art-direction",
       "issue": "The tall phone frame still crops the photo to its stone wall and roses, with only part of the sitter's dress at the lower-right edge, so the subject is almost out of the frame.",
       "reference": "The competitor's phone hero uses its own phone crop (banner-about-us-mobile.webp), so the scene stays in the frame.",
-      "fix": "Give the about hero photo a phone crop or focal point on the sitter, set by the template (--hero-focal or a phone image source), not by reference.css."
+      "fix": "Give the about hero photo a phone crop or a focal point on the sitter, set by the template (--hero-focal or a phone image source), not by reference.css."
     },
     {
       "pageType": "about",
       "review": "about",
       "route": "/about-us/",
-      "block": "owner-logos",
+      "block": "faq",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The second question breaks at the hyphen of 'in-house' ('…pattern makers in-' / 'house to develop our styles?'), so the heading reads as a hyphenated word split across two lines.",
+      "reference": "The competitor's headings keep their words whole on one line.",
+      "fix": "Site Factory: write 'in‑house' with a non-breaking hyphen (U+2011) in the FAQ question (or reword it as 'in your own studio'), so the compound stays on one line."
+    },
+    {
+      "pageType": "about",
+      "review": "about",
+      "route": "/about-us/",
+      "block": "owner-testimonials",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "On phones the moving logo row is cut off hard at the content edge, so the first name reads 'OLD BASICS' over 'nwear, UK' with no fade, which looks like clipped text, not motion.",
-      "reference": "The competitor's sliding rows let items enter and leave at the edge of the row without a hard cut through a word.",
-      "fix": "In reference.css, add an edge fade to `.logos-marquee[data-marquee-run]` (e.g. mask-image: linear-gradient(to right, transparent, #000 2rem, #000 calc(100% - 2rem), transparent)) so names fade in and out at the row's ends."
+      "issue": "On phones, where the carousel shows one quote card at a time, the card has a blank strip about 70px tall between the five-line quote and its rule. This is because the subgrid levelling added in reference.css sizes the quote track to the hidden second card's longer quote.",
+      "reference": "The competitor's quote cards close their attribution under the quote with no empty band.",
+      "fix": "In reference.css, apply the `.testimonials[data-variant=\"carousel\"]:not(:has(.testimonial__headline))` subgrid rules only when cards share a row (inside @media (min-width: 768px) or under `.track[data-fits]`), so a single phone card sizes to its own quote."
+    },
+    {
+      "pageType": "general",
+      "review": "general",
+      "route": "/faq/",
+      "block": "overview-steps",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Still there: in the numbered step lists (overview-steps, process-1), each bold step title is set smaller than its own description, so 'Brief or tech pack' and 'Agree commercial details' read as captions. The iconList item titles on the same page ('Starting minimum', 'In-house quality checks') are larger than their text, and desktop shows the same.",
+      "reference": "The competitor's step modules put a bold title over each step that is at least the size of the text below it (outlined card titles are 700 22px over smaller body text).",
+      "fix": "In reference.css, give `.block--process .point-list__title` the same font-size as the iconList item titles (at least the body size, e.g. 1.125rem–1.25rem). Today the rule at line 356 only sets font-weight: 700."
     },
     {
       "pageType": "general",
@@ -311,24 +335,12 @@
       "pageType": "general",
       "review": "general",
       "route": "/faq/",
-      "block": "overview-steps",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "In the numbered step lists (overview-steps, process-1), each bold step title is set smaller than its own description. For example, 'Agree commercial details' and 'Brief or tech pack' sit at 16px above body text that renders larger, so the title reads as a caption. The iconList item titles on the same page ('Starting minimum', 'In-house quality checks') are larger than their text.",
-      "reference": "The competitor's step modules put a bold title over each step that is at least the size of the text below it (outlined card titles are 700 22px over smaller body text).",
-      "fix": "In reference.css, give `.block--process .point-list__title` the same font-size as the iconList item titles (at least the body size, e.g. 1.125rem–1.25rem). Today it only sets font-weight: 700 and leaves the 1rem from patterns.css."
-    },
-    {
-      "pageType": "general",
-      "review": "general",
-      "route": "/faq/",
       "block": "m8-steps",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "Still there: the four steps from 'Sign off sample and specs' to 'Bulk production' are an unnumbered table. They sit right above process-1's blue 01–05 steps and below overview-steps' 01–06, so this is the only step list on the page without numbers.",
+      "issue": "Still there: the four steps from 'Sign off sample and specs' to 'Bulk production' are an unnumbered table. They sit between overview-steps' blue 01–06 and process-1's 01–05, so this is the only step list on the page without numbers.",
       "reference": "The competitor's step modules, including its six-step timeline, put a number on every step, with a bold title over a thin rule.",
       "fix": "In the timeline variant of ProcessBlock (.process-timeline__label), show the accent decimal-leading-zero number before each step title, as .point-list__items[data-numbered] does."
     },
@@ -341,7 +353,7 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "Still there: on phones about 55px of empty space separates 'From sign-off to bulk production' from the first step, and that step has no rule above it, so the heading looks cut off from its list. overview-steps has a rule above its first step and the normal gap.",
+      "issue": "Still there: on phones about 55px of empty space separates 'From sign-off to bulk production' from 'Sign off sample and specs', and that first step has no rule above it, so the heading looks cut off from its list. overview-steps has a rule above its first step and the normal gap.",
       "reference": "The competitor's step lists follow their heading at the usual gap between a heading and its content.",
       "fix": "In the single-column layout of .process-timeline, use the heading-to-content gap instead of the side-by-side row gap between the heading and the first row, and draw the top rule on the first row, as overview-steps' list variant does."
     },
@@ -354,9 +366,22 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "Still there: in the side column beside its steps, the heading 'Order Confirmation & Scheduling' breaks into three lines, with 'Order' alone on the first. The other side headings on the page (m3, m7, m9) keep to two balanced lines.",
+      "issue": "Still there: in the side column beside its steps, the heading 'Order Confirmation & Scheduling' breaks into three lines, with 'Order' alone on the first. The other side headings on the page (m3, m7, m9) keep to two balanced lines, and on phones this heading also keeps to two.",
       "reference": "The competitor's section headings keep to one or two lines.",
-      "fix": "Make the template's heading fit allow for the side column's width when it sizes a heading set beside a list, so this one keeps to two lines ('Order Confirmation / & Scheduling'), as it does on phones."
+      "fix": "Make the template's heading fit allow for the side column's width when it sizes a heading set beside a list, so this one keeps to two lines ('Order Confirmation / & Scheduling')."
+    },
+    {
+      "pageType": "general",
+      "review": "general",
+      "route": "/faq/",
+      "block": "proof-6",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Untitled text blocks that continue a section open a full section gap (about 100px) above their first paragraph, against about 20px between paragraphs inside one block. 'Payment Terms & Shipping Options' therefore reads as four loose bands of text (m11 → chart → proof-5 → proof-6 → proof-7), and proof-1 → proof-2 shows the same gap.",
+      "reference": "The competitor keeps the paragraphs of one text section at one paragraph gap under their heading.",
+      "fix": "When a proof/text block has no heading and continues the section above it with the same tint, have the template cut its top padding to the paragraph gap (and the previous block's bottom padding to match), so its paragraphs follow on instead of starting a new band."
     },
     {
       "pageType": "general",
@@ -379,7 +404,7 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "content",
-      "issue": "Still there: the fee chart draws three identical full-width bars (Sample fee, Design fee and Courier delivery, each $50) that compare nothing, and the two timing bars float on tracks with no axis or scale. On phones the bars shrink to half the card, away from their values.",
+      "issue": "Still there: the fee chart draws three identical full-width bars (Sample fee, Design fee and Courier delivery, each $50) that compare nothing. The two timing bars float at offsets on tracks with no axis or scale. On phones the bars shrink to half the card, away from their values.",
       "reference": "The competitor shows figures only where they add information.",
       "fix": "Have Site Factory give these facts as a short stats row or list (three $50 fees; 10–15 and 5–7 days) instead of bar charts of equal values."
     },
@@ -391,7 +416,7 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "content",
-      "issue": "Still there: the heading 'Related products and services' sits over a single link to 'Case Studies', which is neither a product nor a service, and it is the only heading on the page in sentence case.",
+      "issue": "Still there: the heading 'Related products and services' sits over a single link to 'Case Studies', which is neither a product nor a service, and it is the only section heading on the page in sentence case.",
       "reference": "n/a (copy).",
       "fix": "Have Site Factory link related product or solution pages here, or retitle the section in Title Case to match its link."
     },
@@ -404,9 +429,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "Still unfixed from the earlier review: the two order-case cards sit in a narrow centred column (about x 350–1090 of the 1440 frame) under 'A recent order', whose heading starts on the content's left edge, so about 350 px of white is left on each side and the cards float mid-page instead of following their heading.",
+      "issue": "Still unfixed: the two order-case cards sit in a narrow centred column, about the middle half of the 1440 frame, under 'A recent order', whose heading starts on the content's left edge. About 350 px of white is left on each side, so the cards float mid-page instead of following their heading.",
       "reference": "The competitor's card sets start on the content's left edge under their heading and fill the content width as outlined cards.",
-      "fix": "In the shared patterns.css, stop centring `.order-cases` when headings start: under `body[data-heading-align=\"start\"]` set `.order-cases { margin-inline: 0; }`. Better still, set the cases side by side in a grid of equal columns that starts at the content's left edge."
+      "fix": "In the shared patterns.css, stop centring `.order-cases` when headings start on the left: under `body[data-heading-align=\"start\"]` set `.order-cases { margin-inline: 0; }`. Better still, set the cases side by side in a grid of equal columns starting at the content's left edge, sized to the copy rather than to a fixed width."
     },
     {
       "pageType": "general",
@@ -417,22 +442,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "Still unfixed: two plain white sections stand one after the other. The white overview intro is followed by the white overview-steps list, and the faq and faq-steps sections repeat the same white-on-white pair further down, so the page loses its alternating rhythm.",
+      "issue": "Still unfixed: two plain white sections stand one after the other. The white overview intro is followed by the white overview-steps list, and the white faq is followed by the white faq-steps further down, so the page loses its alternating rhythm on both widths.",
       "reference": "The site's rule is that neighbouring plain sections alternate white and tinted backgrounds. The competitor separates its sections by background, not by hairlines alone.",
-      "fix": "In the template's section-background sequencing, count process blocks as plain sections so that overview-steps (and faq-steps) take the --section-tint surface when the section before them is white."
-    },
-    {
-      "pageType": "general",
-      "review": "general--shortest",
-      "route": "/case-studies/",
-      "block": "faq",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "template",
-      "gap": "other",
-      "issue": "Still unfixed: in the narrow left column of the two-column FAQ, 'Frequently Asked Questions' breaks into three one-word lines and reads as a stack, not a heading sized to its words.",
-      "reference": "The competitor sets its FAQ heading on one line across the width, with the questions on hairline rows below it.",
-      "fix": "In the FAQ's two-column layout, widen the heading column (for example a minmax track that holds the heading's longest two words on one line). Or, when the fit would leave one word per line, set the heading above the questions."
+      "fix": "In the template's section-background sequencing, count process blocks as plain sections, so that overview-steps (and faq-steps) take the --section-tint surface whenever the section before them is white."
     },
     {
       "pageType": "general",
@@ -442,7 +454,7 @@
       "viewport": "mobile",
       "severity": "P2",
       "scope": "content",
-      "issue": "Still unfixed: on phones, the question 'Have you worked with small start-up brands placing their first order, like us?' breaks at the compound's hyphen, so the first line ends on 'start-' and the next begins with 'up brands'.",
+      "issue": "Still unfixed: on phones, the question 'Have you worked with small start-up brands placing their first order, like us?' breaks at the compound's hyphen, so one line ends on 'start-' and the next begins with 'up brands'.",
       "reference": "The competitor's FAQ questions keep each word whole on its line.",
       "fix": "In Site Factory, write 'start-up' with a non-breaking hyphen (U+2011), or reword it as 'small new brands'."
     },
@@ -466,21 +478,9 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "template",
-      "issue": "Still open from the last review: after the tinted m3, the white/tint alternation breaks. m2, proof-1, proof-1-charts (white, with only its chart card tinted) and proof-2 are four white sections in a row, from 'Samples, Order Confirmations…' down to 'Trial Runs'. The same shows on mobile.",
-      "reference": "The competitor separates neighbouring sections by their background.",
-      "fix": "Have the template's alternation count proof-1, proof-1-charts and proof-2 (the text sections that go on from one another) as one plain section and tint that group through --section-tint. The page then reads m2 (white), proof group (tint), process-1 (white), related (tint), cta-steps (white). Do not tint the sections one by one in reference.css."
-    },
-    {
-      "pageType": "privacy",
-      "review": "privacy",
-      "route": "/terms-and-conditions/",
-      "block": "cta-steps",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "template",
-      "issue": "Partly fixed since the last review: the title 'From your brief to shipment: the typical order path' is now set in the heading face at the card-heading size. It is still a lead, not the section's h2, so it stands about half the size of every other section heading on the page ('Trial Runs', 'Related products and services'), and the left column stays mostly empty beside the six steps. On mobile it likewise reads smaller than the section headings around it.",
-      "reference": "The competitor's step modules put a section heading over the steps, set at the same level as its other section headings.",
-      "fix": "Have the template render the process list variant's title as the section h2, fitted like the other headings and starting on the content's left edge. The site's lead rule in reference.css (`.block--process .point-list__intro:not(:has(h2)) > .block__lead`) then no longer applies here."
+      "issue": "Still open from the last review: the white and tinted backgrounds stop alternating after the tinted m3. m2, proof-1, proof-1-charts and proof-2 are four white sections in a row (proof-1-charts tints only its chart panel), from 'Samples, Order Confirmations…' down to the tinted 'Trial Runs'. The same shows on mobile.",
+      "reference": "The competitor tells neighbouring sections apart by their background.",
+      "fix": "Have the template's alternation treat proof-1, proof-1-charts and proof-2 (text sections that run on from one another) as one plain section and tint that group through --section-tint. The page then reads m3 (tint), m2 (white), proof group (tint), process-1, related and cta-steps alternating from there. Do not tint the sections one by one in reference.css."
     },
     {
       "pageType": "privacy",
@@ -491,9 +491,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "layout",
-      "issue": "Still open from the last review: two iconList sections of the same shape stand one under the other. m3 and then m2 each put a heading and lead on the left and a column of check-marked short items on the right, and only the background changes between them.",
-      "reference": "The competitor does not repeat a module back to back, and this site's rule says one of two same-shaped neighbours is set out differently.",
-      "fix": "When two iconList sections are neighbours, have the template set one of them out differently, for example m2's items as a two-column grid under its heading."
+      "issue": "Still open from the last review: two iconList sections of the same shape stand one under the other. m3 and m2 each put a large heading and a lead on the left and a column of check-marked short items on the right, and only the background changes between them.",
+      "reference": "The competitor does not repeat a module back to back. This site's rule also says one of two same-shaped neighbours is laid out differently.",
+      "fix": "When two iconList sections are neighbours, have the template lay one of them out differently, for example m2's items as a two-column grid under its heading."
     },
     {
       "pageType": "privacy",
@@ -503,9 +503,21 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "template",
-      "issue": "Still open from the last review: the heading 'Quality Claims, Returns and Outside Vendor Liability' breaks over four uneven lines and leaves 'Outside' alone on the third line. m2's heading 'Samples, Order Confirmations, Shipping and Refunds' likewise leaves 'Shipping' alone on a line.",
+      "issue": "Still open from the last review: the heading 'Quality Claims, Returns and Outside Vendor Liability' breaks over four uneven lines and leaves 'Outside' alone on the third. m2's 'Samples, Order Confirmations, Shipping and Refunds' likewise leaves 'Shipping' alone on a line.",
       "reference": "The competitor's headings break into even lines.",
       "fix": "Add text-wrap: balance to the section h2 in the template's heading fit, so its lines break evenly without changing the fitted size."
+    },
+    {
+      "pageType": "privacy",
+      "review": "privacy",
+      "route": "/terms-and-conditions/",
+      "block": "cta-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "issue": "Still open from the last review: the title 'From your brief to shipment: the typical order path' is still a lead, not the section's h2. It stands at about half the size of the other section headings on the page ('Trial Runs', 'Related products and services'), and the left column beside the six steps stays mostly empty. On mobile it also reads smaller than the section headings around it.",
+      "reference": "The competitor's step modules put a section heading over the steps, at the same level as its other section headings.",
+      "fix": "Have the template render the process list variant's title as the section h2, fitted like the other headings and starting on the content's left edge. The site's lead rule in reference.css (`.block--process .point-list__intro:not(:has(h2)) > .block__lead`) then no longer applies here."
     },
     {
       "pageType": "privacy",
@@ -516,8 +528,8 @@
       "severity": "P2",
       "scope": "template",
       "gap": "art-direction",
-      "issue": "On phones the closing band crops its wide photo to a near-square frame centred on the woman, so the heading 'Send Your Enquiry to Strandmill' and the lead sit right over her face. The overlay keeps the text readable, but the photo's subject is hidden. Changing object-position cannot clear her, because the visible window is less than half the photo's width.",
-      "reference": "On desktop the same band leaves its text on the empty dune to the left and keeps the subject clear on the right.",
+      "issue": "Still open from the last review: on phones the closing band crops its wide photo to a near-square frame centred on the woman. The heading 'Send Your Enquiry to Strandmill' and the lead sit right over her face and body. The darker overlay keeps the text readable but hides the subject, and changing object-position cannot clear her within this narrow window.",
+      "reference": "On desktop the same band puts its text on the empty dune to the left and leaves the subject clear on the right.",
       "fix": "Give the cta band a different photo crop for narrow widths (art-direction), with the subject low or to one side, so the copy falls on an empty part of the photo."
     },
     {
@@ -528,8 +540,8 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "content",
-      "issue": "Still open from the last review: the heading 'Related products and services' sits over a single link, 'Privacy Policy', which is neither a product nor a service. The same shows on mobile.",
-      "reference": "The competitor's related-link blocks list pages that match their heading.",
+      "issue": "Still open from the last review: the large heading 'Related products and services' sits over a single small link, 'Privacy Policy', which is neither a product nor a service. The same shows on mobile.",
+      "reference": "The competitor's onward links say where they lead (e.g. 'Read the full group story … at PT King Trading.').",
       "fix": "In Site Factory, either link this page to the product or service pages about ordering, or retitle the block to fit its link (for example 'Related policies')."
     },
     {
@@ -540,9 +552,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "content",
-      "issue": "Still open from the last review: the heading 'Related products and services' sits over a single link, 'Terms and Conditions', which is neither a product nor a service, so the heading promises something the section doesn't give (same on mobile).",
-      "reference": "The competitor's onward link says where it leads, e.g. 'Read the full group story … at PT King Trading.'",
-      "fix": "Site Factory: retitle the section to fit its link (e.g. 'Related policies'), or link the product and service pages the heading names."
+      "issue": "Still open from the last review: the large heading 'Related products and services' sits over one link, 'Terms and Conditions', which is neither a product nor a service, so the tinted band promises more than it gives. Mobile shows the same.",
+      "reference": "The competitor's onward link says where it leads, inline in its closing copy ('Read the full group story, facility details and ethics standards at PT King Trading.').",
+      "fix": "In Site Factory, give the section a heading that fits its link (for example 'Related policies'), or link the product and service pages the heading names."
     },
     {
       "pageType": "privacy",
@@ -552,9 +564,22 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "content",
-      "issue": "The CTA's line under the heading ('Send your enquiry to our factory to tell us about the swimwear you are looking for.') repeats the heading 'Send an enquiry to our factory' almost word for word, so the photo band adds nothing new (same on mobile).",
-      "reference": "The competitor's closing copy adds a new fact or reason in each line ('Manufacturing in Bali since 1993. Read the full group story…') and doesn't restate its heading.",
-      "fix": "Site Factory: rewrite the CTA's body line to give a reason or next step (e.g. what to include in the enquiry, or how fast the reply comes) instead of restating the heading."
+      "issue": "Still open from the last review: the line under the CTA heading ('Send your enquiry to our factory to tell us about the swimwear you are looking for.') says the heading 'Send an enquiry to our factory' again almost word for word, so the band tells the reader nothing new. Mobile shows the same.",
+      "reference": "Each line of the competitor's closing copy adds a new fact or a next step ('Manufacturing in Bali since 1993. Read the full group story…'), and none repeats its heading.",
+      "fix": "In Site Factory, rewrite the CTA's body line to give a reason or a next step (what to put in the enquiry, how fast the reply comes) instead of repeating the heading."
+    },
+    {
+      "pageType": "privacy",
+      "review": "privacy--shortest",
+      "route": "/privacy-policy/",
+      "block": "cta",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "art-direction",
+      "issue": "At 390 px the closing band crops its wide photo to a near-square window on the woman, so 'Send an enquiry to our factory' and the lead sit right over her head and upper body. The dark overlay keeps the text readable, but the subject is hidden, and moving object-position cannot clear her inside such a narrow window.",
+      "reference": "On desktop the same band puts its copy over the darker left of the photo and leaves the subject clear on the right. The competitor keeps its title off the main subject of its photo.",
+      "fix": "Give the cta band a separate photo crop for narrow widths (art-direction), with the subject low or to one side, so the heading and lead fall on an empty part of the photo."
     },
     {
       "pageType": "blog_hub",
@@ -565,9 +590,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "Still open from the last review: the hero's lead (about 40 words) still sits on the photo. At 390 px it runs five centred lines right under the two-line H1, with the 'g' of 'Blog' almost touching its first line, and fills the whole 275 px band. At 1440 px it fills the band under the title too, so the photo shows only as a dark texture behind text.",
+      "issue": "Still open from the last review: the hero's 40-word lead still sits on the photo. At 390 px it runs five centred lines just under the two-line H1, with the descender of 'Blog' about 12 px from its first line, and fills the whole 275 px band. At 1440 px it takes three lines under the title, so the photo reads only as dark texture behind the text.",
       "reference": "The competitor's matching page puts only its bold title on the photo, with no lead, and starts its running text on white under the photo band.",
-      "fix": "Apply the template's rule that a hero lead much longer than the competitor's stands under the hero: render .blog-hub-hero__lead under the banner, on white, as the page's lead, and keep only the H1 on the photo."
+      "fix": "Apply the template's rule that a hero lead much longer than the competitor's stands under the hero: render .blog-hub-hero__lead under the banner on white as the page's lead, and keep only the H1 on the photo."
     },
     {
       "pageType": "blog_hub",
@@ -578,9 +603,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "Still open from the last review: the three plain sections after the hero (overview, overview-steps, table-1) still all sit on white one under the other, at both widths, so only padding separates them.",
+      "issue": "Still open from the last review: the three plain sections after the hero (overview, overview-steps, table-1) all still sit on white one under another, at both widths, so only padding separates them.",
       "reference": "The site's rule, which follows the competitor's banded pages, is that neighbouring plain sections alternate white and tinted backgrounds.",
-      "fix": "The template should alternate the plain sections' backgrounds so that overview-steps, between the white overview and the white table-1, takes var(--section-tint)."
+      "fix": "The template's alternation should give overview-steps, between the white overview and the white table-1, the var(--section-tint) background."
     },
     {
       "pageType": "blog_hub",
@@ -590,9 +615,9 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "content",
-      "issue": "Still open from the last review: the process section still has no heading. Its left column holds only the small bold line 'Quality checks at every stage of an order.' (about body size at 1440 px) beside the five steps, between H2 sections above and below, and leaves most of that column empty.",
-      "reference": "The competitor's process lists open with an H2 above their lead, in the left column beside the steps.",
-      "fix": "Site Factory should give the overview-steps visual (blog page copy) a heading, for example 'Quality Checks at Every Stage', so the block renders an H2 above the caption line."
+      "issue": "Still open from the last review: the process section still has no H2. Its left column holds only the lead 'Quality checks at every stage of an order.', now set at card-heading size, between H2 sections above and below, and leaves most of the column empty beside the five steps.",
+      "reference": "The competitor's numbered-steps module opens its left column with an H2 above its text, beside the numbered steps.",
+      "fix": "Site Factory should give the overview-steps copy a heading (e.g. 'Quality Checks at Every Stage') so the block renders an H2 above the lead line."
     },
     {
       "pageType": "blog_hub",
@@ -603,9 +628,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "At 390 px the H1 'The Strandmill Blog' is held at 38 px and breaks into a centred 'The Strandmill' over one orphan word, 'Blog'.",
-      "reference": "The competitor's phone hero title keeps to its line(s) without leaving a single word on its last line.",
-      "fix": "The template's title fit should size a short title to its own words at phone widths: about 32 px keeps these three words on one line, or the fit can balance the lines (text-wrap: balance) so no line holds a lone word. No fixed font-size in reference.css."
+      "issue": "Still open from the last review: at 390 px the H1 'The Strandmill Blog' (38 px) still breaks into a centred 'The Strandmill' with the one word 'Blog' alone on its second line.",
+      "reference": "The competitor's phone hero title keeps to its line without leaving one word alone on its last line.",
+      "fix": "The template's title fit should size a short title to its own words at phone widths (one line at about 32 px), or balance the lines (text-wrap: balance) so no line holds a lone word. No fixed font-size in reference.css."
     },
     {
       "pageType": "blog_hub",
@@ -616,7 +641,7 @@
       "severity": "P2",
       "scope": "template",
       "gap": "art-direction",
-      "issue": "Still open from the last review: at 390 px the hero is a 275 px band cut from a wide photo, so the photo barely reads behind its text. The competitor's phone hero is a tall portrait photo that fills most of the first screen.",
+      "issue": "Still open from the last review: at 390 px the hero is a 275 px band cut from a wide photo and is covered by text, so the photo barely reads.",
       "reference": "The competitor's phone hero shows its factory photo as a tall portrait frame (about 550 px at 390 px wide) with only the title over it.",
       "fix": "Let the hero take a portrait crop or a separate portrait photo on phones (art direction per breakpoint) instead of stretching the wide photo's frame, which would cut the photo away."
     },
@@ -625,24 +650,12 @@
       "review": "blog_hub",
       "route": "/blog/",
       "block": "table-1",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "content",
-      "issue": "Still open from the last review: each of the ten cards repeats the same grey sub-label 'What this means for you' between its title and its text. The line adds no information, makes the set read as boilerplate, and at 390 px adds ten more lines to a 3,100 px stack.",
-      "reference": "The competitor's outlined cards carry only a title and its text, with no repeated label.",
-      "fix": "Site Factory should drop the repeated 'What this means for you' column label from the table-1 rows, or give each row its own short line, so each card shows its title and then its text."
-    },
-    {
-      "pageType": "blog_hub",
-      "review": "blog_hub",
-      "route": "/blog/",
-      "block": "header",
       "viewport": "mobile",
       "severity": "P2",
-      "scope": "site",
-      "issue": "At 390 px the menu toggle shows as a small three-bar icon about 14 px wide, half the size of the competitor's, so it reads as a weak control and looks small to tap.",
-      "reference": "The competitor's phone header shows its hamburger as three white bars about 26 px wide on the blue bar, level with the wordmark.",
-      "fix": "In reference.css, enlarge the header's menu-toggle icon (bar width and thickness) to about 24-26 px and make sure the button's hit area is at least 44 x 44 px."
+      "scope": "content",
+      "issue": "Still open from the last review: each of the ten outlined cards repeats the same grey label 'What this means for you' between its title and its text. The line adds nothing, makes the set read as boilerplate, and adds ten lines to a stack of about 3,100 px at 390 px.",
+      "reference": "The competitor's outlined cards carry only a title (bold) and its text, with no repeated label.",
+      "fix": "Site Factory should drop the repeated 'What this means for you' column label from the table-1 rows, or give each row its own short line, so each card shows its title and then its text."
     },
     {
       "pageType": "contact",
@@ -653,9 +666,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The REQUEST A QUOTE button still ends right on the top edge of the tinted trustBar band, with no white space under it, because the plain hero's inner still has no bottom padding.",
-      "reference": "Under its centred title and lead, the competitor's plain hero (hero:plain) leaves clear white space before the next module starts.",
-      "fix": "In template.css, give .page-hero[data-variant=\"plain\"] .page-hero__inner a bottom padding (e.g. padding-block: calc(var(--section-space) / 2)) so that a tinted neighbour never starts right under the hero's button."
+      "issue": "The REQUEST A QUOTE button still ends right on the top edge of the tinted trustBar band with no white space under it, because the plain hero's inner still has no bottom padding.",
+      "reference": "The competitor's plain hero (hero:plain) leaves clear white space under its centred title and lead before the next module starts.",
+      "fix": "In template.css, give .page-hero[data-variant=\"plain\"] .page-hero__inner a bottom padding (e.g. padding-block-end: calc(var(--section-space) / 2)) so a tinted neighbour never starts right under the hero's button."
     },
     {
       "pageType": "contact",
@@ -674,25 +687,25 @@
       "pageType": "contact",
       "review": "contact",
       "route": "/contact-us/",
-      "block": "faq",
-      "viewport": "desktop",
+      "block": "hero",
+      "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "The FAQ's question column starts about 130px further left than the right column of the process, iconList and form sections above and below it, so the page's two-column split jumps at this one section.",
-      "reference": "The competitor's modules keep one column grid down the page.",
-      "fix": "In reference.css, give .block--faq[data-variant=\"two-column\"] the same column ratio as the process and iconList splits (the same grid-template-columns), so its questions start on the shared right-column edge."
+      "issue": "On phones the centred hero lead ends in a short last line ('is made.'), which looks like a stray fragment under four full centred lines.",
+      "reference": "The competitor's centred phone lead ends in a line close to the length of the lines above it.",
+      "fix": "In reference.css, set text-wrap: balance (or pretty) on .page-hero__lead so the centred lines even out."
     },
     {
       "pageType": "contact",
       "review": "contact",
       "route": "/contact-us/",
-      "block": "faq",
-      "viewport": "desktop",
+      "block": "channels",
+      "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "The first question sits about 20px lower than the 'Frequently Asked Questions' heading beside it, because the summary's 1.25rem top padding pushes it down, so the heading and the list are not level.",
-      "reference": "In the competitor's side-by-side modules, the heading and the first item start on one line.",
-      "fix": "In reference.css, set padding-top: 0 on .block--faq[data-variant=\"two-column\"] .faq__item:first-child summary (or remove the first item's top padding) so the first question is level with the heading."
+      "issue": "Stacked one per row on phones, the four contact cards each carry a full-width black label bar set as large as on desktop, so four heavy black bars dominate the screen.",
+      "reference": "The competitor's channel cards on phones keep a compact black pill label with small type in each card.",
+      "fix": "In reference.css under max-width: 767px, size the label of .contact-channels[data-variant=\"cards\"] .contact-channel down (smaller font-size and padding-block), keeping the card's one-column stack."
     },
     {
       "pageType": "contact",
@@ -702,7 +715,7 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "content",
-      "issue": "The consent line still ends '…as described in the privacy policy. Privacy policy', which repeats the link's words right after the sentence (the same on mobile).",
+      "issue": "The consent line still ends '…as described in the privacy policy. Privacy policy', repeating the link's words right after the sentence (the same on mobile).",
       "reference": "The competitor's form has no repeated text.",
       "fix": "End the consent copy before the link (e.g. '…as described in our') or make 'privacy policy' inside the sentence the link."
     },
@@ -727,7 +740,7 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "Still open: the hero button 'Request a quote for swimwear accessories' sits only about 10px above the tinted trust bar on desktops and touches it at 390px, because the media-banner hero has no bottom padding of its own.",
+      "issue": "Still open: the hero button 'Request a quote for swimwear accessories' still sits right on the tinted trust bar, with almost no white under it on desktops and none at 390px, because the media-banner hero has no bottom padding of its own.",
       "reference": "The competitor leaves about 40px or more of white under its hero buttons ('Request Price', 'Book a Call') before the next section starts.",
       "fix": "In template.css give .page-hero[data-variant=\"media-banner\"] .page-hero__inner a bottom padding (e.g. calc(var(--section-space) / 2)), so the space under the button sits on the hero's white and not inside the trust bar's tint."
     },
@@ -753,7 +766,7 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "Still open: on desktops the iconList item titles ('Standalone orders', 'Exposure and finish', 'Colour approval') are fitted to about 26px bold under a section heading of about 32px, so the item level reads almost as heavy as the heading. The point lists in featureGrid-1 and m9 use small bold titles of about 16px, so the page shows two list-title sizes. The faq questions repeat this beside their heading.",
+      "issue": "Still open: on desktops the iconList item titles ('Standalone orders', 'Exposure and finish', 'Colour approval') and the faq questions are fitted almost as large as their section heading, while the point lists in featureGrid-1 and m9 use small bold titles, so the page shows two list-title sizes and the item level crowds the heading.",
       "reference": "The competitor keeps its bold sub-heads ('Pricing Custom Swimwear Designs', 'Ready Designs', 'Custom Designs') just above body size, clearly below its section headings.",
       "fix": "In the shared heading-fit step, cap the fitted size of an item h3 (icon-list item, faq question) at desktop widths as is already done on phones, e.g. at about 0.65 of its section h2's fitted size."
     },
@@ -775,24 +788,12 @@
       "review": "product_manufacturer",
       "route": "/swimwear-accessories/",
       "block": "m7",
-      "viewport": "mobile",
+      "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "Partly open from the last review: at 390px the blush panel and its photo now run to the sides, but the section's block padding still shows a beige strip of about 30px above the blush panel and under the photo, so the blush-and-photo pair still sits framed in beige. On desktops the same beige frame surrounds the pair on all four sides.",
-      "reference": "The competitor's 'Sampling' split runs its blush copy panel and its photo edge to edge; the blush is the section's only colour, with no second band around it.",
-      "fix": "In src/styles/reference.css give .block--split[data-variant=\"panel\"] the panel's blush as its surface (or, below 768px, set its padding-block to 0 so the panel and photo meet the neighbouring sections), so no beige frame shows around the blush panel."
-    },
-    {
-      "pageType": "product_manufacturer",
-      "review": "product_manufacturer",
-      "route": "/swimwear-accessories/",
-      "block": "faq-charts",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "Still open: values still break into stacks of three or four lines ('Custom- / moulded, / plus mould / fee', 'Rose gold, / gunmetal or / matte black'). The fixed table layout for small charts (.chart-comparison table:not(:has(thead th:nth-of-type(3)))) still misses this chart, because its empty label header counts as a third th.",
-      "reference": "The competitor keeps short figures to one or two lines on phones.",
-      "fix": "In src/styles/reference.css, below 768px, apply table-layout: fixed to charts of up to three columns (:not(:has(thead th:nth-of-type(4)))) and drop the chart panel's inline padding, so the table uses the column's full width."
+      "issue": "The beige frame is gone, but the photo of the blush panel row still sits inset in the blush: about 40px of blush above and below it, with its outer edge on the content column and not the section's edge. At 390px the same padding leaves a blush strip of about 35px under the photo before m8.",
+      "reference": "The competitor's 'Sampling' split runs its photo to the panel's top, bottom and outer edge, so the blush copy panel and the photo meet as two flush halves.",
+      "fix": "In src/styles/reference.css set .block--split[data-variant=\"panel\"] to padding-block: 0 and let its media column run to the section's outer edge (the copy column keeps its own padding). Below 768px, also drop the bottom padding under the photo."
     },
     {
       "pageType": "product_manufacturer",
@@ -803,7 +804,7 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The 'Request a quote for watersports apparel' button still sits right on the tinted trustBar band. It ends about 2px above the band on desktop and touches it on mobile, because the plain hero has no bottom padding of its own. This was raised in the last review and is still unfixed in the current shots.",
+      "issue": "The 'Request a quote for watersports apparel' button still sits right on the tinted trustBar band, a few pixels above it on desktop and touching it on mobile, because the plain hero has no bottom padding (template.css: padding-block: calc(var(--section-space) / 2) 0). This was raised in the last review and is still unfixed in the current shots.",
       "reference": "The competitor leaves open white space under its title, lead and two black buttons before its next module ('Built for Swimwear') starts.",
       "fix": "In template.css, give the plain hero's inner a bottom padding (.page-hero[data-variant=\"plain\"] .page-hero__inner { padding-bottom: calc(var(--section-space) / 2) }), at least when the next block carries a background."
     },
@@ -816,9 +817,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "splitMedia-1, splitMedia-2 and splitMedia-2-steps still share one beige tint, so three tinted blocks run one under the other, and the gaps inside the run are uneven. On desktop the photo starts about 40px under splitMedia-1's last line, while the steps start about 100px under the photo. On mobile, splitMedia-2's first line starts right at the block's top edge. This was raised in the last review and is still unfixed.",
+      "issue": "splitMedia-1, splitMedia-2 and splitMedia-2-steps still share one beige tint, so three tinted blocks run one under the other. The gaps inside the run are uneven, and on mobile splitMedia-2's first line ('We settle the quotation and price agreement') starts right at the block's top edge. This was raised in the last review and is still unfixed.",
       "reference": "The competitor alternates white sections with its single pink-tinted Sampling panel; no two tinted modules touch, and the gaps between modules are even.",
-      "fix": "The template's background alternation should count splitMedia-2 (with its steps, which carry their own heading) as the next plain section. Set it on white so the run reads tint / white, with the section spacing restored above the photo row and above the steps."
+      "fix": "The template's background alternation should count splitMedia-2 (with its steps) as the next plain section and set it on white, so the run reads tint / white, with the section's top spacing restored above the photo row on desktop and above the copy on mobile."
     },
     {
       "pageType": "product_manufacturer",
@@ -829,34 +830,22 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "owner-testimonials and related, two neighbouring plain sections, both stand on white, so the white/tint alternation breaks after the photo band (testimonials white, related white, faq tint, cta white). The same holds on mobile.",
+      "issue": "owner-testimonials and related, two neighbouring plain sections, both stand on white, so the white/tint alternation breaks after the photo band (testimonials white, related white, faq tint, cta white). The same holds on mobile, and it is still unfixed from the last review.",
       "reference": "Site rule: neighbouring plain sections alternate white and tinted backgrounds, set by the template. The competitor never sets two plain modules of the same ground where it uses a tint.",
-      "fix": "Let the template's alternation (through --section-tint) restart correctly after the gallery band, so related takes the tint and faq and cta follow white / tint. Paint no single section in reference.css."
+      "fix": "Let the template's alternation (through --section-tint) restart after the gallery band, so related takes the tint and faq and cta follow white / tint. Paint no single section in reference.css."
     },
     {
       "pageType": "product_manufacturer",
       "review": "product_manufacturer--shortest",
       "route": "/watersports-apparel-manufacturer/",
-      "block": "splitMedia-2-steps",
+      "block": "hero",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "template",
-      "gap": "other",
-      "issue": "The steps' intro, 'How a typical order runs from brief to shipment.', now stands in for the section heading at card-heading size (about 20px). On desktop it is still clearly smaller than the 01–07 numbers beside it (2rem) and the page's other H2s (about 32px), so it reads as a caption. On mobile it now reads at near heading size. This was raised in the last review and is only partly fixed.",
-      "reference": "The competitor's section headings ('MOQs', 'Sampling') are clearly larger than body text and their item titles, in a medium weight.",
-      "fix": "The template should promote a process list's heading-less intro to the section-heading level, fitted to its own words like the page's other H2s (weight 500), at every width. Then drop the site's own sizing of that lead (the --size-subheading override on .block--process and the font-size on line 345 of reference.css)."
-    },
-    {
-      "pageType": "product_manufacturer",
-      "review": "product_manufacturer--shortest",
-      "route": "/watersports-apparel-manufacturer/",
-      "block": "overview-charts",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The beige lead-time chart panel still ends only about 40px above the beige splitMedia-1 band (about 35px on mobile). It nearly merges with the next section and reads as a notch of it, not as part of the white overview section.",
-      "reference": "The competitor's figures (the costing handover, the fabric card) sit on the white section, with the normal gap before the next module, and never in the colour of the band that follows.",
-      "fix": "In reference.css, give the overview's charts panel the section's own bottom spacing before the next block (e.g. margin-bottom: calc(var(--section-space) / 2) on .block--charts). Or, on a white section, set the panel on white with a hairline border instead of the next band's tint."
+      "gap": "art-direction",
+      "issue": "The wide desktop crop of the hero photo leaves its left 40% as a near-black, empty wall. It is the photo itself, not an overlay. Since the title stands under the photo and not on it, the dark half reads as space meant for text that carries none. The portrait phone crop does not have this problem.",
+      "reference": "The competitor's desktop hero is a wide photo whose subject spans the whole frame, with no dark empty side.",
+      "fix": "Give the banner a wide-format photo for desktop widths (a different source per breakpoint), keeping the current portrait crop on phones; no overlay or height change."
     },
     {
       "pageType": "product_manufacturer",
@@ -869,7 +858,32 @@
       "gap": "layout",
       "issue": "The seven related-page tiles still run 4 + 3, and the short last row of three starts on the left, leaving an empty slot under the fourth column. This was raised in the last review and is still unfixed.",
       "reference": "Site rule: a grid's own short last row is centred. The competitor has no short rows hanging to the left.",
-      "fix": "In the template, centre the related grid's short last row (e.g. a flex-wrap row with justify-content: center and a shared tile basis), as for other card grids."
+      "fix": "In the template, centre the related grid's short last row (a flex-wrap row with justify-content: center and a shared tile basis), as for other card grids."
+    },
+    {
+      "pageType": "product_manufacturer",
+      "review": "product_manufacturer--shortest",
+      "route": "/watersports-apparel-manufacturer/",
+      "block": "splitMedia-2-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "On desktop the steps' intro, 'How a typical order runs from brief to shipment.', stands in for the section heading but is clearly smaller than the 01–07 numbers beside it and the page's other H2s, so it reads as a caption. On mobile it now reads at near heading size. This is still only partly fixed from the last review.",
+      "reference": "The competitor's section headings ('MOQs', 'Sampling') are clearly larger than body text and item titles, in a regular-to-medium weight.",
+      "fix": "The template should promote a process list's heading-less intro to the section-heading level, fitted to its own words like the page's other H2s (weight 500), at every width. Then drop the site's own sizing of that lead in reference.css."
+    },
+    {
+      "pageType": "product_manufacturer",
+      "review": "product_manufacturer--shortest",
+      "route": "/watersports-apparel-manufacturer/",
+      "block": "overview-charts",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The beige lead-time chart panel still ends only a short gap above the beige splitMedia-1 band (about 40px on mobile). It nearly merges with the next section and reads as a notch of it, not as part of the white overview section.",
+      "reference": "The competitor's figures (the costing handover, the fabric card) sit on the white section, with the normal gap before the next module, and never in the colour of the band that follows.",
+      "fix": "In reference.css, give .block--charts the section's own bottom spacing before the next block (margin-bottom: calc(var(--section-space) / 2)). Or, on a white section, set the panel on white with a hairline border instead of the next band's tint."
     },
     {
       "pageType": "product_manufacturer",
@@ -879,9 +893,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The intro paragraphs still run about 810px wide, roughly 95–100 characters a line, well past the ~70ch measure. The cta paragraph below is just as wide. This was raised in the last review and is still unfixed.",
-      "reference": "treatment-practice.md holds running text to about 70ch (the audit flags over 80ch); the competitor's intro copy runs a similar length but this site's measure rule applies.",
-      "fix": "In reference.css, give the text column of .block--intro and .block--cta a max-width of about 70ch, starting on the heading's left edge."
+      "issue": "The intro paragraphs still run about 800px wide, roughly 95–100 characters a line, well past the ~70ch measure. The cta paragraph below is just as wide. This is still unfixed from the last review, so the 70ch cap at reference.css line 113 is not reaching these blocks.",
+      "reference": "treatment-practice.md holds running text to about 70ch; the competitor's intro copy runs in a similarly narrow column.",
+      "fix": "In reference.css, cap the text column of .block--intro and .block--cta (the .text-flow / .cta__text elements, not only main[data-authoring-page] .block p) at about 70ch, starting on the heading's left edge."
     },
     {
       "pageType": "product_manufacturer",
@@ -891,7 +905,7 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The open FAQ answer runs about 810px wide in the right-hand column, about 95–100 characters a line ('We offer UPF 50+ fabrics. On request, we also offer chlorine-resistant fabrics such as LYCRA Xtra Life.'), past the ~70ch measure.",
+      "issue": "The open FAQ answer runs about 760px wide in the right-hand column, about 95 characters a line ('We offer UPF 50+ fabrics. On request, we also offer chlorine-resistant fabrics such as LYCRA Xtra'), past the ~70ch measure.",
       "reference": "treatment-practice.md holds running text to about 70ch at every width.",
       "fix": "In reference.css, cap the answer text of .block--faq .faq__item at about 70ch (max-width on the answer's paragraphs), leaving the question rows their full width."
     },
@@ -904,9 +918,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "Still not fixed in the current shots: splitMedia-3 is tinted beige right after the tinted m4/m4-2 card set, so two neighbouring plain sections share one background. At 390 px the m4-2 cards run straight into the split row's lead paragraph with almost no gap.",
-      "reference": "The competitor alternates its sections between white, beige and navy, so neighbouring sections always differ.",
-      "fix": "Make the template's tint alternation count splitMedia-3 as the section after the m4 set, so it renders white through --section-tint."
+      "issue": "Still not fixed in the current shots: splitMedia-3 is tinted beige directly after the tinted m4/m4-2 card set, so two neighbouring plain sections share one background. Its lead paragraph also starts about 10px under the m4-2 cards; at 390 px it starts at the section's top edge with no gap at all.",
+      "reference": "The competitor alternates its sections between white, beige and navy, so neighbouring sections always differ, and each section opens after a full section gap.",
+      "fix": "Make the template's tint alternation count splitMedia-3 as the section after the m4 set, so it renders white through --section-tint, with the template's normal section padding above its copy."
     },
     {
       "pageType": "solution",
@@ -929,22 +943,9 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "content",
-      "issue": "Still not fixed in the current shots: the navy step band has no heading. After the FAQ it reads as five loose figures and a button under an empty strip of navy padding (same at 390 px, where about 70 px of bare navy comes before step 01).",
+      "issue": "Still not fixed in the current shots: the navy step band has no heading. After the FAQ it reads as five loose figures and a button under an empty strip of navy padding (same at 390 px, where about 70px of bare navy comes before step 01).",
       "reference": "The competitor's navy six-step band opens with an eyebrow and an h2 ('HOW IT WORKS' / 'Six steps from Costing to delivery') above its columns.",
       "fix": "Add a section heading to the faq-steps block in the page copy, for example a consulting timeline title."
-    },
-    {
-      "pageType": "solution",
-      "review": "solution",
-      "route": "/swimwear-consulting/",
-      "block": "m6",
-      "viewport": "mobile",
-      "severity": "P1",
-      "scope": "template",
-      "gap": "layout",
-      "issue": "Still not fixed in the current shots: at 390 px the three-column comparison table squeezes its values to one or two words per line ('Process / map, KPI / dashboard / and cost- / reduction / roadmap'), and the column header 'Organizational' is cut off at the cell edge ('Organizationa'). splitMedia-1 ('Positioning, / unit / economics, …') and splitMedia-3 ('Go-to- / market plan, / marketing / mix …') do the same.",
-      "reference": "The competitor's page has no tables. At 390 px its two-part comparisons ('Planning your collection' / 'What sells and what doesnt') stack as full-width panels with normal line lengths.",
-      "fix": "At narrow widths, show the comparison table as stacked rows: each row label becomes a small heading over its two values, and each value carries its column name, instead of a three-column grid."
     },
     {
       "pageType": "solution",
@@ -962,12 +963,25 @@
       "pageType": "solution",
       "review": "solution",
       "route": "/swimwear-consulting/",
+      "block": "m6",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "Partly fixed: the column header 'Organizational structure and talent' is no longer cut off. But at 390 px the three-column comparison table still squeezes its values to one or two words per line ('Process map, / KPI dashboard / and cost- / reduction / roadmap'). splitMedia-1 ('Positioning, / unit / economics, …') and splitMedia-3 ('Go-to-market / plan, marketing / mix, funnel …') do the same.",
+      "reference": "The competitor's page has no tables. At 390 px its two-part comparisons ('Planning your collection' / 'What sells and what doesnt') stack as full-width panels with normal line lengths.",
+      "fix": "At narrow widths, show the comparison table as stacked rows: each row label becomes a small heading over its two values, and each value carries its column name, instead of a three-column grid."
+    },
+    {
+      "pageType": "solution",
+      "review": "solution",
+      "route": "/swimwear-consulting/",
       "block": "hero",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "At 390 px the page title is fitted down to 26px over three lines, which is no larger than the section headings below it. 'Frequently Asked Questions' and 'Swimwear Brand Consulting Built on…' are set at the same size, so the title does not stand above the h2 level.",
+      "issue": "Still not fixed in the current shots: at 390 px the page title is fitted down to 26px over three lines, no larger than the section headings below it ('Swimwear Brand Consulting Built on…', 'Frequently Asked Questions'), so the title does not stand above the h2 level.",
       "reference": "The competitor's phone hero headline ('Your first collection, step by step.', about 38px) is clearly larger than its section h2s (32px).",
       "fix": "In the template's heading fit for phones, keep the page title at least one step above the section heading size, letting it take a fourth line instead of shrinking to the h2 size. Leave font-size and the fit variables untouched in reference.css."
     },
@@ -980,7 +994,7 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "Still not fixed in the current shots: the step titles ('Agree the engagement', 'Diagnose the business') are set at body size, only bolder, so each title and its description read as one block next to the large blue numerals (at 390 px the title is no larger than the text under it). This was re-scoped from site to template because .point-list__title is an h3, and only the template may size it.",
+      "issue": "Still not fixed in the current shots: the step titles ('Agree the engagement', 'Diagnose the business') are set at body size, only bolder, so each title and its description read as one block beside the large blue numerals (at 390 px the title is no larger than the text under it).",
       "reference": "The competitor's 01–03 steps set the title ('Custom Designs', 22px) clearly larger than its body text, beside a large blue numeral.",
       "fix": "In the template's heading sizing, give the process list variant's step titles (.point-list__title) a level above body text, so each heading level stays smaller than the one above and larger than the text it heads."
     },
@@ -992,7 +1006,7 @@
       "viewport": "desktop",
       "severity": "P0",
       "scope": "content",
-      "issue": "The desktop hero photo still has lettering printed into it ('…Sunlit Days', 'and summer-ready prints', and 'Shop Swimwear' / 'Explore the Collection' pills), which shows behind our live H1, lead and button. The hero reads as two overlapping layers of text with dead buttons under the live one, and the trust bar cuts the last pill (reported before; unchanged in these shots).",
+      "issue": "The desktop hero photo still has lettering printed into it ('…Sunlit Days', 'and summer-ready prints', and 'Shop Swimwear' / 'Explore the Collection' pills), which shows behind our live H1, lead and button, and the trust bar cuts off the last pill. The hero reads as two overlapping layers of text with dead buttons under the live one (reported before; unchanged in these shots).",
       "reference": "The competitor's hero photo is a clean shot with no lettering. The only text on it is the live eyebrow, title, lead and two buttons.",
       "fix": "Give /custom-swimwear-printing/ a hero photo with no lettering in it, and take the lettered photo out of the photo pool until it is regenerated without the text."
     },
@@ -1012,12 +1026,24 @@
       "pageType": "solution",
       "review": "solution--shortest",
       "route": "/custom-swimwear-printing/",
+      "block": "trustBar",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "In the 2×2 phone trust bar, 'up to 3 business days' wraps to two lines while '300 dpi' stays on one, so the two labels in the first row ('SUBLIMATION QUOTE TIME' and 'MINIMUM ARTWORK RESOLUTION') sit at different heights.",
+      "reference": "The competitor has no trust bar. In its rows of cards and steps, the parts of each item in one row line up.",
+      "fix": "In reference.css at the phone breakpoint, lay the trust bar items out on a shared two-row grid (grid-template-rows: subgrid, or the value aligned to the end of its row) so that each row's values and labels line up."
+    },
+    {
+      "pageType": "solution",
+      "review": "solution--shortest",
+      "route": "/custom-swimwear-printing/",
       "block": "m8",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "template",
       "gap": "layout",
-      "issue": "Two neighbouring sections of the same shape still stand one under the other: m7 (process) and m8 (iconList) both set their rows of short items as a list beside the heading, which leaves two long left-hand gaps in a row (reported before; unchanged).",
+      "issue": "Two neighbouring sections of the same shape still stand one under the other: m7 (process) and m8 (iconList) both set their rows of short items as a list beside the heading, which leaves two long empty left-hand columns in a row (reported before; unchanged).",
       "reference": "Site rule: of two neighbouring short-item sections, only one is set as a list beside its heading. The competitor sets its steps as a band of columns under the heading ('Six steps from Costing to delivery').",
       "fix": "When a process list and an iconList are neighbours, have the template set one of them differently: m8 as items in columns under its heading, or m7 in the process 'band' arrangement."
     },
@@ -1043,8 +1069,8 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "On phones the comparison table still cuts its fourth column off at the right edge ('Pigm… with und…', 'Digit… pigm… print…'). The label column is squeezed until 'White or pastel areas' stacks one word per line (reported before; unchanged).",
-      "reference": "On phones the competitor shows comparisons as stacked panels (the 'Plain colours' / 'Prints' cards), with nothing cut off sideways.",
+      "issue": "On phones the comparison table still cuts its fourth column off at the right edge ('Pigm… with und…', 'Digit… pigm… print…'), and the label column is so narrow that 'White or pastel areas' stacks one word per line (reported before; unchanged).",
+      "reference": "On phones the competitor shows comparisons as stacked panels (the 'Plain colours' / 'Prints' cards), with nothing cut off at the side.",
       "fix": "Give the comparison chart (.chart-comparison) a stacked phone layout: one card per option column, its rows as label/value pairs, instead of the sideways scroll."
     },
     {
@@ -1056,7 +1082,7 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "The process step titles ('Scale and trial print', 'A4 approval options'; the same in splitMedia-1-steps) are set at body size and differ only in weight. They read as smaller than the iconList item titles in the sections around them (m5, m8), so one level of heading has two sizes on the page.",
+      "issue": "The process step titles ('Scale and trial print', 'A4 approval options', and the same in splitMedia-1-steps) are still set at body size and differ from the text only in weight. They read as smaller than the iconList item titles in the sections around them (m5, m8), so one level of heading has two sizes on the page (reported before; unchanged).",
       "reference": "The competitor's step titles ('Custom Designs', 'Fabrics & Colours') are clearly larger than the step text under them, at the same level as its other card titles.",
       "fix": "Have the template size process step titles (.process list item heading) at the same subheading level as iconList and featureGrid item titles; no site rule sets the size."
     },
@@ -1069,7 +1095,7 @@
       "severity": "P2",
       "scope": "template",
       "gap": "icon-links",
-      "issue": "The related link cards name services (Embroidery, Consulting, Packaging & Labels, Hardware) as bare text and an arrow, with no line icon.",
+      "issue": "The related link cards still name services (Embroidery, Consulting, Packaging & Labels, Hardware) with only text and an arrow, with no line icon (reported before; unchanged).",
       "reference": "The competitor's matching link cards (Book a Call-Back, WhatsApp, Email Us, Visit Us) each have a line icon at the left and an arrow at the right. Site rule: cards that name services carry a line icon.",
       "fix": "Give the relatedPages 'links' cards a line icon slot before the label, filled per linked service."
     },
@@ -1082,8 +1108,8 @@
       "severity": "P2",
       "scope": "template",
       "gap": "art-direction",
-      "issue": "On phones the wide closing photo is cropped to the copy's height, so the heading, lead and button cover almost the whole frame. The woman's face is cut away, and the photo reads as a dark texture.",
-      "reference": "The competitor's photos on phones keep their subject in frame (its phone hero swaps to a portrait shot); its closing module has no wide photo squeezed behind text.",
+      "issue": "On phones the wide closing photo is still cropped to the copy's height, so the heading, lead and button cover almost the whole frame. The woman's face is cut away, and the photo reads as a dark texture (reported before; unchanged).",
+      "reference": "On phones the competitor keeps each photo's subject in frame (its phone hero switches to a portrait shot), and its closing module has no wide photo squeezed behind text.",
       "fix": "Give the image-band CTA a portrait or square twin photo on phones (as phoneHeroes does for the hero) instead of cropping the wide one to the copy."
     }
   ]
