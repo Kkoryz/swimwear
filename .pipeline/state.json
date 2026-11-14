@@ -37,9 +37,9 @@
   "analysis": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T07:25:41.384Z",
+    "at": "2026-11-14T07:26:01.266Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T07-25-36-409Z/analysis.log"
+    "log": ".pipeline/logs/2026-11-14T07-25-54-662Z/analysis.log"
   },
   "apply-analysis": {
     "status": "passed",
@@ -65,9 +65,9 @@
   "modules": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T07:25:42.084Z",
+    "at": "2026-11-14T07:26:01.322Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T07-25-36-409Z/modules.log"
+    "log": ".pipeline/logs/2026-11-14T07-25-54-662Z/modules.log"
   },
   "template-gaps": {
     "status": "passed",
@@ -79,9 +79,9 @@
   "treatment": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T07:25:42.094Z",
+    "at": "2026-11-14T07:26:01.334Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T07-25-36-409Z/treatment.log"
+    "log": ".pipeline/logs/2026-11-14T07-25-54-662Z/treatment.log"
   },
   "fonts": {
     "status": "passed",
@@ -131,5 +131,12 @@
     "at": "2026-11-14T07:25:45.136Z",
     "seconds": 0,
     "log": ".pipeline/logs/2026-11-14T07-25-36-409Z/plan-gate.log"
+  },
+  "calibrate": {
+    "status": "passed",
+    "hash": "e04cf30b9583f305",
+    "at": "2026-11-14T07:26:56.524Z",
+    "seconds": 55,
+    "log": ".pipeline/logs/2026-11-14T07-25-54-662Z/calibrate.log"
   }
 }

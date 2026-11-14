@@ -149,6 +149,988 @@
       "chars": 108,
       "charEm": 0.603,
       "leadWords": 27
+    },
+    "blockModel": {
+      "*": {
+        "base": 200,
+        "perWord": 4,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "caseStudies:*": {
+        "base": 1262,
+        "perWord": 0,
+        "visual": 0.43,
+        "before": 0.13,
+        "after": 0.31
+      },
+      "caseStudies:": {
+        "base": 1262,
+        "perWord": 0,
+        "visual": 0.43,
+        "before": 0.13,
+        "after": 0.31
+      },
+      "charts:*": {
+        "base": 161,
+        "perWord": 5.5,
+        "visual": 0.93,
+        "before": 0,
+        "after": 0.16
+      },
+      "charts:": {
+        "base": 161,
+        "perWord": 5.5,
+        "visual": 0.93,
+        "before": 0,
+        "after": 0.16
+      },
+      "cta:*": {
+        "base": 437,
+        "perWord": 0,
+        "visual": 0.34,
+        "before": 0.62,
+        "after": 0.64
+      },
+      "cta:form+photo": {
+        "base": 950,
+        "perWord": 0,
+        "visual": 0.63,
+        "before": 0.15,
+        "after": 0.2
+      },
+      "cta:form": {
+        "base": 754,
+        "perWord": 0,
+        "visual": 0.18,
+        "before": 0.74,
+        "after": 0.76
+      },
+      "cta:image-band+photo": {
+        "base": 734,
+        "perWord": 0,
+        "visual": 0.83,
+        "before": 0.06,
+        "after": 0.12
+      },
+      "cta:image-band": {
+        "base": 554,
+        "perWord": 0,
+        "visual": 0.56,
+        "before": 0.11,
+        "after": 0.22
+      },
+      "featureGrid:*": {
+        "base": 154,
+        "perWord": 2.18,
+        "visual": 0.48,
+        "before": 0.49,
+        "after": 0.42
+      },
+      "featureGrid:bullets": {
+        "base": 174,
+        "perWord": 2.12,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "featureGrid:cards": {
+        "base": 156,
+        "perWord": 2.11,
+        "visual": 0.57,
+        "before": 0.4,
+        "after": 0.3
+      },
+      "featureGrid:icons": {
+        "base": 215,
+        "perWord": 4.07,
+        "visual": 0.47,
+        "before": 0.34,
+        "after": 0.27
+      },
+      "featureGrid:media": {
+        "base": 470,
+        "perWord": 2.75,
+        "visual": 0.25,
+        "before": 0.17,
+        "after": 0.53
+      },
+      "gallery:*": {
+        "base": 799,
+        "perWord": 0,
+        "visual": 0.92,
+        "before": 0.05,
+        "after": 0.05
+      },
+      "gallery:band": {
+        "base": 806,
+        "perWord": 0,
+        "visual": 0.92,
+        "before": 0.05,
+        "after": 0.05
+      },
+      "gallery:grid": {
+        "base": 385,
+        "perWord": 0,
+        "visual": 0.81,
+        "before": 0.11,
+        "after": 0.11
+      },
+      "hero:*": {
+        "base": 423,
+        "perWord": 8.85,
+        "visual": 0.84,
+        "before": 0,
+        "after": 0.2
+      },
+      "hero:media-overlay": {
+        "base": 128,
+        "perWord": 15.44,
+        "visual": 1,
+        "before": 0,
+        "after": 0
+      },
+      "iconList:*": {
+        "base": 140,
+        "perWord": 3.35,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "iconList:checks": {
+        "base": 140,
+        "perWord": 3.35,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "intro:*": {
+        "base": 44,
+        "perWord": 3.65,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "intro:text": {
+        "base": 44,
+        "perWord": 3.65,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "logos:*": {
+        "base": 255,
+        "perWord": 0,
+        "visual": 0.37,
+        "before": 0.44,
+        "after": 0.17
+      },
+      "logos:": {
+        "base": 255,
+        "perWord": 0,
+        "visual": 0.37,
+        "before": 0.44,
+        "after": 0.17
+      },
+      "process:*": {
+        "base": 281,
+        "perWord": 1.7,
+        "visual": 0.23,
+        "before": 0.72,
+        "after": 0.68
+      },
+      "process:circles": {
+        "base": 166,
+        "perWord": 2.16,
+        "visual": 0.64,
+        "before": 0.29,
+        "after": 0.09
+      },
+      "process:list": {
+        "base": 274,
+        "perWord": 1.82,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "process:photo-cards": {
+        "base": 430,
+        "perWord": 0,
+        "visual": 1,
+        "before": 0,
+        "after": 0
+      },
+      "process:ring": {
+        "base": 210,
+        "perWord": 3.62,
+        "visual": 0.7,
+        "before": 0.25,
+        "after": 0.05
+      },
+      "process:timeline": {
+        "base": 210,
+        "perWord": 3.62,
+        "visual": 0.7,
+        "before": 0.25,
+        "after": 0.05
+      },
+      "proof:*": {
+        "base": 40,
+        "perWord": 5.58,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "proof:band": {
+        "base": 40,
+        "perWord": 5.58,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "relatedPages:*": {
+        "base": 235,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "relatedPages:": {
+        "base": 476,
+        "perWord": 0,
+        "visual": 0.33,
+        "before": 0.24,
+        "after": 0.37
+      },
+      "relatedPages:tiles": {
+        "base": 476,
+        "perWord": 0,
+        "visual": 0.33,
+        "before": 0.24,
+        "after": 0.37
+      },
+      "splitMedia:*": {
+        "base": 704,
+        "perWord": 0,
+        "visual": 0.38,
+        "before": 0.23,
+        "after": 0.22
+      },
+      "splitMedia:panel": {
+        "base": 366,
+        "perWord": 3.7,
+        "visual": 0.14,
+        "before": 0.57,
+        "after": 0.57
+      },
+      "splitMedia:single": {
+        "base": 656,
+        "perWord": 0,
+        "visual": 0.34,
+        "before": 0.23,
+        "after": 0.25
+      },
+      "stats:*": {
+        "base": 269,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "stats:row": {
+        "base": 269,
+        "perWord": 0,
+        "visual": 0.6,
+        "before": 0.3,
+        "after": 0.1
+      },
+      "table:*": {
+        "base": 226,
+        "perWord": 2.24,
+        "visual": 0.75,
+        "before": 0.19,
+        "after": 0.06
+      },
+      "table:cards": {
+        "base": 888,
+        "perWord": 0,
+        "visual": 0.7,
+        "before": 0.28,
+        "after": 0.07
+      },
+      "table:grid": {
+        "base": 226,
+        "perWord": 2.24,
+        "visual": 0.75,
+        "before": 0.19,
+        "after": 0.06
+      },
+      "trustBar:*": {
+        "base": 85,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "trustBar:": {
+        "base": 85,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "hero:media-banner": {
+        "base": 782,
+        "perWord": 0.08,
+        "visual": 0.71,
+        "before": 0,
+        "after": 0.33
+      },
+      "hero:media-banner@product_manufacturer": {
+        "base": 782,
+        "perWord": 0.08,
+        "visual": 0.71,
+        "before": 0,
+        "after": 0.33
+      },
+      "trustBar:@product_manufacturer": {
+        "base": 85,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "intro:text@product_manufacturer": {
+        "base": 40,
+        "perWord": 3.68,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "process:circles@product_manufacturer": {
+        "base": 176,
+        "perWord": 2.04,
+        "visual": 0.64,
+        "before": 0.29,
+        "after": 0.1
+      },
+      "table:grid@product_manufacturer": {
+        "base": 179,
+        "perWord": 2.46,
+        "visual": 0.75,
+        "before": 0.19,
+        "after": 0.06
+      },
+      "featureGrid:bullets@product_manufacturer": {
+        "base": 150,
+        "perWord": 2.21,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "gallery:band@product_manufacturer": {
+        "base": 806,
+        "perWord": 0,
+        "visual": 0.92,
+        "before": 0.05,
+        "after": 0.05
+      },
+      "featureGrid:cards@product_manufacturer": {
+        "base": 162,
+        "perWord": 2.02,
+        "visual": 0.59,
+        "before": 0.38,
+        "after": 0.28
+      },
+      "testimonials:": {
+        "base": 434,
+        "perWord": 0.19,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "testimonials:*": {
+        "base": 434,
+        "perWord": 0.19,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "testimonials:@product_manufacturer": {
+        "base": 422,
+        "perWord": 0.3,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "relatedPages:links": {
+        "base": 235,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "relatedPages:links@product_manufacturer": {
+        "base": 237,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "faq:two-column": {
+        "base": 133,
+        "perWord": 3.09,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "faq:*": {
+        "base": 136,
+        "perWord": 3.3,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "faq:two-column@product_manufacturer": {
+        "base": 130,
+        "perWord": 3.13,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "cta:inline": {
+        "base": 158,
+        "perWord": 2.06,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "cta:inline@product_manufacturer": {
+        "base": 158,
+        "perWord": 2.06,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "process:list@product_manufacturer": {
+        "base": 323,
+        "perWord": 1.12,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "iconList:checks@product_manufacturer": {
+        "base": 129,
+        "perWord": 3.49,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "splitMedia:single@product_manufacturer": {
+        "base": 653,
+        "perWord": 0,
+        "visual": 0.32,
+        "before": 0.27,
+        "after": 0.29
+      },
+      "charts:@product_manufacturer": {
+        "base": 147,
+        "perWord": 6.23,
+        "visual": 0.94,
+        "before": 0,
+        "after": 0.16
+      },
+      "hero:media-overlay@home": {
+        "base": 900,
+        "perWord": 0,
+        "visual": 1,
+        "before": 0,
+        "after": 0
+      },
+      "trustBar:@home": {
+        "base": 85,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "intro:text@home": {
+        "base": 459,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "gallery:band@home": {
+        "base": 810,
+        "perWord": 0,
+        "visual": 0.92,
+        "before": 0.05,
+        "after": 0.06
+      },
+      "process:list@home": {
+        "base": 364,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "iconList:checks@home": {
+        "base": 443,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "featureGrid:outline-numbered": {
+        "base": 199,
+        "perWord": 1.95,
+        "visual": 0.54,
+        "before": 0.45,
+        "after": 0.43
+      },
+      "featureGrid:outline-numbered@home": {
+        "base": 199,
+        "perWord": 1.95,
+        "visual": 0.54,
+        "before": 0.45,
+        "after": 0.43
+      },
+      "gallery:grid@home": {
+        "base": 385,
+        "perWord": 0,
+        "visual": 0.81,
+        "before": 0.11,
+        "after": 0.11
+      },
+      "splitMedia:tinted": {
+        "base": 728,
+        "perWord": 0,
+        "visual": 0.45,
+        "before": 0.04,
+        "after": 0.04
+      },
+      "splitMedia:tinted@home": {
+        "base": 728,
+        "perWord": 0,
+        "visual": 0.45,
+        "before": 0.04,
+        "after": 0.04
+      },
+      "splitMedia:single@home": {
+        "base": 699,
+        "perWord": 0,
+        "visual": 0.47,
+        "before": 0.02,
+        "after": 0.02
+      },
+      "logos:@home": {
+        "base": 269,
+        "perWord": 0,
+        "visual": 0.35,
+        "before": 0.47,
+        "after": 0.16
+      },
+      "testimonials:@home": {
+        "base": 442,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "relatedPages:links@home": {
+        "base": 230,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "faq:two-column@home": {
+        "base": 293,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "cta:image-band+photo@home": {
+        "base": 734,
+        "perWord": 0,
+        "visual": 0.85,
+        "before": 0.06,
+        "after": 0.12
+      },
+      "proof:band@product_manufacturer": {
+        "base": 267,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "process:photo-cards@product_manufacturer": {
+        "base": 430,
+        "perWord": 0,
+        "visual": 1,
+        "before": 0,
+        "after": 0
+      },
+      "hero:media-overlay@solution": {
+        "base": 526,
+        "perWord": 0.7,
+        "visual": 1,
+        "before": 0,
+        "after": 0
+      },
+      "trustBar:@solution": {
+        "base": 85,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "intro:text@solution": {
+        "base": 132,
+        "perWord": 2.58,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "splitMedia:wide": {
+        "base": 751,
+        "perWord": 2.95,
+        "visual": 0.63,
+        "before": 0.27,
+        "after": 0.1
+      },
+      "splitMedia:wide@solution": {
+        "base": 751,
+        "perWord": 2.95,
+        "visual": 0.63,
+        "before": 0.27,
+        "after": 0.1
+      },
+      "splitMedia:single@solution": {
+        "base": 644,
+        "perWord": 0,
+        "visual": 0.34,
+        "before": 0.19,
+        "after": 0.23
+      },
+      "process:band": {
+        "base": 164,
+        "perWord": 4.03,
+        "visual": 0.43,
+        "before": 0.29,
+        "after": 0.31
+      },
+      "process:band@solution": {
+        "base": 164,
+        "perWord": 4.03,
+        "visual": 0.43,
+        "before": 0.29,
+        "after": 0.31
+      },
+      "featureGrid:bullets@solution": {
+        "base": 256,
+        "perWord": 1.77,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "featureGrid:cards@solution": {
+        "base": 123,
+        "perWord": 2.47,
+        "visual": 0.52,
+        "before": 0.44,
+        "after": 0.35
+      },
+      "iconList:checks@solution": {
+        "base": 179,
+        "perWord": 3.11,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "table:grid@solution": {
+        "base": 293,
+        "perWord": 1.95,
+        "visual": 0.75,
+        "before": 0.2,
+        "after": 0.06
+      },
+      "process:list@solution": {
+        "base": 246,
+        "perWord": 2.05,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "gallery:band@solution": {
+        "base": 806,
+        "perWord": 0,
+        "visual": 0.92,
+        "before": 0.05,
+        "after": 0.05
+      },
+      "orderCase:": {
+        "base": 86,
+        "perWord": 5.11,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "orderCase:*": {
+        "base": 86,
+        "perWord": 5.11,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "orderCase:@solution": {
+        "base": 321,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "testimonials:@solution": {
+        "base": 456,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "relatedPages:links@solution": {
+        "base": 232,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "faq:bars": {
+        "base": 268,
+        "perWord": 2.59,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "faq:bars@solution": {
+        "base": 268,
+        "perWord": 2.59,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "charts:@solution": {
+        "base": 167,
+        "perWord": 4.5,
+        "visual": 0.9,
+        "before": 0,
+        "after": 0.16
+      },
+      "cta:image-band+photo@solution": {
+        "base": 734,
+        "perWord": 0,
+        "visual": 0.83,
+        "before": 0.06,
+        "after": 0.12
+      },
+      "proof:band@solution": {
+        "base": 71,
+        "perWord": 2.98,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "hero:media-overlay@about": {
+        "base": 556,
+        "perWord": 0,
+        "visual": 1,
+        "before": 0,
+        "after": 0
+      },
+      "trustBar:@about": {
+        "base": 85,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "intro:text@about": {
+        "base": 211,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "splitMedia:single@about": {
+        "base": 758,
+        "perWord": 0,
+        "visual": 0.43,
+        "before": 0.06,
+        "after": 0.06
+      },
+      "featureGrid:cards@about": {
+        "base": 338,
+        "perWord": 0,
+        "visual": 0.27,
+        "before": 0.72,
+        "after": 0.52
+      },
+      "process:circles@about": {
+        "base": 640,
+        "perWord": 0,
+        "visual": 0.67,
+        "before": 0.28,
+        "after": 0.07
+      },
+      "iconList:checks@about": {
+        "base": 586,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "logos:@about": {
+        "base": 241,
+        "perWord": 0,
+        "visual": 0.39,
+        "before": 0.41,
+        "after": 0.18
+      },
+      "testimonials:@about": {
+        "base": 465,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "faq:two-column@about": {
+        "base": 272,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "cta:image-band+photo@about": {
+        "base": 734,
+        "perWord": 0,
+        "visual": 0.82,
+        "before": 0.06,
+        "after": 0.12
+      },
+      "hero:media-overlay@general": {
+        "base": 900,
+        "perWord": 0,
+        "visual": 1,
+        "before": 0,
+        "after": 0
+      },
+      "trustBar:@general": {
+        "base": 85,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "intro:text@general": {
+        "base": 96,
+        "perWord": 3.79,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "process:list@general": {
+        "base": 178,
+        "perWord": 3.32,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "orderCase:@general": {
+        "base": 540,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "relatedPages:links@general": {
+        "base": 230,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "faq:two-column@general": {
+        "base": 334,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "cta:image-band+photo@general": {
+        "base": 734,
+        "perWord": 0,
+        "visual": 0.83,
+        "before": 0.06,
+        "after": 0.12
+      },
+      "gallery:band@general": {
+        "base": 806,
+        "perWord": 0,
+        "visual": 0.92,
+        "before": 0.05,
+        "after": 0.05
+      },
+      "proof:band@general": {
+        "base": 40,
+        "perWord": 6.35,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "featureGrid:cards@general": {
+        "base": 411,
+        "perWord": 0,
+        "visual": 0.62,
+        "before": 0.31,
+        "after": 0.1
+      },
+      "iconList:checks@general": {
+        "base": 134,
+        "perWord": 3.17,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "splitMedia:single@general": {
+        "base": 40,
+        "perWord": 10.07,
+        "visual": 0.33,
+        "before": 0.29,
+        "after": 0.29
+      },
+      "charts:@general": {
+        "base": 161,
+        "perWord": 7.29,
+        "visual": 0.95,
+        "before": 0,
+        "after": 0.14
+      },
+      "process:circles@general": {
+        "base": 558,
+        "perWord": 0,
+        "visual": 0.62,
+        "before": 0.3,
+        "after": 0.08
+      },
+      "featureGrid:bullets@general": {
+        "base": 917,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      }
     }
   }
 }

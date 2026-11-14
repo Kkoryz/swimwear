@@ -1,0 +1,1051 @@
+{
+  "schemaVersion": "seo-site-plan-calibration-v1",
+  "madeAt": "2026-11-14T07:26:56.061Z",
+  "converged": false,
+  "stopped": "model_settled",
+  "wrongCalls": [],
+  "tolerance": {
+    "heightPct": 5,
+    "visualPts": 3
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "model": "default",
+      "within": false,
+      "pages": [
+        {
+          "route": "/",
+          "pageType": "home",
+          "planned": {
+            "heightPx": 22251,
+            "visualAreaPct": 37
+          },
+          "measured": {
+            "heightPx": 17468,
+            "visualAreaPct": 59
+          },
+          "heightOffPct": 27.4,
+          "visualOffPts": -22,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/women-s-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 12868,
+            "visualAreaPct": 32.9
+          },
+          "measured": {
+            "heightPx": 8875,
+            "visualAreaPct": 39
+          },
+          "heightOffPct": 45,
+          "visualOffPts": -6.1,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/one-piece-swimsuit-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 12972,
+            "visualAreaPct": 37.3
+          },
+          "measured": {
+            "heightPx": 8960,
+            "visualAreaPct": 44
+          },
+          "heightOffPct": 44.8,
+          "visualOffPts": -6.7,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/bikini-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 9812,
+            "visualAreaPct": 40.4
+          },
+          "measured": {
+            "heightPx": 6206,
+            "visualAreaPct": 41
+          },
+          "heightOffPct": 58.1,
+          "visualOffPts": -0.6,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/men-s-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 12871,
+            "visualAreaPct": 35.4
+          },
+          "measured": {
+            "heightPx": 9129,
+            "visualAreaPct": 36
+          },
+          "heightOffPct": 41,
+          "visualOffPts": -0.6,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/boardshorts-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 14222,
+            "visualAreaPct": 31.5
+          },
+          "measured": {
+            "heightPx": 10058,
+            "visualAreaPct": 36
+          },
+          "heightOffPct": 41.4,
+          "visualOffPts": -4.5,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/swim-trunks-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 14091,
+            "visualAreaPct": 34.3
+          },
+          "measured": {
+            "heightPx": 9930,
+            "visualAreaPct": 47
+          },
+          "heightOffPct": 41.9,
+          "visualOffPts": -12.7,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/children-s-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 15769,
+            "visualAreaPct": 28.3
+          },
+          "measured": {
+            "heightPx": 11214,
+            "visualAreaPct": 34
+          },
+          "heightOffPct": 40.6,
+          "visualOffPts": -5.7,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/teen-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 13814,
+            "visualAreaPct": 31.6
+          },
+          "measured": {
+            "heightPx": 10422,
+            "visualAreaPct": 36
+          },
+          "heightOffPct": 32.5,
+          "visualOffPts": -4.4,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/baby-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 11768,
+            "visualAreaPct": 33.6
+          },
+          "measured": {
+            "heightPx": 7890,
+            "visualAreaPct": 37
+          },
+          "heightOffPct": 49.2,
+          "visualOffPts": -3.4,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/toddler-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 9751,
+            "visualAreaPct": 46
+          },
+          "measured": {
+            "heightPx": 6670,
+            "visualAreaPct": 52
+          },
+          "heightOffPct": 46.2,
+          "visualOffPts": -6,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/modest-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 16010,
+            "visualAreaPct": 26.4
+          },
+          "measured": {
+            "heightPx": 10693,
+            "visualAreaPct": 30
+          },
+          "heightOffPct": 49.7,
+          "visualOffPts": -3.6,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/burkini-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 12124,
+            "visualAreaPct": 34.2
+          },
+          "measured": {
+            "heightPx": 8799,
+            "visualAreaPct": 39
+          },
+          "heightOffPct": 37.8,
+          "visualOffPts": -4.8,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/watersports-apparel-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 6949,
+            "visualAreaPct": 40
+          },
+          "measured": {
+            "heightPx": 5396,
+            "visualAreaPct": 34
+          },
+          "heightOffPct": 28.8,
+          "visualOffPts": 6,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/rash-guard-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 15229,
+            "visualAreaPct": 33.1
+          },
+          "measured": {
+            "heightPx": 10106,
+            "visualAreaPct": 36
+          },
+          "heightOffPct": 50.7,
+          "visualOffPts": -2.9,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/resort-wear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 14842,
+            "visualAreaPct": 27.4
+          },
+          "measured": {
+            "heightPx": 10553,
+            "visualAreaPct": 31
+          },
+          "heightOffPct": 40.6,
+          "visualOffPts": -3.6,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/cover-up-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 13947,
+            "visualAreaPct": 42
+          },
+          "measured": {
+            "heightPx": 10484,
+            "visualAreaPct": 54
+          },
+          "heightOffPct": 33,
+          "visualOffPts": -12,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/swimwear-embroidery/",
+          "pageType": "solution",
+          "planned": {
+            "heightPx": 17653,
+            "visualAreaPct": 27.9
+          },
+          "measured": {
+            "heightPx": 14059,
+            "visualAreaPct": 41
+          },
+          "heightOffPct": 25.6,
+          "visualOffPts": -13.1,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/swimwear-consulting/",
+          "pageType": "solution",
+          "planned": {
+            "heightPx": 21126,
+            "visualAreaPct": 33.9
+          },
+          "measured": {
+            "heightPx": 15956,
+            "visualAreaPct": 44
+          },
+          "heightOffPct": 32.4,
+          "visualOffPts": -10.1,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/development/",
+          "pageType": "solution",
+          "planned": {
+            "heightPx": 17275,
+            "visualAreaPct": 30.6
+          },
+          "measured": {
+            "heightPx": 13842,
+            "visualAreaPct": 41
+          },
+          "heightOffPct": 24.8,
+          "visualOffPts": -10.4,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/swimwear-packaging-custom-brand-labels/",
+          "pageType": "solution",
+          "planned": {
+            "heightPx": 16711,
+            "visualAreaPct": 32.4
+          },
+          "measured": {
+            "heightPx": 13208,
+            "visualAreaPct": 44
+          },
+          "heightOffPct": 26.5,
+          "visualOffPts": -11.6,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/custom-swimwear-printing/",
+          "pageType": "solution",
+          "planned": {
+            "heightPx": 13890,
+            "visualAreaPct": 31.2
+          },
+          "measured": {
+            "heightPx": 11586,
+            "visualAreaPct": 44
+          },
+          "heightOffPct": 19.9,
+          "visualOffPts": -12.8,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/swimwear-hardware/",
+          "pageType": "solution",
+          "planned": {
+            "heightPx": 16786,
+            "visualAreaPct": 32.2
+          },
+          "measured": {
+            "heightPx": 13531,
+            "visualAreaPct": 46
+          },
+          "heightOffPct": 24.1,
+          "visualOffPts": -13.8,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/swimwear-fabrics-sourcing/",
+          "pageType": "solution",
+          "planned": {
+            "heightPx": 16080,
+            "visualAreaPct": 33.7
+          },
+          "measured": {
+            "heightPx": 13352,
+            "visualAreaPct": 45
+          },
+          "heightOffPct": 20.4,
+          "visualOffPts": -11.3,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/about-us/",
+          "pageType": "about",
+          "planned": {
+            "heightPx": 9359,
+            "visualAreaPct": 32.3
+          },
+          "measured": {
+            "heightPx": 7363,
+            "visualAreaPct": 39
+          },
+          "heightOffPct": 27.1,
+          "visualOffPts": -6.7,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/faq/",
+          "pageType": "general",
+          "planned": {
+            "heightPx": 19702,
+            "visualAreaPct": 26.6
+          },
+          "measured": {
+            "heightPx": 14628,
+            "visualAreaPct": 40
+          },
+          "heightOffPct": 34.7,
+          "visualOffPts": -13.4,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/case-studies/",
+          "pageType": "general",
+          "planned": {
+            "heightPx": 4660,
+            "visualAreaPct": 35.3
+          },
+          "measured": {
+            "heightPx": 4066,
+            "visualAreaPct": 37
+          },
+          "heightOffPct": 14.6,
+          "visualOffPts": -1.7,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/sustainability/",
+          "pageType": "general",
+          "planned": {
+            "heightPx": 7529,
+            "visualAreaPct": 32.8
+          },
+          "measured": {
+            "heightPx": 5353,
+            "visualAreaPct": 47
+          },
+          "heightOffPct": 40.7,
+          "visualOffPts": -14.2,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/request-a-quote/",
+          "pageType": "general",
+          "planned": {
+            "heightPx": 6862,
+            "visualAreaPct": 39.3
+          },
+          "measured": {
+            "heightPx": 4884,
+            "visualAreaPct": 44
+          },
+          "heightOffPct": 40.5,
+          "visualOffPts": -4.7,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/swimwear-accessories/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 16713,
+            "visualAreaPct": 31.1
+          },
+          "measured": {
+            "heightPx": 11933,
+            "visualAreaPct": 38
+          },
+          "heightOffPct": 40.1,
+          "visualOffPts": -6.9,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/plus-size-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 11815,
+            "visualAreaPct": 37.3
+          },
+          "measured": {
+            "heightPx": 7630,
+            "visualAreaPct": 41
+          },
+          "heightOffPct": 54.8,
+          "visualOffPts": -3.7,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/couples-matching-swimsuit-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 11604,
+            "visualAreaPct": 30
+          },
+          "measured": {
+            "heightPx": 8936,
+            "visualAreaPct": 36
+          },
+          "heightOffPct": 29.9,
+          "visualOffPts": -6,
+          "within": false,
+          "wrongCall": false
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "model": "site",
+      "within": false,
+      "pages": [
+        {
+          "route": "/",
+          "pageType": "home",
+          "planned": {
+            "heightPx": 16269,
+            "visualAreaPct": 50.6
+          },
+          "measured": {
+            "heightPx": 15856,
+            "visualAreaPct": 56
+          },
+          "heightOffPct": 2.6,
+          "visualOffPts": -5.4,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/women-s-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 8790,
+            "visualAreaPct": 35.3
+          },
+          "measured": {
+            "heightPx": 8875,
+            "visualAreaPct": 39
+          },
+          "heightOffPct": -1,
+          "visualOffPts": -3.7,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/one-piece-swimsuit-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 8794,
+            "visualAreaPct": 38.3
+          },
+          "measured": {
+            "heightPx": 8960,
+            "visualAreaPct": 44
+          },
+          "heightOffPct": -1.9,
+          "visualOffPts": -5.7,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/bikini-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 6341,
+            "visualAreaPct": 40.4
+          },
+          "measured": {
+            "heightPx": 6206,
+            "visualAreaPct": 41
+          },
+          "heightOffPct": 2.2,
+          "visualOffPts": -0.6,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/men-s-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 9104,
+            "visualAreaPct": 34.5
+          },
+          "measured": {
+            "heightPx": 9129,
+            "visualAreaPct": 36
+          },
+          "heightOffPct": -0.3,
+          "visualOffPts": -1.5,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/boardshorts-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 9213,
+            "visualAreaPct": 29
+          },
+          "measured": {
+            "heightPx": 9251,
+            "visualAreaPct": 32
+          },
+          "heightOffPct": -0.4,
+          "visualOffPts": -3,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/swim-trunks-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 8760,
+            "visualAreaPct": 36.1
+          },
+          "measured": {
+            "heightPx": 9124,
+            "visualAreaPct": 43
+          },
+          "heightOffPct": -4,
+          "visualOffPts": -6.9,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/children-s-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 10937,
+            "visualAreaPct": 30.6
+          },
+          "measured": {
+            "heightPx": 11214,
+            "visualAreaPct": 34
+          },
+          "heightOffPct": -2.5,
+          "visualOffPts": -3.4,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/teen-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 9420,
+            "visualAreaPct": 27.4
+          },
+          "measured": {
+            "heightPx": 9616,
+            "visualAreaPct": 32
+          },
+          "heightOffPct": -2,
+          "visualOffPts": -4.6,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/baby-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 7829,
+            "visualAreaPct": 35.6
+          },
+          "measured": {
+            "heightPx": 7890,
+            "visualAreaPct": 37
+          },
+          "heightOffPct": -0.8,
+          "visualOffPts": -1.4,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/toddler-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 6559,
+            "visualAreaPct": 49.2
+          },
+          "measured": {
+            "heightPx": 6670,
+            "visualAreaPct": 52
+          },
+          "heightOffPct": -1.7,
+          "visualOffPts": -2.8,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/modest-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 10684,
+            "visualAreaPct": 29.5
+          },
+          "measured": {
+            "heightPx": 10693,
+            "visualAreaPct": 30
+          },
+          "heightOffPct": -0.1,
+          "visualOffPts": -0.5,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/burkini-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 6988,
+            "visualAreaPct": 25.8
+          },
+          "measured": {
+            "heightPx": 7186,
+            "visualAreaPct": 27
+          },
+          "heightOffPct": -2.8,
+          "visualOffPts": -1.2,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/watersports-apparel-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 5197,
+            "visualAreaPct": 35.7
+          },
+          "measured": {
+            "heightPx": 5396,
+            "visualAreaPct": 34
+          },
+          "heightOffPct": -3.7,
+          "visualOffPts": 1.7,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/rash-guard-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 10603,
+            "visualAreaPct": 33.5
+          },
+          "measured": {
+            "heightPx": 10106,
+            "visualAreaPct": 36
+          },
+          "heightOffPct": 4.9,
+          "visualOffPts": -2.5,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/resort-wear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 10349,
+            "visualAreaPct": 29.7
+          },
+          "measured": {
+            "heightPx": 10553,
+            "visualAreaPct": 31
+          },
+          "heightOffPct": -1.9,
+          "visualOffPts": -1.3,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/cover-up-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 9944,
+            "visualAreaPct": 48
+          },
+          "measured": {
+            "heightPx": 10484,
+            "visualAreaPct": 54
+          },
+          "heightOffPct": -5.2,
+          "visualOffPts": -6,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/swimwear-embroidery/",
+          "pageType": "solution",
+          "planned": {
+            "heightPx": 13069,
+            "visualAreaPct": 36.1
+          },
+          "measured": {
+            "heightPx": 13253,
+            "visualAreaPct": 38
+          },
+          "heightOffPct": -1.4,
+          "visualOffPts": -1.9,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/swimwear-consulting/",
+          "pageType": "solution",
+          "planned": {
+            "heightPx": 14864,
+            "visualAreaPct": 36.1
+          },
+          "measured": {
+            "heightPx": 14343,
+            "visualAreaPct": 39
+          },
+          "heightOffPct": 3.6,
+          "visualOffPts": -2.9,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/development/",
+          "pageType": "solution",
+          "planned": {
+            "heightPx": 13795,
+            "visualAreaPct": 39.3
+          },
+          "measured": {
+            "heightPx": 13842,
+            "visualAreaPct": 41
+          },
+          "heightOffPct": -0.3,
+          "visualOffPts": -1.7,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/swimwear-packaging-custom-brand-labels/",
+          "pageType": "solution",
+          "planned": {
+            "heightPx": 13106,
+            "visualAreaPct": 41.4
+          },
+          "measured": {
+            "heightPx": 13208,
+            "visualAreaPct": 44
+          },
+          "heightOffPct": -0.8,
+          "visualOffPts": -2.6,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/custom-swimwear-printing/",
+          "pageType": "solution",
+          "planned": {
+            "heightPx": 10237,
+            "visualAreaPct": 36.1
+          },
+          "measured": {
+            "heightPx": 10780,
+            "visualAreaPct": 40
+          },
+          "heightOffPct": -5,
+          "visualOffPts": -3.9,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/swimwear-hardware/",
+          "pageType": "solution",
+          "planned": {
+            "heightPx": 12047,
+            "visualAreaPct": 41
+          },
+          "measured": {
+            "heightPx": 12724,
+            "visualAreaPct": 43
+          },
+          "heightOffPct": -5.3,
+          "visualOffPts": -2,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/swimwear-fabrics-sourcing/",
+          "pageType": "solution",
+          "planned": {
+            "heightPx": 12402,
+            "visualAreaPct": 39.2
+          },
+          "measured": {
+            "heightPx": 12546,
+            "visualAreaPct": 42
+          },
+          "heightOffPct": -1.1,
+          "visualOffPts": -2.8,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/about-us/",
+          "pageType": "about",
+          "planned": {
+            "heightPx": 7162,
+            "visualAreaPct": 36
+          },
+          "measured": {
+            "heightPx": 7363,
+            "visualAreaPct": 39
+          },
+          "heightOffPct": -2.7,
+          "visualOffPts": -3,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/faq/",
+          "pageType": "general",
+          "planned": {
+            "heightPx": 14666,
+            "visualAreaPct": 28.2
+          },
+          "measured": {
+            "heightPx": 13015,
+            "visualAreaPct": 33
+          },
+          "heightOffPct": 12.7,
+          "visualOffPts": -4.8,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/case-studies/",
+          "pageType": "general",
+          "planned": {
+            "heightPx": 4044,
+            "visualAreaPct": 37.3
+          },
+          "measured": {
+            "heightPx": 4066,
+            "visualAreaPct": 37
+          },
+          "heightOffPct": -0.5,
+          "visualOffPts": 0.3,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/sustainability/",
+          "pageType": "general",
+          "planned": {
+            "heightPx": 5192,
+            "visualAreaPct": 46.3
+          },
+          "measured": {
+            "heightPx": 5353,
+            "visualAreaPct": 47
+          },
+          "heightOffPct": -3,
+          "visualOffPts": -0.7,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/request-a-quote/",
+          "pageType": "general",
+          "planned": {
+            "heightPx": 4753,
+            "visualAreaPct": 42.2
+          },
+          "measured": {
+            "heightPx": 4884,
+            "visualAreaPct": 44
+          },
+          "heightOffPct": -2.7,
+          "visualOffPts": -1.8,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/swimwear-accessories/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 11837,
+            "visualAreaPct": 35
+          },
+          "measured": {
+            "heightPx": 11933,
+            "visualAreaPct": 38
+          },
+          "heightOffPct": -0.8,
+          "visualOffPts": -3,
+          "within": true,
+          "wrongCall": false
+        },
+        {
+          "route": "/plus-size-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 8084,
+            "visualAreaPct": 38
+          },
+          "measured": {
+            "heightPx": 7630,
+            "visualAreaPct": 41
+          },
+          "heightOffPct": 6,
+          "visualOffPts": -3,
+          "within": false,
+          "wrongCall": false
+        },
+        {
+          "route": "/couples-matching-swimsuit-manufacturer/",
+          "pageType": "product_manufacturer",
+          "planned": {
+            "heightPx": 8397,
+            "visualAreaPct": 29.5
+          },
+          "measured": {
+            "heightPx": 8936,
+            "visualAreaPct": 36
+          },
+          "heightOffPct": -6,
+          "visualOffPts": -6.5,
+          "within": false,
+          "wrongCall": false
+        }
+      ]
+    }
+  ]
+}
