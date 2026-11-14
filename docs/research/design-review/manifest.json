@@ -1,7 +1,5386 @@
 {
   "schemaVersion": "seo-site-design-review-shots-v1",
-  "id": null,
-  "pages": [],
+  "id": "fed7c56ce4e3763d",
+  "pages": [
+    {
+      "key": "home",
+      "pageType": "home",
+      "reference": "home",
+      "role": "only",
+      "words": 2180,
+      "route": "/",
+      "status": "authored",
+      "source": "c3d1ea73ac4f87bc8e6b6930",
+      "rules": "896e2a6360c1caaa",
+      "shots": "d9d4f4fdaf513ad3b0c805e6",
+      "images": [
+        "docs/research/design-review/home-desktop-1.png",
+        "docs/research/design-review/home-desktop-2.png",
+        "docs/research/design-review/home-desktop-3.png",
+        "docs/research/design-review/home-desktop-4.png",
+        "docs/research/design-review/home-desktop-5.png",
+        "docs/research/design-review/home-mobile-1.png",
+        "docs/research/design-review/home-mobile-2.png",
+        "docs/research/design-review/home-mobile-3.png",
+        "docs/research/design-review/home-mobile-4.png",
+        "docs/research/design-review/home-mobile-5.png",
+        "docs/research/design-review/home-mobile-6.png",
+        "docs/research/design-review/home-mobile-7.png",
+        "docs/research/design-review/home-mobile-8.png",
+        "docs/research/design-review/home-mobile-9.png",
+        "docs/research/design-review/home-mobile-10.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 79,
+            "height": 900,
+            "imageShare": 1,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 979,
+            "height": 85,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 1065,
+            "height": 459,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-budget-3",
+            "type": "gallery",
+            "top": 1523,
+            "height": 806,
+            "imageShare": 0.89
+          },
+          {
+            "id": "overview-steps",
+            "type": "process",
+            "top": 2329,
+            "height": 396,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-budget-2",
+            "type": "gallery",
+            "top": 2725,
+            "height": 806,
+            "imageShare": 0.89
+          },
+          {
+            "id": "iconList-1",
+            "type": "iconList",
+            "top": 3532,
+            "height": 443,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "media-module-2",
+            "type": "gallery",
+            "top": 3975,
+            "height": 830,
+            "imageShare": 0.87
+          },
+          {
+            "id": "m2",
+            "type": "featureGrid",
+            "top": 4805,
+            "height": 494,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m2-2",
+            "type": "featureGrid",
+            "top": 5299,
+            "height": 341,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m2-3",
+            "type": "featureGrid",
+            "top": 5640,
+            "height": 290,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-1",
+            "type": "featureGrid",
+            "top": 5930,
+            "height": 442,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-2",
+            "type": "featureGrid",
+            "top": 6372,
+            "height": 400,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-3",
+            "type": "featureGrid",
+            "top": 6771,
+            "height": 370,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-1",
+            "type": "gallery",
+            "top": 7141,
+            "height": 579,
+            "imageShare": 0.79
+          },
+          {
+            "id": "m3",
+            "type": "featureGrid",
+            "top": 7720,
+            "height": 528,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3-2",
+            "type": "featureGrid",
+            "top": 8249,
+            "height": 290,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-4",
+            "type": "featureGrid",
+            "top": 8539,
+            "height": 290,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-5",
+            "type": "featureGrid",
+            "top": 8829,
+            "height": 341,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-6",
+            "type": "featureGrid",
+            "top": 9170,
+            "height": 341,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-7",
+            "type": "featureGrid",
+            "top": 9511,
+            "height": 432,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-8",
+            "type": "featureGrid",
+            "top": 9942,
+            "height": 290,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-9",
+            "type": "featureGrid",
+            "top": 10232,
+            "height": 290,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-10",
+            "type": "featureGrid",
+            "top": 10522,
+            "height": 345,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m4",
+            "type": "splitMedia",
+            "top": 10867,
+            "height": 728,
+            "imageShare": 0.43,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "top": 11595,
+            "height": 699,
+            "imageShare": 0.45
+          },
+          {
+            "id": "splitMedia-2",
+            "type": "splitMedia",
+            "top": 12294,
+            "height": 728,
+            "imageShare": 0.43
+          },
+          {
+            "id": "owner-logos",
+            "type": "logos",
+            "top": 13023,
+            "height": 269,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "top": 13292,
+            "height": 442,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 13734,
+            "height": 230,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "media-module-budget-1",
+            "type": "gallery",
+            "top": 13964,
+            "height": 806,
+            "imageShare": 0.89
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 14770,
+            "height": 293,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cta-steps",
+            "type": "process",
+            "top": 15064,
+            "height": 331,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 15395,
+            "height": 734,
+            "imageShare": 0.8,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ],
+        "mobile": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 70,
+            "height": 585,
+            "imageShare": 1,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 655,
+            "height": 173,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 828,
+            "height": 593,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-budget-3",
+            "type": "gallery",
+            "top": 1421,
+            "height": 341,
+            "imageShare": 0.86
+          },
+          {
+            "id": "overview-steps",
+            "type": "process",
+            "top": 1761,
+            "height": 456,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-budget-2",
+            "type": "gallery",
+            "top": 2218,
+            "height": 341,
+            "imageShare": 0.86
+          },
+          {
+            "id": "iconList-1",
+            "type": "iconList",
+            "top": 2558,
+            "height": 688,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "media-module-2",
+            "type": "gallery",
+            "top": 3247,
+            "height": 365,
+            "imageShare": 0.8
+          },
+          {
+            "id": "m2",
+            "type": "featureGrid",
+            "top": 3611,
+            "height": 1149,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m2-2",
+            "type": "featureGrid",
+            "top": 4760,
+            "height": 929,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m2-3",
+            "type": "featureGrid",
+            "top": 5688,
+            "height": 580,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-1",
+            "type": "featureGrid",
+            "top": 6268,
+            "height": 1247,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-2",
+            "type": "featureGrid",
+            "top": 7515,
+            "height": 1082,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-3",
+            "type": "featureGrid",
+            "top": 8597,
+            "height": 743,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-1",
+            "type": "gallery",
+            "top": 9340,
+            "height": 225,
+            "imageShare": 0.65
+          },
+          {
+            "id": "m3",
+            "type": "featureGrid",
+            "top": 9565,
+            "height": 751,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3-2",
+            "type": "featureGrid",
+            "top": 10316,
+            "height": 595,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-4",
+            "type": "featureGrid",
+            "top": 10911,
+            "height": 842,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-5",
+            "type": "featureGrid",
+            "top": 11753,
+            "height": 621,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-6",
+            "type": "featureGrid",
+            "top": 12373,
+            "height": 718,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-7",
+            "type": "featureGrid",
+            "top": 13091,
+            "height": 1096,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-8",
+            "type": "featureGrid",
+            "top": 14187,
+            "height": 842,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-9",
+            "type": "featureGrid",
+            "top": 15028,
+            "height": 816,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "featureGrid-10",
+            "type": "featureGrid",
+            "top": 15844,
+            "height": 913,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m4",
+            "type": "splitMedia",
+            "top": 16757,
+            "height": 910,
+            "imageShare": 0.35,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "top": 17667,
+            "height": 804,
+            "imageShare": 0.39
+          },
+          {
+            "id": "splitMedia-2",
+            "type": "splitMedia",
+            "top": 18471,
+            "height": 809,
+            "imageShare": 0.39
+          },
+          {
+            "id": "owner-logos",
+            "type": "logos",
+            "top": 19280,
+            "height": 199,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "top": 19479,
+            "height": 437,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 19915,
+            "height": 302,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "media-module-budget-1",
+            "type": "gallery",
+            "top": 20218,
+            "height": 341,
+            "imageShare": 0.86
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 20558,
+            "height": 439,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cta-steps",
+            "type": "process",
+            "top": 20997,
+            "height": 442,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 21440,
+            "height": 619,
+            "imageShare": 0.79,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ]
+      },
+      "facts": {
+        "standIns": [
+          "Site Factory items marked placeholder: featureGrid-3, m3, featureGrid-10, owner-testimonials",
+          "stand-in proof (src/data/site-proof.json): owner-logos, owner-testimonials"
+        ],
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "h1": {
+            "text": "Swimwear Manufacturer With Our Own Factory in Guangzhou",
+            "lines": 2,
+            "fontSize": "67.5px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700",
+              "DM Sans 800"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 800
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        },
+        "mobile": {
+          "h1": {
+            "text": "Swimwear Manufacturer With Our Own Factory in Guangzhou",
+            "lines": 4,
+            "fontSize": "29.0336px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 600",
+              "DM Sans 700",
+              "DM Sans 800"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 800
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        }
+      }
+    },
+    {
+      "key": "about",
+      "pageType": "about",
+      "reference": "about",
+      "role": "only",
+      "words": 1362,
+      "route": "/about-us/",
+      "status": "authored",
+      "source": "88a6626908bbdfaff5bc8089",
+      "rules": "896e2a6360c1caaa",
+      "shots": "3ff299b1f2bc4619c1b81f7e",
+      "images": [
+        "docs/research/design-review/about-desktop-1.png",
+        "docs/research/design-review/about-desktop-2.png",
+        "docs/research/design-review/about-mobile-1.png",
+        "docs/research/design-review/about-mobile-2.png",
+        "docs/research/design-review/about-mobile-3.png",
+        "docs/research/design-review/about-mobile-4.png",
+        "docs/research/design-review/about-mobile-5.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 118,
+            "height": 556,
+            "imageShare": 1,
+            "align": {
+              "heading": "centre",
+              "text": "centre",
+              "action": "centre"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 674,
+            "height": 85,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 759,
+            "height": 211,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "top": 970,
+            "height": 758,
+            "imageShare": 0.41,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3",
+            "type": "featureGrid",
+            "top": 1727,
+            "height": 403,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3-2",
+            "type": "featureGrid",
+            "top": 2131,
+            "height": 272,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-2",
+            "type": "splitMedia",
+            "top": 2403,
+            "height": 758,
+            "imageShare": 0.41,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-3",
+            "type": "splitMedia",
+            "top": 3160,
+            "height": 758,
+            "imageShare": 0.41,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m4",
+            "type": "process",
+            "top": 3918,
+            "height": 640,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m5",
+            "type": "iconList",
+            "top": 4558,
+            "height": 757,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m6",
+            "type": "iconList",
+            "top": 5316,
+            "height": 414,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "owner-logos",
+            "type": "logos",
+            "top": 5730,
+            "height": 241,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "top": 5971,
+            "height": 465,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 6436,
+            "height": 272,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 6708,
+            "height": 734,
+            "imageShare": 0.8,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ],
+        "mobile": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 109,
+            "height": 538,
+            "imageShare": 1,
+            "align": {
+              "heading": "centre",
+              "text": "centre",
+              "action": "centre"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 647,
+            "height": 173,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 820,
+            "height": 295,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "top": 1114,
+            "height": 643,
+            "imageShare": 0.49,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3",
+            "type": "featureGrid",
+            "top": 1757,
+            "height": 1001,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3-2",
+            "type": "featureGrid",
+            "top": 2758,
+            "height": 480,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-2",
+            "type": "splitMedia",
+            "top": 3238,
+            "height": 862,
+            "imageShare": 0.36,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-3",
+            "type": "splitMedia",
+            "top": 4100,
+            "height": 883,
+            "imageShare": 0.36,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m4",
+            "type": "process",
+            "top": 4983,
+            "height": 1542,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m5",
+            "type": "iconList",
+            "top": 6524,
+            "height": 1230,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m6",
+            "type": "iconList",
+            "top": 7754,
+            "height": 903,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "owner-logos",
+            "type": "logos",
+            "top": 8657,
+            "height": 197,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "top": 8854,
+            "height": 461,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 9314,
+            "height": 394,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 9708,
+            "height": 392,
+            "imageShare": 0.73,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ]
+      },
+      "facts": {
+        "standIns": [
+          "Site Factory items marked placeholder: owner-testimonials",
+          "stand-in proof (src/data/site-proof.json): owner-logos, owner-testimonials"
+        ],
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "h1": {
+            "text": "About Us: Strandmill's Own Guangzhou Factory",
+            "lines": 2,
+            "fontSize": "45px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        },
+        "mobile": {
+          "h1": {
+            "text": "About Us: Strandmill's Own Guangzhou Factory",
+            "lines": 3,
+            "fontSize": "32px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        }
+      }
+    },
+    {
+      "key": "general",
+      "pageType": "general",
+      "reference": "about",
+      "role": "longest",
+      "words": 1907,
+      "route": "/faq/",
+      "status": "authored",
+      "source": "ac75dac65a42d0db5a5edd95",
+      "rules": "896e2a6360c1caaa",
+      "shots": "339d159e05e00bb4ce1ac129",
+      "images": [
+        "docs/research/design-review/general-desktop-1.png",
+        "docs/research/design-review/general-desktop-2.png",
+        "docs/research/design-review/general-desktop-3.png",
+        "docs/research/design-review/general-desktop-4.png",
+        "docs/research/design-review/general-mobile-1.png",
+        "docs/research/design-review/general-mobile-2.png",
+        "docs/research/design-review/general-mobile-3.png",
+        "docs/research/design-review/general-mobile-4.png",
+        "docs/research/design-review/general-mobile-5.png",
+        "docs/research/design-review/general-mobile-6.png",
+        "docs/research/design-review/general-mobile-7.png",
+        "docs/research/design-review/general-mobile-8.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 118,
+            "height": 900,
+            "imageShare": 1,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 1018,
+            "height": 85,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 1103,
+            "height": 304,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "overview-steps",
+            "type": "process",
+            "top": 1407,
+            "height": 461,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "proof-1",
+            "type": "proof",
+            "top": 1868,
+            "height": 283,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "proof-2",
+            "type": "proof",
+            "top": 2151,
+            "height": 173,
+            "imageShare": 0
+          },
+          {
+            "id": "m2",
+            "type": "featureGrid",
+            "top": 2324,
+            "height": 411,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3",
+            "type": "iconList",
+            "top": 2735,
+            "height": 363,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m6",
+            "type": "iconList",
+            "top": 3098,
+            "height": 681,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m4",
+            "type": "splitMedia",
+            "top": 3779,
+            "height": 264,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m5",
+            "type": "proof",
+            "top": 4043,
+            "height": 253,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m5-charts",
+            "type": "charts",
+            "top": 4296,
+            "height": 417,
+            "imageShare": 0
+          },
+          {
+            "id": "m7",
+            "type": "iconList",
+            "top": 4713,
+            "height": 944,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "iconList-1",
+            "type": "iconList",
+            "top": 5657,
+            "height": 363,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-budget-1",
+            "type": "gallery",
+            "top": 6020,
+            "height": 806,
+            "imageShare": 0.89
+          },
+          {
+            "id": "m8",
+            "type": "proof",
+            "top": 6826,
+            "height": 304,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m8-steps",
+            "type": "process",
+            "top": 7130,
+            "height": 331,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "process-1",
+            "type": "process",
+            "top": 7461,
+            "height": 421,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "proof-3",
+            "type": "proof",
+            "top": 7882,
+            "height": 322,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "proof-4",
+            "type": "proof",
+            "top": 8204,
+            "height": 352,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m9",
+            "type": "iconList",
+            "top": 8555,
+            "height": 388,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m10",
+            "type": "splitMedia",
+            "top": 8944,
+            "height": 758,
+            "imageShare": 0.41,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m11",
+            "type": "proof",
+            "top": 9701,
+            "height": 278,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m11-charts",
+            "type": "charts",
+            "top": 9980,
+            "height": 166,
+            "imageShare": 0
+          },
+          {
+            "id": "proof-5",
+            "type": "proof",
+            "top": 10145,
+            "height": 79,
+            "imageShare": 0
+          },
+          {
+            "id": "proof-6",
+            "type": "proof",
+            "top": 10224,
+            "height": 144,
+            "imageShare": 0
+          },
+          {
+            "id": "proof-7",
+            "type": "proof",
+            "top": 10368,
+            "height": 246,
+            "imageShare": 0
+          },
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "top": 10615,
+            "height": 758,
+            "imageShare": 0.41,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-2",
+            "type": "splitMedia",
+            "top": 11372,
+            "height": 758,
+            "imageShare": 0.41,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 12130,
+            "height": 230,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 12360,
+            "height": 734,
+            "imageShare": 0.8,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ],
+        "mobile": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 109,
+            "height": 585,
+            "imageShare": 1,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 694,
+            "height": 197,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 891,
+            "height": 364,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "overview-steps",
+            "type": "process",
+            "top": 1255,
+            "height": 547,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "proof-1",
+            "type": "proof",
+            "top": 1802,
+            "height": 432,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "proof-2",
+            "type": "proof",
+            "top": 2234,
+            "height": 282,
+            "imageShare": 0
+          },
+          {
+            "id": "m2",
+            "type": "featureGrid",
+            "top": 2516,
+            "height": 860,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3",
+            "type": "iconList",
+            "top": 3375,
+            "height": 564,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m6",
+            "type": "iconList",
+            "top": 3939,
+            "height": 1017,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m4",
+            "type": "splitMedia",
+            "top": 4957,
+            "height": 418,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m5",
+            "type": "proof",
+            "top": 5374,
+            "height": 319,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m5-charts",
+            "type": "charts",
+            "top": 5693,
+            "height": 522,
+            "imageShare": 0
+          },
+          {
+            "id": "m7",
+            "type": "iconList",
+            "top": 6216,
+            "height": 1465,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "iconList-1",
+            "type": "iconList",
+            "top": 7680,
+            "height": 860,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-budget-1",
+            "type": "gallery",
+            "top": 8540,
+            "height": 341,
+            "imageShare": 0.86
+          },
+          {
+            "id": "m8",
+            "type": "proof",
+            "top": 8881,
+            "height": 396,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m8-steps",
+            "type": "process",
+            "top": 9276,
+            "height": 442,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "process-1",
+            "type": "process",
+            "top": 9718,
+            "height": 1254,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "proof-3",
+            "type": "proof",
+            "top": 10972,
+            "height": 412,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "proof-4",
+            "type": "proof",
+            "top": 11384,
+            "height": 477,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m9",
+            "type": "iconList",
+            "top": 11861,
+            "height": 564,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m10",
+            "type": "splitMedia",
+            "top": 12425,
+            "height": 945,
+            "imageShare": 0.33,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m11",
+            "type": "proof",
+            "top": 13370,
+            "height": 345,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m11-charts",
+            "type": "charts",
+            "top": 13715,
+            "height": 172,
+            "imageShare": 0
+          },
+          {
+            "id": "proof-5",
+            "type": "proof",
+            "top": 13887,
+            "height": 156,
+            "imageShare": 0
+          },
+          {
+            "id": "proof-6",
+            "type": "proof",
+            "top": 14042,
+            "height": 246,
+            "imageShare": 0
+          },
+          {
+            "id": "proof-7",
+            "type": "proof",
+            "top": 14288,
+            "height": 333,
+            "imageShare": 0
+          },
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "top": 14621,
+            "height": 932,
+            "imageShare": 0.34,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-2",
+            "type": "splitMedia",
+            "top": 15553,
+            "height": 841,
+            "imageShare": 0.37,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 16394,
+            "height": 182,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 16577,
+            "height": 449,
+            "imageShare": 0.75,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ]
+      },
+      "facts": {
+        "standIns": [],
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "h1": {
+            "text": "Strandmill FAQ: Our Background and How to Work With Us",
+            "lines": 2,
+            "fontSize": "67.5px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        },
+        "mobile": {
+          "h1": {
+            "text": "Strandmill FAQ: Our Background and How to Work With Us",
+            "lines": 3,
+            "fontSize": "32.904px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        }
+      }
+    },
+    {
+      "key": "general--shortest",
+      "pageType": "general",
+      "reference": "about",
+      "role": "shortest",
+      "words": 983,
+      "route": "/case-studies/",
+      "status": "authored",
+      "source": "5198c4edd5b33f9750f07bb6",
+      "rules": "896e2a6360c1caaa",
+      "shots": "a27124d059e578b77c0ca0ca",
+      "images": [
+        "docs/research/design-review/general--shortest-desktop-1.png",
+        "docs/research/design-review/general--shortest-desktop-2.png",
+        "docs/research/design-review/general--shortest-mobile-1.png",
+        "docs/research/design-review/general--shortest-mobile-2.png",
+        "docs/research/design-review/general--shortest-mobile-3.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 118,
+            "height": 900,
+            "imageShare": 1,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 1018,
+            "height": 85,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 1103,
+            "height": 412,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "overview-steps",
+            "type": "process",
+            "top": 1515,
+            "height": 461,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cases",
+            "type": "orderCase",
+            "top": 1976,
+            "height": 540,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 2516,
+            "height": 230,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 2746,
+            "height": 334,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "faq-steps",
+            "type": "process",
+            "top": 3080,
+            "height": 331,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 3411,
+            "height": 734,
+            "imageShare": 0.8,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ],
+        "mobile": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 109,
+            "height": 585,
+            "imageShare": 1,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 694,
+            "height": 205,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 899,
+            "height": 506,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "overview-steps",
+            "type": "process",
+            "top": 1405,
+            "height": 598,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cases",
+            "type": "orderCase",
+            "top": 2003,
+            "height": 686,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 2689,
+            "height": 247,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 2937,
+            "height": 510,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "faq-steps",
+            "type": "process",
+            "top": 3447,
+            "height": 493,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 3940,
+            "height": 495,
+            "imageShare": 0.77,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ]
+      },
+      "facts": {
+        "standIns": [
+          "Site Factory items marked placeholder: cases"
+        ],
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "h1": {
+            "text": "Case Studies from the Strandmill Factory",
+            "lines": 2,
+            "fontSize": "67.5px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        },
+        "mobile": {
+          "h1": {
+            "text": "Case Studies from the Strandmill Factory",
+            "lines": 3,
+            "fontSize": "38px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        }
+      }
+    },
+    {
+      "key": "privacy",
+      "pageType": "privacy",
+      "reference": "about",
+      "role": "longest",
+      "words": 701,
+      "route": "/terms-and-conditions/",
+      "status": "authored",
+      "source": "ebc6fa975ac4c3665a78194b",
+      "rules": "896e2a6360c1caaa",
+      "shots": "f9ecc4c33d8ce2f683727d57",
+      "images": [
+        "docs/research/design-review/privacy-desktop-1.png",
+        "docs/research/design-review/privacy-desktop-2.png",
+        "docs/research/design-review/privacy-mobile-1.png",
+        "docs/research/design-review/privacy-mobile-2.png",
+        "docs/research/design-review/privacy-mobile-3.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 118,
+            "height": 260,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 378,
+            "height": 566,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3",
+            "type": "iconList",
+            "top": 943,
+            "height": 918,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m2",
+            "type": "iconList",
+            "top": 1862,
+            "height": 601,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "proof-1",
+            "type": "proof",
+            "top": 2462,
+            "height": 217,
+            "imageShare": 0
+          },
+          {
+            "id": "proof-1-charts",
+            "type": "charts",
+            "top": 2679,
+            "height": 133,
+            "imageShare": 0
+          },
+          {
+            "id": "proof-2",
+            "type": "proof",
+            "top": 2812,
+            "height": 207,
+            "imageShare": 0
+          },
+          {
+            "id": "process-1",
+            "type": "process",
+            "top": 3019,
+            "height": 319,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 3338,
+            "height": 230,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "cta-steps",
+            "type": "process",
+            "top": 3568,
+            "height": 461,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 4029,
+            "height": 734,
+            "imageShare": 0.8,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ],
+        "mobile": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 109,
+            "height": 247,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 356,
+            "height": 556,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3",
+            "type": "iconList",
+            "top": 912,
+            "height": 1618,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m2",
+            "type": "iconList",
+            "top": 2529,
+            "height": 1024,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "proof-1",
+            "type": "proof",
+            "top": 3553,
+            "height": 355,
+            "imageShare": 0
+          },
+          {
+            "id": "proof-1-charts",
+            "type": "charts",
+            "top": 3908,
+            "height": 139,
+            "imageShare": 0
+          },
+          {
+            "id": "proof-2",
+            "type": "proof",
+            "top": 4047,
+            "height": 294,
+            "imageShare": 0
+          },
+          {
+            "id": "process-1",
+            "type": "process",
+            "top": 4341,
+            "height": 598,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 4938,
+            "height": 184,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "cta-steps",
+            "type": "process",
+            "top": 5122,
+            "height": 573,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 5694,
+            "height": 425,
+            "imageShare": 0.75,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ]
+      },
+      "facts": {
+        "standIns": [],
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "h1": {
+            "text": "Terms and Conditions for Working With Strandmill",
+            "lines": 2,
+            "fontSize": "67.5px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 400
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        },
+        "mobile": {
+          "h1": {
+            "text": "Terms and Conditions for Working With Strandmill",
+            "lines": 4,
+            "fontSize": "35.2538px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 400
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        }
+      }
+    },
+    {
+      "key": "privacy--shortest",
+      "pageType": "privacy",
+      "reference": "about",
+      "role": "shortest",
+      "words": 132,
+      "route": "/privacy-policy/",
+      "status": "authored",
+      "source": "6125c9967a7589d306c986e3",
+      "rules": "896e2a6360c1caaa",
+      "shots": "18b29668dcce80470222c20c",
+      "images": [
+        "docs/research/design-review/privacy--shortest-desktop-1.png",
+        "docs/research/design-review/privacy--shortest-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 118,
+            "height": 274,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 392,
+            "height": 476,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 868,
+            "height": 230,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 1098,
+            "height": 734,
+            "imageShare": 0.8,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ],
+        "mobile": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 109,
+            "height": 176,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 284,
+            "height": 571,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 855,
+            "height": 184,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 1039,
+            "height": 392,
+            "imageShare": 0.73,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ]
+      },
+      "facts": {
+        "standIns": [],
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "h1": {
+            "text": "Strandmill Privacy Policy",
+            "lines": 2,
+            "fontSize": "74.1338px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 400
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        },
+        "mobile": {
+          "h1": {
+            "text": "Strandmill Privacy Policy",
+            "lines": 2,
+            "fontSize": "38px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 400
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        }
+      }
+    },
+    {
+      "key": "blog_hub",
+      "pageType": "blog_hub",
+      "reference": "about",
+      "role": "only",
+      "words": 496,
+      "route": "/blog/",
+      "status": "authored",
+      "source": "56e266e21929d82970b60097",
+      "rules": "896e2a6360c1caaa",
+      "shots": "03e6853e2ef996047ee1df6e",
+      "images": [
+        "docs/research/design-review/blog_hub-desktop-1.png",
+        "docs/research/design-review/blog_hub-mobile-1.png",
+        "docs/research/design-review/blog_hub-mobile-2.png",
+        "docs/research/design-review/blog_hub-mobile-3.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 118,
+            "height": 293,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 411,
+            "height": 408,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "overview-steps",
+            "type": "process",
+            "top": 819,
+            "height": 396,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "table-1",
+            "type": "table",
+            "top": 1215,
+            "height": 940,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 2154,
+            "height": 734,
+            "imageShare": 0.8,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ],
+        "mobile": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 109,
+            "height": 233,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 342,
+            "height": 532,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "overview-steps",
+            "type": "process",
+            "top": 874,
+            "height": 507,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "table-1",
+            "type": "table",
+            "top": 1382,
+            "height": 2969,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 4350,
+            "height": 470,
+            "imageShare": 0.76,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ]
+      },
+      "facts": {
+        "standIns": [],
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "h1": {
+            "text": "The Strandmill Blog",
+            "lines": 1,
+            "fontSize": "87.9984px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 400
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 400
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        },
+        "mobile": {
+          "h1": {
+            "text": "The Strandmill Blog",
+            "lines": 1,
+            "fontSize": "38px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 400
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 400
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        }
+      }
+    },
+    {
+      "key": "contact",
+      "pageType": "contact",
+      "reference": "contact",
+      "role": "only",
+      "words": 715,
+      "route": "/contact-us/",
+      "status": "authored",
+      "source": "2ea092a5510ce64df9aa1308",
+      "rules": "896e2a6360c1caaa",
+      "shots": "474223e70aa5ce494015e579",
+      "images": [
+        "docs/research/design-review/contact-desktop-1.png",
+        "docs/research/design-review/contact-desktop-2.png",
+        "docs/research/design-review/contact-mobile-1.png",
+        "docs/research/design-review/contact-mobile-2.png",
+        "docs/research/design-review/contact-mobile-3.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 118,
+            "height": 267,
+            "imageShare": 0,
+            "align": {
+              "heading": "centre",
+              "text": "centre",
+              "action": "centre"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 385,
+            "height": 85,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 470,
+            "height": 345,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "overview-steps",
+            "type": "process",
+            "top": 815,
+            "height": 447,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3",
+            "type": "iconList",
+            "top": 1262,
+            "height": 791,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 2053,
+            "height": 334,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "form",
+            "type": "form",
+            "top": 2387,
+            "height": 574,
+            "imageShare": 0.29,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "channels",
+            "type": "contactChannels",
+            "top": 2961,
+            "height": 354,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 3315,
+            "height": 734,
+            "imageShare": 0.8,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ],
+        "mobile": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 109,
+            "height": 341,
+            "imageShare": 0,
+            "align": {
+              "heading": "centre",
+              "text": "centre",
+              "action": "centre"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 450,
+            "height": 181,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 631,
+            "height": 535,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "overview-steps",
+            "type": "process",
+            "top": 1166,
+            "height": 711,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3",
+            "type": "iconList",
+            "top": 1877,
+            "height": 1278,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 3155,
+            "height": 456,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "form",
+            "type": "form",
+            "top": 3611,
+            "height": 1085,
+            "imageShare": 0.22,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "channels",
+            "type": "contactChannels",
+            "top": 4696,
+            "height": 1010,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 5706,
+            "height": 434,
+            "imageShare": 0.75,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ]
+      },
+      "facts": {
+        "standIns": [],
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "h1": {
+            "text": "Contact Us About Enquiries, Samples or Orders",
+            "lines": 2,
+            "fontSize": "38.4414px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 400
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 2
+        },
+        "mobile": {
+          "h1": {
+            "text": "Contact Us About Enquiries, Samples or Orders",
+            "lines": 3,
+            "fontSize": "30.8479px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 400
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 2
+        }
+      }
+    },
+    {
+      "key": "product_manufacturer",
+      "pageType": "product_manufacturer",
+      "reference": "product_manufacturer",
+      "role": "longest",
+      "words": 2468,
+      "route": "/swimwear-accessories/",
+      "status": "authored",
+      "source": "9be49aa2739761819ebf6787",
+      "rules": "896e2a6360c1caaa",
+      "shots": "f95b743a0a8c92fc1552f723",
+      "images": [
+        "docs/research/design-review/product_manufacturer-desktop-1.png",
+        "docs/research/design-review/product_manufacturer-desktop-2.png",
+        "docs/research/design-review/product_manufacturer-desktop-3.png",
+        "docs/research/design-review/product_manufacturer-desktop-4.png",
+        "docs/research/design-review/product_manufacturer-mobile-1.png",
+        "docs/research/design-review/product_manufacturer-mobile-2.png",
+        "docs/research/design-review/product_manufacturer-mobile-3.png",
+        "docs/research/design-review/product_manufacturer-mobile-4.png",
+        "docs/research/design-review/product_manufacturer-mobile-5.png",
+        "docs/research/design-review/product_manufacturer-mobile-6.png",
+        "docs/research/design-review/product_manufacturer-mobile-7.png",
+        "docs/research/design-review/product_manufacturer-mobile-8.png",
+        "docs/research/design-review/product_manufacturer-mobile-9.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 118,
+            "height": 784,
+            "imageShare": 0.67,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 902,
+            "height": 85,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 987,
+            "height": 316,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "iconList-1",
+            "type": "iconList",
+            "top": 1304,
+            "height": 469,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "featureGrid-1",
+            "type": "featureGrid",
+            "top": 1772,
+            "height": 407,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "process-1",
+            "type": "process",
+            "top": 2180,
+            "height": 367,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "iconList-2",
+            "type": "iconList",
+            "top": 2547,
+            "height": 414,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "media-module-1",
+            "type": "gallery",
+            "top": 2961,
+            "height": 806,
+            "imageShare": 0.89
+          },
+          {
+            "id": "m2",
+            "type": "featureGrid",
+            "top": 3767,
+            "height": 332,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3",
+            "type": "iconList",
+            "top": 4099,
+            "height": 918,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m4",
+            "type": "featureGrid",
+            "top": 5018,
+            "height": 430,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m4-2",
+            "type": "featureGrid",
+            "top": 5448,
+            "height": 349,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m5",
+            "type": "splitMedia",
+            "top": 5796,
+            "height": 312,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m6",
+            "type": "table",
+            "top": 6109,
+            "height": 852,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m7",
+            "type": "splitMedia",
+            "top": 6961,
+            "height": 758,
+            "imageShare": 0.41,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m8",
+            "type": "featureGrid",
+            "top": 7718,
+            "height": 354,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m8-2",
+            "type": "featureGrid",
+            "top": 8072,
+            "height": 298,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m9",
+            "type": "featureGrid",
+            "top": 8370,
+            "height": 586,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m10",
+            "type": "iconList",
+            "top": 8955,
+            "height": 414,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "media-module-budget-1",
+            "type": "gallery",
+            "top": 9369,
+            "height": 806,
+            "imageShare": 0.89
+          },
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "top": 10176,
+            "height": 448,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 10624,
+            "height": 266,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 10890,
+            "height": 500,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "faq-charts",
+            "type": "charts",
+            "top": 11390,
+            "height": 397,
+            "imageShare": 0
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 11787,
+            "height": 281,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ],
+        "mobile": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 109,
+            "height": 911,
+            "imageShare": 0.61,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 1019,
+            "height": 205,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 1224,
+            "height": 428,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "iconList-1",
+            "type": "iconList",
+            "top": 1652,
+            "height": 737,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "featureGrid-1",
+            "type": "featureGrid",
+            "top": 2389,
+            "height": 722,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "process-1",
+            "type": "process",
+            "top": 3111,
+            "height": 969,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "iconList-2",
+            "type": "iconList",
+            "top": 4079,
+            "height": 656,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "media-module-1",
+            "type": "gallery",
+            "top": 4735,
+            "height": 341,
+            "imageShare": 0.86
+          },
+          {
+            "id": "m2",
+            "type": "featureGrid",
+            "top": 5075,
+            "height": 627,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3",
+            "type": "iconList",
+            "top": 5702,
+            "height": 1415,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m4",
+            "type": "featureGrid",
+            "top": 7117,
+            "height": 1153,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m4-2",
+            "type": "featureGrid",
+            "top": 8270,
+            "height": 753,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m5",
+            "type": "splitMedia",
+            "top": 9022,
+            "height": 540,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m6",
+            "type": "table",
+            "top": 9562,
+            "height": 1930,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m7",
+            "type": "splitMedia",
+            "top": 11492,
+            "height": 780,
+            "imageShare": 0.4,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m8",
+            "type": "featureGrid",
+            "top": 12272,
+            "height": 880,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m8-2",
+            "type": "featureGrid",
+            "top": 13152,
+            "height": 541,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m9",
+            "type": "featureGrid",
+            "top": 13693,
+            "height": 1200,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m10",
+            "type": "iconList",
+            "top": 14892,
+            "height": 681,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "media-module-budget-1",
+            "type": "gallery",
+            "top": 15573,
+            "height": 341,
+            "imageShare": 0.86
+          },
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "top": 15914,
+            "height": 444,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 16358,
+            "height": 490,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 16848,
+            "height": 743,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "faq-charts",
+            "type": "charts",
+            "top": 17591,
+            "height": 624,
+            "imageShare": 0
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 18215,
+            "height": 338,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ]
+      },
+      "facts": {
+        "standIns": [
+          "Site Factory items marked placeholder: iconList-2, m3, m8, m8-2",
+          "stand-in proof (src/data/site-proof.json): owner-testimonials"
+        ],
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "h1": {
+            "text": "Swimwear Accessories Manufacturer for Your Brand",
+            "lines": 2,
+            "fontSize": "36px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 500
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 400
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 400
+              }
+            }
+          },
+          "marked": 1
+        },
+        "mobile": {
+          "h1": {
+            "text": "Swimwear Accessories Manufacturer for Your Brand",
+            "lines": 3,
+            "fontSize": "30px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 500
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 400
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 400
+              }
+            }
+          },
+          "marked": 1
+        }
+      }
+    },
+    {
+      "key": "product_manufacturer--shortest",
+      "pageType": "product_manufacturer",
+      "reference": "product_manufacturer",
+      "role": "shortest",
+      "words": 918,
+      "route": "/watersports-apparel-manufacturer/",
+      "status": "authored",
+      "source": "2e95acca219bd69a3e95dccf",
+      "rules": "896e2a6360c1caaa",
+      "shots": "058f0b879c8f86dad76ca7b6",
+      "images": [
+        "docs/research/design-review/product_manufacturer--shortest-desktop-1.png",
+        "docs/research/design-review/product_manufacturer--shortest-desktop-2.png",
+        "docs/research/design-review/product_manufacturer--shortest-mobile-1.png",
+        "docs/research/design-review/product_manufacturer--shortest-mobile-2.png",
+        "docs/research/design-review/product_manufacturer--shortest-mobile-3.png",
+        "docs/research/design-review/product_manufacturer--shortest-mobile-4.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 118,
+            "height": 784,
+            "imageShare": 0.67,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 902,
+            "height": 85,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 987,
+            "height": 377,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "overview-charts",
+            "type": "charts",
+            "top": 1364,
+            "height": 200,
+            "imageShare": 0
+          },
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "top": 1564,
+            "height": 614,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-2",
+            "type": "splitMedia",
+            "top": 2178,
+            "height": 728,
+            "imageShare": 0.43
+          },
+          {
+            "id": "splitMedia-2-steps",
+            "type": "process",
+            "top": 2906,
+            "height": 526,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-1",
+            "type": "gallery",
+            "top": 3432,
+            "height": 806,
+            "imageShare": 0.89
+          },
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "top": 4238,
+            "height": 448,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 4687,
+            "height": 266,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 4952,
+            "height": 272,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 5225,
+            "height": 306,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ],
+        "mobile": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 109,
+            "height": 868,
+            "imageShare": 0.64,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 977,
+            "height": 189,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 1166,
+            "height": 561,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "overview-charts",
+            "type": "charts",
+            "top": 1727,
+            "height": 246,
+            "imageShare": 0
+          },
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "top": 1973,
+            "height": 1296,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-2",
+            "type": "splitMedia",
+            "top": 3269,
+            "height": 591,
+            "imageShare": 0.53
+          },
+          {
+            "id": "splitMedia-2-steps",
+            "type": "process",
+            "top": 3859,
+            "height": 663,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-1",
+            "type": "gallery",
+            "top": 4522,
+            "height": 341,
+            "imageShare": 0.86
+          },
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "top": 4863,
+            "height": 444,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 5307,
+            "height": 554,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 5860,
+            "height": 410,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 6270,
+            "height": 345,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ]
+      },
+      "facts": {
+        "standIns": [
+          "stand-in proof (src/data/site-proof.json): owner-testimonials"
+        ],
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "h1": {
+            "text": "Watersports Apparel Manufacturer for Your Brand",
+            "lines": 2,
+            "fontSize": "36px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 500
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 400
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 400
+              }
+            }
+          },
+          "marked": 1
+        },
+        "mobile": {
+          "h1": {
+            "text": "Watersports Apparel Manufacturer for Your Brand",
+            "lines": 3,
+            "fontSize": "30px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 500
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 400
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 400
+              }
+            }
+          },
+          "marked": 1
+        }
+      }
+    },
+    {
+      "key": "solution",
+      "pageType": "solution",
+      "reference": "solution",
+      "role": "longest",
+      "words": 2812,
+      "route": "/swimwear-consulting/",
+      "status": "authored",
+      "source": "a13d7e30d160526622d7ae1b",
+      "rules": "896e2a6360c1caaa",
+      "shots": "54626b26e44aabf5cdff15b2",
+      "images": [
+        "docs/research/design-review/solution-desktop-1.png",
+        "docs/research/design-review/solution-desktop-2.png",
+        "docs/research/design-review/solution-desktop-3.png",
+        "docs/research/design-review/solution-desktop-4.png",
+        "docs/research/design-review/solution-mobile-1.png",
+        "docs/research/design-review/solution-mobile-2.png",
+        "docs/research/design-review/solution-mobile-3.png",
+        "docs/research/design-review/solution-mobile-4.png",
+        "docs/research/design-review/solution-mobile-5.png",
+        "docs/research/design-review/solution-mobile-6.png",
+        "docs/research/design-review/solution-mobile-7.png",
+        "docs/research/design-review/solution-mobile-8.png",
+        "docs/research/design-review/solution-mobile-9.png",
+        "docs/research/design-review/solution-mobile-10.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 118,
+            "height": 547,
+            "imageShare": 1,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 665,
+            "height": 85,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 750,
+            "height": 259,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "top": 1009,
+            "height": 575,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-2",
+            "type": "splitMedia",
+            "top": 1584,
+            "height": 758,
+            "imageShare": 0.41,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m2",
+            "type": "featureGrid",
+            "top": 2341,
+            "height": 362,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m2-2",
+            "type": "featureGrid",
+            "top": 2703,
+            "height": 323,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3",
+            "type": "iconList",
+            "top": 3026,
+            "height": 944,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-budget-2",
+            "type": "gallery",
+            "top": 3970,
+            "height": 806,
+            "imageShare": 0.89
+          },
+          {
+            "id": "iconList-1",
+            "type": "iconList",
+            "top": 4777,
+            "height": 863,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m4",
+            "type": "featureGrid",
+            "top": 5640,
+            "height": 311,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m4-2",
+            "type": "featureGrid",
+            "top": 5951,
+            "height": 257,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-3",
+            "type": "splitMedia",
+            "top": 6208,
+            "height": 459,
+            "imageShare": 0
+          },
+          {
+            "id": "m5",
+            "type": "featureGrid",
+            "top": 6667,
+            "height": 362,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m5-2",
+            "type": "featureGrid",
+            "top": 7029,
+            "height": 272,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-1",
+            "type": "gallery",
+            "top": 7301,
+            "height": 806,
+            "imageShare": 0.89
+          },
+          {
+            "id": "m6",
+            "type": "splitMedia",
+            "top": 8107,
+            "height": 448,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m7",
+            "type": "featureGrid",
+            "top": 8555,
+            "height": 362,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m7-2",
+            "type": "featureGrid",
+            "top": 8917,
+            "height": 298,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "iconList-2",
+            "type": "iconList",
+            "top": 9215,
+            "height": 706,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m8",
+            "type": "process",
+            "top": 9921,
+            "height": 614,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-budget-1",
+            "type": "gallery",
+            "top": 10535,
+            "height": 806,
+            "imageShare": 0.89
+          },
+          {
+            "id": "iconList-3",
+            "type": "iconList",
+            "top": 11341,
+            "height": 630,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "top": 11971,
+            "height": 456,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 12428,
+            "height": 274,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 12701,
+            "height": 621,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "faq-steps",
+            "type": "process",
+            "top": 13323,
+            "height": 365,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 13688,
+            "height": 734,
+            "imageShare": 0.8,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ],
+        "mobile": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 109,
+            "height": 585,
+            "imageShare": 1,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 694,
+            "height": 181,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 875,
+            "height": 317,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "top": 1191,
+            "height": 1464,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-2",
+            "type": "splitMedia",
+            "top": 2656,
+            "height": 1022,
+            "imageShare": 0.31,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m2",
+            "type": "featureGrid",
+            "top": 3678,
+            "height": 851,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m2-2",
+            "type": "featureGrid",
+            "top": 4528,
+            "height": 891,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3",
+            "type": "iconList",
+            "top": 5419,
+            "height": 1659,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-budget-2",
+            "type": "gallery",
+            "top": 7077,
+            "height": 341,
+            "imageShare": 0.86
+          },
+          {
+            "id": "iconList-1",
+            "type": "iconList",
+            "top": 7418,
+            "height": 1680,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m4",
+            "type": "featureGrid",
+            "top": 9098,
+            "height": 603,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m4-2",
+            "type": "featureGrid",
+            "top": 9701,
+            "height": 586,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-3",
+            "type": "splitMedia",
+            "top": 10286,
+            "height": 1297,
+            "imageShare": 0
+          },
+          {
+            "id": "m5",
+            "type": "featureGrid",
+            "top": 11583,
+            "height": 887,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m5-2",
+            "type": "featureGrid",
+            "top": 12471,
+            "height": 763,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-1",
+            "type": "gallery",
+            "top": 13234,
+            "height": 341,
+            "imageShare": 0.86
+          },
+          {
+            "id": "m6",
+            "type": "splitMedia",
+            "top": 13574,
+            "height": 1101,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m7",
+            "type": "featureGrid",
+            "top": 14675,
+            "height": 912,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m7-2",
+            "type": "featureGrid",
+            "top": 15587,
+            "height": 541,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "iconList-2",
+            "type": "iconList",
+            "top": 16128,
+            "height": 1035,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m8",
+            "type": "process",
+            "top": 17164,
+            "height": 1159,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-budget-1",
+            "type": "gallery",
+            "top": 18323,
+            "height": 341,
+            "imageShare": 0.86
+          },
+          {
+            "id": "iconList-3",
+            "type": "iconList",
+            "top": 18663,
+            "height": 1099,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "top": 19762,
+            "height": 442,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 20205,
+            "height": 446,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 20651,
+            "height": 925,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "faq-steps",
+            "type": "process",
+            "top": 21576,
+            "height": 902,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 22478,
+            "height": 439,
+            "imageShare": 0.75,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ]
+      },
+      "facts": {
+        "standIns": [
+          "stand-in proof (src/data/site-proof.json): owner-testimonials"
+        ],
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "h1": {
+            "text": "Swimwear Consulting for Brands, From Strategy to Production",
+            "lines": 2,
+            "fontSize": "45px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        },
+        "mobile": {
+          "h1": {
+            "text": "Swimwear Consulting for Brands, From Strategy to Production",
+            "lines": 3,
+            "fontSize": "25.9779px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        }
+      }
+    },
+    {
+      "key": "solution--shortest",
+      "pageType": "solution",
+      "reference": "solution",
+      "role": "shortest",
+      "words": 1684,
+      "route": "/custom-swimwear-printing/",
+      "status": "authored",
+      "source": "03360876fdaf21b2722b567b",
+      "rules": "896e2a6360c1caaa",
+      "shots": "91cfd822ac3744013653d437",
+      "images": [
+        "docs/research/design-review/solution--shortest-desktop-1.png",
+        "docs/research/design-review/solution--shortest-desktop-2.png",
+        "docs/research/design-review/solution--shortest-desktop-3.png",
+        "docs/research/design-review/solution--shortest-mobile-1.png",
+        "docs/research/design-review/solution--shortest-mobile-2.png",
+        "docs/research/design-review/solution--shortest-mobile-3.png",
+        "docs/research/design-review/solution--shortest-mobile-4.png",
+        "docs/research/design-review/solution--shortest-mobile-5.png",
+        "docs/research/design-review/solution--shortest-mobile-6.png",
+        "docs/research/design-review/solution--shortest-mobile-7.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 118,
+            "height": 547,
+            "imageShare": 1,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 665,
+            "height": 85,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 750,
+            "height": 324,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "top": 1074,
+            "height": 1023,
+            "imageShare": 0.58,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-1-steps",
+            "type": "process",
+            "top": 2097,
+            "height": 526,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m2",
+            "type": "featureGrid",
+            "top": 2623,
+            "height": 470,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m2-2",
+            "type": "featureGrid",
+            "top": 3093,
+            "height": 433,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3",
+            "type": "iconList",
+            "top": 3526,
+            "height": 520,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m4",
+            "type": "splitMedia",
+            "top": 4046,
+            "height": 758,
+            "imageShare": 0.41,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m5",
+            "type": "iconList",
+            "top": 4803,
+            "height": 363,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m6",
+            "type": "splitMedia",
+            "top": 5166,
+            "height": 758,
+            "imageShare": 0.41,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m7",
+            "type": "process",
+            "top": 5924,
+            "height": 690,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m8",
+            "type": "iconList",
+            "top": 6614,
+            "height": 816,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m10",
+            "type": "featureGrid",
+            "top": 7431,
+            "height": 365,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-1",
+            "type": "gallery",
+            "top": 7796,
+            "height": 806,
+            "imageShare": 0.89
+          },
+          {
+            "id": "m12",
+            "type": "proof",
+            "top": 8602,
+            "height": 219,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "top": 8821,
+            "height": 456,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 9277,
+            "height": 233,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 9510,
+            "height": 345,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "faq-charts",
+            "type": "charts",
+            "top": 9855,
+            "height": 269,
+            "imageShare": 0
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 10124,
+            "height": 734,
+            "imageShare": 0.8,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ],
+        "mobile": [
+          {
+            "id": "hero",
+            "type": "hero",
+            "top": 109,
+            "height": 585,
+            "imageShare": 1,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          },
+          {
+            "id": "trustBar",
+            "type": "trustBar",
+            "top": 694,
+            "height": 205,
+            "imageShare": 0
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "top": 899,
+            "height": 364,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "top": 1262,
+            "height": 774,
+            "imageShare": 0.18,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "splitMedia-1-steps",
+            "type": "process",
+            "top": 2036,
+            "height": 842,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m2",
+            "type": "featureGrid",
+            "top": 2878,
+            "height": 1143,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m2-2",
+            "type": "featureGrid",
+            "top": 4020,
+            "height": 727,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m3",
+            "type": "iconList",
+            "top": 4747,
+            "height": 884,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m4",
+            "type": "splitMedia",
+            "top": 5631,
+            "height": 982,
+            "imageShare": 0.32,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m5",
+            "type": "iconList",
+            "top": 6613,
+            "height": 571,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m6",
+            "type": "splitMedia",
+            "top": 7184,
+            "height": 712,
+            "imageShare": 0.44,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "m7",
+            "type": "process",
+            "top": 7896,
+            "height": 1168,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m8",
+            "type": "iconList",
+            "top": 9064,
+            "height": 1344,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "m10",
+            "type": "featureGrid",
+            "top": 10408,
+            "height": 943,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "media-module-1",
+            "type": "gallery",
+            "top": 11350,
+            "height": 341,
+            "imageShare": 0.86
+          },
+          {
+            "id": "m12",
+            "type": "proof",
+            "top": 11691,
+            "height": 248,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "top": 11938,
+            "height": 446,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "top": 12384,
+            "height": 389,
+            "imageShare": 0,
+            "align": {
+              "heading": "start"
+            }
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "top": 12773,
+            "height": 470,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
+          },
+          {
+            "id": "faq-charts",
+            "type": "charts",
+            "top": 13243,
+            "height": 405,
+            "imageShare": 0
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "top": 13648,
+            "height": 479,
+            "imageShare": 0.76,
+            "align": {
+              "heading": "start",
+              "text": "start",
+              "action": "start"
+            }
+          }
+        ]
+      },
+      "facts": {
+        "standIns": [
+          "Site Factory items marked placeholder: m7",
+          "stand-in proof (src/data/site-proof.json): owner-testimonials"
+        ],
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "h1": {
+            "text": "Custom Swimwear Printing with In-House Sublimation",
+            "lines": 2,
+            "fontSize": "45px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        },
+        "mobile": {
+          "h1": {
+            "text": "Custom Swimwear Printing with In-House Sublimation",
+            "lines": 3,
+            "fontSize": "32.904px"
+          },
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h1": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          },
+          "marked": 1
+        }
+      }
+    }
+  ],
   "board": [
     {
       "key": "board--intro-text",
