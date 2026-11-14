@@ -451,7 +451,7 @@ export async function agentStepDone(root, step) {
 export async function freezeForRun(root, site, freeze = freezeSiteFactory) {
   if (!site.siteFactoryProject) return site;
   if (!site.siteFactoryFreeze) throw new Error('site.json names siteFactoryProject but not siteFactoryFreeze (the folder its snapshots go to)');
-  const { folder } = await freeze({ project: resolve(root, site.siteFactoryProject), out: resolve(root, site.siteFactoryFreeze) });
+  const { folder } = await freeze({ project: resolve(root, site.siteFactoryProject), out: resolve(root, site.siteFactoryFreeze), navOnly: site.navOnly ?? [] });
   const snapshot = folder.replaceAll('\\', '/');
   if (site.siteFactory === snapshot) return site;
   // Read again before writing: only the snapshot's place changes, never a field edited while the snapshot was made.

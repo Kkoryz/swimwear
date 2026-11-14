@@ -474,6 +474,15 @@ test('a Site Factory snapshot is frozen from the project\'s stage folders with t
   await write(join(project, 'identity/project.yaml'), '{"site_name": "Strandmill"}\n');
   const withIdentity = await freezeSiteFactory({ project, out });
   assert.equal(await read(join(withIdentity.folder, 'package/identity/project.yaml'), 'utf8'), '{"site_name": "Strandmill"}\n');
+  // Pages the owner leaves out (site.json navOnly) are menu headings in a snapshot of their own; an unknown id stops it.
+  await write(join(project, 'artifacts/04_1_site_tree/tree.json'), JSON.stringify({ pages: [{ id: 'home', name: 'Swimwear', type: 'home', parent: null }, { id: 'products', name: 'Products', type: 'hub', parent: 'home' }, { id: 'bikini', name: 'Bikinis', type: 'product', parent: 'products' }] }));
+  await write(join(project, 'artifacts/06_1_plan/site_plan.json'), JSON.stringify({ routes: { home: { url: '/', page_name: 'Swimwear' }, products: { url: '/products/', page_name: 'Products' }, bikini: { url: '/bikini/', page_name: 'Bikinis' } } }));
+  const built = await freezeSiteFactory({ project, out });
+  const headings = await freezeSiteFactory({ project, out, navOnly: ['products'] });
+  assert.notEqual(headings.folder, built.folder);
+  assert.deepEqual(JSON.parse(await read(join(headings.folder, 'pages.json'), 'utf8')).pages.filter((page) => page.nav_only).map((page) => page.page_id), ['products']);
+  assert.equal(JSON.parse(await read(join(built.folder, 'pages.json'), 'utf8')).pages.some((page) => page.nav_only), false);
+  await assert.rejects(freezeSiteFactory({ project, out, navOnly: ['solutions'] }), /navOnly names solutions/);
 });
 
 test('a fact reaches only the pages that cite it: their input key and output change, every other page stays byte for byte', async () => {

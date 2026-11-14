@@ -46,24 +46,33 @@ export const missingProjectFiles = (project) => Object.entries(SNAPSHOT_FILES).f
 // The whole site's plan (the snapshot's pages.json) from the project's tree and its routes, made in memory: the input
 // check (check-inputs.mjs) runs it before anything is frozen. A page the package types itself (page_type: a legal page
 // is privacy) takes that type.
-export async function projectPlan(project) {
+// navOnly (site.json): tree pages the owner leaves unbuilt, kept as menu headings, as a handoff's nav_only status does
+// (owner 2026-11-14, Strandmill: the /products/ and /solutions/ hubs the package has no copy for, "先不建").
+export async function projectPlan(project, { navOnly = [] } = {}) {
   const read = (name) => (existsSync(resolve(project, SNAPSHOT_FILES[name])) ? readJson(resolve(project, SNAPSHOT_FILES[name])) : null);
   const pageTypes = new Map(((await read('authoring_package.json'))?.pages ?? []).filter((page) => page.page_type).map((page) => [page.page_id, page.page_type]));
-  return handoffStatuses(sitePlanFromTree({ tree: await read('tree.json'), sitePlan: await read('site_plan.json'), keywords: await read('keywords.json'), pageTypes }), await read('handoff.json'));
+  const handoff = await read('handoff.json');
+  const plan = sitePlanFromTree({ tree: await read('tree.json'), sitePlan: await read('site_plan.json'), keywords: await read('keywords.json'), pageTypes });
+  const unknown = navOnly.filter((id) => !plan.pages.some((page) => page.page_id === id));
+  if (unknown.length) throw new Error(`site.json navOnly names ${unknown.join(', ')}, which the site tree does not have`);
+  const owned = navOnly.map((page_id) => ({ page_id, status: 'nav_only' }));
+  return handoffStatuses(plan, owned.length ? { ...handoff, pages: [...(handoff?.pages ?? []), ...owned] } : handoff);
 }
 
-export async function freezeSiteFactory({ project, out }) {
+export async function freezeSiteFactory({ project, out, navOnly = [] }) {
   const missing = missingProjectFiles(project);
   if (missing.length) throw new Error(`${project} lacks ${missing.join(', ')}`);
   const hash = createHash('sha256');
   for (const [name, path] of Object.entries(SNAPSHOT_FILES)) if (existsSync(resolve(project, path))) hash.update(name).update(await readFile(resolve(project, path)));
+  // The owner's menu headings make a snapshot of their own; none leaves the hash as it was.
+  if (navOnly.length) hash.update('navOnly').update(JSON.stringify([...navOnly].sort()));
   const version = hash.digest('hex').slice(0, 10);
   const folder = resolve(out, `s07-${version}`);
   // The same inputs were frozen before: that snapshot is the one (complete: pages.json is written last).
   if (existsSync(resolve(folder, 'pages.json'))) return { folder, version, existed: true };
   if (existsSync(folder)) throw new Error(`${folder} is an unfinished snapshot: remove it and freeze again`);
   // The whole site's plan from the tree and its routes, before anything is copied (a broken tree freezes nothing).
-  const plan = await projectPlan(project);
+  const plan = await projectPlan(project, { navOnly });
   await mkdir(folder, { recursive: true });
   const copied = [];
   for (const [name, path] of Object.entries(SNAPSHOT_FILES)) {

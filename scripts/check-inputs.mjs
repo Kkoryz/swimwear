@@ -157,7 +157,7 @@ async function siteFactorySource(root, at, site, add) {
     // tree and its routes (lib/site-tree.mjs sitePlanFromTree), and a tree page without a route, a route without a
     // tree page, a page under one not built, or a page type the template lacks stops it. The same plan is made here.
     let pagesPlan;
-    try { pagesPlan = await projectPlan(project); } catch (error) { add('site-plan', message(error)); return null; }
+    try { pagesPlan = await projectPlan(project, { navOnly: site.navOnly ?? [] }); } catch (error) { add('site-plan', message(error)); return null; }
     const file = (name) => (existsSync(resolve(project, SNAPSHOT_FILES[name])) ? resolve(project, SNAPSHOT_FILES[name]) : null);
     return { file, pagesPlan };
   }
