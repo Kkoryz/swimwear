@@ -434,7 +434,7 @@
               80
             ]
           },
-          "module": "faq:accordion"
+          "module": "faq:two-column"
         },
         {
           "id": "cta",
@@ -445,7 +445,7 @@
             2,
             6
           ],
-          "module": "cta:band"
+          "module": "cta:image-band"
         }
       ]
     },
@@ -504,13 +504,13 @@
               80
             ]
           },
-          "module": "faq:accordion"
+          "module": "faq:two-column"
         }
       ]
     },
     "products_hub": {
       "hero": {
-        "variant": "plain",
+        "variant": "media-overlay",
         "words": {
           "heading": [
             4,
@@ -608,7 +608,7 @@
               80
             ]
           },
-          "module": "faq:accordion"
+          "module": "faq:two-column"
         },
         {
           "id": "cta",
@@ -619,13 +619,13 @@
             2,
             6
           ],
-          "module": "cta:band"
+          "module": "cta:image-band"
         }
       ]
     },
     "solutions_hub": {
       "hero": {
-        "variant": "plain",
+        "variant": "media-overlay",
         "words": {
           "heading": [
             4,
@@ -723,7 +723,7 @@
               80
             ]
           },
-          "module": "faq:accordion"
+          "module": "faq:two-column"
         },
         {
           "id": "cta",
@@ -734,13 +734,13 @@
             2,
             6
           ],
-          "module": "cta:band"
+          "module": "cta:image-band"
         }
       ]
     },
     "wholesale_hub": {
       "hero": {
-        "variant": "plain",
+        "variant": "media-overlay",
         "words": {
           "heading": [
             4,
@@ -838,7 +838,7 @@
               80
             ]
           },
-          "module": "faq:accordion"
+          "module": "faq:two-column"
         },
         {
           "id": "cta",
@@ -849,7 +849,7 @@
             2,
             6
           ],
-          "module": "cta:band"
+          "module": "cta:image-band"
         }
       ]
     },
@@ -1081,7 +1081,7 @@
               80
             ]
           },
-          "module": "faq:accordion"
+          "module": "faq:two-column"
         },
         {
           "id": "cta",
@@ -1099,7 +1099,7 @@
     },
     "product_wholesale": {
       "hero": {
-        "variant": "plain",
+        "variant": "media-overlay",
         "words": {
           "heading": [
             4,
@@ -1276,7 +1276,7 @@
               80
             ]
           },
-          "module": "faq:accordion"
+          "module": "faq:two-column"
         },
         {
           "id": "cta",
@@ -1287,7 +1287,7 @@
             2,
             6
           ],
-          "module": "cta:band"
+          "module": "cta:image-band"
         }
       ]
     },
@@ -1484,13 +1484,13 @@
             2,
             6
           ],
-          "module": "cta:band"
+          "module": "cta:image-band"
         }
       ]
     },
     "blog_hub": {
       "hero": {
-        "variant": "plain",
+        "variant": "media-overlay",
         "words": {
           "heading": [
             4,
@@ -1537,13 +1537,13 @@
           "block": "cta",
           "fill": "copy",
           "purpose": "Closing call to action to the contact page",
-          "module": "cta:band"
+          "module": "cta:image-band"
         }
       ]
     },
     "ordering": {
       "hero": {
-        "variant": "plain",
+        "variant": "media-overlay",
         "words": {
           "heading": [
             4,
@@ -1650,20 +1650,20 @@
               45
             ]
           },
-          "module": "faq:accordion"
+          "module": "faq:two-column"
         },
         {
           "id": "cta",
           "block": "cta",
           "fill": "copy",
           "purpose": "Closing call to request a quote",
-          "module": "cta:band"
+          "module": "cta:image-band"
         }
       ]
     },
     "privacy": {
       "hero": {
-        "variant": "plain",
+        "variant": "media-overlay",
         "words": {
           "heading": [
             4,
@@ -1694,7 +1694,7 @@
     },
     "general": {
       "hero": {
-        "variant": "plain",
+        "variant": "media-overlay",
         "words": {
           "heading": [
             4,
@@ -1735,7 +1735,7 @@
             2,
             6
           ],
-          "module": "cta:band"
+          "module": "cta:image-band"
         }
       ]
     }

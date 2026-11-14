@@ -1,0 +1,7744 @@
+{
+  "schemaVersion": "seo-site-factory-import-v1",
+  "project": "swimwear",
+  "packageSchema": "sf/authoring/v1",
+  "rules": {
+    "longSectionWords": 120,
+    "minProofNumbers": 4
+  },
+  "pages": [
+    {
+      "pageId": "home",
+      "route": "/",
+      "pageType": "home",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "iconList",
+          "kind": "why_us",
+          "rule": "kind why_us (list)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "product_range",
+          "rule": "kind product_range (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m2_2",
+          "blockType": "featureGrid",
+          "kind": "product_range",
+          "rule": "kind product_range (cards, 8 cards), continuing m2"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "featureGrid",
+          "kind": "routes",
+          "rule": "kind routes (cards, 4 cards)"
+        },
+        {
+          "sectionId": "m3_2",
+          "blockType": "featureGrid",
+          "kind": "routes",
+          "rule": "kind routes (cards, 7 cards), continuing m3"
+        },
+        {
+          "sectionId": "m3_3",
+          "blockType": "featureGrid",
+          "kind": "routes",
+          "rule": "kind routes (cards, 6 cards), continuing m3"
+        },
+        {
+          "sectionId": "m3_4",
+          "blockType": "featureGrid",
+          "kind": "routes",
+          "rule": "kind routes (cards, 6 cards), continuing m3"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "splitMedia",
+          "kind": "routes",
+          "rule": "kind routes (prose)"
+        },
+        {
+          "sectionId": "m4_2",
+          "blockType": "splitMedia",
+          "kind": "routes",
+          "rule": "kind routes (prose), continuing m4"
+        },
+        {
+          "sectionId": "m4_3",
+          "blockType": "splitMedia",
+          "kind": "routes",
+          "rule": "kind routes (prose), continuing m4"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 3 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "plan.categories",
+          "blockType": null,
+          "rule": "slot categories: no child pages in the site plan"
+        },
+        {
+          "sectionId": "plan.solutions",
+          "blockType": null,
+          "rule": "slot solutions: no child pages in the site plan"
+        },
+        {
+          "sectionId": "owner.logos",
+          "blockType": "logos",
+          "rule": "slot logos: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.orderRoutes",
+          "blockType": null,
+          "rule": "slot orderRoutes: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.factory",
+          "blockType": null,
+          "rule": "slot factory: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (13 already in the copy), 3 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-5",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-6",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-7",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-8",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4",
+          "type": "splitMedia"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "splitMedia-2",
+          "type": "splitMedia"
+        },
+        {
+          "id": "owner-logos",
+          "type": "logos"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 13,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 3,
+      "linksInCopy": 13,
+      "jsonLdTypes": [
+        "Organization",
+        "FAQPage"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S102",
+        "brief:S116",
+        "brief:S120",
+        "brief:S123",
+        "brief:S141",
+        "brief:S155",
+        "brief:S222",
+        "brief:S52",
+        "brief:S56",
+        "faq:g3",
+        "faq:g4",
+        "gap:g1",
+        "homed:S15",
+        "homed:S18",
+        "homed:S20",
+        "homed:S21",
+        "homed:S22",
+        "homed:S23",
+        "homed:S24",
+        "homed:S27",
+        "homed:S28",
+        "homed:S29",
+        "homed:S30",
+        "homed:S31",
+        "homed:S32",
+        "homed:S35",
+        "homed:S39",
+        "homed:S40",
+        "homed:S41",
+        "homed:S42",
+        "homed:S43",
+        "homed:S44",
+        "homed:S47",
+        "homed:S62",
+        "homed:S63",
+        "homed:S64",
+        "homed:S66",
+        "homed:S67",
+        "homed:S69",
+        "owner:b2b-only",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:ready-stock",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:start-with-samples",
+        "owner:third-party-inspection",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "bd6231d443d7221d",
+      "outputHash": "ffa5df45f44cda46"
+    },
+    {
+      "pageId": "c-a0d1d7027027:product",
+      "route": "/women-s-swimwear-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m2_2",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 8 cards), continuing m2"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "iconList",
+          "kind": "customization",
+          "rule": "kind customization (list)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 5 cards)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 6 cards)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "table",
+          "kind": "development",
+          "rule": "kind development (table)"
+        },
+        {
+          "sectionId": "m6_2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 3 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (13 already in the copy), 9 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "iconList"
+        },
+        {
+          "id": "m4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m5",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m5-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m6",
+          "type": "table"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 13,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 9,
+      "linksInCopy": 13,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S101",
+        "brief:S117",
+        "brief:S128",
+        "brief:S156",
+        "brief:S222",
+        "brief:S46",
+        "brief:c-3055c652c816:service/g22",
+        "c1",
+        "c10",
+        "c11",
+        "c12",
+        "c13",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9",
+        "gap:g1",
+        "gap:g13",
+        "gap:g16",
+        "gap:g18",
+        "gap:g2",
+        "gap:g3",
+        "gap:g4",
+        "gap:g6",
+        "gap:g9",
+        "owner:b2b-only",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "9168bea95caa46bf",
+      "outputHash": "218c58a6354d9f62"
+    },
+    {
+      "pageId": "c-705b55f5501e:product",
+      "route": "/one-piece-swimsuit-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "featureGrid",
+          "kind": "product_range",
+          "rule": "kind product_range (cards, 6 cards)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "iconList",
+          "kind": "why_us",
+          "rule": "kind why_us (list)"
+        },
+        {
+          "sectionId": "overview_2_3",
+          "blockType": "featureGrid",
+          "kind": "routes",
+          "rule": "kind routes (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "iconList",
+          "kind": "customization",
+          "rule": "kind customization (list)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 5 cards)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "splitMedia",
+          "kind": "customization",
+          "rule": "kind customization (prose)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "table",
+          "kind": "customization",
+          "rule": "kind customization (table)"
+        },
+        {
+          "sectionId": "m5_2",
+          "blockType": "process",
+          "kind": "quality_control",
+          "rule": "kind quality_control (steps)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 5 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (14 already in the copy), 1 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "featureGrid-3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2",
+          "type": "iconList"
+        },
+        {
+          "id": "m3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m5",
+          "type": "table"
+        },
+        {
+          "id": "process-1",
+          "type": "process"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 14,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 1,
+      "linksInCopy": 14,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [
+        {
+          "field": "notes",
+          "value": [
+            "data_detail_missing:gap:g13"
+          ]
+        }
+      ],
+      "citedFacts": [
+        "brief:S121",
+        "brief:S123",
+        "brief:S156",
+        "brief:S46",
+        "brief:S58",
+        "brief:SG43",
+        "brief:c-a0d1d7027027:product/c5",
+        "brief:c-a0d1d7027027:product/g13",
+        "brief:c-a0d1d7027027:product/g2",
+        "c1",
+        "c10",
+        "c11",
+        "c12",
+        "c13",
+        "c14",
+        "c15",
+        "c2",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9",
+        "gap:g1",
+        "gap:g11",
+        "gap:g12",
+        "gap:g13",
+        "gap:g15",
+        "gap:g18",
+        "gap:g2",
+        "gap:g20",
+        "gap:g22",
+        "owner:b2b-only",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:start-with-samples",
+        "owner:third-party-inspection",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "fb1e56ffea4c02b5",
+      "outputHash": "a972bd621a7f2da6"
+    },
+    {
+      "pageId": "c-0a2f4a960a8b:product",
+      "route": "/bikini-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "process",
+          "kind": "development",
+          "rule": "kind development (steps)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "table",
+          "kind": "product_range",
+          "rule": "kind product_range (table)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 5 cards)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 5 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (12 already in the copy), 2 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "process-1",
+          "type": "process"
+        },
+        {
+          "id": "m3",
+          "type": "table"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 12,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 2,
+      "linksInCopy": 12,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S118",
+        "brief:S124",
+        "brief:S155",
+        "brief:S165",
+        "brief:S219",
+        "brief:S37",
+        "brief:S46",
+        "brief:S84",
+        "brief:S9",
+        "brief:S95",
+        "brief:SG48",
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9",
+        "gap:g1",
+        "gap:g12",
+        "gap:g17",
+        "gap:g18",
+        "gap:g19",
+        "gap:g2",
+        "gap:g4",
+        "gap:g5",
+        "gap:g7",
+        "gap:g8",
+        "gap:g9",
+        "owner:b2b-only",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:sample-fee",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "60efdc0c79eac5e7",
+      "outputHash": "2050d428256e4bb1"
+    },
+    {
+      "pageId": "c-6e0b54e5523e:product",
+      "route": "/men-s-swimwear-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "featureGrid",
+          "kind": "product_range",
+          "rule": "kind product_range (cards, 3 cards)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "splitMedia",
+          "kind": "factory",
+          "rule": "kind factory (prose)"
+        },
+        {
+          "sectionId": "overview_2_3",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "overview_2_4",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "table",
+          "kind": "development",
+          "rule": "kind development (table)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 6 cards)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "iconList",
+          "kind": "materials",
+          "rule": "kind materials (list)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "splitMedia",
+          "kind": "customization",
+          "rule": "kind customization (prose)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "iconList",
+          "kind": "quality_control",
+          "rule": "kind quality_control (list)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 3 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (15 already in the copy), 7 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "process-1",
+          "type": "process"
+        },
+        {
+          "id": "m2",
+          "type": "table"
+        },
+        {
+          "id": "m3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4",
+          "type": "iconList"
+        },
+        {
+          "id": "m5",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m6",
+          "type": "iconList"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 15,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 7,
+      "linksInCopy": 15,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [
+        {
+          "field": "notes",
+          "value": [
+            "data_detail_missing:c2"
+          ]
+        }
+      ],
+      "citedFacts": [
+        "brief:S103",
+        "brief:S116",
+        "brief:S123",
+        "brief:S134",
+        "brief:S141",
+        "brief:S155",
+        "brief:S222",
+        "brief:S56",
+        "brief:S62",
+        "brief:SG11",
+        "brief:SG45",
+        "brief:inferred:product:13/c2",
+        "brief:inferred:product:5/c5",
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "gap:g11",
+        "gap:g12",
+        "gap:g14",
+        "gap:g4",
+        "gap:g5",
+        "gap:g6",
+        "gap:g9",
+        "owner:b2b-only",
+        "owner:certifications",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:third-party-inspection",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "eaa78e270636cf3f",
+      "outputHash": "ca45e0cd109cd16a"
+    },
+    {
+      "pageId": "inferred:product:5",
+      "route": "/boardshorts-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "featureGrid",
+          "kind": "product_range",
+          "rule": "kind product_range (cards, 8 cards)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 5 cards)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 7 cards)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "iconList",
+          "kind": "customization",
+          "rule": "kind customization (list)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "splitMedia",
+          "kind": "customization",
+          "rule": "kind customization (prose)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 3 cards)"
+        },
+        {
+          "sectionId": "m8",
+          "blockType": "splitMedia",
+          "kind": "quality_control",
+          "rule": "kind quality_control (prose)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 4 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (12 already in the copy), 2 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "m6",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m6-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "iconList"
+        },
+        {
+          "id": "m4",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m5",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m8",
+          "type": "splitMedia"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 12,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 2,
+      "linksInCopy": 12,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [
+        {
+          "field": "notes",
+          "value": [
+            "omitted_section:related"
+          ]
+        }
+      ],
+      "citedFacts": [
+        "brief:S102",
+        "brief:S116",
+        "brief:S122",
+        "brief:S123",
+        "brief:S141",
+        "brief:S155",
+        "c1",
+        "c10",
+        "c13",
+        "c16",
+        "c17",
+        "c19",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "gap:g1",
+        "gap:g10",
+        "gap:g14",
+        "gap:g15",
+        "gap:g16",
+        "gap:g18",
+        "gap:g2",
+        "gap:g3",
+        "gap:g4",
+        "gap:g5",
+        "gap:g6",
+        "gap:g8",
+        "gap:g9",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:payment-terms",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "34565ef0f5d47695",
+      "outputHash": "219a19dc55830e28"
+    },
+    {
+      "pageId": "inferred:product:13",
+      "route": "/swim-trunks-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "table",
+          "kind": "customization",
+          "rule": "kind customization (table)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "featureGrid",
+          "kind": "why_us",
+          "rule": "kind why_us (cards, 6 cards)"
+        },
+        {
+          "sectionId": "overview_2_3",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "iconList",
+          "kind": "customization",
+          "rule": "kind customization (list)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 6 cards)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 5 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (13 already in the copy), 1 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "table-1",
+          "type": "table"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "iconList"
+        },
+        {
+          "id": "m4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 13,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 1,
+      "linksInCopy": 13,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S123",
+        "brief:S141",
+        "brief:S155",
+        "brief:S214",
+        "brief:S223",
+        "brief:S97",
+        "brief:SG23",
+        "brief:inferred:product:5/g9",
+        "c1",
+        "c10",
+        "c11",
+        "c12",
+        "c2",
+        "c3",
+        "c4",
+        "c7",
+        "c8",
+        "c9",
+        "gap:g12",
+        "gap:g15",
+        "gap:g16",
+        "gap:g2",
+        "gap:g21",
+        "gap:g22",
+        "gap:g23",
+        "gap:g24",
+        "gap:g3",
+        "gap:g4",
+        "gap:g5",
+        "gap:g7",
+        "gap:g8",
+        "gap:g9",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:start-with-samples",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "0639d9a15279c4a8",
+      "outputHash": "fea119ebd9d026ad"
+    },
+    {
+      "pageId": "c-3d3fc0c8dc39:product",
+      "route": "/children-s-swimwear-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "featureGrid",
+          "kind": "product_range",
+          "rule": "kind product_range (cards, 2 cards)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "splitMedia",
+          "kind": "factory",
+          "rule": "kind factory (prose)"
+        },
+        {
+          "sectionId": "overview_2_3",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "overview_2_4",
+          "blockType": "proof",
+          "kind": "terms",
+          "rule": "kind terms (prose)"
+        },
+        {
+          "sectionId": "overview_2_5",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "overview_2_6",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "overview_2_7",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "iconList",
+          "kind": "certifications",
+          "rule": "kind certifications (list)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "iconList",
+          "kind": "customization",
+          "rule": "kind customization (list)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 6 cards)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 4 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (14 already in the copy), 9 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "proof-1",
+          "type": "proof"
+        },
+        {
+          "id": "iconList-2",
+          "type": "iconList"
+        },
+        {
+          "id": "process-1",
+          "type": "process"
+        },
+        {
+          "id": "iconList-3",
+          "type": "iconList"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m6",
+          "type": "iconList"
+        },
+        {
+          "id": "m4",
+          "type": "iconList"
+        },
+        {
+          "id": "m5",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m5-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 14,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 9,
+      "linksInCopy": 14,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S106",
+        "brief:S119",
+        "brief:S122",
+        "brief:S123",
+        "brief:S155",
+        "brief:S158",
+        "brief:S203",
+        "brief:S207",
+        "brief:S212",
+        "brief:S219",
+        "brief:S222",
+        "brief:S57",
+        "brief:S95",
+        "brief:SG32",
+        "brief:SG45",
+        "c1",
+        "c11",
+        "c12",
+        "c13",
+        "c16",
+        "c2",
+        "c3",
+        "c4",
+        "c7",
+        "c8",
+        "c9",
+        "gap:g1",
+        "gap:g11",
+        "gap:g14",
+        "gap:g16",
+        "gap:g18",
+        "gap:g19",
+        "gap:g2",
+        "gap:g3",
+        "gap:g4",
+        "gap:g5",
+        "gap:g6",
+        "gap:g7",
+        "gap:g9",
+        "owner:b2b-only",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:ready-stock",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:start-with-samples",
+        "owner:third-party-inspection",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "89eb9c23e5b044c5",
+      "outputHash": "448ce9f2625fefe5"
+    },
+    {
+      "pageId": "inferred:product:6",
+      "route": "/teen-swimwear-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "splitMedia",
+          "kind": "development",
+          "rule": "kind development (prose)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "splitMedia",
+          "kind": "factory",
+          "rule": "kind factory (prose)"
+        },
+        {
+          "sectionId": "overview_2_3",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "overview_2_4",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "overview_2_5",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "product_range",
+          "rule": "kind product_range (cards, 5 cards)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 5 cards)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "iconList",
+          "kind": "customization",
+          "rule": "kind customization (list)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 8 cards)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 4 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (11 already in the copy), 3 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "splitMedia-2",
+          "type": "splitMedia"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "iconList-2",
+          "type": "iconList"
+        },
+        {
+          "id": "process-1",
+          "type": "process"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4",
+          "type": "iconList"
+        },
+        {
+          "id": "m5",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m5-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 11,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 3,
+      "linksInCopy": 11,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S101",
+        "brief:S119",
+        "brief:S207",
+        "brief:S32",
+        "brief:SG28",
+        "brief:SG29",
+        "c1",
+        "c10",
+        "c11",
+        "c12",
+        "c13",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9",
+        "gap:g11",
+        "gap:g12",
+        "gap:g13",
+        "gap:g14",
+        "gap:g15",
+        "gap:g2",
+        "gap:g3",
+        "gap:g4",
+        "gap:g5",
+        "gap:g7",
+        "owner:b2b-only",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:ready-stock",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "90368e86a683b3f1",
+      "outputHash": "60bcef5992dcefe7"
+    },
+    {
+      "pageId": "inferred:product:7",
+      "route": "/baby-swimwear-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "table",
+          "kind": "development",
+          "rule": "kind development (table)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "overview_2_3",
+          "blockType": "iconList",
+          "kind": "quality_control",
+          "rule": "kind quality_control (list)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "product_range",
+          "rule": "kind product_range (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "table",
+          "kind": "materials",
+          "rule": "kind materials (table)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 4 cards)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "splitMedia",
+          "kind": "quality_control",
+          "rule": "kind quality_control (prose)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 5 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (12 already in the copy), 2 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "table-1",
+          "type": "table"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "iconList-2",
+          "type": "iconList"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "table"
+        },
+        {
+          "id": "m4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m5",
+          "type": "splitMedia"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 12,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 2,
+      "linksInCopy": 12,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S106",
+        "brief:S121",
+        "brief:S207",
+        "brief:S222",
+        "brief:S95",
+        "brief:SG32",
+        "brief:SG33",
+        "brief:SG4",
+        "brief:SG54",
+        "brief:c-3d3fc0c8dc39:product/c4",
+        "brief:c-3d3fc0c8dc39:product/g3",
+        "brief:c-3d3fc0c8dc39:product/g4",
+        "brief:c-3d3fc0c8dc39:product/g6",
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "gap:g1",
+        "gap:g13",
+        "gap:g14",
+        "gap:g15",
+        "gap:g17",
+        "gap:g18",
+        "gap:g2",
+        "gap:g5",
+        "owner:b2b-only",
+        "owner:certifications",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:ready-stock",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:third-party-inspection",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "4961e9a9ff1d213e",
+      "outputHash": "25e8a96f0dbaa9c8"
+    },
+    {
+      "pageId": "inferred:product:8",
+      "route": "/toddler-swimwear-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "table",
+          "kind": "scope",
+          "rule": "kind scope (table)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "table",
+          "kind": "materials",
+          "rule": "kind materials (table)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 4 cards)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "featureGrid",
+          "kind": "product_range",
+          "rule": "kind product_range (cards, 4 cards)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "table",
+          "kind": "customization",
+          "rule": "kind customization (table)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 3 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (10 already in the copy), 1 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "table-1",
+          "type": "table"
+        },
+        {
+          "id": "m2",
+          "type": "table"
+        },
+        {
+          "id": "m3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m5",
+          "type": "table"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 10,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 1,
+      "linksInCopy": 10,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S158",
+        "brief:S207",
+        "brief:S223",
+        "brief:S98",
+        "brief:SG32",
+        "brief:SG33",
+        "brief:c-3d3fc0c8dc39:product/c4",
+        "brief:c-3d3fc0c8dc39:product/g3",
+        "brief:c-3d3fc0c8dc39:product/g4",
+        "brief:c-3d3fc0c8dc39:product/g6",
+        "brief:inferred:product:7/g14",
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "gap:g10",
+        "gap:g5",
+        "gap:g8",
+        "gap:g9",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:third-party-inspection",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "28b76834815d502a",
+      "outputHash": "5b749b6749b9926c"
+    },
+    {
+      "pageId": "inferred:product:10",
+      "route": "/modest-swimwear-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "featureGrid",
+          "kind": "product_range",
+          "rule": "kind product_range (cards, 3 cards)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "splitMedia",
+          "kind": "routes",
+          "rule": "kind routes (prose)"
+        },
+        {
+          "sectionId": "overview_2_3",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 4 cards)"
+        },
+        {
+          "sectionId": "overview_2_4",
+          "blockType": "splitMedia",
+          "kind": "factory",
+          "rule": "kind factory (prose)"
+        },
+        {
+          "sectionId": "overview_2_5",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "overview_2_6",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "overview_2_7",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "featureGrid",
+          "kind": "audience",
+          "rule": "kind audience (cards, 3 cards)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "table",
+          "kind": "customization",
+          "rule": "kind customization (table)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "table",
+          "kind": "customization",
+          "rule": "kind customization (table)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 5 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (11 already in the copy), 8 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "featureGrid-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "splitMedia-2",
+          "type": "splitMedia"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "iconList-2",
+          "type": "iconList"
+        },
+        {
+          "id": "process-1",
+          "type": "process"
+        },
+        {
+          "id": "m6",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2",
+          "type": "table"
+        },
+        {
+          "id": "m3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m5",
+          "type": "table"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 11,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 8,
+      "linksInCopy": 11,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S103",
+        "brief:S129",
+        "brief:S141",
+        "brief:S28",
+        "brief:SG16",
+        "c1",
+        "c10",
+        "c11",
+        "c12",
+        "c14",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c7",
+        "c8",
+        "c9",
+        "gap:g1",
+        "gap:g10",
+        "gap:g14",
+        "gap:g16",
+        "gap:g17",
+        "gap:g18",
+        "gap:g19",
+        "gap:g2",
+        "gap:g20",
+        "gap:g22",
+        "gap:g23",
+        "gap:g24",
+        "gap:g25",
+        "gap:g4",
+        "gap:g5",
+        "gap:g8",
+        "gap:g9",
+        "owner:certifications",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "5b96c1c0f00aca34",
+      "outputHash": "59400f3848dd8f90"
+    },
+    {
+      "pageId": "inferred:product:3",
+      "route": "/burkini-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 7 cards)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "iconList",
+          "kind": "customization",
+          "rule": "kind customization (list)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "m4_2",
+          "blockType": "process",
+          "kind": "development",
+          "rule": "kind development (steps)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 3 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "iconList"
+        },
+        {
+          "id": "m4",
+          "type": "process"
+        },
+        {
+          "id": "process-1",
+          "type": "process"
+        },
+        {
+          "id": "m5",
+          "type": "iconList"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 9,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 0,
+      "linksInCopy": 9,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S158",
+        "brief:S176",
+        "brief:S189",
+        "brief:S207",
+        "brief:S217",
+        "brief:S49",
+        "brief:S56",
+        "brief:inferred:product:10/c10",
+        "brief:inferred:product:10/c11",
+        "brief:inferred:product:10/c4",
+        "brief:inferred:product:10/c5",
+        "brief:inferred:product:10/c8",
+        "brief:inferred:product:10/g1",
+        "brief:inferred:product:10/g17",
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "gap:g15",
+        "gap:g16",
+        "gap:g20",
+        "gap:g3",
+        "gap:g7",
+        "gap:g9",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:third-party-inspection",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "ac43c9b0083b346a",
+      "outputHash": "23e75f27389fe468"
+    },
+    {
+      "pageId": "group:watersports-apparel",
+      "route": "/watersports-apparel-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "splitMedia",
+          "kind": "routes",
+          "rule": "kind routes (prose)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "splitMedia",
+          "kind": "routes",
+          "rule": "kind routes (prose), continuing overview_2"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 3 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (11 already in the copy), 7 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "splitMedia-2",
+          "type": "splitMedia"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 11,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 7,
+      "linksInCopy": 11,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S103",
+        "brief:S190",
+        "brief:S207",
+        "brief:S53",
+        "brief:S9",
+        "brief:SG6",
+        "c1@inferred:product:1",
+        "faq:g2",
+        "faq:g3",
+        "faq:g4",
+        "owner:b2b-only",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quote-before-sample",
+        "owner:sample-fee",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "e7b4c5424cb977de",
+      "outputHash": "022a034f6a70ed1d"
+    },
+    {
+      "pageId": "inferred:product:1",
+      "route": "/rash-guard-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "featureGrid",
+          "kind": "why_us",
+          "rule": "kind why_us (cards, 6 cards)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "iconList",
+          "kind": "customization",
+          "rule": "kind customization (list)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "splitMedia",
+          "kind": "customization",
+          "rule": "kind customization (prose)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 5 cards)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "iconList",
+          "kind": "customization",
+          "rule": "kind customization (list)"
+        },
+        {
+          "sectionId": "m6_2",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 4 cards), continuing m6"
+        },
+        {
+          "sectionId": "m6_3",
+          "blockType": "proof",
+          "kind": "terms",
+          "rule": "kind terms (prose)"
+        },
+        {
+          "sectionId": "m7",
+          "blockType": "splitMedia",
+          "kind": "materials",
+          "rule": "kind materials (prose)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 5 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (9 already in the copy), 1 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m5",
+          "type": "iconList"
+        },
+        {
+          "id": "m3",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m6",
+          "type": "iconList"
+        },
+        {
+          "id": "featureGrid-3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "proof-1",
+          "type": "proof"
+        },
+        {
+          "id": "m7",
+          "type": "splitMedia"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 9,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 1,
+      "linksInCopy": 9,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [
+        {
+          "field": "notes",
+          "value": [
+            "data_detail_missing:c5",
+            "data_detail_missing:gap:g1"
+          ]
+        }
+      ],
+      "citedFacts": [
+        "brief:S158",
+        "brief:S207",
+        "brief:SG16",
+        "brief:SG48",
+        "c1",
+        "c10",
+        "c12",
+        "c13",
+        "c14",
+        "c15",
+        "c16",
+        "c17",
+        "c18",
+        "c19",
+        "c2",
+        "c20",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9",
+        "gap:g1",
+        "gap:g10",
+        "gap:g11",
+        "gap:g12",
+        "gap:g13",
+        "gap:g14",
+        "gap:g18",
+        "gap:g19",
+        "gap:g21",
+        "gap:g5",
+        "gap:g6",
+        "gap:g7",
+        "gap:g8",
+        "owner:certifications",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "97c9bd08053bdc3e",
+      "outputHash": "6443c168c149ccc7"
+    },
+    {
+      "pageId": "c-0cc45987ac6b:product",
+      "route": "/resort-wear-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "iconList",
+          "kind": "customization",
+          "rule": "kind customization (list)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 5 cards), continuing overview_2"
+        },
+        {
+          "sectionId": "overview_2_3",
+          "blockType": "splitMedia",
+          "kind": "factory",
+          "rule": "kind factory (prose)"
+        },
+        {
+          "sectionId": "overview_2_4",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "overview_2_5",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "overview_2_6",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "table",
+          "kind": "materials",
+          "rule": "kind materials (table)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "splitMedia",
+          "kind": "development",
+          "rule": "kind development (prose)"
+        },
+        {
+          "sectionId": "m4_2",
+          "blockType": "splitMedia",
+          "kind": "development",
+          "rule": "kind development (prose), continuing m4"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 6 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (10 already in the copy), 8 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "iconList-2",
+          "type": "iconList"
+        },
+        {
+          "id": "iconList-3",
+          "type": "iconList"
+        },
+        {
+          "id": "process-1",
+          "type": "process"
+        },
+        {
+          "id": "m2",
+          "type": "table"
+        },
+        {
+          "id": "m3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4",
+          "type": "splitMedia"
+        },
+        {
+          "id": "splitMedia-2",
+          "type": "splitMedia"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 10,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 8,
+      "linksInCopy": 10,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S128",
+        "brief:S14",
+        "brief:S141",
+        "brief:S34",
+        "brief:S37",
+        "brief:S96",
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9",
+        "gap:g1",
+        "gap:g10",
+        "gap:g11",
+        "gap:g12",
+        "gap:g13",
+        "gap:g14",
+        "gap:g15",
+        "gap:g16",
+        "gap:g3",
+        "gap:g4",
+        "gap:g5",
+        "gap:g6",
+        "gap:g7",
+        "gap:g8",
+        "owner:b2b-only",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "095f12d129e4717b",
+      "outputHash": "7e07850a80e267d3"
+    },
+    {
+      "pageId": "inferred:product:11",
+      "route": "/cover-up-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 7 cards)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "table",
+          "kind": "materials",
+          "rule": "kind materials (table)"
+        },
+        {
+          "sectionId": "m2_2",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 8 cards), continuing m2"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "table",
+          "kind": "customization",
+          "rule": "kind customization (table)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 7 cards)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "iconList",
+          "kind": "routes",
+          "rule": "kind routes (list)"
+        },
+        {
+          "sectionId": "m5_2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 6 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (10 already in the copy), 1 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2",
+          "type": "table"
+        },
+        {
+          "id": "featureGrid-3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "table"
+        },
+        {
+          "id": "m4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m5",
+          "type": "iconList"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 10,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 1,
+      "linksInCopy": 10,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S141",
+        "brief:S217",
+        "brief:S5",
+        "c1",
+        "c10",
+        "c11",
+        "c12",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9",
+        "gap:g10",
+        "gap:g11",
+        "gap:g12",
+        "gap:g13",
+        "gap:g15",
+        "gap:g16",
+        "gap:g17",
+        "gap:g18",
+        "gap:g19",
+        "gap:g2",
+        "gap:g20",
+        "gap:g21",
+        "gap:g22",
+        "gap:g23",
+        "gap:g4",
+        "gap:g6",
+        "gap:g7",
+        "gap:g8",
+        "gap:g9",
+        "owner:b2b-only",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:start-with-samples",
+        "owner:third-party-inspection",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "c9e36dca8c09e765",
+      "outputHash": "3d95edb097ae27f1"
+    },
+    {
+      "pageId": "c-8404f8cb0b07:service",
+      "route": "/swimwear-embroidery/",
+      "pageType": "solution",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "splitMedia",
+          "kind": "scope",
+          "rule": "kind scope (prose)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "splitMedia",
+          "kind": "materials",
+          "rule": "kind materials (prose)"
+        },
+        {
+          "sectionId": "overview_2_3",
+          "blockType": "splitMedia",
+          "kind": "quality_control",
+          "rule": "kind quality_control (prose)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "featureGrid",
+          "kind": "product_range",
+          "rule": "kind product_range (cards, 4 cards)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 5 cards)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "iconList",
+          "kind": "routes",
+          "rule": "kind routes (list)"
+        },
+        {
+          "sectionId": "m3_2",
+          "blockType": "splitMedia",
+          "kind": "development",
+          "rule": "kind development (prose)"
+        },
+        {
+          "sectionId": "m3_3",
+          "blockType": "splitMedia",
+          "kind": "development",
+          "rule": "kind development (prose)"
+        },
+        {
+          "sectionId": "m7",
+          "blockType": "table",
+          "kind": "customization",
+          "rule": "kind customization (table)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "m5_2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "featureGrid",
+          "kind": "routes",
+          "rule": "kind routes (cards, 8 cards)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 7 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the page's own client case takes its place"
+        },
+        {
+          "sectionId": "cases",
+          "blockType": "orderCase",
+          "rule": "the page's client case (1)"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (11 already in the copy), 2 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "splitMedia-2",
+          "type": "splitMedia"
+        },
+        {
+          "id": "intro-1",
+          "type": "intro"
+        },
+        {
+          "id": "m6",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "iconList"
+        },
+        {
+          "id": "splitMedia-3",
+          "type": "splitMedia"
+        },
+        {
+          "id": "splitMedia-4",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m7",
+          "type": "table"
+        },
+        {
+          "id": "m5",
+          "type": "process"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "m4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "cases",
+          "type": "orderCase"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 11,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 2,
+      "linksInCopy": 11,
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "Service"
+      ],
+      "structured": null,
+      "unplaced": [
+        {
+          "field": "notes",
+          "value": [
+            "data_detail_missing:gap:g4",
+            "data_detail_missing:c12"
+          ]
+        }
+      ],
+      "citedFacts": [
+        "brief:S125",
+        "brief:S157",
+        "brief:S161",
+        "brief:S217",
+        "brief:S224",
+        "brief:S46",
+        "brief:S67",
+        "brief:SG23",
+        "c1",
+        "c10",
+        "c11",
+        "c12",
+        "c13",
+        "c14",
+        "c15",
+        "c16",
+        "c17",
+        "c18",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9",
+        "gap:g1",
+        "gap:g10",
+        "gap:g12",
+        "gap:g13",
+        "gap:g14",
+        "gap:g15",
+        "gap:g3",
+        "gap:g4",
+        "gap:g6",
+        "gap:g7",
+        "gap:g8",
+        "gap:g9",
+        "homed:S123",
+        "homed:S37",
+        "homed:SG39",
+        "homed:SG40",
+        "homed:SG41",
+        "owner:b2b-only",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quote-before-sample",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:third-party-inspection",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "98bd6d07aca1834d",
+      "outputHash": "8062fe54e50c591b"
+    },
+    {
+      "pageId": "c-c48d984954c3:service",
+      "route": "/swimwear-consulting/",
+      "pageType": "solution",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "splitMedia",
+          "kind": "scope",
+          "rule": "kind scope (prose)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "splitMedia",
+          "kind": "factory",
+          "rule": "kind factory (prose)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "scope",
+          "rule": "kind scope (cards, 6 cards)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "iconList",
+          "kind": "scope",
+          "rule": "kind scope (list)"
+        },
+        {
+          "sectionId": "m3_2",
+          "blockType": "iconList",
+          "kind": "certifications",
+          "rule": "kind certifications (list)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "featureGrid",
+          "kind": "scope",
+          "rule": "kind scope (cards, 4 cards)"
+        },
+        {
+          "sectionId": "m4_2",
+          "blockType": "splitMedia",
+          "kind": "scope",
+          "rule": "kind scope (prose), continuing m4"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "featureGrid",
+          "kind": "scope",
+          "rule": "kind scope (cards, 6 cards)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "splitMedia",
+          "kind": "scope",
+          "rule": "kind scope (prose)"
+        },
+        {
+          "sectionId": "m7",
+          "blockType": "featureGrid",
+          "kind": "routes",
+          "rule": "kind routes (cards, 5 cards)"
+        },
+        {
+          "sectionId": "m7_2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m8",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "m8_2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 7 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (3 already in the copy), 5 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "splitMedia-2",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "iconList"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "m4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "splitMedia-3",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m5",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m5-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m6",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m7",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m7-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "iconList-2",
+          "type": "iconList"
+        },
+        {
+          "id": "m8",
+          "type": "process"
+        },
+        {
+          "id": "iconList-3",
+          "type": "iconList"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 3,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 5,
+      "linksInCopy": 3,
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "Service"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S141",
+        "c1",
+        "c10",
+        "c11",
+        "c12",
+        "c13",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9",
+        "gap:g1",
+        "gap:g10",
+        "gap:g11",
+        "gap:g12",
+        "gap:g13",
+        "gap:g14",
+        "gap:g15",
+        "gap:g16",
+        "gap:g17",
+        "gap:g18",
+        "gap:g19",
+        "gap:g2",
+        "gap:g23",
+        "gap:g24",
+        "gap:g25",
+        "gap:g26",
+        "gap:g27",
+        "gap:g3",
+        "gap:g4",
+        "gap:g5",
+        "gap:g6",
+        "gap:g7",
+        "gap:g8",
+        "gap:g9",
+        "homed:SG42",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:payment-terms",
+        "owner:sample-fee",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "707108ae7e97c15c",
+      "outputHash": "ab815b0b5b6e79d4"
+    },
+    {
+      "pageId": "c-05134426bcd1:service",
+      "route": "/development/",
+      "pageType": "solution",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "splitMedia",
+          "kind": "routes",
+          "rule": "kind routes (prose)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 4 cards)"
+        },
+        {
+          "sectionId": "m8",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 4 cards)"
+        },
+        {
+          "sectionId": "m9",
+          "blockType": "process",
+          "kind": "development",
+          "rule": "kind development (steps)"
+        },
+        {
+          "sectionId": "m9_2",
+          "blockType": "splitMedia",
+          "kind": "development",
+          "rule": "kind development (prose), continuing m9"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "featureGrid",
+          "kind": "scope",
+          "rule": "kind scope (cards, 4 cards)"
+        },
+        {
+          "sectionId": "m3_2",
+          "blockType": "table",
+          "kind": "customization",
+          "rule": "kind customization (table)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 4 cards)"
+        },
+        {
+          "sectionId": "related",
+          "blockType": "splitMedia",
+          "kind": "scope",
+          "rule": "kind scope (prose)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "iconList",
+          "kind": "materials",
+          "rule": "kind materials (list)"
+        },
+        {
+          "sectionId": "m11",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "process",
+          "kind": "quality_control",
+          "rule": "kind quality_control (steps)"
+        },
+        {
+          "sectionId": "m7",
+          "blockType": "splitMedia",
+          "kind": "routes",
+          "rule": "kind routes (prose)"
+        },
+        {
+          "sectionId": "m12",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m12_2",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 4 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (10 already in the copy), 2 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m8",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m9",
+          "type": "process"
+        },
+        {
+          "id": "splitMedia-2",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "table-1",
+          "type": "table"
+        },
+        {
+          "id": "m5",
+          "type": "featureGrid"
+        },
+        {
+          "id": "related",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m6",
+          "type": "iconList"
+        },
+        {
+          "id": "m11",
+          "type": "iconList"
+        },
+        {
+          "id": "m4",
+          "type": "process"
+        },
+        {
+          "id": "m7",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m12",
+          "type": "iconList"
+        },
+        {
+          "id": "process-1",
+          "type": "process"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related-2",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 10,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 2,
+      "linksInCopy": 10,
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "Service"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S131",
+        "brief:S142",
+        "brief:S219",
+        "brief:S224",
+        "brief:S59",
+        "brief:SG40",
+        "brief:SG49",
+        "c1",
+        "c11",
+        "c12",
+        "c13",
+        "c14",
+        "c15",
+        "c16",
+        "c17",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c9",
+        "gap:g1",
+        "gap:g12",
+        "gap:g17",
+        "gap:g18",
+        "gap:g3",
+        "gap:g4",
+        "gap:g5",
+        "gap:g9",
+        "homed:S148",
+        "homed:S177",
+        "homed:S36",
+        "homed:S50",
+        "homed:S55",
+        "homed:S58",
+        "homed:SG50",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:start-with-samples",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "62a313ee091c1e03",
+      "outputHash": "fa0ccf9b6b58e4d1"
+    },
+    {
+      "pageId": "c-fe2ba46d3673:service",
+      "route": "/swimwear-packaging-custom-brand-labels/",
+      "pageType": "solution",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "proof",
+          "kind": "terms",
+          "rule": "kind terms (prose)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "splitMedia",
+          "kind": "factory",
+          "rule": "kind factory (prose)"
+        },
+        {
+          "sectionId": "m10",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m10_2",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 7 cards)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "table",
+          "kind": "materials",
+          "rule": "kind materials (table)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "iconList",
+          "kind": "customization",
+          "rule": "kind customization (list)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 6 cards)"
+        },
+        {
+          "sectionId": "related",
+          "blockType": "splitMedia",
+          "kind": "scope",
+          "rule": "kind scope (prose)"
+        },
+        {
+          "sectionId": "m7",
+          "blockType": "iconList",
+          "kind": "customization",
+          "rule": "kind customization (list)"
+        },
+        {
+          "sectionId": "m9",
+          "blockType": "table",
+          "kind": "product_range",
+          "rule": "kind product_range (table)"
+        },
+        {
+          "sectionId": "m11",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 6 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (12 already in the copy), 1 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "proof-1",
+          "type": "proof"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m10",
+          "type": "iconList"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2",
+          "type": "table"
+        },
+        {
+          "id": "m3",
+          "type": "iconList"
+        },
+        {
+          "id": "m4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "related",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m7",
+          "type": "iconList"
+        },
+        {
+          "id": "m9",
+          "type": "table"
+        },
+        {
+          "id": "m11",
+          "type": "iconList"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related-2",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 12,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 1,
+      "linksInCopy": 12,
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "Service"
+      ],
+      "structured": null,
+      "unplaced": [
+        {
+          "field": "notes",
+          "value": [
+            "data_detail_missing:gap:g16"
+          ]
+        }
+      ],
+      "citedFacts": [
+        "brief:S107",
+        "brief:S118",
+        "brief:S157",
+        "brief:S217",
+        "brief:S224",
+        "brief:S46",
+        "brief:S99",
+        "brief:c-8404f8cb0b07:service/g1",
+        "c1",
+        "c16",
+        "c2",
+        "c20",
+        "c21",
+        "c22",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9",
+        "gap:g1",
+        "gap:g10",
+        "gap:g11",
+        "gap:g16",
+        "gap:g25",
+        "gap:g26",
+        "gap:g28",
+        "gap:g29",
+        "gap:g3",
+        "gap:g35",
+        "gap:g37",
+        "gap:g38",
+        "gap:g4",
+        "gap:g5",
+        "gap:g6",
+        "gap:g7",
+        "homed:S121",
+        "homed:S126",
+        "homed:S130",
+        "homed:S131",
+        "homed:S132",
+        "homed:SG45",
+        "homed:SG53",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:third-party-inspection",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "f6eef4f3d8b9e55a",
+      "outputHash": "7a77c88442f434b9"
+    },
+    {
+      "pageId": "c-2cd070a4fc87:service",
+      "route": "/custom-swimwear-printing/",
+      "pageType": "solution",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "splitMedia",
+          "kind": "scope",
+          "rule": "kind scope (prose)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 7 cards)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "iconList",
+          "kind": "certifications",
+          "rule": "kind certifications (list)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "splitMedia",
+          "kind": "development",
+          "rule": "kind development (prose)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "iconList",
+          "kind": "customization",
+          "rule": "kind customization (list)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "splitMedia",
+          "kind": "development",
+          "rule": "kind development (prose)"
+        },
+        {
+          "sectionId": "m7",
+          "blockType": "process",
+          "kind": "development",
+          "rule": "kind development (steps)"
+        },
+        {
+          "sectionId": "m8",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m10",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 3 cards)"
+        },
+        {
+          "sectionId": "m12",
+          "blockType": "proof",
+          "kind": "terms",
+          "rule": "kind terms (prose)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 3 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (9 already in the copy), 4 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "iconList"
+        },
+        {
+          "id": "m4",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m5",
+          "type": "iconList"
+        },
+        {
+          "id": "m6",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m7",
+          "type": "process"
+        },
+        {
+          "id": "m8",
+          "type": "iconList"
+        },
+        {
+          "id": "m10",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m12",
+          "type": "proof"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 9,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 4,
+      "linksInCopy": 9,
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "Service"
+      ],
+      "structured": null,
+      "unplaced": [
+        {
+          "field": "notes",
+          "value": [
+            "omitted_section:related",
+            "data_detail_missing:c17"
+          ]
+        }
+      ],
+      "citedFacts": [
+        "brief:S146",
+        "brief:S157",
+        "brief:S217",
+        "brief:S224",
+        "brief:S46",
+        "brief:SG12",
+        "c1",
+        "c10",
+        "c11",
+        "c12",
+        "c13",
+        "c15",
+        "c17",
+        "c18",
+        "c2",
+        "c4",
+        "c5",
+        "c6",
+        "c8",
+        "c9",
+        "gap:g1",
+        "gap:g13",
+        "gap:g14",
+        "gap:g15",
+        "gap:g2",
+        "homed:S101",
+        "homed:SG8",
+        "owner:certifications",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:payment-terms",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:start-with-samples",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "1d2ef556631aec30",
+      "outputHash": "1b9e4b4a5ab7c04a"
+    },
+    {
+      "pageId": "c-fb5b6b828f5b:service",
+      "route": "/swimwear-hardware/",
+      "pageType": "solution",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "table",
+          "kind": "product_range",
+          "rule": "kind product_range (table)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "splitMedia",
+          "kind": "factory",
+          "rule": "kind factory (prose)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 6 cards)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "table",
+          "kind": "quality_control",
+          "rule": "kind quality_control (table)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "process",
+          "kind": "development",
+          "rule": "kind development (steps)"
+        },
+        {
+          "sectionId": "m5_2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m6_2",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m7",
+          "blockType": "iconList",
+          "kind": "quality_control",
+          "rule": "kind quality_control (list)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 6 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (9 already in the copy), 4 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "table-1",
+          "type": "table"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "table"
+        },
+        {
+          "id": "m5",
+          "type": "process"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "m6",
+          "type": "iconList"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m7",
+          "type": "iconList"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 9,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 4,
+      "linksInCopy": 9,
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "Service"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S120",
+        "brief:S159",
+        "brief:c-3d3fc0c8dc39:product/g6",
+        "c1",
+        "c10",
+        "c11",
+        "c12",
+        "c13",
+        "c14",
+        "c15",
+        "c16",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9",
+        "gap:g1",
+        "gap:g12",
+        "gap:g13",
+        "gap:g14",
+        "gap:g17",
+        "gap:g20",
+        "gap:g21",
+        "gap:g22",
+        "gap:g23",
+        "gap:g3",
+        "gap:g4",
+        "gap:g5",
+        "gap:g6",
+        "gap:g7",
+        "homed:S115",
+        "homed:S117",
+        "homed:S118",
+        "homed:S119",
+        "homed:S190",
+        "homed:SG48",
+        "homed:SG49",
+        "homed:SG52",
+        "homed:SG7",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:third-party-inspection",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "8eeb0cc7363d56dc",
+      "outputHash": "5e56448d1f3ed02c"
+    },
+    {
+      "pageId": "c-3055c652c816:service",
+      "route": "/swimwear-fabrics-sourcing/",
+      "pageType": "solution",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 4 cards)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "overview_2_3",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "overview_2_4",
+          "blockType": "splitMedia",
+          "kind": "factory",
+          "rule": "kind factory (prose)"
+        },
+        {
+          "sectionId": "m10",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 3 cards)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "table",
+          "kind": "materials",
+          "rule": "kind materials (table)"
+        },
+        {
+          "sectionId": "related",
+          "blockType": "splitMedia",
+          "kind": "scope",
+          "rule": "kind scope (prose)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 4 cards)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "splitMedia",
+          "kind": "certifications",
+          "rule": "kind certifications (prose)"
+        },
+        {
+          "sectionId": "m7",
+          "blockType": "splitMedia",
+          "kind": "development",
+          "rule": "kind development (prose)"
+        },
+        {
+          "sectionId": "m11",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 4 cards)"
+        },
+        {
+          "sectionId": "m8",
+          "blockType": "splitMedia",
+          "kind": "quality_control",
+          "rule": "kind quality_control (prose)"
+        },
+        {
+          "sectionId": "m12",
+          "blockType": "splitMedia",
+          "kind": "quality_control",
+          "rule": "kind quality_control (prose)"
+        },
+        {
+          "sectionId": "m9",
+          "blockType": "proof",
+          "kind": "terms",
+          "rule": "kind terms (prose)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 5 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the page's own client case takes its place"
+        },
+        {
+          "sectionId": "cases",
+          "blockType": "orderCase",
+          "rule": "the page's client case (1)"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (6 already in the copy), 5 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "process-1",
+          "type": "process"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m10",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2",
+          "type": "table"
+        },
+        {
+          "id": "related",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m5",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m6",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m7",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m11",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m8",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m12",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m9",
+          "type": "proof"
+        },
+        {
+          "id": "cases",
+          "type": "orderCase"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related-2",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 6,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 5,
+      "linksInCopy": 6,
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "Service"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S115",
+        "brief:S159",
+        "brief:S217",
+        "c1",
+        "c17",
+        "c19",
+        "c2",
+        "c20",
+        "c8",
+        "gap:g1",
+        "gap:g13",
+        "gap:g14",
+        "gap:g22",
+        "gap:g23",
+        "gap:g24",
+        "gap:g28",
+        "gap:g29",
+        "gap:g3",
+        "gap:g4",
+        "gap:g5",
+        "gap:g6",
+        "gap:g9",
+        "homed:S108",
+        "homed:S112",
+        "homed:S113",
+        "homed:S189",
+        "homed:S74",
+        "homed:S76",
+        "homed:S92",
+        "homed:SG16",
+        "owner:certifications",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:payment-terms",
+        "owner:sample-fee",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "3ff9daddb178cafa",
+      "outputHash": "2e32c22d0d5d0931"
+    },
+    {
+      "pageId": "c-f7c91fefc9c3:service",
+      "route": "/swimwear-launch-services/",
+      "pageType": "solution",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "related",
+          "blockType": "iconList",
+          "kind": "scope",
+          "rule": "kind scope (list)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "scope",
+          "rule": "kind scope (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m9",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "featureGrid",
+          "kind": "scope",
+          "rule": "kind scope (cards, 7 cards)"
+        },
+        {
+          "sectionId": "m3_2",
+          "blockType": "iconList",
+          "kind": "scope",
+          "rule": "kind scope (list), continuing m3"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "featureGrid",
+          "kind": "scope",
+          "rule": "kind scope (cards, 7 cards)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "featureGrid",
+          "kind": "scope",
+          "rule": "kind scope (cards, 3 cards)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "splitMedia",
+          "kind": "scope",
+          "rule": "kind scope (prose)"
+        },
+        {
+          "sectionId": "m7",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 7 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (10 already in the copy), 2 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "related",
+          "type": "iconList"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m9",
+          "type": "iconList"
+        },
+        {
+          "id": "m3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "m4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m5",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m6",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m7",
+          "type": "process"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related-2",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 10,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 2,
+      "linksInCopy": 10,
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "Service"
+      ],
+      "structured": null,
+      "unplaced": [
+        {
+          "field": "notes",
+          "value": [
+            "data_detail_missing:gap:g6"
+          ]
+        }
+      ],
+      "citedFacts": [
+        "brief:S105",
+        "brief:S117",
+        "brief:S156",
+        "brief:S214",
+        "brief:SG45",
+        "c1",
+        "c11",
+        "c15",
+        "c17",
+        "c5",
+        "c6",
+        "c8",
+        "c9",
+        "gap:g11",
+        "gap:g12",
+        "gap:g13",
+        "gap:g2",
+        "gap:g25",
+        "gap:g26",
+        "gap:g27",
+        "gap:g28",
+        "gap:g29",
+        "gap:g3",
+        "gap:g31",
+        "gap:g32",
+        "gap:g33",
+        "gap:g4",
+        "gap:g5",
+        "gap:g6",
+        "gap:g7",
+        "gap:g8",
+        "gap:g9",
+        "homed:SG51",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:start-with-samples",
+        "owner:third-party-inspection",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "f169bc91574064af",
+      "outputHash": "229d40de4b9b909c"
+    },
+    {
+      "pageId": "site:about",
+      "route": "/about-us/",
+      "pageType": "about",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "splitMedia",
+          "kind": "factory",
+          "rule": "kind factory (prose)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "featureGrid",
+          "kind": "audience",
+          "rule": "kind audience (cards, 5 cards)"
+        },
+        {
+          "sectionId": "m3_2",
+          "blockType": "splitMedia",
+          "kind": "factory",
+          "rule": "kind factory (prose)"
+        },
+        {
+          "sectionId": "m3_3",
+          "blockType": "splitMedia",
+          "kind": "factory",
+          "rule": "kind factory (prose)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "iconList",
+          "kind": "quality_control",
+          "rule": "kind quality_control (list)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "iconList",
+          "kind": "certifications",
+          "rule": "kind certifications (list)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 3 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.factory",
+          "blockType": null,
+          "rule": "slot factory: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.history",
+          "blockType": null,
+          "rule": "slot history: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.logos",
+          "blockType": "logos",
+          "rule": "slot logos: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "splitMedia-2",
+          "type": "splitMedia"
+        },
+        {
+          "id": "splitMedia-3",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m4",
+          "type": "process"
+        },
+        {
+          "id": "m5",
+          "type": "iconList"
+        },
+        {
+          "id": "m6",
+          "type": "iconList"
+        },
+        {
+          "id": "owner-logos",
+          "type": "logos"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 1,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 0,
+      "linksInCopy": 1,
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "faq:g6",
+        "faq:g7",
+        "gap:g2",
+        "gap:g8",
+        "homed:S183",
+        "homed:S194",
+        "homed:S196",
+        "homed:S197",
+        "homed:S198",
+        "homed:S199",
+        "homed:S203",
+        "homed:S206",
+        "homed:S4",
+        "homed:S7",
+        "homed:S8",
+        "homed:S9",
+        "owner:b2b-only",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:sample-fee",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "2438980fc79298e7",
+      "outputHash": "c17e421ea3093bc0"
+    },
+    {
+      "pageId": "site:contact",
+      "route": "/contact-us/",
+      "pageType": "contact",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 4 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "required.form",
+          "blockType": "form",
+          "rule": "a contact page needs its form"
+        },
+        {
+          "sectionId": "required.contactChannels",
+          "blockType": "contactChannels",
+          "rule": "a contact page needs its contactChannels"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "m3",
+          "type": "iconList"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "form",
+          "type": "form"
+        },
+        {
+          "id": "channels",
+          "type": "contactChannels"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 4,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 0,
+      "linksInCopy": 4,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [
+        {
+          "field": "notes",
+          "value": [
+            "opening_dropped:owner:sample-fee",
+            "opening_dropped:owner:typical-timeline"
+          ]
+        }
+      ],
+      "citedFacts": [
+        "brief:S155",
+        "brief:S72",
+        "gap:g2",
+        "gap:g4",
+        "gap:g5",
+        "gap:g6",
+        "gap:g7",
+        "homed:S217",
+        "homed:S219",
+        "owner:enquiry-reply",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quote-before-sample",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order"
+      ],
+      "inputKey": "58851c652745b7de",
+      "outputHash": "00e133f6bf4bc32e"
+    },
+    {
+      "pageId": "site:faq",
+      "route": "/faq/",
+      "pageType": "general",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "proof",
+          "kind": "proof",
+          "rule": "kind proof (prose)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "proof",
+          "kind": "proof",
+          "rule": "kind proof (prose), continuing overview_2"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "scope",
+          "rule": "kind scope (cards, 3 cards)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "iconList",
+          "kind": "routes",
+          "rule": "kind routes (list)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "splitMedia",
+          "kind": "materials",
+          "rule": "kind materials (prose)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "proof",
+          "kind": "terms",
+          "rule": "kind terms (prose)"
+        },
+        {
+          "sectionId": "m7",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m7_2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list), continuing m7"
+        },
+        {
+          "sectionId": "m8",
+          "blockType": "proof",
+          "kind": "terms",
+          "rule": "kind terms (prose)"
+        },
+        {
+          "sectionId": "m8_2",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "m8_3",
+          "blockType": "proof",
+          "kind": "terms",
+          "rule": "kind terms (prose)"
+        },
+        {
+          "sectionId": "m8_4",
+          "blockType": "proof",
+          "kind": "terms",
+          "rule": "kind terms (prose)"
+        },
+        {
+          "sectionId": "m9",
+          "blockType": "iconList",
+          "kind": "quality_control",
+          "rule": "kind quality_control (list)"
+        },
+        {
+          "sectionId": "m10",
+          "blockType": "splitMedia",
+          "kind": "certifications",
+          "rule": "kind certifications (prose)"
+        },
+        {
+          "sectionId": "m11",
+          "blockType": "proof",
+          "kind": "terms",
+          "rule": "kind terms (prose)"
+        },
+        {
+          "sectionId": "m11_2",
+          "blockType": "proof",
+          "kind": "terms",
+          "rule": "kind terms (prose), continuing m11"
+        },
+        {
+          "sectionId": "m11_3",
+          "blockType": "proof",
+          "kind": "terms",
+          "rule": "kind terms (prose), continuing m11"
+        },
+        {
+          "sectionId": "m11_4",
+          "blockType": "proof",
+          "kind": "terms",
+          "rule": "kind terms (prose), continuing m11"
+        },
+        {
+          "sectionId": "m11_5",
+          "blockType": "splitMedia",
+          "kind": "process_steps",
+          "rule": "kind process_steps (prose)"
+        },
+        {
+          "sectionId": "m11_6",
+          "blockType": "splitMedia",
+          "kind": "process_steps",
+          "rule": "kind process_steps (prose)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (4 already in the copy), 1 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "proof-1",
+          "type": "proof"
+        },
+        {
+          "id": "proof-2",
+          "type": "proof"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "iconList"
+        },
+        {
+          "id": "m6",
+          "type": "iconList"
+        },
+        {
+          "id": "m4",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m5",
+          "type": "proof"
+        },
+        {
+          "id": "m7",
+          "type": "iconList"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "m8",
+          "type": "proof"
+        },
+        {
+          "id": "process-1",
+          "type": "process"
+        },
+        {
+          "id": "proof-3",
+          "type": "proof"
+        },
+        {
+          "id": "proof-4",
+          "type": "proof"
+        },
+        {
+          "id": "m9",
+          "type": "iconList"
+        },
+        {
+          "id": "m10",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m11",
+          "type": "proof"
+        },
+        {
+          "id": "proof-5",
+          "type": "proof"
+        },
+        {
+          "id": "proof-6",
+          "type": "proof"
+        },
+        {
+          "id": "proof-7",
+          "type": "proof"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "splitMedia-2",
+          "type": "splitMedia"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 4,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 1,
+      "linksInCopy": 4,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "homed:S11",
+        "homed:S153",
+        "homed:S154",
+        "homed:S158",
+        "homed:S160",
+        "homed:S161",
+        "homed:S164",
+        "homed:S167",
+        "homed:S168",
+        "homed:S169",
+        "homed:S171",
+        "homed:S172",
+        "homed:S173",
+        "homed:S176",
+        "homed:S180",
+        "homed:S181",
+        "homed:S184",
+        "homed:S185",
+        "homed:S201",
+        "homed:S210",
+        "homed:S211",
+        "homed:S212",
+        "homed:S215",
+        "homed:S216",
+        "homed:S48",
+        "homed:S70",
+        "homed:S72",
+        "homed:SG10",
+        "homed:SG12",
+        "homed:SG13",
+        "homed:SG14",
+        "homed:SG4",
+        "homed:SG5",
+        "homed:SG54",
+        "owner:b2b-only",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:ready-stock",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:third-party-inspection",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "5679bb6f6fde6e21",
+      "outputHash": "8975be25ede36548"
+    },
+    {
+      "pageId": "site:blog",
+      "route": "/blog/",
+      "pageType": "blog_hub",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "table",
+          "kind": "materials",
+          "rule": "kind materials (table)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "table-1",
+          "type": "table"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "inputKey": "ee9697057b9cb340",
+      "outputHash": null
+    },
+    {
+      "pageId": "site:case_studies_portfolio",
+      "route": "/case-studies/",
+      "pageType": "general",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 4 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "cases",
+          "blockType": "orderCase",
+          "rule": "the page's client case (2)"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (1 already in the copy), 2 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "cases",
+          "type": "orderCase"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 1,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 2,
+      "linksInCopy": 1,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "faq:g1",
+        "faq:g3",
+        "gap:g2",
+        "gap:g4",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:location-china",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "ab4575201a6c6b86",
+      "outputHash": "1c7ee13d9fe90ef8"
+    },
+    {
+      "pageId": "site:sustainability",
+      "route": "/sustainability/",
+      "pageType": "general",
+      "mapping": [
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "iconList",
+          "kind": "certifications",
+          "rule": "kind certifications (list)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 4 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (4 already in the copy), 1 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "iconList"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 4,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 1,
+      "linksInCopy": 4,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S128",
+        "faq:g4",
+        "faq:g7",
+        "gap:g5",
+        "gap:g6",
+        "homed:S100",
+        "homed:S204",
+        "homed:S94",
+        "homed:S95",
+        "homed:S96",
+        "homed:S97",
+        "homed:S98",
+        "homed:S99",
+        "homed:SG1",
+        "homed:SG2",
+        "homed:SG3",
+        "owner:certifications",
+        "owner:fabric-range",
+        "owner:lead-time",
+        "owner:moq",
+        "owner:payment-terms",
+        "owner:sample-fee",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "84f727425fce458a",
+      "outputHash": "d6c4adddae8864a8"
+    },
+    {
+      "pageId": "site:privacy",
+      "route": "/privacy-policy/",
+      "pageType": "privacy",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (0 already in the copy), 1 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 0,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 1,
+      "linksInCopy": 0,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "owner:location-china"
+      ],
+      "inputKey": "88470c5b9af02c2e",
+      "outputHash": "81da493eb19618b9"
+    },
+    {
+      "pageId": "site:terms",
+      "route": "/terms-and-conditions/",
+      "pageType": "privacy",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "iconList",
+          "kind": "quality_control",
+          "rule": "kind quality_control (list)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m2_2",
+          "blockType": "proof",
+          "kind": "terms",
+          "rule": "kind terms (prose), continuing m2"
+        },
+        {
+          "sectionId": "m2_3",
+          "blockType": "proof",
+          "kind": "terms",
+          "rule": "kind terms (prose), continuing m2"
+        },
+        {
+          "sectionId": "m2_4",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (4 already in the copy), 1 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "m3",
+          "type": "iconList"
+        },
+        {
+          "id": "m2",
+          "type": "iconList"
+        },
+        {
+          "id": "proof-1",
+          "type": "proof"
+        },
+        {
+          "id": "proof-2",
+          "type": "proof"
+        },
+        {
+          "id": "process-1",
+          "type": "process"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 4,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 1,
+      "linksInCopy": 4,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "homed:S221",
+        "homed:S222",
+        "homed:S224",
+        "homed:S225",
+        "homed:S71",
+        "owner:b2b-only",
+        "owner:enquiry-reply",
+        "owner:factory-and-trade",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:payment-terms",
+        "owner:quote-before-sample",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:start-with-samples",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "c8ef51bf44c6e3d4",
+      "outputHash": "6272bfeafe312261"
+    },
+    {
+      "pageId": "site:inquiry",
+      "route": "/request-a-quote/",
+      "pageType": "general",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "m3_2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 4 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (2 already in the copy), 2 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "m3",
+          "type": "process"
+        },
+        {
+          "id": "iconList-2",
+          "type": "iconList"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 2,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 2,
+      "linksInCopy": 2,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:SG10",
+        "faq:g5",
+        "faq:g7",
+        "gap:g2",
+        "gap:g6",
+        "gap:g8",
+        "homed:S155",
+        "homed:S156",
+        "homed:S157",
+        "homed:S159",
+        "homed:S162",
+        "owner:enquiry-reply",
+        "owner:lead-time",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quote-before-sample",
+        "owner:sample-fee",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "a723e0b098d1b5ed",
+      "outputHash": "45efa47daf583a9d"
+    },
+    {
+      "pageId": "c-2bdd0c3dd288:product",
+      "route": "/swimwear-accessories/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "featureGrid",
+          "kind": "why_us",
+          "rule": "kind why_us (cards, 4 cards)"
+        },
+        {
+          "sectionId": "overview_2_3",
+          "blockType": "process",
+          "kind": "process_steps",
+          "rule": "kind process_steps (steps)"
+        },
+        {
+          "sectionId": "overview_2_4",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 2 cards)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "iconList",
+          "kind": "materials",
+          "rule": "kind materials (list)"
+        },
+        {
+          "sectionId": "m4",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 7 cards)"
+        },
+        {
+          "sectionId": "m5",
+          "blockType": "splitMedia",
+          "kind": "customization",
+          "rule": "kind customization (prose)"
+        },
+        {
+          "sectionId": "m6",
+          "blockType": "table",
+          "kind": "materials",
+          "rule": "kind materials (table)"
+        },
+        {
+          "sectionId": "m7",
+          "blockType": "splitMedia",
+          "kind": "materials",
+          "rule": "kind materials (prose)"
+        },
+        {
+          "sectionId": "m8",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 5 cards)"
+        },
+        {
+          "sectionId": "m9",
+          "blockType": "featureGrid",
+          "kind": "product_range",
+          "rule": "kind product_range (cards, 7 cards)"
+        },
+        {
+          "sectionId": "m10",
+          "blockType": "iconList",
+          "kind": "quality_control",
+          "rule": "kind quality_control (list)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 6 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (10 already in the copy), 6 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "process-1",
+          "type": "process"
+        },
+        {
+          "id": "iconList-2",
+          "type": "iconList"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "iconList"
+        },
+        {
+          "id": "m4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m4-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m5",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m6",
+          "type": "table"
+        },
+        {
+          "id": "m7",
+          "type": "splitMedia"
+        },
+        {
+          "id": "m8",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m8-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m9",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m9-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m10",
+          "type": "iconList"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 10,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 6,
+      "linksInCopy": 10,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S130",
+        "brief:S156",
+        "brief:S217",
+        "brief:S223",
+        "brief:SG48",
+        "brief:SG53",
+        "brief:c-3d3fc0c8dc39:product/g6",
+        "brief:c-fb5b6b828f5b:service/c11",
+        "brief:c-fe2ba46d3673:service/g22",
+        "brief:c-fe2ba46d3673:service/g28",
+        "c1",
+        "c10",
+        "c11",
+        "c12",
+        "c13",
+        "c14",
+        "c15",
+        "c17",
+        "c18",
+        "c19",
+        "c2",
+        "c20",
+        "c21",
+        "c22",
+        "c23",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "gap:g1",
+        "gap:g10",
+        "gap:g13",
+        "gap:g14",
+        "gap:g16",
+        "gap:g17",
+        "gap:g21",
+        "gap:g22",
+        "gap:g24",
+        "gap:g25",
+        "gap:g31",
+        "gap:g32",
+        "gap:g33",
+        "gap:g34",
+        "gap:g37",
+        "gap:g9",
+        "owner:certifications",
+        "owner:design-team",
+        "owner:enquiry-reply",
+        "owner:factory-and-trade",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:payment-terms",
+        "owner:sample-fee",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "443f4e4e26b2817c",
+      "outputHash": "7a705802e2dd366e"
+    },
+    {
+      "pageId": "c-ac87783a1afd:product",
+      "route": "/plus-size-swimwear-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "featureGrid",
+          "kind": "customization",
+          "rule": "kind customization (cards, 5 cards)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "featureGrid",
+          "kind": "routes",
+          "rule": "kind routes (cards, 8 cards)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "iconList",
+          "kind": "customization",
+          "rule": "kind customization (list)"
+        },
+        {
+          "sectionId": "m2_2",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 4 cards)"
+        },
+        {
+          "sectionId": "m3",
+          "blockType": "splitMedia",
+          "kind": "development",
+          "rule": "kind development (prose)"
+        },
+        {
+          "sectionId": "m3_2",
+          "blockType": "featureGrid",
+          "kind": "product_range",
+          "rule": "kind product_range (cards, 2 cards)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 4 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (8 already in the copy), 3 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "featureGrid-1",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-3",
+          "type": "featureGrid"
+        },
+        {
+          "id": "featureGrid-4",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m2",
+          "type": "iconList"
+        },
+        {
+          "id": "featureGrid-5",
+          "type": "featureGrid"
+        },
+        {
+          "id": "m3",
+          "type": "splitMedia"
+        },
+        {
+          "id": "featureGrid-6",
+          "type": "featureGrid"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 8,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 3,
+      "linksInCopy": 8,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S115",
+        "brief:S169",
+        "brief:S62",
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "gap:g12",
+        "gap:g13",
+        "gap:g14",
+        "gap:g2",
+        "gap:g3",
+        "gap:g5",
+        "gap:g6",
+        "gap:g7",
+        "gap:g8",
+        "gap:g9",
+        "owner:b2b-only",
+        "owner:certifications",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:founded",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:quote-before-sample",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "8681d5cd4bebee3d",
+      "outputHash": "9197df821e194efe"
+    },
+    {
+      "pageId": "c-6343e1f14c58:product",
+      "route": "/couples-matching-swimsuit-manufacturer/",
+      "pageType": "product_manufacturer",
+      "mapping": [
+        {
+          "sectionId": "overview",
+          "blockType": "intro",
+          "kind": "intro",
+          "rule": "kind intro (prose)"
+        },
+        {
+          "sectionId": "overview_2",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "overview_2_2",
+          "blockType": "splitMedia",
+          "kind": "factory",
+          "rule": "kind factory (prose)"
+        },
+        {
+          "sectionId": "overview_2_3",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "overview_2_4",
+          "blockType": "iconList",
+          "kind": "terms",
+          "rule": "kind terms (list)"
+        },
+        {
+          "sectionId": "m2",
+          "blockType": "featureGrid",
+          "kind": "materials",
+          "rule": "kind materials (cards, 4 cards)"
+        },
+        {
+          "sectionId": "m2_2",
+          "blockType": "splitMedia",
+          "kind": "development",
+          "rule": "kind development (prose)"
+        },
+        {
+          "sectionId": "m2_3",
+          "blockType": "splitMedia",
+          "kind": "quality_control",
+          "rule": "kind quality_control (prose)"
+        },
+        {
+          "sectionId": "faq",
+          "blockType": "faq",
+          "kind": "faq",
+          "rule": "kind faq (qa, 3 pairs)"
+        },
+        {
+          "sectionId": "cta",
+          "blockType": "cta",
+          "kind": "cta",
+          "rule": "kind cta (the closing band)"
+        },
+        {
+          "sectionId": "owner.orderTerms",
+          "blockType": null,
+          "rule": "slot orderTerms: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.certifications",
+          "blockType": null,
+          "rule": "slot certifications: no owner data in src/data/site-proof.json"
+        },
+        {
+          "sectionId": "owner.testimonials",
+          "blockType": "testimonials",
+          "rule": "slot testimonials: the owner's proof (src/data/site-proof.json)"
+        },
+        {
+          "sectionId": "owner.caseStudies",
+          "blockType": null,
+          "rule": "slot caseStudies: the package gives this page no client case"
+        },
+        {
+          "sectionId": "links",
+          "blockType": "relatedPages",
+          "rule": "related pages: 0 page links (8 already in the copy), 7 from the site plan"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "overview",
+          "type": "intro"
+        },
+        {
+          "id": "iconList-1",
+          "type": "iconList"
+        },
+        {
+          "id": "splitMedia-1",
+          "type": "splitMedia"
+        },
+        {
+          "id": "iconList-2",
+          "type": "iconList"
+        },
+        {
+          "id": "iconList-3",
+          "type": "iconList"
+        },
+        {
+          "id": "m2",
+          "type": "featureGrid"
+        },
+        {
+          "id": "splitMedia-2",
+          "type": "splitMedia"
+        },
+        {
+          "id": "splitMedia-3",
+          "type": "splitMedia"
+        },
+        {
+          "id": "owner-testimonials",
+          "type": "testimonials"
+        },
+        {
+          "id": "related",
+          "type": "relatedPages"
+        },
+        {
+          "id": "faq",
+          "type": "faq"
+        },
+        {
+          "id": "cta",
+          "type": "cta"
+        }
+      ],
+      "links": 8,
+      "relatedFromPage": 0,
+      "relatedFromPlan": 7,
+      "linksInCopy": 8,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "structured": null,
+      "unplaced": [],
+      "citedFacts": [
+        "brief:S104",
+        "brief:S156",
+        "c1",
+        "c2",
+        "gap:g1",
+        "gap:g13",
+        "gap:g2",
+        "gap:g4",
+        "gap:g5",
+        "gap:g6",
+        "gap:g8",
+        "owner:certifications",
+        "owner:enquiry-reply",
+        "owner:fabric-range",
+        "owner:factory-and-trade",
+        "owner:lead-time",
+        "owner:location-china",
+        "owner:moq",
+        "owner:oem-odm",
+        "owner:payment-terms",
+        "owner:quality-control",
+        "owner:sample-fee",
+        "owner:sample-freight",
+        "owner:sample-time",
+        "owner:trade-terms",
+        "owner:trial-order",
+        "owner:typical-timeline"
+      ],
+      "inputKey": "90bfb15e60f029b8",
+      "outputHash": "59fb111f21006f08"
+    }
+  ],
+  "skipped": [],
+  "held": [
+    {
+      "pageId": "c-f7c91fefc9c3:service",
+      "route": "/swimwear-launch-services/",
+      "reason": "release_status:hold",
+      "holdReasons": [
+        "primary_in_first_paragraph",
+        "placements_kept"
+      ]
+    }
+  ],
+  "jsonLdMarkdown": [],
+  "overLength": [],
+  "withheld": [],
+  "trustBarUnconfirmed": [
+    {
+      "factId": "homed:SG11",
+      "label": "Monthly capacity",
+      "value": "100,000 pieces"
+    },
+    {
+      "factId": "homed:SG11",
+      "label": "Sampling team",
+      "value": "65 that"
+    },
+    {
+      "factId": "homed:SG11",
+      "label": "Daily samples",
+      "value": "55 custom"
+    }
+  ],
+  "changed": [
+    "/",
+    "/women-s-swimwear-manufacturer/",
+    "/one-piece-swimsuit-manufacturer/",
+    "/bikini-manufacturer/",
+    "/men-s-swimwear-manufacturer/",
+    "/boardshorts-manufacturer/",
+    "/swim-trunks-manufacturer/",
+    "/children-s-swimwear-manufacturer/",
+    "/teen-swimwear-manufacturer/",
+    "/baby-swimwear-manufacturer/",
+    "/toddler-swimwear-manufacturer/",
+    "/modest-swimwear-manufacturer/",
+    "/burkini-manufacturer/",
+    "/watersports-apparel-manufacturer/",
+    "/rash-guard-manufacturer/",
+    "/resort-wear-manufacturer/",
+    "/cover-up-manufacturer/",
+    "/swimwear-embroidery/",
+    "/swimwear-consulting/",
+    "/development/",
+    "/swimwear-packaging-custom-brand-labels/",
+    "/custom-swimwear-printing/",
+    "/swimwear-hardware/",
+    "/swimwear-fabrics-sourcing/",
+    "/swimwear-launch-services/",
+    "/about-us/",
+    "/contact-us/",
+    "/faq/",
+    "/blog/",
+    "/case-studies/",
+    "/sustainability/",
+    "/privacy-policy/",
+    "/terms-and-conditions/",
+    "/request-a-quote/",
+    "/swimwear-accessories/",
+    "/plus-size-swimwear-manufacturer/",
+    "/couples-matching-swimsuit-manufacturer/"
+  ],
+  "upstream": {
+    "codeVersion": "4e26cfbd15069347875fa8e54b1ba7f6167c49a2",
+    "createdAt": "2026-11-14T06:17:26+00:00"
+  },
+  "inputs": {
+    "package": "D:\\korey_seo\\site13-strandmill\\inputs\\freeze\\s07-361a8152f4\\authoring_package.json",
+    "pagesPlan": "D:\\korey_seo\\site13-strandmill\\inputs\\freeze\\s07-361a8152f4\\pages.json",
+    "only": null,
+    "structured": null,
+    "facts": [
+      "D:\\korey_seo\\site13-strandmill\\inputs\\freeze\\s07-361a8152f4\\facts.yaml"
+    ],
+    "blueprints": "D:\\korey_seo\\site13-strandmill\\docs\\research\\slot-manifest.json"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "email": "sales@strandmill.com",
+  "phone": "+1 555 0100",
+  "address": "Guangzhou, Guangdong, China",
+  "hours": "Monday to Saturday, 9:00-18:00 China Standard Time",
+  "same_as": [],
+  "placeholder": true,
+  "standIns": [
+    "phone"
+  ]
+}

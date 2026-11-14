@@ -1,0 +1,128 @@
+{
+  "title": "Blog: Certifications, Fabrics and Design | Strandmill",
+  "description": "Swimwear factory insights on certifications, fabrics and design capabilities from the Strandmill blog, with a direct line to send your enquiry.",
+  "heading": "The Strandmill Blog",
+  "intro": "In these articles we explain how swimwear is sourced, sampled, made, checked and shipped, answering the questions you would ask any manufacturer, drawing on the Guangzhou factory we have run since 2011.",
+  "blocks": [
+    {
+      "id": "overview",
+      "type": "intro",
+      "sourceSectionIds": [
+        "overview"
+      ],
+      "heading": "Inside Our Own Swimwear Factory in Guangzhou",
+      "paragraphs": [
+        "We make your swimwear ourselves, in our own single factory in Guangzhou, Guangdong, China. Through our [factory ownership and direct B2B sales](/about-us/), production and export sit inside one company, so we control quality, cost and delivery directly. Our factory has been running since 2011, we check each order all the way through, and you agree every order with our team. We sell only through this website and our team, never through an online shop or a third-party marketplace or platform."
+      ],
+      "wordCount": 80,
+      "visuals": [
+        {
+          "id": "overview-quality-stages",
+          "type": "data",
+          "purpose": "Shows the reader the stages where quality is checked during an order, in the order they happen.",
+          "caption": "Quality checks at every stage of an order.",
+          "data": {
+            "shape": "sequence",
+            "items": [
+              {
+                "label": "Fabric on arrival",
+                "detail": "Fabric is checked when it arrives at the factory."
+              },
+              {
+                "label": "Cutting",
+                "detail": "Checks during the cutting stage."
+              },
+              {
+                "label": "Sewing",
+                "detail": "Checks during the sewing stage."
+              },
+              {
+                "label": "Random checks",
+                "detail": "Random checks are carried out on the goods."
+              },
+              {
+                "label": "Full final inspection",
+                "detail": "A full final inspection is made before the goods ship."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "table-1",
+      "type": "table",
+      "sourceSectionIds": [
+        "overview_2"
+      ],
+      "heading": "Certifications, Fabrics and Design at Our Factory",
+      "columns": [
+        "Topic",
+        "What this means for you"
+      ],
+      "rows": [
+        [
+          "Certifications",
+          "Our [production certifications](/sustainability/) are OEKO-TEX Standard 100 for tested fabrics and trims, GRS and RCS for recycled fabrics, bluesign for chemistry, ISO 9001 for quality management and WRAP for social compliance."
+        ],
+        [
+          "Fabrics",
+          "Our [swimwear fabrics and sourcing](/swimwear-fabrics-sourcing/) include nylon and polyester blended with spandex, such as 80% nylon 20% spandex, with matching linings. If you ask, we source chlorine-resistant LYCRA Xtra Life, recycled nylon such as ECONYL, recycled polyester such as REPREVE, and Italian Carvico fabrics."
+        ],
+        [
+          "Design and samples",
+          "Our [OEM and ODM development](/development/) can start from your design, a picture or just an idea. We do pattern design, grading and fit development in-house, which cuts down the back-and-forth. A standard sample is ready in 10 to 15 days, so you can judge the quality before you approve bulk production."
+        ],
+        [
+          "Samples and fees",
+          "Each sample costs USD 50, and design costs USD 50 per design, covering its pattern or print and all its colourways. Neither fee is refunded or credited against bulk orders, and sample courier delivery is a separate USD 50."
+        ],
+        [
+          "Minimums and trial runs",
+          "Orders start at 50 pieces per style in each colour, for small and growing labels, and we agree first-trial quantities case by case within our production limits. We also keep some styles in stock for wholesale buyers."
+        ],
+        [
+          "Lead times",
+          "Bulk production takes 35 to 40 days from sample approval and receipt of your deposit, depending on order size and season."
+        ],
+        [
+          "Payment and shipping",
+          "You pay 50% when you confirm the order and the other 50% before shipment. We ship FOB, CIF or DDP; with worldwide DDP, one all-in price covers duties, customs and freight to your door."
+        ],
+        [
+          "Inspection",
+          "Under our [ordering, inspection and delivery terms](/faq/), independent inspectors such as SGS or BV can check your goods before shipment."
+        ],
+        [
+          "Quotation",
+          "We [quote first](/request-a-quote/), and we make your sample once you agree to the price."
+        ],
+        [
+          "Enquiries",
+          "We [reply to every enquiry](/contact-us/) within one business day."
+        ]
+      ],
+      "mediaKind": "material"
+    },
+    {
+      "id": "cta",
+      "type": "cta",
+      "sourceSectionIds": [
+        "cta"
+      ],
+      "heading": "How to Send Your Enquiry Straight to Our Team",
+      "paragraphs": [
+        "Send your brief or tech pack [straight to our team](/contact-us/); we reply within one business day, quote first and move on to your sample once you agree to the price."
+      ],
+      "cta": {
+        "label": "Contact us",
+        "href": "/contact-us/"
+      },
+      "links": []
+    }
+  ],
+  "source": {
+    "package": "sf/authoring/v1",
+    "pageId": "site:blog"
+  }
+}

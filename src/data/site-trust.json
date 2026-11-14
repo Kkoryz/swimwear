@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "seo-site-trust-v1",
+  "items": [
+    {
+      "value": "2011",
+      "label": "Founded",
+      "note": "The factory has been running since 2011.",
+      "factId": "owner:founded"
+    },
+    {
+      "value": "100,000 pieces",
+      "label": "Monthly capacity",
+      "note": "Our bulk lines run around the clock with a capacity of about 100,000 pieces a month, scaling from small runs to large volumes. Alongside them, our in-house design team handles pattern design, grading and fit development, and our sampling studio has a team of 65 that completes about 55 custom samples a day.",
+      "factId": "homed:SG11",
+      "unconfirmed": true
+    },
+    {
+      "value": "65 that",
+      "label": "Sampling team",
+      "note": "Our bulk lines run around the clock with a capacity of about 100,000 pieces a month, scaling from small runs to large volumes. Alongside them, our in-house design team handles pattern design, grading and fit development, and our sampling studio has a team of 65 that completes about 55 custom samples a day.",
+      "factId": "homed:SG11",
+      "unconfirmed": true
+    },
+    {
+      "value": "55 custom",
+      "label": "Daily samples",
+      "note": "Our bulk lines run around the clock with a capacity of about 100,000 pieces a month, scaling from small runs to large volumes. Alongside them, our in-house design team handles pattern design, grading and fit development, and our sampling studio has a team of 65 that completes about 55 custom samples a day.",
+      "factId": "homed:SG11",
+      "unconfirmed": true
+    }
+  ],
+  "location": "a single factory of our own in Guangzhou, Guangdong, China"
+}
