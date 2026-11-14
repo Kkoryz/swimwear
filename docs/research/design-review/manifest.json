@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-shots-v1",
-  "id": "a12cedad84e8a6c8",
+  "id": "f5a485dfe6e5e9ff",
   "pages": [
     {
       "key": "home",
@@ -10,9 +10,9 @@
       "words": 2180,
       "route": "/",
       "status": "authored",
-      "source": "64055efc4e337f24f8445c50",
+      "source": "411307f5e11fb551e65be5c0",
       "rules": "896e2a6360c1caaa",
-      "shots": "ca090c25f35fc1408597098c",
+      "shots": "91bbe29fcc74bb2891d4b1c3",
       "images": [
         "docs/research/design-review/home-desktop-1.png",
         "docs/research/design-review/home-desktop-2.png",
@@ -45,7 +45,7 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
             "top": 979,
             "height": 85,
@@ -76,8 +76,7 @@
             "height": 487,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
@@ -364,8 +363,7 @@
             "height": 407,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
@@ -395,7 +393,7 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
             "top": 655,
             "height": 173,
@@ -423,24 +421,23 @@
             "id": "overview-steps",
             "type": "process",
             "top": 1809,
-            "height": 601,
+            "height": 627,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
             "id": "media-module-budget-2",
             "type": "gallery",
-            "top": 2410,
+            "top": 2436,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "iconList-1",
             "type": "iconList",
-            "top": 2775,
+            "top": 2801,
             "height": 666,
             "imageShare": 0,
             "align": {
@@ -450,14 +447,14 @@
           {
             "id": "media-module-2",
             "type": "gallery",
-            "top": 3441,
+            "top": 3467,
             "height": 389,
             "imageShare": 0.75
           },
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 3829,
+            "top": 3855,
             "height": 1126,
             "imageShare": 0,
             "align": {
@@ -468,7 +465,7 @@
           {
             "id": "m2-2",
             "type": "featureGrid",
-            "top": 4955,
+            "top": 4981,
             "height": 886,
             "imageShare": 0,
             "align": {
@@ -479,7 +476,7 @@
           {
             "id": "m2-3",
             "type": "featureGrid",
-            "top": 5841,
+            "top": 5867,
             "height": 549,
             "imageShare": 0,
             "align": {
@@ -490,7 +487,7 @@
           {
             "id": "featureGrid-1",
             "type": "featureGrid",
-            "top": 6389,
+            "top": 6415,
             "height": 1177,
             "imageShare": 0,
             "align": {
@@ -501,7 +498,7 @@
           {
             "id": "featureGrid-2",
             "type": "featureGrid",
-            "top": 7566,
+            "top": 7592,
             "height": 1039,
             "imageShare": 0,
             "align": {
@@ -512,7 +509,7 @@
           {
             "id": "featureGrid-3",
             "type": "featureGrid",
-            "top": 8604,
+            "top": 8630,
             "height": 696,
             "imageShare": 0,
             "align": {
@@ -523,14 +520,14 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 9300,
+            "top": 9326,
             "height": 249,
             "imageShare": 0.59
           },
           {
             "id": "m3",
             "type": "featureGrid",
-            "top": 9550,
+            "top": 9576,
             "height": 740,
             "imageShare": 0,
             "align": {
@@ -541,7 +538,7 @@
           {
             "id": "m3-2",
             "type": "featureGrid",
-            "top": 10290,
+            "top": 10316,
             "height": 572,
             "imageShare": 0,
             "align": {
@@ -552,7 +549,7 @@
           {
             "id": "featureGrid-4",
             "type": "featureGrid",
-            "top": 10862,
+            "top": 10888,
             "height": 807,
             "imageShare": 0,
             "align": {
@@ -563,7 +560,7 @@
           {
             "id": "featureGrid-5",
             "type": "featureGrid",
-            "top": 11669,
+            "top": 11695,
             "height": 598,
             "imageShare": 0,
             "align": {
@@ -574,7 +571,7 @@
           {
             "id": "featureGrid-6",
             "type": "featureGrid",
-            "top": 12266,
+            "top": 12292,
             "height": 651,
             "imageShare": 0,
             "align": {
@@ -585,7 +582,7 @@
           {
             "id": "featureGrid-7",
             "type": "featureGrid",
-            "top": 12917,
+            "top": 12943,
             "height": 1053,
             "imageShare": 0,
             "align": {
@@ -596,7 +593,7 @@
           {
             "id": "featureGrid-8",
             "type": "featureGrid",
-            "top": 13969,
+            "top": 13995,
             "height": 807,
             "imageShare": 0,
             "align": {
@@ -607,7 +604,7 @@
           {
             "id": "featureGrid-9",
             "type": "featureGrid",
-            "top": 14776,
+            "top": 14802,
             "height": 782,
             "imageShare": 0,
             "align": {
@@ -618,7 +615,7 @@
           {
             "id": "featureGrid-10",
             "type": "featureGrid",
-            "top": 15558,
+            "top": 15584,
             "height": 855,
             "imageShare": 0,
             "align": {
@@ -629,7 +626,7 @@
           {
             "id": "m4",
             "type": "splitMedia",
-            "top": 16412,
+            "top": 16438,
             "height": 922,
             "imageShare": 0.34,
             "align": {
@@ -640,21 +637,21 @@
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 17335,
+            "top": 17360,
             "height": 804,
             "imageShare": 0.39
           },
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 18138,
+            "top": 18164,
             "height": 821,
             "imageShare": 0.38
           },
           {
             "id": "owner-logos",
             "type": "logos",
-            "top": 18959,
+            "top": 18985,
             "height": 204,
             "imageShare": 0,
             "align": {
@@ -664,7 +661,7 @@
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 19163,
+            "top": 19189,
             "height": 461,
             "imageShare": 0,
             "align": {
@@ -675,7 +672,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 19624,
+            "top": 19650,
             "height": 326,
             "imageShare": 0,
             "align": {
@@ -685,14 +682,14 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 19950,
+            "top": 19976,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "faq",
             "type": "faq",
-            "top": 20314,
+            "top": 20340,
             "height": 750,
             "imageShare": 0,
             "align": {
@@ -703,25 +700,24 @@
           {
             "id": "media-module-budget-3",
             "type": "gallery",
-            "top": 21064,
+            "top": 21090,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "cta-steps",
             "type": "process",
-            "top": 21429,
-            "height": 572,
+            "top": 21455,
+            "height": 598,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 22000,
+            "top": 22052,
             "height": 619,
             "imageShare": 0.79,
             "align": {
@@ -817,9 +813,9 @@
       "words": 1362,
       "route": "/about-us/",
       "status": "authored",
-      "source": "38240cc7ed178bf31689bec0",
+      "source": "0ad602e020f29258c8a5a517",
       "rules": "896e2a6360c1caaa",
-      "shots": "9c6449efb16c788d908f59ea",
+      "shots": "86c3df9a9df8ad8afe35ac43",
       "images": [
         "docs/research/design-review/about-desktop-1.png",
         "docs/research/design-review/about-desktop-2.png",
@@ -845,7 +841,7 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
             "top": 674,
             "height": 85,
@@ -1008,7 +1004,7 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
             "top": 647,
             "height": 173,
@@ -1241,9 +1237,9 @@
       "words": 1907,
       "route": "/faq/",
       "status": "authored",
-      "source": "021d1b86d4404c23a59e63a8",
+      "source": "d22df53fa618d7ecf54999d4",
       "rules": "896e2a6360c1caaa",
-      "shots": "74d148de61c27b622d399cdd",
+      "shots": "9729c795b257c52652109bdd",
       "images": [
         "docs/research/design-review/general-desktop-1.png",
         "docs/research/design-review/general-desktop-2.png",
@@ -1273,7 +1269,7 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
             "top": 1018,
             "height": 85,
@@ -1297,8 +1293,7 @@
             "height": 567,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
@@ -1415,13 +1410,17 @@
             "id": "m8-steps",
             "type": "process",
             "top": 6368,
-            "height": 373,
-            "imageShare": 0
+            "height": 408,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
           },
           {
             "id": "process-1",
             "type": "process",
-            "top": 6741,
+            "top": 6777,
             "height": 614,
             "imageShare": 0,
             "align": {
@@ -1431,7 +1430,7 @@
           {
             "id": "proof-3",
             "type": "proof",
-            "top": 7356,
+            "top": 7391,
             "height": 322,
             "imageShare": 0,
             "align": {
@@ -1442,14 +1441,14 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 7678,
+            "top": 7713,
             "height": 806,
             "imageShare": 0.89
           },
           {
             "id": "proof-4",
             "type": "proof",
-            "top": 8484,
+            "top": 8520,
             "height": 352,
             "imageShare": 0,
             "align": {
@@ -1460,7 +1459,7 @@
           {
             "id": "m9",
             "type": "iconList",
-            "top": 8836,
+            "top": 8871,
             "height": 369,
             "imageShare": 0,
             "align": {
@@ -1470,7 +1469,7 @@
           {
             "id": "m10",
             "type": "splitMedia",
-            "top": 9205,
+            "top": 9240,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -1481,7 +1480,7 @@
           {
             "id": "m11",
             "type": "proof",
-            "top": 9962,
+            "top": 9998,
             "height": 278,
             "imageShare": 0,
             "align": {
@@ -1492,35 +1491,35 @@
           {
             "id": "m11-charts",
             "type": "charts",
-            "top": 10241,
+            "top": 10276,
             "height": 195,
             "imageShare": 0
           },
           {
             "id": "proof-5",
             "type": "proof",
-            "top": 10435,
+            "top": 10471,
             "height": 137,
             "imageShare": 0
           },
           {
             "id": "proof-6",
             "type": "proof",
-            "top": 10573,
+            "top": 10608,
             "height": 202,
             "imageShare": 0
           },
           {
             "id": "proof-7",
             "type": "proof",
-            "top": 10775,
+            "top": 10810,
             "height": 276,
             "imageShare": 0
           },
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 11051,
+            "top": 11086,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -1531,7 +1530,7 @@
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 11808,
+            "top": 11844,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -1542,7 +1541,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 12566,
+            "top": 12601,
             "height": 230,
             "imageShare": 0,
             "align": {
@@ -1552,7 +1551,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 12796,
+            "top": 12831,
             "height": 691,
             "imageShare": 0.85,
             "align": {
@@ -1576,16 +1575,16 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
             "top": 694,
-            "height": 197,
+            "height": 165,
             "imageShare": 0
           },
           {
             "id": "overview",
             "type": "intro",
-            "top": 891,
+            "top": 859,
             "height": 388,
             "imageShare": 0,
             "align": {
@@ -1596,18 +1595,17 @@
           {
             "id": "overview-steps",
             "type": "process",
-            "top": 1279,
-            "height": 678,
+            "top": 1247,
+            "height": 740,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
             "id": "proof-1",
             "type": "proof",
-            "top": 1957,
+            "top": 1987,
             "height": 466,
             "imageShare": 0,
             "align": {
@@ -1618,14 +1616,14 @@
           {
             "id": "proof-2",
             "type": "proof",
-            "top": 2423,
+            "top": 2452,
             "height": 316,
             "imageShare": 0
           },
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 2738,
+            "top": 2768,
             "height": 822,
             "imageShare": 0,
             "align": {
@@ -1636,7 +1634,7 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 3560,
+            "top": 3590,
             "height": 554,
             "imageShare": 0,
             "align": {
@@ -1646,7 +1644,7 @@
           {
             "id": "m6",
             "type": "iconList",
-            "top": 4114,
+            "top": 4143,
             "height": 933,
             "imageShare": 0,
             "align": {
@@ -1656,7 +1654,7 @@
           {
             "id": "m4",
             "type": "splitMedia",
-            "top": 5047,
+            "top": 5077,
             "height": 442,
             "imageShare": 0,
             "align": {
@@ -1667,7 +1665,7 @@
           {
             "id": "m5",
             "type": "proof",
-            "top": 5489,
+            "top": 5518,
             "height": 343,
             "imageShare": 0,
             "align": {
@@ -1678,14 +1676,14 @@
           {
             "id": "m5-charts",
             "type": "charts",
-            "top": 5832,
+            "top": 5862,
             "height": 534,
             "imageShare": 0
           },
           {
             "id": "m7",
             "type": "iconList",
-            "top": 6366,
+            "top": 6396,
             "height": 1358,
             "imageShare": 0,
             "align": {
@@ -1695,7 +1693,7 @@
           {
             "id": "iconList-1",
             "type": "iconList",
-            "top": 7724,
+            "top": 7753,
             "height": 776,
             "imageShare": 0,
             "align": {
@@ -1706,7 +1704,7 @@
           {
             "id": "m8",
             "type": "proof",
-            "top": 8500,
+            "top": 8529,
             "height": 420,
             "imageShare": 0,
             "align": {
@@ -1717,14 +1715,18 @@
           {
             "id": "m8-steps",
             "type": "process",
-            "top": 8919,
-            "height": 588,
-            "imageShare": 0
+            "top": 8949,
+            "height": 597,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
           },
           {
             "id": "process-1",
             "type": "process",
-            "top": 9507,
+            "top": 9546,
             "height": 1042,
             "imageShare": 0,
             "align": {
@@ -1734,7 +1736,7 @@
           {
             "id": "proof-3",
             "type": "proof",
-            "top": 10549,
+            "top": 10588,
             "height": 436,
             "imageShare": 0,
             "align": {
@@ -1745,14 +1747,14 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 10985,
+            "top": 11024,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "proof-4",
             "type": "proof",
-            "top": 11350,
+            "top": 11389,
             "height": 501,
             "imageShare": 0,
             "align": {
@@ -1763,7 +1765,7 @@
           {
             "id": "m9",
             "type": "iconList",
-            "top": 11851,
+            "top": 11890,
             "height": 554,
             "imageShare": 0,
             "align": {
@@ -1773,7 +1775,7 @@
           {
             "id": "m10",
             "type": "splitMedia",
-            "top": 12404,
+            "top": 12443,
             "height": 969,
             "imageShare": 0.32,
             "align": {
@@ -1784,7 +1786,7 @@
           {
             "id": "m11",
             "type": "proof",
-            "top": 13373,
+            "top": 13412,
             "height": 369,
             "imageShare": 0,
             "align": {
@@ -1795,35 +1797,35 @@
           {
             "id": "m11-charts",
             "type": "charts",
-            "top": 13742,
+            "top": 13781,
             "height": 194,
             "imageShare": 0
           },
           {
             "id": "proof-5",
             "type": "proof",
-            "top": 13936,
+            "top": 13975,
             "height": 200,
             "imageShare": 0
           },
           {
             "id": "proof-6",
             "type": "proof",
-            "top": 14135,
+            "top": 14174,
             "height": 290,
             "imageShare": 0
           },
           {
             "id": "proof-7",
             "type": "proof",
-            "top": 14425,
+            "top": 14464,
             "height": 367,
             "imageShare": 0
           },
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 14793,
+            "top": 14832,
             "height": 956,
             "imageShare": 0.33,
             "align": {
@@ -1834,7 +1836,7 @@
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 15748,
+            "top": 15787,
             "height": 865,
             "imageShare": 0.36,
             "align": {
@@ -1845,7 +1847,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 16614,
+            "top": 16653,
             "height": 206,
             "imageShare": 0,
             "align": {
@@ -1855,7 +1857,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 16820,
+            "top": 16859,
             "height": 404,
             "imageShare": 0.74,
             "align": {
@@ -1946,9 +1948,9 @@
       "words": 983,
       "route": "/case-studies/",
       "status": "authored",
-      "source": "f7b5738393aa0b4c6b9ab262",
+      "source": "3670844e71cdd29802488166",
       "rules": "896e2a6360c1caaa",
-      "shots": "c8c396336c66b67c61090bb0",
+      "shots": "2acef944d25b2c9a567165f7",
       "images": [
         "docs/research/design-review/general--shortest-desktop-1.png",
         "docs/research/design-review/general--shortest-desktop-2.png",
@@ -1971,7 +1973,7 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
             "top": 1018,
             "height": 85,
@@ -1995,8 +1997,7 @@
             "height": 567,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
@@ -2042,13 +2043,17 @@
             "id": "faq-steps",
             "type": "process",
             "top": 4662,
-            "height": 373,
-            "imageShare": 0
+            "height": 468,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 5035,
+            "top": 5131,
             "height": 691,
             "imageShare": 0.85,
             "align": {
@@ -2072,7 +2077,7 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
             "top": 694,
             "height": 205,
@@ -2093,17 +2098,16 @@
             "id": "overview-steps",
             "type": "process",
             "top": 1429,
-            "height": 732,
+            "height": 799,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
             "id": "cases",
             "type": "orderCase",
-            "top": 2161,
+            "top": 2228,
             "height": 714,
             "imageShare": 0,
             "align": {
@@ -2114,7 +2118,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 2875,
+            "top": 2942,
             "height": 271,
             "imageShare": 0,
             "align": {
@@ -2124,14 +2128,14 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 3147,
+            "top": 3213,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "faq",
             "type": "faq",
-            "top": 3511,
+            "top": 3578,
             "height": 1692,
             "imageShare": 0,
             "align": {
@@ -2142,14 +2146,18 @@
           {
             "id": "faq-steps",
             "type": "process",
-            "top": 5203,
-            "height": 614,
-            "imageShare": 0
+            "top": 5270,
+            "height": 656,
+            "imageShare": 0,
+            "align": {
+              "heading": "start",
+              "text": "start"
+            }
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 5816,
+            "top": 5926,
             "height": 431,
             "imageShare": 0.75,
             "align": {
@@ -2242,9 +2250,9 @@
       "words": 701,
       "route": "/terms-and-conditions/",
       "status": "authored",
-      "source": "987f20e36b51ccb01e18919d",
+      "source": "9154d385e465d8b5fa41e5e2",
       "rules": "896e2a6360c1caaa",
-      "shots": "2f0b13069da74d92c80481b5",
+      "shots": "3d6a63b9c860c5bb4a4f4a76",
       "images": [
         "docs/research/design-review/privacy-desktop-1.png",
         "docs/research/design-review/privacy-desktop-2.png",
@@ -2347,8 +2355,7 @@
             "height": 567,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
@@ -2455,17 +2462,16 @@
             "id": "cta-steps",
             "type": "process",
             "top": 5088,
-            "height": 681,
+            "height": 748,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 5768,
+            "top": 5835,
             "height": 406,
             "imageShare": 0.74,
             "align": {
@@ -2556,9 +2562,9 @@
       "words": 132,
       "route": "/privacy-policy/",
       "status": "authored",
-      "source": "c1449a121f2bfbd3adcc2dbf",
+      "source": "8df660a6c032fa51b4e4a33c",
       "rules": "896e2a6360c1caaa",
-      "shots": "edcfc32665b311d976bcb547",
+      "shots": "2670bb3851eb4c03c119a5b4",
       "images": [
         "docs/research/design-review/privacy--shortest-desktop-1.png",
         "docs/research/design-review/privacy--shortest-mobile-1.png"
@@ -2737,9 +2743,9 @@
       "words": 496,
       "route": "/blog/",
       "status": "authored",
-      "source": "ba68f9032711ab0d4e20200f",
+      "source": "67514c532d5ee4bd9588bb16",
       "rules": "896e2a6360c1caaa",
-      "shots": "8a6435d775bc97247412e8d3",
+      "shots": "7fa406b65deb15852e5b3e0b",
       "images": [
         "docs/research/design-review/blog_hub-desktop-1.png",
         "docs/research/design-review/blog_hub-mobile-1.png",
@@ -2777,8 +2783,7 @@
             "height": 487,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
@@ -2831,17 +2836,16 @@
             "id": "overview-steps",
             "type": "process",
             "top": 940,
-            "height": 626,
+            "height": 693,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
             "id": "table-1",
             "type": "table",
-            "top": 1566,
+            "top": 1633,
             "height": 3115,
             "imageShare": 0,
             "align": {
@@ -2851,7 +2855,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 4681,
+            "top": 4748,
             "height": 416,
             "imageShare": 0.74,
             "align": {
@@ -2942,9 +2946,9 @@
       "words": 715,
       "route": "/contact-us/",
       "status": "authored",
-      "source": "2fe51262135bc9c53feca1dc",
+      "source": "d6046c2c01cdf4bd31951271",
       "rules": "896e2a6360c1caaa",
-      "shots": "31ce53f71c34947bea77bc81",
+      "shots": "7dd17680d443659baf1653d0",
       "images": [
         "docs/research/design-review/contact-desktop-1.png",
         "docs/research/design-review/contact-desktop-2.png",
@@ -2959,7 +2963,7 @@
             "id": "hero",
             "type": "hero",
             "top": 118,
-            "height": 267,
+            "height": 310,
             "imageShare": 0,
             "align": {
               "heading": "centre",
@@ -2968,16 +2972,16 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
-            "top": 385,
+            "top": 428,
             "height": 85,
             "imageShare": 0
           },
           {
             "id": "overview",
             "type": "intro",
-            "top": 470,
+            "top": 513,
             "height": 345,
             "imageShare": 0,
             "align": {
@@ -2988,18 +2992,17 @@
           {
             "id": "overview-steps",
             "type": "process",
-            "top": 815,
+            "top": 858,
             "height": 563,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
             "id": "m3",
             "type": "iconList",
-            "top": 1378,
+            "top": 1422,
             "height": 739,
             "imageShare": 0,
             "align": {
@@ -3010,7 +3013,7 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 2117,
+            "top": 2160,
             "height": 684,
             "imageShare": 0,
             "align": {
@@ -3021,7 +3024,7 @@
           {
             "id": "form",
             "type": "form",
-            "top": 2801,
+            "top": 2844,
             "height": 622,
             "imageShare": 0.31,
             "align": {
@@ -3031,7 +3034,7 @@
           {
             "id": "channels",
             "type": "contactChannels",
-            "top": 3423,
+            "top": 3466,
             "height": 378,
             "imageShare": 0,
             "align": {
@@ -3041,7 +3044,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 3801,
+            "top": 3844,
             "height": 691,
             "imageShare": 0.85,
             "align": {
@@ -3056,7 +3059,7 @@
             "id": "hero",
             "type": "hero",
             "top": 109,
-            "height": 353,
+            "height": 389,
             "imageShare": 0,
             "align": {
               "heading": "centre",
@@ -3065,16 +3068,16 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
-            "top": 462,
+            "top": 498,
             "height": 181,
             "imageShare": 0
           },
           {
             "id": "overview",
             "type": "intro",
-            "top": 643,
+            "top": 679,
             "height": 559,
             "imageShare": 0,
             "align": {
@@ -3085,18 +3088,17 @@
           {
             "id": "overview-steps",
             "type": "process",
-            "top": 1202,
-            "height": 856,
+            "top": 1238,
+            "height": 904,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
             "id": "m3",
             "type": "iconList",
-            "top": 2058,
+            "top": 2142,
             "height": 1210,
             "imageShare": 0,
             "align": {
@@ -3107,7 +3109,7 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 3268,
+            "top": 3352,
             "height": 941,
             "imageShare": 0,
             "align": {
@@ -3118,7 +3120,7 @@
           {
             "id": "form",
             "type": "form",
-            "top": 4209,
+            "top": 4294,
             "height": 1109,
             "imageShare": 0.21,
             "align": {
@@ -3128,7 +3130,7 @@
           {
             "id": "channels",
             "type": "contactChannels",
-            "top": 5318,
+            "top": 5403,
             "height": 846,
             "imageShare": 0,
             "align": {
@@ -3138,7 +3140,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 6164,
+            "top": 6248,
             "height": 393,
             "imageShare": 0.73,
             "align": {
@@ -3229,9 +3231,9 @@
       "words": 2468,
       "route": "/swimwear-accessories/",
       "status": "authored",
-      "source": "e04c59a3b1bf96de8118927f",
+      "source": "79da4af51762deceff61263f",
       "rules": "896e2a6360c1caaa",
-      "shots": "50553bad53b0a7f0a4c3a6ba",
+      "shots": "381c4281dc443762c471a370",
       "images": [
         "docs/research/design-review/product_manufacturer-desktop-1.png",
         "docs/research/design-review/product_manufacturer-desktop-2.png",
@@ -3244,8 +3246,7 @@
         "docs/research/design-review/product_manufacturer-mobile-5.png",
         "docs/research/design-review/product_manufacturer-mobile-6.png",
         "docs/research/design-review/product_manufacturer-mobile-7.png",
-        "docs/research/design-review/product_manufacturer-mobile-8.png",
-        "docs/research/design-review/product_manufacturer-mobile-9.png"
+        "docs/research/design-review/product_manufacturer-mobile-8.png"
       ],
       "blocks": {
         "desktop": [
@@ -3253,8 +3254,8 @@
             "id": "hero",
             "type": "hero",
             "top": 118,
-            "height": 784,
-            "imageShare": 0.67,
+            "height": 827,
+            "imageShare": 0.63,
             "align": {
               "heading": "start",
               "text": "start",
@@ -3262,16 +3263,16 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
-            "top": 902,
+            "top": 945,
             "height": 85,
             "imageShare": 0
           },
           {
             "id": "overview",
             "type": "intro",
-            "top": 987,
+            "top": 1031,
             "height": 316,
             "imageShare": 0,
             "align": {
@@ -3282,7 +3283,7 @@
           {
             "id": "iconList-1",
             "type": "iconList",
-            "top": 1304,
+            "top": 1347,
             "height": 443,
             "imageShare": 0,
             "align": {
@@ -3292,7 +3293,7 @@
           {
             "id": "featureGrid-1",
             "type": "featureGrid",
-            "top": 1746,
+            "top": 1790,
             "height": 399,
             "imageShare": 0,
             "align": {
@@ -3303,7 +3304,7 @@
           {
             "id": "process-1",
             "type": "process",
-            "top": 2146,
+            "top": 2189,
             "height": 367,
             "imageShare": 0,
             "align": {
@@ -3314,7 +3315,7 @@
           {
             "id": "iconList-2",
             "type": "iconList",
-            "top": 2513,
+            "top": 2556,
             "height": 394,
             "imageShare": 0,
             "align": {
@@ -3324,14 +3325,14 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 2907,
+            "top": 2951,
             "height": 806,
             "imageShare": 0.89
           },
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 3714,
+            "top": 3757,
             "height": 326,
             "imageShare": 0,
             "align": {
@@ -3342,7 +3343,7 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 4040,
+            "top": 4083,
             "height": 866,
             "imageShare": 0,
             "align": {
@@ -3352,7 +3353,7 @@
           {
             "id": "m4",
             "type": "featureGrid",
-            "top": 4907,
+            "top": 4950,
             "height": 425,
             "imageShare": 0,
             "align": {
@@ -3363,7 +3364,7 @@
           {
             "id": "m4-2",
             "type": "featureGrid",
-            "top": 5331,
+            "top": 5374,
             "height": 343,
             "imageShare": 0,
             "align": {
@@ -3374,7 +3375,7 @@
           {
             "id": "m5",
             "type": "splitMedia",
-            "top": 5674,
+            "top": 5718,
             "height": 311,
             "imageShare": 0,
             "align": {
@@ -3385,7 +3386,7 @@
           {
             "id": "m6",
             "type": "table",
-            "top": 5986,
+            "top": 6029,
             "height": 851,
             "imageShare": 0,
             "align": {
@@ -3396,7 +3397,7 @@
           {
             "id": "m7",
             "type": "splitMedia",
-            "top": 6837,
+            "top": 6880,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -3407,7 +3408,7 @@
           {
             "id": "m8",
             "type": "featureGrid",
-            "top": 7594,
+            "top": 7638,
             "height": 348,
             "imageShare": 0,
             "align": {
@@ -3418,7 +3419,7 @@
           {
             "id": "m8-2",
             "type": "featureGrid",
-            "top": 7943,
+            "top": 7986,
             "height": 292,
             "imageShare": 0,
             "align": {
@@ -3429,7 +3430,7 @@
           {
             "id": "m9",
             "type": "featureGrid",
-            "top": 8235,
+            "top": 8278,
             "height": 629,
             "imageShare": 0,
             "align": {
@@ -3439,7 +3440,7 @@
           {
             "id": "m10",
             "type": "iconList",
-            "top": 8863,
+            "top": 8907,
             "height": 394,
             "imageShare": 0,
             "align": {
@@ -3449,14 +3450,14 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 9258,
+            "top": 9301,
             "height": 806,
             "imageShare": 0.89
           },
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 10064,
+            "top": 10107,
             "height": 423,
             "imageShare": 0,
             "align": {
@@ -3467,7 +3468,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 10487,
+            "top": 10530,
             "height": 266,
             "imageShare": 0,
             "align": {
@@ -3477,7 +3478,7 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 10753,
+            "top": 10796,
             "height": 918,
             "imageShare": 0,
             "align": {
@@ -3488,14 +3489,14 @@
           {
             "id": "faq-charts",
             "type": "charts",
-            "top": 11671,
+            "top": 11714,
             "height": 412,
             "imageShare": 0
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 12083,
+            "top": 12126,
             "height": 281,
             "imageShare": 0,
             "align": {
@@ -3510,8 +3511,8 @@
             "id": "hero",
             "type": "hero",
             "top": 109,
-            "height": 892,
-            "imageShare": 0.62,
+            "height": 928,
+            "imageShare": 0.6,
             "align": {
               "heading": "start",
               "text": "start",
@@ -3519,16 +3520,16 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
-            "top": 1001,
-            "height": 205,
+            "top": 1037,
+            "height": 189,
             "imageShare": 0
           },
           {
             "id": "overview",
             "type": "intro",
-            "top": 1206,
+            "top": 1226,
             "height": 452,
             "imageShare": 0,
             "align": {
@@ -3539,7 +3540,7 @@
           {
             "id": "iconList-1",
             "type": "iconList",
-            "top": 1658,
+            "top": 1677,
             "height": 715,
             "imageShare": 0,
             "align": {
@@ -3549,7 +3550,7 @@
           {
             "id": "featureGrid-1",
             "type": "featureGrid",
-            "top": 2372,
+            "top": 2392,
             "height": 710,
             "imageShare": 0,
             "align": {
@@ -3560,7 +3561,7 @@
           {
             "id": "process-1",
             "type": "process",
-            "top": 3083,
+            "top": 3102,
             "height": 993,
             "imageShare": 0,
             "align": {
@@ -3571,7 +3572,7 @@
           {
             "id": "iconList-2",
             "type": "iconList",
-            "top": 4075,
+            "top": 4095,
             "height": 645,
             "imageShare": 0,
             "align": {
@@ -3581,14 +3582,14 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 4720,
+            "top": 4740,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 5085,
+            "top": 5104,
             "height": 598,
             "imageShare": 0,
             "align": {
@@ -3599,7 +3600,7 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 5683,
+            "top": 5702,
             "height": 1347,
             "imageShare": 0,
             "align": {
@@ -3609,7 +3610,7 @@
           {
             "id": "m4",
             "type": "featureGrid",
-            "top": 7030,
+            "top": 7049,
             "height": 1131,
             "imageShare": 0,
             "align": {
@@ -3620,7 +3621,7 @@
           {
             "id": "m4-2",
             "type": "featureGrid",
-            "top": 8160,
+            "top": 8180,
             "height": 739,
             "imageShare": 0,
             "align": {
@@ -3631,8 +3632,8 @@
           {
             "id": "m5",
             "type": "splitMedia",
-            "top": 8899,
-            "height": 563,
+            "top": 8919,
+            "height": 546,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3642,8 +3643,8 @@
           {
             "id": "m6",
             "type": "table",
-            "top": 9462,
-            "height": 1953,
+            "top": 9465,
+            "height": 1535,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3653,7 +3654,7 @@
           {
             "id": "m7",
             "type": "splitMedia",
-            "top": 11415,
+            "top": 10999,
             "height": 892,
             "imageShare": 0.44,
             "align": {
@@ -3664,7 +3665,7 @@
           {
             "id": "m8",
             "type": "featureGrid",
-            "top": 12307,
+            "top": 11891,
             "height": 866,
             "imageShare": 0,
             "align": {
@@ -3675,7 +3676,7 @@
           {
             "id": "m8-2",
             "type": "featureGrid",
-            "top": 13173,
+            "top": 12757,
             "height": 500,
             "imageShare": 0,
             "align": {
@@ -3686,7 +3687,7 @@
           {
             "id": "m9",
             "type": "featureGrid",
-            "top": 13673,
+            "top": 13257,
             "height": 1231,
             "imageShare": 0,
             "align": {
@@ -3696,7 +3697,7 @@
           {
             "id": "m10",
             "type": "iconList",
-            "top": 14904,
+            "top": 14488,
             "height": 671,
             "imageShare": 0,
             "align": {
@@ -3706,14 +3707,14 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 15574,
+            "top": 15159,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 15939,
+            "top": 15523,
             "height": 468,
             "imageShare": 0,
             "align": {
@@ -3724,7 +3725,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 16407,
+            "top": 15991,
             "height": 514,
             "imageShare": 0,
             "align": {
@@ -3734,7 +3735,7 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 16921,
+            "top": 16505,
             "height": 1121,
             "imageShare": 0,
             "align": {
@@ -3745,14 +3746,14 @@
           {
             "id": "faq-charts",
             "type": "charts",
-            "top": 18042,
-            "height": 500,
+            "top": 17626,
+            "height": 463,
             "imageShare": 0
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 18542,
+            "top": 18089,
             "height": 356,
             "imageShare": 0,
             "align": {
@@ -3847,9 +3848,9 @@
       "words": 918,
       "route": "/watersports-apparel-manufacturer/",
       "status": "authored",
-      "source": "b33f4e0d5b7e02c4920fec26",
+      "source": "918d2a21a9dec043eea3c7bd",
       "rules": "896e2a6360c1caaa",
-      "shots": "a086bb2aa2ff6346877244b0",
+      "shots": "7f741395a5563c5d05b7bb07",
       "images": [
         "docs/research/design-review/product_manufacturer--shortest-desktop-1.png",
         "docs/research/design-review/product_manufacturer--shortest-desktop-2.png",
@@ -3864,8 +3865,8 @@
             "id": "hero",
             "type": "hero",
             "top": 118,
-            "height": 784,
-            "imageShare": 0.67,
+            "height": 827,
+            "imageShare": 0.63,
             "align": {
               "heading": "start",
               "text": "start",
@@ -3873,16 +3874,16 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
-            "top": 902,
+            "top": 945,
             "height": 85,
             "imageShare": 0
           },
           {
             "id": "overview",
             "type": "intro",
-            "top": 987,
+            "top": 1031,
             "height": 377,
             "imageShare": 0,
             "align": {
@@ -3893,14 +3894,14 @@
           {
             "id": "overview-charts",
             "type": "charts",
-            "top": 1364,
+            "top": 1408,
             "height": 216,
             "imageShare": 0
           },
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 1580,
+            "top": 1623,
             "height": 614,
             "imageShare": 0,
             "align": {
@@ -3911,32 +3912,31 @@
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 2194,
+            "top": 2237,
             "height": 728,
             "imageShare": 0.43
           },
           {
             "id": "splitMedia-2-steps",
             "type": "process",
-            "top": 2922,
+            "top": 2965,
             "height": 647,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 3569,
+            "top": 3612,
             "height": 806,
             "imageShare": 0.89
           },
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 4375,
+            "top": 4419,
             "height": 423,
             "imageShare": 0,
             "align": {
@@ -3947,7 +3947,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 4798,
+            "top": 4841,
             "height": 266,
             "imageShare": 0,
             "align": {
@@ -3957,7 +3957,7 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 5064,
+            "top": 5107,
             "height": 566,
             "imageShare": 0,
             "align": {
@@ -3968,7 +3968,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 5630,
+            "top": 5673,
             "height": 306,
             "imageShare": 0,
             "align": {
@@ -3983,8 +3983,8 @@
             "id": "hero",
             "type": "hero",
             "top": 109,
-            "height": 868,
-            "imageShare": 0.64,
+            "height": 904,
+            "imageShare": 0.62,
             "align": {
               "heading": "start",
               "text": "start",
@@ -3992,16 +3992,16 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
-            "top": 977,
-            "height": 189,
+            "top": 1013,
+            "height": 165,
             "imageShare": 0
           },
           {
             "id": "overview",
             "type": "intro",
-            "top": 1166,
+            "top": 1178,
             "height": 585,
             "imageShare": 0,
             "align": {
@@ -4012,14 +4012,14 @@
           {
             "id": "overview-charts",
             "type": "charts",
-            "top": 1751,
+            "top": 1763,
             "height": 258,
             "imageShare": 0
           },
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 2009,
+            "top": 2021,
             "height": 1308,
             "imageShare": 0,
             "align": {
@@ -4030,32 +4030,31 @@
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 3317,
+            "top": 3329,
             "height": 603,
             "imageShare": 0.52
           },
           {
             "id": "splitMedia-2-steps",
             "type": "process",
-            "top": 3919,
-            "height": 786,
+            "top": 3931,
+            "height": 809,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 4706,
+            "top": 4740,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 5070,
+            "top": 5105,
             "height": 468,
             "imageShare": 0,
             "align": {
@@ -4066,7 +4065,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 5538,
+            "top": 5573,
             "height": 578,
             "imageShare": 0,
             "align": {
@@ -4076,7 +4075,7 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 6116,
+            "top": 6150,
             "height": 746,
             "imageShare": 0,
             "align": {
@@ -4087,7 +4086,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 6862,
+            "top": 6897,
             "height": 381,
             "imageShare": 0,
             "align": {
@@ -4181,9 +4180,9 @@
       "words": 2812,
       "route": "/swimwear-consulting/",
       "status": "authored",
-      "source": "d3db37fa8018db1ba0926434",
+      "source": "90cf14d1e4165b39045a7670",
       "rules": "896e2a6360c1caaa",
-      "shots": "7fe9886af3ab20c3eded1df7",
+      "shots": "1f582e6d1b8cff77bb844b6d",
       "images": [
         "docs/research/design-review/solution-desktop-1.png",
         "docs/research/design-review/solution-desktop-2.png",
@@ -4215,7 +4214,7 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
             "top": 665,
             "height": 85,
@@ -4511,7 +4510,7 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
             "top": 694,
             "height": 181,
@@ -4532,7 +4531,7 @@
             "id": "splitMedia-1",
             "type": "splitMedia",
             "top": 1215,
-            "height": 1442,
+            "height": 1396,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4542,7 +4541,7 @@
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 2658,
+            "top": 2612,
             "height": 1046,
             "imageShare": 0.3,
             "align": {
@@ -4553,7 +4552,7 @@
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 3704,
+            "top": 3658,
             "height": 837,
             "imageShare": 0,
             "align": {
@@ -4564,7 +4563,7 @@
           {
             "id": "m2-2",
             "type": "featureGrid",
-            "top": 4541,
+            "top": 4495,
             "height": 869,
             "imageShare": 0,
             "align": {
@@ -4575,7 +4574,7 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 5409,
+            "top": 5363,
             "height": 1513,
             "imageShare": 0,
             "align": {
@@ -4586,14 +4585,14 @@
           {
             "id": "media-module-budget-2",
             "type": "gallery",
-            "top": 6922,
+            "top": 6876,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "iconList-1",
             "type": "iconList",
-            "top": 7286,
+            "top": 7240,
             "height": 1546,
             "imageShare": 0,
             "align": {
@@ -4604,7 +4603,7 @@
           {
             "id": "m4",
             "type": "featureGrid",
-            "top": 8832,
+            "top": 8786,
             "height": 598,
             "imageShare": 0,
             "align": {
@@ -4615,7 +4614,7 @@
           {
             "id": "m4-2",
             "type": "featureGrid",
-            "top": 9430,
+            "top": 9384,
             "height": 569,
             "imageShare": 0,
             "align": {
@@ -4626,14 +4625,14 @@
           {
             "id": "splitMedia-3",
             "type": "splitMedia",
-            "top": 9998,
-            "height": 1173,
+            "top": 9952,
+            "height": 1136,
             "imageShare": 0
           },
           {
             "id": "m5",
             "type": "featureGrid",
-            "top": 11171,
+            "top": 11089,
             "height": 838,
             "imageShare": 0,
             "align": {
@@ -4644,7 +4643,7 @@
           {
             "id": "m5-2",
             "type": "featureGrid",
-            "top": 12009,
+            "top": 11926,
             "height": 741,
             "imageShare": 0,
             "align": {
@@ -4655,15 +4654,15 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 12750,
+            "top": 12667,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "m6",
             "type": "splitMedia",
-            "top": 13115,
-            "height": 1103,
+            "top": 13032,
+            "height": 1070,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4673,7 +4672,7 @@
           {
             "id": "m7",
             "type": "featureGrid",
-            "top": 14218,
+            "top": 14102,
             "height": 890,
             "imageShare": 0,
             "align": {
@@ -4684,7 +4683,7 @@
           {
             "id": "m7-2",
             "type": "featureGrid",
-            "top": 15108,
+            "top": 14992,
             "height": 528,
             "imageShare": 0,
             "align": {
@@ -4695,7 +4694,7 @@
           {
             "id": "iconList-2",
             "type": "iconList",
-            "top": 15635,
+            "top": 15519,
             "height": 951,
             "imageShare": 0,
             "align": {
@@ -4705,14 +4704,14 @@
           {
             "id": "media-module-budget-3",
             "type": "gallery",
-            "top": 16587,
+            "top": 16471,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "m8",
             "type": "process",
-            "top": 16951,
+            "top": 16835,
             "height": 1312,
             "imageShare": 0,
             "align": {
@@ -4723,7 +4722,7 @@
           {
             "id": "iconList-3",
             "type": "iconList",
-            "top": 18263,
+            "top": 18147,
             "height": 976,
             "imageShare": 0,
             "align": {
@@ -4733,14 +4732,14 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 19239,
+            "top": 19123,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 19604,
+            "top": 19488,
             "height": 466,
             "imageShare": 0,
             "align": {
@@ -4751,7 +4750,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 20070,
+            "top": 19954,
             "height": 470,
             "imageShare": 0,
             "align": {
@@ -4761,7 +4760,7 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 20541,
+            "top": 20424,
             "height": 1297,
             "imageShare": 0,
             "align": {
@@ -4772,7 +4771,7 @@
           {
             "id": "faq-steps",
             "type": "process",
-            "top": 21838,
+            "top": 21722,
             "height": 791,
             "imageShare": 0,
             "align": {
@@ -4783,7 +4782,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 22629,
+            "top": 22512,
             "height": 417,
             "imageShare": 0.74,
             "align": {
@@ -4876,9 +4875,9 @@
       "words": 1684,
       "route": "/custom-swimwear-printing/",
       "status": "authored",
-      "source": "248fd8b44de84a1952570f90",
+      "source": "98a26a169d9aee5ee46f2243",
       "rules": "896e2a6360c1caaa",
-      "shots": "7dd087add36a0d364f7ed451",
+      "shots": "655b904687b1f572aaf3afa3",
       "images": [
         "docs/research/design-review/solution--shortest-desktop-1.png",
         "docs/research/design-review/solution--shortest-desktop-2.png",
@@ -4906,7 +4905,7 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
             "top": 665,
             "height": 85,
@@ -4941,8 +4940,7 @@
             "height": 647,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
@@ -5125,7 +5123,7 @@
             }
           },
           {
-            "id": "trustBar",
+            "id": "trust-bar",
             "type": "trustBar",
             "top": 694,
             "height": 205,
@@ -5157,17 +5155,16 @@
             "id": "splitMedia-1-steps",
             "type": "process",
             "top": 2084,
-            "height": 1070,
+            "height": 1096,
             "imageShare": 0,
             "align": {
-              "heading": "start",
-              "text": "start"
+              "heading": "start"
             }
           },
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 3154,
+            "top": 3180,
             "height": 1112,
             "imageShare": 0,
             "align": {
@@ -5178,7 +5175,7 @@
           {
             "id": "m2-2",
             "type": "featureGrid",
-            "top": 4266,
+            "top": 4292,
             "height": 714,
             "imageShare": 0,
             "align": {
@@ -5189,7 +5186,7 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 4979,
+            "top": 5006,
             "height": 862,
             "imageShare": 0,
             "align": {
@@ -5200,7 +5197,7 @@
           {
             "id": "m4",
             "type": "splitMedia",
-            "top": 5841,
+            "top": 5867,
             "height": 1006,
             "imageShare": 0.31,
             "align": {
@@ -5211,7 +5208,7 @@
           {
             "id": "m5",
             "type": "iconList",
-            "top": 6847,
+            "top": 6873,
             "height": 522,
             "imageShare": 0,
             "align": {
@@ -5221,7 +5218,7 @@
           {
             "id": "m6",
             "type": "splitMedia",
-            "top": 7368,
+            "top": 7395,
             "height": 736,
             "imageShare": 0.43,
             "align": {
@@ -5232,7 +5229,7 @@
           {
             "id": "m7",
             "type": "process",
-            "top": 8104,
+            "top": 8131,
             "height": 1371,
             "imageShare": 0,
             "align": {
@@ -5242,7 +5239,7 @@
           {
             "id": "m8",
             "type": "iconList",
-            "top": 9475,
+            "top": 9501,
             "height": 1198,
             "imageShare": 0,
             "align": {
@@ -5252,7 +5249,7 @@
           {
             "id": "m10",
             "type": "featureGrid",
-            "top": 10673,
+            "top": 10699,
             "height": 897,
             "imageShare": 0,
             "align": {
@@ -5263,14 +5260,14 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 11569,
+            "top": 11596,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "m12",
             "type": "proof",
-            "top": 11934,
+            "top": 11960,
             "height": 272,
             "imageShare": 0,
             "align": {
@@ -5281,7 +5278,7 @@
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 12205,
+            "top": 12232,
             "height": 470,
             "imageShare": 0,
             "align": {
@@ -5292,7 +5289,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 12675,
+            "top": 12701,
             "height": 413,
             "imageShare": 0,
             "align": {
@@ -5302,7 +5299,7 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 13088,
+            "top": 13115,
             "height": 836,
             "imageShare": 0,
             "align": {
@@ -5313,14 +5310,14 @@
           {
             "id": "faq-charts",
             "type": "charts",
-            "top": 13924,
-            "height": 416,
+            "top": 13950,
+            "height": 391,
             "imageShare": 0
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 14340,
+            "top": 14341,
             "height": 428,
             "imageShare": 0.75,
             "align": {
