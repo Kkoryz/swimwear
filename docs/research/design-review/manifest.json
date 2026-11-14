@@ -1,0 +1,3111 @@
+{
+  "schemaVersion": "seo-site-design-review-shots-v1",
+  "id": null,
+  "pages": [],
+  "board": [
+    {
+      "key": "board--intro-text",
+      "pageType": "style-board",
+      "module": "intro:text",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "about",
+          "index": 2,
+          "module": "intro/proof"
+        },
+        {
+          "pageType": "home",
+          "index": 15,
+          "module": "intro/proof"
+        },
+        {
+          "pageType": "product_manufacturer",
+          "index": 2,
+          "module": "intro/proof"
+        },
+        {
+          "pageType": "product_manufacturer",
+          "index": 3,
+          "module": "intro/proof"
+        },
+        {
+          "pageType": "product_manufacturer",
+          "index": 8,
+          "module": "intro/proof"
+        },
+        {
+          "pageType": "product_manufacturer",
+          "index": 11,
+          "module": "intro/proof"
+        },
+        {
+          "pageType": "product_manufacturer",
+          "index": 12,
+          "module": "intro/proof"
+        },
+        {
+          "pageType": "solution",
+          "index": 8,
+          "module": "intro/proof"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/",
+          "blockId": "overview",
+          "words": 104
+        },
+        {
+          "role": "shortest",
+          "route": "/one-piece-swimsuit-manufacturer/",
+          "blockId": "overview",
+          "words": 50
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "1523225c997e2a9e416f28fa",
+      "images": [
+        "docs/research/design-review/board--intro-text-desktop-1.png",
+        "docs/research/design-review/board--intro-text-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "overview",
+            "type": "intro",
+            "sample": "longest",
+            "top": 48,
+            "height": 502
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "sample": "shortest",
+            "top": 597,
+            "height": 254
+          }
+        ],
+        "mobile": [
+          {
+            "id": "overview",
+            "type": "intro",
+            "sample": "longest",
+            "top": 102,
+            "height": 626
+          },
+          {
+            "id": "overview",
+            "type": "intro",
+            "sample": "shortest",
+            "top": 849,
+            "height": 319
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--gallery-band",
+      "pageType": "style-board",
+      "module": "gallery:band",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "product_manufacturer",
+          "index": 7,
+          "module": "figure"
+        },
+        {
+          "pageType": "product_manufacturer",
+          "index": 9,
+          "module": "figure"
+        },
+        {
+          "pageType": "solution",
+          "index": 4,
+          "module": "gallery:band"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/",
+          "blockId": "media-module-budget-3",
+          "words": 0
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "e8ee4a40b5c873335f3242af",
+      "images": [
+        "docs/research/design-review/board--gallery-band-desktop-1.png",
+        "docs/research/design-review/board--gallery-band-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "media-module-budget-3",
+            "type": "gallery",
+            "sample": "longest",
+            "top": 29,
+            "height": 850
+          }
+        ],
+        "mobile": [
+          {
+            "id": "media-module-budget-3",
+            "type": "gallery",
+            "sample": "longest",
+            "top": 84,
+            "height": 365
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--process-list",
+      "pageType": "style-board",
+      "module": "process:list",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "solution",
+          "index": 3,
+          "module": "process:list",
+          "gap": "other"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/custom-swimwear-printing/",
+          "blockId": "m7",
+          "words": 231
+        },
+        {
+          "role": "shortest",
+          "route": "/",
+          "blockId": "overview-steps",
+          "words": 43
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "99eb139f88d690df422244cc",
+      "images": [
+        "docs/research/design-review/board--process-list-desktop-1.png",
+        "docs/research/design-review/board--process-list-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "m7",
+            "type": "process",
+            "sample": "longest",
+            "top": 29,
+            "height": 734
+          },
+          {
+            "id": "overview-steps",
+            "type": "process",
+            "sample": "shortest",
+            "top": 792,
+            "height": 439
+          }
+        ],
+        "mobile": [
+          {
+            "id": "m7",
+            "type": "process",
+            "sample": "longest",
+            "top": 48,
+            "height": 1192
+          },
+          {
+            "id": "overview-steps",
+            "type": "process",
+            "sample": "shortest",
+            "top": 1288,
+            "height": 480
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--iconList-checks",
+      "pageType": "style-board",
+      "module": "iconList:checks",
+      "route": "/style-board/",
+      "unbacked": true,
+      "evidence": [],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/sustainability/",
+          "blockId": "m3",
+          "words": 281
+        },
+        {
+          "role": "shortest",
+          "route": "/swimwear-hardware/",
+          "blockId": "m7",
+          "words": 65
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "19e9548aaf2898768b4481c6",
+      "images": [
+        "docs/research/design-review/board--iconList-checks-desktop-1.png",
+        "docs/research/design-review/board--iconList-checks-mobile-1.png",
+        "docs/research/design-review/board--iconList-checks-mobile-2.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "m3",
+            "type": "iconList",
+            "sample": "longest",
+            "top": 30,
+            "height": 1038
+          },
+          {
+            "id": "m7",
+            "type": "iconList",
+            "sample": "shortest",
+            "top": 1097,
+            "height": 432
+          }
+        ],
+        "mobile": [
+          {
+            "id": "m3",
+            "type": "iconList",
+            "sample": "longest",
+            "top": 48,
+            "height": 2007
+          },
+          {
+            "id": "m7",
+            "type": "iconList",
+            "sample": "shortest",
+            "top": 2102,
+            "height": 556
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--featureGrid-outline-numbered",
+      "pageType": "style-board",
+      "module": "featureGrid:outline-numbered",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "home",
+          "index": 7,
+          "module": "featureGrid:outline-numbered"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/",
+          "blockId": "featureGrid-1",
+          "words": 143
+        },
+        {
+          "role": "shortest",
+          "route": "/",
+          "blockId": "m2-3",
+          "words": 48
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "e5a6eb3c0c8e36081cde2a7e",
+      "images": [
+        "docs/research/design-review/board--featureGrid-outline-numbered-desktop-1.png",
+        "docs/research/design-review/board--featureGrid-outline-numbered-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "featureGrid-1",
+            "type": "featureGrid",
+            "sample": "longest",
+            "top": 29,
+            "height": 514
+          },
+          {
+            "id": "m2-3",
+            "type": "featureGrid",
+            "sample": "shortest",
+            "top": 573,
+            "height": 337
+          }
+        ],
+        "mobile": [
+          {
+            "id": "featureGrid-1",
+            "type": "featureGrid",
+            "sample": "longest",
+            "top": 65,
+            "height": 1281
+          },
+          {
+            "id": "m2-3",
+            "type": "featureGrid",
+            "sample": "shortest",
+            "top": 1394,
+            "height": 614
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--gallery-mosaic",
+      "pageType": "style-board",
+      "module": "gallery:mosaic",
+      "route": "/style-board/",
+      "unbacked": true,
+      "evidence": [],
+      "samples": [
+        {
+          "role": "only",
+          "route": "/",
+          "blockId": "media-module-1",
+          "words": 0
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "b19c94f6157778a3a8934653",
+      "images": [
+        "docs/research/design-review/board--gallery-mosaic-desktop-1.png",
+        "docs/research/design-review/board--gallery-mosaic-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "media-module-1",
+            "type": "gallery",
+            "sample": "only",
+            "top": 30,
+            "height": 428
+          }
+        ],
+        "mobile": [
+          {
+            "id": "media-module-1",
+            "type": "gallery",
+            "sample": "only",
+            "top": 48,
+            "height": 179
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--splitMedia-tinted",
+      "pageType": "style-board",
+      "module": "splitMedia:tinted",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "home",
+          "index": 2,
+          "module": "splitMedia:tinted",
+          "gap": "video"
+        },
+        {
+          "pageType": "home",
+          "index": 4,
+          "module": "splitMedia:tinted",
+          "gap": "tabs"
+        },
+        {
+          "pageType": "home",
+          "index": 12,
+          "module": "splitMedia:tinted"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/",
+          "blockId": "m4",
+          "words": 93
+        },
+        {
+          "role": "shortest",
+          "route": "/",
+          "blockId": "splitMedia-2",
+          "words": 86
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "d29f4b5c1a4475efa860ee39",
+      "images": [
+        "docs/research/design-review/board--splitMedia-tinted-desktop-1.png",
+        "docs/research/design-review/board--splitMedia-tinted-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "m4",
+            "type": "splitMedia",
+            "sample": "longest",
+            "top": 29,
+            "height": 801
+          },
+          {
+            "id": "splitMedia-2",
+            "type": "splitMedia",
+            "sample": "shortest",
+            "top": 860,
+            "height": 772
+          }
+        ],
+        "mobile": [
+          {
+            "id": "m4",
+            "type": "splitMedia",
+            "sample": "longest",
+            "top": 48,
+            "height": 985
+          },
+          {
+            "id": "splitMedia-2",
+            "type": "splitMedia",
+            "sample": "shortest",
+            "top": 1098,
+            "height": 833
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--splitMedia-single",
+      "pageType": "style-board",
+      "module": "splitMedia:single",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "home",
+          "index": 3,
+          "module": "splitMedia:single",
+          "gap": "layout"
+        },
+        {
+          "pageType": "home",
+          "index": 13,
+          "module": "splitMedia:single"
+        },
+        {
+          "pageType": "product_manufacturer",
+          "index": 5,
+          "module": "splitMedia:single"
+        },
+        {
+          "pageType": "product_manufacturer",
+          "index": 6,
+          "module": "splitMedia:single",
+          "gap": "video"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/watersports-apparel-manufacturer/",
+          "blockId": "splitMedia-1",
+          "words": 159
+        },
+        {
+          "role": "shortest",
+          "route": "/swimwear-packaging-custom-brand-labels/",
+          "blockId": "related",
+          "words": 35
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "1530549dab9297d347c05cbb",
+      "images": [
+        "docs/research/design-review/board--splitMedia-single-desktop-1.png",
+        "docs/research/design-review/board--splitMedia-single-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "sample": "longest",
+            "top": 30,
+            "height": 686
+          },
+          {
+            "id": "related",
+            "type": "splitMedia",
+            "sample": "shortest",
+            "top": 745,
+            "height": 801
+          }
+        ],
+        "mobile": [
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "sample": "longest",
+            "top": 84,
+            "height": 1330
+          },
+          {
+            "id": "related",
+            "type": "splitMedia",
+            "sample": "shortest",
+            "top": 1497,
+            "height": 646
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--logos-marquee",
+      "pageType": "style-board",
+      "module": "logos:marquee",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "home",
+          "index": 5,
+          "module": "owner:logos"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/",
+          "blockId": "owner-logos",
+          "words": 27
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "2d72562d257d4e272ed41e16",
+      "images": [
+        "docs/research/design-review/board--logos-marquee-desktop-1.png",
+        "docs/research/design-review/board--logos-marquee-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "owner-logos",
+            "type": "logos",
+            "sample": "longest",
+            "top": 29,
+            "height": 269
+          }
+        ],
+        "mobile": [
+          {
+            "id": "owner-logos",
+            "type": "logos",
+            "sample": "longest",
+            "top": 47,
+            "height": 203
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--testimonials-carousel",
+      "pageType": "style-board",
+      "module": "testimonials:carousel",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "home",
+          "index": 18,
+          "module": "owner:testimonials"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/resort-wear-manufacturer/",
+          "blockId": "owner-testimonials",
+          "words": 154
+        },
+        {
+          "role": "shortest",
+          "route": "/about-us/",
+          "blockId": "owner-testimonials",
+          "words": 92
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "e4722dc34b8e1e8bb48db5e6",
+      "images": [
+        "docs/research/design-review/board--testimonials-carousel-desktop-1.png",
+        "docs/research/design-review/board--testimonials-carousel-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "sample": "longest",
+            "top": 30,
+            "height": 513
+          },
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "sample": "shortest",
+            "top": 572,
+            "height": 513
+          }
+        ],
+        "mobile": [
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "sample": "longest",
+            "top": 66,
+            "height": 490
+          },
+          {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "sample": "shortest",
+            "top": 621,
+            "height": 490
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--relatedPages-links",
+      "pageType": "style-board",
+      "module": "relatedPages:links",
+      "route": "/style-board/",
+      "unbacked": true,
+      "evidence": [],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/children-s-swimwear-manufacturer/",
+          "blockId": "related",
+          "words": 23
+        },
+        {
+          "role": "shortest",
+          "route": "/one-piece-swimsuit-manufacturer/",
+          "blockId": "related",
+          "words": 5
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "2a3780f282ab972e8f7c2a0b",
+      "images": [
+        "docs/research/design-review/board--relatedPages-links-desktop-1.png",
+        "docs/research/design-review/board--relatedPages-links-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "sample": "longest",
+            "top": 30,
+            "height": 373
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "sample": "shortest",
+            "top": 432,
+            "height": 245
+          }
+        ],
+        "mobile": [
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "sample": "longest",
+            "top": 66,
+            "height": 705
+          },
+          {
+            "id": "related",
+            "type": "relatedPages",
+            "sample": "shortest",
+            "top": 836,
+            "height": 196
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--faq-two-column",
+      "pageType": "style-board",
+      "module": "faq:two-column",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "home",
+          "index": 16,
+          "module": "faq:two-column"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/case-studies/",
+          "blockId": "faq",
+          "words": 729
+        },
+        {
+          "role": "shortest",
+          "route": "/men-s-swimwear-manufacturer/",
+          "blockId": "faq",
+          "words": 210
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "2969132372ed9d5446cbf390",
+      "images": [
+        "docs/research/design-review/board--faq-two-column-desktop-1.png",
+        "docs/research/design-review/board--faq-two-column-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "faq",
+            "type": "faq",
+            "sample": "longest",
+            "top": 29,
+            "height": 378
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "sample": "shortest",
+            "top": 436,
+            "height": 379
+          }
+        ],
+        "mobile": [
+          {
+            "id": "faq",
+            "type": "faq",
+            "sample": "longest",
+            "top": 48,
+            "height": 534
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "sample": "shortest",
+            "top": 629,
+            "height": 455
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--cta-image-band",
+      "pageType": "style-board",
+      "module": "cta:image-band",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "home",
+          "index": 17,
+          "module": "cta:image-band"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/swimwear-packaging-custom-brand-labels/",
+          "blockId": "cta",
+          "words": 51
+        },
+        {
+          "role": "shortest",
+          "route": "/privacy-policy/",
+          "blockId": "cta",
+          "words": 24
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "1eb757121349efe359f5a962",
+      "images": [
+        "docs/research/design-review/board--cta-image-band-desktop-1.png",
+        "docs/research/design-review/board--cta-image-band-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "cta",
+            "type": "cta",
+            "sample": "longest",
+            "top": 29,
+            "height": 734
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "sample": "shortest",
+            "top": 793,
+            "height": 734
+          }
+        ],
+        "mobile": [
+          {
+            "id": "cta",
+            "type": "cta",
+            "sample": "longest",
+            "top": 66,
+            "height": 508
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "sample": "shortest",
+            "top": 622,
+            "height": 392
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--featureGrid-cards",
+      "pageType": "style-board",
+      "module": "featureGrid:cards",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "solution",
+          "index": 2,
+          "module": "featureGrid:cards",
+          "gap": "other"
+        },
+        {
+          "pageType": "solution",
+          "index": 7,
+          "module": "featureGrid:cards",
+          "gap": "layout"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/rash-guard-manufacturer/",
+          "blockId": "m2",
+          "words": 165
+        },
+        {
+          "role": "shortest",
+          "route": "/one-piece-swimsuit-manufacturer/",
+          "blockId": "m3-2",
+          "words": 50
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "00a7ba98e65e7d56ed61075c",
+      "images": [
+        "docs/research/design-review/board--featureGrid-cards-desktop-1.png",
+        "docs/research/design-review/board--featureGrid-cards-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "m2",
+            "type": "featureGrid",
+            "sample": "longest",
+            "top": 30,
+            "height": 611
+          },
+          {
+            "id": "m3-2",
+            "type": "featureGrid",
+            "sample": "shortest",
+            "top": 670,
+            "height": 264
+          }
+        ],
+        "mobile": [
+          {
+            "id": "m2",
+            "type": "featureGrid",
+            "sample": "longest",
+            "top": 66,
+            "height": 1385
+          },
+          {
+            "id": "m3-2",
+            "type": "featureGrid",
+            "sample": "shortest",
+            "top": 1516,
+            "height": 550
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--featureGrid-bullets",
+      "pageType": "style-board",
+      "module": "featureGrid:bullets",
+      "route": "/style-board/",
+      "unbacked": true,
+      "evidence": [],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/sustainability/",
+          "blockId": "m2",
+          "words": 340
+        },
+        {
+          "role": "shortest",
+          "route": "/plus-size-swimwear-manufacturer/",
+          "blockId": "featureGrid-6",
+          "words": 60
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "b8ffb03a4effb74b7f67b1e2",
+      "images": [
+        "docs/research/design-review/board--featureGrid-bullets-desktop-1.png",
+        "docs/research/design-review/board--featureGrid-bullets-mobile-1.png",
+        "docs/research/design-review/board--featureGrid-bullets-mobile-2.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "m2",
+            "type": "featureGrid",
+            "sample": "longest",
+            "top": 29,
+            "height": 960
+          },
+          {
+            "id": "featureGrid-6",
+            "type": "featureGrid",
+            "sample": "shortest",
+            "top": 1019,
+            "height": 295
+          }
+        ],
+        "mobile": [
+          {
+            "id": "m2",
+            "type": "featureGrid",
+            "sample": "longest",
+            "top": 48,
+            "height": 2020
+          },
+          {
+            "id": "featureGrid-6",
+            "type": "featureGrid",
+            "sample": "shortest",
+            "top": 2133,
+            "height": 491
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--table-grid",
+      "pageType": "style-board",
+      "module": "table:grid",
+      "route": "/style-board/",
+      "unbacked": true,
+      "evidence": [],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/blog/",
+          "blockId": "table-1",
+          "words": 333
+        },
+        {
+          "role": "shortest",
+          "route": "/toddler-swimwear-manufacturer/",
+          "blockId": "m5",
+          "words": 95
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "b437dec19488c38812daea92",
+      "images": [
+        "docs/research/design-review/board--table-grid-desktop-1.png",
+        "docs/research/design-review/board--table-grid-mobile-1.png",
+        "docs/research/design-review/board--table-grid-mobile-2.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "table-1",
+            "type": "table",
+            "sample": "longest",
+            "top": 29,
+            "height": 983
+          },
+          {
+            "id": "m5",
+            "type": "table",
+            "sample": "shortest",
+            "top": 1042,
+            "height": 490
+          }
+        ],
+        "mobile": [
+          {
+            "id": "table-1",
+            "type": "table",
+            "sample": "longest",
+            "top": 47,
+            "height": 2993
+          },
+          {
+            "id": "m5",
+            "type": "table",
+            "sample": "shortest",
+            "top": 3106,
+            "height": 861
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--cta-inline",
+      "pageType": "style-board",
+      "module": "cta:inline",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "product_manufacturer",
+          "index": 13,
+          "module": "cta:inline"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/one-piece-swimsuit-manufacturer/",
+          "blockId": "cta",
+          "words": 52
+        },
+        {
+          "role": "shortest",
+          "route": "/modest-swimwear-manufacturer/",
+          "blockId": "cta",
+          "words": 38
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "682bec9cd426e71bcadd3fae",
+      "images": [
+        "docs/research/design-review/board--cta-inline-desktop-1.png",
+        "docs/research/design-review/board--cta-inline-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "cta",
+            "type": "cta",
+            "sample": "longest",
+            "top": 29,
+            "height": 250
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "sample": "shortest",
+            "top": 309,
+            "height": 225
+          }
+        ],
+        "mobile": [
+          {
+            "id": "cta",
+            "type": "cta",
+            "sample": "longest",
+            "top": 66,
+            "height": 363
+          },
+          {
+            "id": "cta",
+            "type": "cta",
+            "sample": "shortest",
+            "top": 495,
+            "height": 294
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--process-circles",
+      "pageType": "style-board",
+      "module": "process:circles",
+      "route": "/style-board/",
+      "unbacked": true,
+      "evidence": [],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/bikini-manufacturer/",
+          "blockId": "process-1",
+          "words": 282
+        },
+        {
+          "role": "shortest",
+          "route": "/terms-and-conditions/",
+          "blockId": "process-1",
+          "words": 47
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "01326f3a892a20fe4745278b",
+      "images": [
+        "docs/research/design-review/board--process-circles-desktop-1.png",
+        "docs/research/design-review/board--process-circles-mobile-1.png",
+        "docs/research/design-review/board--process-circles-mobile-2.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "process-1",
+            "type": "process",
+            "sample": "longest",
+            "top": 30,
+            "height": 760
+          },
+          {
+            "id": "process-1",
+            "type": "process",
+            "sample": "shortest",
+            "top": 819,
+            "height": 362
+          }
+        ],
+        "mobile": [
+          {
+            "id": "process-1",
+            "type": "process",
+            "sample": "longest",
+            "top": 66,
+            "height": 1974
+          },
+          {
+            "id": "process-1",
+            "type": "process",
+            "sample": "shortest",
+            "top": 2105,
+            "height": 622
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--proof-band",
+      "pageType": "style-board",
+      "module": "proof:band",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "about",
+          "index": 2,
+          "module": "intro/proof"
+        },
+        {
+          "pageType": "home",
+          "index": 15,
+          "module": "intro/proof"
+        },
+        {
+          "pageType": "product_manufacturer",
+          "index": 2,
+          "module": "intro/proof"
+        },
+        {
+          "pageType": "product_manufacturer",
+          "index": 3,
+          "module": "intro/proof"
+        },
+        {
+          "pageType": "product_manufacturer",
+          "index": 8,
+          "module": "intro/proof"
+        },
+        {
+          "pageType": "product_manufacturer",
+          "index": 11,
+          "module": "intro/proof"
+        },
+        {
+          "pageType": "product_manufacturer",
+          "index": 12,
+          "module": "intro/proof"
+        },
+        {
+          "pageType": "solution",
+          "index": 8,
+          "module": "intro/proof"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/swimwear-fabrics-sourcing/",
+          "blockId": "m9",
+          "words": 74
+        },
+        {
+          "role": "shortest",
+          "route": "/faq/",
+          "blockId": "proof-5",
+          "words": 34
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "b6deb511534b69589a5b3306",
+      "images": [
+        "docs/research/design-review/board--proof-band-desktop-1.png",
+        "docs/research/design-review/board--proof-band-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "m9",
+            "type": "proof",
+            "sample": "longest",
+            "top": 48,
+            "height": 302
+          },
+          {
+            "id": "m9-charts",
+            "type": "charts",
+            "sample": "longest",
+            "top": 350,
+            "height": 355
+          },
+          {
+            "id": "proof-5",
+            "type": "proof",
+            "sample": "shortest",
+            "top": 753,
+            "height": 151
+          }
+        ],
+        "mobile": [
+          {
+            "id": "m9",
+            "type": "proof",
+            "sample": "longest",
+            "top": 120,
+            "height": 492
+          },
+          {
+            "id": "m9-charts",
+            "type": "charts",
+            "sample": "longest",
+            "top": 612,
+            "height": 473
+          },
+          {
+            "id": "proof-5",
+            "type": "proof",
+            "sample": "shortest",
+            "top": 1187,
+            "height": 190
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--process-photo-cards",
+      "pageType": "style-board",
+      "module": "process:photo-cards",
+      "route": "/style-board/",
+      "unbacked": true,
+      "evidence": [],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/rash-guard-manufacturer/",
+          "blockId": "m7-steps",
+          "words": 70
+        },
+        {
+          "role": "shortest",
+          "route": "/plus-size-swimwear-manufacturer/",
+          "blockId": "m3-steps",
+          "words": 48
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "1b7a3bfebc06707d5a3470a4",
+      "images": [
+        "docs/research/design-review/board--process-photo-cards-desktop-1.png",
+        "docs/research/design-review/board--process-photo-cards-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "m7-steps",
+            "type": "process",
+            "sample": "longest",
+            "top": 29,
+            "height": 443
+          },
+          {
+            "id": "m3-steps",
+            "type": "process",
+            "sample": "shortest",
+            "top": 501,
+            "height": 417
+          }
+        ],
+        "mobile": [
+          {
+            "id": "m7-steps",
+            "type": "process",
+            "sample": "longest",
+            "top": 65,
+            "height": 862
+          },
+          {
+            "id": "m3-steps",
+            "type": "process",
+            "sample": "shortest",
+            "top": 993,
+            "height": 811
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--splitMedia-wide",
+      "pageType": "style-board",
+      "module": "splitMedia:wide",
+      "route": "/style-board/",
+      "unbacked": true,
+      "evidence": [],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/swimwear-packaging-custom-brand-labels/",
+          "blockId": "splitMedia-1",
+          "words": 121
+        },
+        {
+          "role": "shortest",
+          "route": "/development/",
+          "blockId": "m7",
+          "words": 48
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "4cf2d43f229a9ba586d0f1bd",
+      "images": [
+        "docs/research/design-review/board--splitMedia-wide-desktop-1.png",
+        "docs/research/design-review/board--splitMedia-wide-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "sample": "longest",
+            "top": 30,
+            "height": 1157
+          },
+          {
+            "id": "m7",
+            "type": "splitMedia",
+            "sample": "shortest",
+            "top": 1216,
+            "height": 932
+          }
+        ],
+        "mobile": [
+          {
+            "id": "splitMedia-1",
+            "type": "splitMedia",
+            "sample": "longest",
+            "top": 65,
+            "height": 965
+          },
+          {
+            "id": "m7",
+            "type": "splitMedia",
+            "sample": "shortest",
+            "top": 1077,
+            "height": 474
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--process-band",
+      "pageType": "style-board",
+      "module": "process:band",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "solution",
+          "index": 5,
+          "module": "process:band"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/swimwear-packaging-custom-brand-labels/",
+          "blockId": "splitMedia-1-steps",
+          "words": 101
+        },
+        {
+          "role": "shortest",
+          "route": "/swimwear-consulting/",
+          "blockId": "faq-steps",
+          "words": 44
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "62cf8a136a5c0b6a867a5556",
+      "images": [
+        "docs/research/design-review/board--process-band-desktop-1.png",
+        "docs/research/design-review/board--process-band-mobile-1.png",
+        "docs/research/design-review/board--process-band-mobile-2.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "splitMedia-1-steps",
+            "type": "process",
+            "sample": "longest",
+            "top": 29,
+            "height": 638
+          },
+          {
+            "id": "faq-steps",
+            "type": "process",
+            "sample": "shortest",
+            "top": 697,
+            "height": 365
+          }
+        ],
+        "mobile": [
+          {
+            "id": "splitMedia-1-steps",
+            "type": "process",
+            "sample": "longest",
+            "top": 65,
+            "height": 1424
+          },
+          {
+            "id": "faq-steps",
+            "type": "process",
+            "sample": "shortest",
+            "top": 1555,
+            "height": 902
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--orderCase-default",
+      "pageType": "style-board",
+      "module": "orderCase:default",
+      "route": "/style-board/",
+      "unbacked": true,
+      "evidence": [],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/case-studies/",
+          "blockId": "cases",
+          "words": 88
+        },
+        {
+          "role": "shortest",
+          "route": "/swimwear-fabrics-sourcing/",
+          "blockId": "cases",
+          "words": 43
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "2475735ad90f633da4d4e2ea",
+      "images": [
+        "docs/research/design-review/board--orderCase-default-desktop-1.png",
+        "docs/research/design-review/board--orderCase-default-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "cases",
+            "type": "orderCase",
+            "sample": "longest",
+            "top": 30,
+            "height": 583
+          },
+          {
+            "id": "cases",
+            "type": "orderCase",
+            "sample": "shortest",
+            "top": 642,
+            "height": 351
+          }
+        ],
+        "mobile": [
+          {
+            "id": "cases",
+            "type": "orderCase",
+            "sample": "longest",
+            "top": 48,
+            "height": 710
+          },
+          {
+            "id": "cases",
+            "type": "orderCase",
+            "sample": "shortest",
+            "top": 823,
+            "height": 374
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--faq-bars",
+      "pageType": "style-board",
+      "module": "faq:bars",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "solution",
+          "index": 9,
+          "module": "faq:bars"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/swimwear-embroidery/",
+          "blockId": "faq",
+          "words": 509
+        },
+        {
+          "role": "shortest",
+          "route": "/custom-swimwear-printing/",
+          "blockId": "faq",
+          "words": 202
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "c5d8de4b523a9f4cbf82ada3",
+      "images": [
+        "docs/research/design-review/board--faq-bars-desktop-1.png",
+        "docs/research/design-review/board--faq-bars-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "faq",
+            "type": "faq",
+            "sample": "longest",
+            "top": 29,
+            "height": 621
+          },
+          {
+            "id": "faq-charts",
+            "type": "charts",
+            "sample": "longest",
+            "top": 650,
+            "height": 243
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "sample": "shortest",
+            "top": 922,
+            "height": 345
+          },
+          {
+            "id": "faq-charts",
+            "type": "charts",
+            "sample": "shortest",
+            "top": 1268,
+            "height": 312
+          }
+        ],
+        "mobile": [
+          {
+            "id": "faq",
+            "type": "faq",
+            "sample": "longest",
+            "top": 48,
+            "height": 1040
+          },
+          {
+            "id": "faq-charts",
+            "type": "charts",
+            "sample": "longest",
+            "top": 1088,
+            "height": 249
+          },
+          {
+            "id": "faq",
+            "type": "faq",
+            "sample": "shortest",
+            "top": 1385,
+            "height": 470
+          },
+          {
+            "id": "faq-charts",
+            "type": "charts",
+            "sample": "shortest",
+            "top": 1855,
+            "height": 429
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--form-media",
+      "pageType": "style-board",
+      "module": "form:media",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "contact",
+          "index": 2,
+          "module": "form:media"
+        }
+      ],
+      "samples": [
+        {
+          "role": "only",
+          "route": "/contact-us/",
+          "blockId": "form",
+          "words": 46
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "67ea79e9dcb950d3b6a98dde",
+      "images": [
+        "docs/research/design-review/board--form-media-desktop-1.png",
+        "docs/research/design-review/board--form-media-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "form",
+            "type": "form",
+            "sample": "only",
+            "top": 30,
+            "height": 617
+          }
+        ],
+        "mobile": [
+          {
+            "id": "form",
+            "type": "form",
+            "sample": "only",
+            "top": 48,
+            "height": 1109
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--contactChannels-cards",
+      "pageType": "style-board",
+      "module": "contactChannels:cards",
+      "route": "/style-board/",
+      "unbacked": false,
+      "evidence": [
+        {
+          "pageType": "contact",
+          "index": 3,
+          "module": "contactChannels:cards"
+        }
+      ],
+      "samples": [
+        {
+          "role": "only",
+          "route": "/contact-us/",
+          "blockId": "channels",
+          "words": 2
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "9a26063381edd8cfea112db9",
+      "images": [
+        "docs/research/design-review/board--contactChannels-cards-desktop-1.png",
+        "docs/research/design-review/board--contactChannels-cards-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "channels",
+            "type": "contactChannels",
+            "sample": "only",
+            "top": 29,
+            "height": 398
+          }
+        ],
+        "mobile": [
+          {
+            "id": "channels",
+            "type": "contactChannels",
+            "sample": "only",
+            "top": 65,
+            "height": 1034
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
