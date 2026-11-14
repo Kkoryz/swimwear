@@ -1,0 +1,298 @@
+[
+  {
+    "pageType": "about",
+    "index": 1,
+    "module": "hero:media-overlay",
+    "why": "full-width factory photo with the white H1 centred on top of it, no lead, no CTA"
+  },
+  {
+    "pageType": "about",
+    "index": 2,
+    "module": "intro/proof",
+    "why": "three plain body paragraphs on white, left-aligned in the content width, with an inline text link; no heading or media"
+  },
+  {
+    "pageType": "contact",
+    "index": 1,
+    "module": "hero:plain",
+    "why": "centred 'Contact Us' title and two-line lede on white, no media"
+  },
+  {
+    "pageType": "contact",
+    "index": 2,
+    "module": "form:media",
+    "why": "two columns: 'Have Questions?' heading over a rounded photo on the left, 'Email Us' name/email/message form with a full-width dark send button on the right"
+  },
+  {
+    "pageType": "contact",
+    "index": 3,
+    "module": "contactChannels:cards",
+    "why": "four equal outlined rounded cards, one per channel (call-back, WhatsApp, visit, Google Maps), each with an icon above a black label bar; the capture's 'logos' guess is wrong, these are channel icons, not client logos"
+  },
+  {
+    "pageType": "contact",
+    "index": 4,
+    "module": "skip",
+    "why": "lower half of the same four channel cards as index 3 (black label bars, centred text, card bottoms), so contactChannels:cards at index 3 already renders it"
+  },
+  {
+    "pageType": "home",
+    "index": 1,
+    "module": "hero:media-overlay",
+    "why": "GAP: the hero plays a background mp4 and the template shows only the still. Full-bleed photo with a dark gradient on the left third, eyebrow, big aqua headline, white lead, aqua and cream pill buttons, trust line above a hairline; phones get a portrait photo (Picture handles that)",
+    "gap": "video"
+  },
+  {
+    "pageType": "home",
+    "index": 2,
+    "module": "splitMedia:tinted",
+    "why": "GAP: the media is an embedded video (black box in the capture). Full-width cream band, eyebrow, h2 and paragraph on the left, video on the right, 50/50",
+    "gap": "video"
+  },
+  {
+    "pageType": "home",
+    "index": 3,
+    "module": "splitMedia:single",
+    "why": "GAP: under the text sits a cream rounded card (h3, a row of five figures, arrow link), and no split nests a stats card in its copy; the right-hand media is a video with player controls. Text left, media right, on white",
+    "gap": "layout"
+  },
+  {
+    "pageType": "home",
+    "index": 4,
+    "module": "splitMedia:tinted",
+    "why": "GAP: the right column is a row of pill tabs (active one filled black) switching panels of fabric-swatch images. Light-blue band; text column on the left with a navy licence box and two pill buttons",
+    "gap": "tabs"
+  },
+  {
+    "pageType": "home",
+    "index": 5,
+    "module": "owner:logos",
+    "why": "label 'A few brands we produce' on the left, one row of client logos scrolling by itself (logos:marquee)"
+  },
+  {
+    "pageType": "home",
+    "index": 6,
+    "module": "skip",
+    "why": "eyebrow, h2 '3 Ways To Get Started' on the left and a short lead on the right: the heading of the three cards in 07"
+  },
+  {
+    "pageType": "home",
+    "index": 7,
+    "module": "featureGrid:outline-numbered",
+    "why": "three equal cards with a thin black outline and small radius on white; the number sits inline in the bold title ('01. Custom Designs'), text below"
+  },
+  {
+    "pageType": "home",
+    "index": 8,
+    "module": "gallery:grid",
+    "why": "GAP: each photo opens a lightbox (prev, next, close, counter). A black pill button, then six lifestyle photos of equal height in one row",
+    "gap": "lightbox"
+  },
+  {
+    "pageType": "home",
+    "index": 9,
+    "module": "stats:tiles",
+    "why": "GAP: the text column sits beside the figure cards, two side by side and a wide text-only card under them, and no stats variant has that arrangement. Navy band; eyebrow, h2 and text on the left; right-hand cards are rounded, lighter navy, with big aqua figures",
+    "gap": "layout"
+  },
+  {
+    "pageType": "home",
+    "index": 10,
+    "module": "stats:trust-bar",
+    "why": "full-width navy bar of four columns, each with a top hairline, an aqua phrase value ('2-3 days') over an uppercase label, then an aqua pill button"
+  },
+  {
+    "pageType": "home",
+    "index": 11,
+    "module": "gallery:product-cards",
+    "why": "GAP: one composite section: two-tone h2, a white price card joined to a photo, a navy 'every price includes' check-list panel, a small-print check list, then four example-price cards (photo half beside an aqua, steel, light-blue or navy body with prices). The photos of the two lower cards never loaded in the capture",
+    "gap": "layout"
+  },
+  {
+    "pageType": "home",
+    "index": 12,
+    "module": "splitMedia:tinted",
+    "why": "navy band, eyebrow, light h2, paragraph and aqua pill button on the left; the right-hand photo never loaded in the capture (the phone capture shows a photo), so no gap"
+  },
+  {
+    "pageType": "home",
+    "index": 13,
+    "module": "splitMedia:single",
+    "why": "text on the right (eyebrow, light h2, paragraph, h4, black pill button) on white; the left-hand photo never loaded in the capture (the phone capture shows a photo), so no gap"
+  },
+  {
+    "pageType": "home",
+    "index": 14,
+    "module": "band:left",
+    "why": "GAP: a row of five icon-and-label items (white rounded icon tiles) runs along the bottom of the band, and the paragraph and button sit in a right column beside the h2. Full-bleed underwater photo, white eyebrow and h2 on the left",
+    "gap": "layout"
+  },
+  {
+    "pageType": "home",
+    "index": 15,
+    "module": "intro/proof",
+    "why": "eyebrow, light h2 and one wide paragraph on white, no media"
+  },
+  {
+    "pageType": "home",
+    "index": 16,
+    "module": "faq:two-column",
+    "why": "cream band, eyebrow and h2 above two columns of closed questions with hairline rules and a plus at the right"
+  },
+  {
+    "pageType": "home",
+    "index": 17,
+    "module": "cta:image-band",
+    "why": "closing band: full-bleed garden photo, white eyebrow, h2, short paragraph and four white pill buttons (call-back, WhatsApp, visit, email)"
+  },
+  {
+    "pageType": "home",
+    "index": 18,
+    "module": "owner:testimonials",
+    "why": "sage band, centred eyebrow, h2 and Google link, then a slider of shadowed quote cards, three in view (testimonials:carousel)"
+  },
+  {
+    "pageType": "product_manufacturer",
+    "index": 1,
+    "module": "hero:media-banner",
+    "why": "full-bleed lifestyle photo banner with no text over it"
+  },
+  {
+    "pageType": "product_manufacturer",
+    "index": 2,
+    "module": "intro/proof",
+    "why": "centred H1 over a narrow column of two paragraphs, two black buttons centred below, white ground"
+  },
+  {
+    "pageType": "product_manufacturer",
+    "index": 3,
+    "module": "intro/proof",
+    "why": "centred heading with italic subtitle over a narrow text column, white ground, no media"
+  },
+  {
+    "pageType": "product_manufacturer",
+    "index": 4,
+    "module": "skip",
+    "why": "lone centred heading 'Custom or Ready Designs' that introduces the two split rows after it"
+  },
+  {
+    "pageType": "product_manufacturer",
+    "index": 5,
+    "module": "splitMedia:single",
+    "why": "bold subheading, text and links on the left; one bordered rounded image (handover form) on the right with a small italic caption above it, white ground"
+  },
+  {
+    "pageType": "product_manufacturer",
+    "index": 6,
+    "module": "splitMedia:single",
+    "why": "GAP: no split row with an embedded video; a video player (black box) on the left, text and link on the right, white ground",
+    "gap": "video"
+  },
+  {
+    "pageType": "product_manufacturer",
+    "index": 7,
+    "module": "figure",
+    "why": "centred heading, one wide bordered fabric swatch chart image, text and link below in the same narrow column"
+  },
+  {
+    "pageType": "product_manufacturer",
+    "index": 8,
+    "module": "intro/proof",
+    "why": "centred heading over a narrow text column ending in a text link, white ground, no media"
+  },
+  {
+    "pageType": "product_manufacturer",
+    "index": 9,
+    "module": "figure",
+    "why": "centred heading, short text, one wide illustration (bulk order line-up) with a centred caption above it, then text and link"
+  },
+  {
+    "pageType": "product_manufacturer",
+    "index": 10,
+    "module": "splitMedia:panel",
+    "why": "blush text panel butting against a photo, full-bleed 50/50, centred heading, text and link on the panel"
+  },
+  {
+    "pageType": "product_manufacturer",
+    "index": 11,
+    "module": "intro/proof",
+    "why": "centred heading over one short paragraph with an inline link, white ground"
+  },
+  {
+    "pageType": "product_manufacturer",
+    "index": 12,
+    "module": "intro/proof",
+    "why": "centred 'Trusted by' heading over a long text column with bold certification names, two black buttons centred below; no logos or quotes"
+  },
+  {
+    "pageType": "product_manufacturer",
+    "index": 13,
+    "module": "cta:inline",
+    "why": "closing call to action: centred heading, italic subtitle, short text and two black buttons, plain white ground with no band"
+  },
+  {
+    "pageType": "solution",
+    "index": 1,
+    "module": "hero:media-overlay",
+    "why": "full-bleed beach photo darkened on the left, with eyebrow, large white H1, lead and two pill buttons set left over it"
+  },
+  {
+    "pageType": "solution",
+    "index": 2,
+    "module": "featureGrid:cards",
+    "why": "GAP: no per-card panel colour; two equal text-only panels on a cream band, the first white, the second dark navy with white text",
+    "gap": "other"
+  },
+  {
+    "pageType": "solution",
+    "index": 3,
+    "module": "process:list",
+    "why": "GAP: no button pair per row and no navy 'Good to know' note box under the intro; eyebrow, heading and lead in a left column, three large blue 01/02/03 rows with rules beside it",
+    "gap": "other"
+  },
+  {
+    "pageType": "solution",
+    "index": 4,
+    "module": "gallery:band",
+    "why": "one full-bleed wide photo (one image, a three-model triptych) between sections, no text"
+  },
+  {
+    "pageType": "solution",
+    "index": 5,
+    "module": "process:band",
+    "why": "dark navy band with eyebrow and heading, a light rule, then six numbered steps (small 01–06, title, text) in one row, and a bold closing line"
+  },
+  {
+    "pageType": "solution",
+    "index": 6,
+    "module": "featureGrid:boxed",
+    "why": "GAP: no joined bordered two-panel comparison of tall images, and no two-column text-and-button row under it; eyebrow, heading and lead, then two navy title bars over a handover sheet and a mock-up photo set",
+    "gap": "layout"
+  },
+  {
+    "pageType": "solution",
+    "index": 7,
+    "module": "featureGrid:cards",
+    "why": "GAP: no full-width card row under the grid, and no per-card tint; navy band with eyebrow and heading, two rounded cards (cream, light blue) with eyebrow, title, text and arrow link, then a wide white card with heading and button beside text",
+    "gap": "layout"
+  },
+  {
+    "pageType": "solution",
+    "index": 8,
+    "module": "intro/proof",
+    "why": "text only on white: eyebrow and large heading in a left column, a paragraph and a pill button in the right column"
+  },
+  {
+    "pageType": "solution",
+    "index": 9,
+    "module": "faq:bars",
+    "why": "centred heading on a cream band, questions as separate white rounded bars with bold text and a triangle marker, the first open"
+  },
+  {
+    "pageType": "solution",
+    "index": 10,
+    "module": "contactChannels:list",
+    "why": "GAP: no channel list on a panel over a backdrop; a cream rounded panel at the left holds heading, lead, and four icon channel rows with arrows (the first navy) plus a 'Find Us' link, over a dark full-bleed area that is likely a photo that didn't load",
+    "gap": "layout"
+  }
+]

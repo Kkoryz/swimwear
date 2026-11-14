@@ -1,0 +1,118 @@
+[
+  {
+    "pageType": "home",
+    "index": 1,
+    "module": "hero:media-overlay",
+    "why": "GAP: the hero plays a background mp4 and the template shows only the still. Full-bleed photo with a dark gradient on the left third, eyebrow, big aqua headline, white lead, aqua and cream pill buttons, trust line above a hairline; phones get a portrait photo (Picture handles that)",
+    "gap": "video"
+  },
+  {
+    "pageType": "home",
+    "index": 2,
+    "module": "splitMedia:tinted",
+    "why": "GAP: the media is an embedded video (black box in the capture). Full-width cream band, eyebrow, h2 and paragraph on the left, video on the right, 50/50",
+    "gap": "video"
+  },
+  {
+    "pageType": "home",
+    "index": 3,
+    "module": "splitMedia:single",
+    "why": "GAP: under the text sits a cream rounded card (h3, a row of five figures, arrow link), and no split nests a stats card in its copy; the right-hand media is a video with player controls. Text left, media right, on white",
+    "gap": "layout"
+  },
+  {
+    "pageType": "home",
+    "index": 4,
+    "module": "splitMedia:tinted",
+    "why": "GAP: the right column is a row of pill tabs (active one filled black) switching panels of fabric-swatch images. Light-blue band; text column on the left with a navy licence box and two pill buttons",
+    "gap": "tabs"
+  },
+  {
+    "pageType": "home",
+    "index": 5,
+    "module": "owner:logos",
+    "why": "label 'A few brands we produce' on the left, one row of client logos scrolling by itself (logos:marquee)"
+  },
+  {
+    "pageType": "home",
+    "index": 6,
+    "module": "skip",
+    "why": "eyebrow, h2 '3 Ways To Get Started' on the left and a short lead on the right: the heading of the three cards in 07"
+  },
+  {
+    "pageType": "home",
+    "index": 7,
+    "module": "featureGrid:outline-numbered",
+    "why": "three equal cards with a thin black outline and small radius on white; the number sits inline in the bold title ('01. Custom Designs'), text below"
+  },
+  {
+    "pageType": "home",
+    "index": 8,
+    "module": "gallery:grid",
+    "why": "GAP: each photo opens a lightbox (prev, next, close, counter). A black pill button, then six lifestyle photos of equal height in one row",
+    "gap": "lightbox"
+  },
+  {
+    "pageType": "home",
+    "index": 9,
+    "module": "stats:tiles",
+    "why": "GAP: the text column sits beside the figure cards, two side by side and a wide text-only card under them, and no stats variant has that arrangement. Navy band; eyebrow, h2 and text on the left; right-hand cards are rounded, lighter navy, with big aqua figures",
+    "gap": "layout"
+  },
+  {
+    "pageType": "home",
+    "index": 10,
+    "module": "stats:trust-bar",
+    "why": "full-width navy bar of four columns, each with a top hairline, an aqua phrase value ('2-3 days') over an uppercase label, then an aqua pill button"
+  },
+  {
+    "pageType": "home",
+    "index": 11,
+    "module": "gallery:product-cards",
+    "why": "GAP: one composite section: two-tone h2, a white price card joined to a photo, a navy 'every price includes' check-list panel, a small-print check list, then four example-price cards (photo half beside an aqua, steel, light-blue or navy body with prices). The photos of the two lower cards never loaded in the capture",
+    "gap": "layout"
+  },
+  {
+    "pageType": "home",
+    "index": 12,
+    "module": "splitMedia:tinted",
+    "why": "navy band, eyebrow, light h2, paragraph and aqua pill button on the left; the right-hand photo never loaded in the capture (the phone capture shows a photo), so no gap"
+  },
+  {
+    "pageType": "home",
+    "index": 13,
+    "module": "splitMedia:single",
+    "why": "text on the right (eyebrow, light h2, paragraph, h4, black pill button) on white; the left-hand photo never loaded in the capture (the phone capture shows a photo), so no gap"
+  },
+  {
+    "pageType": "home",
+    "index": 14,
+    "module": "band:left",
+    "why": "GAP: a row of five icon-and-label items (white rounded icon tiles) runs along the bottom of the band, and the paragraph and button sit in a right column beside the h2. Full-bleed underwater photo, white eyebrow and h2 on the left",
+    "gap": "layout"
+  },
+  {
+    "pageType": "home",
+    "index": 15,
+    "module": "intro/proof",
+    "why": "eyebrow, light h2 and one wide paragraph on white, no media"
+  },
+  {
+    "pageType": "home",
+    "index": 16,
+    "module": "faq:two-column",
+    "why": "cream band, eyebrow and h2 above two columns of closed questions with hairline rules and a plus at the right"
+  },
+  {
+    "pageType": "home",
+    "index": 17,
+    "module": "cta:image-band",
+    "why": "closing band: full-bleed garden photo, white eyebrow, h2, short paragraph and four white pill buttons (call-back, WhatsApp, visit, email)"
+  },
+  {
+    "pageType": "home",
+    "index": 18,
+    "module": "owner:testimonials",
+    "why": "sage band, centred eyebrow, h2 and Google link, then a slider of shadowed quote cards, three in view (testimonials:carousel)"
+  }
+]

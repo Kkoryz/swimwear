@@ -1,0 +1,67 @@
+[
+  {
+    "pageType": "solution",
+    "index": 1,
+    "module": "hero:media-overlay",
+    "why": "full-bleed beach photo darkened on the left, with eyebrow, large white H1, lead and two pill buttons set left over it"
+  },
+  {
+    "pageType": "solution",
+    "index": 2,
+    "module": "featureGrid:cards",
+    "why": "GAP: no per-card panel colour; two equal text-only panels on a cream band, the first white, the second dark navy with white text",
+    "gap": "other"
+  },
+  {
+    "pageType": "solution",
+    "index": 3,
+    "module": "process:list",
+    "why": "GAP: no button pair per row and no navy 'Good to know' note box under the intro; eyebrow, heading and lead in a left column, three large blue 01/02/03 rows with rules beside it",
+    "gap": "other"
+  },
+  {
+    "pageType": "solution",
+    "index": 4,
+    "module": "gallery:band",
+    "why": "one full-bleed wide photo (one image, a three-model triptych) between sections, no text"
+  },
+  {
+    "pageType": "solution",
+    "index": 5,
+    "module": "process:band",
+    "why": "dark navy band with eyebrow and heading, a light rule, then six numbered steps (small 01–06, title, text) in one row, and a bold closing line"
+  },
+  {
+    "pageType": "solution",
+    "index": 6,
+    "module": "featureGrid:boxed",
+    "why": "GAP: no joined bordered two-panel comparison of tall images, and no two-column text-and-button row under it; eyebrow, heading and lead, then two navy title bars over a handover sheet and a mock-up photo set",
+    "gap": "layout"
+  },
+  {
+    "pageType": "solution",
+    "index": 7,
+    "module": "featureGrid:cards",
+    "why": "GAP: no full-width card row under the grid, and no per-card tint; navy band with eyebrow and heading, two rounded cards (cream, light blue) with eyebrow, title, text and arrow link, then a wide white card with heading and button beside text",
+    "gap": "layout"
+  },
+  {
+    "pageType": "solution",
+    "index": 8,
+    "module": "intro/proof",
+    "why": "text only on white: eyebrow and large heading in a left column, a paragraph and a pill button in the right column"
+  },
+  {
+    "pageType": "solution",
+    "index": 9,
+    "module": "faq:bars",
+    "why": "centred heading on a cream band, questions as separate white rounded bars with bold text and a triangle marker, the first open"
+  },
+  {
+    "pageType": "solution",
+    "index": 10,
+    "module": "contactChannels:list",
+    "why": "GAP: no channel list on a panel over a backdrop; a cream rounded panel at the left holds heading, lead, and four icon channel rows with arrows (the first navy) plus a 'Find Us' link, over a dark full-bleed area that is likely a photo that didn't load",
+    "gap": "layout"
+  }
+]
