@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "62cf8a136a5c0b6a867a5556",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--process-band",
+  "route": "/style-board/ (the style board: module process:band, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "splitMedia-1-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "issue": "The band's button sits only a few pixels under the step-05 text (\"and trimming.\") and is pushed part-way across the section, neither on the content's left edge nor centred on it; the same happens in faq-steps, where it nearly touches step 02's \"delivers within 6 to 8 weeks\".",
+      "reference": "The competitor's band ends in its own row on the content's left edge, a clear gap below the steps (the closing line \"From handover to delivery…\"), never squeezed against one step's text.",
+      "fix": "In patterns.css, have .process__cta start on the content's left edge (justify-content: flex-start) on a full row after .process-steps (grid-column: 1 / -1 if it ends up inside a grid), with a top margin of at least the step grid's gap (e.g. margin-top: clamp(2rem, 4vw, 3rem)), so the button stays in the copy's flow under the steps."
+    },
+    {
+      "block": "splitMedia-1-steps",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "template",
+      "issue": "On phones the full-width button sits right up against step 07's last line (\"arranged by our in-house team.\"), with no gap between them.",
+      "reference": "The competitor leaves a clear gap between the last step and what closes the band.",
+      "fix": "The same .process__cta change in patterns.css: a margin-top at least the step gap, so the button stands apart from the last step."
+    },
+    {
+      "block": "splitMedia-1-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The step titles (\"Consultation and design\", \"Tech pack and patterns\", …) are set in regular weight at nearly body size, so they do not stand out from the step text under them.",
+      "reference": "The competitor sets each step name (\"Fabrics & Colours\", \"Handover\", \"Costing\") bold, clearly heavier than its description.",
+      "fix": "In reference.css, give .block--process[data-variant=\"band\"] .process-step__title font-weight: 700, keeping its size from the template (--size-subheading, which is already larger than the body text)."
+    },
+    {
+      "block": "faq-steps",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones each step number (\"01\", \"02\"…) is indented from the text's left edge and stands in a tall empty box, so the stacked list has large uneven gaps between number, title and text and runs very long (about 900 px for five one-line steps).",
+      "reference": "The competitor's step number is a small label flush with its title's left edge, directly above it.",
+      "fix": "In reference.css, size the band's marker to its text: .block--process[data-variant=\"band\"] .process-step__marker { width: auto; height: auto; place-items: start; } so the number sits on the left edge and the step's 0.75rem gap applies."
+    },
+    {
+      "block": "splitMedia-1-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The step numbers are white like the body text, and the 44 px circle around them indents them past the column's edge, so the numbering does not read as an accent.",
+      "reference": "The competitor sets its step numbers (\"01\"–\"06\") small, bold and in its light-blue accent, flush left above each step name.",
+      "fix": "In reference.css, set --process-marker-text on .block--process[data-variant=\"band\"] to the light accent (the button's cyan) and size the marker to its text (width/height: auto, place-items: start)."
+    },
+    {
+      "block": "splitMedia-1-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "content",
+      "issue": "The band has no heading: it opens with a body-size lead (\"Our full-package service, from brief to shipment.\") straight above the steps, so the section has no title.",
+      "reference": "The competitor's band opens with an eyebrow (\"HOW IT WORKS\") and a large H2 (\"Six steps from Costing to delivery\") above a rule.",
+      "fix": "Site Factory should give this process block a heading (e.g. \"Seven Steps from Brief to Shipment\") so it renders h2.process__heading above the lead."
+    },
+    {
+      "block": "faq-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "content",
+      "issue": "The band has neither a heading nor a lead: five bare steps start straight under the section's top padding, so the dark band has no visible purpose.",
+      "reference": "The competitor's band always opens with an eyebrow and an H2 naming the process.",
+      "fix": "Site Factory should give faq-steps a heading (e.g. \"How a Consulting Project Runs\") and, if it has one, a short lead."
+    }
+  ]
+}

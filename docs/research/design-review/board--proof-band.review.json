@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "b6deb511534b69589a5b3306",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--proof-band",
+  "route": "/style-board/ (the style board: module proof:band, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "m9",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The fabric comparison table in the tinted panel has opaque white fades over its left edge (the empty top-left header cell) and right edge (the 'Branded or recycled fabric' column) although the table fits its box, so white smears show on the beige panel at both widths (the end of 'Higher' and 'Hero styles' fades out on mobile).",
+      "reference": "The competitor's proof/text modules are plain text on the section's own background, with no scroll shades or patches of another colour.",
+      "fix": "In patterns.css (ProseBlock.astro / ArticleChart.astro), set data-scroll=\"sideways\" only when the table is wider than its box (scrollWidth > clientWidth, measured again on resize). Paint the `local` cover gradients in the background of the box the table sits in (e.g. a --table-scroll-cover variable that defaults to the section or panel surface) instead of a fixed var(--surface-primary)."
+    },
+    {
+      "block": "m9",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Every cell of the comparison table is ruled with a 1px black border (--border-color #000) on all four sides, a heavy full grid that reads darker than anything else in the section.",
+      "reference": "The competitor's proof modules use no borders at all: light text blocks in Maison Book with only an underlined link as accent; our own table-block uses only thin row rules.",
+      "fix": "In reference.css, set `.block--proof .prose__table :is(th, td)` (or the section-charts table) to `border: 0; border-bottom: 1px solid` a light rule colour (e.g. --border-table / #e5e5e5), and keep a slightly heavier bottom rule only under the header row."
+    },
+    {
+      "block": "m9",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "At 390px the three-column table inside the padded tinted panel squeezes each cell to one or two words a line (e.g. 'LYCRA Xtra / Life, / Carvico, / ECONYL, / REPREVE', 'Branded or / recycled / fabric'), so each row runs four to five lines high.",
+      "reference": "The competitor's proof text runs the full content width on phones with no inset panel.",
+      "fix": "In reference.css, reduce the tinted panel's inline padding and the cell padding of `.prose__table th, td` under 600px (e.g. 0.5rem) so the columns get the width back."
+    }
+  ]
+}

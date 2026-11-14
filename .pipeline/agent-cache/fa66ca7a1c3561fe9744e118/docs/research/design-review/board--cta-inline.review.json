@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "682bec9cd426e71bcadd3fae",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--cta-inline",
+  "route": "/style-board/ (the style board: module cta:inline, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "cta",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "In both samples the quote button sits in a separate right-hand column, level with the paragraph's middle, instead of under the text it ends, which breaks the rule that a button stays in its copy's flow.",
+      "reference": "The competitor's inline CTA (product_manufacturer 13) sets heading, subtitle and paragraphs first, then its buttons on their own row directly below the copy.",
+      "fix": "In template.css, stop .cta (and .cta__content) from placing the actions beside the copy on wide screens: make the CTA a single column (e.g. flex-direction: column; align-items: flex-start, or give the actions flex-basis: 100%) so the button starts on the content's left edge under the paragraph."
+    },
+    {
+      "block": "cta",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones the button runs the full column width with a large label that wraps onto two lines ('Request a quote for one-piece / swimsuits'), so it reads as a heavy block rather than a button.",
+      "reference": "The competitor's CTA buttons are compact black buttons sized to their one-line labels, in a smaller UI type than the body text.",
+      "fix": "In reference.css under max-width: 767px, size .block--cta[data-variant=\"inline\"] .button--primary to its content (width: auto; justify-self/align-self: start) with a smaller label size and padding, so the label stays on one line where it fits and the button sits left-aligned under the text."
+    }
+  ]
+}

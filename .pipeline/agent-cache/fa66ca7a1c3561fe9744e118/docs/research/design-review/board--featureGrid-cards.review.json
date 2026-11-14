@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "00a7ba98e65e7d56ed61075c",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--featureGrid-cards",
+  "route": "/style-board/ (the style board: module featureGrid:cards, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "m2",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "issue": "The section heading \"Rash Guard Fabrics, UPF Ratings and Certifications\" is centred over the column, while the intro paragraph and the card grid under it start on the left edge, so heading, text and cards do not share one alignment.",
+      "reference": "The competitor's card section starts its heading (\"Selecting Colours and adding Digital Prints\") and its eyebrow on the content's left edge, in line with the first card; the site's own rule also has every section heading start on the left edge.",
+      "fix": "Set the featureGrid section heading to text-align: start (and drop any margin-inline: auto on it) in the shared featureGrid head, so it starts on the same left edge as the intro and the first card."
+    },
+    {
+      "block": "m2",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "template",
+      "issue": "On phones the section heading is also centred over a left-aligned intro paragraph and left-aligned cards.",
+      "reference": "The competitor's mobile heading starts on the left edge, in line with the cards below it.",
+      "fix": "Apply the same text-align: start to the featureGrid heading at every width, not only on desktop."
+    },
+    {
+      "block": "m2",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The section heading is set in a light/regular weight while the card titles under it are bold, so the section heading looks weaker than its own sub-headings.",
+      "reference": "The competitor's section heading is a heavy bold sans, clearly stronger than the card titles (bold but smaller) under it.",
+      "fix": "In src/styles/reference.css, give the featureGrid section h2 the site's heading weight (font-weight 700, as the h2 measures elsewhere) without changing its fitted size, so the h2 outweighs the card h3s."
+    },
+    {
+      "block": "m2",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "Each card is drawn as a white box with a 1px dark-grey outline, giving the grid a wireframe look.",
+      "reference": "The competitor's cards carry no outline: each is a flat filled panel (cream, light cyan or navy) with slightly rounded corners, set apart from the section by its fill alone.",
+      "fix": "In src/styles/reference.css, remove the border on .feature-grid--cards cards and give them a tinted fill (background: var(--section-tint) or the light accent) with the existing radius, switching to the white fill when the section itself is tinted."
+    },
+    {
+      "block": "m3-2",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The two wide cards use the same thin dark outline on white, so the short set reads as two empty-looking framed boxes.",
+      "reference": "The competitor's two-card row (\"Choose from 100,000 m in stock\" / \"Digital prints\") uses filled panels with no border.",
+      "fix": "Same card rule as m2: drop the border on .feature-grid--cards cards and use the tinted fill."
+    },
+    {
+      "block": "m3-2",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The card title is broken by hyphenation inside a word (\"Pool and train- / ing performance\").",
+      "reference": "The competitor's card titles break only between words.",
+      "fix": "Set hyphens: manual (and overflow-wrap: normal) on the featureGrid card h3 in src/styles/reference.css, so titles wrap at spaces only."
+    },
+    {
+      "block": "m2",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones the card titles (~24px bold, with loose leading on two-line titles such as \"Lightweight warm- / water fabrics\") are almost as large as the section heading and outweigh it, so the step from h2 to card title is lost.",
+      "reference": "The competitor's card titles are modest bold lines, clearly smaller than its section heading and close to body size.",
+      "fix": "In src/styles/reference.css, tighten the line-height of the featureGrid card h3 to about 1.2 and keep its weight below the h2's; leave the fitted sizes to the template."
+    },
+    {
+      "block": "m2",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The stacked outlined cards sit about 30px apart and each has its own outline, so the four cards read as a long run of separate empty frames instead of one grouped set.",
+      "reference": "The competitor's mobile cards are filled panels with tight, even gaps on the section's background.",
+      "fix": "With the border replaced by a fill (see the desktop finding), reduce the mobile row-gap of .feature-grid--cards to the site's small spacing step."
+    }
+  ]
+}

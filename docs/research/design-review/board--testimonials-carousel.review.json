@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "e4722dc34b8e1e8bb48db5e6",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--testimonials-carousel",
+  "route": "/style-board/ (the style board: module testimonials:carousel, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The quote cards are flat white panels with no shadow, so they lack the raised-card look of the competitor's module.",
+      "reference": "The competitor's testimonial cards sit on the sage band with a soft drop shadow along their lower edge, which lifts each card off the band.",
+      "fix": "In src/styles/reference.css, give .block--testimonials a soft --shadow-card (e.g. 0 6px 12px rgb(0 0 0 / 0.15)) so .testimonial picks it up through box-shadow: var(--shadow-card)."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "A 1px black rule (--border-color #000000) runs across every card between the quote and the attribution, a hard line the competitor's cards do not have.",
+      "reference": "The competitor's cards separate the quote from the bold name with space alone: no rule.",
+      "fix": "In src/styles/reference.css, set .block--testimonials .testimonial figcaption { border-top: 0; } and keep the existing padding-top/gap as the separation."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "reference.css paints this one section's background (.block--testimonials { background: var(--surface-band-mint) }) instead of tinting through --section-tint, so the template's white/tinted alternation no longer controls it and it can land beside another tinted section.",
+      "reference": "The competitor's testimonials sit on a sage band. The site's rule makes that band the shared section tint, not a colour fixed on one module.",
+      "fix": "Remove the background rule on .block--testimonials and set --section-tint to the sage (#d6e2de) in the treatment, so the template alternation decides which sections carry it."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "carousel",
+      "issue": "With only two testimonials, the carousel keeps the three-card width and leaves the right third of the row empty.",
+      "reference": "The competitor fills its row with the cards it shows, so the row has no empty slot. Our column count should follow our own item count, not a fixed 3.",
+      "fix": "Have the testimonials carousel set its cards-per-view (data-columns) from the item count when every item fits (2 items → 2 columns), or centre a short single row as the card-set rule does for a short last row."
+    }
+  ]
+}

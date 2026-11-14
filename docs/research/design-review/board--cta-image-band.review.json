@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "1eb757121349efe359f5a962",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--cta-image-band",
+  "route": "/style-board/ (the style board: module cta:image-band, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "cta",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The band's button is a transparent pill with a thin white outline (`[data-variant=\"image-band\"] .cta .button--primary { background: transparent; border: 1px solid currentColor }`), but in the competitor shot its buttons are solid white pills with dark labels, so ours is the weakest thing on the dark band rather than the clear action.",
+      "reference": "Competitor home 17: BOOK A CALL-BACK, WHATSAPP, VISIT US and EMAIL US are filled white pills with black uppercase labels sitting on the darkened photo. components.md item 13 calls them white-outlined, but the captured state shows them filled.",
+      "fix": "In reference.css, set `[data-variant=\"image-band\"] .cta .button--primary` to `background: var(--text-inverse); color: #000000; border-color: var(--text-inverse)` and use the current outline look as its :hover state. Keep the border radius and size as they are."
+    },
+    {
+      "block": "cta",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "On the longest sample, the button label 'TALK TO US ABOUT SWIMWEAR PACKAGING & CUSTOM BRAND LABELS' wraps to three centred lines, which turns the pill into a tall stadium shape that is almost as heavy as the paragraph above it.",
+      "reference": "The competitor's band buttons carry one to three words (BOOK A CALL-BACK, WHATSAPP, VISIT US, EMAIL US), so each stays a one-line pill even on phones.",
+      "fix": "Shorten the CTA button label in Site Factory to a few words, for example 'Request a label quote', and leave the full topic to the heading."
+    },
+    {
+      "block": "cta",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "At both widths the photo band sits inside the content gutter, about 20 px in from the screen edge on both sides. It reads as a boxed panel rather than a full-width photo band, which shows most on phones, where it lines up with the FAQ list above it.",
+      "reference": "The competitor's image band on home 17 runs edge to edge of the viewport at 1440 px and at 390 px, with no side margin.",
+      "fix": "Let `.block--cta[data-variant=\"image-band\"]` break out of the container: `margin-inline: calc(50% - 50vw)` with `width: 100vw` on the `.cta` frame, or use the template's full-bleed band setting if it has one. Keep the copy's inline padding so the text stays on the content's left edge."
+    }
+  ]
+}
