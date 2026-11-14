@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-navigation-audit-v1",
-  "baseUrl": "http://127.0.0.1:52694/",
+  "baseUrl": "http://127.0.0.1:4361/",
   "captureAll": false,
   "routeCount": 37,
   "representativeRoutes": [
