@@ -3,7 +3,7 @@
 // placed verbatim, never rewritten; the mapping records which block each section went to.
 
 import { BLUEPRINTS, slotDesign } from './page-blueprints.mjs';
-import { SECTION_WORDS } from './rules.mjs';
+import { CARD_GRID, SECTION_WORDS } from './rules.mjs';
 import { sectionBlocks } from './visual-checks.mjs';
 
 // Deterministic length band: a section at or above this word count needs a full-width long-form row.
@@ -135,7 +135,16 @@ function chunkRun(run) {
 }
 
 // Card slots: consecutive sections of one slot share a grid of at most 4 equal cards (5 → 3+2, 7 → 4+3).
-export function chunkCards(items) {
+// max: the most cards to a row (rules.mjs cardGridMax). Long cards, three to a row, come in grids of three, a last one
+// left over making the last two grids two and two (Strandmill 2026-11-14: grids of four in a set three columns wide
+// left one card under three).
+export function chunkCards(items, max = CARD_GRID.max) {
+  if (max < 4) {
+    const chunks = [];
+    for (let index = 0; index < items.length; index += max) chunks.push(items.slice(index, index + max));
+    if (chunks.length > 1 && chunks.at(-1).length === 1) { const last = [...chunks.pop(), ...chunks.pop()]; chunks.push(last.slice(0, Math.ceil(last.length / 2)), last.slice(Math.ceil(last.length / 2))); }
+    return chunks;
+  }
   const size = items.length <= 4 ? items.length : items.length % 4 === 0 || items.length % 4 === 3 ? 4 : 3;
   const chunks = [];
   for (let index = 0; index < items.length; index += size) chunks.push(items.slice(index, index + size));

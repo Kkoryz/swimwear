@@ -178,9 +178,33 @@ export function varyItemRows(blocks, variantOf) {
     else if (listable(index - 1) && !(index >= 2 && blocks[index - 2].type === 'featureGrid' && variantOf(blocks[index - 2]) === 'bullets')) toList(index - 1);
     // Neither grid can be a list (one goes on from another, or has no heading of its own): the pair's steps are
     // (hotel-rm's pricing page, motel's process page, 2026-11-14: a grid going on from another over a row of steps).
-    else for (const at of [index, index - 1]) if (blocks[at].type === 'process') { blocks[at] = { ...blocks[at], variant: 'list', planned: true }; break; }
+    else if ([index, index - 1].some((at) => blocks[at].type === 'process')) { const at = blocks[index].type === 'process' ? index : index - 1; blocks[at] = { ...blocks[at], variant: 'list', planned: true }; }
+    // No steps either: two card sets in grids of their own (Strandmill 2026-11-14, four pages: m4, m4-2 then m5, m5-2).
+    // A whole set becomes one list beside its heading, all its cards in it, the later set first.
+    else {
+      const start = [index, setStart(blocks, index - 1)].find((at) => joinable(blocks, at));
+      if (start != null) {
+        const grids = blocks.filter((item, at) => at > start && item.continues === blocks[start].id);
+        blocks.splice(start, grids.length + 1, { ...blocks[start], items: [blocks[start], ...grids].flatMap((item) => item.items ?? []), variant: 'bullets', planned: true });
+      }
+    }
   }
   return blocks;
+}
+
+// The most cards a set joined into one list holds; a longer set stays cards (the hotel hub's thirteen entry cards).
+export const JOINED_LIST_MAX = 8;
+// The first grid of the card set the block at `at` belongs to.
+const setStart = (blocks, at) => (blocks[at].continues == null ? at : blocks.findIndex((item) => item.id === blocks[at].continues));
+// A card set the template can set out as one list: a grid with its own heading and the grids right after it that go on
+// from it, all cards, JOINED_LIST_MAX at most.
+function joinable(blocks, start) {
+  const first = blocks[start];
+  if (!first || first.type !== 'featureGrid' || !first.heading || first.continues != null) return false;
+  let end = start + 1;
+  while (blocks[end]?.continues === first.id) end += 1;
+  const grids = blocks.slice(start, end);
+  return !blocks.some((item, at) => (at < start || at >= end) && item.continues === first.id) && grids.every((item) => item.type === 'featureGrid') && grids.reduce((sum, item) => sum + (item.items?.length ?? 0), 0) <= JOINED_LIST_MAX;
 }
 
 // Two split rows of the tinted variant one under the other run as one grey band (hotel-rm's digital marketing page,

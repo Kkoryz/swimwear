@@ -207,3 +207,19 @@ test('a scope section (what a piece of work includes and delivers, any trade) re
   const { blocks } = planKindBlocks(kindPage([sections[0], scope('s1'), scope('s2', 'cards', { body: '', items: items(3, 'Part') }), scope('s3', 'list', { body: '', items: items(3, 'Duty') }), sections.at(-1)]));
   assert.deepEqual(blocks.filter((block) => block.id.startsWith('s')).map((block) => block.type), ['splitMedia', 'featureGrid', 'iconList']);
 });
+
+test('long cards (three to a row at most) come in grids of three, a set\'s parts split so no grid leaves one card on its last row', () => {
+  // Strandmill's home 2026-11-14: one section of 4 + 7 + 6 + 6 cards of 24-57 words went in grids of four and three,
+  // and the set's three columns left one card under three in every grid of four.
+  const long = (count, seed) => Array.from({ length: count }, (_, index) => ({ title: `${seed} ${index + 1}`, text: `${'word '.repeat(index === 0 ? 42 : 20)}end.` }));
+  const parts = [
+    { section_id: 'm3', kind: 'customization', heading: 'Routes', body: '', items: long(4, 'Route') },
+    { section_id: 'm3_2', kind: 'customization', continuation_of: 'm3', heading: '', body: '', items: items(7, 'More') },
+  ];
+  const { blocks } = planKindBlocks(kindPage([sections[0], ...parts, sections.at(-1)]));
+  const grids = blocks.filter((block) => block.type === 'featureGrid');
+  assert.deepEqual(grids.map((block) => block.items.length), [2, 2, 3, 2, 2]);
+  // Short cards keep their grids of four (5 -> 3 + 2, 7 -> 4 + 3).
+  const short = planKindBlocks(kindPage([sections[0], { ...sections[2], items: items(7, 'Option') }, sections.at(-1)])).blocks.filter((block) => block.type === 'featureGrid');
+  assert.deepEqual(short.map((block) => block.items.length), [4, 3]);
+});

@@ -67,12 +67,23 @@ test('two rows of short items never stand together: the card grid of the pair be
   // Steps right after a grid: the grid goes, unless the block before it is a list already.
   const steps = [grid('e'), { id: 's', type: 'process' }];
   assert.deepEqual(varyItemRows(steps, variantOf).map((block) => variantOf(block) ?? block.type), ['bullets', 'process']);
-  // A section split in two is one section; a grid without its own heading is never made a list.
+  // A section split in two is one section, never half a list; a grid without its own heading is never made a list: the
+  // split section is the list, both halves in it.
   const split = [grid('m9'), { id: 'm9-2', type: 'featureGrid', continues: 'm9' }, { id: 'n', type: 'featureGrid' }];
-  assert.deepEqual(varyItemRows(split, variantOf).map((block) => variantOf(block)), ['icons', 'icons', 'icons']);
+  assert.deepEqual(varyItemRows(split, variantOf).map((block) => [block.id, variantOf(block)]), [['m9', 'bullets'], ['n', 'icons']]);
   // Steps, then a card set others go on from: the set stays cards, all of it, and the steps are a list.
   const set = [{ id: 'steps', type: 'process' }, grid('entries'), { id: 'entries-2', type: 'featureGrid', continues: 'entries' }];
   assert.deepEqual(varyItemRows(set, variantOf).map((block) => variantOf(block) ?? block.type), ['list', 'icons', 'icons']);
+  // Two card sets in grids of their own, one under the other, no steps (Strandmill's women's swimwear page, 2026-11-14:
+  // m4, m4-2 then m5, m5-2): the later set is one list, all its cards in it, beside its heading.
+  const cards = (count) => Array.from({ length: count }, (_, index) => ({ heading: `c${index}` }));
+  const sets = [{ ...grid('m4'), items: cards(3) }, { id: 'm4-2', type: 'featureGrid', continues: 'm4', items: cards(2) }, { ...grid('m5'), items: cards(3) }, { id: 'm5-2', type: 'featureGrid', continues: 'm5', items: cards(2) }];
+  const joined = varyItemRows(sets, variantOf);
+  assert.deepEqual(joined.map((block) => [block.id, variantOf(block), block.items.length]), [['m4', 'icons', 3], ['m4-2', 'icons', 2], ['m5', 'bullets', 5]]);
+  // The later set too long for one list: the earlier one is the list; both too long, both stay cards.
+  const more = (id, count) => [{ ...grid(id), items: cards(4) }, ...Array.from({ length: count - 1 }, (_, index) => ({ id: `${id}-${index + 2}`, type: 'featureGrid', continues: id, items: cards(4) }))];
+  assert.deepEqual(varyItemRows([...more('a', 2), ...more('b', 3)], variantOf).map((block) => block.id), ['a', 'b', 'b-2', 'b-3']);
+  assert.equal(varyItemRows([...more('a', 3), ...more('b', 3)], variantOf).length, 6);
 });
 
 test('a page short of pictures gets walls wherever a run takes one, and a section too long for the band takes one where its module changes', () => {
