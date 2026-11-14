@@ -173,7 +173,9 @@ module; nothing faked in CSS):
   carousel variant, whose `.track__items` is a flex row, so a card cannot take shared row tracks (subgrid) from it.
   Levelling the rule and attribution across the cards needs the template to give the testimonial cards row tracks of
   their own (as feature cards have through `--card-rows`); setting grid rows and spans on the items is the template's,
-  and pinning the attribution by hand would hold one part apart from its card.
+  and pinning the attribution by hand would hold one part apart from its card. (Repaired in the design-polish repair
+  of 2026-11-14, second pass: the testimonials carousel's row gets two shared row tracks and each card takes them as a
+  subgrid, written for the variant; no column count or single item is set.)
 - **Testimonial parts level across the row, again** (`/`, owner-testimonials, design-polish repair P2): the asked subgrid
   (`grid-template-rows` on the track, `grid-row: span 2` on each card) sets a grid's rows and an item's span, which are
   the template's, on a carousel track that is a flex row. Still the template's to give the cards shared row tracks.
@@ -255,3 +257,17 @@ Design-gate repair, second pass (2026-11-14):
   splitMedia), which makes 182px, over `--authoring-max-boundary-gap` (176px). The other option, a white panel with a
   hairline border, adds a border the competitor does not have. The beige panel over a beige band comes from the
   template's surface alternation, which tints splitMedia-1 (a template finding on this page).
+
+Design-polish repair, second pass (2026-11-14):
+
+- `/faq/` overview-steps (mobile, P2): giving `.block--process .point-list__title` (an `h3`) "the iconList item titles'
+  font-size" sets a heading's size; headings are sized by the template, no rule sets their font-size. (Weight 700 and
+  the accent numerals stay.)
+- `/watersports-apparel-manufacturer/` overview and faq (desktop, P2): the intro, the closing text and the answers are
+  `p` elements that already hold to `max-width: 70ch` (every `.block p`), the measure each fix and the treatment practice
+  ask for, and the audit's `long_measure` passes them. The reviewer counts letters (DM Sans's wide "0" puts about 95 of
+  them in 70ch); a measure near 52ch would fall well under the practice's "about 70ch". Left at 70ch.
+- `/watersports-apparel-manufacturer/` overview-charts (desktop, P2), the part that asks a whole half section space
+  (`margin-bottom: calc(var(--section-space) / 2)`) under the charts: the audit measures 125-151px at the charts
+  boundaries, so that would pass `--authoring-max-boundary-gap` (176px). Repaired within it: the charts block keeps 1rem
+  more space under its panel. The white panel with a hairline, the other option, adds a border the competitor lacks.
