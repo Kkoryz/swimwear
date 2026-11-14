@@ -31,242 +31,7 @@
     }
   },
   "mediaSlots": [],
-  "failures": [
-    {
-      "route": "/women-s-swimwear-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for women's swimwear",
-      "gap": 28,
-      "offset": 830
-    },
-    {
-      "route": "/one-piece-swimsuit-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for one-piece swimsuits",
-      "gap": 28,
-      "offset": 830
-    },
-    {
-      "route": "/bikini-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for bikinis",
-      "gap": 28,
-      "offset": 830
-    },
-    {
-      "route": "/men-s-swimwear-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for men's swimwear",
-      "gap": 16,
-      "offset": 830
-    },
-    {
-      "route": "/boardshorts-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for boardshorts",
-      "gap": 28,
-      "offset": 830
-    },
-    {
-      "route": "/swim-trunks-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for swim trunks",
-      "gap": 16,
-      "offset": 830
-    },
-    {
-      "route": "/children-s-swimwear-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for children's swimwear",
-      "gap": 28,
-      "offset": 830
-    },
-    {
-      "route": "/teen-swimwear-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for teen swimwear",
-      "gap": 16,
-      "offset": 830
-    },
-    {
-      "route": "/baby-swimwear-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for baby swimwear",
-      "gap": 16,
-      "offset": 830
-    },
-    {
-      "route": "/toddler-swimwear-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for toddler swimwear",
-      "gap": 16,
-      "offset": 830
-    },
-    {
-      "route": "/modest-swimwear-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for modest swimwear",
-      "gap": 16,
-      "offset": 830
-    },
-    {
-      "route": "/burkini-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for burkinis",
-      "gap": 16,
-      "offset": 830
-    },
-    {
-      "route": "/watersports-apparel-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for watersports apparel",
-      "gap": 28,
-      "offset": 830
-    },
-    {
-      "route": "/rash-guard-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for rash guards",
-      "gap": 16,
-      "offset": 830
-    },
-    {
-      "route": "/resort-wear-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for resort wear",
-      "gap": 16,
-      "offset": 830
-    },
-    {
-      "route": "/cover-up-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for cover-ups",
-      "gap": 16,
-      "offset": 830
-    },
-    {
-      "route": "/swimwear-embroidery/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "intro-1-steps",
-      "label": "Talk to us about embroidery",
-      "gap": 0,
-      "offset": 259
-    },
-    {
-      "route": "/swimwear-embroidery/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "splitMedia-3-steps",
-      "label": "Talk to us about embroidery",
-      "gap": 0,
-      "offset": 259
-    },
-    {
-      "route": "/swimwear-consulting/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "faq-steps",
-      "label": "Talk to us about consulting",
-      "gap": 0,
-      "offset": 258
-    },
-    {
-      "route": "/development/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "splitMedia-1-steps",
-      "label": "Talk to us about development",
-      "gap": 0,
-      "offset": 252
-    },
-    {
-      "route": "/swimwear-packaging-custom-brand-labels/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "proof-1-steps",
-      "label": "Talk to us about swimwear packaging & cu",
-      "gap": 0,
-      "offset": 127
-    },
-    {
-      "route": "/swimwear-packaging-custom-brand-labels/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "splitMedia-1-steps",
-      "label": "Talk to us about swimwear packaging & cu",
-      "gap": 0,
-      "offset": -51
-    },
-    {
-      "route": "/swimwear-launch-services/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "overview-steps",
-      "label": "Talk to us about launch",
-      "gap": 0,
-      "offset": 275
-    },
-    {
-      "route": "/swimwear-accessories/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for swimwear accessories",
-      "gap": 16,
-      "offset": 830
-    },
-    {
-      "route": "/plus-size-swimwear-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for plus size swimwear",
-      "gap": 16,
-      "offset": 830
-    },
-    {
-      "route": "/couples-matching-swimsuit-manufacturer/",
-      "viewport": "desktop",
-      "issue": "action_detached",
-      "block": "cta",
-      "label": "Request a quote for couples matching swi",
-      "gap": 28,
-      "offset": 830
-    }
-  ],
+  "failures": [],
   "warnings": [
     {
       "route": "/",
@@ -1053,7 +818,7 @@
       "route": "/one-piece-swimsuit-manufacturer/",
       "viewport": "desktop",
       "issue": "density_off_plan",
-      "value": 44,
+      "value": 43,
       "planned": 38.3,
       "tolerance": 3
     },
@@ -1077,7 +842,7 @@
       "route": "/teen-swimwear-manufacturer/",
       "viewport": "desktop",
       "issue": "density_off_plan",
-      "value": 32,
+      "value": 31,
       "planned": 27.4,
       "tolerance": 3
     },
@@ -1125,7 +890,7 @@
       "route": "/men-s-swimwear-manufacturer/",
       "viewport": "desktop",
       "issue": "density_long_text_run",
-      "value": 3458,
+      "value": 3514,
       "maximum": 2663
     },
     {
@@ -12992,15 +12757,15 @@
         ]
       },
       "density": {
-        "contentHeight": 8875,
+        "contentHeight": 8931,
         "images": 2,
         "structured": 6,
         "words": 1607,
-        "wordsPer1000px": 181,
+        "wordsPer1000px": 180,
         "photoAreaPct": 15,
         "structuredAreaPct": 25,
         "visualAreaPct": 39,
-        "longestTextOnlyPx": 2325
+        "longestTextOnlyPx": 2381
       },
       "blockMetrics": [
         {
@@ -13186,11 +12951,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 250,
+          "height": 306,
           "words": 45,
           "visualShare": 0,
-          "before": 250,
-          "after": 250,
+          "before": 306,
+          "after": 306,
           "pageType": "product_manufacturer"
         }
       ],
@@ -15202,8 +14967,8 @@
           {
             "block": "cta",
             "label": "Request a quote for women's swimwear",
-            "gap": 28,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -21255,14 +21020,14 @@
         ]
       },
       "density": {
-        "contentHeight": 8960,
+        "contentHeight": 9016,
         "images": 3,
         "structured": 8,
         "words": 1566,
-        "wordsPer1000px": 175,
+        "wordsPer1000px": 174,
         "photoAreaPct": 18,
         "structuredAreaPct": 25,
-        "visualAreaPct": 44,
+        "visualAreaPct": 43,
         "longestTextOnlyPx": 1132
       },
       "blockMetrics": [
@@ -21459,11 +21224,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 250,
+          "height": 306,
           "words": 46,
           "visualShare": 0,
-          "before": 250,
-          "after": 250,
+          "before": 306,
+          "after": 306,
           "pageType": "product_manufacturer"
         }
       ],
@@ -23476,8 +23241,8 @@
           {
             "block": "cta",
             "label": "Request a quote for one-piece swimsuits",
-            "gap": 28,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -29180,15 +28945,15 @@
         ]
       },
       "density": {
-        "contentHeight": 6206,
+        "contentHeight": 6262,
         "images": 2,
         "structured": 3,
         "words": 1161,
-        "wordsPer1000px": 187,
+        "wordsPer1000px": 185,
         "photoAreaPct": 21,
         "structuredAreaPct": 20,
-        "visualAreaPct": 41,
-        "longestTextOnlyPx": 1711
+        "visualAreaPct": 40,
+        "longestTextOnlyPx": 1767
       },
       "blockMetrics": [
         {
@@ -29314,11 +29079,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 250,
+          "height": 306,
           "words": 36,
           "visualShare": 0,
-          "before": 250,
-          "after": 250,
+          "before": 306,
+          "after": 306,
           "pageType": "product_manufacturer"
         }
       ],
@@ -30829,8 +30594,8 @@
           {
             "block": "cta",
             "label": "Request a quote for bikinis",
-            "gap": 28,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -35314,15 +35079,15 @@
         ]
       },
       "density": {
-        "contentHeight": 9129,
+        "contentHeight": 9185,
         "images": 3,
         "structured": 5,
         "words": 1536,
-        "wordsPer1000px": 168,
+        "wordsPer1000px": 167,
         "photoAreaPct": 18,
         "structuredAreaPct": 18,
-        "visualAreaPct": 36,
-        "longestTextOnlyPx": 3458
+        "visualAreaPct": 35,
+        "longestTextOnlyPx": 3514
       },
       "blockMetrics": [
         {
@@ -35508,11 +35273,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 225,
+          "height": 281,
           "words": 36,
           "visualShare": 0,
-          "before": 225,
-          "after": 225,
+          "before": 281,
+          "after": 281,
           "pageType": "product_manufacturer"
         }
       ],
@@ -37564,8 +37329,8 @@
           {
             "block": "cta",
             "label": "Request a quote for men's swimwear",
-            "gap": 16,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -43367,12 +43132,12 @@
         ]
       },
       "density": {
-        "contentHeight": 9251,
+        "contentHeight": 9307,
         "images": 3,
         "structured": 8,
         "words": 1757,
-        "wordsPer1000px": 190,
-        "photoAreaPct": 18,
+        "wordsPer1000px": 189,
+        "photoAreaPct": 17,
         "structuredAreaPct": 14,
         "visualAreaPct": 32,
         "longestTextOnlyPx": 1694
@@ -43561,11 +43326,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 250,
+          "height": 306,
           "words": 38,
           "visualShare": 0,
-          "before": 250,
-          "after": 250,
+          "before": 306,
+          "after": 306,
           "pageType": "product_manufacturer"
         }
       ],
@@ -45668,8 +45433,8 @@
           {
             "block": "cta",
             "label": "Request a quote for boardshorts",
-            "gap": 28,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -51695,11 +51460,11 @@
         ]
       },
       "density": {
-        "contentHeight": 9124,
+        "contentHeight": 9180,
         "images": 2,
         "structured": 8,
         "words": 1596,
-        "wordsPer1000px": 175,
+        "wordsPer1000px": 174,
         "photoAreaPct": 14,
         "structuredAreaPct": 29,
         "visualAreaPct": 43,
@@ -51879,11 +51644,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 225,
+          "height": 281,
           "words": 33,
           "visualShare": 0,
-          "before": 225,
-          "after": 225,
+          "before": 281,
+          "after": 281,
           "pageType": "product_manufacturer"
         }
       ],
@@ -53918,8 +53683,8 @@
           {
             "block": "cta",
             "label": "Request a quote for swim trunks",
-            "gap": 16,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -59746,11 +59511,11 @@
         ]
       },
       "density": {
-        "contentHeight": 11214,
+        "contentHeight": 11270,
         "images": 4,
         "structured": 5,
         "words": 1930,
-        "wordsPer1000px": 172,
+        "wordsPer1000px": 171,
         "photoAreaPct": 21,
         "structuredAreaPct": 13,
         "visualAreaPct": 34,
@@ -59990,11 +59755,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 250,
+          "height": 306,
           "words": 37,
           "visualShare": 0,
-          "before": 250,
-          "after": 250,
+          "before": 306,
+          "after": 306,
           "pageType": "product_manufacturer"
         }
       ],
@@ -62215,8 +61980,8 @@
           {
             "block": "cta",
             "label": "Request a quote for children's swimwear",
-            "gap": 28,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -68883,14 +68648,14 @@
         ]
       },
       "density": {
-        "contentHeight": 9616,
+        "contentHeight": 9672,
         "images": 4,
         "structured": 4,
         "words": 1634,
-        "wordsPer1000px": 170,
+        "wordsPer1000px": 169,
         "photoAreaPct": 20,
         "structuredAreaPct": 11,
-        "visualAreaPct": 32,
+        "visualAreaPct": 31,
         "longestTextOnlyPx": 2029
       },
       "blockMetrics": [
@@ -69097,11 +68862,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 225,
+          "height": 281,
           "words": 37,
           "visualShare": 0,
-          "before": 225,
-          "after": 225,
+          "before": 281,
+          "after": 281,
           "pageType": "product_manufacturer"
         }
       ],
@@ -71126,8 +70891,8 @@
           {
             "block": "cta",
             "label": "Request a quote for teen swimwear",
-            "gap": 16,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -76992,13 +76757,13 @@
         ]
       },
       "density": {
-        "contentHeight": 7890,
+        "contentHeight": 7946,
         "images": 3,
         "structured": 3,
         "words": 1179,
-        "wordsPer1000px": 149,
-        "photoAreaPct": 21,
-        "structuredAreaPct": 17,
+        "wordsPer1000px": 148,
+        "photoAreaPct": 20,
+        "structuredAreaPct": 16,
         "visualAreaPct": 37,
         "longestTextOnlyPx": 1554
       },
@@ -77146,11 +76911,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 225,
+          "height": 281,
           "words": 36,
           "visualShare": 0,
-          "before": 225,
-          "after": 225,
+          "before": 281,
+          "after": 281,
           "pageType": "product_manufacturer"
         }
       ],
@@ -78812,8 +78577,8 @@
           {
             "block": "cta",
             "label": "Request a quote for baby swimwear",
-            "gap": 16,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -83374,14 +83139,14 @@
         ]
       },
       "density": {
-        "contentHeight": 6670,
+        "contentHeight": 6726,
         "images": 2,
         "structured": 7,
         "words": 692,
-        "wordsPer1000px": 104,
+        "wordsPer1000px": 103,
         "photoAreaPct": 19,
         "structuredAreaPct": 32,
-        "visualAreaPct": 52,
+        "visualAreaPct": 51,
         "longestTextOnlyPx": 1029
       },
       "blockMetrics": [
@@ -83538,11 +83303,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 225,
+          "height": 281,
           "words": 40,
           "visualShare": 0,
-          "before": 225,
-          "after": 225,
+          "before": 281,
+          "after": 281,
           "pageType": "product_manufacturer"
         }
       ],
@@ -85190,8 +84955,8 @@
           {
             "block": "cta",
             "label": "Request a quote for toddler swimwear",
-            "gap": 16,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -89745,11 +89510,11 @@
         ]
       },
       "density": {
-        "contentHeight": 10693,
+        "contentHeight": 10749,
         "images": 4,
         "structured": 4,
         "words": 1903,
-        "wordsPer1000px": 178,
+        "wordsPer1000px": 177,
         "photoAreaPct": 18,
         "structuredAreaPct": 12,
         "visualAreaPct": 30,
@@ -89969,11 +89734,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 225,
+          "height": 281,
           "words": 32,
           "visualShare": 0,
-          "before": 225,
-          "after": 225,
+          "before": 281,
+          "after": 281,
           "pageType": "product_manufacturer"
         }
       ],
@@ -92205,8 +91970,8 @@
           {
             "block": "cta",
             "label": "Request a quote for modest swimwear",
-            "gap": 16,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -98608,11 +98373,11 @@
         ]
       },
       "density": {
-        "contentHeight": 7186,
+        "contentHeight": 7242,
         "images": 2,
         "structured": 2,
         "words": 1408,
-        "wordsPer1000px": 196,
+        "wordsPer1000px": 194,
         "photoAreaPct": 18,
         "structuredAreaPct": 9,
         "visualAreaPct": 27,
@@ -98752,11 +98517,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 225,
+          "height": 281,
           "words": 37,
           "visualShare": 0,
-          "before": 225,
-          "after": 225,
+          "before": 281,
+          "after": 281,
           "pageType": "product_manufacturer"
         }
       ],
@@ -100324,8 +100089,8 @@
           {
             "block": "cta",
             "label": "Request a quote for burkinis",
-            "gap": 16,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -104867,15 +104632,15 @@
         ]
       },
       "density": {
-        "contentHeight": 5396,
+        "contentHeight": 5452,
         "images": 3,
         "structured": 1,
         "words": 643,
-        "wordsPer1000px": 119,
+        "wordsPer1000px": 118,
         "photoAreaPct": 30,
         "structuredAreaPct": 3,
-        "visualAreaPct": 34,
-        "longestTextOnlyPx": 1280
+        "visualAreaPct": 33,
+        "longestTextOnlyPx": 1336
       },
       "blockMetrics": [
         {
@@ -104991,11 +104756,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 250,
+          "height": 306,
           "words": 43,
           "visualShare": 0,
-          "before": 250,
-          "after": 250,
+          "before": 306,
+          "after": 306,
           "pageType": "product_manufacturer"
         }
       ],
@@ -106368,8 +106133,8 @@
           {
             "block": "cta",
             "label": "Request a quote for watersports apparel",
-            "gap": 28,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -110225,15 +109990,15 @@
         ]
       },
       "density": {
-        "contentHeight": 10106,
+        "contentHeight": 10162,
         "images": 3,
         "structured": 9,
         "words": 2051,
-        "wordsPer1000px": 203,
+        "wordsPer1000px": 202,
         "photoAreaPct": 17,
         "structuredAreaPct": 21,
         "visualAreaPct": 36,
-        "longestTextOnlyPx": 1698
+        "longestTextOnlyPx": 1754
       },
       "blockMetrics": [
         {
@@ -110459,11 +110224,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 225,
+          "height": 281,
           "words": 34,
           "visualShare": 0,
-          "before": 225,
-          "after": 225,
+          "before": 281,
+          "after": 281,
           "pageType": "product_manufacturer"
         }
       ],
@@ -112785,8 +112550,8 @@
           {
             "block": "cta",
             "label": "Request a quote for rash guards",
-            "gap": 16,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -119593,14 +119358,14 @@
         ]
       },
       "density": {
-        "contentHeight": 10553,
+        "contentHeight": 10609,
         "images": 4,
         "structured": 5,
         "words": 1830,
-        "wordsPer1000px": 173,
-        "photoAreaPct": 19,
+        "wordsPer1000px": 172,
+        "photoAreaPct": 18,
         "structuredAreaPct": 12,
-        "visualAreaPct": 31,
+        "visualAreaPct": 30,
         "longestTextOnlyPx": 1665
       },
       "blockMetrics": [
@@ -119807,11 +119572,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 225,
+          "height": 281,
           "words": 32,
           "visualShare": 0,
-          "before": 225,
-          "after": 225,
+          "before": 281,
+          "after": 281,
           "pageType": "product_manufacturer"
         }
       ],
@@ -121995,8 +121760,8 @@
           {
             "block": "cta",
             "label": "Request a quote for resort wear",
-            "gap": 16,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -128066,11 +127831,11 @@
         ]
       },
       "density": {
-        "contentHeight": 10484,
+        "contentHeight": 10540,
         "images": 3,
         "structured": 10,
         "words": 1552,
-        "wordsPer1000px": 148,
+        "wordsPer1000px": 147,
         "photoAreaPct": 19,
         "structuredAreaPct": 35,
         "visualAreaPct": 54,
@@ -128270,11 +128035,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 225,
+          "height": 281,
           "words": 34,
           "visualShare": 0,
-          "before": 225,
-          "after": 225,
+          "before": 281,
+          "after": 281,
           "pageType": "product_manufacturer"
         }
       ],
@@ -130467,8 +130232,8 @@
           {
             "block": "cta",
             "label": "Request a quote for cover-ups",
-            "gap": 16,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -139307,14 +139072,14 @@
             "block": "intro-1-steps",
             "label": "Talk to us about embroidery",
             "gap": 0,
-            "offset": 259,
+            "offset": 0,
             "centred": false
           },
           {
             "block": "splitMedia-3-steps",
             "label": "Talk to us about embroidery",
             "gap": 0,
-            "offset": 259,
+            "offset": 0,
             "centred": false
           },
           {
@@ -142376,14 +142141,14 @@
             "block": "intro-1-steps",
             "label": "Talk to us about embroidery",
             "gap": 0,
-            "offset": 216,
+            "offset": 0,
             "centred": false
           },
           {
             "block": "splitMedia-3-steps",
             "label": "Talk to us about embroidery",
             "gap": 0,
-            "offset": 216,
+            "offset": 0,
             "centred": false
           },
           {
@@ -145380,14 +145145,14 @@
             "block": "intro-1-steps",
             "label": "Talk to us about embroidery",
             "gap": 0,
-            "offset": 27,
+            "offset": 0,
             "centred": false
           },
           {
             "block": "splitMedia-3-steps",
             "label": "Talk to us about embroidery",
             "gap": 0,
-            "offset": 27,
+            "offset": 0,
             "centred": false
           },
           {
@@ -149431,7 +149196,7 @@
             "block": "faq-steps",
             "label": "Talk to us about consulting",
             "gap": 0,
-            "offset": 258,
+            "offset": 0,
             "centred": false
           },
           {
@@ -153192,7 +152957,7 @@
             "block": "faq-steps",
             "label": "Talk to us about consulting",
             "gap": 0,
-            "offset": 89,
+            "offset": -126,
             "centred": false
           },
           {
@@ -156894,7 +156659,7 @@
             "block": "faq-steps",
             "label": "Talk to us about consulting",
             "gap": 0,
-            "offset": 26,
+            "offset": 0,
             "centred": false
           },
           {
@@ -160310,7 +160075,7 @@
             "block": "splitMedia-1-steps",
             "label": "Talk to us about development",
             "gap": 0,
-            "offset": 252,
+            "offset": 0,
             "centred": false
           },
           {
@@ -163481,7 +163246,7 @@
             "block": "splitMedia-1-steps",
             "label": "Talk to us about development",
             "gap": 0,
-            "offset": 83,
+            "offset": -126,
             "centred": false
           },
           {
@@ -166583,7 +166348,7 @@
             "block": "splitMedia-1-steps",
             "label": "Talk to us about development",
             "gap": 0,
-            "offset": 20,
+            "offset": 0,
             "centred": false
           },
           {
@@ -170135,14 +169900,14 @@
             "block": "proof-1-steps",
             "label": "Talk to us about swimwear packaging & cu",
             "gap": 0,
-            "offset": 127,
+            "offset": 0,
             "centred": false
           },
           {
             "block": "splitMedia-1-steps",
             "label": "Talk to us about swimwear packaging & cu",
             "gap": 0,
-            "offset": -51,
+            "offset": 0,
             "centred": false
           },
           {
@@ -173335,14 +173100,14 @@
             "block": "proof-1-steps",
             "label": "Talk to us about swimwear packaging & cu",
             "gap": 0,
-            "offset": 84,
+            "offset": 0,
             "centred": false
           },
           {
             "block": "splitMedia-1-steps",
             "label": "Talk to us about swimwear packaging & cu",
             "gap": 0,
-            "offset": -105,
+            "offset": -189,
             "centred": false
           },
           {
@@ -206477,7 +206242,7 @@
             "block": "overview-steps",
             "label": "Talk to us about launch",
             "gap": 0,
-            "offset": 275,
+            "offset": 0,
             "centred": false
           },
           {
@@ -209366,7 +209131,7 @@
             "block": "overview-steps",
             "label": "Talk to us about launch",
             "gap": 0,
-            "offset": 106,
+            "offset": -126,
             "centred": false
           },
           {
@@ -212180,7 +211945,7 @@
             "block": "overview-steps",
             "label": "Talk to us about launch",
             "gap": 0,
-            "offset": 43,
+            "offset": 0,
             "centred": false
           },
           {
@@ -252585,7 +252350,7 @@
         ]
       },
       "density": {
-        "contentHeight": 11933,
+        "contentHeight": 11989,
         "images": 4,
         "structured": 8,
         "words": 1903,
@@ -252839,11 +252604,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 225,
+          "height": 281,
           "words": 37,
           "visualShare": 0,
-          "before": 225,
-          "after": 225,
+          "before": 281,
+          "after": 281,
           "pageType": "product_manufacturer"
         }
       ],
@@ -255405,8 +255170,8 @@
           {
             "block": "cta",
             "label": "Request a quote for swimwear accessories",
-            "gap": 16,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -262623,12 +262388,12 @@
         ]
       },
       "density": {
-        "contentHeight": 7630,
+        "contentHeight": 7686,
         "images": 3,
         "structured": 7,
         "words": 1436,
-        "wordsPer1000px": 188,
-        "photoAreaPct": 23,
+        "wordsPer1000px": 187,
+        "photoAreaPct": 22,
         "structuredAreaPct": 21,
         "visualAreaPct": 41,
         "longestTextOnlyPx": 1269
@@ -262817,11 +262582,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 225,
+          "height": 281,
           "words": 33,
           "visualShare": 0,
-          "before": 225,
-          "after": 225,
+          "before": 281,
+          "after": 281,
           "pageType": "product_manufacturer"
         }
       ],
@@ -264660,8 +264425,8 @@
           {
             "block": "cta",
             "label": "Request a quote for plus size swimwear",
-            "gap": 16,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
@@ -270131,12 +269896,12 @@
         ]
       },
       "density": {
-        "contentHeight": 8936,
+        "contentHeight": 8992,
         "images": 5,
         "structured": 4,
         "words": 1288,
-        "wordsPer1000px": 144,
-        "photoAreaPct": 26,
+        "wordsPer1000px": 143,
+        "photoAreaPct": 25,
         "structuredAreaPct": 10,
         "visualAreaPct": 36,
         "longestTextOnlyPx": 1083
@@ -270325,11 +270090,11 @@
         {
           "key": "cta:inline",
           "id": "cta",
-          "height": 250,
+          "height": 306,
           "words": 42,
           "visualShare": 0,
-          "before": 250,
-          "after": 250,
+          "before": 306,
+          "after": 306,
           "pageType": "product_manufacturer"
         }
       ],
@@ -272228,8 +271993,8 @@
           {
             "block": "cta",
             "label": "Request a quote for couples matching swi",
-            "gap": 28,
-            "offset": 830,
+            "gap": 12,
+            "offset": 0,
             "centred": false
           }
         ],
