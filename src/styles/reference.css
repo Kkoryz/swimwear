@@ -236,6 +236,12 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
 .block--table .table-block__scroll { max-width: calc(70ch + 20rem); }
 /* A row's label keeps to one line beside the long column on desktops (two-word labels broke over two lines). */
 @media (min-width: 900px) { .block--table .table-block :is(th, td):first-child { white-space: nowrap; } }
+/* Phones: a two-column table stacks and its header row is visually hidden (patterns.css, a 1px clipped thead); its
+   cells keep no inset there, so the hidden "Item" / "What we provide" labels stay inside that 1px box instead of
+   standing as 32px boxes over the first row (text_overlap). Nothing visible changes; screen readers keep the header. */
+@media (max-width: 599px) {
+  :is(.prose__table, .table-block__scroll)[data-columns="2"] thead :is(th, td) { padding: 0; border: 0; }
+}
 .prose__chart .prose__table[data-scroll="sideways"] {
   background:
     linear-gradient(to right, var(--surface-secondary), var(--surface-secondary) 30%, transparent) left center / 2.5rem 100% no-repeat local,

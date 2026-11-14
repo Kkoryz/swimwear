@@ -184,6 +184,15 @@ module; nothing faked in CSS):
   carousel variant (`.track__items` is a flex row), so the cards have no shared rows to take; setting a grid's rows and
   an item's span is the template's. The template has to give the testimonial cards row tracks (as `--card-rows` does
   for feature cards).
+- **Hidden table header over the first row on phones** (`text_overlap`, mobile: /women-s-swimwear-manufacturer/,
+  /one-piece-swimsuit-manufacturer/, /bikini-manufacturer/, /men-s-swimwear-manufacturer/, /swim-trunks-manufacturer/,
+  /baby-swimwear-manufacturer/, /toddler-swimwear-manufacturer/, /modest-swimwear-manufacturer/,
+  /resort-wear-manufacturer/, /cover-up-manufacturer/, /swimwear-embroidery/, /development/,
+  /swimwear-packaging-custom-brand-labels/, /swimwear-hardware/, /swimwear-fabrics-sourcing/, /swimwear-accessories/):
+  patterns.css (phones, under 600px) stacks a two-column table and hides its `thead` in a 1px clipped box, but the
+  header cells keep `.table-block th` / `.prose__table th` padding, so each is a ~32px block drawn over the first row's
+  cells on any site with such a table. The treatment zeroes the hidden cells' padding (reference.css); the template's
+  rule should do it itself (or hide the header with the cells' padding removed).
 
 ## Asked against the site rules
 
