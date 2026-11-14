@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "82abf648297fc42ca989852b",
+  "shots": "24eb282295fade3e7d523b92",
   "rules": "896e2a6360c1caaa",
   "pageType": "general--shortest",
   "route": "/case-studies/",
@@ -11,9 +11,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The two order-case cards still stand in a narrow centred column (about 350–1090 px of the 1440 frame) under a heading, 'A recent order', that starts on the content's left edge, which leaves about 330 px of empty tint on each side. The cards float mid-page instead of following their heading.",
-      "reference": "The competitor's card sets start on the content's left edge under their heading and fill the content width (home section 7: outlined cards in a row, 1px outline, about 28 px gutter).",
-      "fix": "In patterns.css, stop centring `.order-cases` (max-width plus margin-inline: auto) when headings start: under `body[data-heading-align=\"start\"]` set `.order-cases { margin-inline: 0; }`. Better still, set the cases side by side in a grid of equal columns from the left edge."
+      "issue": "The two order-case cards still stand in a narrow centred column (about 350–1090 px of the 1440 frame) under a heading, 'A recent order', that starts on the content's left edge, leaving about 330 px of empty tint on each side, so the cards float mid-page instead of following their heading (this was raised in the earlier review and the current shot still shows it).",
+      "reference": "The competitor's card sets start on the content's left edge under their heading and fill the content width (outlined cards in a row, 1px outline, about 28 px gutter).",
+      "fix": "In the template's patterns.css, stop centring `.order-cases` (max-width plus margin-inline: auto) when headings start: under `body[data-heading-align=\"start\"]` set `.order-cases { margin-inline: 0; }`. Better still, set the cases side by side in a grid of equal columns from the left edge."
     },
     {
       "block": "faq",
@@ -21,34 +21,34 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "In the narrow left column of the two-column FAQ, 'Frequently Asked Questions' still breaks into three one-word lines, so the heading looks stacked rather than sized to its words.",
-      "reference": "The competitor's FAQ (home section 16) sets its heading across the width on one line, with the questions below it on hairline rows.",
-      "fix": "In the faq two-column layout, widen the heading column. Or, when the template's fit would leave one word per line, set the heading above the questions."
+      "issue": "In the narrow left column of the two-column FAQ, 'Frequently Asked Questions' still breaks into three one-word lines, so the heading looks stacked rather than sized to its words (still unfixed in the current shot).",
+      "reference": "The competitor's FAQ sets its heading across the width on one line, with the questions on hairline rows below it.",
+      "fix": "In the FAQ's two-column layout, widen the heading column. Or, when the template's fit would leave one word per line, set the heading above the questions."
     },
     {
-      "block": "faq-steps",
+      "block": "related",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The timeline rows are divided by solid black 1px rules (`.process-timeline__row` uses `--border-color`, #000000), directly under the FAQ's light 18% hairlines. One tinted section ends up with two weights of rule, and the steps read as heavier than the rest of the page.",
-      "reference": "The competitor separates FAQ rows, table facts and timeline steps with light hairlines only, never solid black rules.",
-      "fix": "In reference.css set `.block--process .process-timeline__row { border-bottom-color: color-mix(in srgb, var(--text-primary) 18%, transparent); }`, the same hairline the FAQ rows and tables use."
+      "issue": "The related-pages section has about twice the space above its heading (about 70 px against about 36 px in cases and overview) and under its link cards, which leaves a visible empty band between the tinted cases and FAQ sections; phones show the same extra space.",
+      "reference": "The competitor keeps one even section gap down the page.",
+      "fix": "In reference.css, give `.block--related` the same padding-block as the other plain sections (remove whatever extra top/bottom padding or margin applies to `.block--related` or its heading)."
     },
     {
-      "block": "overview-steps",
-      "viewport": "mobile",
+      "block": "faq",
+      "viewport": "desktop",
       "severity": "P2",
-      "scope": "site",
-      "issue": "On phones the six step rows are divided by solid black full-width rules, which look heavy against the light text. The same rows on desktop use the same black rule, unlike every other row list on the page.",
-      "reference": "The competitor's step and list rows sit over light hairlines.",
-      "fix": "The same change as faq-steps: an 18% hairline on `.block--process .process-timeline__row` in reference.css."
+      "scope": "content",
+      "issue": "The question 'Have you worked with small start-up brands placing their first order, like us?' breaks at the compound's hyphen, so the first line ends on 'start-' and the next begins with 'up brands'.",
+      "reference": "The competitor's FAQ questions keep each word whole on its line.",
+      "fix": "In Site Factory, write 'start-up' with a non-breaking hyphen (U+2011), or reword it as 'small new brands'."
     },
     {
       "block": "faq",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "content",
-      "issue": "The open first answer is a single unbroken paragraph of about 370 words. That is about 40 lines on a phone, and a dense block in the desktop column too, covering three separate client projects, certifications and shipping terms.",
+      "issue": "The open first answer is still one unbroken paragraph of about 370 words. That is about 40 lines on a phone and a dense block in the desktop column too, covering three separate client projects, certifications and shipping terms.",
       "reference": "The competitor's FAQ answers are short paragraphs under each question.",
       "fix": "In Site Factory, split the answer into short paragraphs (one per project, then one for certifications, testing and shipping), or shorten it and point to the cases section."
     }

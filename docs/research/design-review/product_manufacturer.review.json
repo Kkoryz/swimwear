@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "7432e3dfe175bd2bbac7b363",
+  "shots": "1dfe5fd62c7b653f90daedea",
   "rules": "896e2a6360c1caaa",
   "pageType": "product_manufacturer",
   "route": "/swimwear-accessories/",
@@ -11,28 +11,29 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The hero's black button sits on the top edge of the tinted trust bar, about 2–4px above it, with no space under it (the same at 390px). The media-banner hero has no bottom padding and counts on the next block's top padding, and that space falls inside the trust bar's tint.",
-      "reference": "The competitor leaves a clear gap of about 40px or more under its hero buttons ('Request Price', 'Book a Call') before the next section starts.",
-      "fix": "In template.css give .page-hero[data-variant=\"media-banner\"] .page-hero__inner a bottom padding (e.g. calc(var(--section-space) / 2)) whenever the block after it has its own surface (trust bar, tinted section), so the space sits on the hero's own white ground."
+      "issue": "Still open from the last review: the hero's black button 'Request a quote for swimwear accessories' sits almost on the tinted trust bar, with only a few pixels of white under it (at 390px it touches the bar), because the media-banner hero has no bottom padding of its own.",
+      "reference": "The competitor leaves a clear white gap of about 40px or more under its hero buttons ('Request Price', 'Book a Call') before the next section starts.",
+      "fix": "In template.css give .page-hero[data-variant=\"media-banner\"] .page-hero__inner a bottom padding (e.g. calc(var(--section-space) / 2)) so the space under the button falls on the hero's own white ground, not inside the next block's tint."
     },
     {
-      "block": "m3",
-      "viewport": "mobile",
-      "severity": "P1",
-      "scope": "template",
-      "gap": "other",
-      "issue": "Still open from the last review: on phones the check-list item titles ('Exposure and finish', 'Children's safety figures', 'Standalone orders', 'Shipping options') are fitted to about 26px at weight 700. The section headings above them are about 26px at weight 500, so the item level looks as large as the heading or larger. iconList-1, iconList-2 and m10 have the same problem.",
-      "reference": "The competitor keeps each heading level clearly smaller than the one above: its bold sub-heads sit just above body size under a larger h2.",
-      "fix": "In the shared heading-fit step, cap an item (h3) heading's fitted size below its section h2's size (e.g. at most ~0.75 of it), so a short item title can no longer grow to the h2's size on phones."
-    },
-    {
-      "block": "owner-testimonials",
+      "block": "featureGrid-1",
       "viewport": "desktop",
       "severity": "P2",
-      "scope": "site",
-      "issue": "The quote cards are white (--surface-testimonial #ffffff) on a white section, so the card cannot be seen. Its padding shows only as text set about 32px in from the heading's left edge and about 80px below it (about 20px and 70px on phones). The row reads as misaligned text, not as cards.",
-      "reference": "The competitor's card modules draw their cards as visible outlined boxes. Our own feature cards on this page (m2, m4, m8) follow that with a 1px outline.",
-      "fix": "In src/styles/reference.css give .testimonial the feature cards' outline (border: 1px solid var(--border-color); border-radius as .feature-card) so the card shows on white. Otherwise, set --testimonial-padding: 0 so the quotes start on the content edge."
+      "scope": "template",
+      "gap": "layout",
+      "issue": "featureGrid-1 is set out as a check list beside its heading directly under iconList-1, which already has that shape, so two sections of the same shape stand one under the other (m9, also a featureGrid set out as a list, and m10, an iconList, repeat this further down).",
+      "reference": "The site rule: when two sections of the same shape meet, the template sets only one of them out as a list beside its heading. The competitor never stacks two lists of the same layout.",
+      "fix": "In the template's same-shape check, count an iconList as already being a list beside its heading: a featureGrid next to an iconList keeps its card grid (featureGrid-1 after iconList-1, m9 before m10) rather than turning into a list."
+    },
+    {
+      "block": "iconList-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "On desktops the iconList item titles ('Standalone orders', 'Shipping options', 'Exposure and finish', 'Colour approval') are fitted to about 26px at weight 700 under a section heading of about 32px at weight 500, so the item level reads as heavy as the heading. The same lists set out by featureGrid (featureGrid-1, m9) use small bold titles, and the faq questions are also about 26px bold beside their 32px heading.",
+      "reference": "The competitor keeps its bold sub-heads ('Pricing Custom Swimwear Designs', 'Ready Designs', 'Custom Designs') just above body size, clearly under its section headings.",
+      "fix": "In the shared heading-fit step, cap the fitted size of an item h3 (icon-list item, faq question) at desktop widths too, e.g. at most ~0.65 of its section h2's fitted size, as was done on phones."
     },
     {
       "block": "related",
@@ -40,27 +41,55 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "The related-links section is white directly after the white testimonials section, so two plain sections in a row share one background. Before that point the page alternates white and tint (and does so again with faq after related).",
+      "issue": "Still open from the last review: the related-links section is white directly after the white owner-testimonials section, so two plain sections in a row share one background while the rest of the page alternates white and tint.",
       "reference": "The site rule: neighbouring plain sections alternate white and tinted backgrounds, set by the template.",
-      "fix": "In the template's surface alternation, count the testimonials block (it follows a photo wall) so that related takes the --section-tint surface. Alternatively, start the alternation again after media-module-budget-1 so that testimonials is tinted."
+      "fix": "In the template's surface alternation, count owner-testimonials (it follows the photo wall media-module-budget-1) so that related takes the --section-tint surface, or start the alternation again after the photo wall so that testimonials is tinted."
     },
     {
-      "block": "hero",
+      "block": "related",
       "viewport": "mobile",
       "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The related section carries about twice the top and bottom space of every other section (heading about 85px under the section edge on phones and about 100px on desktops, against about 50px elsewhere), which leaves an unexplained empty band before and after the link list.",
+      "reference": "The competitor keeps one even gap between its sections.",
+      "fix": "In template.css drop the extra padding on .block--related-pages (or .related-pages--grid) so that it uses the shared --section-space like its neighbours."
+    },
+    {
+      "block": "m6",
+      "viewport": "desktop",
+      "severity": "P2",
       "scope": "site",
-      "issue": "The hero button 'Request a quote for swimwear accessories' breaks onto two lines (a 60px bar). The cta block's button carries the same label, is just as wide, and fits on one line. The hero button wraps only because it keeps the 1.5rem side padding that the cta button drops on phones. The previous review called this a content finding; the cta button shows that the label fits.",
-      "reference": "The competitor's buttons sit on one line on phones.",
-      "fix": "In src/styles/reference.css widen the existing phone rule (line 321, .block--cta .cta .button { padding-inline: 1rem; letter-spacing: 0 }) to cover .page-hero__actions .button too, so the hero button keeps to one line like the cta button."
+      "issue": "At 1440px the table's first column is only about 140px wide, so two-word labels break onto two lines ('Natural / shaping', 'Steel / underwires', 'Wire / protection', 'Grip / placement') while the specification column has room to spare. The table also stops about 130px short of the content's right edge.",
+      "reference": "The competitor keeps short labels on one line and lets its content blocks run the full text column.",
+      "fix": "In src/styles/reference.css give .block--table .table-block th:first-child, td:first-child a min-width that fits its longest label (or white-space: nowrap above 900px), and let the table take the full content width."
     },
     {
       "block": "faq-charts",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "On phones the cost chart's label column takes about 40% of the panel, leaving its two value columns about 75px wide. Values break into stacks of one or two words ('Custom- / moulded, / plus / mould / fee', 'Rose / gold, / gunmetal / or matte / black') and the headers wrap as 'Lower / cost'.",
+      "issue": "Still open from the last review: on phones the cost chart's label column takes about 40% of the panel, so values break into stacks of one or two words ('Custom- / moulded, / plus mould / fee', 'Standard / gold or / silver') and the header wraps as 'Lower / cost'.",
       "reference": "The competitor keeps short figures on one or two lines on phones.",
-      "fix": "In src/styles/reference.css narrow the chart's label column on phones (e.g. th:first-child { width: 32%; }) and reduce the cell inline padding below 768px, so each value keeps to two lines at most."
+      "fix": "In src/styles/reference.css narrow the chart's label column below 768px (e.g. th:first-child { width: 32%; }) and reduce the cells' inline padding, so each value keeps to two lines at most."
+    },
+    {
+      "block": "featureGrid-1",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Two different check marks are used on this page: featureGrid sections set out as lists (featureGrid-1, m9) use a text '✓' marker that renders in a fallback serif font, unlike the drawn check icon of the iconList sections (iconList-1, iconList-2, m3, m10) next to them.",
+      "reference": "The competitor uses one marker style throughout a page.",
+      "fix": "In src/styles/reference.css (line 266) replace the list-style-type '\\2713' marker on .point-list__items with the same SVG check that .icon-list__icon draws (e.g. a ::before mask in var(--accent-text)), so both lists show one check."
+    },
+    {
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The only text-and-photo row with a photo is drawn as a contained square photo next to its copy on the shared beige tint, so it does not look like the competitor's split module.",
+      "reference": "The competitor's split ('Sampling') sets its copy on a coloured blush panel, with the photo filling the other half to the page edge.",
+      "fix": "In template-variants.json give m7 the existing splitMedia variant 'panel' (already styled in src/styles/reference.css as the blush copy panel) so it follows the competitor's module."
     }
   ]
 }

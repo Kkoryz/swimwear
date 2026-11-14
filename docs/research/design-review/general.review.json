@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "183b2662dc49bf1a32ede7af",
+  "shots": "6f148667de2a967d709467c9",
   "rules": "896e2a6360c1caaa",
   "pageType": "general",
   "route": "/faq/",
@@ -9,11 +9,10 @@
       "block": "overview-steps",
       "viewport": "desktop",
       "severity": "P2",
-      "scope": "template",
-      "gap": "other",
-      "issue": "The step titles are now bold, which fixes part of the earlier finding, but the steps still have no numbers and are set as a two-column table ruled in solid black, while process-1 on the same page numbers its steps 01–05 in blue over light hairlines, so the page shows two step styles.",
-      "reference": "The competitor's numbered-steps module sets each step with a blue 01–03 numeral and a bold title over light rules, which is the style process-1 already follows.",
-      "fix": "In the shared steps companion of the process module, add the accent decimal-leading-zero numeral and the light rule (text colour at about 18%) that .block--process .point-list__items[data-numbered] uses, in place of the black row borders."
+      "scope": "site",
+      "issue": "The rows now use light hairlines, which fixes part of the earlier finding, but the steps are still an unnumbered two-column table under a plain caption ('How a typical order runs'), while process-1 on the same page numbers its steps 01–05 in blue, so the page shows two step styles.",
+      "reference": "The competitor's numbered-steps module puts a blue 01–03 numeral and a bold title on each step, over thin light rules. process-1 already follows that style.",
+      "fix": "Set components.pageTypes.general.blocks.overview-steps.variant to \"list\" in template-variants.json. That gives the accent numerals and hairlines, and reference.css already sets a heading-less intro of that variant in the heading face. The blocks around it (overview and proof-1) are running text, so no two lists end up one under the other."
     },
     {
       "block": "m8-steps",
@@ -21,19 +20,28 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "Same as overview-steps: 'Sign off sample and specs' to 'Bulk production' are set as an unnumbered table ruled in black, unlike the numbered blue steps of process-1 that follow it.",
-      "reference": "The competitor numbers its steps 01–03 in blue, with a bold title, over thin light rules.",
-      "fix": "Same component fix as overview-steps: accent numerals and light rules in the steps companion."
+      "issue": "'Sign off sample and specs' to 'Bulk production' are still an unnumbered table, directly above the numbered blue steps of process-1. Here the list variant is no way out, because it would put two lists beside their headings one under the other.",
+      "reference": "The competitor numbers its steps 01–03 in blue, each with a bold title, over thin light rules.",
+      "fix": "In the timeline variant of ProcessBlock (.process-timeline__label), show the accent decimal-leading-zero number before the step title, as .point-list__items[data-numbered] does."
     },
     {
-      "block": "overview-steps",
+      "block": "m8-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The caption 'From sign-off to bulk production' is set in plain body type above the table, so it reads as a stray line rather than the heading of the steps.",
+      "reference": "The competitor gives every step list a heading.",
+      "fix": "In reference.css, extend the existing heading-less intro rule (heading face, --size-subheading, --weight-heading) to the timeline's intro: .block--process .process:not(:has(> .process__heading)) > .block__lead."
+    },
+    {
+      "block": "m8-steps",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "This was raised before and the current shots still show it: on phones an empty band of about 50px separates the caption 'How a typical order runs' from its first step, so the caption looks cut off from the list. m8-steps has the same gap under 'From sign-off to bulk production'.",
-      "reference": "The competitor's step lists follow their heading at the normal gap between a heading and its content.",
-      "fix": "In the single-column layout of the steps companion, replace the side-by-side row gap with the gap used between a heading and its content."
+      "issue": "This was raised before and the current shots still show it: on phones about 50px of empty space separates 'From sign-off to bulk production' from the first step, which has no rule above it, so the caption looks cut off from the list. overview-steps has the same gap under 'How a typical order runs'.",
+      "reference": "The competitor's step lists follow their heading at the usual gap between a heading and its content.",
+      "fix": "In the single-column layout of .process-timeline, use the heading-to-content gap in place of the side-by-side row gap between the intro and the first row."
     },
     {
       "block": "m6",
@@ -41,9 +49,29 @@
       "severity": "P2",
       "scope": "template",
       "gap": "layout",
-      "issue": "This was raised before and is still there: m3 'Stock Styles & Wholesale Buying' and m6 'Pricing & Quotes' are neighbouring check lists, and both set their items as a list beside the heading, so the page repeats one arrangement twice in a row.",
+      "issue": "This was raised before and is still there: m3 'Stock Styles & Wholesale Buying' and m6 'Pricing & Quotes' are neighbouring check lists, and both set their items beside their heading. The page repeats the same arrangement twice in a row, and m6 leaves a tall empty column beside its single-line heading.",
       "reference": "Site rule: when two neighbouring sections are rows of short items, the template sets only one of them as a list beside its heading.",
-      "fix": "Have the template give m6 (or m3) the other iconList arrangement, items in columns under the heading as iconList-1 shows, when two iconList sections are neighbours."
+      "fix": "When two iconList sections are neighbours, have the template give m6 (or m3) the other arrangement, with items in columns under the heading as iconList-1 shows."
+    },
+    {
+      "block": "iconList-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "iconList-1 has no heading and shares m7's tint, so it continues 'Minimum Order Quantities'. Yet its six items jump from m7's single right-hand column (titles at about x 1080) to two columns starting on the content's left edge, so one list changes width and starting edge halfway through.",
+      "reference": "The competitor sets each list of points in one arrangement under its one heading.",
+      "fix": "When an iconList without a heading follows an iconList of the same tint, have the template treat it as part of the previous list and keep that list's arrangement and column (items in the right column beside m7's heading), instead of starting a new grid."
+    },
+    {
+      "block": "process-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "In the column beside its steps, the heading 'Order Confirmation & Scheduling' breaks into three lines with 'Order' alone on the first. The other side headings on the page (m3, m7, m9) keep to two balanced lines.",
+      "reference": "The competitor's section headings keep to one or two lines.",
+      "fix": "Make the template's heading fit take the side column's width into account when it sizes a heading set beside a list, so the heading keeps to two lines ('Order Confirmation / & Scheduling'), as it already does on phones."
     },
     {
       "block": "proof-7",
@@ -51,16 +79,16 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "This block has no heading of its own and continues m11 after proof-5 and proof-6, yet its first paragraph ('We measure your packed cartons…') still takes the larger lead size, so one paragraph in the middle of the section grows for no reason. Mobile shows the same.",
+      "issue": "This is still there: proof-7 has no heading and continues m11 after proof-5 and proof-6, which are set at body size, yet its first paragraph ('We measure your packed cartons…') still takes the larger lead size. Phones show the same.",
       "reference": "The competitor keeps one body size through all the paragraphs of a text section.",
-      "fix": "Apply the lead style (.text-flow__lead) only to the first paragraph under a section heading, never to the first paragraph of a block without a heading that continues a section."
+      "fix": "Apply .text-flow__lead only to the first paragraph under a section heading, never to the first paragraph of a heading-less block that continues a section."
     },
     {
       "block": "m5-charts",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "content",
-      "issue": "The fee chart still draws three identical full-width bars (Sample fee, Design fee and Courier delivery, all $50), which compares nothing, and the two timing bars float on tracks with no axis or scale.",
+      "issue": "This is still there: the fee chart draws three identical full-width bars (Sample fee, Design fee and Courier delivery, each $50), which compare nothing, and the two timing bars float on tracks with no axis or scale.",
       "reference": "The competitor shows figures only where they add information.",
       "fix": "Have Site Factory give these facts as a short stats row or list (three $50 fees; 10–15 and 5–7 days) instead of bar charts of equal values."
     },
@@ -69,19 +97,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "content",
-      "issue": "The lone link is now sized to its own width, but the heading 'Related products and services' still sits over a single link to 'Case Studies', which is neither a product nor a service. The heading is also the only one on the page in sentence case.",
+      "issue": "This is still there: the heading 'Related products and services' sits over a single link to 'Case Studies', which is neither a product nor a service, and it is the only heading on the page in sentence case.",
       "reference": "n/a (copy).",
       "fix": "Have Site Factory link related product or solution pages here, or retitle the section in Title Case to match its link."
-    },
-    {
-      "block": "cta",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "template",
-      "gap": "art-direction",
-      "issue": "On phones the wide CTA photo is cropped to a narrow card that puts the woman's face directly behind the heading 'Send Us Your Enquiry'. The overlay keeps the text readable, but heading and face collide.",
-      "reference": "The competitor sets text over photos only where the photo leaves an empty area for it.",
-      "fix": "Let the CTA image band take a separate portrait crop on phones, with the subject below or beside the copy area; moving the crop of the wide photo cannot clear the full-width copy."
     }
   ]
 }

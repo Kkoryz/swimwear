@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "f1403616be62d2d6475ebc9c",
+  "shots": "319c88756201e505411afd46",
   "rules": "896e2a6360c1caaa",
   "pageType": "about",
   "route": "/about-us/",
@@ -11,8 +11,8 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The 30-word lead ('Since 2011 we have run bulk lines…') and the aqua CONTACT US pill still sit on the photo under the centred title, running to four centred lines that end on 'order size.', though the competitor's lead here has no words; this breaks the rule that a much longer lead stands under the hero.",
-      "reference": "The competitor's About hero is the factory-floor photo with only the centred white H1 (Maison 700) on it: no lead, no button.",
+      "issue": "The 30-word lead ('Since 2011 we have run bulk lines…') and the aqua CONTACT US pill still sit on the photo under the centred title, in four centred lines ending on 'order size.', though the competitor's hero carries no lead; the rule says a lead much longer than the competitor's stands under the hero.",
+      "reference": "The competitor's About hero is the factory-floor photo with only the centred white H1 on it: no lead, no button.",
       "fix": "Make the on-photo lead limit apply per page type (heroText.leadWords is site-wide; the about reference has 0), so that PageHero.astro's heroLeadShown() moves the about lead and its button into the block under the hero."
     },
     {
@@ -21,45 +21,18 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "On phones the same lead runs to four lines of small centred text over the busy photo, between the three-line title and a large aqua pill, so most of the hero is text over a picture.",
+      "issue": "On phones the same lead runs to four lines of small centred text over the busy photo, between the three-line title and the large aqua pill, so the lower half of the hero is text over the picture.",
       "reference": "The competitor's phone hero carries only the white H1 over the photo; its text follows under the photo.",
       "fix": "The same per-page-type lead limit in PageHero.astro (heroLeadShown()), so the about lead goes under the hero at every width."
     },
     {
       "block": "trustBar",
       "viewport": "desktop",
-      "severity": "P1",
-      "scope": "content",
-      "issue": "Two of the four figures are still cut-off phrases ('65 that' over 'SAMPLING TEAM', '55 custom' over 'DAILY SAMPLES'), so the bar reads as broken copy at both widths.",
-      "reference": "The competitor's figure rows set a short value over a clear uppercase label.",
-      "fix": "Site Factory: rewrite the value/label pairs, e.g. '65' / 'person sampling team' and '55' / 'custom samples a day'."
-    },
-    {
-      "block": "m5",
-      "viewport": "mobile",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "On phones the check-list item titles ('Checks throughout production', 'Agreed inspection criteria') are set at about 26px, the same size as the section's h2 above them (fitted down to about 26-27px), so the two heading levels can't be told apart and each item title wraps to two heavy lines.",
-      "reference": "The competitor's sub-headings stay clearly a step below its section headings at every width.",
-      "fix": "In reference.css, keep the site's `--size-subheading: 1.625rem` to desktop (move it into a min-width media query, or drop it inside the existing `@media (max-width: 767px)` :root block) so the template's smaller subheading size applies on phones; no heading size is set by hand."
-    },
-    {
-      "block": "m6",
-      "viewport": "mobile",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "As in m5, 'Certifications held', 'Production audit requirements' and 'Market compliance paperwork' are as large as the h2 'Certifications and Compliance Paperwork' and wrap to two lines each.",
-      "reference": "The competitor's sub-headings are a level below its section headings.",
-      "fix": "The same change to the site's --size-subheading override in reference.css covers this block."
-    },
-    {
-      "block": "m3",
-      "viewport": "mobile",
       "severity": "P2",
-      "scope": "site",
-      "issue": "The card titles ('First-time and emerging brands', 'Established and apparel labels') are about 24px on phones, larger than on desktop and almost the size of the section h2 'The Brands We Work With Directly', so the cards' titles compete with the section heading (m3-2 the same).",
-      "reference": "The competitor's card titles sit clearly under its section headings.",
-      "fix": "In reference.css, remove `--size-card-heading: 1.5rem` from the `@media (max-width: 767px) { :root:root { … } }` block so the phone card titles keep the site's 1.375rem."
+      "scope": "content",
+      "issue": "Two of the four figures are still cut-off phrases ('65 that' over 'SAMPLING TEAM', '55 custom' over 'DAILY SAMPLES'), so the bar reads as broken copy at both widths; on phones '100,000 pieces' also wraps to two lines, which pushes its label below 'FOUNDED'.",
+      "reference": "The competitor's figure rows set a short value over a clear uppercase label.",
+      "fix": "Site Factory: rewrite the value/label pairs, e.g. '65' / 'person sampling team', '55' / 'custom samples a day', '100,000' / 'pieces a month'."
     },
     {
       "block": "owner-testimonials",
@@ -67,9 +40,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "The logo row, testimonials and FAQ all stand on white one after the other (the same at 390px), so 'What buyers say' and 'Frequently Asked Questions' run together with no change of ground, while every section above them alternates.",
+      "issue": "The logo row, the testimonials and the FAQ still stand on white one after the other (the same at 390px), so three plain sections run together after m6's tint, while every section above them alternates.",
       "reference": "The site rule: neighbouring plain sections alternate white and tinted grounds, set by the template.",
-      "fix": "Have the template's section-surface alternation count the testimonials block (now on the page's alternating surface after the mint band was removed) so it or the FAQ takes the tint."
+      "fix": "Have the template's section-surface alternation count the testimonials block, so that it (or the FAQ) takes the tint and the run of white sections is broken."
     },
     {
       "block": "m5",
@@ -77,9 +50,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "layout",
-      "issue": "m5 ('How We Check Quality at Every Stage') and m6 ('Certifications and Compliance Paperwork') are both a heading with a check list of short items beside it and stand one under the other, so only the background changes between them.",
-      "reference": "The site rule (and the competitor's rhythm) never stacks two sections of the same shape: the template sets only one of them out as a list beside its heading.",
-      "fix": "In the template's layout pass, when two adjacent iconList sections share the list-beside-heading shape, set the other in a different arrangement (e.g. a check grid under its heading)."
+      "issue": "m5 ('How We Check Quality at Every Stage') and m6 ('Certifications and Compliance Paperwork') are still both a heading with a check list of short items beside it, one under the other, so only the background changes between them.",
+      "reference": "The site rule never stacks two sections of the same shape: the template sets only one of them out as a list beside its heading.",
+      "fix": "In the template's layout pass, when two adjacent iconList sections share the list-beside-heading shape, set the other one in a different arrangement (e.g. a check grid under its heading)."
     },
     {
       "block": "m4",
@@ -87,18 +60,36 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "The six steps wrap into two rows of three, but the connecting line still runs only through the first row (and past marker 03 to the edge), so steps 04–06 look detached from the sequence.",
-      "reference": "The competitor's six-step module sets every step over the same hairline.",
-      "fix": "Draw the process rule per row (on each step's marker row rather than a single `.process-steps::before`), ending at the row's last marker."
+      "issue": "The six steps wrap into two rows of three, but the connecting line still runs only through the first row (past marker 03 to the edge), so steps 04–06 look cut off from the sequence.",
+      "reference": "The competitor's step module sets every step on the same hairline.",
+      "fix": "Draw the process rule per row (on each step's marker row rather than a single line across the steps), ending at the row's last marker."
     },
     {
       "block": "hero",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "In the tall phone frame the photo is cut to its centre, a stone wall and roses, and only the sitter's lap shows at the lower right edge, so the crop keeps the empty part of the picture behind the text.",
+      "issue": "In the tall phone frame the photo is still cut to its centre (stone wall and roses), with only the sitter's lap at the lower-right edge, so the crop keeps the empty part of the picture.",
       "reference": "The competitor's phone hero crops its photo so the scene it shows stays in the frame.",
-      "fix": "In reference.css, set object-position on the about hero image for phones (e.g. toward the right and top) so the sitter stays in the frame."
+      "fix": "In reference.css, set object-position on the about hero image for phones (e.g. toward the right) so the sitter stays in the frame."
+    },
+    {
+      "block": "owner-logos",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "In the running phone marquee the brand names wrap ('NORTHFOLD / BASICS' on two lines while 'LUNE & LARK' keeps to one), so the names and their captions sit at different heights along the strip.",
+      "reference": "The competitor's logo row keeps each brand on one line at one height.",
+      "fix": "In reference.css, apply `white-space: nowrap` to `.logos__name` in the running marquee too (the rule now covers only `.logos-marquee:not([data-marquee-run])`)."
+    },
+    {
+      "block": "faq",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The questions wrap to two lines in about half of their column ('Who runs the company, and which / managers will we be dealing with directly?'), leaving a wide empty gap before the +/− mark at the right edge.",
+      "reference": "The competitor's FAQ rows run each question along the row, with the mark at the end of the line.",
+      "fix": "In reference.css, lift the measure cap on `.block--faq .faq__item summary h3` (let it take the summary's width minus the mark) so short questions keep to one line."
     }
   ]
 }

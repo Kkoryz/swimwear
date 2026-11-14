@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "0ad8d5cdd5ed0d5d11b916b2",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "blog_hub",
+  "route": "/blog/",
+  "findings": [
+    {
+      "block": "hero",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The last review raised this and it is still open: the hero's lead, about 40 words, still sits on the photo, where it runs five lines under the two-line title and covers the whole 275 px frame (it also fills the band under the title at 1440 px), so the photo shows only as a dark texture behind text.",
+      "reference": "The competitor's matching page puts only its bold title on the photo, with no lead, and starts its running text under the photo band on white.",
+      "fix": "Apply the template's rule that a hero lead much longer than the competitor's stands under the hero: render .page-hero__lead under the banner, on white, as the page's lead, and keep only the H1 on the photo (the heroText.leadWords limit should keep a 40-word lead off the photo)."
+    },
+    {
+      "block": "overview-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "This is still open from the last review: the three plain sections after the hero (overview, overview-steps, table-1) all sit on white, one under the other, so only padding separates them.",
+      "reference": "The site's rule, which follows the competitor's banded pages, is that neighbouring plain sections alternate white and tinted backgrounds.",
+      "fix": "The template should alternate the plain sections' backgrounds so that overview-steps, between the white overview and the white table-1, takes var(--section-tint)."
+    },
+    {
+      "block": "overview-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "content",
+      "issue": "This is still open from the last review: the process section has no heading, so its left column holds only the small bold line \"Quality checks at every stage of an order.\" beside the five steps, between H2 sections above and below, and leaves a large empty column (at 390 px the line reads as a stray caption).",
+      "reference": "The competitor's process lists always open with an H2 above their lead, in the left column beside the steps.",
+      "fix": "Site Factory should give the overview-steps visual (blog page copy) a heading, for example \"Quality Checks at Every Stage\", so the block renders an H2 above the caption line."
+    },
+    {
+      "block": "hero",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The manifest shows the H1 centred while the lead under it is set to start, so the heading and text of one block are not aligned the same way.",
+      "reference": "The competitor's hero title and any text on it share one alignment.",
+      "fix": "In reference.css, give the hero's .page-hero__lead the same text-align as its H1 at the mobile breakpoint, or both start (this goes away if the lead moves under the hero, as the finding above asks)."
+    },
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The H1 \"The Strandmill Blog\" is set in uppercase across the banner, which reads as a display banner rather than the competitor's page title, and with the lead under it fills the whole photo band.",
+      "reference": "The competitor's page title \"About Swimwear Bali\" is a bold title-case line with a soft text shadow over a light, un-overlaid photo.",
+      "fix": "In reference.css, set text-transform: none on the hero H1 (.page-hero h1) so it is in title case like the competitor's; keep its fitted size and 700 weight."
+    }
+  ]
+}

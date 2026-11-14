@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "f83be2667eed77fd89a409cd",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "contact",
+  "route": "/contact-us/",
+  "findings": [
+    {
+      "block": "hero",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The REQUEST A QUOTE button still touches the top edge of the tinted trustBar band, with no white space under it: the plain hero's inner still has no bottom padding (template.css:357, padding-block: calc(var(--section-space) / 2) 0).",
+      "reference": "The competitor's plain title and lead (hero:plain) leave clear white space before the next module starts.",
+      "fix": "In template.css give .page-hero[data-variant=\"plain\"] .page-hero__inner a bottom padding (e.g. padding-block: calc(var(--section-space) / 2)), at least when the next block has a background, so a tinted neighbour never starts right under the hero's button."
+    },
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "At desktop the hero button still sits only a few pixels above the tinted trustBar band, so it looks pushed into the band.",
+      "reference": "The competitor leaves an open white gap under its centred title and lead before the next module.",
+      "fix": "Same template change: give the plain hero's inner (.page-hero[data-variant=\"plain\"] .page-hero__inner) a bottom padding."
+    },
+    {
+      "block": "faq",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The open answer runs across the whole right column at about 15px, about 95–100 characters a line, so the long paragraph is hard to follow.",
+      "reference": "The competitor keeps its running text in short lines, and treatment-practice holds running text to about 70ch.",
+      "fix": "In reference.css cap the answer's width (.block--faq .faq__item p { max-width: 70ch; }), the same way as other running text."
+    },
+    {
+      "block": "overview",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The intro paragraphs run about 90–96 characters a line ('Once you agree the price, standard sample development takes 10 to 15 days. To request a sample,'), above the 80ch the layout audit flags.",
+      "reference": "The competitor's lead under its title keeps to short centred lines, and treatment-practice holds running text to about 70ch.",
+      "fix": "In reference.css set max-width: 70ch on the intro's text column (.block--intro .text-flow / .block__lead)."
+    },
+    {
+      "block": "channels",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Stacked one per row, each contact card is about 230px tall for a one-line value. The icon sits about 50px below the card's top edge, so the four cards take up almost a full screen, mostly as empty space.",
+      "reference": "The competitor's contact cards are compact: small icon close to the card's top, the black label right under it, then the text, with tight insets (about 10–12px).",
+      "fix": "In reference.css reduce the contactChannels card padding and the gap between icon and label on phones (e.g. .block--contact-channels .card { padding: 1rem 0.75rem; gap: 0.75rem; } at max-width 767px)."
+    },
+    {
+      "block": "form",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The consent line still ends 'as described in the privacy policy. Privacy policy', repeating the link's words right after the sentence.",
+      "reference": "The competitor's form has no repeated text.",
+      "fix": "End the consent copy before the link (e.g. '…as described in our') or make 'privacy policy' inside the sentence the link."
+    }
+  ]
+}
