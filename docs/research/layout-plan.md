@@ -1,6 +1,6 @@
 # 版式计划（2026-11-14）
 
-节标题行数模型：none (no layout audit yet: section heading lines not predicted)。额外照片墙上限：每页 12 条。
+节标题行数模型：the site's layout audit (882 headings)。额外照片墙上限：每页 12 条。
 
 ## 可行性
 
@@ -44,9 +44,13 @@
 
 - 无
 
-## 报告项（不拦，进 SF 回报）（0 条）
+## 报告项（不拦，进 SF 回报）（2 条）
 
-- 无
+### 节标题预计超过 3 行（section_heading_lines，归SF 文案，2 条）
+
+- /women-s-swimwear-manufacturer/ m5 mobile："Custom Swimwear Embellishment: Rhinestones, Beads and Trims": 4 lines
+- /cover-up-manufacturer/ iconList-1 mobile："Wholesale Cover-Up Orders: Samples, Lead Times, Payment and Shipping": 4 lines
+
 
 ## 照片位清单
 
