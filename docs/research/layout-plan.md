@@ -20,7 +20,7 @@
 | /modest-swimwear-manufacturer/ | product_manufacturer | 2215 | 23–88% | 10905px，图片 27.7% | 放得下 |
 | /burkini-manufacturer/ | product_manufacturer | 1388 | 23–88% | 7310px，图片 24.6% | 放得下 |
 | /watersports-apparel-manufacturer/ | product_manufacturer | 607 | 23–88% | 5452px，图片 34% | 放得下 |
-| /rash-guard-manufacturer/ | product_manufacturer | 2031 | 23–88% | 10646px，图片 33.1% | 放得下 |
+| /rash-guard-manufacturer/ | product_manufacturer | 2031 | 23–88% | 10749px，图片 31.8% | 放得下 |
 | /resort-wear-manufacturer/ | product_manufacturer | 2019 | 23–88% | 10438px，图片 28.8% | 放得下 |
 | /cover-up-manufacturer/ | product_manufacturer | 1952 | 23–88% | 9300px，图片 41.6% | 放得下 |
 | /swimwear-embroidery/ | solution | 2166 | 23–88% | 13280px，图片 35% | 放得下 |
@@ -32,11 +32,11 @@
 | /swimwear-fabrics-sourcing/ | solution | 1776 | 23–88% | 12577px，图片 38.1% | 放得下 |
 | /swimwear-launch-services/ | solution | 2042 | 23–88% | 10696px，图片 33.4% | 放得下 |
 | /about-us/ | about | 1138 | —–88% | 7249px，图片 35.2% | 放得下 |
-| /faq/ | general | 2015 | 23–88% | 13906px，图片 24.8% | 放得下 |
-| /case-studies/ | general | 455 | 23–88% | 4644px，图片 42.8% | 放得下 |
+| /faq/ | general | 2015 | 23–88% | 14051px，图片 22.9% | 放得下，要加墙 1 条 |
+| /case-studies/ | general | 455 | 23–88% | 4767px，图片 36.7% | 放得下 |
 | /sustainability/ | general | 749 | 23–88% | 4480px，图片 37% | 放得下 |
 | /request-a-quote/ | general | 801 | 23–88% | 5164px，图片 41.1% | 放得下 |
-| /swimwear-accessories/ | product_manufacturer | 2109 | 23–88% | 11028px，图片 30.1% | 放得下 |
+| /swimwear-accessories/ | product_manufacturer | 2109 | 23–88% | 11005px，图片 29% | 放得下 |
 | /plus-size-swimwear-manufacturer/ | product_manufacturer | 1403 | 23–88% | 8235px，图片 37.1% | 放得下 |
 | /couples-matching-swimsuit-manufacturer/ | product_manufacturer | 1264 | 23–88% | 8631px，图片 28.5% | 放得下 |
 
@@ -54,7 +54,7 @@
 
 ## 照片位清单
 
-共 110 个（lifestyle 61，product 12，process 33，material 4），明细在 layout-plan.json 的 photoSlots。
+共 111 个（lifestyle 62，product 12，process 33，material 4），明细在 layout-plan.json 的 photoSlots。
 
 ## 只在一个站上量过（或没有记录）的阈值（12 个，换站时复核）
 

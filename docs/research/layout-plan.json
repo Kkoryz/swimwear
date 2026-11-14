@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-layout-plan-v1",
-  "madeAt": "2026-11-14T10:50:28.251Z",
+  "madeAt": "2026-11-14T12:33:31.064Z",
   "maxWalls": 12,
   "headingModel": "the site's layout audit (882 headings)",
   "context": {
@@ -766,7 +766,7 @@
           "heading": {
             "text": "Send Your Enquiry Straight to the Factory",
             "desktop": 3,
-            "mobile": 3
+            "mobile": 2
           }
         }
       ],
@@ -6639,21 +6639,21 @@
         {
           "id": "m7",
           "type": "splitMedia",
-          "variant": "single",
-          "model": "splitMedia:single",
+          "variant": "panel",
+          "model": "splitMedia:panel",
           "continues": null,
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 755,
+            "visualPx": 106,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 430,
+            "after": 430
           },
           "heading": {
             "text": "Washing and Drying Printed and Bonded Rash Guards",
-            "desktop": 2,
+            "desktop": 1,
             "mobile": 2
           }
         },
@@ -6790,10 +6790,10 @@
       ],
       "words": 2031,
       "estimate": {
-        "heightPx": 10646,
-        "visualAreaPct": 33.1,
+        "heightPx": 10749,
+        "visualAreaPct": 31.8,
         "longestTextOnlyPx": 1930,
-        "wordsPer1000px": 191
+        "wordsPer1000px": 189
       },
       "band": {
         "wordsPer1000px": {
@@ -6817,9 +6817,9 @@
         "cap": 12,
         "estimate": {
           "words": 2031,
-          "heightPx": 10646,
-          "visualAreaPct": 33.1,
-          "wordsPer1000px": 191,
+          "heightPx": 10749,
+          "visualAreaPct": 31.8,
+          "wordsPer1000px": 189,
           "longestTextOnlyPx": 1930
         },
         "limits": []
@@ -11060,7 +11060,7 @@
           "heading": {
             "text": "Discuss Your Swimwear Hardware Project",
             "desktop": 2,
-            "mobile": 3
+            "mobile": 2
           }
         }
       ],
@@ -11660,7 +11660,7 @@
           "heading": {
             "text": "Start Your Swim Fabric Sourcing Enquiry",
             "desktop": 2,
-            "mobile": 3
+            "mobile": 2
           }
         }
       ],
@@ -12777,17 +12777,17 @@
         {
           "id": "overview-steps",
           "type": "process",
-          "variant": "timeline",
-          "model": "process:timeline",
+          "variant": "list",
+          "model": "process:list",
           "continues": "overview",
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 469,
-            "visualPx": 230,
-            "pictured": true,
-            "before": 103,
-            "after": 42
+            "heightPx": 614,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 614,
+            "after": 614
           },
           "items": 6,
           "longestItemWords": 12
@@ -13337,10 +13337,10 @@
       ],
       "words": 2015,
       "estimate": {
-        "heightPx": 14712,
-        "visualAreaPct": 28.5,
-        "longestTextOnlyPx": 1853,
-        "wordsPer1000px": 137
+        "heightPx": 14857,
+        "visualAreaPct": 26.6,
+        "longestTextOnlyPx": 2027,
+        "wordsPer1000px": 136
       },
       "band": {
         "wordsPer1000px": {
@@ -13359,14 +13359,14 @@
       "signatureFloor": 0,
       "signatureBands": 0,
       "feasibility": {
-        "verdict": "fits",
-        "walls": 0,
+        "verdict": "fits_with_walls",
+        "walls": 1,
         "cap": 12,
         "estimate": {
           "words": 2015,
-          "heightPx": 13906,
-          "visualAreaPct": 24.8,
-          "wordsPer1000px": 145,
+          "heightPx": 14051,
+          "visualAreaPct": 22.9,
+          "wordsPer1000px": 143,
           "longestTextOnlyPx": 2124
         },
         "limits": []
@@ -13413,20 +13413,41 @@
         {
           "id": "overview-steps",
           "type": "process",
-          "variant": "timeline",
-          "model": "process:timeline",
+          "variant": "list",
+          "model": "process:list",
           "continues": "overview",
           "surface": "white",
           "slots": [],
           "estimate": {
-            "heightPx": 491,
-            "visualPx": 241,
-            "pictured": true,
-            "before": 108,
-            "after": 44
+            "heightPx": 614,
+            "visualPx": 0,
+            "pictured": false,
+            "before": 614,
+            "after": 614
           },
           "items": 6,
           "longestItemWords": 12
+        },
+        {
+          "id": "media-module-budget-1",
+          "type": "gallery",
+          "variant": "band",
+          "model": "gallery:band",
+          "continues": null,
+          "surface": "own",
+          "slots": [
+            "lifestyle"
+          ],
+          "estimate": {
+            "heightPx": 806,
+            "visualPx": 742,
+            "pictured": true,
+            "before": 40,
+            "after": 40
+          },
+          "wall": "budget",
+          "items": 1,
+          "longestItemWords": 0
         },
         {
           "id": "cases",
@@ -13434,7 +13455,7 @@
           "variant": null,
           "model": "orderCase:",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 544,
@@ -13457,7 +13478,7 @@
           "variant": null,
           "model": "relatedPages:links",
           "continues": null,
-          "surface": "white",
+          "surface": "tinted",
           "slots": [],
           "estimate": {
             "heightPx": 230,
@@ -13482,7 +13503,7 @@
           "variant": null,
           "model": "faq:two-column",
           "continues": null,
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 788,
@@ -13505,7 +13526,7 @@
           "variant": "timeline",
           "model": "process:timeline",
           "continues": "faq",
-          "surface": "tinted",
+          "surface": "white",
           "slots": [],
           "estimate": {
             "heightPx": 488,
@@ -13543,10 +13564,10 @@
       ],
       "words": 455,
       "estimate": {
-        "heightPx": 4644,
-        "visualAreaPct": 42.8,
-        "longestTextOnlyPx": 1713,
-        "wordsPer1000px": 98
+        "heightPx": 5573,
+        "visualAreaPct": 44.7,
+        "longestTextOnlyPx": 1709,
+        "wordsPer1000px": 82
       },
       "band": {
         "wordsPer1000px": {
@@ -13561,7 +13582,7 @@
         }
       },
       "floorExempt": false,
-      "budgetWalls": 0,
+      "budgetWalls": 1,
       "signatureFloor": 0,
       "signatureBands": 0,
       "feasibility": {
@@ -13570,10 +13591,10 @@
         "cap": 3,
         "estimate": {
           "words": 455,
-          "heightPx": 4644,
-          "visualAreaPct": 42.8,
-          "wordsPer1000px": 98,
-          "longestTextOnlyPx": 1713
+          "heightPx": 4767,
+          "visualAreaPct": 36.7,
+          "wordsPer1000px": 95,
+          "longestTextOnlyPx": 2752
         },
         "limits": []
       }
@@ -14635,23 +14656,23 @@
         {
           "id": "m7",
           "type": "splitMedia",
-          "variant": "single",
-          "model": "splitMedia:single",
+          "variant": "panel",
+          "model": "splitMedia:panel",
           "continues": null,
           "surface": "tinted",
           "slots": [
             "material"
           ],
           "estimate": {
-            "heightPx": 652,
-            "visualPx": 209,
+            "heightPx": 629,
+            "visualPx": 88,
             "pictured": true,
-            "before": 176,
-            "after": 183
+            "before": 358,
+            "after": 358
           },
           "heading": {
             "text": "Hygienic Liners Printed with Your Logo",
-            "desktop": 2,
+            "desktop": 1,
             "mobile": 2
           }
         },
@@ -14880,10 +14901,10 @@
       ],
       "words": 2109,
       "estimate": {
-        "heightPx": 11834,
-        "visualAreaPct": 34.3,
+        "heightPx": 11811,
+        "visualAreaPct": 33.3,
         "longestTextOnlyPx": 1570,
-        "wordsPer1000px": 178
+        "wordsPer1000px": 179
       },
       "band": {
         "wordsPer1000px": {
@@ -14907,9 +14928,9 @@
         "cap": 12,
         "estimate": {
           "words": 2109,
-          "heightPx": 11028,
-          "visualAreaPct": 30.1,
-          "wordsPer1000px": 191,
+          "heightPx": 11005,
+          "visualAreaPct": 29,
+          "wordsPer1000px": 192,
           "longestTextOnlyPx": 2644
         },
         "limits": []
@@ -16420,6 +16441,13 @@
       "index": 0,
       "kind": "lifestyle",
       "ratio": "4 / 3"
+    },
+    {
+      "route": "/case-studies/",
+      "block": "media-module-budget-1",
+      "index": 0,
+      "kind": "lifestyle",
+      "ratio": "10 / 11"
     },
     {
       "route": "/case-studies/",
