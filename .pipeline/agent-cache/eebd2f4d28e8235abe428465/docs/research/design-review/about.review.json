@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "526c54befe7208211809f537",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "about",
+  "route": "/about-us/",
+  "findings": [
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The 30-word lead ('Since 2011 we have run bulk lines…') and the aqua CONTACT US pill still sit on the photo under the centred title, in four centred lines ending on 'order size.', though the competitor's hero carries no lead and the rule puts a lead much longer than the competitor's under the hero.",
+      "reference": "The competitor's About hero is the sewing-floor photo with only the centred white H1 (Maison 700 45px) on it: no lead, no button.",
+      "fix": "Make the on-photo lead limit apply per page type (heroText.leadWords is site-wide; the about reference has 0 words), so that PageHero.astro's heroLeadShown() moves the about lead and its button into the block under the hero."
+    },
+    {
+      "block": "hero",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "On phones the same lead runs to four lines of small centred text over the busy photo, between the three-line title and the large aqua pill, so the lower half of the hero is text over the picture.",
+      "reference": "The competitor's phone hero carries only the white H1 over the photo; its text follows under the photo.",
+      "fix": "The same per-page-type lead limit in PageHero.astro (heroLeadShown()), so the about lead and button go under the hero at every width."
+    },
+    {
+      "block": "trustBar",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "Two of the four figures still read as cut-off phrases ('65 that' over 'SAMPLING TEAM', '55 custom' over 'DAILY SAMPLES'), and on phones '100,000 pieces' wraps to two lines, so its label drops below 'FOUNDED' in the 2×2 grid.",
+      "reference": "The competitor's figure rows set a short value over a clear uppercase label.",
+      "fix": "Site Factory: rewrite the value/label pairs, e.g. '65' / 'person sampling team', '55' / 'custom samples a day', '100,000' / 'pieces a month'."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "After m6's tint, the logo row, the testimonials and the FAQ still stand on white one after the other (the same at 390px), so three plain sections run together while every section above them alternates.",
+      "reference": "The site rule: neighbouring plain sections alternate white and tinted grounds, set by the template.",
+      "fix": "Have the template's section-surface alternation count the logos and testimonials blocks, so that the testimonials section (or the FAQ) takes --section-tint and breaks the white run."
+    },
+    {
+      "block": "m5",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "m5 ('How We Check Quality at Every Stage') and m6 ('Certifications and Compliance Paperwork') are still both a heading with a check list of short items beside it, one under the other, so only the background changes between them.",
+      "reference": "The site rule: two sections of the same shape do not stand one under the other; the template sets only one of them out as a list beside its heading.",
+      "fix": "In the template's layout pass, when two adjacent iconList sections share the list-beside-heading shape, set the other one differently (e.g. a check grid under its heading)."
+    },
+    {
+      "block": "m4",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The six steps wrap into two rows of three, but the connecting line still runs only through the first row (past marker 03 to the column's edge), so steps 04–06 look cut off from the sequence.",
+      "reference": "The competitor's six-step module sets every step on the same hairline.",
+      "fix": "Draw the process rule per row (on each row's marker line, not one line across the step list), ending at the row's last marker."
+    },
+    {
+      "block": "hero",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "art-direction",
+      "issue": "The tall phone frame still crops the photo to its stone wall and roses, with only the sitter's lap at the lower-right edge; the earlier fix asked for an object-position in reference.css, which treatment-practice.md forbids (the template sets each cut photo's focal point), so this is the template's to fix.",
+      "reference": "The competitor's phone hero uses its own phone crop (banner-about-us-mobile.webp), so the scene stays in the frame.",
+      "fix": "Have the template's phone crop of the about hero photo use a focal point on the sitter (the judged focal point / --hero-focal set by the template, not by reference.css)."
+    },
+    {
+      "block": "header",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "On /about-us/ the 'About Us' nav item looks the same as the others, because SiteHeader.astro never sets aria-current on the current page's link, so the treatment's rule `.site-nav__link[aria-current=\"page\"]` (lighter #d3ebfd plus an underline) never applies.",
+      "reference": "The competitor's header shows the current page's item ('About') in a lighter tone.",
+      "fix": "In SiteHeader.astro, set aria-current=\"page\" on the nav link (and dropdown link) whose route matches the current page."
+    }
+  ]
+}

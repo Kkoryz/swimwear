@@ -254,8 +254,8 @@
   "design-review": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T11:46:11.819Z",
-    "seconds": 228,
+    "at": "2026-11-14T12:00:03.851Z",
+    "seconds": 251,
     "log": ".pipeline/logs/2026-11-14T10-49-24-604Z/design-review.log"
   },
   "design-gate": {

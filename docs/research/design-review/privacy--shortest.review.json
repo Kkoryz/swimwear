@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "6f937522a92afd9918ca7703",
+  "shots": "92d8c3847371b854b2186878",
   "rules": "896e2a6360c1caaa",
   "pageType": "privacy--shortest",
   "route": "/privacy-policy/",
@@ -10,9 +10,18 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "content",
-      "issue": "Still open from the last review: the heading 'Related products and services' sits over one link, to Terms and Conditions, which is neither a product nor a service, so the heading promises something the section doesn't give (same on mobile).",
-      "reference": "The competitor's onward links say where they lead, e.g. 'Read the full group story … at PT King Trading.'",
-      "fix": "Site Factory: retitle the section to match its link (e.g. 'Related policies'), or link the product and service pages the heading names."
+      "issue": "Still open from the last review: the heading 'Related products and services' sits over a single link, 'Terms and Conditions', which is neither a product nor a service, so the heading promises something the section doesn't give (same on mobile).",
+      "reference": "The competitor's onward link says where it leads, e.g. 'Read the full group story … at PT King Trading.'",
+      "fix": "Site Factory: retitle the section to fit its link (e.g. 'Related policies'), or link the product and service pages the heading names."
+    },
+    {
+      "block": "cta",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The CTA's line under the heading ('Send your enquiry to our factory to tell us about the swimwear you are looking for.') repeats the heading 'Send an enquiry to our factory' almost word for word, so the photo band adds nothing new (same on mobile).",
+      "reference": "The competitor's closing copy adds a new fact or reason in each line ('Manufacturing in Bali since 1993. Read the full group story…') and doesn't restate its heading.",
+      "fix": "Site Factory: rewrite the CTA's body line to give a reason or next step (e.g. what to include in the enquiry, or how fast the reply comes) instead of restating the heading."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "59392428876a924c4415a6cc",
+  "shots": "a0188719ac549e09a6f025ca",
   "rules": "896e2a6360c1caaa",
   "pageType": "product_manufacturer--shortest",
   "route": "/watersports-apparel-manufacturer/",
@@ -11,8 +11,8 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The 'Request a quote for watersports apparel' button still sits a few pixels above the tinted trustBar band. The plain hero has no bottom padding of its own, so the button looks pushed into the band. On mobile the full-width button touches the band. The last review raised this and it is still unfixed.",
-      "reference": "The competitor leaves open white space under its title, lead and two black buttons before the next module starts.",
+      "issue": "The 'Request a quote for watersports apparel' button still sits right on the tinted trustBar band. On desktop it ends about 2px above the band; on mobile the full-width button touches it. The hero has no bottom padding of its own, so the button looks pushed into the band. This was raised before and is still unfixed in the current shots.",
+      "reference": "The competitor leaves open white space under its title, lead and two black buttons before the next module ('Built for Swimwear') starts.",
       "fix": "In template.css, give the plain hero's inner a bottom padding (.page-hero[data-variant=\"plain\"] .page-hero__inner { padding-bottom: calc(var(--section-space) / 2) }), at least when the next block carries a background."
     },
     {
@@ -21,9 +21,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "splitMedia-1, splitMedia-2 and splitMedia-2-steps still share the same beige tint, so three tinted sections run one under the other. Because they share a background, the gaps are uneven: the photo starts about 34px under splitMedia-1's last line, but the steps start about 96px under the photo. Mobile is the same. The last review raised this and it is still unfixed.",
+      "issue": "splitMedia-1, splitMedia-2 and splitMedia-2-steps still share one beige tint, so three tinted sections run one under the other, and the gaps between them are uneven. On desktop the photo starts about 40px under splitMedia-1's last line, and the steps start about 100px under the photo. On mobile, splitMedia-2's first line starts right at the block's top edge. Meanwhile owner-testimonials and related both stand on white. This was raised before and is still unfixed.",
       "reference": "The competitor alternates white sections with its single pink-tinted Sampling panel; no two tinted modules touch.",
-      "fix": "The template's background alternation should count splitMedia-1 and splitMedia-2 as neighbouring plain sections and set splitMedia-2 (with its steps) on white, so the run reads white / tint / white with the section spacing restored between them."
+      "fix": "The template's background alternation should count splitMedia-1, splitMedia-2 and the steps as neighbouring plain sections. Set splitMedia-2 (with its steps) on white so the run reads white / tint / white, with the section spacing restored between them."
     },
     {
       "block": "splitMedia-2-steps",
@@ -31,18 +31,18 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The heading beside the steps, 'How a typical order runs from brief to shipment.', is still set at body size and weight on desktop. It reads as a caption, smaller than the bold step titles next to it, not as a section heading. On mobile it is only a little larger than body text. The last review raised this and it is still unfixed.",
+      "issue": "On desktop the steps' heading, 'How a typical order runs from brief to shipment.', is still set at body size and regular weight. It reads as a caption: smaller than the bold step titles and far smaller than the 01–07 numbers beside it. On mobile the last repair set it at subheading size, which is still only a little above body text and below the step numbers. This was raised before and is only partly fixed.",
       "reference": "The competitor's section headings ('MOQs', 'Sampling') are clearly larger than body text and their item titles, in a medium weight.",
-      "fix": "The template should fit the process list's heading to its own words at section-heading level, like the page's other H2s (weight 500). Set no font-size in reference.css."
+      "fix": "The template should fit the process list's heading to its own words at section-heading level, like the page's other H2s (weight 500), at every width; set no font-size in reference.css."
     },
     {
-      "block": "related",
-      "viewport": "desktop",
+      "block": "overview-charts",
+      "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "The related section has about twice the space of any other section above and below it: about 145px from the testimonial cards to its heading, and again from its tiles to the FAQ, against about 100px between other sections. On mobile, the testimonial dots sit about 125px above the heading. The cause is reference.css line 253, '.block--related { padding-block: var(--section-space); }', which adds a full section space inside the block on top of the section gap. It was meant for a tinted band, but here the section is white.",
-      "reference": "The competitor keeps one even gap between consecutive text modules ('Branding', 'Trusted by Brands Worldwide', 'Send Your Designs').",
-      "fix": "In reference.css, limit the extra .block--related padding-block to a related block that carries its own tint (e.g. scope it to a tinted surface), or drop it, so a white related section takes the normal section gap."
+      "issue": "The beige lead-time chart panel ends about 15px above the beige splitMedia-1 band on mobile (about 40px on desktop). The panel nearly merges with the next section and reads as a notch of it, not as part of the white overview section.",
+      "reference": "The competitor's figures (the costing handover, the fabric card) sit on the white section with the normal gap before the next module, and never in the colour of the band that follows.",
+      "fix": "In reference.css, give the overview's charts panel the section's own bottom spacing before the next block (e.g. margin-bottom: calc(var(--section-space) / 2) on .block--charts). Or, on a white section, set the panel on white with a hairline border instead of the tint the next band carries."
     },
     {
       "block": "related",
@@ -50,7 +50,7 @@
       "severity": "P2",
       "scope": "template",
       "gap": "layout",
-      "issue": "The seven related-page tiles still run 4 + 3, and the short last row of three starts on the left instead of being centred under the full row. The last review raised this and it is still unfixed.",
+      "issue": "The seven related-page tiles still run 4 + 3, and the short last row of three starts on the left, leaving an empty slot under the fourth column. This was raised before and is still unfixed.",
       "reference": "Site rule: a grid's own short last row is centred; the competitor has no short rows hanging to the left.",
       "fix": "In the template, centre the related grid's short last row (e.g. a flex-wrap row with justify-content: center and a fixed tile basis), as for other card grids."
     },
@@ -59,9 +59,18 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The intro paragraphs still run about 810px wide, roughly 95–100 characters a line, well past the ~70ch measure. The cta copy is just as wide. The last review raised this and it is still unfixed.",
-      "reference": "treatment-practice.md holds running text to about 70ch.",
-      "fix": "In reference.css, give the text column of the intro and the cta (the paragraph container of .block--intro and .block--cta) a max-width of about 70ch, starting on the heading's left edge."
+      "issue": "The intro paragraphs still run about 810px wide, roughly 95–100 characters a line, well past the ~70ch measure. The cta paragraph is just as wide. This was raised before and is still unfixed.",
+      "reference": "treatment-practice.md holds running text to about 70ch (the audit flags over 80ch).",
+      "fix": "In reference.css, give the text column of .block--intro and .block--cta a max-width of about 70ch, starting on the heading's left edge."
+    },
+    {
+      "block": "faq",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On desktop the FAQ questions are set bold, in the accent navy, at about 23px. Two-line questions of that weight outweigh the 500-weight 'Frequently Asked Questions' heading beside them, so the level below reads heavier than the section heading.",
+      "reference": "The competitor's sub-headings under a section heading ('Pricing Custom Swimwear Designs', 'Ready Designs') are clearly subordinate to their medium-weight H2: bold only at body size.",
+      "fix": "In reference.css, lower the weight of .block--faq question titles to 500–600 (their size stays the template's), so the H2 stays the heaviest line of the section."
     }
   ]
 }

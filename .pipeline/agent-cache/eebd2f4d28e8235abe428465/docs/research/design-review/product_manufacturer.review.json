@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "f00cb10f75ee2f0c562c59d9",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "product_manufacturer",
+  "route": "/swimwear-accessories/",
+  "findings": [
+    {
+      "block": "hero",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Still open from the last review: the hero button 'Request a quote for swimwear accessories' sits about 10px above the tinted trust bar on desktops and touches it at 390px, because the media-banner hero has no bottom padding of its own.",
+      "reference": "The competitor leaves about 40px or more of white under its hero buttons ('Request Price', 'Book a Call') before the next section starts.",
+      "fix": "In template.css give .page-hero[data-variant=\"media-banner\"] .page-hero__inner a bottom padding (e.g. calc(var(--section-space) / 2)), so the space under the button sits on the hero's white and not inside the trust bar's tint."
+    },
+    {
+      "block": "featureGrid-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "Still open: featureGrid-1 is set out as a check list beside its heading right under iconList-1, which has the same shape, so two same-shape sections stand one under the other. m9 (a featureGrid set out as a list) followed by m10 (an iconList) repeats this further down.",
+      "reference": "The site rule is that when two same-shape sections meet, the template sets only one of them out as a list beside its heading. The competitor never stacks two lists laid out the same way.",
+      "fix": "In the template's same-shape check, count an iconList as already being a list beside its heading. A featureGrid next to an iconList then keeps its card grid (featureGrid-1 after iconList-1, m9 before m10)."
+    },
+    {
+      "block": "iconList-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Still open: on desktops the iconList item titles ('Standalone orders', 'Exposure and finish', 'Colour approval') are fitted to about 26px bold under a section heading of about 32–34px, so the item level reads almost as heavy as the heading. The point lists in featureGrid-1 and m9 use small bold titles of about 16px, so the page shows two list title sizes. The faq questions repeat this beside their heading.",
+      "reference": "The competitor keeps its bold sub-heads ('Pricing Custom Swimwear Designs', 'Ready Designs', 'Custom Designs') just above body size, clearly below its section headings.",
+      "fix": "In the shared heading-fit step, cap the fitted size of an item h3 (icon-list item, faq question) at desktop widths as is already done on phones, e.g. at about 0.65 of its section h2's fitted size."
+    },
+    {
+      "block": "related",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "Still open: the related-links section is white right after the white owner-testimonials section, so two plain sections in a row share one background while the rest of the page alternates.",
+      "reference": "The site rule is that neighbouring plain sections alternate white and tinted backgrounds, set by the template.",
+      "fix": "In the template's surface alternation, count owner-testimonials after the photo wall media-module-budget-1, so that related takes the --section-tint surface."
+    },
+    {
+      "block": "m6",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The table's rows are split by dark rules under a 2px black header rule. The other row lists on the page (faq-charts, the faq rows, the related links) use the light 18% hairline, so this table reads heavier than everything around it, most of all on phones where it runs ten tall rows.",
+      "reference": "The competitor uses no heavy rules; its dividers are light hairlines.",
+      "fix": "In src/styles/reference.css set .block--table { --border-table: color-mix(in srgb, var(--text-primary) 18%, transparent); } and .block--table .table-block thead th { border-bottom-width: 1px; }."
+    },
+    {
+      "block": "m7",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The blush copy panel and its photo are inset about 20px inside the section's beige tint, so a blush panel sits framed by beige. At 390px this reads as a box inside a box.",
+      "reference": "The competitor's 'Sampling' split runs its blush copy panel and its photo edge to edge at 390px; the blush is the section's only colour.",
+      "fix": "In src/styles/reference.css, below 768px, let .block--split-media[data-variant=\"panel\"] drop its inline inset so the panel and photo run to the band's edges (negative inline margin equal to the container padding), or give that section the panel's blush as its surface so no beige frame shows."
+    },
+    {
+      "block": "faq-charts",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Partly open from the last review: the header now keeps to one line, but values still break into stacks of three or four lines ('Custom- / moulded, / plus mould / fee', 'Rose gold, / gunmetal or / matte black'). The fixed table layout added for small charts misses this chart, because its empty label header counts as a third th.",
+      "reference": "The competitor keeps short figures to one or two lines on phones.",
+      "fix": "In src/styles/reference.css, below 768px, apply table-layout: fixed to charts of up to three columns (e.g. :not(:has(thead th:nth-of-type(4)))) and drop the chart panel's inline padding, so the table uses the column's full width."
+    }
+  ]
+}
