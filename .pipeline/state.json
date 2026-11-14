@@ -110,5 +110,12 @@
     "at": "2026-11-14T07:20:02.701Z",
     "seconds": 0,
     "log": ".pipeline/logs/2026-11-14T07-19-53-295Z/site-media.log"
+  },
+  "feasibility": {
+    "status": "passed",
+    "hash": "a7ceb34bb85a3b5f",
+    "at": "2026-11-14T07:20:03.547Z",
+    "seconds": 0,
+    "log": ".pipeline/logs/2026-11-14T07-19-53-295Z/feasibility.log"
   }
 }

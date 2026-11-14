@@ -1,0 +1,684 @@
+{
+  "schema_version": "sf/handoff-report/v1",
+  "handoff_sha256": "0bf60a3c66db726143f36946159837af68fdf06499f330911837bc7f02fd3415",
+  "made_at": "2026-11-14T07:20:03.474Z",
+  "template": {
+    "commit": "9e2b07178261be8d547ce5e141fdb52ecea7ded5",
+    "block_kinds_sha256": "172172d23deb91683258878752b49f6ddfd74104ce3453803435d34562dc4c28"
+  },
+  "pages": [
+    {
+      "page_id": "home",
+      "route": "/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "iconList",
+        "featureGrid",
+        "splitMedia",
+        "logos",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-a0d1d7027027:product",
+      "route": "/women-s-swimwear-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "featureGrid",
+        "iconList",
+        "table",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-705b55f5501e:product",
+      "route": "/one-piece-swimsuit-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "featureGrid",
+        "iconList",
+        "splitMedia",
+        "table",
+        "process",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-0a2f4a960a8b:product",
+      "route": "/bikini-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "process",
+        "table",
+        "featureGrid",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-6e0b54e5523e:product",
+      "route": "/men-s-swimwear-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "featureGrid",
+        "splitMedia",
+        "iconList",
+        "process",
+        "table",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "inferred:product:5",
+      "route": "/boardshorts-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "featureGrid",
+        "iconList",
+        "splitMedia",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "inferred:product:13",
+      "route": "/swim-trunks-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "table",
+        "featureGrid",
+        "iconList",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-3d3fc0c8dc39:product",
+      "route": "/children-s-swimwear-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "featureGrid",
+        "splitMedia",
+        "iconList",
+        "proof",
+        "process",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "inferred:product:6",
+      "route": "/teen-swimwear-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "splitMedia",
+        "iconList",
+        "process",
+        "featureGrid",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "inferred:product:7",
+      "route": "/baby-swimwear-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "table",
+        "iconList",
+        "featureGrid",
+        "splitMedia",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "inferred:product:8",
+      "route": "/toddler-swimwear-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "table",
+        "featureGrid",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "inferred:product:10",
+      "route": "/modest-swimwear-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "featureGrid",
+        "splitMedia",
+        "iconList",
+        "process",
+        "table",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "inferred:product:3",
+      "route": "/burkini-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "featureGrid",
+        "iconList",
+        "process",
+        "testimonials",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "group:watersports-apparel",
+      "route": "/watersports-apparel-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "splitMedia",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "inferred:product:1",
+      "route": "/rash-guard-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "featureGrid",
+        "iconList",
+        "splitMedia",
+        "proof",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-0cc45987ac6b:product",
+      "route": "/resort-wear-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "iconList",
+        "featureGrid",
+        "splitMedia",
+        "process",
+        "table",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "inferred:product:11",
+      "route": "/cover-up-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "featureGrid",
+        "table",
+        "iconList",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-8404f8cb0b07:service",
+      "route": "/swimwear-embroidery/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "splitMedia",
+        "featureGrid",
+        "iconList",
+        "table",
+        "process",
+        "orderCase",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-c48d984954c3:service",
+      "route": "/swimwear-consulting/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "splitMedia",
+        "featureGrid",
+        "iconList",
+        "process",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-05134426bcd1:service",
+      "route": "/development/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "splitMedia",
+        "featureGrid",
+        "process",
+        "table",
+        "iconList",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-fe2ba46d3673:service",
+      "route": "/swimwear-packaging-custom-brand-labels/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "proof",
+        "splitMedia",
+        "iconList",
+        "featureGrid",
+        "table",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-2cd070a4fc87:service",
+      "route": "/custom-swimwear-printing/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "splitMedia",
+        "featureGrid",
+        "iconList",
+        "process",
+        "proof",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-fb5b6b828f5b:service",
+      "route": "/swimwear-hardware/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "table",
+        "splitMedia",
+        "featureGrid",
+        "process",
+        "iconList",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-3055c652c816:service",
+      "route": "/swimwear-fabrics-sourcing/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "featureGrid",
+        "iconList",
+        "process",
+        "splitMedia",
+        "table",
+        "proof",
+        "orderCase",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-f7c91fefc9c3:service",
+      "route": "/swimwear-launch-services/",
+      "rendered": false,
+      "status": "hold",
+      "components": [
+        "intro",
+        "iconList",
+        "featureGrid",
+        "splitMedia",
+        "process",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "site:about",
+      "route": "/about-us/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "splitMedia",
+        "featureGrid",
+        "process",
+        "iconList",
+        "logos",
+        "testimonials",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "site:contact",
+      "route": "/contact-us/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "iconList",
+        "faq",
+        "form",
+        "contactChannels",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "site:faq",
+      "route": "/faq/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "proof",
+        "featureGrid",
+        "iconList",
+        "splitMedia",
+        "process",
+        "relatedPages",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "site:case_studies_portfolio",
+      "route": "/case-studies/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "orderCase",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "site:sustainability",
+      "route": "/sustainability/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "featureGrid",
+        "iconList",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "site:privacy",
+      "route": "/privacy-policy/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "relatedPages",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "site:terms",
+      "route": "/terms-and-conditions/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "iconList",
+        "proof",
+        "process",
+        "relatedPages",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "site:inquiry",
+      "route": "/request-a-quote/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "iconList",
+        "process",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-2bdd0c3dd288:product",
+      "route": "/swimwear-accessories/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "iconList",
+        "featureGrid",
+        "process",
+        "splitMedia",
+        "table",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-ac87783a1afd:product",
+      "route": "/plus-size-swimwear-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "featureGrid",
+        "iconList",
+        "splitMedia",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "c-6343e1f14c58:product",
+      "route": "/couples-matching-swimsuit-manufacturer/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "iconList",
+        "splitMedia",
+        "featureGrid",
+        "testimonials",
+        "relatedPages",
+        "faq",
+        "cta"
+      ],
+      "missing_components": []
+    },
+    {
+      "page_id": "blog",
+      "route": "/blog/",
+      "rendered": false,
+      "status": "authored",
+      "components": [
+        "intro",
+        "table",
+        "cta"
+      ],
+      "missing_components": []
+    }
+  ],
+  "owner_items": [
+    {
+      "id": "OT-supply-32c093c2",
+      "status": "pending"
+    },
+    {
+      "id": "OT-supply-d05d7c7c",
+      "status": "pending"
+    },
+    {
+      "id": "OT-supply-31249e96",
+      "status": "pending"
+    },
+    {
+      "id": "OT-supply-be83e346",
+      "status": "pending"
+    },
+    {
+      "id": "OT-confirm-a6a809d0",
+      "status": "not_held"
+    },
+    {
+      "id": "OT-confirm-931fdb59",
+      "status": "not_held"
+    },
+    {
+      "id": "OT-confirm-7bfa956e",
+      "status": "not_held"
+    },
+    {
+      "id": "OT-confirm-1987a402",
+      "status": "pending"
+    }
+  ],
+  "issues": [],
+  "notes_zh": "08 没有发现要由 Site Factory 改的问题。"
+}
