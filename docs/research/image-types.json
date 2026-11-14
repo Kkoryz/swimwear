@@ -604,16 +604,22 @@
           [
             "burkini-lifestyle-1",
             "a photo of the product in use"
+          ],
+          [
+            "burkini-lifestyle-2",
+            "a photo of the product in use"
           ]
         ]
       },
       "read": {
         "burkini-hero-1": 4,
-        "burkini-lifestyle-1": 0
+        "burkini-lifestyle-1": 0,
+        "burkini-lifestyle-2": 3
       },
       "slots": {
         "burkini-hero-1": 4,
-        "burkini-lifestyle-1": 0
+        "burkini-lifestyle-1": 0,
+        "burkini-lifestyle-2": 3
       }
     },
     "couples matching swimsuit": {
@@ -883,6 +889,10 @@
           [
             "general-lifestyle-5",
             "a photo of the product in use"
+          ],
+          [
+            "general-lifestyle-6",
+            "a photo of the product in use"
           ]
         ]
       },
@@ -903,7 +913,8 @@
         "general-lifestyle-1": 0,
         "general-lifestyle-2": 3,
         "general-lifestyle-3": 0,
-        "general-lifestyle-5": 3
+        "general-lifestyle-5": 3,
+        "general-lifestyle-6": 0
       },
       "slots": {
         "general-hero-1": 4,
@@ -922,7 +933,8 @@
         "general-lifestyle-1": 0,
         "general-lifestyle-2": 3,
         "general-lifestyle-3": 0,
-        "general-lifestyle-5": 3
+        "general-lifestyle-5": 3,
+        "general-lifestyle-6": 0
       }
     },
     "men's swimwear": {
@@ -984,16 +996,22 @@
           [
             "men-s-swimwear-lifestyle-1",
             "a photo of the product in use"
+          ],
+          [
+            "men-s-swimwear-lifestyle-2",
+            "a photo of the product in use"
           ]
         ]
       },
       "read": {
         "men-s-swimwear-hero-1": 4,
-        "men-s-swimwear-lifestyle-1": 0
+        "men-s-swimwear-lifestyle-1": 0,
+        "men-s-swimwear-lifestyle-2": 1
       },
       "slots": {
         "men-s-swimwear-hero-1": 4,
-        "men-s-swimwear-lifestyle-1": 0
+        "men-s-swimwear-lifestyle-1": 0,
+        "men-s-swimwear-lifestyle-2": 1
       }
     },
     "modest swimwear": {
@@ -1564,21 +1582,15 @@
         ],
         "photos": [
           [
-            "women-s-swimwear-hero-1",
-            "the page hero"
-          ],
-          [
             "women-s-swimwear-lifestyle-1",
             "a photo of the product in use"
           ]
         ]
       },
       "read": {
-        "women-s-swimwear-hero-1": 4,
         "women-s-swimwear-lifestyle-1": 0
       },
       "slots": {
-        "women-s-swimwear-hero-1": 4,
         "women-s-swimwear-lifestyle-1": 0
       }
     }
