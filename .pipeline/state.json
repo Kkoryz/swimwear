@@ -82,5 +82,12 @@
     "at": "2026-11-14T07:19:13.975Z",
     "seconds": 812,
     "log": ".pipeline/logs/2026-11-14T07-03-58-499Z/treatment.log"
+  },
+  "fonts": {
+    "status": "failed",
+    "hash": "9e3e070e28daaf1d",
+    "at": "2026-11-14T07:19:14.724Z",
+    "seconds": 0,
+    "log": ".pipeline/logs/2026-11-14T07-03-58-499Z/fonts.log"
   }
 }
