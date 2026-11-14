@@ -1,7 +1,7 @@
 {
   "schemaVersion": "seo-site-template-core-v1",
   "source": "../seo_website_template/.claude/worktrees/interesting-chebyshev-c9933c",
-  "commit": "f8f324ffacc629da7e65bccfcf1ab4c7d0334017",
+  "commit": "dfa374b8bf87b9e04331b761d98193beafea9cdf",
   "dirty": false,
   "from": "commit",
   "uncommitted": [],
@@ -162,7 +162,7 @@
     "scripts/lib/trial-build.mjs": "cfada4d31f690fbe8591f0966602527a6d415c90d7cc7e752c1e9356e75456fa",
     "scripts/lib/verified-build.mjs": "ee308fd418018b9b10a347e0ec61cfbe01dcdf034ad1d069fb67c9d5e3e752c8",
     "scripts/lib/visual-budget.mjs": "dfa1b5d88106507892c0759cb36a4b461b9478dd2fa4cfb4f7b4dfc60364d106",
-    "scripts/lib/visual-checks.mjs": "7f3e6764ff883e870de803f60d2cff8669e9a063447af280fcd76d0acefa14aa",
+    "scripts/lib/visual-checks.mjs": "b5ff4a498efef80e7ef03029e5fe5a4f26ae9b1c36f31e415b3b7d0c696bcc26",
     "scripts/lib/visual-data.mjs": "8d6a7d37973d11c881aeb97d09c77c939d0b9446f198fb01fa824afa426a5ab3",
     "scripts/lib/web-image.mjs": "07ab50c5aa8d8badf91561c91626ce45eb47ca9bb5857095ff122a68969b49c2",
     "scripts/list-css-hooks.mjs": "e72aff55ecffc9a1c46c3e2942bff24c5c00f8ce437c38abfff9054e7d56bab3",
@@ -360,7 +360,7 @@
     "src/components/blocks/TextFlow.astro": "df2cea6baea5b33656bf1e5a64c5d8606fc986ecbe797e8c446411513eb4854f",
     "src/components/blocks/Track.astro": "45f507cc6bd537055b45ee286c9899089172df83fa99886ce9ff8de1ed201cca",
     "src/components/blog/ArticleChart.astro": "dc43cddf2b9ba17d0c6967cf6720e64c28ed03d6b25927fc5532a028798273d8",
-    "src/components/blog/BlogHubView.astro": "dae1bfae2980d7da1560aecbc637b1846e73a7e572a47a7b7befe6b8b4a3d06d",
+    "src/components/blog/BlogHubView.astro": "67cdab5561446db5c30766a3e761d61dfdb40e2c7e15bf50738763ab2cceafe6",
     "src/components/blog/BlogPostView.astro": "85e8c0960373f2c4ce2025a133b517be8096be8a90dccbfdfdc7b3146e7c0443",
     "src/components/blog/InlineText.astro": "dabeaffdd85bd4cf01f6dd886e9d0e17d33812cdb73ef895fb540aad5c7310f6",
     "src/components/blog/PostDate.astro": "179cbe0eee7752a0009dae2b4733308c3719a11664f438bac1ef383ac7b61873",
@@ -388,7 +388,7 @@
     "src/pages/style-board/[...view].astro": "58b462eb4f16d6788fad40dd6b5b6d21d8d1db02d3dc4595bae3a704c355eb68",
     "src/pages/[...slug].astro": "a451a4fb22d368ac25ada7664f5c81734374554dc2cca165a6f4bd0fe2879c8a",
     "src/styles/template.css": "fd65ed937a1f6c22a1b41c1bdbd4bddc63352ec6db4d5b21727c223c4ef8c537",
-    "src/styles/patterns.css": "1a7bf935a69eea7402219997e35d765b410bf22feb8a0629fef0f6c3c9d91753",
+    "src/styles/patterns.css": "9c7e577fc3d16c6e916d8566727ef657d267fbe1fccc742dcd5cd8ae4a2663af",
     ".claude/skills/seo-site-template/SKILL.md": "673345a6e14c980bb3c694fee7ac270706201d27c0524edfe57e811d22472a75",
     "docs/research/CSS_HOOKS.md": "6ffcbd7d47811ece72b5690eaf8975fe5ff92ec963835cf22909312ad6de2f46"
   }

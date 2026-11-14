@@ -236,5 +236,12 @@
     "at": "2026-11-14T09:14:15.505Z",
     "seconds": 0,
     "log": ".pipeline/logs/2026-11-14T07-38-16-013Z/content.log"
+  },
+  "audits": {
+    "status": "failed",
+    "hash": "69d6d531baec739d",
+    "at": "2026-11-14T09:16:10.989Z",
+    "seconds": 115,
+    "log": ".pipeline/logs/2026-11-14T07-38-16-013Z/audits.log"
   }
 }

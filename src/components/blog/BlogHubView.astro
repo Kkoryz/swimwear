@@ -4,7 +4,8 @@
 // banner (a photo banner with the heading over it).
 import { cardSet, cardSetColumns } from '../../../scripts/lib/block-layout.mjs';
 import { heroLeadShown } from '../../../scripts/lib/heading-fit.mjs';
-import { blockVariant, blogVariants, focusStyle, pageMedia, variants, type AuthoringPage, type PostListBlock } from '../../lib/authoring';
+import { withMediaModules } from '../../../scripts/lib/media-slots.mjs';
+import { blockVariant, blogVariants, focusStyle, isBuilt, pageMedia, variants, type AuthoringPage, type PostListBlock } from '../../lib/authoring';
 import { BLOCKS, type BlockEntry } from '../blocks/registry';
 import Breadcrumbs from '../site/Breadcrumbs.astro';
 import InlineText from './InlineText.astro';
@@ -16,11 +17,14 @@ const { page } = Astro.props;
 const header = blogVariants.hub.header;
 // The hub's own blocks (Site Factory's copy, lib/blog.mjs hubPages) around its post list, each by its registry component.
 const list = page.blocks.find((block) => block.type === 'postList') as PostListBlock | undefined;
+// The blocks as every other page places them (media-slots.mjs withMediaModules): a section's steps drawn after it, as
+// the layout audit and the image plan count them (Strandmill 2026-11-14: the hub's intro steps were not drawn).
+const blocks = withMediaModules(page, variants, { isBuilt }) as AuthoringPage['blocks'];
 const plan = pageMedia(page.route);
 let splits = 0;
 // A card set going on in grids of its own keeps one card width, as on every other page (PageView, block-layout.mjs).
-const setColumns = cardSetColumns(page.blocks);
-const own = page.blocks.map((source, index) => {
+const setColumns = cardSetColumns(blocks);
+const own = blocks.map((source, index) => {
   if (source.type === 'postList') return null;
   const columns = source.type === 'featureGrid' ? setColumns.get(cardSet(source)) : undefined;
   const block = columns ? { ...source, setColumns: columns } : source;

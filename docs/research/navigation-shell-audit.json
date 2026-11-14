@@ -1,0 +1,322 @@
+{
+  "schemaVersion": "seo-site-navigation-audit-v1",
+  "baseUrl": "http://127.0.0.1:52694/",
+  "captureAll": false,
+  "routeCount": 37,
+  "representativeRoutes": [
+    "/",
+    "/women-s-swimwear-manufacturer/",
+    "/swimwear-embroidery/",
+    "/about-us/",
+    "/contact-us/"
+  ],
+  "failures": [],
+  "results": [
+    {
+      "route": "/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": [],
+      "mobileH1Count": 1,
+      "mobileHorizontalOverflow": false
+    },
+    {
+      "route": "/women-s-swimwear-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": [],
+      "mobileH1Count": 1,
+      "mobileHorizontalOverflow": false
+    },
+    {
+      "route": "/one-piece-swimsuit-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/bikini-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/men-s-swimwear-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/boardshorts-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/swim-trunks-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/children-s-swimwear-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/teen-swimwear-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/baby-swimwear-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/toddler-swimwear-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/modest-swimwear-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/burkini-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/watersports-apparel-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/rash-guard-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/resort-wear-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/cover-up-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/swimwear-embroidery/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": [],
+      "mobileH1Count": 1,
+      "mobileHorizontalOverflow": false
+    },
+    {
+      "route": "/swimwear-consulting/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/development/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/swimwear-packaging-custom-brand-labels/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/custom-swimwear-printing/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/swimwear-hardware/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/swimwear-fabrics-sourcing/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/swimwear-launch-services/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/about-us/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": [],
+      "mobileH1Count": 1,
+      "mobileHorizontalOverflow": false
+    },
+    {
+      "route": "/contact-us/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": [],
+      "mobileH1Count": 1,
+      "mobileHorizontalOverflow": false
+    },
+    {
+      "route": "/faq/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/case-studies/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/sustainability/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/privacy-policy/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/terms-and-conditions/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/request-a-quote/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/swimwear-accessories/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/plus-size-swimwear-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/couples-matching-swimsuit-manufacturer/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    },
+    {
+      "route": "/blog/",
+      "status": 200,
+      "h1Count": 1,
+      "horizontalOverflow": false,
+      "sourceOriginLinks": [],
+      "unresolvedLinks": []
+    }
+  ]
+}

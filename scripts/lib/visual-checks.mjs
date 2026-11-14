@@ -232,9 +232,11 @@ export function measurePage() {
   const starts = new Map();
   for (const paragraph of running.filter((item) => setAs(item) === 'start' && !inPanel(item))) { const left = inkLeft(paragraph); if (left !== null) starts.set(left, (starts.get(left) ?? 0) + 1); }
   const textAxis = [...starts].sort((left, right) => right[1] - left[1])[0]?.[0] ?? null;
-  // Running text set centred, by its lines: centring a paragraph to match a centred heading is not lining them up.
+  // Running text set centred, by its lines: centring a paragraph to match a centred heading is not lining them up. A
+  // page hero's lead is not: it sits under the page title, centred with it where the competitor centres its hero
+  // (Strandmill 2026-11-14: the about and contact heroes, as swimwearbali.com's).
   const lineCount = (element) => { const range = document.createRange(); range.selectNodeContents(element); return new Set([...range.getClientRects()].filter((rect) => rect.width > 1).map((rect) => Math.round(rect.top))).size; };
-  const centred = running.filter((paragraph) => setAs(paragraph) === 'centre').map((paragraph) => ({ block: paragraph.closest('[data-block-id]')?.getAttribute('data-block-id') ?? null, lines: lineCount(paragraph), text: paragraph.textContent.trim().slice(0, 50) }));
+  const centred = running.filter((paragraph) => setAs(paragraph) === 'centre' && !paragraph.closest('[data-authoring-block="hero"]')).map((paragraph) => ({ block: paragraph.closest('[data-block-id]')?.getAttribute('data-block-id') ?? null, lines: lineCount(paragraph), text: paragraph.textContent.trim().slice(0, 50) }));
   // Each section heading: where its text starts, whether it is centred, and whether it sits in a boxed panel (its own
   // inset, as a card's title). headingAxes compares them with the reference's heading alignment.
   // A card's or list item's own title (an h2 in a grid without a section heading) is no section heading.

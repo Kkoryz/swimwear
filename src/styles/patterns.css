@@ -871,8 +871,9 @@ main[data-page-type="privacy"] .block--intro :is(h2, h3, p, li) { text-align: le
 
 /* Section headings on one axis where the reference sets them on the content's left edge (data-heading-align start,
    measured from its pages): the proof modules' headings and leads, and a text section, start there too instead of the
-   template's centred defaults (owner 2026-11-12: headings left, centred and indented on one page looked off). */
-body[data-heading-align="start"] :is(.stats__heading, .logos__heading, .testimonials__heading, .table-block__heading, .certifications__heading, .cases__heading, .styles__heading, .order-case__heading, .pricing__heading, .swatches__heading, .related__heading) { text-align: start; }
+   template's centred defaults (owner 2026-11-12: headings left, centred and indented on one page looked off). Card grids
+   and steps too (Strandmill 2026-11-14: their centred headings over flush cards failed mixed_text_alignment on 20 pages). */
+body[data-heading-align="start"] :is(.feature-grid__heading, .process__heading, .stats__heading, .logos__heading, .testimonials__heading, .table-block__heading, .certifications__heading, .cases__heading, .styles__heading, .order-case__heading, .pricing__heading, .swatches__heading, .related__heading) { text-align: start; }
 body[data-heading-align="start"] { --lead-inline: 0; --lead-align: start; }
 body[data-heading-align="start"] .table-block__lead { margin-inline: 0; text-align: start; }
 body[data-heading-align="start"] .block--intro[data-variant="text"] .text-block { margin-inline: 0; }
