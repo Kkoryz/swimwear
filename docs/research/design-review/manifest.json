@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-shots-v1",
-  "id": "e80e5bd1cdbd3a5b",
+  "id": "bde6bf9702a04112",
   "pages": [
     {
       "key": "home",
@@ -10,9 +10,9 @@
       "words": 2180,
       "route": "/",
       "status": "authored",
-      "source": "a37fa0f6cdb4503b28b49035",
+      "source": "678c91aa4eb02c4f0e8a977b",
       "rules": "896e2a6360c1caaa",
-      "shots": "daa0e88df29b1c960fed46ba",
+      "shots": "0fdd9d1d375a7c90d1c30926",
       "images": [
         "docs/research/design-review/home-desktop-1.png",
         "docs/research/design-review/home-desktop-2.png",
@@ -423,7 +423,7 @@
             "id": "overview-steps",
             "type": "process",
             "top": 1809,
-            "height": 566,
+            "height": 601,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -433,14 +433,14 @@
           {
             "id": "media-module-budget-2",
             "type": "gallery",
-            "top": 2375,
+            "top": 2410,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "iconList-1",
             "type": "iconList",
-            "top": 2740,
+            "top": 2775,
             "height": 666,
             "imageShare": 0,
             "align": {
@@ -450,14 +450,14 @@
           {
             "id": "media-module-2",
             "type": "gallery",
-            "top": 3406,
+            "top": 3441,
             "height": 389,
             "imageShare": 0.75
           },
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 3794,
+            "top": 3829,
             "height": 1126,
             "imageShare": 0,
             "align": {
@@ -468,7 +468,7 @@
           {
             "id": "m2-2",
             "type": "featureGrid",
-            "top": 4920,
+            "top": 4955,
             "height": 886,
             "imageShare": 0,
             "align": {
@@ -479,7 +479,7 @@
           {
             "id": "m2-3",
             "type": "featureGrid",
-            "top": 5806,
+            "top": 5841,
             "height": 549,
             "imageShare": 0,
             "align": {
@@ -490,7 +490,7 @@
           {
             "id": "featureGrid-1",
             "type": "featureGrid",
-            "top": 6354,
+            "top": 6389,
             "height": 1177,
             "imageShare": 0,
             "align": {
@@ -501,7 +501,7 @@
           {
             "id": "featureGrid-2",
             "type": "featureGrid",
-            "top": 7531,
+            "top": 7566,
             "height": 1039,
             "imageShare": 0,
             "align": {
@@ -512,7 +512,7 @@
           {
             "id": "featureGrid-3",
             "type": "featureGrid",
-            "top": 8569,
+            "top": 8604,
             "height": 696,
             "imageShare": 0,
             "align": {
@@ -523,14 +523,14 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 9265,
+            "top": 9300,
             "height": 249,
             "imageShare": 0.59
           },
           {
             "id": "m3",
             "type": "featureGrid",
-            "top": 9514,
+            "top": 9550,
             "height": 740,
             "imageShare": 0,
             "align": {
@@ -541,7 +541,7 @@
           {
             "id": "m3-2",
             "type": "featureGrid",
-            "top": 10255,
+            "top": 10290,
             "height": 572,
             "imageShare": 0,
             "align": {
@@ -552,7 +552,7 @@
           {
             "id": "featureGrid-4",
             "type": "featureGrid",
-            "top": 10827,
+            "top": 10862,
             "height": 807,
             "imageShare": 0,
             "align": {
@@ -563,7 +563,7 @@
           {
             "id": "featureGrid-5",
             "type": "featureGrid",
-            "top": 11634,
+            "top": 11669,
             "height": 598,
             "imageShare": 0,
             "align": {
@@ -574,7 +574,7 @@
           {
             "id": "featureGrid-6",
             "type": "featureGrid",
-            "top": 12231,
+            "top": 12266,
             "height": 651,
             "imageShare": 0,
             "align": {
@@ -585,7 +585,7 @@
           {
             "id": "featureGrid-7",
             "type": "featureGrid",
-            "top": 12882,
+            "top": 12917,
             "height": 1053,
             "imageShare": 0,
             "align": {
@@ -596,7 +596,7 @@
           {
             "id": "featureGrid-8",
             "type": "featureGrid",
-            "top": 13934,
+            "top": 13969,
             "height": 807,
             "imageShare": 0,
             "align": {
@@ -607,7 +607,7 @@
           {
             "id": "featureGrid-9",
             "type": "featureGrid",
-            "top": 14741,
+            "top": 14776,
             "height": 782,
             "imageShare": 0,
             "align": {
@@ -618,7 +618,7 @@
           {
             "id": "featureGrid-10",
             "type": "featureGrid",
-            "top": 15523,
+            "top": 15558,
             "height": 855,
             "imageShare": 0,
             "align": {
@@ -629,7 +629,7 @@
           {
             "id": "m4",
             "type": "splitMedia",
-            "top": 16377,
+            "top": 16412,
             "height": 922,
             "imageShare": 0.34,
             "align": {
@@ -640,21 +640,21 @@
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 17299,
+            "top": 17335,
             "height": 804,
             "imageShare": 0.39
           },
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 18103,
+            "top": 18138,
             "height": 821,
             "imageShare": 0.38
           },
           {
             "id": "owner-logos",
             "type": "logos",
-            "top": 18924,
+            "top": 18959,
             "height": 204,
             "imageShare": 0,
             "align": {
@@ -664,7 +664,7 @@
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 19128,
+            "top": 19163,
             "height": 461,
             "imageShare": 0,
             "align": {
@@ -675,7 +675,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 19589,
+            "top": 19624,
             "height": 326,
             "imageShare": 0,
             "align": {
@@ -685,14 +685,14 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 19915,
+            "top": 19950,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "faq",
             "type": "faq",
-            "top": 20279,
+            "top": 20314,
             "height": 750,
             "imageShare": 0,
             "align": {
@@ -703,15 +703,15 @@
           {
             "id": "media-module-budget-3",
             "type": "gallery",
-            "top": 21029,
+            "top": 21064,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "cta-steps",
             "type": "process",
-            "top": 21394,
-            "height": 536,
+            "top": 21429,
+            "height": 572,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -721,7 +721,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 21930,
+            "top": 22000,
             "height": 619,
             "imageShare": 0.79,
             "align": {
@@ -817,9 +817,9 @@
       "words": 1362,
       "route": "/about-us/",
       "status": "authored",
-      "source": "4071d619c8dd9cb292fb8609",
+      "source": "b648d4975d459edba1c61d93",
       "rules": "896e2a6360c1caaa",
-      "shots": "526c54befe7208211809f537",
+      "shots": "c744037225bbef0a4486befe",
       "images": [
         "docs/research/design-review/about-desktop-1.png",
         "docs/research/design-review/about-desktop-2.png",
@@ -1241,9 +1241,9 @@
       "words": 1907,
       "route": "/faq/",
       "status": "authored",
-      "source": "546dcade0db4e50f826cba12",
+      "source": "06bd20ed4247a79769947d40",
       "rules": "896e2a6360c1caaa",
-      "shots": "0deef94500a5300c6c06f448",
+      "shots": "10fd15c5b3b542c7eaa483fe",
       "images": [
         "docs/research/design-review/general-desktop-1.png",
         "docs/research/design-review/general-desktop-2.png",
@@ -1305,7 +1305,7 @@
             "id": "proof-1",
             "type": "proof",
             "top": 1974,
-            "height": 283,
+            "height": 312,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1315,14 +1315,14 @@
           {
             "id": "proof-2",
             "type": "proof",
-            "top": 2257,
-            "height": 173,
+            "top": 2286,
+            "height": 202,
             "imageShare": 0
           },
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 2430,
+            "top": 2489,
             "height": 405,
             "imageShare": 0,
             "align": {
@@ -1333,7 +1333,7 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 2836,
+            "top": 2894,
             "height": 343,
             "imageShare": 0,
             "align": {
@@ -1343,7 +1343,7 @@
           {
             "id": "m6",
             "type": "iconList",
-            "top": 3179,
+            "top": 3237,
             "height": 642,
             "imageShare": 0,
             "align": {
@@ -1353,7 +1353,7 @@
           {
             "id": "m4",
             "type": "splitMedia",
-            "top": 3821,
+            "top": 3879,
             "height": 264,
             "imageShare": 0,
             "align": {
@@ -1364,7 +1364,7 @@
           {
             "id": "m5",
             "type": "proof",
-            "top": 4085,
+            "top": 4144,
             "height": 253,
             "imageShare": 0,
             "align": {
@@ -1375,14 +1375,14 @@
           {
             "id": "m5-charts",
             "type": "charts",
-            "top": 4338,
+            "top": 4396,
             "height": 417,
             "imageShare": 0
           },
           {
             "id": "m7",
             "type": "iconList",
-            "top": 4755,
+            "top": 4813,
             "height": 892,
             "imageShare": 0,
             "align": {
@@ -1392,7 +1392,7 @@
           {
             "id": "iconList-1",
             "type": "iconList",
-            "top": 5647,
+            "top": 5705,
             "height": 343,
             "imageShare": 0,
             "align": {
@@ -1403,7 +1403,7 @@
           {
             "id": "m8",
             "type": "proof",
-            "top": 5990,
+            "top": 6049,
             "height": 304,
             "imageShare": 0,
             "align": {
@@ -1414,14 +1414,14 @@
           {
             "id": "m8-steps",
             "type": "process",
-            "top": 6294,
-            "height": 366,
+            "top": 6352,
+            "height": 373,
             "imageShare": 0
           },
           {
             "id": "process-1",
             "type": "process",
-            "top": 6661,
+            "top": 6725,
             "height": 614,
             "imageShare": 0,
             "align": {
@@ -1431,7 +1431,7 @@
           {
             "id": "proof-3",
             "type": "proof",
-            "top": 7275,
+            "top": 7340,
             "height": 322,
             "imageShare": 0,
             "align": {
@@ -1442,14 +1442,14 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 7597,
+            "top": 7662,
             "height": 806,
             "imageShare": 0.89
           },
           {
             "id": "proof-4",
             "type": "proof",
-            "top": 8403,
+            "top": 8468,
             "height": 352,
             "imageShare": 0,
             "align": {
@@ -1460,7 +1460,7 @@
           {
             "id": "m9",
             "type": "iconList",
-            "top": 8755,
+            "top": 8820,
             "height": 369,
             "imageShare": 0,
             "align": {
@@ -1470,7 +1470,7 @@
           {
             "id": "m10",
             "type": "splitMedia",
-            "top": 9124,
+            "top": 9189,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -1481,7 +1481,7 @@
           {
             "id": "m11",
             "type": "proof",
-            "top": 9881,
+            "top": 9946,
             "height": 278,
             "imageShare": 0,
             "align": {
@@ -1492,35 +1492,35 @@
           {
             "id": "m11-charts",
             "type": "charts",
-            "top": 10160,
-            "height": 166,
+            "top": 10225,
+            "height": 195,
             "imageShare": 0
           },
           {
             "id": "proof-5",
             "type": "proof",
-            "top": 10325,
-            "height": 79,
+            "top": 10419,
+            "height": 137,
             "imageShare": 0
           },
           {
             "id": "proof-6",
             "type": "proof",
-            "top": 10404,
-            "height": 144,
+            "top": 10557,
+            "height": 202,
             "imageShare": 0
           },
           {
             "id": "proof-7",
             "type": "proof",
-            "top": 10548,
-            "height": 246,
+            "top": 10759,
+            "height": 276,
             "imageShare": 0
           },
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 10795,
+            "top": 11035,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -1531,7 +1531,7 @@
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 11552,
+            "top": 11792,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -1542,7 +1542,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 12310,
+            "top": 12550,
             "height": 230,
             "imageShare": 0,
             "align": {
@@ -1552,7 +1552,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 12540,
+            "top": 12780,
             "height": 691,
             "imageShare": 0.85,
             "align": {
@@ -1597,7 +1597,7 @@
             "id": "overview-steps",
             "type": "process",
             "top": 1279,
-            "height": 671,
+            "height": 678,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1607,8 +1607,8 @@
           {
             "id": "proof-1",
             "type": "proof",
-            "top": 1951,
-            "height": 444,
+            "top": 1957,
+            "height": 466,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -1618,14 +1618,14 @@
           {
             "id": "proof-2",
             "type": "proof",
-            "top": 2394,
-            "height": 294,
+            "top": 2423,
+            "height": 316,
             "imageShare": 0
           },
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 2688,
+            "top": 2738,
             "height": 822,
             "imageShare": 0,
             "align": {
@@ -1636,7 +1636,7 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 3510,
+            "top": 3560,
             "height": 554,
             "imageShare": 0,
             "align": {
@@ -1646,7 +1646,7 @@
           {
             "id": "m6",
             "type": "iconList",
-            "top": 4063,
+            "top": 4114,
             "height": 933,
             "imageShare": 0,
             "align": {
@@ -1656,7 +1656,7 @@
           {
             "id": "m4",
             "type": "splitMedia",
-            "top": 4997,
+            "top": 5047,
             "height": 442,
             "imageShare": 0,
             "align": {
@@ -1667,7 +1667,7 @@
           {
             "id": "m5",
             "type": "proof",
-            "top": 5438,
+            "top": 5489,
             "height": 343,
             "imageShare": 0,
             "align": {
@@ -1678,14 +1678,14 @@
           {
             "id": "m5-charts",
             "type": "charts",
-            "top": 5781,
+            "top": 5832,
             "height": 534,
             "imageShare": 0
           },
           {
             "id": "m7",
             "type": "iconList",
-            "top": 6316,
+            "top": 6366,
             "height": 1358,
             "imageShare": 0,
             "align": {
@@ -1695,7 +1695,7 @@
           {
             "id": "iconList-1",
             "type": "iconList",
-            "top": 7673,
+            "top": 7724,
             "height": 776,
             "imageShare": 0,
             "align": {
@@ -1706,7 +1706,7 @@
           {
             "id": "m8",
             "type": "proof",
-            "top": 8449,
+            "top": 8500,
             "height": 420,
             "imageShare": 0,
             "align": {
@@ -1717,14 +1717,14 @@
           {
             "id": "m8-steps",
             "type": "process",
-            "top": 8869,
-            "height": 553,
+            "top": 8919,
+            "height": 588,
             "imageShare": 0
           },
           {
             "id": "process-1",
             "type": "process",
-            "top": 9422,
+            "top": 9507,
             "height": 1042,
             "imageShare": 0,
             "align": {
@@ -1734,7 +1734,7 @@
           {
             "id": "proof-3",
             "type": "proof",
-            "top": 10464,
+            "top": 10549,
             "height": 436,
             "imageShare": 0,
             "align": {
@@ -1745,14 +1745,14 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 10900,
+            "top": 10985,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "proof-4",
             "type": "proof",
-            "top": 11264,
+            "top": 11350,
             "height": 501,
             "imageShare": 0,
             "align": {
@@ -1763,7 +1763,7 @@
           {
             "id": "m9",
             "type": "iconList",
-            "top": 11765,
+            "top": 11851,
             "height": 554,
             "imageShare": 0,
             "align": {
@@ -1773,7 +1773,7 @@
           {
             "id": "m10",
             "type": "splitMedia",
-            "top": 12319,
+            "top": 12404,
             "height": 969,
             "imageShare": 0.32,
             "align": {
@@ -1784,7 +1784,7 @@
           {
             "id": "m11",
             "type": "proof",
-            "top": 13288,
+            "top": 13373,
             "height": 369,
             "imageShare": 0,
             "align": {
@@ -1795,35 +1795,35 @@
           {
             "id": "m11-charts",
             "type": "charts",
-            "top": 13656,
-            "height": 172,
+            "top": 13742,
+            "height": 194,
             "imageShare": 0
           },
           {
             "id": "proof-5",
             "type": "proof",
-            "top": 13828,
-            "height": 156,
+            "top": 13936,
+            "height": 200,
             "imageShare": 0
           },
           {
             "id": "proof-6",
             "type": "proof",
-            "top": 13984,
-            "height": 246,
+            "top": 14135,
+            "height": 290,
             "imageShare": 0
           },
           {
             "id": "proof-7",
             "type": "proof",
-            "top": 14230,
-            "height": 345,
+            "top": 14425,
+            "height": 367,
             "imageShare": 0
           },
           {
             "id": "splitMedia-1",
             "type": "splitMedia",
-            "top": 14575,
+            "top": 14793,
             "height": 956,
             "imageShare": 0.33,
             "align": {
@@ -1834,7 +1834,7 @@
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
-            "top": 15531,
+            "top": 15748,
             "height": 865,
             "imageShare": 0.36,
             "align": {
@@ -1845,7 +1845,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 16396,
+            "top": 16614,
             "height": 206,
             "imageShare": 0,
             "align": {
@@ -1855,7 +1855,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 16602,
+            "top": 16820,
             "height": 404,
             "imageShare": 0.74,
             "align": {
@@ -1946,9 +1946,9 @@
       "words": 983,
       "route": "/case-studies/",
       "status": "authored",
-      "source": "810bacdf3d985be685fc523d",
+      "source": "6ebf1b43bce7a31e40d12755",
       "rules": "896e2a6360c1caaa",
-      "shots": "71291944936ec50369bebd5f",
+      "shots": "4f97eeddda3b1fe9541442a4",
       "images": [
         "docs/research/design-review/general--shortest-desktop-1.png",
         "docs/research/design-review/general--shortest-desktop-2.png",
@@ -2042,13 +2042,13 @@
             "id": "faq-steps",
             "type": "process",
             "top": 4621,
-            "height": 392,
+            "height": 373,
             "imageShare": 0
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 5013,
+            "top": 4994,
             "height": 691,
             "imageShare": 0.85,
             "align": {
@@ -2093,7 +2093,7 @@
             "id": "overview-steps",
             "type": "process",
             "top": 1429,
-            "height": 719,
+            "height": 732,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2103,14 +2103,14 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 2148,
+            "top": 2161,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "cases",
             "type": "orderCase",
-            "top": 2513,
+            "top": 2526,
             "height": 714,
             "imageShare": 0,
             "align": {
@@ -2121,7 +2121,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 3227,
+            "top": 3240,
             "height": 271,
             "imageShare": 0,
             "align": {
@@ -2131,7 +2131,7 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 3498,
+            "top": 3511,
             "height": 1692,
             "imageShare": 0,
             "align": {
@@ -2142,14 +2142,14 @@
           {
             "id": "faq-steps",
             "type": "process",
-            "top": 5190,
-            "height": 601,
+            "top": 5203,
+            "height": 614,
             "imageShare": 0
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 5790,
+            "top": 5816,
             "height": 431,
             "imageShare": 0.75,
             "align": {
@@ -2242,9 +2242,9 @@
       "words": 701,
       "route": "/terms-and-conditions/",
       "status": "authored",
-      "source": "9592f96b1aff2e3194a24d0e",
+      "source": "4fefb0ebc1c6cae20c51b0ff",
       "rules": "896e2a6360c1caaa",
-      "shots": "fa24882980bea7e578f858c2",
+      "shots": "dc7535971eace971894c9bd7",
       "images": [
         "docs/research/design-review/privacy-desktop-1.png",
         "docs/research/design-review/privacy-desktop-2.png",
@@ -2291,7 +2291,7 @@
             "id": "m2",
             "type": "iconList",
             "top": 1810,
-            "height": 562,
+            "height": 591,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2301,28 +2301,28 @@
           {
             "id": "proof-1",
             "type": "proof",
-            "top": 2371,
-            "height": 217,
+            "top": 2401,
+            "height": 246,
             "imageShare": 0
           },
           {
             "id": "proof-1-charts",
             "type": "charts",
-            "top": 2588,
-            "height": 133,
+            "top": 2647,
+            "height": 162,
             "imageShare": 0
           },
           {
             "id": "proof-2",
             "type": "proof",
-            "top": 2721,
-            "height": 207,
+            "top": 2808,
+            "height": 236,
             "imageShare": 0
           },
           {
             "id": "process-1",
             "type": "process",
-            "top": 2928,
+            "top": 3045,
             "height": 319,
             "imageShare": 0,
             "align": {
@@ -2333,7 +2333,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 3247,
+            "top": 3363,
             "height": 230,
             "imageShare": 0,
             "align": {
@@ -2343,7 +2343,7 @@
           {
             "id": "cta-steps",
             "type": "process",
-            "top": 3477,
+            "top": 3593,
             "height": 567,
             "imageShare": 0,
             "align": {
@@ -2354,7 +2354,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 4044,
+            "top": 4160,
             "height": 691,
             "imageShare": 0.85,
             "align": {
@@ -2402,7 +2402,7 @@
             "id": "m2",
             "type": "iconList",
             "top": 2392,
-            "height": 967,
+            "height": 989,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2412,28 +2412,28 @@
           {
             "id": "proof-1",
             "type": "proof",
-            "top": 3359,
-            "height": 367,
+            "top": 3381,
+            "height": 389,
             "imageShare": 0
           },
           {
             "id": "proof-1-charts",
             "type": "charts",
-            "top": 3726,
-            "height": 139,
+            "top": 3770,
+            "height": 161,
             "imageShare": 0
           },
           {
             "id": "proof-2",
             "type": "proof",
-            "top": 3865,
-            "height": 306,
+            "top": 3931,
+            "height": 328,
             "imageShare": 0
           },
           {
             "id": "process-1",
             "type": "process",
-            "top": 4171,
+            "top": 4259,
             "height": 622,
             "imageShare": 0,
             "align": {
@@ -2444,7 +2444,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 4792,
+            "top": 4880,
             "height": 208,
             "imageShare": 0,
             "align": {
@@ -2454,8 +2454,8 @@
           {
             "id": "cta-steps",
             "type": "process",
-            "top": 5000,
-            "height": 668,
+            "top": 5088,
+            "height": 681,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2465,7 +2465,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 5667,
+            "top": 5768,
             "height": 406,
             "imageShare": 0.74,
             "align": {
@@ -2556,7 +2556,7 @@
       "words": 132,
       "route": "/privacy-policy/",
       "status": "authored",
-      "source": "a36498f586411a66927f81c2",
+      "source": "da0cf0f564c04c04a2c02b99",
       "rules": "896e2a6360c1caaa",
       "shots": "92d8c3847371b854b2186878",
       "images": [
@@ -2737,9 +2737,9 @@
       "words": 496,
       "route": "/blog/",
       "status": "authored",
-      "source": "f9eb57d786568c951458f8dc",
+      "source": "f128e6a71f8f71e2333eb29c",
       "rules": "896e2a6360c1caaa",
-      "shots": "1a480a7fa6beb9b5595ad4b9",
+      "shots": "7da291e4d584137d498be559",
       "images": [
         "docs/research/design-review/blog_hub-desktop-1.png",
         "docs/research/design-review/blog_hub-mobile-1.png",
@@ -2831,7 +2831,7 @@
             "id": "overview-steps",
             "type": "process",
             "top": 940,
-            "height": 591,
+            "height": 626,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -2841,7 +2841,7 @@
           {
             "id": "table-1",
             "type": "table",
-            "top": 1531,
+            "top": 1566,
             "height": 3115,
             "imageShare": 0,
             "align": {
@@ -2851,7 +2851,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 4646,
+            "top": 4681,
             "height": 416,
             "imageShare": 0.74,
             "align": {
@@ -2942,9 +2942,9 @@
       "words": 715,
       "route": "/contact-us/",
       "status": "authored",
-      "source": "1be921ae39c22b84c465ed7e",
+      "source": "efb178d95d3c1f3936ecb62a",
       "rules": "896e2a6360c1caaa",
-      "shots": "6f4379b12b0aa16ccd73621f",
+      "shots": "f16753d6a5e8adfcc9f8edb6",
       "images": [
         "docs/research/design-review/contact-desktop-1.png",
         "docs/research/design-review/contact-desktop-2.png",
@@ -3086,7 +3086,7 @@
             "id": "overview-steps",
             "type": "process",
             "top": 1202,
-            "height": 843,
+            "height": 856,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3096,7 +3096,7 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 2045,
+            "top": 2058,
             "height": 1210,
             "imageShare": 0,
             "align": {
@@ -3107,7 +3107,7 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 3255,
+            "top": 3268,
             "height": 941,
             "imageShare": 0,
             "align": {
@@ -3118,7 +3118,7 @@
           {
             "id": "form",
             "type": "form",
-            "top": 4196,
+            "top": 4209,
             "height": 1109,
             "imageShare": 0.21,
             "align": {
@@ -3128,7 +3128,7 @@
           {
             "id": "channels",
             "type": "contactChannels",
-            "top": 5305,
+            "top": 5318,
             "height": 846,
             "imageShare": 0,
             "align": {
@@ -3138,7 +3138,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 6151,
+            "top": 6164,
             "height": 393,
             "imageShare": 0.73,
             "align": {
@@ -3229,9 +3229,9 @@
       "words": 2468,
       "route": "/swimwear-accessories/",
       "status": "authored",
-      "source": "d6f8908be5bc03acb94a5d56",
+      "source": "eb4a788aeda193136e88aa4a",
       "rules": "896e2a6360c1caaa",
-      "shots": "f00cb10f75ee2f0c562c59d9",
+      "shots": "2fbfb74d81bc05271400f15f",
       "images": [
         "docs/research/design-review/product_manufacturer-desktop-1.png",
         "docs/research/design-review/product_manufacturer-desktop-2.png",
@@ -3386,7 +3386,7 @@
             "id": "m6",
             "type": "table",
             "top": 5986,
-            "height": 852,
+            "height": 851,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3396,7 +3396,7 @@
           {
             "id": "m7",
             "type": "splitMedia",
-            "top": 6838,
+            "top": 6837,
             "height": 758,
             "imageShare": 0.41,
             "align": {
@@ -3407,7 +3407,7 @@
           {
             "id": "m8",
             "type": "featureGrid",
-            "top": 7595,
+            "top": 7594,
             "height": 348,
             "imageShare": 0,
             "align": {
@@ -3418,7 +3418,7 @@
           {
             "id": "m8-2",
             "type": "featureGrid",
-            "top": 7944,
+            "top": 7943,
             "height": 292,
             "imageShare": 0,
             "align": {
@@ -3429,7 +3429,7 @@
           {
             "id": "m9",
             "type": "featureGrid",
-            "top": 8236,
+            "top": 8235,
             "height": 629,
             "imageShare": 0,
             "align": {
@@ -3439,7 +3439,7 @@
           {
             "id": "m10",
             "type": "iconList",
-            "top": 8864,
+            "top": 8863,
             "height": 394,
             "imageShare": 0,
             "align": {
@@ -3449,14 +3449,14 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 9259,
+            "top": 9258,
             "height": 806,
             "imageShare": 0.89
           },
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 10065,
+            "top": 10064,
             "height": 423,
             "imageShare": 0,
             "align": {
@@ -3467,7 +3467,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 10488,
+            "top": 10487,
             "height": 266,
             "imageShare": 0,
             "align": {
@@ -3477,7 +3477,7 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 10754,
+            "top": 10753,
             "height": 866,
             "imageShare": 0,
             "align": {
@@ -3488,14 +3488,14 @@
           {
             "id": "faq-charts",
             "type": "charts",
-            "top": 11619,
+            "top": 11618,
             "height": 396,
             "imageShare": 0
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 12015,
+            "top": 12014,
             "height": 281,
             "imageShare": 0,
             "align": {
@@ -3643,7 +3643,7 @@
             "id": "m6",
             "type": "table",
             "top": 9462,
-            "height": 1954,
+            "height": 1953,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3653,9 +3653,9 @@
           {
             "id": "m7",
             "type": "splitMedia",
-            "top": 11416,
-            "height": 907,
-            "imageShare": 0.35,
+            "top": 11415,
+            "height": 892,
+            "imageShare": 0.44,
             "align": {
               "heading": "start",
               "text": "start"
@@ -3664,7 +3664,7 @@
           {
             "id": "m8",
             "type": "featureGrid",
-            "top": 12323,
+            "top": 12307,
             "height": 866,
             "imageShare": 0,
             "align": {
@@ -3675,7 +3675,7 @@
           {
             "id": "m8-2",
             "type": "featureGrid",
-            "top": 13189,
+            "top": 13173,
             "height": 500,
             "imageShare": 0,
             "align": {
@@ -3686,7 +3686,7 @@
           {
             "id": "m9",
             "type": "featureGrid",
-            "top": 13689,
+            "top": 13673,
             "height": 1231,
             "imageShare": 0,
             "align": {
@@ -3696,7 +3696,7 @@
           {
             "id": "m10",
             "type": "iconList",
-            "top": 14920,
+            "top": 14904,
             "height": 671,
             "imageShare": 0,
             "align": {
@@ -3706,14 +3706,14 @@
           {
             "id": "media-module-budget-1",
             "type": "gallery",
-            "top": 15591,
+            "top": 15574,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 15955,
+            "top": 15939,
             "height": 468,
             "imageShare": 0,
             "align": {
@@ -3724,7 +3724,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 16423,
+            "top": 16407,
             "height": 514,
             "imageShare": 0,
             "align": {
@@ -3734,8 +3734,8 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 16937,
-            "height": 1146,
+            "top": 16921,
+            "height": 1121,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -3745,14 +3745,14 @@
           {
             "id": "faq-charts",
             "type": "charts",
-            "top": 18083,
+            "top": 18042,
             "height": 545,
             "imageShare": 0
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 18628,
+            "top": 18587,
             "height": 356,
             "imageShare": 0,
             "align": {
@@ -3847,9 +3847,9 @@
       "words": 918,
       "route": "/watersports-apparel-manufacturer/",
       "status": "authored",
-      "source": "12bdf8d0d8c3c284acac7237",
+      "source": "f79e2c7a9d3456e9db19fd18",
       "rules": "896e2a6360c1caaa",
-      "shots": "a0188719ac549e09a6f025ca",
+      "shots": "7afe32ea03e3a72d82845320",
       "images": [
         "docs/research/design-review/product_manufacturer--shortest-desktop-1.png",
         "docs/research/design-review/product_manufacturer--shortest-desktop-2.png",
@@ -4038,7 +4038,7 @@
             "id": "splitMedia-2-steps",
             "type": "process",
             "top": 3919,
-            "height": 773,
+            "height": 786,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -4048,14 +4048,14 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 4693,
+            "top": 4706,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 5057,
+            "top": 5070,
             "height": 468,
             "imageShare": 0,
             "align": {
@@ -4066,7 +4066,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 5525,
+            "top": 5538,
             "height": 578,
             "imageShare": 0,
             "align": {
@@ -4076,7 +4076,7 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 6103,
+            "top": 6116,
             "height": 746,
             "imageShare": 0,
             "align": {
@@ -4087,7 +4087,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 6849,
+            "top": 6862,
             "height": 381,
             "imageShare": 0,
             "align": {
@@ -4181,9 +4181,9 @@
       "words": 2812,
       "route": "/swimwear-consulting/",
       "status": "authored",
-      "source": "c8ffb9e3efb594ec8642fa2c",
+      "source": "679b0813d82379e46c0d1f99",
       "rules": "896e2a6360c1caaa",
-      "shots": "754ae02957521f3c3f7a947a",
+      "shots": "28e27897c8997290ecb416bb",
       "images": [
         "docs/research/design-review/solution-desktop-1.png",
         "docs/research/design-review/solution-desktop-2.png",
@@ -4862,9 +4862,9 @@
       "words": 1684,
       "route": "/custom-swimwear-printing/",
       "status": "authored",
-      "source": "78e4e42d095295fdfa0a1e94",
+      "source": "b6ebd791c75fe5ed26f79380",
       "rules": "896e2a6360c1caaa",
-      "shots": "8b00829235ac659deb164390",
+      "shots": "ba80640a063ca7336f3906e4",
       "images": [
         "docs/research/design-review/solution--shortest-desktop-1.png",
         "docs/research/design-review/solution--shortest-desktop-2.png",
@@ -5143,7 +5143,7 @@
             "id": "splitMedia-1-steps",
             "type": "process",
             "top": 2084,
-            "height": 1028,
+            "height": 1070,
             "imageShare": 0,
             "align": {
               "heading": "start",
@@ -5153,7 +5153,7 @@
           {
             "id": "m2",
             "type": "featureGrid",
-            "top": 3112,
+            "top": 3154,
             "height": 1112,
             "imageShare": 0,
             "align": {
@@ -5164,7 +5164,7 @@
           {
             "id": "m2-2",
             "type": "featureGrid",
-            "top": 4224,
+            "top": 4266,
             "height": 714,
             "imageShare": 0,
             "align": {
@@ -5175,7 +5175,7 @@
           {
             "id": "m3",
             "type": "iconList",
-            "top": 4938,
+            "top": 4979,
             "height": 862,
             "imageShare": 0,
             "align": {
@@ -5186,7 +5186,7 @@
           {
             "id": "m4",
             "type": "splitMedia",
-            "top": 5799,
+            "top": 5841,
             "height": 1006,
             "imageShare": 0.31,
             "align": {
@@ -5197,7 +5197,7 @@
           {
             "id": "m5",
             "type": "iconList",
-            "top": 6805,
+            "top": 6847,
             "height": 522,
             "imageShare": 0,
             "align": {
@@ -5207,7 +5207,7 @@
           {
             "id": "m6",
             "type": "splitMedia",
-            "top": 7327,
+            "top": 7368,
             "height": 736,
             "imageShare": 0.43,
             "align": {
@@ -5218,7 +5218,7 @@
           {
             "id": "m7",
             "type": "process",
-            "top": 8063,
+            "top": 8104,
             "height": 1371,
             "imageShare": 0,
             "align": {
@@ -5228,7 +5228,7 @@
           {
             "id": "m8",
             "type": "iconList",
-            "top": 9433,
+            "top": 9475,
             "height": 1198,
             "imageShare": 0,
             "align": {
@@ -5238,7 +5238,7 @@
           {
             "id": "m10",
             "type": "featureGrid",
-            "top": 10631,
+            "top": 10673,
             "height": 897,
             "imageShare": 0,
             "align": {
@@ -5249,14 +5249,14 @@
           {
             "id": "media-module-1",
             "type": "gallery",
-            "top": 11528,
+            "top": 11569,
             "height": 365,
             "imageShare": 0.8
           },
           {
             "id": "m12",
             "type": "proof",
-            "top": 11892,
+            "top": 11934,
             "height": 272,
             "imageShare": 0,
             "align": {
@@ -5267,7 +5267,7 @@
           {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 12164,
+            "top": 12205,
             "height": 470,
             "imageShare": 0,
             "align": {
@@ -5278,7 +5278,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 12634,
+            "top": 12675,
             "height": 413,
             "imageShare": 0,
             "align": {
@@ -5288,7 +5288,7 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 13047,
+            "top": 13088,
             "height": 836,
             "imageShare": 0,
             "align": {
@@ -5299,14 +5299,14 @@
           {
             "id": "faq-charts",
             "type": "charts",
-            "top": 13883,
+            "top": 13924,
             "height": 416,
             "imageShare": 0
           },
           {
             "id": "cta",
             "type": "cta",
-            "top": 14298,
+            "top": 14340,
             "height": 428,
             "imageShare": 0.75,
             "align": {
