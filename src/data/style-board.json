@@ -137,7 +137,7 @@
       "key": "gallery:band",
       "type": "gallery",
       "variant": "band",
-      "uses": 39,
+      "uses": 42,
       "names": [
         "gallery:band",
         "figure"
@@ -164,12 +164,12 @@
           "role": "longest",
           "route": "/",
           "pageType": "home",
-          "blockId": "media-module-budget-3",
+          "blockId": "media-module-budget-4",
           "splitIndex": 0,
           "words": 0,
           "slots": 1,
           "block": {
-            "id": "media-module-budget-3",
+            "id": "media-module-budget-4",
             "type": "gallery",
             "variant": "band",
             "items": [
@@ -185,7 +185,7 @@
       "key": "process:list",
       "type": "process",
       "variant": "list",
-      "uses": 34,
+      "uses": 31,
       "names": [
         "process:list"
       ],
@@ -1344,7 +1344,7 @@
       "key": "table:grid",
       "type": "table",
       "variant": "grid",
-      "uses": 24,
+      "uses": 23,
       "names": [
         "table:grid"
       ],
@@ -1352,66 +1352,61 @@
       "samples": [
         {
           "role": "longest",
-          "route": "/blog/",
-          "pageType": "blog_hub",
-          "blockId": "table-1",
+          "route": "/swimwear-packaging-custom-brand-labels/",
+          "pageType": "solution",
+          "blockId": "m9",
           "splitIndex": 0,
-          "words": 333,
+          "words": 315,
           "slots": 0,
           "block": {
-            "id": "table-1",
+            "id": "m9",
             "type": "table",
             "sourceSectionIds": [
-              "overview_2"
+              "m9"
             ],
-            "heading": "Certifications, Fabrics and Design at Our Factory",
+            "heading": "Kraft Paper, Plastic and Recycled-Content Hygiene Liners",
+            "paragraphs": [
+              "We choose your hygiene liners based on how long they'll be stored and how humid it is. During sampling, we peel-test the liner you pick on your own lining."
+            ],
             "columns": [
-              "Topic",
-              "What this means for you"
+              "Detail",
+              "Specification and consequence"
             ],
             "rows": [
               [
-                "Certifications",
-                "Our [production certifications](/sustainability/) are OEKO-TEX Standard 100 for tested fabrics and trims, GRS and RCS for recycled fabrics, bluesign for chemistry, ISO 9001 for quality management and WRAP for social compliance."
+                "Kraft paper",
+                "Comes in 5 shapes. Custom branding needs an order of more than 3,000 units, and you get a free digital mockup."
               ],
               [
-                "Fabrics",
-                "Our [swimwear fabrics and sourcing](/swimwear-fabrics-sourcing/) include nylon and polyester blended with spandex, such as 80% nylon 20% spandex, with matching linings. If you ask, we source chlorine-resistant LYCRA Xtra Life, recycled nylon such as ECONYL, recycled polyester such as REPREVE, and Italian Carvico fabrics."
+                "Plastic",
+                "Comes in 5 shapes. Custom branding needs an order of more than 3,000 units, and you get a free digital mockup."
               ],
               [
-                "Design and samples",
-                "Our [OEM and ODM development](/development/) can start from your design, a picture or just an idea. We do pattern design, grading and fit development in-house, which cuts down the back-and-forth. A standard sample is ready in 10 to 15 days, so you can judge the quality before you approve bulk production."
+                "Recycled content",
+                "Made from 90% recycled materials and available in 3 shapes: thong, standard bikini and full coverage. The water-resistant adhesive peels off without residue. Custom branding isn't available."
               ],
               [
-                "Samples and fees",
-                "Each sample costs USD 50, and design costs USD 50 per design, covering its pattern or print and all its colourways. Neither fee is refunded or credited against bulk orders, and sample courier delivery is a separate USD 50."
+                "Five shape dimensions",
+                "Thong: 12 x 3.5 cm, tapered, for thong and Brazilian cuts. Kids: 9 x 4 cm. Standard bikini: 14 x 5 cm. Full coverage: 16 x 6.5 cm, for high-waist and one-piece styles. Wide: 15 x 7.5 cm, for boy shorts and fuller bottoms."
               ],
               [
-                "Minimums and trial runs",
-                "Orders start at 50 pieces per style in each colour, for small and growing labels, and we agree first-trial quantities case by case within our production limits. We also keep some styles in stock for wholesale buyers."
+                "Humid storage",
+                "Plastic film doesn't absorb moisture, so it holds more firmly and peels off cleanly in one piece. Kraft holds fine in a normal warehouse, but above about 70% humidity it softens and curls, and after 6 months it tears when removed. If your stock will sit in humid storage for a long time, you need plastic."
               ],
               [
-                "Lead times",
-                "Bulk production takes 35 to 40 days from sample approval and receipt of your deposit, depending on order size and season."
+                "Adhesive compatibility",
+                "The low-tack, pressure-sensitive adhesive holds on our nylon-spandex, polyester-spandex and recycled-nylon linings. It doesn't suit cotton, open mesh or brushed linings. Mesh, crochet, velvet, sequinned or coated surfaces need a sewn-in gusset instead."
               ],
               [
-                "Payment and shipping",
-                "You pay 50% when you confirm the order and the other 50% before shipment. We ship FOB, CIF or DDP; with worldwide DDP, one all-in price covers duties, customs and freight to your door."
+                "Storage limits",
+                "In normal storage, liners stay put for up to 12 months and come off without marks or damage. Longer storage, or temperatures above 40°C, leaves adhesive behind."
               ],
               [
-                "Inspection",
-                "Under our [ordering, inspection and delivery terms](/faq/), independent inspectors such as SGS or BV can check your goods before shipment."
-              ],
-              [
-                "Quotation",
-                "We [quote first](/request-a-quote/), and we make your sample once you agree to the price."
-              ],
-              [
-                "Enquiries",
-                "We [reply to every enquiry](/contact-us/) within one business day."
+                "Sampling check",
+                "Our peel test checks that the liner stays flat through 8 hours of wear and comes off in one piece with no residue, pilling or colour lift."
               ]
             ],
-            "mediaKind": "material"
+            "mediaKind": "product"
           }
         },
         {
@@ -1543,7 +1538,7 @@
       "key": "process:circles",
       "type": "process",
       "variant": "circles",
-      "uses": 12,
+      "uses": 10,
       "names": [
         "process:circles"
       ],
@@ -2373,6 +2368,177 @@
           }
         }
       ]
+    },
+    {
+      "key": "process:timeline",
+      "type": "process",
+      "variant": "timeline",
+      "uses": 5,
+      "names": [
+        "process:timeline"
+      ],
+      "evidence": [],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/request-a-quote/",
+          "pageType": "general",
+          "blockId": "m3",
+          "splitIndex": 0,
+          "words": 237,
+          "slots": 0,
+          "block": {
+            "id": "m3",
+            "type": "process",
+            "sourceSectionIds": [
+              "m3"
+            ],
+            "heading": "What to Send for a Free, Accurate Quotation",
+            "paragraphs": [
+              "Please send a complete brief: missing details mean follow-up questions or assumptions in the quotation, which delays our reply."
+            ],
+            "steps": [
+              {
+                "heading": "Send your style details",
+                "text": "Send us your tech pack or design, along with your preferred fabrics, colours, prints, size chart, quantity per colourway and packing needs. This lets us check whether your swimwear can be made."
+              },
+              {
+                "heading": "Choose your format",
+                "text": "If you don't have a tech pack, send front and back screenshots or clear line drawings marked with style codes, fabrics and colours. You can send your brief by email or WhatsApp."
+              },
+              {
+                "heading": "Receive your free quotation",
+                "text": "Once we have complete design information, we prepare your free quotation sheet within 2 to 3 working days. It estimates price and timing for sampling, fabrics, accessories, branding, labelling, production and shipping."
+              },
+              {
+                "heading": "Check service response times",
+                "text": "For screen printing, embroidery and labels, we answer within one business day. Cut-and-sew or sublimation quotations take up to 3 business days. Multi-colourway team programmes get a separate quotation for each configuration."
+              },
+              {
+                "heading": "Review the details together",
+                "text": "We set up a phone call with you to go through products, artwork, sizing, quantities, pricing and minimums, and to settle anything your first brief left open."
+              },
+              {
+                "heading": "Confirm before you order",
+                "text": "You confirm quantities, colours and customisation. We confirm availability, lead times and every other detail before you place your order. Once you agree to the quoted price, we start making your sample."
+              }
+            ],
+            "mediaKind": "process"
+          }
+        },
+        {
+          "role": "shortest",
+          "route": "/faq/",
+          "pageType": "general",
+          "blockId": "m8-steps",
+          "splitIndex": 0,
+          "words": 53,
+          "slots": 0,
+          "block": {
+            "id": "m8-steps",
+            "type": "process",
+            "paragraphs": [
+              "From sign-off to bulk production"
+            ],
+            "steps": [
+              {
+                "heading": "Sign off sample and specs",
+                "text": "You approve the sample, fit, fabrics and technical details."
+              },
+              {
+                "heading": "Lead time confirmed",
+                "text": "We confirm your exact lead time with the order."
+              },
+              {
+                "heading": "Deposit received",
+                "text": "Bulk starts once the deposit is received."
+              },
+              {
+                "heading": "Bulk production",
+                "text": "Usually 35 to 40 days, depending on order size and season."
+              }
+            ],
+            "variant": "timeline",
+            "continues": "m8"
+          }
+        }
+      ]
+    },
+    {
+      "key": "table:cards",
+      "type": "table",
+      "variant": "cards",
+      "uses": 1,
+      "names": [
+        "table:cards"
+      ],
+      "evidence": [],
+      "samples": [
+        {
+          "role": "only",
+          "route": "/blog/",
+          "pageType": "blog_hub",
+          "blockId": "table-1",
+          "splitIndex": 0,
+          "words": 333,
+          "slots": 0,
+          "block": {
+            "id": "table-1",
+            "type": "table",
+            "sourceSectionIds": [
+              "overview_2"
+            ],
+            "heading": "Certifications, Fabrics and Design at Our Factory",
+            "columns": [
+              "Topic",
+              "What this means for you"
+            ],
+            "rows": [
+              [
+                "Certifications",
+                "Our [production certifications](/sustainability/) are OEKO-TEX Standard 100 for tested fabrics and trims, GRS and RCS for recycled fabrics, bluesign for chemistry, ISO 9001 for quality management and WRAP for social compliance."
+              ],
+              [
+                "Fabrics",
+                "Our [swimwear fabrics and sourcing](/swimwear-fabrics-sourcing/) include nylon and polyester blended with spandex, such as 80% nylon 20% spandex, with matching linings. If you ask, we source chlorine-resistant LYCRA Xtra Life, recycled nylon such as ECONYL, recycled polyester such as REPREVE, and Italian Carvico fabrics."
+              ],
+              [
+                "Design and samples",
+                "Our [OEM and ODM development](/development/) can start from your design, a picture or just an idea. We do pattern design, grading and fit development in-house, which cuts down the back-and-forth. A standard sample is ready in 10 to 15 days, so you can judge the quality before you approve bulk production."
+              ],
+              [
+                "Samples and fees",
+                "Each sample costs USD 50, and design costs USD 50 per design, covering its pattern or print and all its colourways. Neither fee is refunded or credited against bulk orders, and sample courier delivery is a separate USD 50."
+              ],
+              [
+                "Minimums and trial runs",
+                "Orders start at 50 pieces per style in each colour, for small and growing labels, and we agree first-trial quantities case by case within our production limits. We also keep some styles in stock for wholesale buyers."
+              ],
+              [
+                "Lead times",
+                "Bulk production takes 35 to 40 days from sample approval and receipt of your deposit, depending on order size and season."
+              ],
+              [
+                "Payment and shipping",
+                "You pay 50% when you confirm the order and the other 50% before shipment. We ship FOB, CIF or DDP; with worldwide DDP, one all-in price covers duties, customs and freight to your door."
+              ],
+              [
+                "Inspection",
+                "Under our [ordering, inspection and delivery terms](/faq/), independent inspectors such as SGS or BV can check your goods before shipment."
+              ],
+              [
+                "Quotation",
+                "We [quote first](/request-a-quote/), and we make your sample once you agree to the price."
+              ],
+              [
+                "Enquiries",
+                "We [reply to every enquiry](/contact-us/) within one business day."
+              ]
+            ],
+            "mediaKind": "material"
+          }
+        }
+      ]
     }
   ],
   "unbacked": [
@@ -2384,6 +2550,8 @@
     "process:circles",
     "process:photo-cards",
     "splitMedia:wide",
-    "orderCase:default"
+    "orderCase:default",
+    "process:timeline",
+    "table:cards"
   ]
 }

@@ -5445,7 +5445,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "1523225c997e2a9e416f28fa",
+      "shots": "f3a433d2a913f25cea3c5877",
       "images": [
         "docs/research/design-review/board--intro-text-desktop-1.png",
         "docs/research/design-review/board--intro-text-mobile-1.png"
@@ -5473,14 +5473,14 @@
             "type": "intro",
             "sample": "longest",
             "top": 102,
-            "height": 626
+            "height": 662
           },
           {
             "id": "overview",
             "type": "intro",
             "sample": "shortest",
-            "top": 849,
-            "height": 319
+            "top": 885,
+            "height": 355
           }
         ]
       },
@@ -5563,12 +5563,12 @@
         {
           "role": "longest",
           "route": "/",
-          "blockId": "media-module-budget-3",
+          "blockId": "media-module-budget-4",
           "words": 0
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "e8ee4a40b5c873335f3242af",
+      "shots": "0a4dee4f18d7046877d1d516",
       "images": [
         "docs/research/design-review/board--gallery-band-desktop-1.png",
         "docs/research/design-review/board--gallery-band-mobile-1.png"
@@ -5576,7 +5576,7 @@
       "blocks": {
         "desktop": [
           {
-            "id": "media-module-budget-3",
+            "id": "media-module-budget-4",
             "type": "gallery",
             "sample": "longest",
             "top": 29,
@@ -5585,11 +5585,11 @@
         ],
         "mobile": [
           {
-            "id": "media-module-budget-3",
+            "id": "media-module-budget-4",
             "type": "gallery",
             "sample": "longest",
             "top": 84,
-            "height": 365
+            "height": 401
           }
         ]
       },
@@ -5674,7 +5674,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "449692af9277c021cc6b7243",
+      "shots": "b9d8bc7dbef8d8c2e5957dff",
       "images": [
         "docs/research/design-review/board--process-list-desktop-1.png",
         "docs/research/design-review/board--process-list-mobile-1.png"
@@ -5686,14 +5686,14 @@
             "type": "process",
             "sample": "longest",
             "top": 29,
-            "height": 734
+            "height": 865
           },
           {
             "id": "overview-steps",
             "type": "process",
             "sample": "shortest",
-            "top": 792,
-            "height": 439
+            "top": 924,
+            "height": 530
           }
         ],
         "mobile": [
@@ -5702,14 +5702,14 @@
             "type": "process",
             "sample": "longest",
             "top": 48,
-            "height": 1192
+            "height": 1407
           },
           {
             "id": "overview-steps",
             "type": "process",
             "sample": "shortest",
-            "top": 1288,
-            "height": 480
+            "top": 1502,
+            "height": 605
           }
         ]
       },
@@ -5787,7 +5787,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "19e9548aaf2898768b4481c6",
+      "shots": "d679a94ef16406b9e25788dc",
       "images": [
         "docs/research/design-review/board--iconList-checks-desktop-1.png",
         "docs/research/design-review/board--iconList-checks-mobile-1.png",
@@ -5799,15 +5799,15 @@
             "id": "m3",
             "type": "iconList",
             "sample": "longest",
-            "top": 30,
-            "height": 1038
+            "top": 29,
+            "height": 986
           },
           {
             "id": "m7",
             "type": "iconList",
             "sample": "shortest",
-            "top": 1097,
-            "height": 432
+            "top": 1045,
+            "height": 412
           }
         ],
         "mobile": [
@@ -5816,14 +5816,14 @@
             "type": "iconList",
             "sample": "longest",
             "top": 48,
-            "height": 2007
+            "height": 1958
           },
           {
             "id": "m7",
             "type": "iconList",
             "sample": "shortest",
-            "top": 2102,
-            "height": 556
+            "top": 2053,
+            "height": 573
           }
         ]
       },
@@ -5907,7 +5907,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "e5a6eb3c0c8e36081cde2a7e",
+      "shots": "7026d31439241c7877b21666",
       "images": [
         "docs/research/design-review/board--featureGrid-outline-numbered-desktop-1.png",
         "docs/research/design-review/board--featureGrid-outline-numbered-mobile-1.png"
@@ -5919,14 +5919,14 @@
             "type": "featureGrid",
             "sample": "longest",
             "top": 29,
-            "height": 514
+            "height": 508
           },
           {
             "id": "m2-3",
             "type": "featureGrid",
             "sample": "shortest",
-            "top": 573,
-            "height": 337
+            "top": 567,
+            "height": 331
           }
         ],
         "mobile": [
@@ -5942,7 +5942,7 @@
             "type": "featureGrid",
             "sample": "shortest",
             "top": 1394,
-            "height": 614
+            "height": 620
           }
         ]
       },
@@ -6014,7 +6014,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "b19c94f6157778a3a8934653",
+      "shots": "cde8694300b364464f197769",
       "images": [
         "docs/research/design-review/board--gallery-mosaic-desktop-1.png",
         "docs/research/design-review/board--gallery-mosaic-mobile-1.png"
@@ -6035,7 +6035,7 @@
             "type": "gallery",
             "sample": "only",
             "top": 48,
-            "height": 179
+            "height": 215
           }
         ]
       },
@@ -6131,7 +6131,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "d29f4b5c1a4475efa860ee39",
+      "shots": "7d9c212180270e1a896bad0f",
       "images": [
         "docs/research/design-review/board--splitMedia-tinted-desktop-1.png",
         "docs/research/design-review/board--splitMedia-tinted-mobile-1.png"
@@ -6159,14 +6159,14 @@
             "type": "splitMedia",
             "sample": "longest",
             "top": 48,
-            "height": 985
+            "height": 1021
           },
           {
             "id": "splitMedia-2",
             "type": "splitMedia",
             "sample": "shortest",
-            "top": 1098,
-            "height": 833
+            "top": 1134,
+            "height": 857
           }
         ]
       },
@@ -6267,7 +6267,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "1530549dab9297d347c05cbb",
+      "shots": "a6408008a2c246c986fb7a64",
       "images": [
         "docs/research/design-review/board--splitMedia-single-desktop-1.png",
         "docs/research/design-review/board--splitMedia-single-mobile-1.png"
@@ -6295,14 +6295,14 @@
             "type": "splitMedia",
             "sample": "longest",
             "top": 84,
-            "height": 1330
+            "height": 1366
           },
           {
             "id": "related",
             "type": "splitMedia",
             "sample": "shortest",
-            "top": 1497,
-            "height": 646
+            "top": 1533,
+            "height": 682
           }
         ]
       },
@@ -6380,7 +6380,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "2d72562d257d4e272ed41e16",
+      "shots": "e3dbf0b617815f3106ed4288",
       "images": [
         "docs/research/design-review/board--logos-marquee-desktop-1.png",
         "docs/research/design-review/board--logos-marquee-mobile-1.png"
@@ -6392,7 +6392,7 @@
             "type": "logos",
             "sample": "longest",
             "top": 29,
-            "height": 269
+            "height": 250
           }
         ],
         "mobile": [
@@ -6401,7 +6401,7 @@
             "type": "logos",
             "sample": "longest",
             "top": 47,
-            "height": 203
+            "height": 227
           }
         ]
       },
@@ -6485,7 +6485,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "6a5aebeca5526090ff9a6a1f",
+      "shots": "8ec19a5333dbb7c0f4b337a2",
       "images": [
         "docs/research/design-review/board--testimonials-carousel-desktop-1.png",
         "docs/research/design-review/board--testimonials-carousel-mobile-1.png"
@@ -6497,14 +6497,14 @@
             "type": "testimonials",
             "sample": "longest",
             "top": 30,
-            "height": 513
+            "height": 488
           },
           {
             "id": "owner-testimonials",
             "type": "testimonials",
             "sample": "shortest",
-            "top": 572,
-            "height": 513
+            "top": 547,
+            "height": 437
           }
         ],
         "mobile": [
@@ -6513,14 +6513,14 @@
             "type": "testimonials",
             "sample": "longest",
             "top": 66,
-            "height": 490
+            "height": 526
           },
           {
             "id": "owner-testimonials",
             "type": "testimonials",
             "sample": "shortest",
-            "top": 621,
-            "height": 490
+            "top": 657,
+            "height": 526
           }
         ]
       },
@@ -6598,7 +6598,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "2a3780f282ab972e8f7c2a0b",
+      "shots": "c76634494555e95e5233fb9d",
       "images": [
         "docs/research/design-review/board--relatedPages-links-desktop-1.png",
         "docs/research/design-review/board--relatedPages-links-mobile-1.png"
@@ -6626,14 +6626,14 @@
             "type": "relatedPages",
             "sample": "longest",
             "top": 66,
-            "height": 705
+            "height": 741
           },
           {
             "id": "related",
             "type": "relatedPages",
             "sample": "shortest",
-            "top": 836,
-            "height": 196
+            "top": 872,
+            "height": 232
           }
         ]
       },
@@ -6717,10 +6717,11 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "2969132372ed9d5446cbf390",
+      "shots": "d5aced9f21a04143dbc1aa38",
       "images": [
         "docs/research/design-review/board--faq-two-column-desktop-1.png",
-        "docs/research/design-review/board--faq-two-column-mobile-1.png"
+        "docs/research/design-review/board--faq-two-column-mobile-1.png",
+        "docs/research/design-review/board--faq-two-column-mobile-2.png"
       ],
       "blocks": {
         "desktop": [
@@ -6729,14 +6730,14 @@
             "type": "faq",
             "sample": "longest",
             "top": 29,
-            "height": 378
+            "height": 831
           },
           {
             "id": "faq",
             "type": "faq",
             "sample": "shortest",
-            "top": 436,
-            "height": 379
+            "top": 890,
+            "height": 475
           }
         ],
         "mobile": [
@@ -6745,14 +6746,14 @@
             "type": "faq",
             "sample": "longest",
             "top": 48,
-            "height": 534
+            "height": 1636
           },
           {
             "id": "faq",
             "type": "faq",
             "sample": "shortest",
-            "top": 629,
-            "height": 455
+            "top": 1731,
+            "height": 690
           }
         ]
       },
@@ -6836,7 +6837,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "1eb757121349efe359f5a962",
+      "shots": "f9801135dd65f8f5d6ab5436",
       "images": [
         "docs/research/design-review/board--cta-image-band-desktop-1.png",
         "docs/research/design-review/board--cta-image-band-mobile-1.png"
@@ -6864,14 +6865,14 @@
             "type": "cta",
             "sample": "longest",
             "top": 66,
-            "height": 508
+            "height": 544
           },
           {
             "id": "cta",
             "type": "cta",
             "sample": "shortest",
-            "top": 622,
-            "height": 392
+            "top": 658,
+            "height": 428
           }
         ]
       },
@@ -6962,7 +6963,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "08778583a25b79832a07e328",
+      "shots": "5ba8f345d9b0f3c4225a08e2",
       "images": [
         "docs/research/design-review/board--featureGrid-cards-desktop-1.png",
         "docs/research/design-review/board--featureGrid-cards-mobile-1.png"
@@ -6974,14 +6975,14 @@
             "type": "featureGrid",
             "sample": "longest",
             "top": 30,
-            "height": 611
+            "height": 600
           },
           {
             "id": "m3-2",
             "type": "featureGrid",
             "sample": "shortest",
-            "top": 670,
-            "height": 264
+            "top": 659,
+            "height": 259
           }
         ],
         "mobile": [
@@ -7075,7 +7076,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "85a61def2e0e1c7669d7105d",
+      "shots": "8d6b5abb8ae5bebee0fda6fb",
       "images": [
         "docs/research/design-review/board--featureGrid-bullets-desktop-1.png",
         "docs/research/design-review/board--featureGrid-bullets-mobile-1.png",
@@ -7104,14 +7105,14 @@
             "type": "featureGrid",
             "sample": "longest",
             "top": 48,
-            "height": 2020
+            "height": 2028
           },
           {
             "id": "featureGrid-6",
             "type": "featureGrid",
             "sample": "shortest",
-            "top": 2133,
-            "height": 491
+            "top": 2141,
+            "height": 523
           }
         ]
       },
@@ -7177,9 +7178,9 @@
       "samples": [
         {
           "role": "longest",
-          "route": "/blog/",
-          "blockId": "table-1",
-          "words": 333
+          "route": "/swimwear-packaging-custom-brand-labels/",
+          "blockId": "m9",
+          "words": 315
         },
         {
           "role": "shortest",
@@ -7189,7 +7190,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "b437dec19488c38812daea92",
+      "shots": "5b9e599993e65638d2087255",
       "images": [
         "docs/research/design-review/board--table-grid-desktop-1.png",
         "docs/research/design-review/board--table-grid-mobile-1.png",
@@ -7198,34 +7199,34 @@
       "blocks": {
         "desktop": [
           {
-            "id": "table-1",
+            "id": "m9",
             "type": "table",
             "sample": "longest",
             "top": 29,
-            "height": 983
+            "height": 904
           },
           {
             "id": "m5",
             "type": "table",
             "sample": "shortest",
-            "top": 1042,
+            "top": 962,
             "height": 490
           }
         ],
         "mobile": [
           {
-            "id": "table-1",
+            "id": "m9",
             "type": "table",
             "sample": "longest",
-            "top": 47,
-            "height": 2993
+            "top": 66,
+            "height": 2533
           },
           {
             "id": "m5",
             "type": "table",
             "sample": "shortest",
-            "top": 3106,
-            "height": 861
+            "top": 2664,
+            "height": 897
           }
         ]
       },
@@ -7309,7 +7310,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "682bec9cd426e71bcadd3fae",
+      "shots": "6da56897fb0f0d24cdeccf1c",
       "images": [
         "docs/research/design-review/board--cta-inline-desktop-1.png",
         "docs/research/design-review/board--cta-inline-mobile-1.png"
@@ -7320,15 +7321,15 @@
             "id": "cta",
             "type": "cta",
             "sample": "longest",
-            "top": 29,
-            "height": 250
+            "top": 30,
+            "height": 306
           },
           {
             "id": "cta",
             "type": "cta",
             "sample": "shortest",
-            "top": 309,
-            "height": 225
+            "top": 365,
+            "height": 281
           }
         ],
         "mobile": [
@@ -7337,14 +7338,14 @@
             "type": "cta",
             "sample": "longest",
             "top": 66,
-            "height": 363
+            "height": 381
           },
           {
             "id": "cta",
             "type": "cta",
             "sample": "shortest",
-            "top": 495,
-            "height": 294
+            "top": 512,
+            "height": 330
           }
         ]
       },
@@ -7422,7 +7423,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "7603d93dd64d69f0968ef368",
+      "shots": "be1dfa55c86e8130bd84f13f",
       "images": [
         "docs/research/design-review/board--process-circles-desktop-1.png",
         "docs/research/design-review/board--process-circles-mobile-1.png",
@@ -7434,7 +7435,7 @@
             "id": "process-1",
             "type": "process",
             "sample": "longest",
-            "top": 30,
+            "top": 29,
             "height": 760
           },
           {
@@ -7451,14 +7452,14 @@
             "type": "process",
             "sample": "longest",
             "top": 66,
-            "height": 1974
+            "height": 2010
           },
           {
             "id": "process-1",
             "type": "process",
             "sample": "shortest",
-            "top": 2105,
-            "height": 622
+            "top": 2142,
+            "height": 658
           }
         ]
       },
@@ -7577,7 +7578,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "b6deb511534b69589a5b3306",
+      "shots": "6dfe2fdf6908252934c04775",
       "images": [
         "docs/research/design-review/board--proof-band-desktop-1.png",
         "docs/research/design-review/board--proof-band-mobile-1.png"
@@ -7588,21 +7589,21 @@
             "id": "m9",
             "type": "proof",
             "sample": "longest",
-            "top": 48,
+            "top": 47,
             "height": 302
           },
           {
             "id": "m9-charts",
             "type": "charts",
             "sample": "longest",
-            "top": 350,
-            "height": 355
+            "top": 349,
+            "height": 354
           },
           {
             "id": "proof-5",
             "type": "proof",
             "sample": "shortest",
-            "top": 753,
+            "top": 751,
             "height": 151
           }
         ],
@@ -7611,22 +7612,22 @@
             "id": "m9",
             "type": "proof",
             "sample": "longest",
-            "top": 120,
-            "height": 492
+            "top": 121,
+            "height": 516
           },
           {
             "id": "m9-charts",
             "type": "charts",
             "sample": "longest",
-            "top": 612,
-            "height": 473
+            "top": 637,
+            "height": 496
           },
           {
             "id": "proof-5",
             "type": "proof",
             "sample": "shortest",
-            "top": 1187,
-            "height": 190
+            "top": 1234,
+            "height": 214
           }
         ]
       },
@@ -7704,7 +7705,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "1b7a3bfebc06707d5a3470a4",
+      "shots": "0d7772c20beed594fe890d13",
       "images": [
         "docs/research/design-review/board--process-photo-cards-desktop-1.png",
         "docs/research/design-review/board--process-photo-cards-mobile-1.png"
@@ -7715,14 +7716,14 @@
             "id": "m7-steps",
             "type": "process",
             "sample": "longest",
-            "top": 29,
+            "top": 30,
             "height": 443
           },
           {
             "id": "m3-steps",
             "type": "process",
             "sample": "shortest",
-            "top": 501,
+            "top": 502,
             "height": 417
           }
         ],
@@ -7731,15 +7732,15 @@
             "id": "m7-steps",
             "type": "process",
             "sample": "longest",
-            "top": 65,
-            "height": 862
+            "top": 66,
+            "height": 910
           },
           {
             "id": "m3-steps",
             "type": "process",
             "sample": "shortest",
-            "top": 993,
-            "height": 811
+            "top": 1042,
+            "height": 859
           }
         ]
       },
@@ -7817,7 +7818,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "4cf2d43f229a9ba586d0f1bd",
+      "shots": "c2f74dbcdb34a54d01e02410",
       "images": [
         "docs/research/design-review/board--splitMedia-wide-desktop-1.png",
         "docs/research/design-review/board--splitMedia-wide-mobile-1.png"
@@ -7828,14 +7829,14 @@
             "id": "splitMedia-1",
             "type": "splitMedia",
             "sample": "longest",
-            "top": 30,
-            "height": 1157
+            "top": 29,
+            "height": 1186
           },
           {
             "id": "m7",
             "type": "splitMedia",
             "sample": "shortest",
-            "top": 1216,
+            "top": 1245,
             "height": 932
           }
         ],
@@ -7844,15 +7845,15 @@
             "id": "splitMedia-1",
             "type": "splitMedia",
             "sample": "longest",
-            "top": 65,
-            "height": 965
+            "top": 66,
+            "height": 1001
           },
           {
             "id": "m7",
             "type": "splitMedia",
             "sample": "shortest",
-            "top": 1077,
-            "height": 474
+            "top": 1114,
+            "height": 510
           }
         ]
       },
@@ -7936,7 +7937,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "62cf8a136a5c0b6a867a5556",
+      "shots": "1810cbc96aeefe57db946601",
       "images": [
         "docs/research/design-review/board--process-band-desktop-1.png",
         "docs/research/design-review/board--process-band-mobile-1.png",
@@ -7948,15 +7949,15 @@
             "id": "splitMedia-1-steps",
             "type": "process",
             "sample": "longest",
-            "top": 29,
-            "height": 638
+            "top": 30,
+            "height": 670
           },
           {
             "id": "faq-steps",
             "type": "process",
             "sample": "shortest",
-            "top": 697,
-            "height": 365
+            "top": 729,
+            "height": 397
           }
         ],
         "mobile": [
@@ -7964,15 +7965,15 @@
             "id": "splitMedia-1-steps",
             "type": "process",
             "sample": "longest",
-            "top": 65,
-            "height": 1424
+            "top": 66,
+            "height": 1504
           },
           {
             "id": "faq-steps",
             "type": "process",
             "sample": "shortest",
-            "top": 1555,
-            "height": 902
+            "top": 1635,
+            "height": 982
           }
         ]
       },
@@ -8050,7 +8051,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "2475735ad90f633da4d4e2ea",
+      "shots": "2476c03b33ce038c03e54ebe",
       "images": [
         "docs/research/design-review/board--orderCase-default-desktop-1.png",
         "docs/research/design-review/board--orderCase-default-mobile-1.png"
@@ -8062,14 +8063,14 @@
             "type": "orderCase",
             "sample": "longest",
             "top": 30,
-            "height": 583
+            "height": 587
           },
           {
             "id": "cases",
             "type": "orderCase",
             "sample": "shortest",
-            "top": 642,
-            "height": 351
+            "top": 646,
+            "height": 353
           }
         ],
         "mobile": [
@@ -8078,14 +8079,14 @@
             "type": "orderCase",
             "sample": "longest",
             "top": 48,
-            "height": 710
+            "height": 750
           },
           {
             "id": "cases",
             "type": "orderCase",
             "sample": "shortest",
-            "top": 823,
-            "height": 374
+            "top": 864,
+            "height": 412
           }
         ]
       },
@@ -8169,10 +8170,11 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "c5d8de4b523a9f4cbf82ada3",
+      "shots": "025ed7ad47cdd60e057ab370",
       "images": [
         "docs/research/design-review/board--faq-bars-desktop-1.png",
-        "docs/research/design-review/board--faq-bars-mobile-1.png"
+        "docs/research/design-review/board--faq-bars-mobile-1.png",
+        "docs/research/design-review/board--faq-bars-mobile-2.png"
       ],
       "blocks": {
         "desktop": [
@@ -8181,28 +8183,28 @@
             "type": "faq",
             "sample": "longest",
             "top": 29,
-            "height": 621
+            "height": 718
           },
           {
             "id": "faq-charts",
             "type": "charts",
             "sample": "longest",
-            "top": 650,
+            "top": 747,
             "height": 243
           },
           {
             "id": "faq",
             "type": "faq",
             "sample": "shortest",
-            "top": 922,
-            "height": 345
+            "top": 1019,
+            "height": 467
           },
           {
             "id": "faq-charts",
             "type": "charts",
             "sample": "shortest",
-            "top": 1268,
-            "height": 312
+            "top": 1487,
+            "height": 311
           }
         ],
         "mobile": [
@@ -8210,29 +8212,29 @@
             "id": "faq",
             "type": "faq",
             "sample": "longest",
-            "top": 48,
-            "height": 1040
+            "top": 47,
+            "height": 1288
           },
           {
             "id": "faq-charts",
             "type": "charts",
             "sample": "longest",
-            "top": 1088,
-            "height": 249
+            "top": 1335,
+            "height": 273
           },
           {
             "id": "faq",
             "type": "faq",
             "sample": "shortest",
-            "top": 1385,
-            "height": 470
+            "top": 1656,
+            "height": 744
           },
           {
             "id": "faq-charts",
             "type": "charts",
             "sample": "shortest",
-            "top": 1855,
-            "height": 429
+            "top": 2400,
+            "height": 452
           }
         ]
       },
@@ -8310,7 +8312,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "67ea79e9dcb950d3b6a98dde",
+      "shots": "1d2519f70604a8a8db1359eb",
       "images": [
         "docs/research/design-review/board--form-media-desktop-1.png",
         "docs/research/design-review/board--form-media-mobile-1.png"
@@ -8321,7 +8323,7 @@
             "id": "form",
             "type": "form",
             "sample": "only",
-            "top": 30,
+            "top": 29,
             "height": 617
           }
         ],
@@ -8331,7 +8333,7 @@
             "type": "form",
             "sample": "only",
             "top": 48,
-            "height": 1109
+            "height": 1145
           }
         ]
       },
@@ -8409,7 +8411,7 @@
         }
       ],
       "rules": "896e2a6360c1caaa",
-      "shots": "9a26063381edd8cfea112db9",
+      "shots": "bb10e8dd493fd2ff7ab1e062",
       "images": [
         "docs/research/design-review/board--contactChannels-cards-desktop-1.png",
         "docs/research/design-review/board--contactChannels-cards-mobile-1.png"
@@ -8420,8 +8422,8 @@
             "id": "channels",
             "type": "contactChannels",
             "sample": "only",
-            "top": 29,
-            "height": 398
+            "top": 30,
+            "height": 422
           }
         ],
         "mobile": [
@@ -8430,7 +8432,214 @@
             "type": "contactChannels",
             "sample": "only",
             "top": 65,
-            "height": 1034
+            "height": 1094
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--process-timeline",
+      "pageType": "style-board",
+      "module": "process:timeline",
+      "route": "/style-board/",
+      "unbacked": true,
+      "evidence": [],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/request-a-quote/",
+          "blockId": "m3",
+          "words": 237
+        },
+        {
+          "role": "shortest",
+          "route": "/faq/",
+          "blockId": "m8-steps",
+          "words": 53
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "688c0e4a6162afe9c62cb181",
+      "images": [
+        "docs/research/design-review/board--process-timeline-desktop-1.png",
+        "docs/research/design-review/board--process-timeline-mobile-1.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "m3",
+            "type": "process",
+            "sample": "longest",
+            "top": 30,
+            "height": 924
+          },
+          {
+            "id": "m8-steps",
+            "type": "process",
+            "sample": "shortest",
+            "top": 983,
+            "height": 413
+          }
+        ],
+        "mobile": [
+          {
+            "id": "m3",
+            "type": "process",
+            "sample": "longest",
+            "top": 48,
+            "height": 1508
+          },
+          {
+            "id": "m8-steps",
+            "type": "process",
+            "sample": "shortest",
+            "top": 1603,
+            "height": 592
+          }
+        ]
+      },
+      "facts": {
+        "sectionHeadings": "start: every section heading starts on the content's left edge on every page (the site's rule; a module's heading is not centred even where the competitor's module centres it)",
+        "desktop": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        },
+        "mobile": {
+          "fonts": {
+            "loaded": [
+              "DM Sans 400",
+              "DM Sans 500",
+              "DM Sans 600",
+              "DM Sans 700"
+            ],
+            "used": {
+              "h2": {
+                "family": "DM Sans",
+                "weight": 700
+              },
+              "body": {
+                "family": "ui-monospace",
+                "weight": 600
+              },
+              "button": {
+                "family": "DM Sans",
+                "weight": 700
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "key": "board--table-cards",
+      "pageType": "style-board",
+      "module": "table:cards",
+      "route": "/style-board/",
+      "unbacked": true,
+      "evidence": [],
+      "samples": [
+        {
+          "role": "only",
+          "route": "/blog/",
+          "blockId": "table-1",
+          "words": 333
+        }
+      ],
+      "rules": "896e2a6360c1caaa",
+      "shots": "323b8c79d97c98f36f52285a",
+      "images": [
+        "docs/research/design-review/board--table-cards-desktop-1.png",
+        "docs/research/design-review/board--table-cards-mobile-1.png",
+        "docs/research/design-review/board--table-cards-mobile-2.png"
+      ],
+      "blocks": {
+        "desktop": [
+          {
+            "id": "table-1",
+            "type": "table",
+            "sample": "only",
+            "top": 29,
+            "height": 1367
+          }
+        ],
+        "mobile": [
+          {
+            "id": "table-1",
+            "type": "table",
+            "sample": "only",
+            "top": 48,
+            "height": 3106
           }
         ]
       },
