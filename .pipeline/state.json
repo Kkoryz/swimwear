@@ -37,9 +37,9 @@
   "analysis": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T12:33:28.751Z",
+    "at": "2026-11-14T12:44:39.902Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T12-33-21-160Z/analysis.log"
+    "log": ".pipeline/logs/2026-11-14T12-44-35-176Z/analysis.log"
   },
   "apply-analysis": {
     "status": "passed",
@@ -65,16 +65,16 @@
   "modules": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T12:33:28.773Z",
+    "at": "2026-11-14T12:44:39.925Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T12-33-21-160Z/modules.log"
+    "log": ".pipeline/logs/2026-11-14T12-44-35-176Z/modules.log"
   },
   "template-gaps": {
     "status": "passed",
-    "hash": "fad6a3349996dd1e",
-    "at": "2026-11-14T12:33:29.221Z",
+    "hash": "db78d6a2024ebe57",
+    "at": "2026-11-14T12:44:40.310Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T12-33-21-160Z/template-gaps.log"
+    "log": ".pipeline/logs/2026-11-14T12-44-35-176Z/template-gaps.log"
   },
   "treatment": {
     "status": "done",
