@@ -43,6 +43,10 @@
     "x": 0.72,
     "y": 0.26
   },
+  "/media/photos/watersports-apparel-hero-1-960.webp": {
+    "x": 0.66,
+    "y": 0.25
+  },
   "/media/photos/rash-guard-hero-1-960.webp": {
     "x": 0.62,
     "y": 0.23
@@ -50,10 +54,6 @@
   "/media/photos/resort-wear-hero-1-960.webp": {
     "x": 0.77,
     "y": 0.31
-  },
-  "/media/photos/cover-up-hero-1-960.webp": {
-    "x": 0.56,
-    "y": 0.37
   },
   "/media/photos/general-hero-2-960.webp": {
     "x": 0.8,
@@ -78,6 +78,10 @@
   "/media/photos/swimwear-accessories-hero-1-960.webp": {
     "x": 0.36,
     "y": 0.48
+  },
+  "/media/photos/plus-size-swimwear-hero-1-960.webp": {
+    "x": 0.64,
+    "y": 0.24
   },
   "/media/photos/couples-matching-swimsuit-hero-1-960.webp": {
     "x": 0.52,
@@ -151,6 +155,10 @@
     "x": 0.58,
     "y": 0.22
   },
+  "/media/photos/general-lifestyle-6-960.webp": {
+    "x": 0.5,
+    "y": 0.48
+  },
   "/media/photos/women-s-swimwear-lifestyle-1-960.webp": {
     "x": 0.34,
     "y": 0.21
@@ -170,6 +178,10 @@
   "/media/photos/men-s-swimwear-lifestyle-1-960.webp": {
     "x": 0.58,
     "y": 0.29
+  },
+  "/media/photos/men-s-swimwear-lifestyle-2-960.webp": {
+    "x": 0.38,
+    "y": 0.2
   },
   "/media/photos/boardshorts-product-sublimation-prints-and-colour-matching-960.webp": {
     "x": 0.54,
@@ -214,6 +226,10 @@
   "/media/photos/burkini-lifestyle-1-960.webp": {
     "x": 0.49,
     "y": 0.22
+  },
+  "/media/photos/burkini-lifestyle-2-960.webp": {
+    "x": 0.75,
+    "y": 0.27
   },
   "/media/photos/watersports-apparel-product-1-960.webp": {
     "x": 0.55,
