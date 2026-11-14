@@ -1,7 +1,7 @@
 {
   "schemaVersion": "seo-site-template-core-v1",
   "source": "../seo_website_template/.claude/worktrees/interesting-chebyshev-c9933c",
-  "commit": "dfa374b8bf87b9e04331b761d98193beafea9cdf",
+  "commit": "0fe551e1dcb1460eea9a8109964a029b1a0aa1b4",
   "dirty": false,
   "from": "commit",
   "uncommitted": [],
@@ -354,7 +354,7 @@
     "src/components/blocks/StatsBlock.astro": "d34ceb7878bbb3cbcdec8061ba808baacd1d01d3b3c0946ceb793082101efe5a",
     "src/components/blocks/StyleGridBlock.astro": "2930a03d44bce4f12431ccb081c7528adf9fec86c4541895541f795f1a8bbf30",
     "src/components/blocks/SwatchesBlock.astro": "9757a846e6a1475d39b904a9aa051e9a5b9c745bb59798fe55101bc057c70677",
-    "src/components/blocks/TableBlock.astro": "4b077f7c1d94acac775150e15ae32f32d0c87c890abd2756580b4dbb2a1cae70",
+    "src/components/blocks/TableBlock.astro": "ddc3b4a67f084a75750cf55f38de616bd64b6d1fb2a2963df44c4791c65b656e",
     "src/components/blocks/TestimonialsBlock.astro": "362846dde220d31ba1bbd73fb60dbb6d3bd45c124b5ff9e9eba2967540b63ef3",
     "src/components/blocks/TextBlock.astro": "8277d0923d74755fcba4d5ba9d49300eee72dbebff1af3316eb0ac47c661d09d",
     "src/components/blocks/TextFlow.astro": "df2cea6baea5b33656bf1e5a64c5d8606fc986ecbe797e8c446411513eb4854f",
