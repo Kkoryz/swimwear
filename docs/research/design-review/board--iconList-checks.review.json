@@ -1,36 +1,19 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "19e9548aaf2898768b4481c6",
+  "shots": "d679a94ef16406b9e25788dc",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--iconList-checks",
   "route": "/style-board/ (the style board: module iconList:checks, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
   "findings": [
     {
-      "block": "m3",
-      "viewport": "desktop",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "The check-list item titles (e.g. 'Production Standards', 'Certificate Copies') are set in a light 400 weight, barely heavier than the description under them, so the list has no clear sub-heading level under the bold 700 H2.",
-      "reference": "The competitor sets every sub-heading under an h2 bold (card h3 Maison 700, accordion questions 700, h4 24px), so each item reads as a heading over its text.",
-      "fix": "In src/styles/reference.css give the iconList item title (the iconList item heading / h3 selector) font-weight: 700 (or 600 at least), leaving its size to the template."
-    },
-    {
       "block": "m7",
       "viewport": "mobile",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "On phones the item titles that wrap ('Fabric-specific / Certification', 'Shipment-level / Recycled Claims', 'Buyer-appointed / Factory Audits' in m3, same treatment in m7) use body-like leading of about 1.5, so their two lines drift apart and read as two separate lines rather than one heading.",
-      "reference": "The competitor's multi-line headings sit at about 1.4 leading or tighter (h2 60/84, FAQ summary 1.4), and its card titles stay compact.",
-      "fix": "In src/styles/reference.css set line-height: 1.2–1.25 on the iconList item title, alongside the weight change for m3."
-    },
-    {
-      "block": "m3",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The check marks are thin, pale aqua strokes that nearly vanish on white at both widths, so the list's icon barely registers as a marker.",
-      "reference": "On light backgrounds the competitor uses its deep blue #1670a8 for accents (eyebrows, links); it keeps aqua for filled shapes such as its button, not for thin strokes on white.",
-      "fix": "In src/styles/reference.css colour the iconList check icon with the darker accent (var(--accent-text) / #1670a8), or thicken its stroke so it reaches 3:1 against white."
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "On phones the iconList item titles are almost the same size as the section heading above them (in m7, 'Mechanical durability' is about 13 px per character against about 14 px for 'Quality Control and Hardware Testing'), so the two heading levels don't read as two levels. At that size most of m3's longer titles ('Fabric-specific / Certification', 'Shipment-level / Recycled Claims', 'Buyer-appointed / Factory Audits') also wrap to two lines.",
+      "reference": "The competitor keeps each heading level clearly smaller than the one above it: its section h2 is 60 px and its sub-headings and h4 are about 24 px. Its sub-headings stay compact on phones and sit well below the section heading.",
+      "fix": "In the shared template's heading-fit logic, keep an iconList item h3 a clear step below its section h2 on small screens (for example, cap the item title's fitted size at a ratio of the section heading's fitted size). The fix belongs in the template, not in reference.css, because the rules forbid setting heading font sizes there. On desktop the two levels are already about 1.4× apart, so it can stay as it is."
     }
   ]
 }

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "be1dfa55c86e8130bd84f13f",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--process-circles",
+  "route": "/style-board/ (the style board: module process:circles, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
+  "findings": [
+    {
+      "block": "process-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The hairline linking the circles is still drawn only along the first row and runs on past the last circle to the content's right edge (01–03 in both samples). The six-step sample's second row (04–06) has no line at all, so the two rows of one sequence look like two different treatments (the earlier finding, not yet fixed).",
+      "reference": "The competitor's step rows (the timeline row on navy) draw one continuous hairline across the steps of the row it belongs to, and the line ends at the last step.",
+      "fix": "In the shared process:circles CSS, draw the connector per step: a `::after` line on each step's marker running to the next marker in the same row, left off the last step of each row. Do not draw one line across the list's first row."
+    },
+    {
+      "block": "process-1",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones the longest sample's heading ('OEM Bikini Sampling, / Lead Times, Payment / and Shipping') wraps to three lines at line-height 1. The descenders of one line nearly touch the capitals of the next, so the heading reads as a tight block.",
+      "reference": "The competitor sets its multi-line headings with clear leading: the hero headline at 88/96.8px (1.1) and section h2s at 60/84px (1.4).",
+      "fix": "In reference.css, open the leading set by `.block h2 { line-height: 1; }` to about 1.15–1.2 (as `.page-hero h1` has at 1.15). Leave the size and fit variables with the template."
+    }
+  ]
+}

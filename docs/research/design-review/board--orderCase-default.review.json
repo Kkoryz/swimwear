@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "2475735ad90f633da4d4e2ea",
+  "shots": "2476c03b33ce038c03e54ebe",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--orderCase-default",
   "route": "/style-board/ (the style board: module orderCase:default, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
@@ -11,9 +11,9 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The heading 'A recent order' starts on the content's left edge, but the case cards below it are a 46rem stack centred in the column, so they start about 330px to the right of the heading and leave an empty band on the left at both copy lengths.",
-      "reference": "The competitor sets each section's heading, text and cards in one shared column from the same left edge. Its sections never pair a left-set heading with a centred block of content.",
-      "fix": "In src/styles/patterns.css, change `.order-cases` (max-width: 46rem; margin-inline: auto) so the stack starts on the heading's edge. Use `margin-inline: 0` when body[data-heading-align=\"start\"] is set, keeping max-width as the measure limit. Alternatively, let the stack fill the content width as an equal-grid that puts the cards side by side when there are several."
+      "issue": "The heading 'A recent order' starts on the content's left edge, but the case cards under it are a narrow stack (about 46rem) centred in the column. In both samples the cards start roughly 330px to the right of the heading and leave an empty band on the left, so heading and cards do not share an edge.",
+      "reference": "The competitor sets each section's heading, text and cards in one column from the same left edge. None of its sections pairs a left-set heading with a centred block of content.",
+      "fix": "In src/styles/patterns.css, change `.order-cases` (max-width: 46rem; margin-inline: auto) to `margin-inline: 0` when body[data-heading-align=\"start\"] is set, so the stack starts on the heading's edge and max-width stays only as the line-length limit. Alternatively, let the stack fill the content width as an equal-column grid that puts several cards side by side."
     },
     {
       "block": "cases",
@@ -21,9 +21,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "The same three-word heading 'A recent order' is rendered at two clearly different sizes: about 60px in the longest sample and about 40px in the shortest. The same words in the same module should fit to the same size.",
-      "reference": "The competitor uses one size for each heading level in every section (60/60 desktop section headings).",
-      "fix": "Make the template's heading-fit for `.order-case__heading` depend only on the heading's own words, so it returns the same size for identical headings whatever the length of the block's body copy. Change only the fit logic, not a font-size rule."
+      "issue": "The same three-word heading 'A recent order' renders at about 60px in the longest sample and about 40px in the shortest. Identical headings in the same module fit to different sizes depending on how much body copy the block has.",
+      "reference": "The competitor uses one size per heading level in every section, so a section heading looks the same wherever it appears.",
+      "fix": "Make the template's heading fit for the orderCase heading depend only on the heading's own words, so identical headings get the same size whatever the length of the block's body copy. Change only the fit logic; add no font-size rule."
     }
   ]
 }

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "5ba8f345d9b0f3c4225a08e2",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--featureGrid-cards",
+  "route": "/style-board/ (the style board: module featureGrid:cards, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "m2",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The four cards are still white boxes with a 1px black outline: the filled-panel rule in reference.css (line 236) only applies under main[data-page-type=\"solution\"], so featureGrid:cards on the manufacturer pages these samples come from (/rash-guard-manufacturer/) keeps the wireframe outline.",
+      "reference": "The competitor's featureGrid:cards module (solution sections 2 and 7) uses flat filled panels (white or cream on a tinted band, cream or light blue on navy) with a small radius and no outline.",
+      "fix": "In src/styles/reference.css widen the selector of the rule at line 236 from main[data-page-type=\"solution\"] [data-variant=\"outlined\"] .feature-card to the featureGrid cards variant on every page type (e.g. .block--featureGrid[data-variant=\"outlined\"] .feature-card { border-color: transparent; background: var(--surface-secondary); }), keeping --radius-card."
+    },
+    {
+      "block": "m3-2",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The two wide cards keep the same thin black outline on white, so the short set reads as two mostly empty framed boxes; the solution-only fill rule does not reach this manufacturer-page sample.",
+      "reference": "The competitor's two-card row (\"Choose from 100,000 m in stock\" / \"Digital prints\") is made of filled rounded panels without borders.",
+      "fix": "The same change as m2: apply the no-border, var(--surface-secondary) fill to the featureGrid cards variant regardless of page type."
+    },
+    {
+      "block": "m2",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones the section heading (\"Rash Guard Fabrics, UPF Ratings and Certifications\") appears to be set at the manufacturer heading weight (500), while the card titles under it are 700 and grow to 1.5rem, so \"Performance fabric range\" reads about as strong as the h2 and the step from section heading to card title is lost.",
+      "reference": "The competitor's card section heading clearly outranks its card titles, which are smaller and no heavier than the heading.",
+      "fix": "In src/styles/reference.css set .feature-card__title to font-weight: var(--weight-heading) rather than a fixed 700, so the card titles take the heading weight of their page type (500 on manufacturer pages); leave every font-size to the template."
+    }
+  ]
+}

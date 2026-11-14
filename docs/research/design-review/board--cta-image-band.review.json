@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "1eb757121349efe359f5a962",
+  "shots": "f9801135dd65f8f5d6ab5436",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--cta-image-band",
   "route": "/style-board/ (the style board: module cta:image-band, longest and shortest copy, photos as grey frames)",
@@ -10,27 +10,36 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The band's button is a transparent pill with a thin white outline (`[data-variant=\"image-band\"] .cta .button--primary { background: transparent; border: 1px solid currentColor }`), but in the competitor shot its buttons are solid white pills with dark labels, so ours is the weakest thing on the dark band rather than the clear action.",
-      "reference": "Competitor home 17: BOOK A CALL-BACK, WHATSAPP, VISIT US and EMAIL US are filled white pills with black uppercase labels sitting on the darkened photo. components.md item 13 calls them white-outlined, but the captured state shows them filled.",
-      "fix": "In reference.css, set `[data-variant=\"image-band\"] .cta .button--primary` to `background: var(--text-inverse); color: #000000; border-color: var(--text-inverse)` and use the current outline look as its :hover state. Keep the border radius and size as they are."
-    },
-    {
-      "block": "cta",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "content",
-      "issue": "On the longest sample, the button label 'TALK TO US ABOUT SWIMWEAR PACKAGING & CUSTOM BRAND LABELS' wraps to three centred lines, which turns the pill into a tall stadium shape that is almost as heavy as the paragraph above it.",
-      "reference": "The competitor's band buttons carry one to three words (BOOK A CALL-BACK, WHATSAPP, VISIT US, EMAIL US), so each stays a one-line pill even on phones.",
-      "fix": "Shorten the CTA button label in Site Factory to a few words, for example 'Request a label quote', and leave the full topic to the heading."
+      "issue": "This was flagged in the last review and is still not fixed: at both samples the photo band sits about 20 px in from the screen edge on each side, so it reads as a boxed panel inside the content gutter, not a closing band across the full width.",
+      "reference": "On home 17 the competitor's closing image band runs from edge to edge of the 1440 px viewport with no side margin. Its copy keeps to the content's left edge.",
+      "fix": "In reference.css, make `.block--cta[data-variant=\"image-band\"] .cta` full-bleed: `margin-inline: calc(50% - 50vw); width: 100vw; border-radius: 0`. Keep `.cta__content`'s inline padding at the container gutter so the heading still starts on the content's left edge."
     },
     {
       "block": "cta",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "At both widths the photo band sits inside the content gutter, about 20 px in from the screen edge on both sides. It reads as a boxed panel rather than a full-width photo band, which shows most on phones, where it lines up with the FAQ list above it.",
-      "reference": "The competitor's image band on home 17 runs edge to edge of the viewport at 1440 px and at 390 px, with no side margin.",
-      "fix": "Let `.block--cta[data-variant=\"image-band\"]` break out of the container: `margin-inline: calc(50% - 50vw)` with `width: 100vw` on the `.cta` frame, or use the template's full-bleed band setting if it has one. Keep the copy's inline padding so the text stays on the content's left edge."
+      "issue": "This was flagged in the last review and is still not fixed: at 390 px the band is inset by the gutter on both sides and lines up with the FAQ list above it, so it looks like a dark card rather than a full-width photo band.",
+      "reference": "At 390 px the competitor's closing band fills the screen from edge to edge.",
+      "fix": "Use the same full-bleed rule on `.block--cta[data-variant=\"image-band\"] .cta` at every width (`margin-inline: calc(50% - 50vw); width: 100vw`) and keep the gutter as `.cta__content`'s padding."
+    },
+    {
+      "block": "cta",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "This is still the case: in the longest sample the button label 'TALK TO US ABOUT SWIMWEAR PACKAGING & CUSTOM BRAND LABELS' wraps to three centred lines. That turns the full-width pill into a tall slab almost as heavy as the paragraph above it, which goes against reference.css's own aim of 'its label on one line'.",
+      "reference": "The competitor's band buttons carry one to three words each (BOOK A CALL-BACK, WHATSAPP, VISIT US, EMAIL US), so each one stays a single-line pill on phones.",
+      "fix": "In Site Factory, shorten this CTA's button label to a few words (for example 'Request a label quote') and leave the topic to the heading."
+    },
+    {
+      "block": "cta",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The copy is centred top to bottom in the band (heading to button runs from about 29% to 72% of its height), while the competitor's copy sits low in the band.",
+      "reference": "On home 17 the competitor's eyebrow, h2, paragraph and buttons run from about 43% to 83% of the band's height. The upper part of the photo is left clear and the copy rests above the lower edge.",
+      "fix": "In reference.css at min-width 1024px, set `[data-variant=\"image-band\"] .cta` to align its content to the end (`align-items: flex-end`, or `align-self: end` on `.cta__content`). Give it a bottom padding of about 15% of the band height (`padding-block-end: clamp(3rem, 7vw, 6rem)`). Leave the min-height as it is."
     }
   ]
 }

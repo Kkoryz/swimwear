@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "c5d8de4b523a9f4cbf82ada3",
+  "shots": "025ed7ad47cdd60e057ab370",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--faq-bars",
   "route": "/style-board/ (the style board: module faq:bars, longest and shortest copy, photos as grey frames)",
@@ -9,11 +9,19 @@
       "block": "faq",
       "viewport": "desktop",
       "severity": "P2",
-      "scope": "template",
-      "gap": "other",
-      "issue": "Every bar starts closed and the answer style never shows, while this site's FAQ setting for opening the first answer applies to the whole site (it is set to closed for the home FAQ).",
-      "reference": "The competitor's solution FAQ bars open the first question (\"Do I need a tech pack?\"), so its answer copy shows under the bold question in the white bar.",
-      "fix": "Let the template set the first-answer-open choice per variant or page type, so faq:bars opens its first item while the home two-column FAQ stays closed."
+      "scope": "site",
+      "issue": "The type order is the wrong way round: each bold question is set smaller than the answer under it. This shows on desktop (questions about 13px against roughly 15px answers) and on phones (about 15px against 17px), so the open answer looks louder than the question that opens it.",
+      "reference": "In the competitor's bars, the bold question (\"Do I need a tech pack?\") is clearly bigger than the light answer copy under it.",
+      "fix": "In reference.css, set the answer text of .block--faq[data-variant=\"bars\"] (the details body, not the summary) one type step below the summary, e.g. font-size: var(--step--1) or 0.9375rem. This gives the question the larger size without setting any heading size."
+    },
+    {
+      "block": "faq",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The bars run the full 1400px content width. One-line questions of about 100 characters end halfway across, and the +/− mark sits some 600px further right, cut off from the question it belongs to.",
+      "reference": "The competitor keeps its bars in a narrower column, so each question and its toggle read as one bar.",
+      "fix": "Give the bar list of .block--faq[data-variant=\"bars\"] a max-width set in ch to the longest question (around 90–100ch), left-aligned under the heading. This is a reading measure, not the competitor's pixel width."
     },
     {
       "block": "faq",
@@ -21,18 +29,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "The open/close mark is a + at the right end of each bar, while the bars variant's mark sits at the left of the question.",
+      "issue": "This repeats an earlier finding that is still visible: the open/close mark is still a +/− at the far right end of each bar, not before the question.",
       "reference": "The competitor puts a small solid triangle (▸, turning ▾ when open) just before the question text, at the left of each bar.",
-      "fix": "Give faq[data-variant=\"bars\"] a marker option in the template that puts a triangle before the summary text, instead of the shared ::after + at the right."
-    },
-    {
-      "block": "faq-charts",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The comparison table under the shortest FAQ draws a full dark 1px grid around every cell, which the competitor's light FAQ module never uses. A white fade sits over its empty top-left cell and its right edge, although the table fits the width without scrolling.",
-      "reference": "The competitor's FAQ module uses no heavy rules: white bars on a cream band, the only edges being the bars' own soft rounded corners.",
-      "fix": "Change the table's cell borders in .block--charts (or the table rule in reference.css) to hairline rows only (border-color mixed to about 18% of the text colour, no vertical rules), and show the scroll fade only when the table really overflows."
+      "fix": "Give the template a marker option for faq[data-variant=\"bars\"] that puts a triangle before the summary text, instead of the shared ::after +/− at the right."
     },
     {
       "block": "faq-charts",
@@ -40,19 +39,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "other",
-      "issue": "On phones the table shows only three of its four columns, with headers broken onto three lines. The fade sits at the left of the first column instead of the right edge where the hidden \"Pigment with white underlayer\" column is, so nothing tells the reader to swipe.",
-      "reference": "The competitor's FAQ has no table. Its phone layout keeps one bar per question with short readable lines.",
-      "fix": "Put the overflow fade (or a 'swipe' cue) on the right edge while more columns are hidden, or stack the table into one card per column below about 600px."
-    },
-    {
-      "block": "faq-charts",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "template",
-      "gap": "other",
-      "issue": "On phones each bar's track takes only about half the panel width, and its value (\"4 cm\", \"7 cm\") is pushed to the far right, leaving an empty gap between bar and figure.",
-      "reference": "On desktop the same chart lets the track run the width between label and value, with the value right after it.",
-      "fix": "On narrow widths, let .charts bar tracks grow (flex: 1) to fill the row up to the value, so bar and figure keep together."
+      "issue": "This repeats an earlier finding that is still visible: on phones each bar's track takes only about half the panel width, and the value (\"4 cm\", \"7 cm\") sits at the far right with an empty gap between bar and figure.",
+      "reference": "On desktop the same chart lets the track fill the width between label and value, so bar and figure stay together.",
+      "fix": "On narrow widths, let the .charts bar track grow (flex: 1 1 auto; min-width: 0) to fill the row up to the value."
     }
   ]
 }

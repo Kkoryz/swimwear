@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "6da56897fb0f0d24cdeccf1c",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--cta-inline",
+  "route": "/style-board/ (the style board: module cta:inline, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "cta",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones the quote button still runs the full column width (about 350 px, larger label type than the body) and reads as a heavy black bar under the copy; this asks again for the earlier P2's change and so undoes the phone full-width rule in reference.css for this module, because the mobile shot shows the competitor's inline CTA uses small buttons, not full-width pills.",
+      "reference": "The competitor's inline CTA (product_manufacturer 13) keeps its two black buttons small and sized to their one-line labels on phones, sitting side by side under the text with an 8px radius and 12px 24px padding.",
+      "fix": "In src/styles/reference.css, keep the max-width: 767px full-width rule for the other CTA variants but override it for the inline one: .block--cta[data-variant=\"inline\"] .cta .button { width: auto; max-width: 100%; padding: 12px 24px; } so the button is sized to its label and starts on the left edge under the paragraph."
+    }
+  ]
+}

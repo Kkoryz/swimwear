@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "2d72562d257d4e272ed41e16",
+  "shots": "e3dbf0b617815f3106ed4288",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--logos-marquee",
   "route": "/style-board/ (the style board: module logos:marquee, longest and shortest copy, photos as grey frames)",
@@ -9,19 +9,11 @@
       "block": "owner-logos",
       "viewport": "desktop",
       "severity": "P2",
-      "scope": "site",
-      "issue": "Two brand names ('NORTHFOLD BASICS', 'HARBOUR KNIT CO.') wrap to two lines inside the 10rem items while the other four stay on one, and because items are centred vertically the names and their 'Swimwear, …' notes sit at different heights across the one row.",
-      "reference": "The competitor's marks sit on one shared line across the row, each a single mark of even height with nothing wrapping.",
-      "fix": "In src/styles/reference.css set --logos-item-width so the longest name keeps to one line (sized from our copy, not a fixed copy of the competitor), or top-align the items in .logos-marquee__row (align-items: start) so names and notes share their lines."
-    },
-    {
-      "block": "owner-logos",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "All six items fit, so the marquee stays still and the row is packed to the left, leaving the right quarter of the content column as an empty band beside it.",
-      "reference": "The competitor's logo row runs the full width of the page and off its right edge, the marks spaced evenly across it.",
-      "fix": "Widen --logos-gap in src/styles/reference.css so the still row reaches the content's right edge (or lets the marquee run when it no longer fits), rather than leaving the items gathered on the left."
+      "scope": "template",
+      "gap": "layout",
+      "issue": "The module puts its heading on a line of its own above the brand row, so the section is a heading block with a strip under it rather than one band, and that adds a whole heading's height to what the competitor sets as a single line.",
+      "reference": "The competitor's logo marquee is one row on white: the 'A FEW BRANDS WE PRODUCE' label sits on the left edge, on the same line as the moving marks, and the marks run on from it to the page's right edge.",
+      "fix": "Give the logos marquee a layout in the shared module that sets the heading at the start of the row, on the content's left edge and level with the marks, with the rail running to its right (stacking above the rail on phones). The heading keeps its template-fitted size; this changes only where it sits."
     }
   ]
 }

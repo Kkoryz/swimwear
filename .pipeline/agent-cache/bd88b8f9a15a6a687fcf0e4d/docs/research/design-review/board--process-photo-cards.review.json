@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "0d7772c20beed594fe890d13",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--process-photo-cards",
+  "route": "/style-board/ (the style board: module process:photo-cards, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
+  "findings": [
+    {
+      "block": "m3-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The previous review asked for wider side padding and it has not been applied: the cards still have about 20px (1.25rem) on each side, against about 36px above the title under the number badge, so titles and text sit close to the white outline.",
+      "reference": "The competitor's outlined cards use about 32px of padding on every side, so the content sits evenly inside the outline.",
+      "fix": "In reference.css, set padding-inline: 2rem on .block--process[data-variant=\"photo-cards\"] .process-step (patterns.css:605 still sets 1.25rem), and move the .process-step__marker left offset to the same 2rem so the badge stays over the title's edge."
+    },
+    {
+      "block": "m7-steps",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Each stacked card still has about 50px of empty space under its last line (for example, card 01 ends its text near y 640 and its outline near y 690) against about 36px above the title, so every card looks bottom-heavy; this was reported before and the shots show it unchanged.",
+      "reference": "The competitor's cards use the same padding on every side, so the content sits evenly inside the outline.",
+      "fix": "In reference.css, set margin-bottom: 0 on .block--process[data-variant=\"photo-cards\"] .process-step > :last-child, so the card's own bottom padding (1.5rem) is the only space under the text."
+    },
+    {
+      "block": "m3-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The line above the cards, 'How size-by-size print placement works', reads as a heading (it has no full stop) but comes as a lead paragraph, so it renders at body size and regular weight, smaller and lighter than the bold card titles under it, and the section's hierarchy reads upside down (m7-steps' 'Care steps from our rash guard labels.' has the same problem on both widths).",
+      "reference": "The competitor's sections open with a bold heading above their cards, heavier than the card titles.",
+      "fix": "Site Factory should either give the block this line as its heading (block.heading, which renders as the h2 .process__heading) or rewrite it as a full lead sentence that follows on from the section heading it continues."
+    }
+  ]
+}

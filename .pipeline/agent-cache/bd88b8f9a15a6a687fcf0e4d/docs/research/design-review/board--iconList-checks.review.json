@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "d679a94ef16406b9e25788dc",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--iconList-checks",
+  "route": "/style-board/ (the style board: module iconList:checks, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
+  "findings": [
+    {
+      "block": "m7",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "On phones the iconList item titles are almost the same size as the section heading above them (in m7, 'Mechanical durability' is about 13 px per character against about 14 px for 'Quality Control and Hardware Testing'), so the two heading levels don't read as two levels. At that size most of m3's longer titles ('Fabric-specific / Certification', 'Shipment-level / Recycled Claims', 'Buyer-appointed / Factory Audits') also wrap to two lines.",
+      "reference": "The competitor keeps each heading level clearly smaller than the one above it: its section h2 is 60 px and its sub-headings and h4 are about 24 px. Its sub-headings stay compact on phones and sit well below the section heading.",
+      "fix": "In the shared template's heading-fit logic, keep an iconList item h3 a clear step below its section h2 on small screens (for example, cap the item title's fitted size at a ratio of the section heading's fitted size). The fix belongs in the template, not in reference.css, because the rules forbid setting heading font sizes there. On desktop the two levels are already about 1.4× apart, so it can stay as it is."
+    }
+  ]
+}

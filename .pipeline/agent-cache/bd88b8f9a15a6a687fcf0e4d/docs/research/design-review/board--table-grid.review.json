@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "5b9e599993e65638d2087255",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--table-grid",
+  "route": "/style-board/ (the style board: module table:grid, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
+  "findings": [
+    {
+      "block": "m5",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "Still open from the last review: at 390 px the four-column size table runs past the right edge, so the Weight column shows only 'We' / '12 kg' cut at the screen edge with a faint shade as the only sign it scrolls, while short cells wrap word by word ('About / 2 / years') and make every row three lines tall.",
+      "reference": "Nothing on the competitor's phone pages is cut off at the edge; any row that runs sideways shows a clear cue that it moves.",
+      "fix": "In reference.css at max-width 600px tighten .block--table .table-block th/td padding (e.g. 0.6rem 0.5rem, first cell padding-inline-start 0) and set white-space: nowrap on the short value cells (td:not(:last-child)) so four short columns fit 350 px. Where they still can't fit, give .table-block__scroll[data-scroll=\"sideways\"] a wider, darker right-edge fade."
+    },
+    {
+      "block": "m9",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "Still open from the last review: at 390 px the label column ('Detail') takes about 44% of the table, so the spec column is squeezed to about 20–22 characters a line and each row runs 6–15 lines ('Humid storage', 'Adhesive compatibility'), turning the 315-word table into a long, narrow strip of broken text over about 1,900 px.",
+      "reference": "The competitor's phone text runs the full content width in lines of about 35–45 characters (16px/26px body); none of its sections packs prose into a column this narrow.",
+      "fix": "In reference.css at max-width 600px stack the two-column .block--table .table-block: tr display:block with its border-bottom, th/td display:block, the first cell as a small bold label over a full-width text cell, thead visually hidden. Failing that, set the first column to inline-size ~30% (th:first-child, td:first-child) so the text column gets the width."
+    },
+    {
+      "block": "m9",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The 'Specification and consequence' column still runs about 110–115 characters a line ('Made from 90% recycled materials and available in 3 shapes: thong, standard bikini and full coverage. The water-'). The table still spans the full content width of about 1130 px, so the repair since the last review (.block--table .table-block__scroll { max-width: calc(70ch + 20rem) }) has not given a reading-length line.",
+      "reference": "The competitor keeps body text to a short measure, about 60–75 characters a line at 16–17px.",
+      "fix": "Check that the max-width rule reaches the scroll wrapper (its selector or the ch it measures against). Otherwise cap the text cells directly: .block--table .table-block td:last-child { max-inline-size: 70ch } with the table at inline-size: auto, so the spec column keeps about 70 characters beside the label column."
+    },
+    {
+      "block": "m5",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Still open from the last review: the m5 heading ('Toddler Sizes and Custom Size Runs') is set in a regular weight while m9's table heading on the same board is bold (DM Sans 700), so two table headings of the same level show different weights (same at 390 px).",
+      "reference": "The competitor sets every section h2 in one heavy weight throughout.",
+      "fix": "Give .block--table .table-block__heading the site h2 weight, font-weight: 700, leaving its fitted size untouched."
+    },
+    {
+      "block": "m9",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The header row of both tables sits on a 2px solid black rule (patterns.css .table-block thead th { border-bottom-width: 2px }), much heavier than the light row hairlines below it, at both widths. This goes against the treatment's own note that tables carry single light rules.",
+      "reference": "The competitor's facts carry hairlines only, with no heavy rules.",
+      "fix": "In reference.css set .block--table .table-block thead th { border-bottom-width: 1px; border-bottom-color: color-mix(in srgb, var(--text-primary) 35%, transparent) } so the header keeps a hairline, slightly darker than the row rules."
+    }
+  ]
+}

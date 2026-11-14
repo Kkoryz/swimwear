@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "bb10e8dd493fd2ff7ab1e062",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--contactChannels-cards",
+  "route": "/style-board/ (the style board: module contactChannels:cards, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "channels",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "On phones the four channel cards still stack one per row at full width. Each card is about 230 px tall and mostly empty around one icon, one label bar and one line of text, so the section runs to about 1,090 px. This site's own CSS causes it: reference.css line 349 sets `@media (max-width: 599px) { .contact-channels[data-variant=\"cards\"] > .contact-channel { flex-basis: 100% } }`.",
+      "reference": "The competitor keeps its channel cards as small outlined tiles side by side on phones. The four tiles share one row, each with an icon above a black label bar (components.md, contact section 3).",
+      "fix": "In src/styles/reference.css, change the max-width: 599px rule for .contact-channels[data-variant=\"cards\"] > .contact-channel from flex-basis: 100% to flex-basis: calc(50% - var(--grid-gap) / 2) (with min-width: 0) so the four cards sit two by two. Also cut the phone card padding and the label-bar font-size (now 1.25rem) back to the desktop size so each tile stays compact."
+    },
+    {
+      "block": "channels",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The parts of the cards in the one row do not line up. The email and phone links sit about 5 px lower than the plain address and hours text under the same black label bars (y≈201 against y≈196 on the shot).",
+      "reference": "The competitor's channel cards put their icon, label bar and text at the same heights across the row.",
+      "fix": "In src/styles/reference.css, give .contact-channels[data-variant=\"cards\"] .contact-channel a@href value and its plain-text value the same box: the same line-height and padding, with no extra block padding or min-height on the link. This puts the line under every label bar at one height."
+    }
+  ]
+}

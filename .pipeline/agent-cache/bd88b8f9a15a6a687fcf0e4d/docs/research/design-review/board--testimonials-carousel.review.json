@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "8ec19a5333dbb7c0f4b337a2",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--testimonials-carousel",
+  "route": "/style-board/ (the style board: module testimonials:carousel, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "This repeats the earlier finding, which has not been repaired. Now that the section follows the white/tinted alternation and sits on white, the white quote cards with no shadow (--shadow-card: none) do not show at all: the quotes float on the page, set in from the heading's left edge by card padding that nothing visible explains (at both widths).",
+      "reference": "The competitor's quote cards are raised panels with a soft drop shadow along the bottom and right edges, so each card stands off the surface behind it.",
+      "fix": "In src/styles/reference.css, give .block--testimonials a soft --shadow-card (e.g. 0 6px 12px rgb(0 0 0 / 0.15)) so that .testimonial picks it up through box-shadow: var(--shadow-card). That makes the cards show on a white or a tinted surface alike."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "This repeats the earlier finding, which has not been repaired. A hard dark 1px rule (patterns.css:233, figcaption border-top) still runs across every card between the quote and the attribution, at both widths.",
+      "reference": "The competitor's cards separate the quote from the bold name with space only, with no rule.",
+      "fix": "In src/styles/reference.css, set `.block--testimonials .testimonial figcaption { border-top: 0; }` and keep the existing padding-top and gap as the separation."
+    }
+  ]
+}

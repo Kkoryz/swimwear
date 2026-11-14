@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "c76634494555e95e5233fb9d",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--relatedPages-links",
+  "route": "/style-board/ (the style board: module relatedPages:links, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
+  "findings": [
+    {
+      "block": "related",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The link-card labels are set at 15px (template .related-links__link font-size: 0.9375rem), a step under the page's body text, so the cards read lighter and smaller than the competitor's link buttons.",
+      "reference": "The competitor's title-case link buttons on the manufacturer page are set in Maison Book 16px, and its body text is 16-17px; no link label is smaller than the body text.",
+      "fix": "In reference.css, set .block .related-pages--grid .related-links__link { font-size: 1rem; } so the card labels match the body/button size; leave padding, outline and column count as they are."
+    }
+  ]
+}

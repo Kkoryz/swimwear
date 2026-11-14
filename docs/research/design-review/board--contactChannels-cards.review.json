@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "9a26063381edd8cfea112db9",
+  "shots": "bb10e8dd493fd2ff7ab1e062",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--contactChannels-cards",
   "route": "/style-board/ (the style board: module contactChannels:cards, longest and shortest copy, photos as grey frames)",
@@ -9,39 +9,19 @@
       "block": "channels",
       "viewport": "mobile",
       "severity": "P1",
-      "scope": "template",
-      "gap": "other",
-      "issue": "On phones the four channel cards stack one per row at full width, so each card is about 230 px tall and the section runs to about 1030 px, mostly empty card space around one icon, one label bar and one line of text.",
-      "reference": "The competitor's channel cards go two by two on phones (components.md, contact section 3): small outlined tiles, each with an icon above a black label bar.",
-      "fix": "In patterns.css, change `@media (max-width: 599px) .contact-channels[data-variant=\"cards\"] > .contact-channel { flex-basis: 100% }` to two columns (flex-basis: calc(50% - var(--grid-gap) / 2)) so the four cards sit two by two."
-    },
-    {
-      "block": "channels",
-      "viewport": "desktop",
-      "severity": "P1",
-      "scope": "template",
-      "gap": "other",
-      "issue": "The 'Contact details' heading starts on the content's left edge, but the row of four cards is centred under it (from about x≈850 to 1360 on the shot), so the heading stands alone at the left and does not line up with the cards.",
-      "reference": "On the competitor's page the heading and cards share one axis (the heading is centred there). Our rule keeps the heading at the left edge, so the card set has to start under it. Only a grid's own short last row is centred.",
-      "fix": "In patterns.css, set .contact-channels[data-variant=\"cards\"] to justify-content: flex-start, or make it a grid of equal 1fr columns across the content width, so the first card starts under the heading's left edge. A short last row can still be centred."
+      "scope": "site",
+      "issue": "On phones the four channel cards still stack one per row at full width. Each card is about 230 px tall and mostly empty around one icon, one label bar and one line of text, so the section runs to about 1,090 px. This site's own CSS causes it: reference.css line 349 sets `@media (max-width: 599px) { .contact-channels[data-variant=\"cards\"] > .contact-channel { flex-basis: 100% } }`.",
+      "reference": "The competitor keeps its channel cards as small outlined tiles side by side on phones. The four tiles share one row, each with an icon above a black label bar (components.md, contact section 3).",
+      "fix": "In src/styles/reference.css, change the max-width: 599px rule for .contact-channels[data-variant=\"cards\"] > .contact-channel from flex-basis: 100% to flex-basis: calc(50% - var(--grid-gap) / 2) (with min-width: 0) so the four cards sit two by two. Also cut the phone card padding and the label-bar font-size (now 1.25rem) back to the desktop size so each tile stays compact."
     },
     {
       "block": "channels",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The cards keep a fixed 245 px width taken from the competitor (--channel-card-width: 15.3125rem). This leaves most of the row empty and squeezes the Hours text, so '9:00-18:00' breaks after the hyphen into '9:00-' / '18:00'.",
-      "reference": "The competitor's cards are sized to its own short labels. Our copy is longer (an email address, a two-line address, opening hours), so the card width should follow our copy, not a copied fixed value.",
-      "fix": "In reference.css, drop --channel-card-width so the cards share the content width. Also keep the time range on one line (white-space: nowrap on the time span, or a non-breaking en dash in the copy)."
-    },
-    {
-      "block": "channels",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The cards start right under the 'Contact details' heading with no gap; the card borders touch the heading's descenders. Phones show the same.",
-      "reference": "The competitor leaves clear space between a section's heading and its content.",
-      "fix": "In reference.css, add space above the card list (for example .contact-channels[data-variant=\"cards\"] { margin-block-start: var(--space-md) }) so the heading and cards keep the site's usual heading-to-content gap."
+      "issue": "The parts of the cards in the one row do not line up. The email and phone links sit about 5 px lower than the plain address and hours text under the same black label bars (y≈201 against y≈196 on the shot).",
+      "reference": "The competitor's channel cards put their icon, label bar and text at the same heights across the row.",
+      "fix": "In src/styles/reference.css, give .contact-channels[data-variant=\"cards\"] .contact-channel a@href value and its plain-text value the same box: the same line-height and padding, with no extra block padding or min-height on the link. This puts the line under every label bar at one height."
     }
   ]
 }

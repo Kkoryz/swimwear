@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "2a3780f282ab972e8f7c2a0b",
+  "shots": "c76634494555e95e5233fb9d",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--relatedPages-links",
   "route": "/style-board/ (the style board: module relatedPages:links, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
@@ -9,11 +9,10 @@
       "block": "related",
       "viewport": "desktop",
       "severity": "P2",
-      "scope": "template",
-      "gap": "layout",
-      "issue": "With a single related page (shortest sample, \"Bikinis\") the grid's column count is set to the link count (RelatedLinks.astro: count <= 4 ? count), so the one card fills the whole ~1300px content width: one short word on the left edge and its arrow ~1250px away on the right, reading as an empty bar rather than a link card.",
-      "reference": "The competitor's links and buttons are sized to their label (black 8px-radius title-case buttons and arrow links on the manufacturer page), never a lone full-width bar; in our own longest sample each card takes a third of the row.",
-      "fix": "In template.css, give .related-pages--grid .related-links a column-width cap, e.g. grid-template-columns: repeat(var(--related-columns, 3), minmax(0, min(100%, 24rem))) at >=600px and >=900px, or set the column floor to 3 in RelatedLinks.astro (columns = max(columns, 3) for counts under 3). The cards then keep one card width and start on the content's left edge."
+      "scope": "site",
+      "issue": "The link-card labels are set at 15px (template .related-links__link font-size: 0.9375rem), a step under the page's body text, so the cards read lighter and smaller than the competitor's link buttons.",
+      "reference": "The competitor's title-case link buttons on the manufacturer page are set in Maison Book 16px, and its body text is 16-17px; no link label is smaller than the body text.",
+      "fix": "In reference.css, set .block .related-pages--grid .related-links__link { font-size: 1rem; } so the card labels match the body/button size; leave padding, outline and column count as they are."
     }
   ]
 }

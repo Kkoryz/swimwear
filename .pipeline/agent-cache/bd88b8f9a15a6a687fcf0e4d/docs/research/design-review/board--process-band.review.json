@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "1810cbc96aeefe57db946601",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--process-band",
+  "route": "/style-board/ (the style board: module process:band, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "splitMedia-1-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "content",
+      "issue": "The band still has no heading: it opens with a body-size lead (\"Our full-package service, from brief to shipment.\") straight above the steps, so the section has no title.",
+      "reference": "The competitor's band opens with an eyebrow (\"HOW IT WORKS\") and a large H2 (\"Six steps from Costing to delivery\") above the rule that leads into the steps.",
+      "fix": "Site Factory should give this process block a heading (e.g. \"Seven steps from brief to shipment\") so it renders h2.process__heading above the lead."
+    },
+    {
+      "block": "faq-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "content",
+      "issue": "The band still has neither a heading nor a lead: five bare steps start under an empty band of top padding, so the dark section has no visible purpose.",
+      "reference": "The competitor's band always opens with an eyebrow and an H2 naming the process before the numbered steps.",
+      "fix": "Site Factory should give faq-steps a heading (e.g. \"How a consulting project runs\") and, if it has one, a short lead."
+    },
+    {
+      "block": "faq-steps",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones each step number (\"01\", \"02\"…) still stands in a 44 px-tall box, so the gap from number to title (about 45 px) is larger than the gap from title to text. The number reads as cut off from its step, and the five one-line steps run about 900 px.",
+      "reference": "The competitor's step number is a small label directly above its step name, closer to it than to the step before.",
+      "fix": "In reference.css, add height: auto to .block--process[data-variant=\"band\"] .process-step__marker (width: auto is already set), so the step's 0.75rem gap is all that separates number and title."
+    },
+    {
+      "block": "splitMedia-1-steps",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Here too the 44 px-tall number box leaves about 45 px between each number and its title, nearly as much as between steps, so the seven stacked steps lose their grouping and the band runs about 1,500 px.",
+      "reference": "The competitor keeps each number tight above its step name, so every step reads as one unit.",
+      "fix": "The same change: height: auto on .block--process[data-variant=\"band\"] .process-step__marker in reference.css."
+    },
+    {
+      "block": "splitMedia-1-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The step numbers are still white like the body text, and the rule runs level with them (broken by each number) instead of above them, so the numbers do not read as an accent.",
+      "reference": "The competitor sets its step numbers (\"01\"–\"06\") small, bold and in its light-blue accent, a clear space below one full-width rule.",
+      "fix": "In reference.css, set --process-marker-text on .block--process[data-variant=\"band\"] to the light accent (the button's cyan), and move the band's .process-steps::before rule above the numbers (top: 0, with padding-top on .process-steps for the space below it)."
+    }
+  ]
+}

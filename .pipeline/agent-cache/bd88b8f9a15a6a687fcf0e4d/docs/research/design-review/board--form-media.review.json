@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "1d2519f70604a8a8db1359eb",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--form-media",
+  "route": "/style-board/ (the style board: module form:media, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "form",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "The photo's top edge still sits below the form's. The heading 'Send an enquiry' sits only over the photo column, which pushes the grey frame down by about the heading's height, while the Name/Email labels start level with the heading.",
+      "reference": "The competitor puts a heading over each column ('Have Questions?' / 'Email Us'), so the photo and the first form row start on the same line.",
+      "fix": "In the form:media layout, put the section heading in a row above both columns (still starting on the content's left edge), so that .form-block__media and .form-block__form share their top edge."
+    },
+    {
+      "block": "form",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The consent line still reads '…as described in the privacy policy. Privacy policy': a second 'Privacy policy' link is added after a label that already ends with those words.",
+      "reference": "The competitor's form has no repeated text under its fields; the only thing below its message box is the SEND button.",
+      "fix": "In LeadForm.astro, make the words 'privacy policy' inside consent.label the link, instead of adding a second 'Privacy policy' link after the label."
+    },
+    {
+      "block": "form",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The consent checkbox shows only as a faint pale-grey square, much lighter than the dark 1px outlines of the fields above it, so the one required tick is easy to miss.",
+      "reference": "The competitor outlines every form control in the same thin dark line (its fields and its #262626 bar).",
+      "fix": "In reference.css, give :is(.form-block__form, .cta__form) input[type=\"checkbox\"] the fields' outline: appearance: none; border: 1px solid #262626; background: #fff. Show a #262626 fill or tick on :checked, because accent-color only colours the checked state."
+    },
+    {
+      "block": "form",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The full-width submit button has fixed the desktop layout, but reference.css still gives it min-height: 37px at every width. On phones that is below the 44px minimum tap target.",
+      "reference": "The competitor's SEND bar is a slim dark bar sized for desktop; at phone width that height is too small to tap reliably.",
+      "fix": "In reference.css, inside @media (max-width: 767px), set :is(.form-block__form, .cta__form) .button--primary to min-height: 44px and keep its #262626 look and full width."
+    }
+  ]
+}

@@ -1,8 +1,18 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "4cf2d43f229a9ba586d0f1bd",
+  "shots": "c2f74dbcdb34a54d01e02410",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--splitMedia-wide",
   "route": "/style-board/ (the style board: module splitMedia:wide, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
-  "findings": []
+  "findings": [
+    {
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "In splitMedia:wide the copy column lets body paragraphs run about 800 px at body size, about 100 characters a line (m7 'Most of our partnerships … before you place', splitMedia-1 '… after-sales support. We've'), well past the ~70ch measure, which makes the long copy tiring to read.",
+      "reference": "The competitor keeps running text in short columns of about 60–75 characters, and treatment-practice.md holds running text to about 70ch at every width.",
+      "fix": "In src/styles/reference.css, cap the body paragraphs' max-width at about 68ch for the splitMedia:wide copy column, and leave the heading and the full-width photo as they are."
+    }
+  ]
 }
