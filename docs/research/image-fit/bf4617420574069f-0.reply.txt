@@ -1,1 +1,1 @@
-{"label": "wrong_subject"}
+{"label": "fits"}
