@@ -229,5 +229,12 @@
     "at": "2026-11-14T09:14:14.890Z",
     "seconds": 0,
     "log": ".pipeline/logs/2026-11-14T07-38-16-013Z/image-refit.log"
+  },
+  "content": {
+    "status": "passed",
+    "hash": "b78a3c05a7188527",
+    "at": "2026-11-14T09:14:15.505Z",
+    "seconds": 0,
+    "log": ".pipeline/logs/2026-11-14T07-38-16-013Z/content.log"
   }
 }
