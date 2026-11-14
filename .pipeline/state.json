@@ -261,9 +261,9 @@
   "design-gate": {
     "status": "passed",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T13:07:53.811Z",
+    "at": "2026-11-14T19:49:06.104Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T12-44-35-176Z/design-gate.log"
+    "log": ".pipeline/logs/2026-11-14T19-37-31-591Z/design-gate.log"
   },
   "design-polish": {
     "status": "passed",
