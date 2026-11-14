@@ -13,13 +13,13 @@
       "sites": [
         "site13-strandmill"
       ],
-      "pages": 10,
-      "blocking": 8,
+      "pages": 21,
+      "blocking": 29,
       "onBacklog": true,
       "examples": [
         "site13-strandmill solution section 2: GAP: no per-card panel colour; two equal text-only panels on a cream band, the first white, the second dark navy with white text",
         "site13-strandmill solution section 3: GAP: no button pair per row and no navy 'Good to know' note box under the intro; eyebrow, heading and lead in a left column, three large blu",
-        "site13-strandmill board--contactChannels-cards channels (mobile): On phones the four channel cards stack one per row at full width, so each card is about 230 px tall and the section runs to about 1030 px, m"
+        "site13-strandmill about hero (desktop): The 30-word bold lead ('Since 2011 we have run bulk lines…') and the aqua CONTACT US pill still sit on the hero photo under the centred titl"
       ]
     },
     {
@@ -27,8 +27,8 @@
       "sites": [
         "site13-strandmill"
       ],
-      "pages": 6,
-      "blocking": 2,
+      "pages": 11,
+      "blocking": 4,
       "onBacklog": true,
       "examples": [
         "site13-strandmill home section 3: GAP: under the text sits a cream rounded card (h3, a row of five figures, arrow link), and no split nests a stats card in its copy; the righ",
@@ -41,13 +41,13 @@
       "sites": [
         "site13-strandmill"
       ],
-      "pages": 3,
-      "blocking": 6,
+      "pages": 2,
+      "blocking": 7,
       "onBacklog": false,
       "examples": [
-        "site13-strandmill board--featureGrid-cards m2 (desktop): The section heading \"Rash Guard Fabrics, UPF Ratings and Certifications\" is centred over the column, while the intro paragraph and the card ",
-        "site13-strandmill board--featureGrid-cards m2 (mobile): On phones the section heading is also centred over a left-aligned intro paragraph and left-aligned cards.",
-        "site13-strandmill board--process-band splitMedia-1-steps (desktop): The band's button sits only a few pixels under the step-05 text (\"and trimming.\") and is pushed part-way across the section, neither on the "
+        "site13-strandmill board--process-band splitMedia-1-steps (desktop): The band's button sits only a few pixels under the step-05 text (\"and trimming.\") and is pushed part-way across the section, neither on the ",
+        "site13-strandmill board--process-band splitMedia-1-steps (mobile): On phones the full-width button sits right up against step 07's last line (\"arranged by our in-house team.\"), with no gap between them.",
+        "site13-strandmill privacy proof-1 (desktop): The proof section has no top padding: its opening line ('Orders start at 50 pieces…') starts on the section's top edge, right under m2's las"
       ]
     },
     {
@@ -97,7 +97,7 @@
       "blocking": 0,
       "onBacklog": false,
       "examples": [
-        "site13-strandmill board--testimonials-carousel owner-testimonials (desktop): With only two testimonials, the carousel keeps the three-card width and leaves the right third of the row empty."
+        "site13-strandmill board--testimonials-carousel owner-testimonials (desktop): This repeats the earlier finding, which has not been repaired. With two testimonials, the carousel keeps three-card widths and leaves the ri"
       ]
     }
   ],
