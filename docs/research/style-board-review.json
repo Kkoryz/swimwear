@@ -33,22 +33,10 @@
       "block": "m7",
       "viewport": "desktop",
       "severity": "P1",
-      "scope": "template",
-      "issue": "The process:list heading \"Mock-ups, Strike-offs and Sample Approval\" is centred in its intro column, against the rule that every section heading starts on the content's left edge.",
-      "reference": "The competitor's matching module sets its heading \"3 Ways to Handover\" flush left with its eyebrow and lead text.",
-      "fix": "In patterns.css, drop text-align: center from .process__heading, or reset it to start for .point-list .process__heading, so the list variant's heading starts on the left edge."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--process-list",
-      "route": "/style-board/",
-      "block": "m7",
-      "viewport": "mobile",
-      "severity": "P1",
-      "scope": "template",
-      "issue": "On phones the heading is centred over a left-aligned numbered list, so the heading and the list below it do not share an edge.",
-      "reference": "The competitor keeps its heading, lead and steps on one left edge.",
-      "fix": "The same change to .process__heading (text-align: start in the point-list layout) fixes it at every width."
+      "scope": "site",
+      "issue": "The step numbers are still the browser's default list numbers (\"1.\", \"2.\" … \"6.\") in body size and body colour (patterns.css .point-list__item::marker is var(--text-primary)), so the six steps read as a plain ordered text list rather than a process.",
+      "reference": "The competitor marks each step with a large, accent-blue, zero-padded numeral (\"01\", \"02\", \"03\") in its own column beside the step title.",
+      "fix": "In reference.css, scope to .block--process: set .point-list__items to list-style: none with a counter, and give each .point-list__item a ::before of counter(step, decimal-leading-zero) in color: var(--accent-text), font-weight: 700, about twice the body size, set in a grid column of its own beside the title and text. As a lighter alternative, style ::marker with the accent colour, weight 700 and a larger size, and widen .point-list__items padding-left to fit."
     },
     {
       "pageType": "style-board",
@@ -58,33 +46,9 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "site",
-      "issue": "The step titles (\"Scale and trial print\", \"A4 approval options\", …) look the same weight as the body text, so the six steps do not stand out from their descriptions.",
-      "reference": "The competitor sets each step name (\"Custom Designs\", \"Ready Designs\", \"Mix n' Match\") bold, clearly heavier and a little larger than its body text.",
-      "fix": "In reference.css, give .block--process .point-list__title font-weight: 700 and font-size: var(--size-subheading) so it matches the process subheading already set at line 220."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--process-list",
-      "route": "/style-board/",
-      "block": "m7",
-      "viewport": "desktop",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "The step numbers are the browser's default list numbers (\"1.\", \"2.\") in body size and body colour, so the list reads as a plain bulleted text list rather than a process.",
-      "reference": "The competitor marks each step with a large accent-coloured numeral (\"01\", \"02\", \"03\") in its own column next to the step title.",
-      "fix": "In reference.css, style .block--process .point-list__item::marker with color: var(--accent-text), a larger font-size and font-weight: 700 (and widen .point-list__items padding-left to fit), or switch to zero-padded counter() numbers in a ::before."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--process-list",
-      "route": "/style-board/",
-      "block": "overview-steps",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The steps run on with nothing between them, so on the long sample each step blurs into the next.",
-      "reference": "The competitor separates each step with a thin, light horizontal rule and even padding above and below it.",
-      "fix": "In reference.css, give .block--process .point-list__item a border-top of 1px solid var(--border-color) with padding-top equal to the list gap (the last item can also take a border-bottom)."
+      "issue": "The step titles (\"Scale and trial print\", \"A4 approval options\", …) are still the same weight and nearly the same size as their descriptions, so each step's name does not stand out from its text.",
+      "reference": "The competitor sets each step name (\"Custom Designs\", \"Ready Designs\", \"Mix n' Match\") bold and a little larger than its body text, with a small gap before the description.",
+      "fix": "In reference.css, give .block--process .point-list__title font-weight: 700, font-size: var(--size-subheading) (1.0625rem is already set on .block--process) and margin-bottom: 0.5rem."
     },
     {
       "pageType": "style-board",
@@ -94,9 +58,45 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "content",
-      "issue": "The section has no heading: its only intro, \"Quality checks at every stage of an order\", is a lead line at body size, so the left column looks empty and the section has no title.",
+      "issue": "The section still has no heading: its only intro, \"Quality checks at every stage of an order\", is a lead at body size, so the left column looks almost empty and the section has no title next to m7's H2.",
       "reference": "The competitor's process list always opens with an H2 (\"3 Ways to Handover\") above its lead.",
-      "fix": "Site Factory should supply a heading for overview-steps (e.g. \"Quality Checks at Every Stage\") so the block renders an h2.process__heading."
+      "fix": "Site Factory should supply a heading for overview-steps (for example \"Quality Checks at Every Stage\") so the block renders an h2.process__heading above the lead."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--process-list",
+      "route": "/style-board/",
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The steps still run on with only white space between them, so in the long six-step sample each step blurs into the next.",
+      "reference": "The competitor separates its steps with thin, light horizontal rules, with even padding above and below each one.",
+      "fix": "In reference.css, give .block--process .point-list__item border-top: 1px solid var(--border-color) and padding-top equal to the list gap (and border-bottom on :last-child), keeping the 1rem gap from .point-list__items."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--process-list",
+      "route": "/style-board/",
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "At 1440 px the step descriptions run about 90 characters a line (\"We send you digital mock-ups so you can approve the scale, and we turn strike-offs around in\"), above the 80ch limit for running text.",
+      "reference": "The competitor's step text keeps to roughly 65–75 characters a line in its right column.",
+      "fix": "In reference.css, set max-width: 70ch on .block--process .point-list__item p, so the text holds to the measure without fixing the column's width."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--process-list",
+      "route": "/style-board/",
+      "block": "overview-steps",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones, a band of about 70 px separates the one-line lead \"Quality checks at every stage of an order\" from the first step, much more than the gap between steps, so the lead reads as cut off from its list.",
+      "reference": "The competitor's process module stacks its intro and steps with gaps close to its row spacing, without an empty band between them.",
+      "fix": "In reference.css, under the stacked (single-column) breakpoint, reduce the row-gap between the process intro column and .point-list__items in .block--process to about the list's own 1–1.5rem gap."
     },
     {
       "pageType": "style-board",
@@ -226,11 +226,12 @@
       "route": "/style-board/",
       "block": "owner-testimonials",
       "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The quote cards are flat white panels with no shadow, so they lack the raised-card look of the competitor's module.",
-      "reference": "The competitor's testimonial cards sit on the sage band with a soft drop shadow along their lower edge, which lifts each card off the band.",
-      "fix": "In src/styles/reference.css, give .block--testimonials a soft --shadow-card (e.g. 0 6px 12px rgb(0 0 0 / 0.15)) so .testimonial picks it up through box-shadow: var(--shadow-card)."
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "In the longest sample the heading 'What buyers say' is drawn in a light, regular-looking weight, while the same heading in the shortest sample is bold. The same mismatch shows on mobile, so the one module renders its h2 in two weights.",
+      "reference": "The competitor's testimonials heading ('What Independent Labels Say') is set bold (Maison 700), like every one of its section headings.",
+      "fix": "Find why the first testimonials block on the board does not get the 700 weight that `.block h2 { font-weight: var(--weight-heading) }` (template.css:209) gives it, which the manifest reports as 700. Look for a later rule, or the heading-fit code, that overrides the weight on that instance (`.testimonials__heading`), so that every testimonials h2 renders at --weight-heading."
     },
     {
       "pageType": "style-board",
@@ -240,9 +241,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "A 1px black rule (--border-color #000000) runs across every card between the quote and the attribution, a hard line the competitor's cards do not have.",
-      "reference": "The competitor's cards separate the quote from the bold name with space alone: no rule.",
-      "fix": "In src/styles/reference.css, set .block--testimonials .testimonial figcaption { border-top: 0; } and keep the existing padding-top/gap as the separation."
+      "issue": "This repeats the earlier finding, which has not been repaired. The quote cards are still flat white panels with no shadow, so they lack the competitor's raised-card look.",
+      "reference": "The competitor's quote cards sit on the sage band with a soft drop shadow along the bottom and right edges, which lifts each card off the band.",
+      "fix": "In src/styles/reference.css, give .block--testimonials a soft --shadow-card (e.g. 0 6px 12px rgb(0 0 0 / 0.15)) so that .testimonial picks it up through box-shadow: var(--shadow-card)."
     },
     {
       "pageType": "style-board",
@@ -252,9 +253,21 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "reference.css paints this one section's background (.block--testimonials { background: var(--surface-band-mint) }) instead of tinting through --section-tint, so the template's white/tinted alternation no longer controls it and it can land beside another tinted section.",
-      "reference": "The competitor's testimonials sit on a sage band. The site's rule makes that band the shared section tint, not a colour fixed on one module.",
-      "fix": "Remove the background rule on .block--testimonials and set --section-tint to the sage (#d6e2de) in the treatment, so the template alternation decides which sections carry it."
+      "issue": "This repeats the earlier finding, which has not been repaired. A hard black 1px rule still runs across every card between the quote and the attribution, at both widths.",
+      "reference": "The competitor's cards separate the quote from the bold name with space only, with no rule.",
+      "fix": "In src/styles/reference.css, set `.block--testimonials .testimonial figcaption { border-top: 0; }` and keep the existing padding-top/gap as the separation."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--testimonials-carousel",
+      "route": "/style-board/",
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "This repeats the earlier finding, which has not been repaired. reference.css:268 still paints this one section's background (`.block--testimonials { background: var(--surface-band-mint) }`) instead of tinting through --section-tint. The template's white/tinted alternation therefore does not control it: on the board, the logos section above is white, and on a page it can land beside another tinted section.",
+      "reference": "The competitor's testimonials sit on a sage #d6e2de band. Under the site's rule that sage is the shared section tint, not a colour fixed on one module.",
+      "fix": "Remove the background rule on .block--testimonials (reference.css:268) and set --section-tint to the sage (#d6e2de) in the treatment, so that the template's alternation decides which sections carry it."
     },
     {
       "pageType": "style-board",
@@ -265,9 +278,9 @@
       "severity": "P2",
       "scope": "template",
       "gap": "carousel",
-      "issue": "With only two testimonials, the carousel keeps the three-card width and leaves the right third of the row empty.",
-      "reference": "The competitor fills its row with the cards it shows, so the row has no empty slot. Our column count should follow our own item count, not a fixed 3.",
-      "fix": "Have the testimonials carousel set its cards-per-view (data-columns) from the item count when every item fits (2 items → 2 columns), or centre a short single row as the card-set rule does for a short last row."
+      "issue": "This repeats the earlier finding, which has not been repaired. With two testimonials, the carousel keeps three-card widths and leaves the right third of the row as an empty sage gap.",
+      "reference": "The competitor's row is always filled by the cards in view, so it has no empty slot. The number of cards in view should follow our own item count, not a fixed 3.",
+      "fix": "Have the testimonials carousel set its cards-per-view (data-columns) from the item count when every item fits (2 items → 2 columns), or centre a short single row, as the card-set rule does for a short last row."
     },
     {
       "pageType": "style-board",
@@ -374,10 +387,10 @@
       "block": "m2",
       "viewport": "desktop",
       "severity": "P1",
-      "scope": "template",
-      "issue": "The section heading \"Rash Guard Fabrics, UPF Ratings and Certifications\" is centred over the column, while the intro paragraph and the card grid under it start on the left edge, so heading, text and cards do not share one alignment.",
-      "reference": "The competitor's card section starts its heading (\"Selecting Colours and adding Digital Prints\") and its eyebrow on the content's left edge, in line with the first card; the site's own rule also has every section heading start on the left edge.",
-      "fix": "Set the featureGrid section heading to text-align: start (and drop any margin-inline: auto on it) in the shared featureGrid head, so it starts on the same left edge as the intro and the first card."
+      "scope": "site",
+      "issue": "The section heading \"Rash Guard Fabrics, UPF Ratings and Certifications\" still renders in a light/regular weight while the card titles under it are bold, so the h2 reads weaker than its own h3s.",
+      "reference": "The competitor's card-section heading (\"Selecting Colours and adding Digital Prints\") is a heavy bold sans, clearly stronger than its bold but smaller card titles.",
+      "fix": "In src/styles/reference.css give the featureGrid section heading the site's heading weight (e.g. .block--featureGrid h2 { font-weight: var(--weight-heading); }, 700), leaving its fitted size to the template."
     },
     {
       "pageType": "style-board",
@@ -386,10 +399,10 @@
       "block": "m2",
       "viewport": "mobile",
       "severity": "P1",
-      "scope": "template",
-      "issue": "On phones the section heading is also centred over a left-aligned intro paragraph and left-aligned cards.",
-      "reference": "The competitor's mobile heading starts on the left edge, in line with the cards below it.",
-      "fix": "Apply the same text-align: start to the featureGrid heading at every width, not only on desktop."
+      "scope": "site",
+      "issue": "On phones the light section heading sits over card titles that are about as large and much bolder (\"Performance fabric range\", \"Repeated board contact\"), so the step from h2 to card title is lost.",
+      "reference": "The competitor's mobile heading is bold and clearly outranks its card titles.",
+      "fix": "The same rule as on desktop (font-weight: var(--weight-heading) on the featureGrid h2) at every width; no size change."
     },
     {
       "pageType": "style-board",
@@ -399,21 +412,9 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "site",
-      "issue": "The section heading is set in a light/regular weight while the card titles under it are bold, so the section heading looks weaker than its own sub-headings.",
-      "reference": "The competitor's section heading is a heavy bold sans, clearly stronger than the card titles (bold but smaller) under it.",
-      "fix": "In src/styles/reference.css, give the featureGrid section h2 the site's heading weight (font-weight 700, as the h2 measures elsewhere) without changing its fitted size, so the h2 outweighs the card h3s."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--featureGrid-cards",
-      "route": "/style-board/",
-      "block": "m2",
-      "viewport": "desktop",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "Each card is drawn as a white box with a 1px dark-grey outline, giving the grid a wireframe look.",
-      "reference": "The competitor's cards carry no outline: each is a flat filled panel (cream, light cyan or navy) with slightly rounded corners, set apart from the section by its fill alone.",
-      "fix": "In src/styles/reference.css, remove the border on .feature-grid--cards cards and give them a tinted fill (background: var(--section-tint) or the light accent) with the existing radius, switching to the white fill when the section itself is tinted."
+      "issue": "The four cards are still white boxes with a 1px black outline (--border-color #000000), which gives the grid a wireframe look on the white section.",
+      "reference": "The competitor's card modules for this page type (solution sections 2 and 7) are flat filled panels (white or cream on a tinted band, cream or light blue on navy) with a small radius and no outline.",
+      "fix": "In src/styles/reference.css set the featureGrid:cards cards (.feature-card in the cards variant) to border-color: transparent with a tinted fill (background: var(--surface-secondary), or white when the section itself is tinted), keeping --radius-card."
     },
     {
       "pageType": "style-board",
@@ -423,9 +424,9 @@
       "viewport": "desktop",
       "severity": "P1",
       "scope": "site",
-      "issue": "The two wide cards use the same thin dark outline on white, so the short set reads as two empty-looking framed boxes.",
-      "reference": "The competitor's two-card row (\"Choose from 100,000 m in stock\" / \"Digital prints\") uses filled panels with no border.",
-      "fix": "Same card rule as m2: drop the border on .feature-grid--cards cards and use the tinted fill."
+      "issue": "The two wide cards use the same thin black outline on white, so the short set reads as two mostly empty framed boxes.",
+      "reference": "The competitor's two-card row (\"Choose from 100,000 m in stock\" / \"Digital prints\") is made of filled rounded panels without borders.",
+      "fix": "The same card rule as m2: no border on the featureGrid:cards cards, a tinted fill instead."
     },
     {
       "pageType": "style-board",
@@ -435,9 +436,9 @@
       "viewport": "mobile",
       "severity": "P1",
       "scope": "site",
-      "issue": "The card title is broken by hyphenation inside a word (\"Pool and train- / ing performance\").",
-      "reference": "The competitor's card titles break only between words.",
-      "fix": "Set hyphens: manual (and overflow-wrap: normal) on the featureGrid card h3 in src/styles/reference.css, so titles wrap at spaces only."
+      "issue": "The card title is still hyphenated inside a word (\"Pool and train- / ing performance\").",
+      "reference": "The competitor's card titles wrap only between words.",
+      "fix": "Set hyphens: manual and overflow-wrap: normal on .feature-card__title in src/styles/reference.css so titles break at spaces only."
     },
     {
       "pageType": "style-board",
@@ -447,46 +448,34 @@
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "On phones the card titles (~24px bold, with loose leading on two-line titles such as \"Lightweight warm- / water fabrics\") are almost as large as the section heading and outweigh it, so the step from h2 to card title is lost.",
-      "reference": "The competitor's card titles are modest bold lines, clearly smaller than its section heading and close to body size.",
-      "fix": "In src/styles/reference.css, tighten the line-height of the featureGrid card h3 to about 1.2 and keep its weight below the h2's; leave the fitted sizes to the template."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--featureGrid-cards",
-      "route": "/style-board/",
-      "block": "m2",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The stacked outlined cards sit about 30px apart and each has its own outline, so the four cards read as a long run of separate empty frames instead of one grouped set.",
-      "reference": "The competitor's mobile cards are filled panels with tight, even gaps on the section's background.",
-      "fix": "With the border replaced by a fill (see the desktop finding), reduce the mobile row-gap of .feature-grid--cards to the site's small spacing step."
+      "issue": "The four stacked outlined cards sit about 30px apart, each in its own frame, so they read as a long run of separate boxes instead of one grouped set.",
+      "reference": "The competitor's stacked mobile cards are filled panels with tight, even gaps on the section's band.",
+      "fix": "Once the outline is replaced by a fill, reduce the mobile row-gap of the featureGrid:cards grid to the site's smaller spacing step (e.g. 1rem)."
     },
     {
       "pageType": "style-board",
       "review": "board--featureGrid-bullets",
       "route": "/style-board/",
       "block": "m2",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "Each point's title (e.g. 'Regenerated Fibre Performance', 'Requested Fabrics And Trade-offs') is still set in regular weight and is smaller than the paragraph under it, so the 8-item list reads as one undifferentiated run of text with the hierarchy inverted (same on desktop and in featureGrid-6).",
+      "reference": "The competitor sets sub-heads under a section heading in its bold heading face (700, at or above the 16-17px body), so each item's title can be scanned on its own.",
+      "fix": "In src/styles/reference.css give .point-list__title the display face at weight 700 and a size at least equal to the item text (e.g. font-family: var(--font-display); font-weight: 700; font-size: 1.0625rem), keeping its small gap to the paragraph."
+    },
+    {
+      "pageType": "style-board",
+      "review": "board--featureGrid-bullets",
+      "route": "/style-board/",
+      "block": "featureGrid-6",
       "viewport": "desktop",
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The bullets module's h2 'Recycled Fabrics and Low-Impact Production' is centred over its left column (also on mobile, and likewise in featureGrid-6) while the lead paragraph under it is left-aligned, so one section mixes two alignments and breaks the rule that every section heading starts on the content's left edge.",
-      "reference": "The competitor's heading-and-text columns (Branding, Heading + lead, Pricing) set eyebrow, h2 and paragraph flush left on one edge; the site's rule keeps headings at the start edge even where the competitor centres them.",
-      "fix": "In src/styles/patterns.css drop text-align: center from .feature-grid__heading (or override it for [data-pattern=\"bullets\"] .point-list__intro h2 with text-align: start), so the heading lines up with the lead and the section heading rule is kept on every page."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--featureGrid-bullets",
-      "route": "/style-board/",
-      "block": "m2",
-      "viewport": "mobile",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "Each point's title (e.g. 'Regenerated Fibre Performance', 'Sustainable Fabric Choices') renders at regular weight and no larger than, on phones visibly smaller than, the paragraph under it, so the list reads as one undifferentiated run of text with the hierarchy inverted (same on desktop and in featureGrid-6).",
-      "reference": "The competitor sets sub-heads under a section heading in its bold heading face (h4 Maison Neue 700, clearly heavier than the 16-17px body), so each item's title is scannable.",
-      "fix": "In src/styles/reference.css give .point-list__title the heading face at bold weight (font-family: var(--font-display); font-weight: 700) and a size at or a step above the body text (e.g. font-size: 1.0625rem-1.125rem), keeping its 0.25rem gap to its text."
+      "issue": "This sample's heading 'Ready-to-Brand Curvy Collections and Low-MOQ Trend Drops' is set in a light/regular weight, while the same module's heading in m2 ('Recycled Fabrics and Low-Impact Production') is bold 700, so one module shows two heading weights depending on its copy (also on mobile).",
+      "reference": "The competitor keeps one heading weight per level (its h2s are always the bold heading face); only the size may follow the words.",
+      "fix": "In the bullets module's heading CSS (patterns.css, .feature-grid__heading / .point-list__intro h2), set font-weight to the h2 weight (700) independently of the fit step, so the fitting only changes font-size and never the weight."
     },
     {
       "pageType": "style-board",
@@ -496,9 +485,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "With only two points the list stays one column across the whole 7fr track, so its lines run about 88-95 characters ('Our low-MOQ, ready-to-brand trend drops let you test what sells in your market before you'), past a comfortable measure.",
-      "reference": "The competitor keeps body copy beside a heading to short lines (about 60-75 characters) in its two-column text rows.",
-      "fix": "In src/styles/reference.css cap .point-list__item p (or .point-list__items:not([data-columns=\"2\"])) at max-inline-size: 68ch so the measure holds whatever the item count."
+      "issue": "With only two points the list still runs one column across the whole right track, so its lines run about 90-95 characters ('Our low-MOQ, ready-to-brand trend drops let you test what sells in your market before you'); the 70ch cap in reference.css does not reach these item paragraphs.",
+      "reference": "The competitor keeps body copy beside a heading to short lines of about 60-75 characters.",
+      "fix": "In src/styles/reference.css extend the reading-column cap to the point items (e.g. .point-list__item p { max-inline-size: 70ch; }), not only to main[data-authoring-page] .block p, so the measure holds on every page whatever the item count."
     },
     {
       "pageType": "style-board",
@@ -508,9 +497,9 @@
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The points are marked with the browser's default black disc bullets, a generic look that matches nothing else in the treatment.",
-      "reference": "The competitor's lists (e.g. 'Every price includes' in the pricing panel) mark their items with check icons in its accent colour, not plain discs.",
-      "fix": "In src/styles/reference.css restyle [data-pattern=\"bullets\"] .point-list__item::marker (or swap list-style for a check glyph/mask in the accent colour, as iconList:checks does) so the markers follow the competitor's check-list style."
+      "issue": "The points are still marked with the browser's default small black disc bullets, which look generic and match nothing else in the treatment (same in featureGrid-6 and on mobile).",
+      "reference": "The competitor's lists (e.g. 'Every price includes' in its pricing panel) mark items with check icons in its accent colour.",
+      "fix": "In src/styles/reference.css restyle [data-pattern=\"bullets\"] .point-list__item markers (::marker color/content, or list-style: none plus an accent check mask as iconList:checks uses) so they follow the competitor's check-list style."
     },
     {
       "pageType": "style-board",
@@ -592,11 +581,10 @@
       "block": "process-1",
       "viewport": "desktop",
       "severity": "P1",
-      "scope": "template",
-      "gap": "other",
-      "issue": "The process section heading ('OEM Bikini Sampling, Lead Times, Payment and Shipping' and 'Trial Runs') is centred over an intro paragraph and step columns that start on the left edge, so heading and copy in one section align differently and the site's left-edge heading rule is broken.",
-      "reference": "The site's layout rule: every section heading starts on the content's left edge, even where a module would centre it; the competitor has no circles module to say otherwise.",
-      "fix": "In patterns.css, drop `text-align: center` from `.process__heading` (set `text-align: start`) so the heading sits on the left edge with its lead and steps."
+      "scope": "site",
+      "issue": "Step titles ('Enquiry and quotation', 'Sampling and fees', 'Send your first-run plan') are still set in regular weight at about the step text's size, so each column reads as two body paragraphs under its number circle with no title between them (the earlier finding, not yet fixed).",
+      "reference": "The competitor's step, card and sub-section titles are bold (Maison 700, e.g. card titles 700 22px), clearly heavier than their body copy.",
+      "fix": "In reference.css, next to `.block--process { --size-subheading: 1.0625rem; }`, set the step title's weight only, e.g. `.block--process .process-step__title { font-weight: 700; }`. Leave the size with the template."
     },
     {
       "pageType": "style-board",
@@ -605,11 +593,10 @@
       "block": "process-1",
       "viewport": "mobile",
       "severity": "P1",
-      "scope": "template",
-      "gap": "other",
-      "issue": "On phones the three-line heading 'OEM Bikini Sampling, / Lead Times, Payment / and Shipping' (and 'Trial Runs') is centred with ragged lines above a left-aligned lead and left-aligned step list.",
-      "reference": "Section headings start on the content's left edge at every width (site rule).",
-      "fix": "Same change: `.process__heading { text-align: start; }` in patterns.css."
+      "scope": "site",
+      "issue": "On phones every step title ('Enquiry and quotation' … 'Branding and printing', 'Send your first-run plan') is the same size and weight as the 16px text under it, so the six stacked steps run together as plain paragraphs between the circles.",
+      "reference": "The competitor sets its step and card titles bold (700), apart from their text.",
+      "fix": "The same weight-only rule in reference.css: `.block--process .process-step__title { font-weight: 700; }`."
     },
     {
       "pageType": "style-board",
@@ -617,23 +604,12 @@
       "route": "/style-board/",
       "block": "process-1",
       "viewport": "desktop",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "Step titles ('Enquiry and quotation', 'Send your first-run plan') are set at regular weight 400, barely larger than the step text, so the steps have no visible heading level under the section heading.",
-      "reference": "The competitor's sub-headings and card titles are Maison 700 (e.g. card title 700 22px/33px, h3 700), clearly heavier than the body copy.",
-      "fix": "In reference.css add `.block--process .process-step__title { font-weight: 700; }` (weight only, size stays with the template's --size-subheading)."
-    },
-    {
-      "pageType": "style-board",
-      "review": "board--process-circles",
-      "route": "/style-board/",
-      "block": "process-1",
-      "viewport": "mobile",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "On phones the step titles are the same size and weight as the step text below them, so each step reads as two body paragraphs under its number circle.",
-      "reference": "The competitor's step and card titles are bold (700), set apart from their text.",
-      "fix": "The same `.block--process .process-step__title { font-weight: 700; }` in reference.css."
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "In the six-step sample, the hairline linking the circles runs only along the first row (01–03) and on past circle 03 to the content's right edge. The second row's circles (04–06) stand without it, so the two rows of one sequence look like two different treatments.",
+      "reference": "The competitor's step rows (the six-step timeline on navy) draw one continuous hairline across every step of the row it belongs to, and it ends with the last step.",
+      "fix": "In the shared process:circles CSS, draw the connector per step (e.g. a `::after` line on each step's marker running to the next marker in the same row, left off the last step of each row) instead of one line on the list's first row."
     },
     {
       "pageType": "style-board",
