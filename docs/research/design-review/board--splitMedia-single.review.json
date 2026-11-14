@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "a6408008a2c246c986fb7a64",
+  "shots": "106fbffa6e26f9d48f3a54dd",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--splitMedia-single",
   "route": "/style-board/ (the style board: module splitMedia:single, longest and shortest copy, photos as grey frames)",
@@ -10,9 +10,9 @@
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "The first paragraph ('Each sample costs USD 50…') is still set as a lead, about 20px on phones (and about a step larger on desktop). It is clearly bigger than the paragraphs under it and than the single paragraph in 'related', so on a phone it runs five large lines before the body text starts.",
+      "issue": "The first paragraph ('Each sample costs USD 50…') is still set as a lead (about 20px on phones and a step larger on desktop), so on a phone it runs five large lines before the smaller body text starts; it is clearly bigger than the paragraphs under it and than the single paragraph in 'related'.",
       "reference": "The competitor's split module sets every paragraph at one body size ('From seamless bikinis…' matches the text under it) and marks key points in bold, not with a larger first paragraph.",
-      "fix": "In src/styles/reference.css, add .block--split { --size-lead: var(--size-body); } (or .block--split .block__lead { font-size: inherit; }) so a split row's first paragraph matches its body text; reference.css has no split override yet (only .block--page-lead resets --size-lead)."
+      "fix": "In src/styles/reference.css, add .block--split { --size-lead: var(--size-body); } (or .block--split .block__lead { font-size: inherit; }) so a split row's first paragraph matches its body text; reference.css still has no split override (only .block--page-lead resets --size-lead)."
     }
   ]
 }

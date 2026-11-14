@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "393ef99a5ae2ed4423f4089d",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--faq-bars",
+  "route": "/style-board/ (the style board: module faq:bars, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "faq",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "This repeats an earlier finding that the shots still show: the bars run the full content width (about 1400px), so one-line questions stop halfway across and the +/− sits several hundred pixels away from its question. The open answer also wraps at about half that width, so the question and its answer don't share a measure.",
+      "reference": "The competitor keeps its bars in a narrower column. Question, marker and answer read as one bar, and the answer runs nearly the bar's full width.",
+      "fix": "In reference.css, give the item list of .block--faq[data-variant=\"bars\"] a max-width in ch sized to the longest question (about 90–100ch), left-aligned under the heading. Let the answer fill that bar. This is a reading measure, not the competitor's pixel width."
+    },
+    {
+      "block": "faq",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "This repeats an earlier finding that the shots still show: the open/close mark is a +/− at the far right end of each bar, not a marker before the question.",
+      "reference": "The competitor puts a small solid triangle (▸, turning ▾ when open) just before the question text, at the left of each bar.",
+      "fix": "Give the template a marker option for faq[data-variant=\"bars\"] that puts a triangle before the summary text, in place of the shared ::after +/− at the right."
+    },
+    {
+      "block": "faq-charts",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "This repeats an earlier finding that the shots still show: on phones each bar's track fills only about half the panel, and the value (\"4 cm\", \"7 cm\") sits at the far right with an empty gap between bar and figure.",
+      "reference": "On desktop the same chart's track fills the width between label and value, so bar and figure stay together.",
+      "fix": "At narrow widths, let the .charts bar track grow (flex: 1 1 auto; min-width: 0) to fill the row up to the value."
+    },
+    {
+      "block": "faq-charts",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "On phones the comparison table (shortest sample) is wider than its panel. The third column (\"Pigment with white underlayer\") is cut off at the right edge as \"Pigm / with / und\", and the only sign that the table scrolls sideways is a thin scrollbar sliver.",
+      "reference": "The competitor's FAQ module carries no wide table. Its content keeps to the panel width on phones.",
+      "fix": "In the shared charts/table component, stack the table on narrow widths: each column becomes a labelled card, or each row a label above its values. Failing that, add a visible sideways-scroll cue (an edge fade and a 'scroll' hint) to the table wrapper."
+    }
+  ]
+}

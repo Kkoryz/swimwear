@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "6da56897fb0f0d24cdeccf1c",
+  "shots": "019258103500077e99990570",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--cta-inline",
   "route": "/style-board/ (the style board: module cta:inline, longest and shortest copy, photos as grey frames)",
@@ -10,9 +10,9 @@
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "On phones the quote button still runs the full column width (about 350 px, larger label type than the body) and reads as a heavy black bar under the copy; this asks again for the earlier P2's change and so undoes the phone full-width rule in reference.css for this module, because the mobile shot shows the competitor's inline CTA uses small buttons, not full-width pills.",
-      "reference": "The competitor's inline CTA (product_manufacturer 13) keeps its two black buttons small and sized to their one-line labels on phones, sitting side by side under the text with an 8px radius and 12px 24px padding.",
-      "fix": "In src/styles/reference.css, keep the max-width: 767px full-width rule for the other CTA variants but override it for the inline one: .block--cta[data-variant=\"inline\"] .cta .button { width: auto; max-width: 100%; padding: 12px 24px; } so the button is sized to its label and starts on the left edge under the paragraph."
+      "issue": "On phones the quote button in both samples still fills the whole column (about 350 px) and reads as a heavy black bar under the copy, so the last review's P2 is not fixed yet. The fix takes the inline CTA out of the phone full-width button rule in reference.css, which an earlier finding added for the closing bands. That is needed here because the mobile shot shows the competitor's inline CTA keeping small buttons sized to their labels.",
+      "reference": "The competitor's inline CTA (product_manufacturer 13) keeps its two black buttons small on phones. They sit side by side under the text, each sized to its one-line label, with an 8px radius and 12px 24px padding.",
+      "fix": "In src/styles/reference.css, leave the @media (max-width: 767px) `.block--cta .cta .button { width: 100% }` rule in place for the band and form variants, and add an override for the inline variant after it: `@media (max-width: 767px) { .block--cta[data-variant=\"inline\"] .cta .button { width: auto; max-width: 100%; padding-inline: 1.5rem; } }`. The button then fits its label and starts on the left edge under the paragraph."
     }
   ]
 }

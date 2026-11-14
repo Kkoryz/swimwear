@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "041e6431c1b1bd6775572681",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--process-band",
+  "route": "/style-board/ (the style board: module process:band, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "splitMedia-1-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "content",
+      "issue": "The band still has no heading: a body-size lead (\"Our full-package service, from brief to shipment.\") sits directly above the steps, so the section has no title at either width.",
+      "reference": "The competitor's band opens with an eyebrow (\"HOW IT WORKS\") and a large H2 (\"Six steps from Costing to delivery\") above the rule that leads into the steps.",
+      "fix": "Site Factory should give this process block a heading (e.g. \"Seven steps from brief to shipment\") so h2.process__heading renders above the lead."
+    },
+    {
+      "block": "faq-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "content",
+      "issue": "The band still has neither a heading nor a lead. Five bare steps start under an empty band of top padding (also on phones, about 100 px before the first rule), so the dark section has no visible purpose.",
+      "reference": "The competitor's band always opens with an eyebrow and an H2 naming the process before the numbered steps.",
+      "fix": "Site Factory should give faq-steps a heading (e.g. \"How a consulting project runs\") and, if it has one, a short lead."
+    },
+    {
+      "block": "splitMedia-1-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The step numbers are still white like the body text, and the band's rule still runs level with the first row's numbers (patterns.css .process-steps::before, top: 22px) rather than above them. The second row (05–07) has no rule at all, so the numbers do not read as an accent and the two rows are styled differently.",
+      "reference": "The competitor sets its step numbers (\"01\"–\"06\") small, bold and in its light-blue accent, a clear space below one full-width rule that sits under the heading and above every step.",
+      "fix": "In reference.css, set --process-marker-text on .block--process[data-variant=\"band\"] to the light accent (the button's cyan). For min-width 768px, move the band's .process-steps::before to top: 0 with left/right: 0, and give .process-steps padding-top (about 2rem) so the one rule stands above both rows of numbers."
+    }
+  ]
+}

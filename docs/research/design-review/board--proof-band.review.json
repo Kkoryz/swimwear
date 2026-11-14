@@ -1,36 +1,27 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "6dfe2fdf6908252934c04775",
+  "shots": "81f8383e079c649f0925a814",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--proof-band",
   "route": "/style-board/ (the style board: module proof:band, longest and shortest copy, photos as grey frames)",
   "findings": [
     {
       "block": "m9",
-      "viewport": "mobile",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "At 390px the three-column fabric table is still squeezed inside the padded tinted panel, so most cells wrap to one or two words a line ('Standard / spandex / blends', 'LYCRA Xtra / Life, / Carvico, / ECONYL, / REPREVE', 'Relative / price'). Rows run three to five lines high, and the table is taller than the section's copy above it. This repeats the earlier finding: the shot shows the fix was not made.",
-      "reference": "The competitor's intro/proof modules run plain text across the full content width on phones, with no inset panel taking width from it.",
-      "fix": "In reference.css, under 600px, cut the inline padding of the m9-charts tinted panel (the section-charts table wrapper) to about 0.75rem. Set `.prose__table :is(th, td)` (the charts table cells) to an inline padding of about 0.5rem so the three columns get that width back."
-    },
-    {
-      "block": "m9",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The section heading 'What Drives Your Fabric Cost' is set in DM Sans 700, a heavy bold. The competitor's matching intro/proof heading ('Your Collection, Kept On Track') is a light, regular-weight display line, so ours reads much darker than the module it follows.",
-      "reference": "The competitor sets its intro/proof H2 large and light (regular or book weight), with weight used only on short bold phrases inside the body text.",
-      "fix": "In reference.css, set `.block--proof h2` to a lighter weight (400–500, DM Sans 500 is loaded). Leave the size alone, since the template fits it to the words."
+      "issue": "The section heading 'What Drives Your Fabric Cost' is still set in heavy bold (DM Sans 700) at both widths, while the competitor's matching intro/proof heading ('Your Collection, Kept On Track') is a light, regular-weight display line. This repeats the earlier finding: reference.css has no `.block--proof h2` weight rule, and the shots still show the bold heading.",
+      "reference": "The competitor sets its intro/proof heading large and light (regular or book weight), and uses bold only for short phrases inside the body text ('product development coordinator', 'we care about your brand as much as you do').",
+      "fix": "In reference.css, set `.block--proof[data-variant=\"band\"] h2 { font-weight: 500; }` (or 400). Leave its size to the template's fit."
     },
     {
-      "block": "proof-5",
+      "block": "m9-charts",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "The same lighter-weight treatment applies to the proof band's heading wherever one is present. With no heading, the shortest sample is a lone 34-word paragraph sitting straight under the beige table panel, and the gap above it is wider than the gap between m9's paragraphs and its table. It reads as a stray line rather than a section.",
-      "reference": "The competitor's proof blocks without a heading sit as a short text block with the same even section gap above and below.",
-      "fix": "In reference.css, make the top padding of a `.block--proof` that has no h2 match the section rhythm used between m9 and m9-charts, so the gaps are equal."
+      "issue": "At 390px the three-column fabric table wraps most cells to one or two words a line ('Standard / spandex / blends', 'LYCRA Xtra / Life, / Carvico, / ECONYL, / REPREVE', 'Relative / price'), so rows run three to five lines high. The earlier finding asked for less panel padding, but the panel's inset is already small; the space goes to the cell padding and the full-size body type in three columns.",
+      "reference": "The competitor's intro/proof modules run their text in comfortable lines on phones, with no column squeezed to a word a line.",
+      "fix": "In reference.css, under 600px, set `.prose__table :is(th, td)` to an inline padding of about 0.375rem and the table's font-size to about 0.9375rem, so the two value columns get their width back and the header cells hold to two lines."
     }
   ]
 }

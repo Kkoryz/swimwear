@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "acccfe22dffc7915b50bb14e",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--featureGrid-cards",
+  "route": "/style-board/ (the style board: module featureGrid:cards, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "m2",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The four cards are still white boxes with a 1px dark outline (repeat of the earlier finding: the fill rule at src/styles/reference.css line 297 only applies under main[data-page-type=\"solution\"], so this /rash-guard-manufacturer/ sample keeps the outline).",
+      "reference": "The competitor modules this board is matched to (solution sections 2 and 7) use flat filled panels with a small radius and no outline: white or cream on a cream band, cream or light blue on navy. Only the home page's separate outlined trio uses a 1px border.",
+      "fix": "In src/styles/reference.css widen the selector at line 297 from main[data-page-type=\"solution\"] [data-variant=\"outlined\"] .feature-card to every page type (e.g. .block--featureGrid[data-variant=\"outlined\"] .feature-card { border-color: transparent; background: var(--surface-secondary); }), keeping --radius-card."
+    },
+    {
+      "block": "m3-2",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The two wide cards are still thin black outlines on white (repeat), so the short set reads as two mostly empty framed boxes. The fill rule limited to solution pages does not reach this /one-piece-swimsuit-manufacturer/ sample.",
+      "reference": "The competitor's two-card row (\"Choose from 100,000 m in stock\" / \"Digital prints\") is made of filled, rounded panels with no border.",
+      "fix": "The same change as for m2: apply the borderless var(--surface-secondary) fill to the featureGrid cards variant on every page type, not only under main[data-page-type=\"solution\"]."
+    },
+    {
+      "block": "m2",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones the card titles (\"Performance fabric range\", fixed at font-weight 700 by reference.css line 108) look bolder than the section heading \"Rash Guard Fabrics, UPF Ratings and Certifications\" and almost as large, so the step from section heading to card title is lost (repeat, not yet fixed).",
+      "reference": "The competitor's section heading (\"Selecting Colours and adding Digital Prints\") clearly outranks its card titles, which are smaller and no heavier.",
+      "fix": "In src/styles/reference.css set .feature-card__title to font-weight: var(--weight-heading) instead of a fixed 700, so card titles take the heading weight of their page type. Leave every font-size to the template."
+    },
+    {
+      "block": "m2",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The card title \"Lightweight warm-water fabrics\" breaks at its compound hyphen, leaving \"Lightweight warm-\" on one line and \"water fabrics\" on the next, at both widths. The other three titles in the row break between words.",
+      "reference": "The competitor's card titles (\"Choose from 100,000 m in stock\", \"Digital prints\") break only between words.",
+      "fix": "Site Factory: rephrase the title so it does not depend on the hyphenated compound (e.g. \"Lightweight fabrics for warm water\"), or join it with a non-breaking hyphen (U+2011) in the copy."
+    }
+  ]
+}

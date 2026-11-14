@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "688c0e4a6162afe9c62cb181",
+  "shots": "90da067c48ebbb5b73d1c937",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--process-timeline",
   "route": "/style-board/ (the style board: module process:timeline, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
@@ -11,27 +11,19 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The process:timeline steps have no step number or marker: each row is just a bold label beside text with a hairline under it, so it reads like a definitions table rather than an ordered sequence (the same at 390 px).",
-      "reference": "Every competitor step module numbers its steps: '01–03' in blue numerals on the three-step process, and a number over a title and text above a hairline on the six-step navy timeline (components.md).",
-      "fix": "In ProcessBlock.astro, render the step number (number(index), as the list and photo-cards variants already do) as a .process-step__marker before each .process-timeline__label, set in the accent colour; in patterns.css, give .process-timeline__row the room for it in its label column."
+      "issue": "The process:timeline steps still have no step number or marker: each row is a bold label beside its text over a hairline, so the six steps read as a definitions table, not an ordered sequence (the same at 390 px, where the labels stack over their text with nothing to count them).",
+      "reference": "Every competitor step module numbers its steps: blue '01–03' numerals on the three-step process, and a number over each title and text above a hairline on the six-step navy timeline (components.md). This site's own process list variant already does this with its 01/02/03 counter.",
+      "fix": "In ProcessBlock.astro, render the step number (number(index), as the list and photo-cards variants already do) as a .process-step__marker before each .process-timeline__label, in the accent colour; in patterns.css, make room for it in the label column (on phones, beside the label)."
     },
     {
       "block": "m3",
       "viewport": "desktop",
       "severity": "P2",
-      "scope": "site",
-      "issue": "The fixed 14rem label column wraps several step labels onto a second line that holds one or two words ('Receive your free / quotation', 'Check service response / times', 'Review the details / together'), while the text column next to them has plenty of room.",
-      "reference": "The competitor's step titles sit on one line above their text.",
-      "fix": "In reference.css, size the label column to its words instead of 14rem: .block--process .process-timeline__row { grid-template-columns: minmax(14rem, max-content) 1fr; } with a max width (for example 22rem) so the text column keeps its line length."
-    },
-    {
-      "block": "m8-steps",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "This block has no heading, and its only intro line, 'From sign-off to bulk production' (a caption in the copy), is set as plain body text with a heading's spacing above the steps, so it looks like a stray sentence rather than the title of the sequence (the same at 390 px).",
-      "reference": "The competitor puts a clear label over each sequence: a heading, or uppercase UI labels on its timeline row.",
-      "fix": "In reference.css, style the lead of a process block that has no heading as a caption: .block--process:not(:has(h2)) > p (or the template's intro selector) { font-family: var(--font-ui); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.875rem; } so it reads as the sequence's label."
+      "scope": "template",
+      "gap": "other",
+      "issue": "Because the fit sizes the heading to its words across the full content width, the section heading 'What to Send for a Free, Accurate Quotation' is set at page-title size (about 64 px, about 2.5× the 26 px heading of m8-steps of the same module) and runs well past the right edge of its own timeline rows and lead, so the module's heading and body don't share a width.",
+      "reference": "The competitor sets its section headings well below its page titles, one size for each heading level, and keeps each heading inside its module's column.",
+      "fix": "In the template's heading fit, cap a section h2's fitted size at the h2 step (below the page title's fitted size) and fit it to the module's own measure (the .process-timeline width) instead of the full content width."
     }
   ]
 }

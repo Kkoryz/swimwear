@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "e3dbf0b617815f3106ed4288",
+  "shots": "15c4d827c07df13eca7f6cdf",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--logos-marquee",
   "route": "/style-board/ (the style board: module logos:marquee, longest and shortest copy, photos as grey frames)",
@@ -11,9 +11,18 @@
       "severity": "P2",
       "scope": "template",
       "gap": "layout",
-      "issue": "The module puts its heading on a line of its own above the brand row, so the section is a heading block with a strip under it rather than one band, and that adds a whole heading's height to what the competitor sets as a single line.",
-      "reference": "The competitor's logo marquee is one row on white: the 'A FEW BRANDS WE PRODUCE' label sits on the left edge, on the same line as the moving marks, and the marks run on from it to the page's right edge.",
-      "fix": "Give the logos marquee a layout in the shared module that sets the heading at the start of the row, on the content's left edge and level with the marks, with the rail running to its right (stacking above the rail on phones). The heading keeps its template-fitted size; this changes only where it sits."
+      "issue": "Not fixed since the last review: the heading still sits on its own line above the brand row, so the section is a heading plus a strip under it rather than one band, which adds a heading's height to what the competitor sets as a single line.",
+      "reference": "The competitor's logo marquee is one row on white: the 'A FEW BRANDS WE PRODUCE' label sits on the content's left edge, on the same line as the marks, and the marks run on from it to the page's right edge.",
+      "fix": "Give the logos marquee a layout in the shared module that puts the heading at the start of the row, on the content's left edge and level with the marks, with the rail running to its right (stacked above the rail on phones). The heading keeps its template-fitted size; only its position changes."
+    },
+    {
+      "block": "owner-logos",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The brand names are small bold caps about the size of body text, so the row reads as a line of captions under a large heading rather than a row of brand marks.",
+      "reference": "The competitor's marks are the row's main content: each one stands well above body-text size, with clear space around it, and nothing else in the row competes with them.",
+      "fix": "In src/styles/reference.css, make .logos-marquee .logos__name larger (e.g. clamp(1.125rem, 1.6vw, 1.5rem)) and keep .logos__note at its current size and muted colour, so the names read as the marks and the notes stay secondary. The row stays at rest and spread across the content while every name fits."
     }
   ]
 }

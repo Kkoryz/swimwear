@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "35eeb85c7b2d389b640991d7",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--process-list",
+  "route": "/style-board/ (the style board: module process:list, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "Each step title ('Scale and trial print', 'A4 approval options' …) is still set smaller than the regular text under it (about 3.7 px per character in the shot against about 4.1 px for the description), so the bold step names are outweighed by their own text. The last review's fix did not land and would not have worked: the title's size comes from the template's `.point-list__title { font-size: 1rem }` (patterns.css), not from --size-subheading.",
+      "reference": "The competitor sets each step name ('Custom Designs', 'Ready Designs', 'Mix n' Match') bold and clearly larger than the smaller body text under it.",
+      "fix": "In reference.css, give `.block--process .point-list__items[data-numbered] .point-list__title` a size one step above body text and below --size-card-heading, so it stays under the overview-steps lead, which is set at the card-heading size: e.g. change line 355 to `.block--process { --size-subheading: 1.25rem; }` and add `font-size: var(--size-subheading)` to that title rule. Keep font-weight 700."
+    },
+    {
+      "block": "m7",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "On phones the step titles are still smaller than their descriptions ('Scale and trial print' is about 153 px wide for 21 bold characters; 'We send you digital mock-ups so' is about 263 px for 31 regular ones), so each description outweighs its step name. This also affects overview-steps ('Fabric on arrival', 'Cutting' …).",
+      "reference": "The competitor's step name is always the larger, bolder line above its text.",
+      "fix": "The same rule as on desktop: size `.block--process .point-list__title` from a .block--process --size-subheading above body size (about 1.25rem). It must not reach the root's 1.625rem mobile/desktop subheading value."
+    },
+    {
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "A step's title still sits right on top of its description ('Scale and trial print' / 'We send you digital mock-ups…'), with only the template's 0.25rem margin between them. This was reported before and is not fixed.",
+      "reference": "The competitor leaves a clear gap of about 8–10 px between each step name and its description.",
+      "fix": "In reference.css, add `margin-bottom: 0.5rem` to `.block--process .point-list__items[data-numbered] .point-list__title`."
+    },
+    {
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "At 1440 px the step text still runs about 89 characters a line ('We send you digital mock-ups so you can approve the scale, and we turn strike-offs around'), over the 80ch limit for running text. This was reported before and is not fixed.",
+      "reference": "The competitor's step text keeps to about 65–75 characters a line.",
+      "fix": "In reference.css, set `max-width: 70ch` on `.block--process .point-list__items[data-numbered] > .point-list__item > :not(.point-list__title)`."
+    },
+    {
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Both numbered lists start on a hairline above step 01 but end on open space with no line under the last step (06 in m7, 05 in overview-steps), at both widths. This was reported before and is not fixed.",
+      "reference": "The competitor's list ends with a thin line under its last step ('Mix n' Match'), matching the line above the first.",
+      "fix": "In reference.css, add `border-bottom: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent)` to `.block--process .point-list__items[data-numbered] > .point-list__item:last-child`."
+    },
+    {
+      "block": "overview-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "content",
+      "issue": "The section still has no h2. Its lead 'Quality checks at every stage of an order' is now styled as a heading at the card-heading size, but on desktop it stands much smaller than m7's heading and only a little above the step titles, so the left column reads as a caption more than a section title.",
+      "reference": "The competitor's process list always opens with a real H2 ('3 Ways to Handover') over its lead, as m7 does with 'Mock-ups, Strike-offs and Sample Approval'.",
+      "fix": "Site Factory should supply a heading for overview-steps (e.g. 'Quality Checks at Every Stage') so the block renders its own h2 and the current sentence goes back to being the lead."
+    },
+    {
+      "block": "overview-steps",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "m7 and overview-steps are both numbered rows of short items under a heading on the left. They stand one under the other in exactly the same layout, so the second one reads as a repeat of the first.",
+      "reference": "The site's rule: when two sections of the same shape follow each other, the template sets one of them out as a list beside its heading. The competitor shows its process list once, not twice in a row.",
+      "fix": "Have the template use a different arrangement when two process:list blocks follow each other (e.g. the short-item one as a compact list without the large number column, or a horizontal steps row)."
+    }
+  ]
+}

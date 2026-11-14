@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "d5aced9f21a04143dbc1aa38",
+  "shots": "1d696cbc4b10c272b55dfebc",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--faq-two-column",
   "route": "/style-board/ (the style board: module faq:two-column, longest and shortest copy, photos as grey frames)",
@@ -8,48 +8,39 @@
     {
       "block": "faq",
       "viewport": "desktop",
-      "severity": "P1",
+      "severity": "P2",
       "scope": "template",
       "gap": "layout",
-      "issue": "The two-column FAQ still sets the heading in a narrow left column with one column of questions to its right, which squeezes 'Frequently Asked Questions' into three one-word lines on the longest sample (this was in the last review and is not fixed).",
-      "reference": "The competitor's FAQ (home 16) puts the eyebrow and heading across the full content width on one line. The closed questions sit below them in two side-by-side columns of hairline rows, each with a + at its right.",
-      "fix": "Give the faq two-column variant a stacked arrangement. The heading spans the top, starting on the content's left edge. Below it, .faq__items is a two-column grid of rows whose column count follows the question length, falling back to one column when the questions are too long for two."
+      "issue": "The two-column FAQ still puts the heading in a left column beside a single column of questions, which leaves a blank band about 900 px tall under 'Frequently Asked Questions' on the longest sample. This was raised as P1 in the last review; it is lowered to P2 because the heading now sits on two lines instead of three.",
+      "reference": "The competitor's FAQ (home 16) puts its eyebrow and heading across the full content width, on a tinted band. The closed questions sit below in two side-by-side columns of hairline rows, each ending in a +.",
+      "fix": "Give the faq two-column variant a stacked layout. The heading spans the top from the content's left edge. Below it, .faq__items is a grid of hairline rows whose column count follows the question length: two columns when the questions fit, one when they are as long as these."
     },
     {
       "block": "faq",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "On the shortest sample the questions still wrap at about 60% of the row ('…World Aquatics-approved for / competition…', '…front- / support panels…'), leaving a gap of roughly 350 px between each question's text and its +/− mark.",
-      "reference": "The competitor's questions run from the row's left edge up to just before the +, so each row reads as one line ending in its mark.",
-      "fix": "In src/styles/reference.css, remove any max-width / measure cap and text-wrap: balance from .block--faq:is([data-variant=\"two-column\"], [data-variant=\"accordion\"], [data-variant=\"open-list\"]) .faq__item h3, so the question fills the summary up to its ::after mark."
+      "issue": "The open answer on the longest sample still runs the full width of the list column, about 90 characters a line ('Yes. Every year we make samples and bulk orders for more than 350 brands, and some of those'), so this 300-word answer is hard to follow from line to line. Raised in the last review and not fixed.",
+      "reference": "The competitor's FAQ rows sit in half-width columns, so their answers stay within a comfortable reading measure.",
+      "fix": "In src/styles/reference.css, add max-width: 70ch to .block--faq:is([data-variant=\"two-column\"], [data-variant=\"accordion\"], [data-variant=\"open-list\"]) .faq__item p (line 415). Leave the summary and h3 at full width so each question still runs up to its +/− mark."
     },
     {
       "block": "faq",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The question list has rules only under each row, so the first question still has no line above it and the list's top edge is undefined next to the heading.",
+      "issue": "The question list still has rules only under each row, so the first question ('Can you show examples…', 'Are any of your men's jammers…') has no line above it and the list has no top edge beside the heading. Raised in the last review and not fixed.",
       "reference": "The competitor draws a hairline above the first row as well, so every question sits between two rules.",
-      "fix": "Add border-top: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent) to .block--faq:is([data-variant=\"two-column\"], [data-variant=\"accordion\"], [data-variant=\"open-list\"]) .faq__items, matching the rules between rows (reference.css line 305)."
-    },
-    {
-      "block": "faq",
-      "viewport": "desktop",
-      "severity": "P2",
-      "scope": "site",
-      "issue": "The open answer runs the full width of the list column, about 820 px or roughly 100 characters a line on the longest sample, so the long answer is hard to follow from line to line.",
-      "reference": "The competitor keeps its FAQ answers in a half-width column, well within a comfortable reading measure.",
-      "fix": "Cap the answer paragraph at a reading measure with max-width: 70ch on .block--faq:is([data-variant=\"two-column\"], [data-variant=\"accordion\"], [data-variant=\"open-list\"]) .faq__item p. Leave the question's width alone so it still runs up to the mark."
+      "fix": "Add border-top: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent) to .block--faq:is([data-variant=\"two-column\"], [data-variant=\"accordion\"], [data-variant=\"open-list\"]) .faq__items. If the rule should sit level with the heading's top, add the 1.25rem top padding back to the first summary (line 421)."
     },
     {
       "block": "faq",
       "viewport": "mobile",
       "severity": "P2",
       "scope": "site",
-      "issue": "On phones the questions still wrap well short of the column ('Can you show examples of swimwear / you've made for brands selling / in Europe or North America?'), leaving 50–70 px of each row empty and turning rows into three or four ragged lines.",
-      "reference": "The competitor's questions run the full row width up to the + mark.",
-      "fix": "Let .block--faq .faq__item h3 fill the summary width up to the mark on phones, with no max-width and no text-wrap: balance. Keep the 15px bold navy type."
+      "issue": "On phones the list has no rule above the first question either, so 'Can you show examples…' and 'Are any of your men's jammers…' float under the heading, while every other question sits between two rules.",
+      "reference": "The competitor's FAQ opens its list with a hairline above the first row, at every width.",
+      "fix": "Use the same border-top on .block--faq[data-variant=\"two-column\"] .faq__items without a media query, so phones get it too."
     }
   ]
 }

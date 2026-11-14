@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "8d6b5abb8ae5bebee0fda6fb",
+  "shots": "53446a08b776808e3a10ebec",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--featureGrid-bullets",
   "route": "/style-board/ (the style board: module featureGrid:bullets, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
@@ -11,18 +11,27 @@
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "This sample's heading 'Ready-to-Brand Curvy Collections and Low-MOQ Trend Drops' is still set in regular weight. The same module's heading in m2 ('Recycled Fabrics and Low-Impact Production') is bold 700, so one module shows two heading weights depending on how long its copy is (the same on mobile).",
+      "issue": "Not fixed since the last review: the heading 'Ready-to-Brand Curvy Collections and Low-MOQ Trend Drops' is still in regular weight, while the same module's heading in m2 ('Recycled Fabrics and Low-Impact Production') is bold 700, so one module shows two heading weights depending on how long its copy is. The phone shot shows the same.",
       "reference": "The competitor keeps one heading weight per level: its h2s are always in the bold heading face, and only the size follows the words.",
-      "fix": "In the bullets module's heading CSS (patterns.css, .point-list__intro h2 / the fitted section heading), fix font-weight at the h2 weight (700) whatever the fit step, so fitting changes only font-size and never the weight."
+      "fix": "In the bullets module's heading CSS (patterns.css, .point-list__intro h2 / the fitted section heading), hold font-weight at the h2 weight (700) at every fit step, so fitting changes only font-size and never the weight."
+    },
+    {
+      "block": "m2",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The intro (heading and lead) ends about a third of the way down a list roughly 1000 px tall and stays put, so the left column is an empty white band for most of the section's height while the points scroll past.",
+      "reference": "The competitor's long lists beside a heading keep the heading in sight next to the list. This site already does that for the process list's intro (.block--process .point-list__intro is sticky).",
+      "fix": "In src/styles/reference.css, make the bullets intro sticky on wide screens as the process list's is: @media (min-width: 900px) { .point-list__intro { position: sticky; top: 6rem; align-self: start; } }."
     },
     {
       "block": "featureGrid-6",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "With only two points, the list still runs as one column across the whole right track, so its lines run to about 90-95 characters ('Our low-MOQ, ready-to-brand trend drops let you test what sells in your market before you'). The reading-width cap in reference.css still does not reach the point items.",
-      "reference": "The competitor keeps body copy beside a heading to short lines of about 60-75 characters.",
-      "fix": "In src/styles/reference.css cap the point items' measure (e.g. .point-list__item { max-inline-size: 70ch; }) so lines stay short whatever the item count."
+      "issue": "Not fixed since the last review: with only two points, the list still runs as one column across the whole right track, so its lines run to about 90–95 characters ('Our low-MOQ, ready-to-brand trend drops let you test what sells in your market before you'). The 70ch cap in reference.css applies only to .block p and does not reach .point-list__item.",
+      "reference": "The competitor keeps body copy beside a heading to short lines of about 60–75 characters.",
+      "fix": "In src/styles/reference.css, cap the point items' measure (e.g. .point-list__item { max-inline-size: 70ch; }) so lines stay short whatever the item count."
     }
   ]
 }

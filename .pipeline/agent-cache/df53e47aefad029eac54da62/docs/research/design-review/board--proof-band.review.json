@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "81f8383e079c649f0925a814",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--proof-band",
+  "route": "/style-board/ (the style board: module proof:band, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "m9",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The section heading 'What Drives Your Fabric Cost' is still set in heavy bold (DM Sans 700) at both widths, while the competitor's matching intro/proof heading ('Your Collection, Kept On Track') is a light, regular-weight display line. This repeats the earlier finding: reference.css has no `.block--proof h2` weight rule, and the shots still show the bold heading.",
+      "reference": "The competitor sets its intro/proof heading large and light (regular or book weight), and uses bold only for short phrases inside the body text ('product development coordinator', 'we care about your brand as much as you do').",
+      "fix": "In reference.css, set `.block--proof[data-variant=\"band\"] h2 { font-weight: 500; }` (or 400). Leave its size to the template's fit."
+    },
+    {
+      "block": "m9-charts",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "At 390px the three-column fabric table wraps most cells to one or two words a line ('Standard / spandex / blends', 'LYCRA Xtra / Life, / Carvico, / ECONYL, / REPREVE', 'Relative / price'), so rows run three to five lines high. The earlier finding asked for less panel padding, but the panel's inset is already small; the space goes to the cell padding and the full-size body type in three columns.",
+      "reference": "The competitor's intro/proof modules run their text in comfortable lines on phones, with no column squeezed to a word a line.",
+      "fix": "In reference.css, under 600px, set `.prose__table :is(th, td)` to an inline padding of about 0.375rem and the table's font-size to about 0.9375rem, so the two value columns get their width back and the header cells hold to two lines."
+    }
+  ]
+}

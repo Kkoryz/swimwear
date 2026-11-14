@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "768da34c561bfcf0e80fa3b5",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--splitMedia-wide",
+  "route": "/style-board/ (the style board: module splitMedia:wide, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
+  "findings": [
+    {
+      "block": "splitMedia-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "Still not fixed from the last review: the splitMedia:wide body paragraphs still run about 800 px at body size, close to 100 characters a line ('customisable development, production and worldwide delivery, and on to after-sales support. We've'), well past the ~70ch measure, while only the lead keeps to a short line; the existing 70ch cap in reference.css (main[data-authoring-page] .block p) does not reach this row as the board renders it.",
+      "reference": "The competitor keeps running text in short columns of about 60–75 characters, and treatment-practice.md holds running text to about 70ch at every width.",
+      "fix": "In src/styles/reference.css, add the cap to the split row's own copy (e.g. .block--split .split__copy p { max-width: 68ch; }) so it applies wherever the module renders, not only under main[data-authoring-page]; leave the heading and the full-width photo as they are."
+    },
+    {
+      "block": "splitMedia-1",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones the wide row's photo, stacked under about 750 px of copy, stays the desktop's shallow strip (about 350 × 153 px, roughly 2.3:1). It reads as a thin band rather than a photo, because the phone rule meant to give it its own shape (reference.css, comment 'Phones: the wide row's photo … shows in its own shape') has an empty body.",
+      "reference": "The competitor's photos beside text keep a full photo shape on phones (about 4:3 to 3:2), not a strip cut for a 1440 px row.",
+      "fix": "Fill the empty @media (max-width: 767px) block in src/styles/reference.css with an aspect-ratio of about 4/3 on the wide variant's media frame (e.g. .block--split[data-variant=\"wide\"] .split__media { aspect-ratio: 4 / 3; } with object-fit: cover on its img), or delete the empty block and its comment if the strip is intended."
+    }
+  ]
+}

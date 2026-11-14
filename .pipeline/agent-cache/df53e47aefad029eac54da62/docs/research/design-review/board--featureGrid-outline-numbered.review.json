@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "beb74ded79e187890325d6d4",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--featureGrid-outline-numbered",
+  "route": "/style-board/ (the style board: module featureGrid:outline-numbered, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "featureGrid-1",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "layout",
+      "issue": "The earlier finding is still open: each card's number ('01', '02', '03') sits on its own line above the title with a full line of space under it, so it reads as a separate label and adds a row to every card's head (on phones it is about 45px of the card before the title in both samples).",
+      "reference": "The competitor puts the number inside the bold card title, on the same line ('01. Custom Designs'), with the text straight under it (section-modules.json home 7).",
+      "fix": "In FeatureGridBlock.astro, for the outline-numbered pattern, render the number inside .feature-card__title as an inline prefix ('01. ') in the title's own type. Remove the separate number row from the card's subgrid (cardRows) and the matching [data-pattern=\"outline-numbered\"] .feature-card__number rule in reference.css. The 'numbered' pattern keeps its large number on top."
+    },
+    {
+      "block": "featureGrid-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The earlier finding is still open: there is little space between each card title and its text (about 10–20px at 1440, and the same in m2-3), so the title sits tight on the paragraph. reference.css still has no title-spacing rule for this pattern.",
+      "reference": "The competitor leaves a clear gap under each card title before the text, about one and a half body lines (roughly 30–40px).",
+      "fix": "In src/styles/reference.css, add margin-block-end: 1.25rem to [data-pattern=\"outline-numbered\"] .feature-card__title (or set a matching row-gap on the card's subgrid)."
+    }
+  ]
+}

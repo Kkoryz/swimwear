@@ -1,19 +1,18 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "d679a94ef16406b9e25788dc",
+  "shots": "f2c2bef0bb6506e77859d881",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--iconList-checks",
   "route": "/style-board/ (the style board: module iconList:checks, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
   "findings": [
     {
-      "block": "m7",
-      "viewport": "mobile",
-      "severity": "P1",
-      "scope": "template",
-      "gap": "other",
-      "issue": "On phones the iconList item titles are almost the same size as the section heading above them (in m7, 'Mechanical durability' is about 13 px per character against about 14 px for 'Quality Control and Hardware Testing'), so the two heading levels don't read as two levels. At that size most of m3's longer titles ('Fabric-specific / Certification', 'Shipment-level / Recycled Claims', 'Buyer-appointed / Factory Audits') also wrap to two lines.",
-      "reference": "The competitor keeps each heading level clearly smaller than the one above it: its section h2 is 60 px and its sub-headings and h4 are about 24 px. Its sub-headings stay compact on phones and sit well below the section heading.",
-      "fix": "In the shared template's heading-fit logic, keep an iconList item h3 a clear step below its section h2 on small screens (for example, cap the item title's fitted size at a ratio of the section heading's fitted size). The fix belongs in the template, not in reference.css, because the rules forbid setting heading font sizes there. On desktop the two levels are already about 1.4× apart, so it can stay as it is."
+      "block": "m3",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "At 1440 px the check-list item text runs the full width of its column, out to the content's right edge, so lines reach about 95–100 characters (e.g. 'recycled polyester. Certified options are available on request, and your fabric determines which'); that is past the 80ch limit in treatment-practice.md and hard to follow back to the next line.",
+      "reference": "The competitor's running text keeps to a readable measure. The treatment practice holds running text to about 70ch at every width.",
+      "fix": "In src/styles/reference.css, add a max-width of about 68ch to the item text in .block--icon-list .icon-list__item (the item's p), leaving the column and grid widths alone. m7 gets the same cap and stays as it is now, since its lines already end near 70ch."
     }
   ]
 }

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "1a7289794d8a2fb2c086f6e1",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--testimonials-carousel",
+  "route": "/style-board/ (the style board: module testimonials:carousel, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "owner-testimonials",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones only one quote card shows at a time, but the subgrid that lines up the cards' rules (reference.css:506-508) still sizes every slide to the tallest quote. The shortest sample's card has an empty band of about 80px between its five-line quote and the rule, and the attribution is pushed down with it.",
+      "reference": "The competitor's quote cards close a fixed space under each quote, followed by the bold name. No card carries an empty band inside it.",
+      "fix": "In src/styles/reference.css, apply the shared subgrid rows (.track__items grid-template-rows and .track__item / .testimonial grid-row: span 2; grid-template-rows: subgrid) only when every card is in view: add .track[data-fits] to those three selectors, or put them in a min-width media query. A slide shown alone then keeps its own height."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "This repeats the earlier finding, which has not been repaired. A hard, dark 1px rule (figcaption border-top) still runs across every quote card between the quote and the attribution, at both widths.",
+      "reference": "The competitor separates the quote from the bold name with space only, with no rule.",
+      "fix": "In src/styles/reference.css, set `.block--testimonials .testimonial figcaption { border-top: 0; }` and keep the subgrid row-gap (1rem) as the separation."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "The same heading, \"What buyers say\", renders at two different sizes and apparent weights at both widths: it is smaller and lighter in the longest sample (/resort-wear-manufacturer/) and larger and bold in the shortest (/about-us/). A heading fitted to identical words should come out the same.",
+      "reference": "The competitor's testimonials heading is one consistent bold H2 wherever the module appears.",
+      "fix": "In the template's heading fit, check why the h2 on the /resort-wear-manufacturer/ sample gets a smaller fit size or lighter weight (for example, a cap from that page's title or a different heading level or class). Make the same words resolve to the same size and the 700 weight the manifest reports for h2."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "f2c2bef0bb6506e77859d881",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--iconList-checks",
+  "route": "/style-board/ (the style board: module iconList:checks, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
+  "findings": [
+    {
+      "block": "m3",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "At 1440 px the check-list item text runs the full width of its column, out to the content's right edge, so lines reach about 95–100 characters (e.g. 'recycled polyester. Certified options are available on request, and your fabric determines which'); that is past the 80ch limit in treatment-practice.md and hard to follow back to the next line.",
+      "reference": "The competitor's running text keeps to a readable measure. The treatment practice holds running text to about 70ch at every width.",
+      "fix": "In src/styles/reference.css, add a max-width of about 68ch to the item text in .block--icon-list .icon-list__item (the item's p), leaving the column and grid widths alone. m7 gets the same cap and stays as it is now, since its lines already end near 70ch."
+    }
+  ]
+}

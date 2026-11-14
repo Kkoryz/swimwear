@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "2e7e82abefcfc559f20cb7bc",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--table-cards",
+  "route": "/style-board/ (the style board: module table:cards, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
+  "findings": [
+    {
+      "block": "table-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "This is still open from the last review: all ten cards repeat the same grey label 'What this means for you' between the title and the text. It is the cards' only row label, so it adds a filler line to every card at both widths (on phones it adds one line of height to each of ten cards stacked in one column).",
+      "reference": "The competitor's outlined cards have just a bold title and their text, with no repeated field label (components.md: three outlined cards, title 700, text below).",
+      "fix": "In TableBlock.astro's cards layout, leave out the dt column label when the table has only one data column (or make it visually hidden for screen readers), and render the cell as the card's paragraph directly under .table-card__title."
+    }
+  ]
+}
