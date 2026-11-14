@@ -1,3 +1,3 @@
 ```json
-{"figures": [{"value": "50 pieces", "label": "Minimum per style colour"}, {"value": "10 to 15 days", "label": "Standard sample time"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "XS to 3XL", "label": "Core size range"}, {"value": "1X to 4X", "label": "Plus size range"}, {"value": "one business day", "label": "Enquiry reply time"}]}
+{"figures": [{"value": "50 pieces", "label": "Minimum per style"}, {"value": "10 to 15 days", "label": "Standard sample time"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "XS to 3XL", "label": "Core size range"}, {"value": "1X to 4X", "label": "Plus size range"}, {"value": "140–190 GSM", "label": "Linen fabric weight"}]}
 ```

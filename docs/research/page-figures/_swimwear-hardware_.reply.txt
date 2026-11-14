@@ -1,3 +1,3 @@
 ```json
-{"figures": [{"value": "100 to 500 pieces", "label": "Standard hardware minimum"}, {"value": "1,000 pieces", "label": "Custom logo hardware minimum"}, {"value": "3 to 7 days", "label": "Stock hardware ready"}, {"value": "15 to 20 days", "label": "Logo hardware samples"}, {"value": "6 mm to 50 mm", "label": "Metal ring sizes"}, {"value": "35 to 40 days", "label": "Bulk production time"}]}
+{"figures": [{"value": "6 mm to 50 mm", "label": "Metal ring sizes"}, {"value": "100 to 500 pieces per colour or size", "label": "Standard hardware minimum"}, {"value": "1,000 pieces per item", "label": "Custom logo hardware minimum"}, {"value": "3 to 7 days", "label": "Stock hardware ready"}, {"value": "15 to 20 days", "label": "Custom hardware sample time"}, {"value": "8–10 kg", "label": "Ring and clasp strength"}]}
 ```

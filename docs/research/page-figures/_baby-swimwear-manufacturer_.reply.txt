@@ -1,3 +1,3 @@
 ```json
-{"figures": [{"value": "50 pieces", "label": "Minimum per style colour"}, {"value": "10 to 15 days", "label": "Sample time"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "UPF 50", "label": "Sun protection"}, {"value": "180 to 200 gsm", "label": "Main fabric weight"}, {"value": "since 2011", "label": "Factory operating since"}]}
+{"figures": [{"value": "50 pieces", "label": "Minimum per style colour"}, {"value": "10 to 15 days", "label": "Sample time"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "180 to 200 gsm", "label": "Main fabric weight"}, {"value": "UPF 50+", "label": "Sun-protective fabric rating"}, {"value": "one business day", "label": "Enquiry response time"}]}
 ```

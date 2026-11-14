@@ -190,10 +190,10 @@
   },
   "page-figures": {
     "status": "passed",
-    "hash": "61fe8744a816df93",
-    "at": "2026-11-14T09:06:31.998Z",
-    "seconds": 117,
-    "log": ".pipeline/logs/2026-11-14T07-38-16-013Z/page-figures.log"
+    "hash": "5c153d975eaf55bf",
+    "at": "2026-11-14T19:33:04.307Z",
+    "seconds": 114,
+    "log": ".pipeline/logs/2026-11-14T19-15-45-060Z/page-figures.log"
   },
   "blog": {
     "status": "passed",

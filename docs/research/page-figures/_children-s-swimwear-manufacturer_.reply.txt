@@ -1,3 +1,3 @@
 ```json
-{"figures": [{"value": "50 pieces", "label": "Minimum per style colour"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "10 to 15 days", "label": "Sample lead time"}, {"value": "4 to 7 days", "label": "Customs and dispatch"}, {"value": "UPF 50+", "label": "Sun protection rating"}, {"value": "size 14", "label": "Largest size made"}]}
+{"figures": [{"value": "50 pieces", "label": "Minimum per style colour"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "10 to 15 days", "label": "Sample lead time"}, {"value": "4 to 7 days", "label": "Customs and dispatch"}, {"value": "UPF 50+", "label": "Sun protection rating"}, {"value": "2T to 14-year", "label": "Graded size range"}]}
 ```
