@@ -37,9 +37,9 @@
   "analysis": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T07:38:30.669Z",
+    "at": "2026-11-14T09:21:02.982Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T07-38-16-013Z/analysis.log"
+    "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/analysis.log"
   },
   "apply-analysis": {
     "status": "passed",
@@ -65,9 +65,9 @@
   "modules": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T07:38:30.716Z",
+    "at": "2026-11-14T09:21:03.011Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T07-38-16-013Z/modules.log"
+    "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/modules.log"
   },
   "template-gaps": {
     "status": "passed",
@@ -79,9 +79,9 @@
   "treatment": {
     "status": "done",
     "hash": "e3b0c44298fc1c14",
-    "at": "2026-11-14T07:38:31.352Z",
+    "at": "2026-11-14T09:21:03.123Z",
     "seconds": 0,
-    "log": ".pipeline/logs/2026-11-14T07-38-16-013Z/treatment.log"
+    "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/treatment.log"
   },
   "fonts": {
     "status": "passed",
@@ -99,10 +99,10 @@
   },
   "import": {
     "status": "passed",
-    "hash": "d1ee6e09e9f2a550",
-    "at": "2026-11-14T07:25:42.874Z",
+    "hash": "b919c52dcfe60da6",
+    "at": "2026-11-14T09:21:03.823Z",
     "seconds": 1,
-    "log": ".pipeline/logs/2026-11-14T07-25-36-409Z/import.log"
+    "log": ".pipeline/logs/2026-11-14T09-20-53-646Z/import.log"
   },
   "site-media": {
     "status": "passed",

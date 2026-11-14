@@ -7772,23 +7772,7 @@
       "value": "55 custom"
     }
   ],
-  "changed": [
-    "/",
-    "/bikini-manufacturer/",
-    "/swim-trunks-manufacturer/",
-    "/children-s-swimwear-manufacturer/",
-    "/baby-swimwear-manufacturer/",
-    "/toddler-swimwear-manufacturer/",
-    "/modest-swimwear-manufacturer/",
-    "/burkini-manufacturer/",
-    "/resort-wear-manufacturer/",
-    "/swimwear-embroidery/",
-    "/swimwear-consulting/",
-    "/swimwear-hardware/",
-    "/swimwear-fabrics-sourcing/",
-    "/swimwear-launch-services/",
-    "/sustainability/"
-  ],
+  "changed": [],
   "upstream": {
     "codeVersion": "4e26cfbd15069347875fa8e54b1ba7f6167c49a2",
     "createdAt": "2026-11-14T06:17:26+00:00"
