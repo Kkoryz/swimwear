@@ -4,6 +4,53 @@
 @import "./reference.css";
 @import "./fonts.css";
 
+/* design-lock:start */
+:root {
+  --surface-primary: #ffffff;
+  --surface-secondary: #f4eee6;
+  --surface-dark: #0b2a4a;
+  --text-primary: #000000;
+  --text-inverse: #ffffff;
+  --text-muted: #6e8296;
+  --border-color: #000000;
+  --accent: #8fd6e1;
+  --accent-contrast: #1f5a7a;
+  /* The reference's #08a4ec as link text is 2.4:1 on #f4eee6; this shade of it is 4.6:1 or more on the light surfaces (WCAG AA). */
+  --link: #0673a5;
+  --size-hero: clamp(2.375rem, 6.111vw, 5.5rem);
+  --size-display: clamp(2rem, 4.167vw, 3.75rem);
+  --size-card-heading: 1.375rem;
+  --size-subheading: 1.625rem;
+  --size-body: 1.0625rem;
+  --line-body: 1.5;
+  --weight-heading: 700;
+  --radius-card: 6px;
+  --radius-media: 2px;
+  --radius-button: 999px;
+  --shadow-card: none;
+  --container-max: 87.5rem;
+  --gutter: 20px;
+  --section-space: 57.5938px;
+  --header-height: 79.1563px;
+  --surface-header: #306180;
+  --surface-footer: #003049;
+  --text-eyebrow: #1670a8;
+  --button-secondary-bg: #f6f3ec;
+  --button-secondary-text: #111111;
+  --surface-band-blue: #dceaf5;
+  --surface-band-mint: #d6e2de;
+  --surface-band-blush: #ffe5df;
+  --channel-card-border: 1px solid #979797;
+  --channel-card-radius: 10px;
+  --input-border: #000000;
+  --radius-input: 0px;
+  --radius-pill: 999px;
+  --size-lead: 1.625rem;
+  --size-eyebrow: 0.875rem;
+  --tracking-eyebrow: 1.4px;
+}
+/* design-lock:end */
+
 /* Design tokens. A reference run replaces these values with the exact observed values from
    docs/research/raw/design-lock.json; the font families come from the fonts step (src/styles/fonts.css, generated
    from docs/research/installed-fonts.json). Components only read tokens. */

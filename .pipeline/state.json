@@ -40,5 +40,12 @@
     "at": "2026-11-14T06:48:32.613Z",
     "seconds": 1052,
     "log": ".pipeline/logs/2026-11-14T06-27-25-372Z/analysis.log"
+  },
+  "apply-analysis": {
+    "status": "passed",
+    "hash": "a023dfe7a9dc19d3",
+    "at": "2026-11-14T06:48:33.161Z",
+    "seconds": 0,
+    "log": ".pipeline/logs/2026-11-14T06-27-25-372Z/apply-analysis.log"
   }
 }
