@@ -218,9 +218,9 @@
   },
   "image-fit": {
     "status": "passed",
-    "hash": "95396f71bff64cdc",
-    "at": "2026-11-14T19:22:52.239Z",
-    "seconds": 421,
+    "hash": "54cf1d868d880cf8",
+    "at": "2026-11-14T19:36:10.152Z",
+    "seconds": 121,
     "log": ".pipeline/logs/2026-11-14T19-15-45-060Z/image-fit.log"
   },
   "image-refit": {
