@@ -16,6 +16,33 @@
       "hero": null,
       "pool": [],
       "origin": "none"
+    },
+    "textRunWords": 317,
+    "densityBands": {
+      "wordsPer1000px": {
+        "max": 206
+      },
+      "visualAreaPct": {
+        "min": 23,
+        "max": 88
+      },
+      "longestTextOnlyPx": {
+        "max": 2663
+      },
+      "pageTypes": {
+        "home": {
+          "wordsPer1000px": {
+            "max": 155
+          },
+          "visualAreaPct": {
+            "min": 33,
+            "max": 59
+          },
+          "longestTextOnlyPx": {
+            "max": 931
+          }
+        }
+      }
     }
   }
 }
