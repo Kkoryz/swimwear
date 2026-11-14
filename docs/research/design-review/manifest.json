@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-shots-v1",
-  "id": "fc3d4e58fbdba28b",
+  "id": "a12cedad84e8a6c8",
   "pages": [
     {
       "key": "home",
@@ -10,9 +10,9 @@
       "words": 2180,
       "route": "/",
       "status": "authored",
-      "source": "5b936d2b47046b4ef3201a5b",
+      "source": "64055efc4e337f24f8445c50",
       "rules": "896e2a6360c1caaa",
-      "shots": "f6c9c98f9180a79273d5434a",
+      "shots": "ca090c25f35fc1408597098c",
       "images": [
         "docs/research/design-review/home-desktop-1.png",
         "docs/research/design-review/home-desktop-2.png",
@@ -817,9 +817,9 @@
       "words": 1362,
       "route": "/about-us/",
       "status": "authored",
-      "source": "56b2dcfea7bea5c1df150101",
+      "source": "38240cc7ed178bf31689bec0",
       "rules": "896e2a6360c1caaa",
-      "shots": "25ff20416e06f7c032b0ac2f",
+      "shots": "9c6449efb16c788d908f59ea",
       "images": [
         "docs/research/design-review/about-desktop-1.png",
         "docs/research/design-review/about-desktop-2.png",
@@ -1241,9 +1241,9 @@
       "words": 1907,
       "route": "/faq/",
       "status": "authored",
-      "source": "1e673634d809620bf7290be5",
+      "source": "021d1b86d4404c23a59e63a8",
       "rules": "896e2a6360c1caaa",
-      "shots": "ef0fb5a4836acca706169ff8",
+      "shots": "74d148de61c27b622d399cdd",
       "images": [
         "docs/research/design-review/general-desktop-1.png",
         "docs/research/design-review/general-desktop-2.png",
@@ -1946,9 +1946,9 @@
       "words": 983,
       "route": "/case-studies/",
       "status": "authored",
-      "source": "1c5bd0fccfa23b3da1daa36a",
+      "source": "f7b5738393aa0b4c6b9ab262",
       "rules": "896e2a6360c1caaa",
-      "shots": "e362e0f13314be4ef38728d0",
+      "shots": "c8c396336c66b67c61090bb0",
       "images": [
         "docs/research/design-review/general--shortest-desktop-1.png",
         "docs/research/design-review/general--shortest-desktop-2.png",
@@ -2000,16 +2000,9 @@
             }
           },
           {
-            "id": "media-module-budget-1",
-            "type": "gallery",
-            "top": 2082,
-            "height": 806,
-            "imageShare": 0.89
-          },
-          {
             "id": "cases",
             "type": "orderCase",
-            "top": 2888,
+            "top": 2082,
             "height": 544,
             "imageShare": 0,
             "align": {
@@ -2020,12 +2013,19 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 3432,
+            "top": 2626,
             "height": 230,
             "imageShare": 0,
             "align": {
               "heading": "start"
             }
+          },
+          {
+            "id": "media-module-budget-1",
+            "type": "gallery",
+            "top": 2856,
+            "height": 806,
+            "imageShare": 0.89
           },
           {
             "id": "faq",
@@ -2101,16 +2101,9 @@
             }
           },
           {
-            "id": "media-module-budget-1",
-            "type": "gallery",
-            "top": 2161,
-            "height": 365,
-            "imageShare": 0.8
-          },
-          {
             "id": "cases",
             "type": "orderCase",
-            "top": 2526,
+            "top": 2161,
             "height": 714,
             "imageShare": 0,
             "align": {
@@ -2121,12 +2114,19 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 3240,
+            "top": 2875,
             "height": 271,
             "imageShare": 0,
             "align": {
               "heading": "start"
             }
+          },
+          {
+            "id": "media-module-budget-1",
+            "type": "gallery",
+            "top": 3147,
+            "height": 365,
+            "imageShare": 0.8
           },
           {
             "id": "faq",
@@ -2242,9 +2242,9 @@
       "words": 701,
       "route": "/terms-and-conditions/",
       "status": "authored",
-      "source": "82b82ef06710a454c0335014",
+      "source": "987f20e36b51ccb01e18919d",
       "rules": "896e2a6360c1caaa",
-      "shots": "430b77ab63b4faaa8cffcb50",
+      "shots": "2f0b13069da74d92c80481b5",
       "images": [
         "docs/research/design-review/privacy-desktop-1.png",
         "docs/research/design-review/privacy-desktop-2.png",
@@ -2556,9 +2556,9 @@
       "words": 132,
       "route": "/privacy-policy/",
       "status": "authored",
-      "source": "02deea91a680c0b3cea0816b",
+      "source": "c1449a121f2bfbd3adcc2dbf",
       "rules": "896e2a6360c1caaa",
-      "shots": "c71ac1b7f083fccb7887b1f7",
+      "shots": "edcfc32665b311d976bcb547",
       "images": [
         "docs/research/design-review/privacy--shortest-desktop-1.png",
         "docs/research/design-review/privacy--shortest-mobile-1.png"
@@ -2737,9 +2737,9 @@
       "words": 496,
       "route": "/blog/",
       "status": "authored",
-      "source": "2b7bcfc030f76edfe5270e4d",
+      "source": "ba68f9032711ab0d4e20200f",
       "rules": "896e2a6360c1caaa",
-      "shots": "15f11880a52630bfa1c878ab",
+      "shots": "8a6435d775bc97247412e8d3",
       "images": [
         "docs/research/design-review/blog_hub-desktop-1.png",
         "docs/research/design-review/blog_hub-mobile-1.png",
@@ -2942,9 +2942,9 @@
       "words": 715,
       "route": "/contact-us/",
       "status": "authored",
-      "source": "19af0039c411fa5ae9e86514",
+      "source": "2fe51262135bc9c53feca1dc",
       "rules": "896e2a6360c1caaa",
-      "shots": "beaa9d1d72f9b1d576ce06e4",
+      "shots": "31ce53f71c34947bea77bc81",
       "images": [
         "docs/research/design-review/contact-desktop-1.png",
         "docs/research/design-review/contact-desktop-2.png",
@@ -3847,9 +3847,9 @@
       "words": 918,
       "route": "/watersports-apparel-manufacturer/",
       "status": "authored",
-      "source": "545fe9390f132b2e0ba4e536",
+      "source": "b33f4e0d5b7e02c4920fec26",
       "rules": "896e2a6360c1caaa",
-      "shots": "400a833a094bb1c664813864",
+      "shots": "a086bb2aa2ff6346877244b0",
       "images": [
         "docs/research/design-review/product_manufacturer--shortest-desktop-1.png",
         "docs/research/design-review/product_manufacturer--shortest-desktop-2.png",
@@ -4181,9 +4181,9 @@
       "words": 2812,
       "route": "/swimwear-consulting/",
       "status": "authored",
-      "source": "5bbf2d06d14a7d5876e18a0b",
+      "source": "d3db37fa8018db1ba0926434",
       "rules": "896e2a6360c1caaa",
-      "shots": "b132551b635b87b0151f64e0",
+      "shots": "7fe9886af3ab20c3eded1df7",
       "images": [
         "docs/research/design-review/solution-desktop-1.png",
         "docs/research/design-review/solution-desktop-2.png",
@@ -4407,22 +4407,22 @@
             }
           },
           {
+            "id": "media-module-budget-3",
+            "type": "gallery",
+            "top": 9717,
+            "height": 806,
+            "imageShare": 0.89
+          },
+          {
             "id": "m8",
             "type": "process",
-            "top": 9717,
+            "top": 10524,
             "height": 771,
             "imageShare": 0,
             "align": {
               "heading": "start",
               "text": "start"
             }
-          },
-          {
-            "id": "media-module-budget-1",
-            "type": "gallery",
-            "top": 10488,
-            "height": 806,
-            "imageShare": 0.89
           },
           {
             "id": "iconList-3",
@@ -4435,9 +4435,16 @@
             }
           },
           {
+            "id": "media-module-budget-1",
+            "type": "gallery",
+            "top": 11885,
+            "height": 806,
+            "imageShare": 0.89
+          },
+          {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 11885,
+            "top": 12692,
             "height": 431,
             "imageShare": 0,
             "align": {
@@ -4448,7 +4455,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 12316,
+            "top": 13122,
             "height": 274,
             "imageShare": 0,
             "align": {
@@ -4458,7 +4465,7 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 12590,
+            "top": 13396,
             "height": 982,
             "imageShare": 0,
             "align": {
@@ -4469,7 +4476,7 @@
           {
             "id": "faq-steps",
             "type": "process",
-            "top": 13572,
+            "top": 14378,
             "height": 397,
             "imageShare": 0,
             "align": {
@@ -4480,7 +4487,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 13969,
+            "top": 14775,
             "height": 691,
             "imageShare": 0.85,
             "align": {
@@ -4696,22 +4703,22 @@
             }
           },
           {
+            "id": "media-module-budget-3",
+            "type": "gallery",
+            "top": 16587,
+            "height": 365,
+            "imageShare": 0.8
+          },
+          {
             "id": "m8",
             "type": "process",
-            "top": 16587,
+            "top": 16951,
             "height": 1312,
             "imageShare": 0,
             "align": {
               "heading": "start",
               "text": "start"
             }
-          },
-          {
-            "id": "media-module-budget-1",
-            "type": "gallery",
-            "top": 17899,
-            "height": 365,
-            "imageShare": 0.8
           },
           {
             "id": "iconList-3",
@@ -4724,9 +4731,16 @@
             }
           },
           {
+            "id": "media-module-budget-1",
+            "type": "gallery",
+            "top": 19239,
+            "height": 365,
+            "imageShare": 0.8
+          },
+          {
             "id": "owner-testimonials",
             "type": "testimonials",
-            "top": 19239,
+            "top": 19604,
             "height": 466,
             "imageShare": 0,
             "align": {
@@ -4737,7 +4751,7 @@
           {
             "id": "related",
             "type": "relatedPages",
-            "top": 19706,
+            "top": 20070,
             "height": 470,
             "imageShare": 0,
             "align": {
@@ -4747,7 +4761,7 @@
           {
             "id": "faq",
             "type": "faq",
-            "top": 20176,
+            "top": 20541,
             "height": 1297,
             "imageShare": 0,
             "align": {
@@ -4758,7 +4772,7 @@
           {
             "id": "faq-steps",
             "type": "process",
-            "top": 21474,
+            "top": 21838,
             "height": 791,
             "imageShare": 0,
             "align": {
@@ -4769,7 +4783,7 @@
           {
             "id": "cta",
             "type": "cta",
-            "top": 22264,
+            "top": 22629,
             "height": 417,
             "imageShare": 0.74,
             "align": {
@@ -4862,9 +4876,9 @@
       "words": 1684,
       "route": "/custom-swimwear-printing/",
       "status": "authored",
-      "source": "f152f021cd7f6ea2715b9a87",
+      "source": "248fd8b44de84a1952570f90",
       "rules": "896e2a6360c1caaa",
-      "shots": "ab823032a249e805f30c0570",
+      "shots": "7dd087add36a0d364f7ed451",
       "images": [
         "docs/research/design-review/solution--shortest-desktop-1.png",
         "docs/research/design-review/solution--shortest-desktop-2.png",
