@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "7603d93dd64d69f0968ef368",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--process-circles",
+  "route": "/style-board/ (the style board: module process:circles, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
+  "findings": [
+    {
+      "block": "process-1",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "Step titles ('Enquiry and quotation', 'Sampling and fees', 'Send your first-run plan') are still set in regular weight at about the step text's size, so each column reads as two body paragraphs under its number circle with no title between them (the earlier finding, not yet fixed).",
+      "reference": "The competitor's step, card and sub-section titles are bold (Maison 700, e.g. card titles 700 22px), clearly heavier than their body copy.",
+      "fix": "In reference.css, next to `.block--process { --size-subheading: 1.0625rem; }`, set the step title's weight only, e.g. `.block--process .process-step__title { font-weight: 700; }`. Leave the size with the template."
+    },
+    {
+      "block": "process-1",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "On phones every step title ('Enquiry and quotation' … 'Branding and printing', 'Send your first-run plan') is the same size and weight as the 16px text under it, so the six stacked steps run together as plain paragraphs between the circles.",
+      "reference": "The competitor sets its step and card titles bold (700), apart from their text.",
+      "fix": "The same weight-only rule in reference.css: `.block--process .process-step__title { font-weight: 700; }`."
+    },
+    {
+      "block": "process-1",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "In the six-step sample, the hairline linking the circles runs only along the first row (01–03) and on past circle 03 to the content's right edge. The second row's circles (04–06) stand without it, so the two rows of one sequence look like two different treatments.",
+      "reference": "The competitor's step rows (the six-step timeline on navy) draw one continuous hairline across every step of the row it belongs to, and it ends with the last step.",
+      "fix": "In the shared process:circles CSS, draw the connector per step (e.g. a `::after` line on each step's marker running to the next marker in the same row, left off the last step of each row) instead of one line on the list's first row."
+    }
+  ]
+}

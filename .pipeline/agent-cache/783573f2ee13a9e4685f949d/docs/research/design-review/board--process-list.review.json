@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "449692af9277c021cc6b7243",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--process-list",
+  "route": "/style-board/ (the style board: module process:list, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The step numbers are still the browser's default list numbers (\"1.\", \"2.\" … \"6.\") in body size and body colour (patterns.css .point-list__item::marker is var(--text-primary)), so the six steps read as a plain ordered text list rather than a process.",
+      "reference": "The competitor marks each step with a large, accent-blue, zero-padded numeral (\"01\", \"02\", \"03\") in its own column beside the step title.",
+      "fix": "In reference.css, scope to .block--process: set .point-list__items to list-style: none with a counter, and give each .point-list__item a ::before of counter(step, decimal-leading-zero) in color: var(--accent-text), font-weight: 700, about twice the body size, set in a grid column of its own beside the title and text. As a lighter alternative, style ::marker with the accent colour, weight 700 and a larger size, and widen .point-list__items padding-left to fit."
+    },
+    {
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The step titles (\"Scale and trial print\", \"A4 approval options\", …) are still the same weight and nearly the same size as their descriptions, so each step's name does not stand out from its text.",
+      "reference": "The competitor sets each step name (\"Custom Designs\", \"Ready Designs\", \"Mix n' Match\") bold and a little larger than its body text, with a small gap before the description.",
+      "fix": "In reference.css, give .block--process .point-list__title font-weight: 700, font-size: var(--size-subheading) (1.0625rem is already set on .block--process) and margin-bottom: 0.5rem."
+    },
+    {
+      "block": "overview-steps",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "content",
+      "issue": "The section still has no heading: its only intro, \"Quality checks at every stage of an order\", is a lead at body size, so the left column looks almost empty and the section has no title next to m7's H2.",
+      "reference": "The competitor's process list always opens with an H2 (\"3 Ways to Handover\") above its lead.",
+      "fix": "Site Factory should supply a heading for overview-steps (for example \"Quality Checks at Every Stage\") so the block renders an h2.process__heading above the lead."
+    },
+    {
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The steps still run on with only white space between them, so in the long six-step sample each step blurs into the next.",
+      "reference": "The competitor separates its steps with thin, light horizontal rules, with even padding above and below each one.",
+      "fix": "In reference.css, give .block--process .point-list__item border-top: 1px solid var(--border-color) and padding-top equal to the list gap (and border-bottom on :last-child), keeping the 1rem gap from .point-list__items."
+    },
+    {
+      "block": "m7",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "At 1440 px the step descriptions run about 90 characters a line (\"We send you digital mock-ups so you can approve the scale, and we turn strike-offs around in\"), above the 80ch limit for running text.",
+      "reference": "The competitor's step text keeps to roughly 65–75 characters a line in its right column.",
+      "fix": "In reference.css, set max-width: 70ch on .block--process .point-list__item p, so the text holds to the measure without fixing the column's width."
+    },
+    {
+      "block": "overview-steps",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "On phones, a band of about 70 px separates the one-line lead \"Quality checks at every stage of an order\" from the first step, much more than the gap between steps, so the lead reads as cut off from its list.",
+      "reference": "The competitor's process module stacks its intro and steps with gaps close to its row spacing, without an empty band between them.",
+      "fix": "In reference.css, under the stacked (single-column) breakpoint, reduce the row-gap between the process intro column and .point-list__items in .block--process to about the list's own 1–1.5rem gap."
+    }
+  ]
+}

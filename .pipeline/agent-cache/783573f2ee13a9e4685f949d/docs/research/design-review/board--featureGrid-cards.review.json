@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "08778583a25b79832a07e328",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--featureGrid-cards",
+  "route": "/style-board/ (the style board: module featureGrid:cards, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "m2",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The section heading \"Rash Guard Fabrics, UPF Ratings and Certifications\" still renders in a light/regular weight while the card titles under it are bold, so the h2 reads weaker than its own h3s.",
+      "reference": "The competitor's card-section heading (\"Selecting Colours and adding Digital Prints\") is a heavy bold sans, clearly stronger than its bold but smaller card titles.",
+      "fix": "In src/styles/reference.css give the featureGrid section heading the site's heading weight (e.g. .block--featureGrid h2 { font-weight: var(--weight-heading); }, 700), leaving its fitted size to the template."
+    },
+    {
+      "block": "m2",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "On phones the light section heading sits over card titles that are about as large and much bolder (\"Performance fabric range\", \"Repeated board contact\"), so the step from h2 to card title is lost.",
+      "reference": "The competitor's mobile heading is bold and clearly outranks its card titles.",
+      "fix": "The same rule as on desktop (font-weight: var(--weight-heading) on the featureGrid h2) at every width; no size change."
+    },
+    {
+      "block": "m2",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The four cards are still white boxes with a 1px black outline (--border-color #000000), which gives the grid a wireframe look on the white section.",
+      "reference": "The competitor's card modules for this page type (solution sections 2 and 7) are flat filled panels (white or cream on a tinted band, cream or light blue on navy) with a small radius and no outline.",
+      "fix": "In src/styles/reference.css set the featureGrid:cards cards (.feature-card in the cards variant) to border-color: transparent with a tinted fill (background: var(--surface-secondary), or white when the section itself is tinted), keeping --radius-card."
+    },
+    {
+      "block": "m3-2",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The two wide cards use the same thin black outline on white, so the short set reads as two mostly empty framed boxes.",
+      "reference": "The competitor's two-card row (\"Choose from 100,000 m in stock\" / \"Digital prints\") is made of filled rounded panels without borders.",
+      "fix": "The same card rule as m2: no border on the featureGrid:cards cards, a tinted fill instead."
+    },
+    {
+      "block": "m3-2",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "The card title is still hyphenated inside a word (\"Pool and train- / ing performance\").",
+      "reference": "The competitor's card titles wrap only between words.",
+      "fix": "Set hyphens: manual and overflow-wrap: normal on .feature-card__title in src/styles/reference.css so titles break at spaces only."
+    },
+    {
+      "block": "m2",
+      "viewport": "mobile",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "The four stacked outlined cards sit about 30px apart, each in its own frame, so they read as a long run of separate boxes instead of one grouped set.",
+      "reference": "The competitor's stacked mobile cards are filled panels with tight, even gaps on the section's band.",
+      "fix": "Once the outline is replaced by a fill, reduce the mobile row-gap of the featureGrid:cards grid to the site's smaller spacing step (e.g. 1rem)."
+    }
+  ]
+}

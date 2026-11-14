@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "seo-site-design-review-v1",
+  "shots": "6a5aebeca5526090ff9a6a1f",
+  "rules": "896e2a6360c1caaa",
+  "pageType": "board--testimonials-carousel",
+  "route": "/style-board/ (the style board: module testimonials:carousel, longest and shortest copy, photos as grey frames)",
+  "findings": [
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P1",
+      "scope": "template",
+      "gap": "other",
+      "issue": "In the longest sample the heading 'What buyers say' is drawn in a light, regular-looking weight, while the same heading in the shortest sample is bold. The same mismatch shows on mobile, so the one module renders its h2 in two weights.",
+      "reference": "The competitor's testimonials heading ('What Independent Labels Say') is set bold (Maison 700), like every one of its section headings.",
+      "fix": "Find why the first testimonials block on the board does not get the 700 weight that `.block h2 { font-weight: var(--weight-heading) }` (template.css:209) gives it, which the manifest reports as 700. Look for a later rule, or the heading-fit code, that overrides the weight on that instance (`.testimonials__heading`), so that every testimonials h2 renders at --weight-heading."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "This repeats the earlier finding, which has not been repaired. The quote cards are still flat white panels with no shadow, so they lack the competitor's raised-card look.",
+      "reference": "The competitor's quote cards sit on the sage band with a soft drop shadow along the bottom and right edges, which lifts each card off the band.",
+      "fix": "In src/styles/reference.css, give .block--testimonials a soft --shadow-card (e.g. 0 6px 12px rgb(0 0 0 / 0.15)) so that .testimonial picks it up through box-shadow: var(--shadow-card)."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "This repeats the earlier finding, which has not been repaired. A hard black 1px rule still runs across every card between the quote and the attribution, at both widths.",
+      "reference": "The competitor's cards separate the quote from the bold name with space only, with no rule.",
+      "fix": "In src/styles/reference.css, set `.block--testimonials .testimonial figcaption { border-top: 0; }` and keep the existing padding-top/gap as the separation."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "site",
+      "issue": "This repeats the earlier finding, which has not been repaired. reference.css:268 still paints this one section's background (`.block--testimonials { background: var(--surface-band-mint) }`) instead of tinting through --section-tint. The template's white/tinted alternation therefore does not control it: on the board, the logos section above is white, and on a page it can land beside another tinted section.",
+      "reference": "The competitor's testimonials sit on a sage #d6e2de band. Under the site's rule that sage is the shared section tint, not a colour fixed on one module.",
+      "fix": "Remove the background rule on .block--testimonials (reference.css:268) and set --section-tint to the sage (#d6e2de) in the treatment, so that the template's alternation decides which sections carry it."
+    },
+    {
+      "block": "owner-testimonials",
+      "viewport": "desktop",
+      "severity": "P2",
+      "scope": "template",
+      "gap": "carousel",
+      "issue": "This repeats the earlier finding, which has not been repaired. With two testimonials, the carousel keeps three-card widths and leaves the right third of the row as an empty sage gap.",
+      "reference": "The competitor's row is always filled by the cards in view, so it has no empty slot. The number of cards in view should follow our own item count, not a fixed 3.",
+      "fix": "Have the testimonials carousel set its cards-per-view (data-columns) from the item count when every item fits (2 items → 2 columns), or centre a short single row, as the card-set rule does for a short last row."
+    }
+  ]
+}

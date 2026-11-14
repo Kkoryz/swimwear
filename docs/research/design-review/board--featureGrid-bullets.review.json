@@ -1,46 +1,46 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "b8ffb03a4effb74b7f67b1e2",
+  "shots": "85a61def2e0e1c7669d7105d",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--featureGrid-bullets",
   "route": "/style-board/ (the style board: module featureGrid:bullets, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
   "findings": [
     {
       "block": "m2",
+      "viewport": "mobile",
+      "severity": "P1",
+      "scope": "site",
+      "issue": "Each point's title (e.g. 'Regenerated Fibre Performance', 'Requested Fabrics And Trade-offs') is still set in regular weight and is smaller than the paragraph under it, so the 8-item list reads as one undifferentiated run of text with the hierarchy inverted (same on desktop and in featureGrid-6).",
+      "reference": "The competitor sets sub-heads under a section heading in its bold heading face (700, at or above the 16-17px body), so each item's title can be scanned on its own.",
+      "fix": "In src/styles/reference.css give .point-list__title the display face at weight 700 and a size at least equal to the item text (e.g. font-family: var(--font-display); font-weight: 700; font-size: 1.0625rem), keeping its small gap to the paragraph."
+    },
+    {
+      "block": "featureGrid-6",
       "viewport": "desktop",
       "severity": "P1",
       "scope": "template",
       "gap": "other",
-      "issue": "The bullets module's h2 'Recycled Fabrics and Low-Impact Production' is centred over its left column (also on mobile, and likewise in featureGrid-6) while the lead paragraph under it is left-aligned, so one section mixes two alignments and breaks the rule that every section heading starts on the content's left edge.",
-      "reference": "The competitor's heading-and-text columns (Branding, Heading + lead, Pricing) set eyebrow, h2 and paragraph flush left on one edge; the site's rule keeps headings at the start edge even where the competitor centres them.",
-      "fix": "In src/styles/patterns.css drop text-align: center from .feature-grid__heading (or override it for [data-pattern=\"bullets\"] .point-list__intro h2 with text-align: start), so the heading lines up with the lead and the section heading rule is kept on every page."
-    },
-    {
-      "block": "m2",
-      "viewport": "mobile",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "Each point's title (e.g. 'Regenerated Fibre Performance', 'Sustainable Fabric Choices') renders at regular weight and no larger than, on phones visibly smaller than, the paragraph under it, so the list reads as one undifferentiated run of text with the hierarchy inverted (same on desktop and in featureGrid-6).",
-      "reference": "The competitor sets sub-heads under a section heading in its bold heading face (h4 Maison Neue 700, clearly heavier than the 16-17px body), so each item's title is scannable.",
-      "fix": "In src/styles/reference.css give .point-list__title the heading face at bold weight (font-family: var(--font-display); font-weight: 700) and a size at or a step above the body text (e.g. font-size: 1.0625rem-1.125rem), keeping its 0.25rem gap to its text."
+      "issue": "This sample's heading 'Ready-to-Brand Curvy Collections and Low-MOQ Trend Drops' is set in a light/regular weight, while the same module's heading in m2 ('Recycled Fabrics and Low-Impact Production') is bold 700, so one module shows two heading weights depending on its copy (also on mobile).",
+      "reference": "The competitor keeps one heading weight per level (its h2s are always the bold heading face); only the size may follow the words.",
+      "fix": "In the bullets module's heading CSS (patterns.css, .feature-grid__heading / .point-list__intro h2), set font-weight to the h2 weight (700) independently of the fit step, so the fitting only changes font-size and never the weight."
     },
     {
       "block": "featureGrid-6",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "With only two points the list stays one column across the whole 7fr track, so its lines run about 88-95 characters ('Our low-MOQ, ready-to-brand trend drops let you test what sells in your market before you'), past a comfortable measure.",
-      "reference": "The competitor keeps body copy beside a heading to short lines (about 60-75 characters) in its two-column text rows.",
-      "fix": "In src/styles/reference.css cap .point-list__item p (or .point-list__items:not([data-columns=\"2\"])) at max-inline-size: 68ch so the measure holds whatever the item count."
+      "issue": "With only two points the list still runs one column across the whole right track, so its lines run about 90-95 characters ('Our low-MOQ, ready-to-brand trend drops let you test what sells in your market before you'); the 70ch cap in reference.css does not reach these item paragraphs.",
+      "reference": "The competitor keeps body copy beside a heading to short lines of about 60-75 characters.",
+      "fix": "In src/styles/reference.css extend the reading-column cap to the point items (e.g. .point-list__item p { max-inline-size: 70ch; }), not only to main[data-authoring-page] .block p, so the measure holds on every page whatever the item count."
     },
     {
       "block": "m2",
       "viewport": "desktop",
       "severity": "P2",
       "scope": "site",
-      "issue": "The points are marked with the browser's default black disc bullets, a generic look that matches nothing else in the treatment.",
-      "reference": "The competitor's lists (e.g. 'Every price includes' in the pricing panel) mark their items with check icons in its accent colour, not plain discs.",
-      "fix": "In src/styles/reference.css restyle [data-pattern=\"bullets\"] .point-list__item::marker (or swap list-style for a check glyph/mask in the accent colour, as iconList:checks does) so the markers follow the competitor's check-list style."
+      "issue": "The points are still marked with the browser's default small black disc bullets, which look generic and match nothing else in the treatment (same in featureGrid-6 and on mobile).",
+      "reference": "The competitor's lists (e.g. 'Every price includes' in its pricing panel) mark items with check icons in its accent colour.",
+      "fix": "In src/styles/reference.css restyle [data-pattern=\"bullets\"] .point-list__item markers (::marker color/content, or list-style: none plus an accent check mask as iconList:checks uses) so they follow the competitor's check-list style."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "seo-site-design-review-v1",
-  "shots": "01326f3a892a20fe4745278b",
+  "shots": "7603d93dd64d69f0968ef368",
   "rules": "896e2a6360c1caaa",
   "pageType": "board--process-circles",
   "route": "/style-board/ (the style board: module process:circles, longest and shortest copy, photos as grey frames; no competitor section shows this module)",
@@ -9,39 +9,29 @@
       "block": "process-1",
       "viewport": "desktop",
       "severity": "P1",
-      "scope": "template",
-      "gap": "other",
-      "issue": "The process section heading ('OEM Bikini Sampling, Lead Times, Payment and Shipping' and 'Trial Runs') is centred over an intro paragraph and step columns that start on the left edge, so heading and copy in one section align differently and the site's left-edge heading rule is broken.",
-      "reference": "The site's layout rule: every section heading starts on the content's left edge, even where a module would centre it; the competitor has no circles module to say otherwise.",
-      "fix": "In patterns.css, drop `text-align: center` from `.process__heading` (set `text-align: start`) so the heading sits on the left edge with its lead and steps."
+      "scope": "site",
+      "issue": "Step titles ('Enquiry and quotation', 'Sampling and fees', 'Send your first-run plan') are still set in regular weight at about the step text's size, so each column reads as two body paragraphs under its number circle with no title between them (the earlier finding, not yet fixed).",
+      "reference": "The competitor's step, card and sub-section titles are bold (Maison 700, e.g. card titles 700 22px), clearly heavier than their body copy.",
+      "fix": "In reference.css, next to `.block--process { --size-subheading: 1.0625rem; }`, set the step title's weight only, e.g. `.block--process .process-step__title { font-weight: 700; }`. Leave the size with the template."
     },
     {
       "block": "process-1",
       "viewport": "mobile",
       "severity": "P1",
-      "scope": "template",
-      "gap": "other",
-      "issue": "On phones the three-line heading 'OEM Bikini Sampling, / Lead Times, Payment / and Shipping' (and 'Trial Runs') is centred with ragged lines above a left-aligned lead and left-aligned step list.",
-      "reference": "Section headings start on the content's left edge at every width (site rule).",
-      "fix": "Same change: `.process__heading { text-align: start; }` in patterns.css."
+      "scope": "site",
+      "issue": "On phones every step title ('Enquiry and quotation' … 'Branding and printing', 'Send your first-run plan') is the same size and weight as the 16px text under it, so the six stacked steps run together as plain paragraphs between the circles.",
+      "reference": "The competitor sets its step and card titles bold (700), apart from their text.",
+      "fix": "The same weight-only rule in reference.css: `.block--process .process-step__title { font-weight: 700; }`."
     },
     {
       "block": "process-1",
       "viewport": "desktop",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "Step titles ('Enquiry and quotation', 'Send your first-run plan') are set at regular weight 400, barely larger than the step text, so the steps have no visible heading level under the section heading.",
-      "reference": "The competitor's sub-headings and card titles are Maison 700 (e.g. card title 700 22px/33px, h3 700), clearly heavier than the body copy.",
-      "fix": "In reference.css add `.block--process .process-step__title { font-weight: 700; }` (weight only, size stays with the template's --size-subheading)."
-    },
-    {
-      "block": "process-1",
-      "viewport": "mobile",
-      "severity": "P1",
-      "scope": "site",
-      "issue": "On phones the step titles are the same size and weight as the step text below them, so each step reads as two body paragraphs under its number circle.",
-      "reference": "The competitor's step and card titles are bold (700), set apart from their text.",
-      "fix": "The same `.block--process .process-step__title { font-weight: 700; }` in reference.css."
+      "severity": "P2",
+      "scope": "template",
+      "gap": "other",
+      "issue": "In the six-step sample, the hairline linking the circles runs only along the first row (01–03) and on past circle 03 to the content's right edge. The second row's circles (04–06) stand without it, so the two rows of one sequence look like two different treatments.",
+      "reference": "The competitor's step rows (the six-step timeline on navy) draw one continuous hairline across every step of the row it belongs to, and it ends with the last step.",
+      "fix": "In the shared process:circles CSS, draw the connector per step (e.g. a `::after` line on each step's marker running to the next marker in the same row, left off the last step of each row) instead of one line on the list's first row."
     }
   ]
 }
