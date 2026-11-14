@@ -1,0 +1,333 @@
+{
+  "schemaVersion": "seo-site-launch-preflight-v1",
+  "status": "blocked",
+  "launched": false,
+  "checkedAt": "2026-11-14T13:11:26.614Z",
+  "holds": [
+    {
+      "code": "inherited:primary_in_first_paragraph",
+      "detail": "Site Factory held c-f7c91fefc9c3:service",
+      "items": [
+        "c-f7c91fefc9c3:service"
+      ]
+    },
+    {
+      "code": "inherited:placements_kept",
+      "detail": "Site Factory held c-f7c91fefc9c3:service",
+      "items": [
+        "c-f7c91fefc9c3:service"
+      ]
+    },
+    {
+      "code": "placeholder_testimonial",
+      "detail": "pages show borrowed, anonymised testimonials (placeholder): replace them with real ones, or confirm with pnpm signoff --confirm placeholder-testimonials",
+      "items": [
+        "/",
+        "/women-s-swimwear-manufacturer/",
+        "/bikini-manufacturer/",
+        "/boardshorts-manufacturer/",
+        "/modest-swimwear-manufacturer/",
+        "/rash-guard-manufacturer/",
+        "/resort-wear-manufacturer/",
+        "/swimwear-launch-services/",
+        "/about-us/",
+        "/plus-size-swimwear-manufacturer/"
+      ]
+    },
+    {
+      "code": "placeholder_case",
+      "detail": "pages show client cases borrowed from other makers and anonymised (placeholder): replace them with real ones, or confirm with pnpm signoff --confirm placeholder-cases",
+      "items": [
+        "/swimwear-embroidery/",
+        "/swimwear-fabrics-sourcing/",
+        "/case-studies/"
+      ]
+    },
+    {
+      "code": "placeholder_card",
+      "detail": "pages show card copy borrowed from competitors (placeholder): replace them with real ones, or confirm with pnpm signoff --confirm placeholder-cards",
+      "items": [
+        "/",
+        "/women-s-swimwear-manufacturer/",
+        "/one-piece-swimsuit-manufacturer/",
+        "/bikini-manufacturer/",
+        "/men-s-swimwear-manufacturer/",
+        "/boardshorts-manufacturer/",
+        "/swim-trunks-manufacturer/",
+        "/children-s-swimwear-manufacturer/",
+        "/teen-swimwear-manufacturer/",
+        "/baby-swimwear-manufacturer/",
+        "/toddler-swimwear-manufacturer/",
+        "/modest-swimwear-manufacturer/",
+        "/burkini-manufacturer/",
+        "/swimwear-packaging-custom-brand-labels/",
+        "/swimwear-hardware/",
+        "/swimwear-fabrics-sourcing/",
+        "/swimwear-launch-services/",
+        "/swimwear-accessories/",
+        "/plus-size-swimwear-manufacturer/"
+      ]
+    },
+    {
+      "code": "placeholder_selling_point",
+      "detail": "pages show selling points borrowed from competitors (placeholder): replace them with real ones, or confirm with pnpm signoff --confirm placeholder-selling-points",
+      "items": [
+        "/women-s-swimwear-manufacturer/",
+        "/men-s-swimwear-manufacturer/",
+        "/children-s-swimwear-manufacturer/",
+        "/teen-swimwear-manufacturer/",
+        "/baby-swimwear-manufacturer/",
+        "/development/",
+        "/swimwear-packaging-custom-brand-labels/",
+        "/swimwear-accessories/",
+        "/couples-matching-swimsuit-manufacturer/"
+      ]
+    },
+    {
+      "code": "placeholder_step",
+      "detail": "pages show order steps borrowed from competitors (placeholder): replace them with real ones, or confirm with pnpm signoff --confirm placeholder-steps",
+      "items": [
+        "/bikini-manufacturer/",
+        "/men-s-swimwear-manufacturer/",
+        "/custom-swimwear-printing/",
+        "/swimwear-launch-services/"
+      ]
+    },
+    {
+      "code": "owner_signoff_pending",
+      "detail": "proof-clients: Replace the stated client names: Northfold Basics; Lune & Lark; Softmere; Kiri Studio; Harbour Knit Co.; Velda with real, permitted values (src/data/site-proof.json)"
+    },
+    {
+      "code": "owner_signoff_pending",
+      "detail": "proof-testimonials: Replace the stated testimonials: Founder, Northfold Basics; Head of product, Lune & Lark; Buyer, Softmere with real, permitted values (src/data/site-proof.json)"
+    },
+    {
+      "code": "owner_signoff_pending",
+      "detail": "sf-OT-supply-32c093c2: Site Factory: 提供并确认真实联系资料 | contact.email: sales@strandmill.com"
+    },
+    {
+      "code": "owner_signoff_pending",
+      "detail": "sf-OT-supply-d05d7c7c: Site Factory: 提供并确认真实联系资料 | contact.phone: "
+    },
+    {
+      "code": "owner_signoff_pending",
+      "detail": "sf-OT-supply-31249e96: Site Factory: 提供并确认真实联系资料 | contact.address: Guangzhou, Guangdong, China"
+    },
+    {
+      "code": "owner_signoff_pending",
+      "detail": "sf-OT-supply-be83e346: Site Factory: 提供并确认真实联系资料 | contact.hours: Monday to Saturday, 9:00-18:00 China Standard Time"
+    },
+    {
+      "code": "owner_signoff_pending",
+      "detail": "sf-OT-confirm-1987a402: Site Factory: 逐条确认、替换或删除硬信息总表里的事实（价格、资质、规模、时限、合同条款） (see the handoff's owner/evidence/hard_info.md)"
+    },
+    {
+      "code": "owner_signoff_pending",
+      "detail": "trust-homed:SG11: Confirm or replace the trust bar's figures from the unconfirmed fact homed:SG11: 100,000 pieces; 65 that; 55 custom"
+    },
+    {
+      "code": "image_wrong_subject",
+      "detail": "photos that do not show their page's subject (docs/research/image-fit.json)",
+      "items": [
+        "/men-s-swimwear-manufacturer/ general-process-3-960.webp",
+        "/boardshorts-manufacturer/ general-hero-1-960.webp",
+        "/modest-swimwear-manufacturer/ general-process-3-960.webp",
+        "/swimwear-hardware/ general-process-3-960.webp",
+        "/privacy-policy/ general-lifestyle-5-960.webp"
+      ]
+    },
+    {
+      "code": "image_not_approved",
+      "detail": "AI images in use without review approval (pnpm approve:images)",
+      "items": [
+        "general-hero-1 (pending)",
+        "general-lifestyle-1 (pending)",
+        "general-lifestyle-2 (pending)",
+        "general-lifestyle-3 (pending)",
+        "general-product-1 (pending)",
+        "general-product-2 (pending)",
+        "general-product-3 (pending)",
+        "general-product-wholesale-swimwear-ready-to-brand-and-ship (pending)",
+        "general-product-4 (pending)",
+        "general-product-5 (pending)",
+        "general-lifestyle-4 (pending)",
+        "general-lifestyle-5 (pending)",
+        "general-lifestyle-6 (pending)",
+        "women-s-swimwear-hero-1 (pending)",
+        "women-s-swimwear-lifestyle-1 (pending)",
+        "women-s-swimwear-lifestyle-2 (pending)",
+        "one-piece-swimsuit-hero-1 (pending)",
+        "one-piece-swimsuit-lifestyle-1 (pending)",
+        "one-piece-swimsuit-product-construction-bust-support-and-trim-details (pending)",
+        "bikini-hero-1 (pending)",
+        "bikini-lifestyle-1 (pending)",
+        "men-s-swimwear-hero-1 (pending)",
+        "general-process-3 (pending)",
+        "men-s-swimwear-lifestyle-1 (pending)",
+        "men-s-swimwear-lifestyle-2 (pending)",
+        "boardshorts-lifestyle-1 (pending)",
+        "boardshorts-product-sublimation-prints-and-colour-matching (pending)",
+        "swim-trunks-hero-1 (pending)",
+        "swim-trunks-lifestyle-1 (pending)",
+        "children-s-swimwear-hero-1 (pending)",
+        "children-s-swimwear-lifestyle-1 (pending)",
+        "children-s-swimwear-lifestyle-2 (pending)",
+        "teen-swimwear-hero-1 (pending)",
+        "general-process-2 (style-drift)",
+        "teen-swimwear-lifestyle-1 (pending)",
+        "baby-swimwear-hero-1 (pending)",
+        "baby-swimwear-lifestyle-1 (pending)",
+        "general-process-1 (style-drift)",
+        "toddler-swimwear-hero-1 (pending)",
+        "toddler-swimwear-lifestyle-1 (pending)",
+        "modest-swimwear-hero-1 (pending)",
+        "modest-swimwear-product-wholesale-stock-and-ready-made-modest-designs (pending)",
+        "modest-swimwear-lifestyle-1 (pending)",
+        "burkini-hero-1 (pending)",
+        "burkini-lifestyle-1 (pending)",
+        "burkini-lifestyle-2 (pending)",
+        "watersports-apparel-hero-1 (pending)",
+        "watersports-apparel-product-1 (pending)",
+        "watersports-apparel-lifestyle-1 (pending)",
+        "rash-guard-hero-1 (pending)",
+        "rash-guard-lifestyle-1 (pending)",
+        "resort-wear-hero-1 (pending)",
+        "resort-wear-lifestyle-1 (pending)",
+        "cover-up-lifestyle-1 (pending)",
+        "cover-up-lifestyle-2 (pending)",
+        "general-hero-2 (pending)",
+        "general-material-1 (pending)",
+        "general-hero-3 (pending)",
+        "general-hero-4 (pending)",
+        "general-product-quality-checked-at-every-stage-of-your-order (pending)",
+        "general-product-starting-with-samples-before-bulk (style-drift)",
+        "swimwear-packaging-brand-labels-hero-1 (pending)",
+        "swimwear-packaging-brand-labels-lifestyle-1 (pending)",
+        "swimwear-packaging-brand-labels-lifestyle-2 (pending)",
+        "swimwear-hardware-hero-1 (pending)",
+        "swimwear-hardware-lifestyle-1 (pending)",
+        "swimwear-hardware-lifestyle-2 (pending)",
+        "swimwear-hardware-lifestyle-3 (pending)",
+        "swimwear-accessories-hero-1 (pending)",
+        "swimwear-accessories-lifestyle-1 (pending)",
+        "swimwear-accessories-material-1 (pending)",
+        "swimwear-accessories-lifestyle-2 (pending)",
+        "plus-size-swimwear-hero-1 (pending)",
+        "plus-size-swimwear-lifestyle-1 (pending)",
+        "couples-matching-swimsuit-hero-1 (pending)",
+        "couples-matching-swimsuit-lifestyle-1 (pending)"
+      ]
+    },
+    {
+      "code": "form_delivery_unconfigured",
+      "detail": "the enquiry form is not connected (config/lead-form.json status)",
+      "items": [
+        "/contact-us/"
+      ]
+    },
+    {
+      "code": "chat_undecided",
+      "detail": "src/data/site-runtime.json has no chat (its channels, or false for no chat)"
+    },
+    {
+      "code": "site_not_registered",
+      "detail": "src/data/site-runtime.json has no registry entry (run pnpm site:config)"
+    },
+    {
+      "code": "analytics_not_configured",
+      "detail": "src/data/site-runtime.json has no analytics (Umami scriptSrc and websiteId)"
+    },
+    {
+      "code": "contact_details_placeholder",
+      "detail": "src/data/site-contact.json holds stand-in contact details (project.yaml contact): the owner supplies the real email, phone, address, hours and profiles"
+    },
+    {
+      "code": "contact_details_stand_in",
+      "detail": "pages show contact details of a stand-in form (555-01xx numbers, example domains, \"to be confirmed\")",
+      "items": [
+        "/",
+        "/women-s-swimwear-manufacturer/",
+        "/one-piece-swimsuit-manufacturer/",
+        "/bikini-manufacturer/",
+        "/men-s-swimwear-manufacturer/",
+        "/boardshorts-manufacturer/",
+        "/swim-trunks-manufacturer/",
+        "/children-s-swimwear-manufacturer/",
+        "/teen-swimwear-manufacturer/",
+        "/baby-swimwear-manufacturer/",
+        "/toddler-swimwear-manufacturer/",
+        "/modest-swimwear-manufacturer/",
+        "/burkini-manufacturer/",
+        "/watersports-apparel-manufacturer/",
+        "/rash-guard-manufacturer/",
+        "/resort-wear-manufacturer/",
+        "/cover-up-manufacturer/",
+        "/swimwear-embroidery/",
+        "/swimwear-consulting/",
+        "/development/",
+        "/swimwear-packaging-custom-brand-labels/",
+        "/custom-swimwear-printing/",
+        "/swimwear-hardware/",
+        "/swimwear-fabrics-sourcing/",
+        "/swimwear-launch-services/",
+        "/about-us/",
+        "/contact-us/",
+        "/faq/",
+        "/case-studies/",
+        "/sustainability/",
+        "/privacy-policy/",
+        "/terms-and-conditions/",
+        "/request-a-quote/",
+        "/swimwear-accessories/",
+        "/plus-size-swimwear-manufacturer/",
+        "/couples-matching-swimsuit-manufacturer/",
+        "/blog/"
+      ]
+    },
+    {
+      "code": "identity_not_release_ready",
+      "detail": "brand kit source is make-wordmark, not stage 00"
+    }
+  ],
+  "notices": [
+    {
+      "code": "pages_audited_only",
+      "detail": "pages that passed the audits but were not looked at by the design review",
+      "items": [
+        "/women-s-swimwear-manufacturer/",
+        "/one-piece-swimsuit-manufacturer/",
+        "/bikini-manufacturer/",
+        "/men-s-swimwear-manufacturer/",
+        "/boardshorts-manufacturer/",
+        "/swim-trunks-manufacturer/",
+        "/children-s-swimwear-manufacturer/",
+        "/teen-swimwear-manufacturer/",
+        "/baby-swimwear-manufacturer/",
+        "/toddler-swimwear-manufacturer/",
+        "/modest-swimwear-manufacturer/",
+        "/burkini-manufacturer/",
+        "/rash-guard-manufacturer/",
+        "/resort-wear-manufacturer/",
+        "/cover-up-manufacturer/",
+        "/swimwear-embroidery/",
+        "/development/",
+        "/swimwear-packaging-custom-brand-labels/",
+        "/swimwear-hardware/",
+        "/swimwear-fabrics-sourcing/",
+        "/swimwear-launch-services/",
+        "/sustainability/",
+        "/request-a-quote/",
+        "/plus-size-swimwear-manufacturer/",
+        "/couples-matching-swimsuit-manufacturer/"
+      ]
+    }
+  ],
+  "drift": "no baseline yet (first release)",
+  "postDeployRequired": [
+    "https_headers_and_redirects_on_live_host",
+    "form_post_end_to_end",
+    "search_console_and_bing_verified_with_sitemap",
+    "field_core_web_vitals",
+    "indexing_sample_url_inspection"
+  ]
+}

@@ -278,5 +278,12 @@
     "at": "2026-11-14T13:11:04.200Z",
     "seconds": 0,
     "log": ".pipeline/logs/2026-11-14T12-44-35-176Z/geo-blogs.log"
+  },
+  "release": {
+    "status": "waiting",
+    "hash": "f23584cc9381ef37",
+    "at": "2026-11-14T13:11:29.805Z",
+    "seconds": 7,
+    "log": ".pipeline/logs/2026-11-14T13-11-21-492Z/release.log"
   }
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": "sf/handoff-report/v1",
   "handoff_sha256": "0bf60a3c66db726143f36946159837af68fdf06499f330911837bc7f02fd3415",
-  "made_at": "2026-11-14T12:44:41.193Z",
+  "made_at": "2026-11-14T13:11:25.742Z",
   "template": {
     "commit": "0fe551e1dcb1460eea9a8109964a029b1a0aa1b4",
     "block_kinds_sha256": "172172d23deb91683258878752b49f6ddfd74104ce3453803435d34562dc4c28"
@@ -683,51 +683,37 @@
     {
       "source": "design-review",
       "route": "/",
-      "section": "hero",
+      "section": "featureGrid-7",
       "kind": "design_finding",
-      "detail": "At 1440 px the hero photo still has another banner's text baked into it (\"Swim for Sunlit Days\", \"and summer-ready prints\", and the outlines of \"Shop Swimwear\" and \"Explore the Collection\" buttons), and our H1, lead and Request a quote button sit on top of it, so two sets of text overlap (the phone crop hides it)."
+      "detail": "The card sets featureGrid-4 (private label, logo), featureGrid-7 (quotation to sampling), featureGrid-9 (MOQ, fees) and featureGrid-1 (a lead sentence only) still have no heading, so the page moves from m3's \"OEM Swimwear Production\" through packaging, ordering and payment terms with nothing to mark where one topic ends and the next starts."
+    },
+    {
+      "source": "design-review",
+      "route": "/",
+      "section": "overview-steps",
+      "kind": "design_finding",
+      "detail": "The process sections overview-steps and cta-steps still have no heading. Their only line (\"Quality checks at every stage of an order\", \"From your enquiry to your sample\") is set at card-heading size, and on desktop their left column is an almost empty strip with that one small line at the top."
     },
     {
       "source": "design-review",
       "route": "/",
       "section": "trustBar",
       "kind": "design_finding",
-      "detail": "Two trust figures still read as broken fragments (\"65 that / SAMPLING TEAM\", \"55 custom / DAILY SAMPLES\"), and \"100,000 pieces\" carries its unit inside the value, so on phones it wraps to two lines while the other figures take one and the 2×2 grid's first row goes uneven."
-    },
-    {
-      "source": "design-review",
-      "route": "/",
-      "section": "featureGrid-7",
-      "kind": "design_finding",
-      "detail": "The card sets featureGrid-4 (private label and logo), featureGrid-7 (quotation to sampling), featureGrid-9 (MOQ and fees) and featureGrid-1 (a lead sentence only) still have no heading. The page jumps from m3's \"OEM Swimwear Production\" to packaging, ordering and payment terms with nothing to mark the change of topic."
-    },
-    {
-      "source": "design-review",
-      "route": "/",
-      "section": "overview-steps",
-      "kind": "design_finding",
-      "detail": "The process sections overview-steps and cta-steps still have no heading. Their intro line (\"Quality checks at every stage of an order\", \"From your enquiry to your sample\") is set only at card-heading size, far under the page's other section headings, and on desktop their left column is an almost empty strip with that one small line at the top."
+      "detail": "Two trust figures still read as fragments (\"65 that / SAMPLING TEAM\", \"55 custom / DAILY SAMPLES\"), and \"100,000 pieces\" carries its unit in the value, so on phones it wraps to two lines while its neighbour takes one, leaving the 2×2 grid's first row uneven."
     },
     {
       "source": "design-review",
       "route": "/blog/",
       "section": "overview-steps",
       "kind": "design_finding",
-      "detail": "Still open from the last review: the process section still has no H2. Its left column holds only the lead 'Quality checks at every stage of an order.', now set at card-heading size, between H2 sections above and below, and leaves most of the column empty beside the five steps."
+      "detail": "Still open from the last review: the process section still has no H2; its left column holds only the lead 'Quality checks at every stage of an order.' at card-heading size, between H2 sections above and below, and leaves most of the column empty beside the five steps."
     },
     {
       "source": "design-review",
       "route": "/swimwear-consulting/",
       "section": "faq-steps",
       "kind": "design_finding",
-      "detail": "Still not fixed in the current shots: the navy step band has no heading. After the FAQ it reads as five loose figures and a button under an empty strip of navy padding (same at 390 px, where about 70px of bare navy comes before step 01)."
-    },
-    {
-      "source": "design-review",
-      "route": "/custom-swimwear-printing/",
-      "section": "hero",
-      "kind": "design_finding",
-      "detail": "The desktop hero photo still has lettering printed into it ('…Sunlit Days', 'and summer-ready prints', and 'Shop Swimwear' / 'Explore the Collection' pills), which shows behind our live H1, lead and button, and the trust bar cuts off the last pill. The hero reads as two overlapping layers of text with dead buttons under the live one (reported before; unchanged in these shots)."
+      "detail": "Still not fixed in the current shots: the navy step band has no heading, so after the FAQ it reads as five loose figures and a button under an empty strip of navy padding (same at 390 px, where about 70px of bare navy comes before step 01)."
     },
     {
       "source": "layout-plan",
@@ -744,5 +730,5 @@
       "detail": "mobile: \"Wholesale Cover-Up Orders: Samples, Lead Times, Payment and Shipping\": 4 lines"
     }
   ],
-  "notes_zh": "08 发现 9 处要由 Site Factory 改的问题（见 issues）；08 不改稿。"
+  "notes_zh": "08 发现 7 处要由 Site Factory 改的问题（见 issues）；08 不改稿。"
 }
