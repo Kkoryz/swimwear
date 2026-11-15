@@ -5,6 +5,7 @@
 import { cardSet, cardSetColumns } from '../../../scripts/lib/block-layout.mjs';
 import { heroLeadShown } from '../../../scripts/lib/heading-fit.mjs';
 import { withMediaModules } from '../../../scripts/lib/media-slots.mjs';
+import { PAGE_LEAD, tintedSections, tintStyle } from '../../../scripts/lib/section-surfaces.mjs';
 import { blockVariant, blogVariants, focusStyle, isBuilt, pageMedia, variants, type AuthoringPage, type PostListBlock } from '../../lib/authoring';
 import { BLOCKS, type BlockEntry } from '../blocks/registry';
 import Breadcrumbs from '../site/Breadcrumbs.astro';
@@ -40,6 +41,12 @@ const featured = list && header === 'featured' && list.pagination.page === 1 && 
 // photo hero (PageView leadBelow, heading-fit.mjs heroLeadShown): on the photo it covered the banner.
 const leadBelow = header === 'banner' && Boolean(photo) && Boolean(page.hero.lead?.length) && !heroLeadShown(page.hero.lead, variants.heroText);
 const rest = list && featured ? { ...list, items: list.items.slice(1) } : list;
+// Neighbouring plain sections alternate white and tinted here too, the post list one of them (lib/section-surfaces.mjs;
+// 2026-11-15: swimwear's hub ran its overview, steps and table on white one under another, motel's its lead, posts and
+// overview).
+const variantOf = new Map(own.filter(Boolean).map((item) => [item!.context.block.id, item!.context.variant]));
+const shown = blocks.filter((block) => block.type !== 'postList' || (rest && rest.items.length > 0));
+const tintCss = tintStyle(new Set([...tintedSections([...(leadBelow ? [PAGE_LEAD] : []), ...shown], (block) => variantOf.get(block.id))].flatMap((id) => [id, `${id}-charts`])));
 // Without a photo in its header, the hub's first image may sit in the first viewport: it loads eagerly (as PageView).
 if (!((['banner', 'hero'].includes(header) && photo) || featured?.image)) {
   const first = plan.flat().find((media) => media && !media.slot);
@@ -48,6 +55,7 @@ if (!((['banner', 'hero'].includes(header) && photo) || featured?.image)) {
 ---
 
 <main id="main" data-authoring-page={page.id} data-page-type={page.pageType} data-page-status={page.status} data-hero-photo={header === 'banner' && photo ? '' : undefined}>
+  {tintCss && <style is:inline set:html={tintCss} />}
   {header !== 'banner' && <Breadcrumbs page={page} />}
   <section class="blog-hub-hero" data-authoring-block="hero" data-layout="hero" data-header={header} data-boundary-anchor={header === 'banner' ? 'box' : undefined}>
     {header === 'banner' && photo && <img class="blog-hub-hero__backdrop" src={photo.src} alt="" data-decorative width={photo.width} height={photo.height} loading="eager" decoding="async" style={focusStyle(photo.src)} />}

@@ -52,6 +52,16 @@ test("a section's steps are a module of their own: they alternate with the secti
   assert.deepEqual([...tintedSections([block('a', 'text'), block('g', 'featureGrid'), { id: 'g-2', type: 'featureGrid', continues: 'g' }])].sort(), ['g', 'g-2']);
 });
 
+test('a section going on in another component is a module of its own; an inline closing call alternates (swimwear 2026-11-15)', () => {
+  // The terms page: the list m2 going on as two proof sections; four white modules in a row before.
+  const terms = [block('overview', 'intro'), block('m3', 'iconList'), block('m2', 'iconList'), { id: 'proof-1', type: 'proof', continues: 'm2' }, { id: 'proof-2', type: 'proof', continues: 'm2' }, block('process-1', 'process'), block('cta', 'cta')];
+  assert.deepEqual([...tintedSections(terms)], ['m3', 'proof-1', 'process-1']);
+  // A product page's FAQ and its inline closing call: not two white sections in a row.
+  const close = [block('related', 'relatedPages'), block('faq', 'faq'), block('cta', 'cta')];
+  assert.deepEqual([...tintedSections(close, (item) => (item.id === 'cta' ? 'inline' : undefined))], ['faq']);
+  assert.deepEqual([...tintedSections([block('related', 'relatedPages'), block('faq', 'faq'), block('more', 'iconList'), block('cta', 'cta')], (item) => (item.id === 'cta' ? 'inline' : undefined))], ['faq', 'cta']);
+});
+
 test('the trust bar opens the first run tinted, the section under it white; it is the page surface when the run counts back from a band', () => {
   assert.deepEqual([...tintedSections([TRUST_BAR, block('overview', 'text'), block('grid', 'featureGrid'), block('faq', 'faq')])], ['trust-bar', 'grid']);
   const band = (item) => (item.id === 's' ? 'tinted' : undefined);

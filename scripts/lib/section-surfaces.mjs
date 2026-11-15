@@ -17,7 +17,9 @@ const PARTS = new Set(['figure', 'gallery', 'cta']);
 // Of those, the ones on a grey band of their own: a split row of the tinted variant (hotel-rm 2026-11-14: a tinted split
 // under a tinted grid read as one grey surface).
 const banded = (block, variant) => block.type === 'splitMedia' && variant === 'tinted';
-const parts = (block, variant) => PARTS.has(block.type) || String(block.id).startsWith('media-module-') || (block.type === 'process' && variant === 'photo-cards');
+// The closing call of the inline variant is a white section of copy and a button, no band: it alternates like a plain
+// section (swimwear 2026-11-15: its FAQ and inline closing call stood white one under the other).
+const parts = (block, variant) => (PARTS.has(block.type) && !(block.type === 'cta' && variant === 'inline')) ||String(block.id).startsWith('media-module-') || (block.type === 'process' && variant === 'photo-cards');
 
 // The hero's lead opening the page under the hero (PageView, BlogHubView: a lead much longer than the competitor's) is
 // the first plain section of the page: left out, the section after it took the white it already had (motel's contact
@@ -51,13 +53,17 @@ export function tintedSections(blocks, variantOf = () => undefined) {
   // A section going on in blocks of its own (continues) is one section: going on from a plain section it takes that
   // section's surface and does not count in the alternation; going on from a section that parts the page or is a band
   // of its own (a split row, its steps after it) it is a plain section of the run that follows (hotel-rm 2026-11-14: the
-  // steps of a tinted split took its tint and met the tinted grid after them). A section's steps (a process going on,
-  // its caption its heading) are a module of their own and alternate with the section above them (2026-11-15, Fable's
-  // ruling: hotel-rm's faq-steps and m2-steps and swimwear's overview-steps ran on one surface with their section);
-  // steps over a photo still part the page.
+  // steps of a tinted split took its tint and met the tinted grid after them). A part going on in another component
+  // than its section's is a module of its own and alternates with the section above it: a section's steps (a process
+  // going on, its caption its heading; 2026-11-15, Fable's ruling: hotel-rm's faq-steps and m2-steps and swimwear's
+  // overview-steps ran on one surface with their section), and a section Site Factory goes on in another presentation
+  // (swimwear's terms page: proof-1 and proof-2 going on from the list m2, four white modules in a row; its consulting
+  // page: a split row going on from a card set on the set's tint). A card set's grids, one component, keep one surface.
+  // Steps over a photo still part the page.
+  const typeOf = new Map(blocks.map((item) => [item.id, item.type]));
   for (const block of blocks) {
     const variant = variantOf(block);
-    const steps = block.type === 'process' && block.continues != null;
+    const steps = block.continues != null && typeOf.has(block.continues) && typeOf.get(block.continues) !== block.type;
     const head = block.continues != null ? role.get(block.continues) : undefined;
     const kind = !steps && (head === 'plain' || head === 'follows') ? 'follows' : (!head || steps) && banded(block, variant) ? 'banded' : (!head || steps) && parts(block, variant) ? 'part' : 'plain';
     role.set(block.id, kind);
