@@ -102,6 +102,16 @@ export function cropBox(photo, ratio, focus) {
   return { left: clamp(Math.round(focus.x * photo.width - width / 2), photo.width - width), top: clamp(Math.round(focus.y * photo.height - height / 2), photo.height - height), width, height };
 }
 
+// The photo's widest file (its srcset's largest candidate, else the photo itself), with that file's size: a phone crop
+// is cut from it, not from the 960 rendition the page names (2026-11-15: swimwear's phone heroes were 288px wide cuts of
+// the 960 file shown 390px wide, where the 1536 file gives 461).
+export function widestFile(photo) {
+  const candidates = String(photo.srcset ?? '').split(',').map((entry) => entry.trim().split(/\s+/)).filter(([src, w]) => src && /^\d+w$/.test(w ?? '')).map(([src, w]) => ({ src, width: Number.parseInt(w, 10) }));
+  const widest = candidates.sort((a, b) => b.width - a.width)[0];
+  if (!widest || widest.width <= photo.width) return photo;
+  return { ...photo, src: widest.src, width: widest.width, height: Math.round((photo.height * widest.width) / photo.width) };
+}
+
 export async function derivePhoneHeroes({ root = process.cwd() } = {}) {
   const { default: sharp } = await import('sharp');
   const components = (await readJson(resolve(root, 'src/data/template-variants.json'))).components;
@@ -112,22 +122,27 @@ export async function derivePhoneHeroes({ root = process.cwd() } = {}) {
   const soft = [];
   const unfocused = [];
   for (const { photo, ratios } of frameCrops({ pages, components, sitePhotos, frames })) {
-    const source = resolve(root, 'public', photo.src.replace(/^\//, ''));
-    if (!existsSync(source)) throw new Error(`photo ${photo.src} is not in public/`);
+    const named = resolve(root, 'public', photo.src.replace(/^\//, ''));
+    if (!existsSync(named)) throw new Error(`photo ${photo.src} is not in public/`);
+    const widest = widestFile(photo);
+    const widestPath = resolve(root, 'public', widest.src.replace(/^\//, ''));
+    // The widest file's real size (a rendition is no larger than its source).
+    const cut = existsSync(widestPath) ? { ...widest, ...(await sharp(widestPath).metadata().then(({ width, height }) => ({ width, height }))) } : photo;
+    const source = existsSync(widestPath) ? widestPath : named;
     const focus = await readJson(resolve(root, focusPath(photo.src)), null);
     if (!focus) unfocused.push(photo.src);
     for (const ratio of ratios) {
-      const width = Math.min(photo.width, Math.round(photo.height * ratio), MAX_WIDTH);
+      const width = Math.min(cut.width, Math.round(cut.height * ratio), MAX_WIDTH);
       const height = Math.round(width / ratio);
       const file = join(dirname(photo.src), `${basename(photo.src, extname(photo.src))}-phone-${Math.round(ratio * 100)}.webp`).replace(/\\/g, '/');
       const target = resolve(root, 'public', file.replace(/^\//, ''));
       await mkdir(dirname(target), { recursive: true });
       const image = focus
-        ? sharp(source).extract(cropBox(photo, ratio, focus)).resize({ width, height, fit: 'fill' })
+        ? sharp(source).extract(cropBox(cut, ratio, focus)).resize({ width, height, fit: 'fill' })
         : sharp(source).resize({ width, height, fit: 'cover', position: sharp.strategy.attention });
       await image.webp({ quality: 82 }).toFile(target);
       (crops[photo.src] ||= {})[ratio.toFixed(2)] = { src: file, width, height };
-      if (width < SHARP_WIDTH) soft.push(`${file} (${width}px wide, from ${photo.width}x${photo.height})`);
+      if (width < SHARP_WIDTH) soft.push(`${file} (${width}px wide, from ${cut.width}x${cut.height})`);
     }
   }
   await writeJson(resolve(root, 'src/data/phone-heroes.json'), { frames, crops, soft, unfocused });

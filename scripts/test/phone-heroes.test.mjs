@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import test from 'node:test';
 
-import { cropBox, derivePhoneHeroes, fillsRatio, frameCrops, phoneFrames } from '../derive-phone-heroes.mjs';
+import { cropBox, derivePhoneHeroes, fillsRatio, frameCrops, phoneFrames, widestFile } from '../derive-phone-heroes.mjs';
 import { heroPhoto } from '../lib/media-slots.mjs';
 import { FOCUS_BATCH, focusPath, photosInUse } from '../lib/photo-focus.mjs';
 
@@ -147,4 +147,11 @@ test("the judge's reply names a point inside each photo of the run by its number
   assert.throws(() => focusReply({ srcs }, [{ index: 1, x: 0.7, y: 0.3 }]), /photo 2/);
   assert.throws(() => focusReply({ srcs }, [{ index: 1, x: 70, y: 30 }, { index: 2, x: 0.2, y: 0.5 }]));
   assert.throws(() => focusReply({ srcs }, { x: 0.5, y: 0.5 }));
+});
+
+test("a phone crop is cut from the photo's widest file, not the rendition the page names (swimwear 2026-11-15)", () => {
+  const photo = { src: '/media/photos/a-960.webp', width: 960, height: 640, srcset: '/media/photos/a-480.webp 480w, /media/photos/a-960.webp 960w, /media/photos/a-1536.webp 1536w' };
+  assert.deepEqual(widestFile(photo), { ...photo, src: '/media/photos/a-1536.webp', width: 1536, height: 1024 });
+  assert.equal(widestFile({ src: '/a.webp', width: 960, height: 640 }).src, '/a.webp');
+  assert.equal(widestFile({ ...photo, srcset: '/media/photos/a-480.webp 480w' }).src, photo.src);
 });

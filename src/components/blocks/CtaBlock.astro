@@ -32,7 +32,8 @@ const form = resolved === 'form' ? (leadFormBlock(`${block.id}-form`) as FormBlo
 <section class="block block--cta" data-authoring-block="cta" data-block-id={block.id} data-variant={resolved} data-has-photo={photo ? 'true' : undefined} data-form-layout={form && variants.ctaForm === 'below' ? 'below' : undefined}>
   <div class="container">
     <div class="cta" data-layout="cta" data-media-slot={media?.slot} style={phoneShape} data-phone-photo={phoneShape ? '' : undefined}>
-      {photo && <Picture media={backdrop} class="cta__backdrop" alt="" loading={backdrop.priority ? 'eager' : 'lazy'} />}
+      {/* The band spans the page: its photo's widest file (2026-11-15: swimwear's bands showed the 960 file 1400px wide). */}
+      {photo && <Picture media={backdrop} class="cta__backdrop" alt="" sizes="100vw" loading={backdrop.priority ? 'eager' : 'lazy'} />}
       <div class="cta__content">
         <Eyebrow text={block.eyebrow} />
         {block.heading && <h2 class="cta__heading">{block.heading}</h2>}

@@ -46,7 +46,8 @@ const ratio = variant === 'wide' ? '16 / 7' : fitRatio(usualRatio('splitMedia', 
         <div class="split__media-set split__charts">{charts.map((visual) => <SectionChart visual={visual} />)}</div>
       ) : media.length > 0 && (
         <div class="split__media-set">
-          {media.map((item) => <MediaFigure media={item} ratio={ratio} class="split__media" />)}
+          {/* A wide row's photo spans the content under the text (2026-11-15: half-width sizes chose the 960 file for a 1400px banner). */}
+          {media.map((item) => <MediaFigure media={item} ratio={ratio} class="split__media" sizes={layout === 'stack' ? '100vw' : undefined} />)}
         </div>
       )}
       {slots.map((item) => <span hidden data-media-slot={item.slot} />)}

@@ -29,7 +29,7 @@ const backdrop = media[0] && !media[0].slot ? media[0] : null;
 ---
 
 <section class="block block--process" data-authoring-block="process" data-block-id={block.id} data-variant={variant} data-boundary-anchor={variant === 'band' || variant === 'photo-cards' ? 'box' : undefined}>
-  {variant === 'photo-cards' && backdrop && <img class="process__backdrop" src={backdrop.src} alt="" width={backdrop.width} height={backdrop.height} loading={backdrop.priority ? 'eager' : 'lazy'} decoding="async" style={focusStyle(backdrop.src)} />}
+  {variant === 'photo-cards' && backdrop && <img class="process__backdrop" src={backdrop.src} srcset={backdrop.srcset} sizes={backdrop.srcset ? '100vw' : undefined} alt="" width={backdrop.width} height={backdrop.height} loading={backdrop.priority ? 'eager' : 'lazy'} decoding="async" style={focusStyle(backdrop.src)} />}
   {variant === 'list' ? (
   <div class="container point-list" data-layout="split" data-continues={block.continues ? '' : undefined}>
     <div class="point-list__intro">

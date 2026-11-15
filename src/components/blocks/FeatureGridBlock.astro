@@ -16,8 +16,10 @@ import MediaFigure from './MediaFigure.astro';
 import TextFlow from './TextFlow.astro';
 
 // start: the cards of its set shown before this grid (registry.ts cardsBefore): a set's numbers go on across its grids.
-interface Props { block: FeatureGridBlock; media?: Media[]; variant?: string; start?: number }
-const { block, media = [], variant, start = 0 } = Astro.props;
+// numberless: the set is longer than numbers serve (registry.ts NUMBERED_SET_MAX): a numbered pattern keeps its cards
+// without the numbers.
+interface Props { block: FeatureGridBlock; media?: Media[]; variant?: string; start?: number; numberless?: boolean }
+const { block, media = [], variant, start = 0, numberless = false } = Astro.props;
 const pattern = variant ?? (media.length ? 'media' : 'cards');
 // One frame ratio for the grid, following the photos' orientation (lib/media-ratio.mjs).
 const ratio = fitRatio(usualRatio('featureGrid'), media);
@@ -31,7 +33,7 @@ const tracks = 'style' in grid ? grid : undefined;
 // (hotel-rm's home, 2026-11-14: the set's last two cards stood centred under three, off its left edge); only a grid's
 // own short last row is centred.
 // Rows each card shares with its neighbours (photo, number, title, text) so titles and text line up across a row.
-const numbered = pattern === 'numbered' || pattern === 'outline-numbered';
+const numbered = (pattern === 'numbered' || pattern === 'outline-numbered') && !numberless;
 // Icon cards: each card's icon (null: none, and no row for it when no card has one).
 const icons = pattern === 'icons' ? block.items.map((item) => { const name = cardIcon(item); return name ? (lucide.icons as Record<string, string>)[name] ?? null : null; }) : [];
 const cardRows = (media.length ? 1 : 0) + (numbered || pattern === 'icon-cards' || icons.some(Boolean) ? 1 : 0) + 2;

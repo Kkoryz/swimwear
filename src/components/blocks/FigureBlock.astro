@@ -14,6 +14,6 @@ const { block, media = null } = Astro.props;
     <Eyebrow text={block.eyebrow} />
     {block.heading && <h2>{block.heading}</h2>}
     {block.paragraphs && <TextFlow paragraphs={block.paragraphs} lead={false} />}
-    {media && <MediaFigure media={media} ratio="16 / 7" class="figure-block__media" />}
+    {media && <MediaFigure media={media} ratio="16 / 7" class="figure-block__media" sizes="100vw" />}
   </div>
 </section>

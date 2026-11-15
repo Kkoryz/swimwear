@@ -50,20 +50,28 @@ const withMediaAndVariant = ({ block, media, variant }: BlockContext) => ({ bloc
 const withFirstMedia = ({ block, media, variant }: BlockContext) => ({ block, media: media[0] ?? null, variant });
 // The cards of a set shown before this grid (a set going on in grids of its own: continues), so its numbers go on from
 // them instead of starting at 01 again (swimwear's home 2026-11-15: 01 three times in a row inside one set on phones).
+const setHead = (page: AuthoringPage, item: Block) => {
+  const goesOn = (block: Block) => (block as { continues?: string }).continues;
+  let at = item;
+  for (let step = 0; goesOn(at) && step < page.blocks.length; step += 1) at = page.blocks.find((other) => other.id === goesOn(at)) ?? at;
+  return at.id;
+};
 const cardsBefore = (page: AuthoringPage, block: Block) => {
-  const goesOn = (item: Block) => (item as { continues?: string }).continues;
-  const head = (item: Block) => {
-    let at = item;
-    for (let step = 0; goesOn(at) && step < page.blocks.length; step += 1) at = page.blocks.find((other) => other.id === goesOn(at)) ?? at;
-    return at.id;
-  };
-  const own = head(block);
+  const own = setHead(page, block);
   let count = 0;
   for (const item of page.blocks) {
     if (item.id === block.id) return count;
-    if (item.type === 'featureGrid' && head(item) === own) count += item.items.length;
+    if (item.type === 'featureGrid' && setHead(page, item) === own) count += item.items.length;
   }
   return 0;
+};
+// Numbers count a short run of cards (the competitor numbers sets of three to six); a set of more cards than this is no
+// sequence a reader follows by number, and its cards show without them (owner 2026-11-15: swimwear's home numbered
+// one set 01 to 23 across services, labels, ordering steps and terms).
+const NUMBERED_SET_MAX = 8;
+const setCards = (page: AuthoringPage, block: Block) => {
+  const own = setHead(page, block);
+  return page.blocks.reduce((sum, item) => sum + (item.type === 'featureGrid' && setHead(page, item) === own ? item.items.length : 0), 0);
 };
 const withHeroCta =({ block, media, variant, page }: BlockContext) => ({ block, variant, media, cta: page.hero.cta ?? null });
 
@@ -71,7 +79,7 @@ export const BLOCKS = {
   intro: { component: TextBlock, props: withMediaAndVariant },
   proof: { component: TextBlock, props: withMediaAndVariant },
   splitMedia: { component: SplitMediaBlock, props: ({ block, media, variant, page, splitIndex }) => ({ block, index: splitIndex, media, variant, cta: page.hero.cta ?? null, pageType: page.pageType }) },
-  featureGrid: { component: FeatureGridBlock, props: ({ block, media, variant, page }) => ({ block, media, variant, start: cardsBefore(page, block) }) },
+  featureGrid: { component: FeatureGridBlock, props: ({ block, media, variant, page }) => ({ block, media, variant, start: cardsBefore(page, block), numberless: setCards(page, block) > NUMBERED_SET_MAX }) },
   gallery: { component: GalleryBlock, props: withHeroCta },
   process: { component: ProcessBlock, props: withHeroCta },
   faq: { component: FaqBlock, props: withVariant },

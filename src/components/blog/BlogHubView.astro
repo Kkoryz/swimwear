@@ -58,7 +58,7 @@ if (!((['banner', 'hero'].includes(header) && photo) || featured?.image)) {
   {tintCss && <style is:inline set:html={tintCss} />}
   {header !== 'banner' && <Breadcrumbs page={page} />}
   <section class="blog-hub-hero" data-authoring-block="hero" data-layout="hero" data-header={header} data-boundary-anchor={header === 'banner' ? 'box' : undefined}>
-    {header === 'banner' && photo && <img class="blog-hub-hero__backdrop" src={photo.src} alt="" data-decorative width={photo.width} height={photo.height} loading="eager" decoding="async" style={focusStyle(photo.src)} />}
+    {header === 'banner' && photo && <img class="blog-hub-hero__backdrop" src={photo.src} srcset={photo.srcset} sizes={photo.srcset ? '100vw' : undefined} alt="" data-decorative width={photo.width} height={photo.height} loading="eager" decoding="async" style={focusStyle(photo.src)} />}
     <div class="container blog-hub-hero__inner">
       <div class="blog-hub-hero__copy">
         {page.status === 'placeholder' && <p class="placeholder-badge">Placeholder copy</p>}
