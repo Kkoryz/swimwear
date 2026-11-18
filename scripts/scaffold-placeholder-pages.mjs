@@ -33,6 +33,7 @@ export const PHONE = Object.freeze({ width: 390, height: 844 });
 // A reference that refuses this machine keeps its earlier measure (lib/reference-access.mjs).
 export { BLOCKED_STATUSES } from './lib/reference-access.mjs';
 import { BLOCKED_STATUSES } from './lib/reference-access.mjs';
+import { HERO_FORM_FIELDS } from './lib/usability-checks.mjs';
 
 // The reference page's sections, measured at desktop and at phone width; the page is left at desktop width, scrolled
 // to the top, for the section crops. desktopOnly: a hero sample's sections at desktop width only (its hero's pattern
@@ -92,7 +93,30 @@ export function navSiblings(url) {
 // while three of the four pages beside it in its menu put the title over the photo). A tie, or no sample, keeps the
 // reference page's.
 export const HERO_SAMPLES = 4;
+// The other competitors' pages of a page type (site.json designPeers { <page type>: [url, ...] }; owner 2026-11-18:
+// design follows the majority of several competitors' pages of that kind, the reference deciding a tie or no sample):
+// they vote beside the reference's own pages, at most PEER_SAMPLES a page type.
+export const PEER_SAMPLES = 6;
 export const SINGLE_PAGE_TYPES = Object.freeze(['home', 'about', 'contact', 'privacy', 'terms', 'blog_hub', 'blog_post']);
+// The page-type variants a sample votes on beside its hero: the card, process and gallery variants (one value each). The
+// split sequence and the photo walls are the reference page's: a sequence is no vote.
+export const VOTED_MODULE_KEYS = Object.freeze(['featureGrid', 'process', 'gallery']);
+// A page type's modules by the majority of the reference page and the other competitors' pages of its type (designPeers,
+// not the reference's own menu siblings: a size guide beside a product page is no page of its kind), key by key, only
+// the modules the reference page has; a sample without the module casts no vote on it, and a tie keeps the reference's.
+export function modulesByMajority(reference = {}, samples = []) {
+  const voted = { ...reference };
+  for (const key of VOTED_MODULE_KEYS.filter((name) => reference[name])) voted[key] = heroByMajority(reference[key], samples.map((sample) => sample?.[key]).filter(Boolean));
+  return voted;
+}
+// A page's hero as a sample votes it: the enquiry form in its first section (HERO_FORM_FIELDS fields or more, or an
+// embedded form whose fields are out of reach) is a form hero, whatever photo it sits by (the reference's /management
+// and its state pages; Vacasa's city pages; Vacasa's one-field estimate box is none).
+export function sampleHero(sections, heroOf) {
+  const top = sections[0]?.shape;
+  if (top?.hasForm && ((top.formFields ?? 0) >= HERO_FORM_FIELDS || top.formEmbed)) return 'media-form';
+  return heroOf(sections);
+}
 export function heroByMajority(reference, samples = []) {
   const counts = new Map();
   for (const variant of [reference, ...samples].filter(Boolean)) counts.set(variant, (counts.get(variant) ?? 0) + 1);
@@ -220,6 +244,13 @@ const followsEvidence = (current, guess) => current === undefined || current ===
 // /swimwear-manufacturer/ undid the product pages' media-overlay, 3 of 5 pages, and the accessories page's button fell
 // under the first screen).
 const majorityDecided = (inventory, pageType) => Boolean(inventory?.pages?.find((page) => page.pageType === pageType)?.heroSamples?.length);
+// The enquiry form beside a hero (media-form) is one landing page's: named from the reference's page, a page type takes the
+// same photo hero without the form (media-overlay, as PageHero.astro draws media-form, so the phone frames hold) and its
+// pages lead to the form from their button and closing call, the contact and quote pages carrying it in full (owner
+// 2026-11-18: "每个 service 带这么大表单"; Staylumen took the reference's /management form for nine service pages, where
+// Awning, Evolve and Vacasa open their service pages on a button, 10 of 10). A site that keeps the form hero for a page
+// type sets it in template-variants.json, which stays.
+const typeHero = (variant) => (variant === 'media-form' ? 'media-overlay' : variant);
 
 // The site's pages Site Factory has not authored, built from the blueprints (marked placeholders), the site's menus,
 // and the slot manifest that goes to Site Factory 06 (docs/research/slot-manifest.json). Without Site Factory's
@@ -273,7 +304,7 @@ export async function writeBlueprintPages({ root = process.cwd(), pagesPlan, blu
   }
   // A hero the analysis named for a page type (section-modules "hero:<variant>") replaces the capture's guess.
   const heroes = sections.filter((item) => item.module?.startsWith('hero:') && !majorityDecided(inventory, item.pageType) && followsEvidence(variants.components.heroByPageType?.[item.pageType], heroGuess(inventory, item.pageType)));
-  if (heroes.length) variants.components.heroByPageType = { ...(variants.components.heroByPageType || {}), ...Object.fromEntries(heroes.map((item) => [item.pageType, item.module.slice(5)])) };
+  if (heroes.length) variants.components.heroByPageType = { ...(variants.components.heroByPageType || {}), ...Object.fromEntries(heroes.map((item) => [item.pageType, typeHero(item.module.slice(5))])) };
   if (heroes.length || tradeChanged) await writeJson(variantsPath, variants);
   await writeJson(resolve(root, 'docs/research/slot-manifest.json'), slotManifest({ components: variants.components, source: variants.sourceUrl ?? null, blueprints: used }));
   await recordRoutes(root, [...authored, ...pages]);
@@ -310,6 +341,7 @@ export async function scaffoldReferencePatterns({ pagesPlan, references, bluepri
   const heroTexts = [];
   const inventoryPath = resolve(root, 'docs/research/pattern-inventory.json');
   const previous = await readJson(inventoryPath, null);
+  const peers = (await readJson(resolve(root, 'site.json'), null))?.designPeers ?? {};
   // A page kept from an earlier measure without its own heading and hero counts (an inventory written before they were
   // kept per page): the site's counts stay the earlier ones.
   let keptWithoutCounts = false;
@@ -348,22 +380,33 @@ export async function scaffoldReferencePatterns({ pagesPlan, references, bluepri
       await page.close();
       pageTypes[pageType] = authoredPatterns(sections);
       const heroOf = (list) => { const hero = list.find((section) => section.pattern.startsWith('hero-')); return hero ? PATTERN_DECISIONS[hero.pattern].slice('hero:'.length) : undefined; };
-      const ownHero = heroOf(sections);
+      const ownHero = sampleHero(sections, heroOf);
       // The hero by the majority of this page and the competitor's pages beside it in its menu (heroByMajority): only
       // their heroes are measured; one that cannot be read is left out.
+      // Its samples: the reference's pages beside it in its menu, then the other competitors' pages of its type
+      // (designPeers), each measured at desktop width; one that cannot be read is left out.
       const heroSamples = [];
+      const sampleModules = [];
       const others = new Set(Object.values(references).map((ref) => String(ref).replace(/\/?$/, '/')));
-      for (const sampleUrl of SINGLE_PAGE_TYPES.includes(pageType) ? [] : (measured.siblings ?? []).filter((href) => !others.has(href)).slice(0, HERO_SAMPLES)) {
+      const siblingUrls = SINGLE_PAGE_TYPES.includes(pageType) ? [] : (measured.siblings ?? []).filter((href) => !others.has(href)).slice(0, HERO_SAMPLES);
+      const peerUrls = (peers[pageType] ?? []).slice(0, PEER_SAMPLES);
+      for (const [sampleUrl, peer] of [...siblingUrls.map((href) => [href, false]), ...peerUrls.map((href) => [href, true])]) {
         try {
           const sample = await measureReference(browser, sampleUrl, { desktopOnly: true });
           await sample.page.close();
-          const variant = heroOf(inventory(sample.shapes, { pageType }));
-          if (variant) heroSamples.push({ url: sampleUrl, heroVariant: variant });
+          const sampleSections = inventory(sample.shapes, { pageType });
+          const variant = sampleHero(sampleSections, heroOf);
+          if (variant) heroSamples.push({ url: sampleUrl, heroVariant: variant, ...(peer ? { peer: true } : {}) });
+          if (peer) sampleModules.push(authoredPatterns(sampleSections));
         } catch (error) {
-          console.warn(`patterns: hero sample ${sampleUrl} not measured (${error.message.slice(0, 120)})`);
+          console.warn(`patterns: ${peer ? 'peer' : 'hero'} sample ${sampleUrl} not measured (${error.message.slice(0, 120)})`);
         }
       }
-      const heroVariant = heroByMajority(ownHero, heroSamples.map((sample) => sample.heroVariant));
+      pageTypes[pageType] = modulesByMajority(pageTypes[pageType], sampleModules);
+      // A form hero stands only on more pages than the reference's own (one landing page's form is not every page's of
+      // the type): without them the type takes the page's own photo hero (else the photo behind the copy, typeHero).
+      const voted = heroByMajority(ownHero, heroSamples.map((sample) => sample.heroVariant));
+      const heroVariant = voted === 'media-form' && !heroSamples.some((sample) => sample.heroVariant === 'media-form') ? (heroOf(sections) ?? typeHero(voted)) : voted;
       report.pages.push({ pageType, reference: url, modules: pageTypes[pageType], heroVariant, ...(heroSamples.length ? { heroOwn: ownHero, heroSamples } : {}), coverage: coverage(sections), headings, heroText: heroText ?? null, sections: sections.map(({ shape, ...rest }) => rest) });
     }
   } finally {

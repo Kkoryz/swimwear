@@ -175,6 +175,9 @@ export function extractSectionShapes(pageShell) {
       coversSection: large.some((media) => media.width >= rect.width * 0.9 && media.height >= rect.height * 0.8),
       backgroundOnly,
       coverBackground,
+      // The fields a visitor fills in, and whether the form is embedded (its fields out of reach: pageShell.formEmbeds).
+      formFields: [...section.querySelectorAll('input, select, textarea')].filter((field) => !['hidden', 'submit', 'button', 'checkbox', 'radio', 'search', 'reset', 'image'].includes(field.type)).length,
+      formEmbed: Boolean(pageShell.formEmbeds && section.querySelector(pageShell.formEmbeds)),
       hasForm: Boolean(section.querySelector('form')) || section.querySelectorAll('input, textarea').length >= 2 || Boolean(pageShell.formEmbeds && section.querySelector(pageShell.formEmbeds)),
       hasTable: Boolean(section.querySelector('table')),
       // Tabs (role=tab) and menus also expose aria-expanded; only disclosure-style questions count.

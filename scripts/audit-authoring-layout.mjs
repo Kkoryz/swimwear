@@ -22,6 +22,7 @@ import { TRIAL_TOLERANCE } from "./lib/trial-build.mjs";
 import { chromeCta, primaryCta } from "./lib/primary-cta.mjs";
 import { axeProblems, measureToolForms, scanAgentTree, toolFormProblems } from "./lib/axe-scan.mjs";
 import { lcpPages, lcpProblems, measureLcp as labLcp } from "./lib/lab-lcp.mjs";
+import { heroShareProblems, measureUsability, usabilityProblems } from "./lib/usability-checks.mjs";
 
 // Pages measured at the same time, each in its own browser page.
 export const AUDIT_CONCURRENCY = 4;
@@ -68,7 +69,7 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
   // measurements (.pipeline/audits/authoring-layout.json, lib/page-keys.mjs); a page that failed is always measured
   // again. SITE_RUN_FRESH=audits measures every page.
   const cachePath = resolve(root, ".pipeline/audits/authoring-layout.json");
-  const shared = await sharedPageKey(root, { code: ["scripts/audit-authoring-layout.mjs", "scripts/lib/density.mjs", "scripts/lib/heading-fit.mjs", "scripts/lib/visual-checks.mjs", "scripts/lib/contrast.mjs"], files: ["src/data/template-variants.json", "src/data/site-identity.json", "src/data/site-contact.json", "src/data/site-nav.json", "site-template.json", "docs/research/raw/reference-density.json", INSTALLED_FONTS, "node_modules/axe-core/package.json"], routes: builtRoutes });
+  const shared = await sharedPageKey(root, { code: ["scripts/audit-authoring-layout.mjs", "scripts/lib/usability-checks.mjs", "scripts/lib/density.mjs", "scripts/lib/heading-fit.mjs", "scripts/lib/visual-checks.mjs", "scripts/lib/contrast.mjs"], files: ["src/data/template-variants.json", "src/data/site-identity.json", "src/data/site-contact.json", "src/data/site-nav.json", "site-template.json", "docs/research/raw/reference-density.json", INSTALLED_FONTS, "node_modules/axe-core/package.json"], routes: builtRoutes });
   const cache = fresh ? null : await readJson(cachePath, null);
   const cached = cache?.shared === shared ? cache.pages ?? {} : {};
   const keys = {};
@@ -121,7 +122,10 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
             return rect.width > 0 && rect.height > 0 && style.display !== "none" && style.visibility !== "hidden" && !collapsed(element);
           };
           // Top-level blocks wherever the layout puts them (an article column beside a sidebar), not blocks inside blocks.
-          const blocks = main ? [...main.querySelectorAll("[data-authoring-block]")].filter((block) => !block.parentElement.closest("[data-authoring-block]")).filter(visible) : [];
+          const topLevel = main ? [...main.querySelectorAll("[data-authoring-block]")].filter((block) => !block.parentElement.closest("[data-authoring-block]")) : [];
+          const blocks = topLevel.filter(visible);
+          // The FAQ page's sections folded under their question (PageView.astro details.faq-fold) are on the page, closed.
+          const folded = topLevel.filter((block) => !visible(block) && block.closest("details.faq-fold"));
           const maxGap = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--authoring-max-boundary-gap"));
           const contentBounds = (block) => {
             if (block.getAttribute("data-boundary-anchor") === "box") return block.getBoundingClientRect();
@@ -131,7 +135,8 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
           };
           // Content outside blocks (an article's photo, lead and contents box) sits in the space between two blocks: the gap
           // is the largest blank stretch left between them, not the distance between the blocks.
-          const loose = main ? [...main.querySelectorAll("h1,h2,h3,p,img,li,figure,nav,table")].filter((node) => !node.closest("[data-authoring-block]") && visible(node)).map((node) => node.getBoundingClientRect()) : [];
+          // A folded section's question row (its summary) is content between the blocks around it.
+          const loose = main ? [...main.querySelectorAll("h1,h2,h3,p,img,li,figure,nav,table,details.faq-fold > summary")].filter((node) => !node.closest("[data-authoring-block]") && visible(node)).map((node) => node.getBoundingClientRect()) : [];
           const boundaryGaps = blocks.slice(1).map((block, index) => {
             const previousBounds = contentBounds(blocks[index]);
             const nextBounds = contentBounds(block);
@@ -184,7 +189,7 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
             horizontalOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
             // The site-wide trust bar is not one of the page's blocks, nor a section's charts drawn after it, the hero's lead under it or the table of contents (PageView.astro);
             // their gaps still count.
-            blockCount: blocks.filter((block) => !["trustBar", "charts", "page-toc"].includes(block.getAttribute("data-authoring-block"))).length,
+            blockCount: [...blocks, ...folded].filter((block) => !["trustBar", "charts", "page-toc"].includes(block.getAttribute("data-authoring-block"))).length,
             blockTypes: blocks.map((block) => block.getAttribute("data-authoring-block")),
             maxGap,
             boundaryGaps,
@@ -255,8 +260,12 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
           }
           return found;
         });
+        // What a buyer meets whatever the competitor does (lib/usability-checks.mjs): the first screen's form fields, the
+        // FAQs' open answers, the bands down the page's first two screens, the opening photo. At the scroll's top.
+        await page.evaluate(() => window.scrollTo(0, 0));
+        const usability = await page.evaluate(measureUsability);
         await page.close();
-        return { route: definition.route, viewport: viewport.id, status: response?.status() || 0, expectedBlocks: withMediaModules(definition, components, { isBuilt: (href) => !href.startsWith("/") || routeSet.has(href) }).filter(shown).length + 1, expectedJsonLd: expectedSchemas(definition), expectedCanonical: definition.seo?.canonical || null, ...pageFacts, ...evidence, headingLines, density, blockMetrics, lowContrast, textOverlaps, visual, fonts, fold, ...(agentTree ? { agentTree } : {}), ...(toolForms?.length ? { toolForms } : {}), ...(barCover ? { barCover } : {}) };
+        return { route: definition.route, viewport: viewport.id, usability, status: response?.status() || 0, expectedBlocks: withMediaModules(definition, components, { isBuilt: (href) => !href.startsWith("/") || routeSet.has(href) }).filter(shown).length + 1, expectedJsonLd: expectedSchemas(definition), expectedCanonical: definition.seo?.canonical || null, ...pageFacts, ...evidence, headingLines, density, blockMetrics, lowContrast, textOverlaps, visual, fonts, fold, ...(agentTree ? { agentTree } : {}), ...(toolForms?.length ? { toolForms } : {}), ...(barCover ? { barCover } : {}) };
   });
   // AUDIT_CONCURRENCY pages at a time; the results keep the pages' order.
   let next = 0;
@@ -394,6 +403,7 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
     }
     for (const cover of barCovers(result.barCover)) failures.push({ ...at, issue: "enquiry_bar_covers", ...cover });
     for (const form of toolFormProblems(result.toolForms)) failures.push({ ...at, ...form });
+    if (definition) for (const problem of usabilityProblems(result.usability, { page: definition, components })) failures.push({ ...at, ...problem });
     for (const value of result.unplacedCopy) failures.push({ route: result.route, viewport: result.viewport, issue: "unplaced_copy", value: value.slice(0, 120) });
     for (const path of result.unresolvedLinks) failures.push({ route: result.route, viewport: result.viewport, issue: "unresolved_internal_link", value: path });
     if (!Number.isFinite(result.maxGap) || result.maxGap <= 0) failures.push({ route: result.route, viewport: result.viewport, issue: "missing_boundary_gap_token" });
@@ -413,6 +423,8 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
   // photos show is the image steps' to change, config/photo-subjects.json).
   const floorOf = (route) => { const definition = pages.find((page) => page.route === route); return definition ? signatureFloor(definition, components) : 0; };
   failures.push(...signatureMissing(results, floorOf));
+  // One opening photo on the home page and another page, or on two pages of one type (lib/usability-checks.mjs).
+  for (const { level, ...problem } of heroShareProblems(results.filter((result) => result.viewport === "desktop").map((result) => ({ route: result.route, pageType: pages.find((page) => page.route === result.route)?.pageType, heroSrc: result.usability?.heroSrc })))) (level === "failure" ? failures : warnings).push({ viewport: "desktop", ...problem });
   warnings.push(...subjectRepeat(results.filter((result) => result.viewport === "desktop").flatMap((result) => result.photos ?? [])));
   // Image positions the pools could not fill: not a layout failure, but the image supply stage must fill every one.
   const mediaSlots = results.filter((result) => result.viewport === "desktop" && result.mediaSlots.length).map((result) => ({ route: result.route, slots: result.mediaSlots }));

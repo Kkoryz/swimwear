@@ -75,10 +75,11 @@ test('the site can ask for another number of posts or market, and names its GEO 
 test('the GEO posts are the last step before the release, and a run waits there for the owner', async () => {
   const { root, site } = await siteFixture();
   const ids = steps(site).map((step) => step.id);
-  // Then only the release; the claude-seo audit of the release build (on by default, owner 2026-11-17) comes just
-  // before the posts, so a site waiting for them is audited all the same.
+  // Then only the release; the claude-seo audit of the release build (on by default, owner 2026-11-17) comes before
+  // the design review (the launch flow, owner 2026-11-18), so a site waiting for its posts is audited all the same.
   assert.deepEqual(ids.slice(ids.indexOf('geo-blogs') + 1), ['release']);
-  assert.equal(ids[ids.indexOf('geo-blogs') - 1], 'claude-seo-audit');
+  assert.equal(ids[ids.indexOf('geo-blogs') - 1], 'design-polish');
+  assert.ok(ids.indexOf('claude-seo-audit') < ids.indexOf('geo-blogs'));
   await writeFile(join(root, 'site.json'), JSON.stringify(site));
   const waiting = await siteRun({ root, from: 'geo-blogs', to: 'geo-blogs', runner: async () => 2 });
   assert.equal(waiting.code, 2);

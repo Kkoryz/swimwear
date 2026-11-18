@@ -3,9 +3,9 @@
 // A Markdown table of a header and rows of cells.
 const markdownTable = (head, rows) => [head, head.map(() => '---'), ...rows].map((row) => `| ${row.join(' | ')} |`).join('\n');
 
-export const TITLES = { links: '链接验收', cannibal: '抢词验收', near: '相近内容验收', owner_list: '业主资料清单（占位，不卡发布）', tech: '技术验收', conflicts: '全站冲突验收（接口，待 SF 站点事实库）' };
+export const TITLES = { links: '链接验收', cannibal: '抢词验收', near: '相近内容验收', owner_list: '业主资料清单（占位，不卡发布）', tech: '技术验收', conflicts: '全站冲突验收（SF 站点事实库，本机跑）' };
 export const MODES = { off: '关闭', report: '只报告', block: '卡发布' };
-export const STATUSES = { off: '已关闭', passed: '通过', reported: '有问题（只报告）', blocked: '有问题（卡发布）', pending: '待接入' };
+export const STATUSES = { off: '已关闭', passed: '通过', reported: '有问题（只报告）', blocked: '有问题（卡发布）', needs_local: '需要本机跑（不算通过）' };
 const LEVELS = { issue: '问题', info: '提示' };
 const ROWS_SHOWN = 300;
 
@@ -19,7 +19,7 @@ const TABLES = {
   near: (rows) => [['级别', '类型', '页面', '另一页', '相似度', '重复段落数', '最像的段落'], ...rows.map((row) => [LEVELS[row.level], row.pageType, row.route, row.other, row.similarity, row.paragraphCount, row.paragraphs[0] ? `${row.paragraphs[0].similarity}：${row.paragraphs[0].text.slice(0, 120)}` : ''])],
   owner_list: (rows) => [['类别', '要提供的内容', '当前值', '存放位置', '状态'], ...rows.map((row) => [row.label, row.item, row.value, row.where, row.status])],
   tech: (rows) => [['级别', '项目', '问题', '页面', '说明'], ...rows.map((row) => [LEVELS[row.level], row.kind, row.problem, row.route ?? '', row.detail])],
-  conflicts: (rows) => [['级别', '页面', '说明'], ...rows.map((row) => [LEVELS[row.level], row.route ?? '', row.detail])],
+  conflicts: (rows) => [['级别', '类型', '页面', '说明'], ...rows.map((row) => [LEVELS[row.level], row.kind, row.route ?? '', row.detail])],
 };
 
 export function checkMarkdown(report) {

@@ -53,6 +53,31 @@ export async function takeRunLock(root, pid = process.pid, alive = processAlive)
   return async () => { if (existsSync(path) && Number.parseInt(await readFile(path, 'utf8'), 10) === pid) await rm(path, { force: true }); };
 }
 
+// What changes a site outside site-run (a blog article's import, the queue's publishing) takes the run's lock for the
+// time it works (Strandmill 2026-11-18: an article imported and published during a certification run was taken for a
+// change made outside the run's steps and put back, its photos and its published package deleted). A command site-run
+// started itself (SITE_RUN_ID set: the geo-blogs step's import) or a process that already holds the lock works under
+// the run's. Otherwise, while a run goes on, it stops before changing anything and says why. Returns work()'s result.
+export async function withSiteLock(root, what, work, { env = process.env, pid = process.pid, alive = processAlive } = {}) {
+  if (env.SITE_RUN_ID) return work();
+  const path = resolve(root, '.pipeline/run.lock');
+  if (existsSync(path) && Number.parseInt(await readFile(path, 'utf8'), 10) === pid) return work();
+  let release;
+  try { release = await takeRunLock(root, pid, alive); } catch (error) {
+    throw new Error(`${what} stopped: a site-run is going on this site and would put back what this changes outside its steps (${error.message.replace(/^another run is going on this site /, '')}). Run it again once the run has ended.`);
+  }
+  try { return await work(); } finally { await release(); }
+}
+
+// The same question before work that costs (the blog flow's paid writing, before its import): throws as withSiteLock
+// would while a site-run it was not started by goes on; takes nothing.
+export async function assertNoSiteRun(root, what, { env = process.env, pid = process.pid, alive = processAlive } = {}) {
+  if (env.SITE_RUN_ID) return;
+  const path = resolve(root, '.pipeline/run.lock');
+  const holder = existsSync(path) ? Number.parseInt(await readFile(path, 'utf8'), 10) : null;
+  if (holder && holder !== pid && alive(holder)) throw new Error(`${what} stopped: a site-run is going on this site and would put back what this changes outside its steps (process ${holder}, ${path}). Run it again once the run has ended.`);
+}
+
 function processAlive(pid) {
   try { process.kill(pid, 0); return true; } catch (error) { return error.code === 'EPERM'; }
 }

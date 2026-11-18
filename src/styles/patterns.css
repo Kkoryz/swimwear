@@ -900,8 +900,8 @@ main[data-page-type="privacy"] .block--intro :is(h2, h3, p, li) { text-align: le
 .order-routes__option { padding-block: 1rem; border-bottom: 1px solid var(--border-color); }
 .order-routes__option-name { margin: 0 0 0.3rem !important; font-size: 1rem; font-weight: 700; }
 .order-routes__option p { margin: 0; font-size: 0.9375rem; }
-/* The trust bar's surface is the alternation's (lib/section-surfaces.mjs TRUST_BAR): tinted when it opens the first run,
-   as it always looked, the page's own surface when the run counts back from a band. */
+/* The trust bar is on the page's own surface, out of the white and tinted alternation (lib/section-surfaces.mjs; owner
+   2026-11-18: no strip of its own colour between the hero and the first section), its rules parting it from both. */
 .trust-bar { border-block: 1px solid var(--border-color); background: var(--surface-primary); }
 .trust-bar__items { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 0; margin: 0 auto; padding-block: 1rem; list-style: none; text-align: center; color: var(--text-primary); }
 .trust-bar__item { display: grid; align-content: start; gap: 0.2rem; padding: 0.25rem 1rem; }

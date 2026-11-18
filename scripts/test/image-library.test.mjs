@@ -312,7 +312,11 @@ test('the general pages take turns over the general heroes; a product line keeps
   const entry = (id, category) => ({ id, category, kind: 'hero', status: 'generated', alt: id, web: { src: `/${id}.webp`, width: 10, height: 10 } });
   const plan = { routes: { '/': 'general', '/about/': 'general', '/contact/': 'general', '/bra/': 'bra' }, entries: [entry('general-hero-1', 'general'), entry('general-hero-2', 'general'), entry('bra-hero-1', 'bra')] };
   const { heroByRoute } = libraryMedia(plan);
-  assert.deepEqual(Object.fromEntries(Object.entries(heroByRoute).map(([route, media]) => [route, media.alt])), { '/': 'general-hero-1', '/about/': 'general-hero-2', '/contact/': 'general-hero-1', '/bra/': 'bra-hero-1' });
+  // The home's photo is the home's: the other general pages take the others in turn (owner 2026-11-18).
+  assert.deepEqual(Object.fromEntries(Object.entries(heroByRoute).map(([route, media]) => [route, media.alt])), { '/': 'general-hero-1', '/about/': 'general-hero-2', '/contact/': 'general-hero-2', '/bra/': 'bra-hero-1' });
+  // It opens no other page, however many pages there are (hero_shared); the others go round past their cap.
+  const many = { routes: Object.fromEntries(['/', ...Array.from({ length: 8 }, (_, index) => `/p${index}/`)].map((route) => [route, 'general'])), entries: ['general-hero-1', 'general-hero-2', 'general-hero-3'].map((id) => entry(id, 'general')) };
+  assert.equal(Object.values(libraryMedia(many).heroByRoute).map((media) => media.alt.slice(-1)).join(''), '123232323');
   // The site-wide default hero is a usable photo: a retired one (which keeps its web files) is never chosen.
   const retiredFirst = { ...plan, entries: [{ ...entry('old-hero', 'general'), status: 'retired' }, ...plan.entries] };
   assert.equal(libraryMedia(retiredFirst).hero.alt, 'general-hero-1');

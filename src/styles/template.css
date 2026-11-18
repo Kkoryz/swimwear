@@ -307,6 +307,17 @@ body[data-heading-align="start"] .page-hero[data-variant="media-banner"] { --ban
 /* An open list's question is the item's h3 (FaqBlock.astro, lib/faq-layout.mjs): set where the summary sits, in the
    same look, with no open/close mark (nothing folds). */
 .faq__item > .faq__question { margin: 0; padding: 1.125rem 1.25rem 0.75rem; }
+/* The FAQ page's sections that answer one question (PageView.astro, lib/faq-layout.mjs faqPageFolds) fold under it: a
+   row of one list on the page's surface, ruled as the FAQ's rows are, the question in the FAQ question's look with its
+   open/close mark; the open answer is the section as it shows anywhere else, its own heading left out. */
+.faq-fold { border-bottom: 1px solid var(--border-color); }
+.faq-fold:not(.faq-fold + .faq-fold) { border-top: 1px solid var(--border-color); }
+.faq-fold > summary { padding-block: 1.25rem; cursor: pointer; list-style: none; }
+.faq-fold > summary::-webkit-details-marker { display: none; }
+.faq-fold__question { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; font-family: var(--font-subheading); font-size: var(--size-subheading); font-weight: 600; line-height: 1.4; overflow-wrap: break-word; text-wrap: balance; }
+.faq-fold__question::after { content: "+"; flex: none; font-family: var(--font-ui); font-size: 1.25rem; line-height: 1; color: var(--accent); }
+.faq-fold[open] .faq-fold__question::after { content: "−"; }
+.faq-fold > .block:first-of-type { padding-top: 0; }
 @media (min-width: 900px) {
   [data-variant="two-column"] .faq { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); align-items: start; }
   /* The questions keep their column when the block goes on from the one before it (no heading of its own). */

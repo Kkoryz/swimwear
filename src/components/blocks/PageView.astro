@@ -2,8 +2,8 @@
 import { cardSet, cardSetColumns } from '../../../scripts/lib/block-layout.mjs';
 import { bandLink, markFirstViewportImage, withMediaModules } from '../../../scripts/lib/media-slots.mjs';
 import { headingFitVars, wrapEmFor } from '../../../scripts/lib/heading-fit.mjs';
-import { TRUST_BAR, tintedSections, tintStyle } from '../../../scripts/lib/section-surfaces.mjs';
-import { trustBarContent } from '../../../scripts/lib/site-trust.mjs';
+import { tintedSections, tintStyle } from '../../../scripts/lib/section-surfaces.mjs';
+import { faqPageFolds } from '../../../scripts/lib/faq-layout.mjs';
 import { shownUpdated } from '../../../scripts/lib/page-dates.mjs';
 import { PAGE_TOC, TOC_HEADING, pageToc } from '../../../scripts/lib/page-toc.mjs';
 import { pageReviewer } from '../../../scripts/lib/site-people.mjs';
@@ -54,11 +54,21 @@ if (!pageHero(page).showsImage) markFirstViewportImage(plan);
 const formId = blocks.find((block) => block.type === 'form' && block.request !== 'resource')?.id ?? null;
 // The title's phone line width in ems (heading-fit), for the section headings' cap on a phone (template.css).
 const titleFit = headingFitVars(page.hero.heading, { charEm: wrapEmFor(variants.heroText) });
-// Neighbouring plain sections alternate white and tinted (lib/section-surfaces.mjs), a section's charts with it.
+// The FAQ page's sections that answer one question fold under it (lib/faq-layout.mjs faqPageFolds): consecutive blocks
+// of one fold render in one <details>, the question its summary, the head block without its heading.
+const folds = faqPageFolds(page, blocks);
+const foldFirst = variants.faqFirst !== 'closed';
+const groups: { fold: { head: string; question: string } | null; items: (typeof resolved[number] & { index: number })[] }[] = [];
+resolved.forEach((entry, index) => {
+  const fold = folds.get(entry.block.id) ?? null;
+  const last = groups.at(-1);
+  if (fold && last && last.fold?.head === fold.head) last.items.push({ ...entry, index });
+  else groups.push({ fold, items: [{ ...entry, index }] });
+});
+// Neighbouring plain sections alternate white and tinted (lib/section-surfaces.mjs), a section's charts with it. The
+// trust bar is on the page's own surface, out of the alternation, and so is a folded section: its rows are one list.
 const variantOf = new Map(resolved.map(({ block, variant }) => [block.id, variant]));
-// The trust bar, when it shows, is the first section of the first run (TRUST_BAR).
-const trustShown = (({ items, certifications }) => items.length > 0 || certifications.length > 0)(trustBarContent(page, pageFigures, siteTrust));
-const tintCss = tintStyle(new Set([...tintedSections([...(trustShown ? [TRUST_BAR] : []), ...(toc.length ? [PAGE_TOC] : []), ...resolved.map(({ block }) => block)], (block) => variantOf.get(block.id))].flatMap((id) => [id, `${id}-charts`])), { secondaryInk: variants.secondaryInk === true });
+const tintCss = tintStyle(new Set([...tintedSections([...(toc.length ? [PAGE_TOC] : []), ...resolved.map(({ block }) => block).filter((block) => !folds.has(block.id))], (block) => variantOf.get(block.id))].flatMap((id) => [id, `${id}-charts`])), { secondaryInk: variants.secondaryInk === true });
 // A content page says when its content last changed (lib/page-dates.mjs shownUpdated, the sitemap's lastmod).
 const updated = shownUpdated(page, pageDates);
 // A product or service page names the person of the team who reviews its subject (lib/site-people.mjs pageReviewer),
@@ -81,20 +91,31 @@ const mainStyle = titleFit ? `--title-ems-phone: ${titleFit['--fit-ems-phone']};
       <div class="container"><div class="page-toc"><p class="page-toc__title" id="page-toc-title">{TOC_HEADING}</p><ol>{toc.map((entry) => <li><a href={`#${entry.anchor}`}>{entry.heading}</a></li>)}</ol></div></div>
     </nav>
   )}
-  {resolved.map(({ block, variant, splitIndex }, index) => {
-    // Each block type's component from the registry (registry.ts), with the props it takes from this page.
-    const { component: Component, props }: BlockEntry = BLOCKS[block.type as keyof typeof BLOCKS];
-    // A section's data drawn after its text (a split row draws it in its photo's place; the closing band's before it).
-    const charts = block.type === 'splitMedia' ? [] : dataVisuals(block);
-    const times = timeChart?.after === block.id ? (timeChart.chart as ProseChart) : null;
-    const drawn = (charts.length > 0 || times) && <div class="block block--charts" data-authoring-block="charts" data-block-id={`${block.id}-charts`}><div class="container section-charts">{charts.map((visual) => <SectionChart visual={visual} />)}{times && <ArticleChart chart={times} />}</div></div>;
-    return (
-      <>
-        {block.type === 'cta' && drawn}
-        <Component {...props({ block, variant, page, formId, media: plan[index] ?? [], splitIndex })} />
-        {block.type !== 'cta' && drawn}
-      </>
-    );
+  {groups.map(({ fold, items }, groupIndex) => {
+    const parts = items.map(({ block: full, variant, splitIndex, index }) => {
+      // The fold's question is its summary: the head block shows its answer without the heading.
+      const block = fold?.head === full.id ? ({ ...full, heading: undefined } as typeof full) : full;
+      // Each block type's component from the registry (registry.ts), with the props it takes from this page.
+      const { component: Component, props }: BlockEntry = BLOCKS[block.type as keyof typeof BLOCKS];
+      // A section's data drawn after its text (a split row draws it in its photo's place; the closing band's before it).
+      const charts = block.type === 'splitMedia' ? [] : dataVisuals(block);
+      const times = timeChart?.after === block.id ? (timeChart.chart as ProseChart) : null;
+      const drawn = (charts.length > 0 || times) && <div class="block block--charts" data-authoring-block="charts" data-block-id={`${block.id}-charts`}><div class="container section-charts">{charts.map((visual) => <SectionChart visual={visual} />)}{times && <ArticleChart chart={times} />}</div></div>;
+      return (
+        <>
+          {block.type === 'cta' && drawn}
+          <Component {...props({ block, variant, page, formId, media: plan[index] ?? [], splitIndex })} />
+          {block.type !== 'cta' && drawn}
+        </>
+      );
+    });
+    // The first fold opens unless the site's FAQ starts closed (variants.faqFirst), as the FAQ block's first answer does.
+    return fold ? (
+      <details class="faq-fold" data-fold={fold.head} open={foldFirst && groupIndex === groups.findIndex((group) => group.fold)}>
+        <summary class="faq-fold__summary"><span class="container faq-fold__question">{fold.question}</span></summary>
+        {parts}
+      </details>
+    ) : parts;
   })}
   {(reviewer || updated) && (
     <p class="container page-updated">

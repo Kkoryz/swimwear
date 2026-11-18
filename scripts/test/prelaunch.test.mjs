@@ -7,7 +7,7 @@ import test from 'node:test';
 import { prelaunch } from '../prelaunch.mjs';
 import { cannibalFindings } from '../lib/prelaunch/cannibal.mjs';
 import { blogCannibalMode, prelaunchModes } from '../lib/prelaunch/config.mjs';
-import { conflictFindings } from '../lib/prelaunch/conflicts.mjs';
+import { conflictFindings, contentKey, sfConflictFindings, SOURCE_PATH, SOURCE_SCHEMA } from '../lib/prelaunch/conflicts.mjs';
 import { externalProblem, linkFindings } from '../lib/prelaunch/links.mjs';
 import { nearFindings, paragraphsOf } from '../lib/prelaunch/near.mjs';
 import { ownerListRows, signoffCategory } from '../lib/prelaunch/owner-list.mjs';
@@ -20,8 +20,8 @@ import { steps } from '../site-run.mjs';
 const page = (route, extra = {}) => ({ route, pageType: 'solution', status: 'authored', seo: { title: route, description: route, canonical: route }, hero: { heading: route }, blocks: [], ...extra });
 const html = ({ main = '', header = '', footer = '', head = '' } = {}) => `<html lang="en"><head>${head}</head><body><header data-site-header>${header}</header><main>${main}</main><footer data-site-footer>${footer}</footer></body></html>`;
 
-test('switches: each check off, report (the default) or block; the owner list never blocks; conflicts off by default', () => {
-  assert.deepEqual(prelaunchModes({}).modes, { links: 'report', cannibal: 'report', near: 'report', owner_list: 'report', tech: 'report', conflicts: 'off' });
+test('switches: each check off, report (the default) or block; the owner list never blocks; the conflict check reports by default', () => {
+  assert.deepEqual(prelaunchModes({}).modes, { links: 'report', cannibal: 'report', near: 'report', owner_list: 'report', tech: 'report', conflicts: 'report' });
   const { modes, notes } = prelaunchModes({ prelaunch: { links: 'block', cannibal: false, near: true, owner_list: 'block', conflicts: 'report' } });
   assert.deepEqual(modes, { links: 'block', cannibal: 'off', near: 'report', owner_list: 'report', tech: 'report', conflicts: 'report' });
   assert.match(notes.join(), /owner_list: "block" is read as "report"/);
@@ -134,12 +134,26 @@ test('the launch switch: noindex, robots.txt and the sitemap on a build for laun
   assert.deepEqual(live, []);
 });
 
-test('conflicts: an interface only, pending until a judge and the site fact library are there', async () => {
+test('conflicts: Site Factory\'s result of this content stands; none, or one of other content, needs a run on this machine', async () => {
   const root = await mkdtemp(join(tmpdir(), 'prelaunch-conflicts-'));
-  assert.equal((await conflictFindings({ root, site: {}, pages: [], built: new Map() })).status, 'pending');
-  await writeFile(join(root, 'facts.json'), '{"facts":[]}');
-  const judged = await conflictFindings({ root, site: { siteFactLibrary: 'facts.json' }, pages: [], built: new Map(), judge: async () => [{ level: 'issue', route: '/', detail: 'x' }] });
-  assert.deepEqual([judged.status, judged.findings.length], ['done', 1]);
+  await mkdir(join(root, 'src/data'), { recursive: true });
+  await writeFile(join(root, 'src/data/authoring-pages.json'), JSON.stringify([{ id: 'home', route: '/' }]));
+  const none = await conflictFindings({ root, env: {} });
+  assert.deepEqual([none.status, none.findings[0].kind], ['needs_local', 'needs_local']);
+  assert.match((await conflictFindings({ root, env: { GITHUB_ACTIONS: 'true' } })).notes[0], /GitHub Actions/);
+  await mkdir(join(root, 'docs/research/prelaunch'), { recursive: true });
+  const findings = [{ level: 'issue', kind: 'page', route: '/', detail: 'x' }];
+  await writeFile(join(root, SOURCE_PATH), JSON.stringify({ schemaVersion: SOURCE_SCHEMA, checkedAt: 't', results: 'out', content: await contentKey(root), findings }));
+  assert.deepEqual((await conflictFindings({ root, env: { GITHUB_ACTIONS: 'true' } })).findings, findings, 'a result of this machine for this content stands in GitHub Actions too');
+  // The same data written another way (a checkout's line endings, indentation) is the same content.
+  await writeFile(join(root, 'src/data/authoring-pages.json'), '[\r\n  { "id": "home", "route": "/" }\r\n]\r\n');
+  assert.equal((await conflictFindings({ root, env: {} })).status, undefined);
+  await writeFile(join(root, 'src/data/authoring-pages.json'), JSON.stringify([{ id: 'home', route: '/', seo: { title: 'changed' } }]));
+  assert.match((await conflictFindings({ root, env: {} })).findings[0].detail, /changed since it ran/);
+  // Site Factory's results: the library's own contradictions, and each sentence that contradicts a row, by route.
+  const sf = sfConflictFindings({ library: { confirmed: [[{ id: 'F1', topic: 'fees', text: 'A' }, { id: 'F2', topic: 'fees', text: 'B' }]] }, pages: [{ sentence: 'S', docs: ['home'], label: 'conflicts:F3', row: { id: 'F3', text: 'T', condition: 'C' } }, { sentence: 'ok', docs: ['home'], label: 'consistent' }], blogs: [{ sentence: 'P', docs: ['fees-guide'], label: 'conflicts:F4', row: { id: 'F4', text: 'U' } }] }, new Map([['home', '/']]));
+  assert.deepEqual(sf.map((finding) => [finding.kind, finding.route ?? null]), [['library', null], ['page', '/'], ['blog', '/blog/fees-guide/']]);
+  assert.match(sf[1].detail, /"S" contradicts F3: T \(C\)/);
 });
 
 const site = async (files) => {
@@ -161,7 +175,7 @@ test('the run: a report per check and a summary; a "block" check with issues blo
   await assert.rejects(site({ 'site.json': {} }).then((empty) => prelaunch({ root: empty, env: {} })), /no page of the site is built/, 'nothing built is not a pass');
   const summary = await prelaunch({ root, env: {}, now: new Date('2026-11-18T00:00:00Z') });
   assert.equal(summary.status, 'reported', 'report by default');
-  assert.deepEqual(summary.checks.map((check) => [check.check, check.status]), [['links', 'reported'], ['cannibal', 'reported'], ['near', 'passed'], ['owner_list', 'passed'], ['tech', 'passed'], ['conflicts', 'off']]);
+  assert.deepEqual(summary.checks.map((check) => [check.check, check.status]), [['links', 'reported'], ['cannibal', 'reported'], ['near', 'passed'], ['owner_list', 'passed'], ['tech', 'passed'], ['conflicts', 'needs_local']], 'the conflict check never run on this machine is not a pass');
   const links = JSON.parse(await readFile(join(root, 'docs/research/prelaunch/links.json'), 'utf8'));
   assert.deepEqual(links.findings.map((finding) => finding.target), ['/gone/']);
   assert.match(await readFile(join(root, 'docs/research/prelaunch/summary.md'), 'utf8'), /\| 链接验收 \| 只报告 \| 有问题（只报告） \| 1 \|/);

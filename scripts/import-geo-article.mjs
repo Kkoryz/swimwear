@@ -22,6 +22,7 @@ import { basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { blogGates } from './lib/blog-gates.mjs';
 import { REVIEWER, applyReplacements, articleFiles, rerouteLinks, reviewArticle, reviewPlaceholders } from './lib/blog-review.mjs';
+import { withSiteLock } from './lib/audit-runtime.mjs';
 import { cliArgs, listOption, runMain, usage } from './lib/cli.mjs';
 import { imageHomes } from './lib/codex-exec.mjs';
 import { runJudge } from './lib/judge-exec.mjs';
@@ -101,7 +102,9 @@ export async function flowFinal(source, articlePath) {
 }
 
 // routes: links the writer placed for routes this site names otherwise, { "/writer/route/": "/site/route/" }.
-export async function importGeoArticle({ root = process.cwd(), runDir, only = null, run = runJudge, routes = {}, now = new Date() } = {}) {
+// Under the site's run lock (lib/audit-runtime.mjs withSiteLock): never while a site-run is going on that did not start it.
+export const importGeoArticle = (options = {}) => withSiteLock(options.root ?? process.cwd(), 'the article import', () => importArticle(options));
+async function importArticle({ root = process.cwd(), runDir, only = null, run = runJudge, routes = {}, now = new Date() } = {}) {
   const source = resolve(runDir);
   const runName = basename(source);
   // The run's final article (naturalized when the writer made one) with its replacement list applied: what the owner

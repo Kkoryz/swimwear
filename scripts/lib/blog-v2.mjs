@@ -19,6 +19,7 @@
 import { spawn } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { assertNoSiteRun } from './audit-runtime.mjs';
 import { pictureTarget } from './geo-article.mjs';
 import { readJson, writeJson } from './json-io.mjs';
 
@@ -102,6 +103,9 @@ export async function writePosts({ root = process.cwd(), site, count, publish = 
   const results = [];
   const entry = { at: now().toISOString(), count, publish, written: results };
   if (count < 1) return { ...entry, waiting: null };
+  // Before anything is paid for: the import and the publishing would stop under a site-run that did not start this
+  // (lib/audit-runtime.mjs withSiteLock; Strandmill 2026-11-18).
+  await assertNoSiteRun(root, 'the blog batch');
   await writeJson(resolve(root, PROFILE_V2), await blogSiteProfile(root, site));
   const opts = { root };
   if (!existsSync(resolve(v2.work, 'topics.json'))) {

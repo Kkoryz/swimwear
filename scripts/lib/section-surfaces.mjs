@@ -21,10 +21,11 @@ const banded = (block, variant) => block.type === 'splitMedia' && variant === 't
 // section (swimwear 2026-11-15: its FAQ and inline closing call stood white one under the other).
 const parts = (block, variant) => (PARTS.has(block.type) && !(block.type === 'cta' && variant === 'inline')) ||String(block.id).startsWith('media-module-') || (block.type === 'process' && variant === 'photo-cards');
 
-// The trust bar under the hero (TrustBar.astro) is the first section of the page's first run when it shows: its surface
-// is the alternation's, never a site sheet's (hotel-rm 2026-11-15: a repair set it to the page's surface on four page
-// types and the overview under it ran on as one).
-export const TRUST_BAR = Object.freeze({ id: 'trust-bar', type: 'trustBar' });
+// The trust bar under the hero (TrustBar.astro) is no section of the alternation: it stays on the page's own surface,
+// parted from the section under it by its rules (owner 2026-11-18: "首屏有这么多黑条": on the dark Staylumen site the
+// tinted trust bar was a light grey strip between the photo, the breadcrumb row and the first section; the reference
+// and Evolve set their figures on the page's surface, Awning its logo row on the hero's). It replaces 2026-11-15's
+// ruling that tinted it as the first run's first section.
 
 /**
  * @param {{ id: string, type: string, continues?: string }[]} blocks
@@ -38,22 +39,20 @@ export function tintedSections(blocks, variantOf = () => undefined) {
   // A run of plain sections alternates; before a band of its own it counts back from the band, its last section white,
   // so two grey surfaces never meet and no two white ones either (it once left the last two white: motel's about page,
   // 2026-11-14).
-  // The trust bar opening a run is tinted and the section under it white, as it has always looked (it is the run's
-  // first section: 2026-11-15, Fable's ruling on hotel-rm's six "overview merges with the trust bar" findings).
   // start: the surface the next run opens on after a section's later part (true: tinted), else white.
   let start = false;
   const close = (next, before = null) => {
     // before: the surface of a section's later part the run ends on (true: tinted): the run's last section takes the
     // other one, counting back like a band, unless the part's own section is in the run (its surface is then counted).
     const fromEnd = (next && role.get(next.id) === 'banded') || (before !== null && !run.some((block) => block.id === before.head));
-    const offset = run[0]?.type === TRUST_BAR.type || start ? 1 : 0;
+    const offset = start ? 1 : 0;
     const tint = (index) => (fromEnd ? run.length - 1 - index + (before !== null && !before.tinted ? 1 : 0) : index + offset) % 2 === 1;
     run.forEach((block, index) => { if (tint(index)) tinted.add(block.id); });
     run = [];
     start = before !== null && !before.tinted;
   };
   // The surface the run in progress gives one of its sections, counted forward (a section's later part takes it).
-  const runTint = (id) => { const index = run.findIndex((block) => block.id === id); return index >= 0 ? (index + (run[0]?.type === TRUST_BAR.type || start ? 1 : 0)) % 2 === 1 : tinted.has(id); };
+  const runTint = (id) => { const index = run.findIndex((block) => block.id === id); return index >= 0 ? (index + (start ? 1 : 0)) % 2 === 1 : tinted.has(id); };
   // A section going on in blocks of its own (continues) is one section: going on from a plain section it takes that
   // section's surface and does not count in the alternation; going on from a section that parts the page or is a band
   // of its own (a split row, its steps after it) it is a plain section of the run that follows (hotel-rm 2026-11-14: the

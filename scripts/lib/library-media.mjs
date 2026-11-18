@@ -26,12 +26,21 @@ export function libraryMedia(plan, usable = (entry) => entry.status === 'generat
   const serviceHero = new Map(plan.entries.filter((entry) => usable(entry) && !entry.phoneOf && entry.kind === 'hero' && entry.intent?.id === SERVICE_HERO).map((entry) => [entry.intent.route, entry]));
   const routePools = {};
   const heroByRoute = {};
+  // The home page's opening photo is the home's alone (owner 2026-11-18: the FAQ page and a city page opened on the home
+  // page's photo; lib/usability-checks.mjs hero_shared): the other pages take the other site-wide heroes in turn, past
+  // HERO_MAX_PAGES each if they must (the SEO audit's hero_reused warning, and the plan asks for more). With one
+  // site-wide hero, or no home among the pages, the turns go round all.
+  const homeOwn = plan.routes['/'] === GENERAL && !serviceHero.has('/') && generalHero.length > 1;
   let turn = 0;
+  const nextGeneral = (route) => {
+    if (!homeOwn) return generalHero[turn++ % Math.max(1, generalHero.length)];
+    return route === '/' ? generalHero[0] : generalHero[1 + (turn++ % (generalHero.length - 1))];
+  };
   for (const [route, category] of Object.entries(plan.routes)) {
     const { hero = [], ...own } = byCategory[category] || {};
     if (category !== GENERAL && Object.keys(own).length) routePools[route] = own;
     const { intent: _intent, ...asked } = serviceHero.has(route) ? media(serviceHero.get(route)) : {};
-    const heroImage = serviceHero.has(route) ? asked : category === GENERAL ? generalHero[turn++ % Math.max(1, generalHero.length)] : hero[0] ?? generalHero[0];
+    const heroImage = serviceHero.has(route) ? asked : category === GENERAL ? nextGeneral(route) : hero[0] ?? generalHero[0];
     if (heroImage) heroByRoute[route] = heroImage;
   }
   const { category, topic, ...hero } = generalHero[0] ?? {};

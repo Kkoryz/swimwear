@@ -31,7 +31,8 @@ export const FINDINGS_SCHEMA_FILE = fileURLToPath(new URL('../../config/claude-s
 // and seo-audit-3); each audit keeps its folder, so the history is the folders.
 export const AUDIT_PARENT = 'docs/research';
 export const AUDIT_PREFIX = 'seo-audit';
-export const FILES = Object.freeze({ findings: 'findings.json', findingsSf: 'findings_sf.json', check: 'findings-check.json', merge: 'findings-merge.json', data: 'audit-data.json', report: 'FULL-AUDIT-REPORT.md', plan: 'ACTION-PLAN.md', pending: '.audit-pending' });
+export const FILES = Object.freeze({ findings: 'findings.json', findingsSf: 'findings_sf.json', check: 'findings-check.json', recheck: 'findings-recheck.json', merge: 'findings-merge.json', data: 'audit-data.json', report: 'FULL-AUDIT-REPORT.md', plan: 'ACTION-PLAN.md', pending: '.audit-pending' });
+export const RECHECK_SCHEMA = 'seo-site-claude-seo-recheck-v1';
 export const MERGE_SCHEMA = 'seo-site-claude-seo-merge-v1';
 // The auditors (owner 2026-11-17: "可以 而且可以并行不是吗"): who they are and the Claude model each runs on.
 export const AUDITORS_FILE = fileURLToPath(new URL('../../config/claude-seo-auditors.json', import.meta.url));
@@ -116,16 +117,32 @@ export async function nextAuditDir(root) {
   return `${AUDIT_PREFIX}-${(last?.n ?? 0) + 1}`;
 }
 
-// The newest finished audit of this pipeline (audit-data.json of this schema, complete), with its issue list and its
-// checks: { dir, data, findings, check }, or null.
+// The newest finished audit of this pipeline (audit-data.json of this schema, complete), with its issue list, its
+// checks and its latest recheck (scripts/claude-seo-recheck.mjs, null before one): { dir, data, findings, check,
+// recheck }, or null.
 export async function latestAudit(root) {
   for (const dir of (await auditDirs(root)).reverse()) {
     const data = await readJson(join(dir.path, FILES.data), null);
     if (data?.schemaVersion !== AUDIT_SCHEMA || !data.complete) continue;
     const findings = await readJson(join(dir.path, FILES.findings), null);
     const check = await readJson(join(dir.path, FILES.check), null);
-    if (findings && check) return { dir: `${AUDIT_PARENT}/${dir.name}`, data, findings, check };
+    const recheck = await readJson(join(dir.path, FILES.recheck), null);
+    if (findings && check) return { dir: `${AUDIT_PARENT}/${dir.name}`, data, findings, check, recheck: recheck?.schemaVersion === RECHECK_SCHEMA && recheck.audit === `${AUDIT_PARENT}/${dir.name}` ? recheck : null };
   }
+  return null;
+}
+
+// Whether a record ({ release, sources } of an audit or a recheck) is of the build now: the same files and config; or,
+// should a build not come out byte for byte the same, the same sources (lib/verified-build.mjs sourceHash) and the same
+// server config. now: { release: the current release key, sources }.
+export const sameBuild = (record, now) => Boolean(record) && (record.release?.key === now?.release?.key || (Boolean(record.sources) && record.sources === now?.sources && record.release?.server === now?.release?.server));
+
+// The check that stands for the build now (owner 2026-11-18: one audit a site; what is fixed after it is rechecked item
+// by item, never audited again): the audit's own when it is of this build, else its recheck of this build, else null.
+export function standingCheck(audit, now) {
+  if (!audit) return null;
+  if (sameBuild({ release: audit.data.release, sources: audit.data.sources }, now)) return { kind: 'audit', check: audit.check };
+  if (sameBuild(audit.recheck, now)) return { kind: 'recheck', check: audit.recheck };
   return null;
 }
 

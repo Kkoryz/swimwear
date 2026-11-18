@@ -40,6 +40,7 @@ import { loadSitePages } from './lib/site-pages.mjs';
 import { distFile } from './lib/built-site.mjs';
 import { sourceHash } from './lib/verified-build.mjs';
 import { focusPages, measureSite } from './lib/claude-seo-measure.mjs';
+import { RECHECK_SCHEMA, standingCheck } from './lib/claude-seo-audit.mjs';
 import { AUDIT_PARENT, AUDIT_SCHEMA, CHECKLISTS, FILES, GOOGLE_RULES, OWNER_WORDS, WEIGHTED, auditHolds, checkLocations, checkRecord, combineReplies, findingsDoc, healthScore, instructionsKey, latestAudit, llmAuditOn, median, mergeFindings, mergeRecord, nextAuditDir, normalizeReply, readAuditors, readWaivers, releaseKey, reportMarkdown, actionPlanMarkdown, validateFindings, verifyItems, withCorrectedOwners, withFoundLocations } from './lib/claude-seo-audit.mjs';
 
 const prompt = (name) => fileURLToPath(new URL(`../config/agent-steps/${name}.md`, import.meta.url));
@@ -268,6 +269,56 @@ export async function claudeSeoAudit({ root = process.cwd(), judge = auditJudge,
   await writeJson(resolve(dir, FILES.data), data);
   await rm(resolve(dir, FILES.pending), { force: true });
   return { dir: auditDir, data, holds: auditHolds({ findings: { findings }, check }) };
+}
+
+// The recheck of the latest audit (owner 2026-11-18: "每站只审一轮，修完只做逐条复查，不整站重审"), in its findings-check
+// notation: each item that held the launch is looked for again in the release build in dist/ (code), and every one of
+// them is verified again on that build (config/agent-steps/claude-seo-verify.md, one run): a fix rewrites the sentence
+// the audit quoted, so a location no longer found is no proof the problem is gone. An item stands while the
+// verification confirms it.
+// The build it read goes to the audit folder's recheck/ (dist-release/, server/) and the record to
+// findings-recheck.json beside findings-check.json, of this release (its key and sources). No new finding is looked
+// for. Returns { skipped } | { unchanged } (the audit is of this build) | { reused } (a recheck of this build stands) |
+// { failed, detail } | { dir, record }.
+export async function claudeSeoRecheck({ root = process.cwd(), verifyJudge = runJudge, now = new Date() } = {}) {
+  const site = await readJson(resolve(root, 'site.json'), null);
+  if (!llmAuditOn(site)) return { skipped: site ? 'site.json llmAudit is false' : 'no site.json' };
+  const last = await latestAudit(root);
+  if (!last) return { skipped: 'no claude-seo audit to recheck' };
+  if (!existsSync(resolve(root, 'dist/index.html'))) throw new Error('no build in dist/ (run pnpm build:release first)');
+  const server = await nginxFiles({ root });
+  const current = { release: await releaseKey(resolve(root, 'dist'), server), sources: await sourceHash(root) };
+  const stands = standingCheck(last, current);
+  if (stands?.kind === 'audit') return { unchanged: last.dir };
+  if (stands?.kind === 'recheck') return { reused: last.dir };
+  const held = (last.findings.findings ?? []).filter((item) => (last.check.holds ?? []).includes(item.id));
+  const recheckDir = `${last.dir}/recheck`;
+  const dir = resolve(root, recheckDir);
+  await rm(dir, { recursive: true, force: true });
+  await mkdir(dir, { recursive: true });
+  await cp(resolve(root, 'dist'), resolve(dir, 'dist-release'), { recursive: true });
+  if (server) {
+    const files = ownConfigFiles(server.host);
+    await mkdir(resolve(dir, 'server'), { recursive: true });
+    await writeFile(resolve(dir, 'server', files[0]), server.server);
+    await writeFile(resolve(dir, 'server', files[1]), server.snippet);
+  }
+  const located = await checkLocations(dir, held);
+  let verdicts = null;
+  if (held.length) {
+    const verified = await ask({ root, judge: verifyJudge, name: 'claude-seo-verify', values: verifyValues({ auditDir: recheckDir, items: held }), lastMessage: resolve(dir, 'verify-reply.md'), label: 'claude-seo-recheck verify' });
+    if (verified.code !== 0) return { failed: verified.unavailable ? 'unavailable' : 'verify', detail: verified.stderr.slice(0, 500) };
+    verdicts = verified.json;
+  }
+  // The audit's record of each item (checkRecord), its location found or not: here the verdict alone decides.
+  const check = checkRecord(held, Object.fromEntries(held.map((item) => [item.id, { found: true, file: located[item.id]?.file ?? null }])), verdicts);
+  const items = check.items.map((item) => ({ ...item, located: Boolean(located[item.id]?.found), file: located[item.id]?.file ?? null, ...(item.stands || located[item.id]?.found ? {} : { note: `fixed: its location is no longer in the release build and the verification does not confirm it (${item.note})` }) }));
+  const record = {
+    ...check, items, schemaVersion: RECHECK_SCHEMA, audit: last.dir, checkedAt: now.toISOString(), release: current.release, sources: current.sources,
+    rule: 'one audit a site: each item that held is looked for again in this release build and verified again on it; it holds while the verification confirms it',
+  };
+  await writeJson(resolve(root, last.dir, FILES.recheck), record);
+  return { dir: last.dir, record };
 }
 
 runMain(import.meta.url, async () => {

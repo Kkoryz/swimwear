@@ -9,8 +9,8 @@ import InlineText from '../blog/InlineText.astro';
 
 interface Props { block: FaqBlock; variant?: string; page?: AuthoringPage }
 const { block, variant = variants.faq, page } = Astro.props;
-// An open list (lib/faq-layout.mjs: the open variants, the FAQ page, a long FAQ): each question an h3 with its answer
-// shown under it, no disclosure, in the variant's own look (four-site audit 2026-11-17, G3).
+// An open list (lib/faq-layout.mjs: the open variants only): each question an h3 with its answer shown under it, no
+// disclosure, in the variant's own look. Every other FAQ folds, on the FAQ page and however long (owner 2026-11-18).
 const list = faqOpenList(block, variant, page);
 // An accordion opens its first answer unless the site's FAQ starts closed (variants.faqFirst); a block that goes on from
 // the one before it (no heading) is the same list continued, its first answer closed.

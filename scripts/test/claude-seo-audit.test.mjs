@@ -333,6 +333,36 @@ data: ${ragReply(JSON.stringify({ chunks: [{ content: 'x' }] }))}`).ok, true);
   assert.equal(other.failed, 'unavailable', 'one auditor instead of three: not the audit that stands');
   await writeFile(join(root, 'dist/index.html'), '<main><h1>Swimwear Made for Your Brand</h1><p>new</p></main>');
   assert.notEqual((await releaseKey(join(root, 'dist'), null)).dist, latest.data.release.dist);
+  // One audit a site (owner 2026-11-18): the build changed after it is rechecked item by item, never audited again.
+  // Both items that held are verified again on the build now (a fix rewrites the quoted sentence: a location gone is no
+  // proof); H-1, its location gone, is no longer confirmed; H-3 is; the preflight holds on H-3 only.
+  const { claudeSeoRecheck } = await import('../claude-seo-audit.mjs');
+  await writeFile(join(root, 'src/data/fixed.json'), '{"fixed":"H-1"}');
+  const rechecked = [];
+  const recheckJudge = (options) => { rechecked.push(options.prompt); return answer(options, { verdicts: [{ id: 'H-1', verdict: 'not_confirmed', note: '首页已不列客户名' }, { id: 'H-3', verdict: 'confirmed', note: '首屏仍只有品牌主张' }] }); };
+  const recheck = await claudeSeoRecheck({ root, verifyJudge: recheckJudge, now: new Date('2026-11-18T10:00:00Z') });
+  assert.equal(recheck.dir, 'docs/research/seo-audit-4');
+  assert.deepEqual(recheck.record.items.map((item) => [item.id, item.located, item.stands]), [['H-1', false, false], ['H-3', true, true]]);
+  assert.match(recheck.record.items[0].note, /^fixed/);
+  assert.deepEqual(recheck.record.holds, ['H-3']);
+  assert.equal(rechecked.length, 1);
+  assert.match(rechecked[0], /docs\/research\/seo-audit-4\/recheck\/dist-release/, 'the verifier reads the build rechecked');
+  assert.deepEqual([...rechecked[0].matchAll(/"id": "([^"]+)",\n\s+"severity"/g)].map((match) => match[1]), ['H-1', 'H-3'], 'every item that held is verified again');
+  assert.ok(existsSync(join(dir, 'findings-recheck.json')) && existsSync(join(dir, 'findings-check.json')), 'the recheck is recorded beside the audit\'s check');
+  const afterFix = await latestAudit(root);
+  const recheckCtx = { ...ctx, claudeSeoAudit: { latest: afterFix, release: recheck.record.release, sources: recheck.record.sources } };
+  const rechecks = runChecks(recheckCtx, checks);
+  assert.deepEqual(rechecks.holds.map((hold) => hold.code), ['claude_seo_audit_blocking:template'], 'the recheck of this build stands for the audit');
+  assert.match(rechecks.holds[0].detail, /^H-3 .*findings-recheck\.json/);
+  assert.deepEqual(runChecks({ ...recheckCtx, site: { launchFlow: { seo_recheck: 'report' } } }, checks).holds, [], '"report": what still stands is a notice');
+  // A build neither the audit nor the recheck is of: a hold, or a notice where the site switched the recheck off.
+  const otherBuild = { ...ctx, claudeSeoAudit: { latest: afterFix, release: { key: 'k2', server: 's2' }, sources: 'x2' } };
+  assert.match(runChecks(otherBuild, checks).holds.find((hold) => hold.code === 'claude_seo_audit_missing').detail, /no recheck is of this one \(its recheck: .*\): recheck this build/);
+  const switchedOff = runChecks({ ...otherBuild, site: { launchFlow: { seo_recheck: false } } }, checks);
+  assert.ok(!switchedOff.holds.some((hold) => hold.code === 'claude_seo_audit_missing'));
+  assert.match(switchedOff.notices.find((notice) => notice.code === 'claude_seo_audit_not_current').detail, /launchFlow\.seo_recheck is off/);
+  assert.deepEqual(runChecks({ ...ctx, site: { launchFlow: { seo_audit: false } }, claudeSeoAudit: { latest: null, release: null } }, checks).holds, [], 'no audit with the audit switched off: a notice');
+  assert.equal((await claudeSeoRecheck({ root, verifyJudge: () => assert.fail('not asked') })).reused, 'docs/research/seo-audit-4', 'a recheck of this build stands');
   const waits = await claudeSeoAudit({ root, judge, verifyJudge, measure: measureStub(), probe: async () => ({ ok: false, detail: 'refused' }), env });
   assert.equal(waits.failed, 'unavailable', 'the rules library down: the step waits');
   await writeFile(join(root, 'site.json'), JSON.stringify({ llmAudit: false }));

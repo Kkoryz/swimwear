@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
-import { heroByMajority, navSiblings } from '../scaffold-placeholder-pages.mjs';
+import { heroByMajority, modulesByMajority, navSiblings, sampleHero } from '../scaffold-placeholder-pages.mjs';
 
 test('a page type\'s hero is the one most of the competitor\'s pages of that kind show', () => {
   assert.equal(heroByMajority('media-banner', ['media-overlay', 'media-overlay', 'media-overlay', 'media-banner']), 'media-overlay');
@@ -72,4 +73,23 @@ test('the pages beside a reference are its largest menu list, a "#…" button an
   } finally {
     await browser.close();
   }
+});
+
+test("a page type's variants follow the majority of the reference page and the other competitors' pages; a tie keeps the reference's (owner 2026-11-18)", async () => {
+  // Card, process and gallery variants vote key by key; a sample without the module casts no vote; sequences stay.
+  const reference = { splitSequence: ['single'], featureGrid: 'numbered', gallery: 'mosaic' };
+  assert.deepEqual(modulesByMajority(reference, [{ featureGrid: 'columns' }, { featureGrid: 'columns', process: 'list' }, {}]), { splitSequence: ['single'], featureGrid: 'columns', gallery: 'mosaic' }, 'a module the reference page lacks is not added');
+  assert.deepEqual(modulesByMajority(reference, [{ featureGrid: 'columns' }]), reference, 'one against one keeps the reference');
+  // A form in the first section is a form hero (an embedded one counts); a one-field estimate box is not.
+  const heroOf = () => 'media-split';
+  assert.equal(sampleHero([{ shape: { hasForm: true, formFields: 7 } }], heroOf), 'media-form');
+  assert.equal(sampleHero([{ shape: { hasForm: true, formFields: 0, formEmbed: true } }], heroOf), 'media-form', 'an embedded form');
+  assert.equal(sampleHero([{ shape: { hasForm: true, formFields: 0 } }], heroOf), 'media-split', 'a search form');
+  assert.equal(sampleHero([{ shape: { hasForm: true, formFields: 1 } }], heroOf), 'media-split');
+  // The patterns step reads site.json designPeers; one reference page's form hero is not every page's of its type.
+  const source = await readFile(new URL('../scaffold-placeholder-pages.mjs', import.meta.url), 'utf8');
+  assert.match(source, /const peers = \(await readJson\(resolve\(root, 'site\.json'\), null\)\)\?\.designPeers \?\? \{\};/);
+  assert.match(source, /voted === 'media-form' && !heroSamples\.some\(\(sample\) => sample\.heroVariant === 'media-form'\) \? \(heroOf\(sections\) \?\? typeHero\(voted\)\) : voted/);
+  assert.match(source, /if \(peer\) sampleModules\.push\(authoredPatterns\(sampleSections\)\);/, 'only the other competitors vote on the modules');
+  assert.match(await readFile(new URL('../site-run.mjs', import.meta.url), 'utf8'), /id: 'patterns', kind: 'auto', inputs: \['site\.json#reference,designPeers'/);
 });

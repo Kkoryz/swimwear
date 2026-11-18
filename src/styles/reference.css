@@ -845,3 +845,18 @@ main[data-page-type="product_manufacturer"] .block--faq:not([data-variant="dark-
 @media (max-width: 767px) {
   .blog-hub-hero__backdrop { object-position: 50% 100% !important; }
 }
+
+/* The first screen without stacked strips (band_stack, owner 2026-11-18: the #306180 header, a white breadcrumb row and
+   the table of contents' tinted panel stood as narrow bars one under another above the first section). The breadcrumb
+   row goes on in the header's #306180, so header and trail read as one bar; the table of contents sits on the page's
+   surface, ruled, its accent rule kept, so the figures under the hero and the contents run on as one white ground. */
+.breadcrumbs { background: var(--surface-header); color: var(--text-inverse); }
+.breadcrumbs a:hover { color: #d3ebfd; }
+.breadcrumbs [aria-current="page"] { opacity: 0.85; }
+.page-toc { background: transparent; border: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent); border-left: 4px solid var(--accent); }
+/* A split row stacked on a tablet keeps its photo to the copy's measure, not the full content width: the photo then sits
+   inside its section's surface instead of cutting the tinted section into a strip above and a sliver below it (about
+   page at 768px, band_stack 2026-11-18: a 728px square across the beige story section). Phones keep the full width. */
+@media (min-width: 600px) and (max-width: 899px) {
+  .block--split .split > .split__media-set:not(.split__charts) { max-width: 40rem; }
+}

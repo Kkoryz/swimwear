@@ -14,6 +14,7 @@
 import { createHash } from 'node:crypto';
 import { mkdir, readdir, rename } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { withSiteLock } from './lib/audit-runtime.mjs';
 import { blogGates } from './lib/blog-gates.mjs';
 import { blogSchedule, dueToday } from './lib/blog-schedule.mjs';
 import { cliArgs, runMain } from './lib/cli.mjs';
@@ -26,7 +27,10 @@ import { loadSitePages } from './lib/site-pages.mjs';
 const contentHash = (post) => createHash('sha256').update(JSON.stringify({ ...post, datePublished: null, dateModified: null, review: null })).digest('hex');
 
 // only: the slugs to publish (the blog flow's run publishing what it just wrote); the others wait for their day.
-export async function publishQueued({ root = process.cwd(), limit = 1, now = new Date(), only = null } = {}) {
+// Under the site's run lock (lib/audit-runtime.mjs withSiteLock): never while a site-run is going on that did not start
+// it (GitHub Actions' scheduled publishing has no site-run: it takes the lock of its own checkout).
+export const publishQueued = (options = {}) => withSiteLock(options.root ?? process.cwd(), 'blog publishing', () => publish(options));
+async function publish({ root = process.cwd(), limit = 1, now = new Date(), only = null } = {}) {
   const queue = resolve(root, 'content/blog-queue');
   await mkdir(resolve(queue, 'approved'), { recursive: true });
   await mkdir(resolve(queue, 'published'), { recursive: true });

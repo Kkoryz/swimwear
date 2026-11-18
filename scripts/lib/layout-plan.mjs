@@ -12,7 +12,8 @@ import { cardGridColumns, cardSet, cardSetColumns, cardTitleLevel, iconListLayou
 import { DENSITY_EXEMPT_PAGE_TYPES, DENSITY_FLOOR_EXEMPT_PAGE_TYPES, bandFor } from './density.mjs';
 import { HERO_FIT, SPLIT_HERO_FIT, fitHeading, titleMetrics, wrapLines } from './heading-fit.mjs';
 import { PROOF_BLOCKS, blockWords, copyWords, drawsCharts, heroShowsPhoto, renderedWords, mediaSlots, modelVariant, resolveVariant, signatureFloor, splitsSection, withMediaModules } from './media-slots.mjs';
-import { TRUST_BAR, tintedSections } from './section-surfaces.mjs';
+import { tintedSections } from './section-surfaces.mjs';
+import { faqPageFolds } from './faq-layout.mjs';
 import { PAGE_TOC, pageToc } from './page-toc.mjs';
 import { DEFAULT_BLOCK_MODEL, MAX_BUDGET_WALLS, estimateBlock, modelKey, pageEstimate } from './visual-budget.mjs';
 
@@ -131,14 +132,16 @@ export function planPage(page, components, { isBuilt = () => true, headingModel 
   const heroVariant = components.heroByPageType?.[page.pageType] ?? components.hero;
   // A long page's table of contents under the hero (PageView.astro, lib/page-toc.mjs) is a part of its own.
   const toc = pageToc(page, blocks);
-  const tinted = tintedSections([...(trustBar ? [TRUST_BAR] : []), ...(toc.length ? [PAGE_TOC] : []), ...shown], (block) => variants.get(block.id));
+  // The FAQ page's folded sections (lib/faq-layout.mjs) are rows of one list on the page's surface, out of the alternation.
+  const folds = faqPageFolds(page, shown);
+  const tinted = tintedSections([...(toc.length ? [PAGE_TOC] : []), ...shown.filter((block) => !folds.has(block.id))], (block) => variants.get(block.id));
   let splits = 0;
   const rows = shown.map((block, index) => {
     const splitIndex = block.type === 'splitMedia' ? splits++ : 0;
     const variant = resolveVariant(block, page.pageType, splitIndex, components);
     const shape = modelVariant(block, page, blocks, components, options);
     const estimate = estimateBlock(block, shape, blockWords(block, shape, components), model, page.pageType);
-    const row = { id: block.id, type: block.type, variant: variant ?? null, model: modelKey(block, shape), continues: block.continues ?? null, surface: surfaceOf(block, variant, tinted), slots: mediaSlots(block, variant, components, options).filter(Boolean), estimate: { heightPx: Math.round(estimate.height), visualPx: Math.round(estimate.visual), pictured: estimate.pictured, before: Math.round(estimate.before), after: Math.round(estimate.after) } };
+    const row = { id: block.id, type: block.type, variant: variant ?? null, model: modelKey(block, shape), continues: block.continues ?? null, surface: folds.has(block.id) ? 'fold' : surfaceOf(block, variant, tinted), slots: mediaSlots(block, variant, components, options).filter(Boolean), estimate: { heightPx: Math.round(estimate.height), visualPx: Math.round(estimate.visual), pictured: estimate.pictured, before: Math.round(estimate.before), after: Math.round(estimate.after) } };
     if (isWall(block)) row.wall = isBudgetWall(block) ? 'budget' : block.signature ? 'signature' : 'competitor';
     const items = block.items ?? block.steps ?? [];
     if (items.length) { row.items = items.length; row.longestItemWords = Math.max(0, ...items.map((item) => copyWords(item))); }

@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { TRUST_BAR, tintedSections, tintStyle } from '../lib/section-surfaces.mjs';
+import { readFile } from 'node:fs/promises';
+import { tintedSections, tintStyle } from '../lib/section-surfaces.mjs';
 
 const block = (id, type) => ({ id, type });
 
@@ -62,11 +63,16 @@ test('a section going on in another component is a module of its own; an inline 
   assert.deepEqual([...tintedSections([block('related', 'relatedPages'), block('faq', 'faq'), block('more', 'iconList'), block('cta', 'cta')], (item) => (item.id === 'cta' ? 'inline' : undefined))], ['faq', 'cta']);
 });
 
-test('the trust bar opens the first run tinted, the section under it white; it is the page surface when the run counts back from a band', () => {
-  assert.deepEqual([...tintedSections([TRUST_BAR, block('overview', 'text'), block('grid', 'featureGrid'), block('faq', 'faq')])], ['trust-bar', 'grid']);
-  const band = (item) => (item.id === 's' ? 'tinted' : undefined);
-  assert.deepEqual([...tintedSections([TRUST_BAR, block('overview', 'text'), { id: 's', type: 'splitMedia' }], band)], ['trust-bar']);
-  assert.deepEqual([...tintedSections([TRUST_BAR, block('overview', 'text'), block('grid', 'featureGrid'), { id: 's', type: 'splitMedia' }], band)], ['overview']);
+test('the trust bar is out of the alternation: the first section under it is white, as without it (owner 2026-11-18)', async () => {
+  // A page's run starts on its first section; the trust bar stays on the page's own surface (patterns.css), its rules
+  // parting it from the section under it, so no strip of its own colour sits between the hero and the page.
+  assert.deepEqual([...tintedSections([block('overview', 'text'), block('grid', 'featureGrid'), block('faq', 'faq')])], ['grid']);
+  const view = await readFile(new URL('../../src/components/blocks/PageView.astro', import.meta.url), 'utf8');
+  assert.doesNotMatch(view, /TRUST_BAR/);
+  const plan = await readFile(new URL('../lib/layout-plan.mjs', import.meta.url), 'utf8');
+  assert.doesNotMatch(plan, /TRUST_BAR/, 'the plan sets the surfaces the page draws');
+  const patterns = await readFile(new URL('../../src/styles/patterns.css', import.meta.url), 'utf8');
+  assert.match(patterns, /\.trust-bar \{ border-block: 1px solid var\(--border-color\); background: var\(--surface-primary\); \}/);
 });
 
 test('steps going on from a split row with a photo are a plain section of the next run; steps over a photo part the page', () => {

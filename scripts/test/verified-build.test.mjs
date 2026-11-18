@@ -48,19 +48,21 @@ test('the preflight holds a build never verified, one changed since, and lists t
   assert.deepEqual(changed.holds.map((hold) => hold.code), ['verified_build_mismatch']);
 });
 
-test('a preview needs the audits passed; an open design review puts its findings in a banner; unaudited only when marked so', async () => {
+test('a preview needs the audits passed; an open design review puts its findings in the log, not the pages; unaudited only when marked so', async () => {
   // Audits failing: refused, unless marked unreviewed (the red banner).
   const failing = await site({ layout: [{ issue: 'low_contrast' }] });
   await assert.rejects(publishPreview({ root: failing, out: join(failing, 'out'), base: '/motelpilot' }), /not publishing a build whose audits have not passed[\s\S]*layout_audit_not_passed/);
   const unreviewed = await publishPreview({ root: failing, out: join(failing, 'out'), base: '/motelpilot', unreviewed: true });
   assert.deepEqual([unreviewed.verified, unreviewed.audited], [false, false]);
   assert.match(await readFile(join(failing, 'out/about/index.html'), 'utf8'), /<body class="x"><div data-preview-banner/);
-  // Audits passed, the design review open (owner 2026-11-14: a preview needs the audits only): published, its open findings listed.
+  // Audits passed, the design review open (owner 2026-11-14: a preview needs the audits only; 2026-11-18: no banner):
+  // published clean, its open findings in the preview log.
   const reviewing = await site({ review: 'open' });
   await json(reviewing, 'docs/research/design-review.json', { shots: 'b1', status: 'open', findings: [{ severity: 'P1', route: '/about-us/', viewport: 'desktop', block: 'hero', issue: 'overlay too wide' }, { severity: 'P2', route: '/', block: 'cta', issue: 'small' }] });
   const audited = await publishPreview({ root: reviewing, out: join(reviewing, 'out'), base: '/motelpilot' });
-  assert.deepEqual([audited.verified, audited.audited, audited.openFindings], [false, true, 1]);
-  assert.match(await readFile(join(reviewing, 'out/index.html'), 'utf8'), /<details data-preview-banner[\s\S]*1 条意见未关闭[\s\S]*\/about-us\/ desktop hero: overlay too wide/);
+  assert.deepEqual([audited.verified, audited.audited, audited.openFindings, audited.findings], [false, true, 1, ['P1 /about-us/ desktop hero: overlay too wide']]);
+  assert.ok(!(await readFile(join(reviewing, 'out/index.html'), 'utf8')).includes('data-preview-banner'));
+  assert.deepEqual(JSON.parse(await readFile(join(reviewing, 'docs/research/preview-log.json'), 'utf8')).entries.at(-1).findings, ['P1 /about-us/ desktop hero: overlay too wide']);
   const root = await site();
   const out = join(root, 'out');
   await recordVerifiedBuild(root, ['/', '/about/']);

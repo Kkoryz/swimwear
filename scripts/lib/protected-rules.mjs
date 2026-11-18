@@ -49,7 +49,7 @@ export const PROTECTED_RULES = Object.freeze([
   { part: { test: stylesPlainSection }, properties: ['background', 'background-color'], rule: 'neighbouring plain sections alternate white and tinted backgrounds, set by the template (the treatment colours the tint through --section-tint, never one section)' },
   // The trust bar is the first section of the alternation (hotel-rm 2026-11-15: a repair set it to the page's surface
   // on four page types, and the overview under it ran on as one surface).
-  { part: /\.trust-bar(?![\w-])\s*(,|$)/, properties: ['background', 'background-color'], rule: 'the trust bar is the first section of the white and tinted alternation, its surface set by the template (the treatment colours the tint through --section-tint)' },
+  { part: /\.trust-bar(?![\w-])\s*(,|$)/, properties: ['background', 'background-color'], rule: 'the trust bar is on the own surface of the page, out of the white and tinted alternation, set by the template (no strip of its own colour under the hero)' },
   { part: /\.split__media-set|\.split__media\b|\.split__copy/, properties: ['align-self', 'height', 'max-height', 'aspect-ratio'], rule: 'a split row\'s photo runs its copy\'s height up to a 4:5 portrait, then stays in view beside the longer copy as it scrolls (sticky), and shorter copy sits level with the photo\'s middle (template.css)' },
   { part: /\.split\b(?![\w-])/, properties: ['align-items'], rule: 'a split row\'s photo and copy share their edges (template.css)' },
   { part: /\.button\b/, properties: ['position'], values: /absolute|fixed|sticky/, rule: 'a button stays in its copy\'s flow, under the text it ends (template.css)' },

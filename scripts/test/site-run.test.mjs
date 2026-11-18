@@ -814,6 +814,14 @@ test('a new capture and every blueprint write keep what the treatment and repair
   await writeFile(join(root, 'docs/research/pattern-inventory.json'), JSON.stringify({ pages: [{ pageType: 'about', heroVariant: 'media-overlay', heroOwn: 'media-banner', heroSamples: [{ url: 'u1', heroVariant: 'media-overlay' }, { url: 'u2', heroVariant: 'media-overlay' }], sections: [] }] }));
   await writeBlueprintPages({ root, pagesPlan });
   assert.equal(JSON.parse(await readFile(join(root, 'src/data/template-variants.json'), 'utf8')).components.heroByPageType.about, 'media-overlay');
+  // Owner 2026-11-18: the reference's one landing page with the enquiry form beside its hero gives its page type the same
+  // photo hero without the form, not the form on every page of the type; a site's own form hero stays.
+  await writeFile(join(root, 'docs/research/pattern-inventory.json'), JSON.stringify({ pages: ['solution', 'place'].map((pageType) => ({ pageType, heroVariant: 'media-banner', sections: [] })) }));
+  await writeFile(join(root, 'docs/research/analysis/section-modules.json'), JSON.stringify(['solution', 'place'].map((pageType) => ({ pageType, index: 1, module: 'hero:media-form' }))));
+  await writeFile(join(root, 'src/data/template-variants.json'), JSON.stringify({ schemaVersion: 'seo-site-template-variants-v1', components: { hero: 'plain', heroByPageType: { place: 'media-form' }, pageTypes: {} } }));
+  await writeBlueprintPages({ root, pagesPlan });
+  assert.deepEqual(JSON.parse(await readFile(join(root, 'src/data/template-variants.json'), 'utf8')).components.heroByPageType, { place: 'media-form', solution: 'media-overlay' });
+  await writeFile(join(root, 'docs/research/analysis/section-modules.json'), JSON.stringify(['home', 'about'].map((pageType) => ({ pageType, index: 1, module: 'hero:media-banner' }))));
   await writeFile(join(root, 'docs/research/pattern-inventory.json'), JSON.stringify({ pages: ['home', 'about'].map((pageType) => ({ pageType, heroVariant: 'media-overlay', sections: [] })) }));
   await writeFile(join(root, 'src/data/template-variants.json'), JSON.stringify({ schemaVersion: 'seo-site-template-variants-v1', components: { hero: 'plain', heroByPageType: { home: 'media-split', about: 'media-banner' }, pageTypes: { home: { blocks: { story: { variant: 'single' } } } } } }));
   assert.equal(written.tradePhotos, undefined, 'a clothing site photographs its products');

@@ -8,7 +8,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 export const IGNORED = [
-  'node_modules/', 'dist/', '.astro/', '.pipeline/logs/', '.pipeline/audits/', '.pipeline/cache/',
+  'node_modules/', 'dist/', '.astro/', '.pipeline/logs/', '.pipeline/audits/', '.pipeline/cache/', '.pipeline/run.lock',
   'docs/research/images/masters/', 'docs/research/reference-pages/', 'docs/research/pattern-sections/', 'docs/design-references/',
 ];
 

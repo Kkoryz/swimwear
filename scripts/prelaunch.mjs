@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // The prelaunch checks (owner 2026-11-18): links, cannibalisation, near-duplicate content, the owner's materials list,
-// technical checks and the site-wide conflict check (its interface only), each switched in site.json prelaunch
+// technical checks and the site-wide conflict check (Site Factory's, run on this machine by scripts/site-conflicts.mjs
+// and read here), each switched in site.json prelaunch
 // (lib/prelaunch/config.mjs): off, "report" (the default: reported, never holds) or "block" (its issues hold the
 // release). No model call and no request: the built site (dist) and the site's data only. Each check writes
 // docs/research/prelaunch/<check>.json and .md, and summary.json and summary.md gather them; the preflight holds on a
@@ -79,7 +80,7 @@ export async function prelaunchContext(root, { launch = false } = {}) {
   };
 }
 
-// Each check: (ctx) -> { findings, notes?, status? } (status 'pending' for a check that waits for its inputs).
+// Each check: (ctx) -> { findings, notes?, status? } (status 'needs_local' for a check that cannot judge here).
 export const CHECKS = {
   links: (ctx) => ({ findings: linkFindings(ctx), notes: [`nav_only groups: ${[...ctx.navOnly].join(', ') || 'none'}; held-back pages: ${[...ctx.unbuilt.keys()].join(', ') || 'none'}`] }),
   cannibal: async (ctx) => {
@@ -98,13 +99,13 @@ export const CHECKS = {
     ],
     notes: [ctx.launch ? 'a launch build: noindex, robots.txt and the sitemap checked' : 'not a launch build (no --launch, SITE_LAUNCH unset): noindex, robots.txt and the sitemap not checked; a preview stays noindex'],
   }),
-  conflicts: (ctx) => conflictFindings({ root: ctx.root, site: ctx.site, pages: ctx.pages, built: ctx.built }),
+  conflicts: (ctx) => conflictFindings({ root: ctx.root, env: ctx.env }),
 };
 
 export async function prelaunch({ root = process.cwd(), launch = false, env = process.env, now = new Date() } = {}) {
   const site = await readJson(resolve(root, 'site.json'), {});
   const { modes, notes: configNotes } = prelaunchModes(site);
-  const ctx = await prelaunchContext(root, { launch: isLaunch({ launch, env }) });
+  const ctx = { ...(await prelaunchContext(root, { launch: isLaunch({ launch, env }) })), env };
   // Nothing built is nothing checked, not a pass.
   if (![...ctx.built.values()].some(Boolean)) throw new Error(`no page of the site is built in ${resolve(root, 'dist')}: build it first (pnpm build or pnpm build:release)`);
   const dir = resolve(root, PRELAUNCH_DIR);
@@ -114,13 +115,14 @@ export async function prelaunch({ root = process.cwd(), launch = false, env = pr
     const mode = modes[id];
     const result = mode === 'off' ? { findings: [], notes: [] } : await CHECKS[id](ctx);
     const issues = result.findings.filter((finding) => finding.level === 'issue').length;
-    const status = mode === 'off' ? 'off' : result.status === 'pending' ? 'pending' : !issues ? 'passed' : mode === 'block' ? 'blocked' : 'reported';
+    // needs_local: a check that could not judge here (the conflict check with no result of this machine): never a pass.
+    const status = mode === 'off' ? 'off' : !issues ? 'passed' : mode === 'block' ? 'blocked' : result.status === 'needs_local' ? 'needs_local' : 'reported';
     const report = { schemaVersion: PRELAUNCH_SCHEMA, check: id, mode, status, checkedAt: now.toISOString(), launch: ctx.launch, issues, info: result.findings.length - issues, notes: [...configNotes.filter((note) => note.startsWith(`${id}:`)), ...(result.notes ?? [])], findings: result.findings };
     await writeJson(resolve(dir, `${id}.json`), report);
     await writeFile(resolve(dir, `${id}.md`), `${checkMarkdown(report)}\n`);
     checks.push(report);
   }
-  const status = checks.some((check) => check.status === 'blocked') ? 'blocked' : checks.some((check) => check.status === 'reported') ? 'reported' : 'passed';
+  const status = checks.some((check) => check.status === 'blocked') ? 'blocked' : checks.some((check) => ['reported', 'needs_local'].includes(check.status)) ? 'reported' : 'passed';
   const summary = { schemaVersion: PRELAUNCH_SCHEMA, status, checkedAt: now.toISOString(), launch: ctx.launch, checks: checks.map(({ check, mode, status: state, issues, info }) => ({ check, mode, status: state, issues, info, report: `${PRELAUNCH_DIR}/${check}.md` })) };
   await writeJson(resolve(dir, 'summary.json'), summary);
   await writeFile(resolve(dir, 'summary.md'), `${summaryMarkdown(summary, { site: ctx.identity?.siteName ?? '' })}\n`);
