@@ -1057,7 +1057,7 @@
   },
   {
     "slug": "what-is-a-tech-pack",
-    "status": "review",
+    "status": "published",
     "seo": {
       "title": "What Is a Tech Pack? A Swimwear Brand's Guide",
       "description": "Learn what a tech pack includes, how it differs from a sewing pattern, and how to review swimwear specifications, sample costs, and approvals."
@@ -1067,8 +1067,8 @@
       "A tech pack, short for technical package, is the instruction document a clothing manufacturer uses to develop and make a garment. It brings together drawings, materials, measurements, construction details and revisions so the brand and factory can work from the same specifications. See [UpHance's guide to creating a fashion tech pack](https://uphance.com/blog/how-to-create-fashion-tech-pack/).",
       "For a swimwear brand, the practical question is whether those instructions describe the suit you want well enough to quote, sample and approve. A beautiful sketch cannot settle how a lining behaves when wet or where a leg opening should sit. Those decisions need technical development and a physical sample."
     ],
-    "datePublished": "2026-11-17T21:15:53Z",
-    "dateModified": "2026-11-17T22:50:19Z",
+    "datePublished": "2026-11-18T02:51:55Z",
+    "dateModified": "2026-11-18T02:51:55Z",
     "author": {
       "type": "Organization"
     },
@@ -1544,6 +1544,19 @@
             "text": "A clothing tech pack is a set of annotated garment drawings, materials and measurement tables, construction details and revision pages. You can expect front and back flat drawings, plus close-ups of details such as lining attachments. See [Shopify's How To Create a Tech Pack To Send To Manufacturers](https://www.shopify.com/blog/how-to-create-a-tech-pack)."
           },
           {
+            "text": "The approved scoop-back pack runs to seven pages: a cover with the style code and revision, front and back flats, an inside view, the bill of materials with swatch references, the construction page, the S/M/L measurement sheet and the revision log. Laid beside the approved sample, each callout on the flats points to a feature you can find on the suit: the scoop depth on the back flat, the turned lining edge on the inside view, and the enclosed leg elastic named in the BOM."
+          },
+          {
+            "figure": {
+              "src": "/media/blog/what-is-a-tech-pack/V7-960.webp",
+              "srcset": "/media/blog/what-is-a-tech-pack/V7-480.webp 480w, /media/blog/what-is-a-tech-pack/V7-960.webp 960w, /media/blog/what-is-a-tech-pack/V7-1536.webp 1536w",
+              "alt": "The approved scoop-back sample beside its seven tech-pack pages",
+              "width": 960,
+              "height": 640,
+              "caption": "The approved pack beside the sample it produced"
+            }
+          },
+          {
             "text": "Read across the pages and follow each component from its drawing callout to the bill of materials (BOM), the assembly instruction and the sample check. Here's that route through our scoop-back pack:"
           },
           {
@@ -1576,7 +1589,30 @@
             "text": "The inside view shows the lining attachment, so you can compare it with the construction callout."
           },
           {
+            "figure": {
+              "src": "/media/blog/what-is-a-tech-pack/V6-960.webp",
+              "srcset": "/media/blog/what-is-a-tech-pack/V6-480.webp 480w, /media/blog/what-is-a-tech-pack/V6-960.webp 960w, /media/blog/what-is-a-tech-pack/V6-1536.webp 1536w",
+              "alt": "Navy scoop-back swimsuit turned inside out on a sample inspection form",
+              "width": 960,
+              "height": 640,
+              "caption": "The inside view reveals construction hidden from outside"
+            }
+          },
+          {
             "text": "Remember the document map from the start: the measurement sheet sits inside the full pack. It doesn't supply the materials, construction and revision information around it, as [Techpacker's What Is a Tech Pack? The Complete Fashion Guide](https://techpacker.com/blog/tech-packs/what-is-a-tech-pack/) explains. Include the separate cutting pattern in the handover. A sketch shaped like a pattern only explains the pieces, unless it has been developed and verified for cutting."
+          },
+          {
+            "text": "For the same scoop-back, the three files look different at a glance. The full pack is the seven-page PDF with drawings, materials, construction and revisions. The measurement spec sheet is one page of it: a table of points of measure, methods, S/M/L targets and tolerances, with no shapes to cut. The sewing pattern is the separate DXF file, whose pieces carry grain lines, notches and seam allowances and are what the cutting room uses."
+          },
+          {
+            "figure": {
+              "src": "/media/blog/what-is-a-tech-pack/V8-960.webp",
+              "srcset": "/media/blog/what-is-a-tech-pack/V8-480.webp 480w, /media/blog/what-is-a-tech-pack/V8-960.webp 960w, /media/blog/what-is-a-tech-pack/V8-1536.webp 1536w",
+              "alt": "A full tech pack, a measurement sheet and paper pattern pieces for the same swimsuit",
+              "width": 960,
+              "height": 640,
+              "caption": "Full pack, measurement sheet and pattern pieces for one style"
+            }
           },
           {
             "text": "Try this review exercise, which uses assumed entries for the same scoop-back style. Read the original entries before you check the answer key. The dimensions here are exercise inputs, not sizing rules."
@@ -1677,6 +1713,150 @@
     "geo": {
       "run": "D:/korey_seo/geo-blog-cli-1116/runs/strandmill-what-is-a-tech-pack",
       "keyword": "what is a tech pack"
+    },
+    "placeholders": [
+      {
+        "id": "R1",
+        "kind": "case",
+        "section": "What a tech pack tells your clothing manufacturer",
+        "needed": "Replace with a publishable intake and omission case, including sample records and correction evidence."
+      },
+      {
+        "id": "R2",
+        "kind": "case",
+        "section": "What should a tech pack include?",
+        "needed": "Supply actual BOM identifiers, trial observations and approved construction."
+      },
+      {
+        "id": "R25",
+        "kind": "case",
+        "section": "How much do tech packs cost?",
+        "needed": "Supply project records confirming garment count, sizes, artwork, delivered files and approval scope for both completed examples."
+      },
+      {
+        "id": "R26",
+        "kind": "case",
+        "section": "How much do tech packs cost?",
+        "needed": "Supply the dated quote, invoice, sample and shipment records, revision reasons and approval record for this completed project."
+      },
+      {
+        "id": "R27",
+        "kind": "case",
+        "section": "How much do tech packs cost?",
+        "needed": "Supply the dated quote, invoice, sample and shipment records, revision reasons and approval record for this completed project."
+      },
+      {
+        "id": "R28",
+        "kind": "case",
+        "section": "How much do tech packs cost?",
+        "needed": "Confirm the project comparison and unchanged design fee against the completed invoices."
+      },
+      {
+        "id": "R40",
+        "kind": "case",
+        "section": "How much do tech packs cost?",
+        "needed": "Supply the scoop-back correction and payment records establishing the omission, paid repeat cost and exclusion of the later coverage change."
+      },
+      {
+        "id": "R42",
+        "kind": "case",
+        "section": "How do I make my own tech pack?",
+        "needed": "Supply the scoop-back brief, annotated drawings, supplier-linked BOM, swatches and technician question log."
+      },
+      {
+        "id": "R43",
+        "kind": "test_result",
+        "section": "How do I make my own tech pack?",
+        "needed": "Supply strip dimensions, material identifiers, load and timing records, wet conditioning method and extension/recovery results."
+      },
+      {
+        "id": "R44",
+        "kind": "test_result",
+        "section": "How do I make my own tech pack?",
+        "needed": "Supply elastic trial lengths and overlap, sewing settings, approved measurement method and target, fit photographs and patternmaker approval."
+      },
+      {
+        "id": "R45",
+        "kind": "case",
+        "section": "How do I make my own tech pack?",
+        "needed": "Supply original and corrected lining pattern and construction pages, sample observations and the separate coverage request."
+      },
+      {
+        "id": "R51",
+        "kind": "case",
+        "section": "How do I make my own tech pack?",
+        "needed": "Supply participant background, preparation and correction time logs, review findings and the design-fee invoice for this brief."
+      },
+      {
+        "id": "R52",
+        "kind": "case",
+        "section": "What does a clothing tech pack look like?",
+        "needed": "Approved scoop-back pack and matching sample evidence verifying the component references, drawing details and inspection instructions."
+      },
+      {
+        "id": "R53",
+        "kind": "case",
+        "section": "What does a clothing tech pack look like?",
+        "needed": "Approved scoop-back pack and matching sample evidence verifying the component references, drawing details and inspection instructions."
+      },
+      {
+        "id": "R54",
+        "kind": "case",
+        "section": "What does a clothing tech pack look like?",
+        "needed": "Approved scoop-back pack and matching sample evidence verifying the component references, drawing details and inspection instructions."
+      },
+      {
+        "id": "R58",
+        "kind": "case",
+        "section": "What does a clothing tech pack look like?",
+        "needed": "Dated scoop-back development records, measured sample observations, revised pack fields and buyer approvals confirming this entry."
+      },
+      {
+        "id": "R59",
+        "kind": "case",
+        "section": "What does a clothing tech pack look like?",
+        "needed": "Dated scoop-back development records, measured sample observations, revised pack fields and buyer approvals confirming this entry."
+      },
+      {
+        "id": "R60",
+        "kind": "case",
+        "section": "What does a clothing tech pack look like?",
+        "needed": "Dated scoop-back development records, measured sample observations, revised pack fields and buyer approvals confirming this entry."
+      },
+      {
+        "id": "R61",
+        "kind": "case",
+        "section": "What does a clothing tech pack look like?",
+        "needed": "Dated scoop-back development records, measured sample observations, revised pack fields and buyer approvals confirming this entry."
+      },
+      {
+        "id": "R62",
+        "kind": "case",
+        "section": "What does a clothing tech pack look like?",
+        "needed": "Change log confirming that the coverage request followed and was separate from the lining correction."
+      },
+      {
+        "id": "R63",
+        "kind": "case",
+        "section": "What does a clothing tech pack look like?",
+        "needed": "Redacted page images of the approved scoop-back tech pack (all seven pages) photographed beside the approved sample, with each callout matched to the physical feature."
+      },
+      {
+        "id": "R64",
+        "kind": "case",
+        "section": "What does a clothing tech pack look like?",
+        "needed": "Redacted images of the scoop-back's full tech pack, its measurement spec sheet page and its DXF pattern pieces shown side by side, confirming the page count and file formats."
+      }
+    ],
+    "source": {
+      "tool": "geo-blog-research",
+      "run": "D:\\korey_seo\\geo-blog-cli-1116\\runs\\strandmill-what-is-a-tech-pack",
+      "article": "D:/korey_seo/geo-blog-cli-1116/runs/strandmill-what-is-a-tech-pack/06-article.natural.md",
+      "replacements": "D:/korey_seo/geo-blog-cli-1116/runs/strandmill-what-is-a-tech-pack/06-replacements.natural.json"
+    },
+    "review": {
+      "by": "ai-review",
+      "at": "2026-11-18T02:50:09.913Z"
     }
   }
 ]

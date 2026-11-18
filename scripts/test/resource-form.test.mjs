@@ -25,6 +25,14 @@ test('a promise of a file is told from a file format the visitor sends or a repo
   for (const text of ['Send your AI or PDF artwork.', 'You get a PDF report within 10 days.', 'Files arrive as a file download within 5 business days.', 'We send you PDF and spreadsheet reports.']) assert.equal(promiseIn(text), null, text);
   assert.deepEqual(resourcePromise({ id: 'site:resources_guides', pageType: 'general', blocks: [] }), { phrase: null }, 'the site tree\'s resources page');
   assert.equal(resourcePromise({ id: 'site:about', pageType: 'about', blocks: resources().slice(0, 1) }), null);
+  // A cited article's title is that site's words (site13 2026-11-18: a blog post citing "Fashion Tech Pack Template
+  // (Free Download + Checklist)" on another site promised the visitor nothing).
+  const cite = (text) => ({ id: 'blog:x', pageType: 'article', blocks: [{ id: 's', type: 'intro', paragraphs: [text] }] });
+  assert.equal(resourcePromise(cite("[AI Techpacks' Fashion Tech Pack Template (Free Download + Checklist)](https://aitechpacks.com/blog/fashion-tech-pack-template) says its files leave out charts.")), null);
+  assert.equal(resourcePromise({ id: 'blog:x', pageType: 'article', blocks: [{ id: 'src', type: 'sources', items: [{ title: "AI Techpacks' Fashion Tech Pack Template (Free Download + Checklist)", url: 'https://aitechpacks.com/blog/fashion-tech-pack-template' }] }] }), null, 'a source listed by its title and address');
+  assert.ok(resourcePromise({ id: 'x', pageType: 'general', blocks: [{ id: 'g', type: 'featureGrid', items: [{ heading: 'Download our free sizing guide', href: '/contact-us/' }] }] }), 'an entry linking on the site is copy');
+  assert.ok(resourcePromise(cite('[Download our free sizing guide](/contact-us/) today.')),'a link on the site is the own promise of the page');
+  assert.ok(resourcePromise(cite('Download our free sizing guide, as [Shopify](https://www.shopify.com/) suggests.')), 'the own words of the page around a citation still count');
 });
 
 test('the form names the resources the page lists, and posts to the enquiry endpoint with request_type=resource', async () => {

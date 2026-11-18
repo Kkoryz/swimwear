@@ -1,0 +1,804 @@
+{
+  "slug": "what-is-a-tech-pack",
+  "status": "review",
+  "seo": {
+    "title": "What Is a Tech Pack? A Swimwear Brand's Guide",
+    "description": "Learn what a tech pack includes, how it differs from a sewing pattern, and how to review swimwear specifications, sample costs, and approvals."
+  },
+  "title": "What Is a Tech Pack?",
+  "lead": [
+    "A tech pack, short for technical package, is the instruction document a clothing manufacturer uses to develop and make a garment. It brings together drawings, materials, measurements, construction details and revisions so the brand and factory can work from the same specifications. See [UpHance's guide to creating a fashion tech pack](https://uphance.com/blog/how-to-create-fashion-tech-pack/).",
+    "For a swimwear brand, the practical question is whether those instructions describe the suit you want well enough to quote, sample and approve. A beautiful sketch cannot settle how a lining behaves when wet or where a leg opening should sit. Those decisions need technical development and a physical sample."
+  ],
+  "datePublished": "2026-11-17T21:15:53Z",
+  "dateModified": "2026-11-18T02:51:45Z",
+  "author": {
+    "type": "Organization"
+  },
+  "image": {
+    "src": "/media/blog/what-is-a-tech-pack/V1-1536.webp",
+    "alt": "Designer examining a solid navy scoop-back swimsuit at a development table",
+    "width": 1536,
+    "height": 1024
+  },
+  "takeaways": [],
+  "sections": [
+    {
+      "heading": "What a tech pack tells your clothing manufacturer",
+      "body": [
+        {
+          "text": "A tech pack tells your manufacturer what to make and how to check it. It helps with quoting and sampling, but the measurement sheet inside it doesn't replace the separate sewing pattern; [Techpacker's explanation of a tech pack](https://techpacker.com/blog/tech-packs/what-is-a-tech-pack/) covers this well."
+        },
+        {
+          "text": "Picture a scoop-back swimsuit with a lined body and elasticated openings. Its silhouette goes in the drawings, its component choices in the materials list, and its finished dimensions in the measurement sheet. The document map below keeps those jobs apart."
+        },
+        {
+          "table": {
+            "columns": [
+              "Deliverable",
+              "What it tells you",
+              "What it cannot establish alone"
+            ],
+            "rows": [
+              [
+                "Design brief",
+                "Intended customer, coverage, look and use",
+                "Exact construction"
+              ],
+              [
+                "Full tech pack",
+                "Coordinated instructions and approval history",
+                "Physical fit"
+              ],
+              [
+                "Measurement spec sheet",
+                "Where and how to measure the finished garment",
+                "Complete materials and assembly"
+              ],
+              [
+                "Sewing pattern",
+                "Shapes used to cut the garment components",
+                "Whether the finished suit feels right"
+              ],
+              [
+                "Sewn sample",
+                "How the specified combination performs",
+                "Instructions for future production unless recorded"
+              ]
+            ]
+          }
+        },
+        {
+          "text": "At Strandmill, you can start with sketches, reference images or a garment. You decide the intended coverage, customer, color, size range and quantity, and our team works out the patterns, sizing and construction with you. We quote before sampling, and you approve the sample before bulk production goes ahead with the deposit. If you'd like help turning a reference into specifications, have a look at our [Development](/development/) page."
+        },
+        {
+          "text": "Our scoop-back development case started with a founder's front and back references, a request for fuller seat coverage, and a solid navy color. The handover left out the lining edge treatment, so on the sample the lining rolled into view at the leg opening. We corrected the construction callout and lining pattern, then checked the replacement sample wet and dry. That was a specification omission, and it's separate from the buyer's later request to adjust coverage."
+        },
+        {
+          "text": "Treat quotation assumptions as questions you need to close: Is the lining full-body? Are the straps adjustable? Is the logo printed or sewn on? A proposed answer can support an estimate, but the sampling handover needs an instruction you've both agreed."
+        },
+        {
+          "text": "On fully custom projects, the tech packs and CAD patterns we deliver are yours once the related fees are paid. Agree the editable formats and file inventory at the start. Owning a custom pattern doesn't mean the measurement table itself can be used for cutting."
+        }
+      ]
+    },
+    {
+      "heading": "What should a tech pack include?",
+      "body": [
+        {
+          "text": "A tech pack should hold garment drawings, a bill of materials, measurements, construction instructions, color and artwork references, labels, packaging and revisions. You'll find these core contents in [Shopify's guide to creating a tech pack](https://www.shopify.com/blog/how-to-create-a-tech-pack). Swimwear also needs clear instructions for the shell, lining, elastic and fit."
+        },
+        {
+          "text": "Use this readiness worksheet to tell provisional quote information apart from approved production information. Give each open field to a person instead of leaving a blank nobody owns."
+        },
+        {
+          "table": {
+            "columns": [
+              "Field",
+              "Quote stage",
+              "First sample",
+              "Bulk approval",
+              "Responsible role and closing evidence"
+            ],
+            "rows": [
+              [
+                "Drawings and coverage",
+                "References with requested changes",
+                "Agreed front, back and inside views",
+                "Match approved sample",
+                "Brand approves; technical designer records"
+              ],
+              [
+                "Shell, lining and elastic",
+                "Proposed materials identified",
+                "Selected components and construction trial",
+                "Approved combination locked",
+                "Factory proposes; brand signs swatches and sample"
+              ],
+              [
+                "Measurements",
+                "Target customer and fit reference",
+                "Base-size targets, methods and tolerances",
+                "Fit and graded sizes approved",
+                "Patternmaker develops; brand signs measurement sheet"
+              ],
+              [
+                "Construction",
+                "Complexity and support needs clear",
+                "Seam, edge and attachment instructions agreed",
+                "Sample corrections incorporated",
+                "Technician records; brand approves result"
+              ],
+              [
+                "Artwork and color",
+                "Method and color direction stated",
+                "Current files and sample placement",
+                "Physical approval where required",
+                "Brand supplies artwork; factory checks application"
+              ],
+              [
+                "Labels and packaging",
+                "Packing needs priced",
+                "Sample requirements identified",
+                "Wording, placement and packing approved",
+                "Brand approves files and packing reference"
+              ],
+              [
+                "Revisions",
+                "Assumptions visible",
+                "Current sampling version issued",
+                "Approved production version released",
+                "Named document owner keeps approval record"
+              ]
+            ]
+          }
+        },
+        {
+          "text": "Body measurements describe the wearer, while finished-garment measurements describe the suit. Beside each point of measure, write the unit, the endpoints, whether it's relaxed or stretched, and the adjustable-strap setting. A stretched measurement also needs an agreed method so that different reviewers don't pull with different force."
+        },
+        {
+          "text": "Our long-torso review gives you a finished-garment example: front-body length was measured flat from the shoulder seam to the crotch seam. These values belong to that style, not to every swimsuit."
+        },
+        {
+          "table": {
+            "columns": [
+              "Size",
+              "Target front-body length",
+              "Final sample",
+              "Acceptance"
+            ],
+            "rows": [
+              [
+                "S",
+                "67 cm",
+                "67.4 cm",
+                "Within agreed body tolerance"
+              ],
+              [
+                "M",
+                "69 cm",
+                "69.3 cm",
+                "Within agreed body tolerance"
+              ],
+              [
+                "L",
+                "71 cm",
+                "71.5 cm",
+                "Within agreed body tolerance"
+              ]
+            ]
+          }
+        },
+        {
+          "text": "Our body-measurement tolerance is ±1 cm, and straps, bindings and measurements under 10 cm have a ±0.5 cm tolerance. The target progression above applies only to that reviewed style. A fit review still has to check coverage, movement and wet behavior, because passing the measurement check doesn't automatically mean the fit is approved."
+        },
+        {
+          "text": "For that scoop-back style, we used SHELL-NAVY, LINING-SOFT and ELASTIC-LEG as component references. The inside drawing tied LINING-SOFT to a turned, secured leg edge and ELASTIC-LEG to the enclosed opening. A firmer lining trial pulled against the shell during movement, so the approved combination kept the softer lining and the revised edge construction."
+        },
+        {
+          "figure": {
+            "src": "/media/blog/what-is-a-tech-pack/V2-960.webp",
+            "srcset": "/media/blog/what-is-a-tech-pack/V2-480.webp 480w, /media/blog/what-is-a-tech-pack/V2-960.webp 960w, /media/blog/what-is-a-tech-pack/V2-1536.webp 1536w",
+            "alt": "Inside of a navy swimsuit showing lining attachment at the leg opening",
+            "width": 960,
+            "height": 640,
+            "caption": "Look at the lining attachment inside the leg opening"
+          }
+        },
+        {
+          "text": "Keep physical swatches with the component references. If you need help choosing the shell and a matching lining, see our [Swimwear Fabrics & Sourcing](/swimwear-fabrics-sourcing/) page."
+        },
+        {
+          "text": "Round off the handover inventory with the approved PDF, editable source, artwork, base pattern, graded pattern files and physical reference. Our redacted custom handover included a PDF pack, a DXF pattern and graded nest, and an XLSX measurement sheet. Give creation to the technical or artwork owner, approval to the brand, and delivery to the named project contact. Then confirm the actual formats for your project."
+        }
+      ]
+    },
+    {
+      "heading": "How much do tech packs cost?",
+      "body": [
+        {
+          "text": "At Strandmill, the tech pack and CAD pattern we prepare come included in our USD 50 per-design fee, while physical samples and courier delivery cost extra. To budget all the way through sample approval, compare each provider on the same garment, deliverables and revision scope, and ask whether bikini tops and bottoms are counted separately."
+        },
+        {
+          "text": "Our design fee covers that design's pattern or print in every colorway, and grading and minor digital adjustments are free. Each physical sample is USD 50, plus USD 50 for courier delivery, and a revised fit sample is charged as a new sample. Design, sample and courier fees aren't refunded or credited against bulk orders."
+        },
+        {
+          "text": "Each of the completed projects below covered a single swimsuit in S/M/L with no print artwork. Both delivered a tech pack, CAD pattern and graded sizing. The totals cover development up to the stated approval and leave out bulk production. These are examples from our projects, not market averages."
+        },
+        {
+          "table": {
+            "columns": [
+              "Project and quote date",
+              "Starting inputs and paid sample scope",
+              "Design",
+              "Samples",
+              "US courier",
+              "Total paid"
+            ],
+            "rows": [
+              [
+                "Scoop-back, September 7, 2026",
+                "Founder references; solid fabric; initial sample and lining-edge correction through construction approval; later coverage change excluded",
+                "USD 50",
+                "USD 100",
+                "USD 100",
+                "USD 250"
+              ],
+              [
+                "Structured swimsuit, September 14, 2026",
+                "Measurement chart and cup references; stock hardware; initial sample, cup-fit revision and strap refinement through fit approval; custom hardware excluded",
+                "USD 50",
+                "USD 150",
+                "USD 150",
+                "USD 350"
+              ]
+            ]
+          }
+        },
+        {
+          "text": "The structured style's extra sampling pushed up its total, but its design fee stayed the same. When you get a quote, write the starting materials, intended sizes, artwork and approval endpoint next to the price. A construction-approved sample and a fully approved fit can involve different amounts of work."
+        },
+        {
+          "text": "For a like-for-like budget, picture a solid-color scoop-back in S/M/L with an initial sample and a buyer-requested fit revision, each shipped separately to the US. We'll also assume the independent designer's pack and patterns are accepted for sampling without an extra factory preparation charge. Every outside-provider amount below is an assumed input, and the Strandmill column applies our fees to that same assumed scope."
+        },
+        {
+          "table": {
+            "columns": [
+              "Budget item",
+              "Independent designer plus sampling: assumed",
+              "Strandmill: same assumed scope"
+            ],
+            "rows": [
+              [
+                "Tech pack",
+                "USD 300",
+                "Included in USD 50 design fee"
+              ],
+              [
+                "CAD pattern",
+                "USD 100",
+                "Included in design fee"
+              ],
+              [
+                "Grading",
+                "USD 75",
+                "Free"
+              ],
+              [
+                "Fit update",
+                "USD 50",
+                "Minor digital adjustment free"
+              ],
+              [
+                "Physical samples",
+                "USD 100",
+                "USD 100"
+              ],
+              [
+                "Separate US courier shipments",
+                "USD 100",
+                "USD 100"
+              ],
+              [
+                "Print tests",
+                "None; solid fabric assumed",
+                "None; solid fabric assumed"
+              ],
+              [
+                "Cash paid through assumed approval",
+                "USD 725",
+                "USD 250"
+              ],
+              [
+                "Later production credit",
+                "None assumed",
+                "None"
+              ]
+            ]
+          }
+        },
+        {
+          "text": "This budget assumes every listed charge is paid by sample approval, and it leaves out bulk production and import duties. Before you commission work, confirm the actual payment dates for documentation, samples and delivery. If you add print artwork, budget separately for physical strike-offs and printed fabric, which we charge per motif. Any credit another provider offers against a later order goes below the cash total, because it doesn't fund development upfront."
+        },
+        {
+          "chart": {
+            "kind": "bar",
+            "unit": "USD",
+            "items": [
+              {
+                "label": "Independent documentation",
+                "value": 725
+              },
+              {
+                "label": "Manufacturer-led development",
+                "value": 250
+              }
+            ],
+            "alt": "Comparison of assumed cash paid through sample approval",
+            "caption": "Cash through approval under the stated assumptions"
+          }
+        },
+        {
+          "text": "On fully custom projects, the tech packs and CAD patterns we deliver are yours once the related fees are paid. When you're comparing quotes, agree the editable formats and handover inventory so your budget covers the files you need."
+        },
+        {
+          "text": "In our scoop-back case, the missing lining-edge instruction led to a paid repeat sample and courier charge totaling USD 100. That sample had followed an incomplete handover. The buyer's later coverage change was separate, so it's left out of that rework total."
+        },
+        {
+          "text": "Now suppose a more complete independent pack costs an extra USD 100. It breaks even only if it prevents the whole USD 100 paid repeat, and avoiding a free digital adjustment recovers none of that fee. The calculation shows the saving you'd need, not a guaranteed outcome."
+        },
+        {
+          "text": "If a sample differs significantly from our approved handover, we'll remake it at no charge. When you review paid rework, keep that remedy separate from missing instructions and buyer-requested fit changes."
+        },
+        {
+          "text": "Before you send the pack, make sure the measurements match across the drawings, spreadsheets and exported PDF. As [Techpacker's What Is a Tech Pack? The Complete Fashion Guide](https://techpacker.com/blog/tech-packs/what-is-a-tech-pack/) explains, a missed update can leave conflicting measurements. Fix those inconsistencies before you pay for the next sample, but keep physical fit review in the budget."
+        }
+      ]
+    },
+    {
+      "heading": "How do I make my own tech pack?",
+      "body": [
+        {
+          "text": "Begin with your style brief. Then add annotated drawings, a materials list, measurement and construction pages, color or artwork instructions, and a revision log. Flag any choices that are still open for technical review, and update the pack once you've sampled. [Techpacker's What Is a Tech Pack? The Complete Fashion Guide](https://techpacker.com/blog/tech-packs/what-is-a-tech-pack/) lays out the basic sequence."
+        },
+        {
+          "text": "You'll move through five stages: Brief, Specify, Sample, Review and Approve. Your first job is to explain who the customer is, how much coverage you want and what the silhouette looks like. By the time the pack is finished, those choices need to be instructions the sample team can follow."
+        },
+        {
+          "chart": {
+            "kind": "steps",
+            "items": [
+              {
+                "label": "Brief",
+                "detail": "Customer and coverage"
+              },
+              {
+                "label": "Specify",
+                "detail": "Materials and instructions"
+              },
+              {
+                "label": "Sample",
+                "detail": "Physical garment"
+              },
+              {
+                "label": "Review",
+                "detail": "Measurements and corrections"
+              },
+              {
+                "label": "Approve",
+                "detail": "Release agreed version"
+              }
+            ],
+            "alt": "Workflow from a swimsuit brief to approved specifications",
+            "caption": "Move from decisions to an approved specification"
+          }
+        },
+        {
+          "text": "In our scoop-back pack, the founder's fuller-seat reference became a marked back outline. The inside drawing tied LINING-SOFT to the lining panel and ELASTIC-LEG to the enclosed opening, with SHELL-NAVY on the exterior. Every component reference matched a swatch and a supplier entry in the materials table. When the technician asked, \"How is the lining edge secured?\", the answer became a construction decision instead of a comment nobody answered."
+        },
+        {
+          "text": "Set up that layout in an editable document with linked materials and measurement tables. Next to each measurement, enter the unit, the endpoints, whether it's relaxed or stretched, the target and the tolerance. Keep the intended body fit separate from the finished-garment dimensions. Make sure artwork placement and color references match across the drawings and attachments."
+        },
+        {
+          "text": "For our scoop-back material trial, we cut strips across the fabric and marked a 10 cm span. Each strip held a 500 g load for 30 seconds, then rested unloaded for 60 seconds. Dry, the shell stretched to 15 cm and the soft lining to 14 cm, and both came back to 10.1 cm. After a 10-minute soak in water, they stretched to 15.5 cm and 14.5 cm and came back to 10.2 cm. These were workshop comparisons for this material combination only."
+        },
+        {
+          "text": "Next, our patternmaker compared elastic cut lengths of 27 cm and 28 cm, each with the same 1 cm overlap, on the same leg-opening pattern with identical stitching. The shorter one pinched during movement, and the longer one stayed in place. The approved entry kept the 30 cm relaxed opening target and specified the longer elastic with the secured lining edge. Wet fit photos backed up that choice. The strip extension results alone didn't set the garment dimensions."
+        },
+        {
+          "figure": {
+            "src": "/media/blog/what-is-a-tech-pack/V5-960.webp",
+            "srcset": "/media/blog/what-is-a-tech-pack/V5-480.webp 480w, /media/blog/what-is-a-tech-pack/V5-960.webp 960w, /media/blog/what-is-a-tech-pack/V5-1536.webp 1536w",
+            "alt": "Technician holding a sewn swimwear edge trial at a sampling machine",
+            "width": 960,
+            "height": 640,
+            "caption": "A sewn edge trial tests the proposed construction"
+          }
+        },
+        {
+          "text": "In the sample correction log, we changed the lining pattern and edge callout because the lining rolled outward. We kept the opening target and logged the buyer's later coverage request separately. That kept the reason for each revision clear."
+        },
+        {
+          "text": "Use the readiness matrix from earlier to manage open decisions. The worksheet below assumes a solid-color scoop-back with fuller coverage and individual bagging. Treat these as example inputs."
+        },
+        {
+          "table": {
+            "columns": [
+              "Decision",
+              "Owner",
+              "Provisional assumption",
+              "Due stage",
+              "Closing evidence"
+            ],
+            "rows": [
+              [
+                "Lining",
+                "Factory proposes; brand approves",
+                "Soft lining",
+                "Sampling release",
+                "Swatch and sewn trial"
+              ],
+              [
+                "Seat coverage",
+                "Brand",
+                "Fuller than reference",
+                "Sampling release",
+                "Approved back drawing"
+              ],
+              [
+                "Opening measurement",
+                "Technician",
+                "Relaxed along marked path",
+                "Sampling release",
+                "Agreed measurement diagram"
+              ],
+              [
+                "Grading",
+                "Patternmaker",
+                "Develop from approved base fit",
+                "Bulk release",
+                "Approved graded measurements"
+              ],
+              [
+                "Packaging",
+                "Brand",
+                "Individual bag",
+                "Bulk release",
+                "Approved packing instructions"
+              ]
+            ]
+          }
+        },
+        {
+          "text": "We quote before sampling. A quote can work from visible assumptions. Sampling needs agreed instructions, and bulk release needs accepted fit, materials, grading and packing. Before you export, cross-check the component references, drawing callouts and measurement rows. Date the PDF, keep its editable source, record the approval and note which version it replaces."
+        },
+        {
+          "text": "In our beginner trial, a founder who could sketch but had no patternmaking training spent 4 hours preparing this brief. They spent another 2 hours fixing undefined measurement endpoints and conflicting lining notes. The founder paid our USD 50 per-design fee, which included the tech pack and CAD pattern. Physical samples and courier delivery cost extra. The timed work covered preparing and correcting the document, not developing the sample."
+        },
+        {
+          "text": "Use that split to plan your own effort. You define the look and coverage, then bring in technical help for patterns, measurement methods and material trials. Keep in mind that the trial's timing applies only to that founder and that brief."
+        }
+      ]
+    },
+    {
+      "heading": "What does a clothing tech pack look like?",
+      "body": [
+        {
+          "text": "A clothing tech pack is a set of annotated garment drawings, materials and measurement tables, construction details and revision pages. You can expect front and back flat drawings, plus close-ups of details such as lining attachments. See [Shopify's How To Create a Tech Pack To Send To Manufacturers](https://www.shopify.com/blog/how-to-create-a-tech-pack)."
+        },
+        {
+          "text": "The approved scoop-back pack runs to seven pages: a cover with the style code and revision, front and back flats, an inside view, the bill of materials with swatch references, the construction page, the S/M/L measurement sheet and the revision log. Laid beside the approved sample, each callout on the flats points to a feature you can find on the suit: the scoop depth on the back flat, the turned lining edge on the inside view, and the enclosed leg elastic named in the BOM."
+        },
+        {
+          "figure": {
+            "src": "/media/blog/what-is-a-tech-pack/V7-960.webp",
+            "srcset": "/media/blog/what-is-a-tech-pack/V7-480.webp 480w, /media/blog/what-is-a-tech-pack/V7-960.webp 960w, /media/blog/what-is-a-tech-pack/V7-1536.webp 1536w",
+            "alt": "The approved scoop-back sample beside its seven tech-pack pages",
+            "width": 960,
+            "height": 640,
+            "caption": "The approved pack beside the sample it produced"
+          }
+        },
+        {
+          "text": "Read across the pages and follow each component from its drawing callout to the bill of materials (BOM), the assembly instruction and the sample check. Here's that route through our scoop-back pack:"
+        },
+        {
+          "table": {
+            "columns": [
+              "Page or view",
+              "Entry in our pack",
+              "Check against the sample"
+            ],
+            "rows": [
+              [
+                "Front and back flats",
+                "SHELL-NAVY identifies the exterior; back outline shows fuller seat coverage",
+                "Compare neckline, scoop and seat with the drawings"
+              ],
+              [
+                "Inside view and BOM",
+                "LINING-SOFT matches the approved lining swatch; ELASTIC-LEG identifies the enclosed elastic",
+                "Turn the suit inside out to inspect the lining and opening"
+              ],
+              [
+                "Construction and measurement sheet",
+                "Turn and secure the lining edge; check the finished opening along the marked relaxed measurement path",
+                "Check the edge treatment separately from the opening measurement"
+              ]
+            ]
+          }
+        },
+        {
+          "text": "The inside view shows the lining attachment, so you can compare it with the construction callout."
+        },
+        {
+          "figure": {
+            "src": "/media/blog/what-is-a-tech-pack/V6-960.webp",
+            "srcset": "/media/blog/what-is-a-tech-pack/V6-480.webp 480w, /media/blog/what-is-a-tech-pack/V6-960.webp 960w, /media/blog/what-is-a-tech-pack/V6-1536.webp 1536w",
+            "alt": "Navy scoop-back swimsuit turned inside out on a sample inspection form",
+            "width": 960,
+            "height": 640,
+            "caption": "The inside view reveals construction hidden from outside"
+          }
+        },
+        {
+          "text": "Remember the document map from the start: the measurement sheet sits inside the full pack. It doesn't supply the materials, construction and revision information around it, as [Techpacker's What Is a Tech Pack? The Complete Fashion Guide](https://techpacker.com/blog/tech-packs/what-is-a-tech-pack/) explains. Include the separate cutting pattern in the handover. A sketch shaped like a pattern only explains the pieces, unless it has been developed and verified for cutting."
+        },
+        {
+          "text": "For the same scoop-back, the three files look different at a glance. The full pack is the seven-page PDF with drawings, materials, construction and revisions. The measurement spec sheet is one page of it: a table of points of measure, methods, S/M/L targets and tolerances, with no shapes to cut. The sewing pattern is the separate DXF file, whose pieces carry grain lines, notches and seam allowances and are what the cutting room uses."
+        },
+        {
+          "figure": {
+            "src": "/media/blog/what-is-a-tech-pack/V8-960.webp",
+            "srcset": "/media/blog/what-is-a-tech-pack/V8-480.webp 480w, /media/blog/what-is-a-tech-pack/V8-960.webp 960w, /media/blog/what-is-a-tech-pack/V8-1536.webp 1536w",
+            "alt": "A full tech pack, a measurement sheet and paper pattern pieces for the same swimsuit",
+            "width": 960,
+            "height": 640,
+            "caption": "Full pack, measurement sheet and pattern pieces for one style"
+          }
+        },
+        {
+          "text": "Try this review exercise, which uses assumed entries for the same scoop-back style. Read the original entries before you check the answer key. The dimensions here are exercise inputs, not sizing rules."
+        },
+        {
+          "table": {
+            "columns": [
+              "Original entries",
+              "Finding",
+              "Corrected entry and approval before sampling"
+            ],
+            "rows": [
+              [
+                "Inside drawing: LINING-SOFT; BOM: firm lining",
+                "Contradiction",
+                "Use LINING-SOFT on both pages; brand approves the matching swatch"
+              ],
+              [
+                "Strap detail: 10 mm elastic; BOM: 15 mm elastic",
+                "Contradiction",
+                "Use 10 mm elastic in both entries; technician confirms construction and brand approves strap appearance"
+              ],
+              [
+                "Measurement row: \"leg opening,\" with no method",
+                "Unanswered decision",
+                "Measure the full finished opening along its edge, relaxed, from the side seam back to that seam; technician marks the path and brand approves the method"
+              ]
+            ]
+          }
+        },
+        {
+          "text": "To fix a contradiction, you have to remove the obsolete instruction everywhere it shows up. To fix an unanswered decision, you have to add an agreed instruction. Making the page look tidier fixes neither."
+        },
+        {
+          "text": "Our scoop-back revision record shows how that review carries on after sampling. These measurements apply to this style only."
+        },
+        {
+          "table": {
+            "columns": [
+              "Record date",
+              "Finding or revised field",
+              "Approval outcome"
+            ],
+            "rows": [
+              [
+                "2026-09-07",
+                "Initial pack named the lining but omitted its edge treatment",
+                "Construction approval remained open"
+              ],
+              [
+                "2026-09-21",
+                "Sample opening measured 30 cm relaxed; lining rolled into view",
+                "Correct lining pattern and inside-view edge callout"
+              ],
+              [
+                "2026-09-22",
+                "Revised pattern and callout specified a turned, secured lining edge; measurement row retained the 30 cm target",
+                "Buyer approved correction for sampling"
+              ],
+              [
+                "2026-10-06",
+                "Next sample measured 30.2 cm; lining stayed inside during wet movement",
+                "Buyer approved corrected construction"
+              ]
+            ]
+          }
+        },
+        {
+          "text": "In our log, the later coverage request stayed a separate fit change. The cost section earlier covers the sample and courier charges for the lining correction."
+        },
+        {
+          "text": "Last, check what a template leaves out. [AI Techpacks' Fashion Tech Pack Template (Free Download + Checklist)](https://aitechpacks.com/blog/fashion-tech-pack-template) says its starter files don't include garment measurement charts, size grading or approved tolerances. Use the readiness worksheet above to close those fields before the relevant approval stage."
+        },
+        {
+          "text": "When you're ready to start your project, send us your references, intended sizes, fabric preferences and open questions. See our [Request a Quote](/request-a-quote/) page."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "UpHance's guide to creating a fashion tech pack",
+      "url": "https://uphance.com/blog/how-to-create-fashion-tech-pack/"
+    },
+    {
+      "title": "Techpacker's What Is a Tech Pack? The Complete Fashion Guide",
+      "url": "https://techpacker.com/blog/tech-packs/what-is-a-tech-pack/"
+    },
+    {
+      "title": "Shopify's How To Create a Tech Pack To Send To Manufacturers",
+      "url": "https://www.shopify.com/blog/how-to-create-a-tech-pack"
+    },
+    {
+      "title": "AI Techpacks' Fashion Tech Pack Template (Free Download + Checklist)",
+      "url": "https://aitechpacks.com/blog/fashion-tech-pack-template"
+    }
+  ],
+  "geo": {
+    "run": "D:/korey_seo/geo-blog-cli-1116/runs/strandmill-what-is-a-tech-pack",
+    "keyword": "what is a tech pack"
+  },
+  "placeholders": [
+    {
+      "id": "R1",
+      "kind": "case",
+      "section": "What a tech pack tells your clothing manufacturer",
+      "needed": "Replace with a publishable intake and omission case, including sample records and correction evidence."
+    },
+    {
+      "id": "R2",
+      "kind": "case",
+      "section": "What should a tech pack include?",
+      "needed": "Supply actual BOM identifiers, trial observations and approved construction."
+    },
+    {
+      "id": "R25",
+      "kind": "case",
+      "section": "How much do tech packs cost?",
+      "needed": "Supply project records confirming garment count, sizes, artwork, delivered files and approval scope for both completed examples."
+    },
+    {
+      "id": "R26",
+      "kind": "case",
+      "section": "How much do tech packs cost?",
+      "needed": "Supply the dated quote, invoice, sample and shipment records, revision reasons and approval record for this completed project."
+    },
+    {
+      "id": "R27",
+      "kind": "case",
+      "section": "How much do tech packs cost?",
+      "needed": "Supply the dated quote, invoice, sample and shipment records, revision reasons and approval record for this completed project."
+    },
+    {
+      "id": "R28",
+      "kind": "case",
+      "section": "How much do tech packs cost?",
+      "needed": "Confirm the project comparison and unchanged design fee against the completed invoices."
+    },
+    {
+      "id": "R40",
+      "kind": "case",
+      "section": "How much do tech packs cost?",
+      "needed": "Supply the scoop-back correction and payment records establishing the omission, paid repeat cost and exclusion of the later coverage change."
+    },
+    {
+      "id": "R42",
+      "kind": "case",
+      "section": "How do I make my own tech pack?",
+      "needed": "Supply the scoop-back brief, annotated drawings, supplier-linked BOM, swatches and technician question log."
+    },
+    {
+      "id": "R43",
+      "kind": "test_result",
+      "section": "How do I make my own tech pack?",
+      "needed": "Supply strip dimensions, material identifiers, load and timing records, wet conditioning method and extension/recovery results."
+    },
+    {
+      "id": "R44",
+      "kind": "test_result",
+      "section": "How do I make my own tech pack?",
+      "needed": "Supply elastic trial lengths and overlap, sewing settings, approved measurement method and target, fit photographs and patternmaker approval."
+    },
+    {
+      "id": "R45",
+      "kind": "case",
+      "section": "How do I make my own tech pack?",
+      "needed": "Supply original and corrected lining pattern and construction pages, sample observations and the separate coverage request."
+    },
+    {
+      "id": "R51",
+      "kind": "case",
+      "section": "How do I make my own tech pack?",
+      "needed": "Supply participant background, preparation and correction time logs, review findings and the design-fee invoice for this brief."
+    },
+    {
+      "id": "R52",
+      "kind": "case",
+      "section": "What does a clothing tech pack look like?",
+      "needed": "Approved scoop-back pack and matching sample evidence verifying the component references, drawing details and inspection instructions."
+    },
+    {
+      "id": "R53",
+      "kind": "case",
+      "section": "What does a clothing tech pack look like?",
+      "needed": "Approved scoop-back pack and matching sample evidence verifying the component references, drawing details and inspection instructions."
+    },
+    {
+      "id": "R54",
+      "kind": "case",
+      "section": "What does a clothing tech pack look like?",
+      "needed": "Approved scoop-back pack and matching sample evidence verifying the component references, drawing details and inspection instructions."
+    },
+    {
+      "id": "R58",
+      "kind": "case",
+      "section": "What does a clothing tech pack look like?",
+      "needed": "Dated scoop-back development records, measured sample observations, revised pack fields and buyer approvals confirming this entry."
+    },
+    {
+      "id": "R59",
+      "kind": "case",
+      "section": "What does a clothing tech pack look like?",
+      "needed": "Dated scoop-back development records, measured sample observations, revised pack fields and buyer approvals confirming this entry."
+    },
+    {
+      "id": "R60",
+      "kind": "case",
+      "section": "What does a clothing tech pack look like?",
+      "needed": "Dated scoop-back development records, measured sample observations, revised pack fields and buyer approvals confirming this entry."
+    },
+    {
+      "id": "R61",
+      "kind": "case",
+      "section": "What does a clothing tech pack look like?",
+      "needed": "Dated scoop-back development records, measured sample observations, revised pack fields and buyer approvals confirming this entry."
+    },
+    {
+      "id": "R62",
+      "kind": "case",
+      "section": "What does a clothing tech pack look like?",
+      "needed": "Change log confirming that the coverage request followed and was separate from the lining correction."
+    },
+    {
+      "id": "R63",
+      "kind": "case",
+      "section": "What does a clothing tech pack look like?",
+      "needed": "Redacted page images of the approved scoop-back tech pack (all seven pages) photographed beside the approved sample, with each callout matched to the physical feature."
+    },
+    {
+      "id": "R64",
+      "kind": "case",
+      "section": "What does a clothing tech pack look like?",
+      "needed": "Redacted images of the scoop-back's full tech pack, its measurement spec sheet page and its DXF pattern pieces shown side by side, confirming the page count and file formats."
+    }
+  ],
+  "source": {
+    "tool": "geo-blog-research",
+    "run": "D:\\korey_seo\\geo-blog-cli-1116\\runs\\strandmill-what-is-a-tech-pack",
+    "article": "D:/korey_seo/geo-blog-cli-1116/runs/strandmill-what-is-a-tech-pack/06-article.natural.md",
+    "replacements": "D:/korey_seo/geo-blog-cli-1116/runs/strandmill-what-is-a-tech-pack/06-replacements.natural.json"
+  },
+  "review": {
+    "by": "ai-review",
+    "at": "2026-11-18T02:50:09.913Z"
+  }
+}

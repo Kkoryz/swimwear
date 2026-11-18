@@ -370,7 +370,8 @@ export function builtPromiseProblems(pages, built) {
   return pages.filter((page) => isIndexable(page) && page.pageType !== 'privacy' && built.get(page.route)).flatMap((page) => {
     const main = regions(built.get(page.route)).main;
     if (/<form\b[^>]*\sdata-request="resource"/.test(main) || [...main.matchAll(/<a\b[^>]*\shref="([^"]+)"/g)].some((match) => isFileHref(match[1]))) return [];
-    const phrase = promiseIn(plain(main.replace(/<form\b[\s\S]*?<\/form>/g, ' ')));
+    // A link to another site is a citation: its words are that site's (lib/resource-promise.mjs withoutCitations).
+    const phrase = promiseIn(plain(main.replace(/<form\b[\s\S]*?<\/form>/g, ' ').replace(/<a\b[^>]*\shref="https?:\/\/[^"]*"[^>]*>[\s\S]*?<\/a>/gi, ' ')));
     return phrase || isResourcePage(page) ? [error(page.route, 'promise_without_asset', `${phrase ? `"${phrase}"` : 'the resources page'} with no file link and no resource request form: link the file (the owner's), or let the page ask for it`)] : [];
   });
 }

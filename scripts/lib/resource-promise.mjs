@@ -30,6 +30,10 @@ export const RESOURCE_PAGE_NAMES = Object.freeze(['resources_guides', 'resources
 // Pages whose copy is legal text (privacy, terms): "download your data" there is no promise of a file.
 const LEGAL_PAGE_TYPES = Object.freeze(['privacy']);
 
+// A text without the words of the links it cites on other sites: a cited article's title is that site's words, no
+// promise of this page (site13 2026-11-18: a blog post citing "Fashion Tech Pack Template (Free Download + Checklist)").
+export const withoutCitations = (text) => String(text ?? '').replace(/\[[^\]]*\]\(https?:\/\/[^)\s]*\)/gi, ' ');
+
 // The words of a promise in a text, a few words either side, or null.
 export function promiseIn(text) {
   const match = PROMISE.exec(String(text ?? ''));
@@ -41,13 +45,16 @@ export function promiseIn(text) {
 
 // Keys whose strings are not copy a visitor reads.
 const NOT_COPY = new Set(['id', 'type', 'variant', 'href', 'src', 'srcset', 'url', 'route', 'canonical', 'sourceSectionIds', 'photoCandidates', 'media', 'factId', 'anchor', 'name', 'kind', 'autocomplete', 'endpoint', 'status', 'honeypot', 'privacyRoute', 'request', 'requestType']);
-// Every string of copy a page's data holds (hero and blocks), in order.
-export function pageStrings(page) {
+// An entry that points at another site (a post's source: { title, url: "https://…" }).
+const citesElsewhere = (value) => [value.url, value.href].some((link) => typeof link === 'string' && /^https?:\/\//i.test(link));
+// Every string of copy a page's data holds (hero and blocks), in order; citations: false leaves out the entries that
+// point at another site, whose words are that site's.
+export function pageStrings(page, { citations = true } = {}) {
   const found = [];
   const walk = (value, key = null) => {
     if (typeof value === 'string') { if (!NOT_COPY.has(key)) found.push(value); return; }
     if (Array.isArray(value)) { value.forEach((item) => walk(item, key)); return; }
-    if (value && typeof value === 'object') for (const [name, item] of Object.entries(value)) walk(item, name);
+    if (value && typeof value === 'object' && !(citations === false && citesElsewhere(value))) for (const [name, item] of Object.entries(value)) walk(item, name);
   };
   walk(page.hero);
   walk((page.blocks ?? []).filter((block) => block.type !== 'form'));
@@ -67,7 +74,7 @@ export const isResourcePage = (page) => RESOURCE_PAGE_NAMES.includes(treeName(pa
 export function resourcePromise(page) {
   if (LEGAL_PAGE_TYPES.includes(page.pageType ?? page.page_type)) return null;
   if (copyFileLinks(page).length) return null;
-  const phrase = pageStrings(page).map(promiseIn).find(Boolean);
+  const phrase = pageStrings(page, { citations: false }).map((text) => promiseIn(withoutCitations(text))).find(Boolean);
   if (phrase) return { phrase };
   return isResourcePage(page) ? { phrase: null } : null;
 }

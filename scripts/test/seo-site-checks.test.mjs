@@ -162,6 +162,7 @@ test('a built page promising a file shows a file link or the resource request fo
   assert.deepEqual(issues(builtPromiseProblems([page('/guides/')], built(promise))), ['error promise_without_asset /guides/']);
   assert.deepEqual(builtPromiseProblems([page('/guides/')], built(`${promise}<form class="form-block__form" data-request="resource"></form>`)), []);
   assert.deepEqual(builtPromiseProblems([page('/guides/')], built(`${promise}<a href="/files/sizing.pdf">Sizing guide (PDF)</a>`)), []);
+  assert.deepEqual(builtPromiseProblems([page('/guides/')], built('<p>See <a href="https://aitechpacks.com/blog/t">Fashion Tech Pack Template (Free Download + Checklist)</a>.</p>')), [], 'the title of a cited article on another site is no promise');
   assert.deepEqual(issues(builtPromiseProblems([page('/resources/', { id: 'site:resources_guides' })], new Map([['/resources/', html({ main: '<p>Our guides.</p><form data-form-status="not-connected"></form>' })]]))), ['error promise_without_asset /resources/'], 'the enquiry form is no resource request form');
 });
 

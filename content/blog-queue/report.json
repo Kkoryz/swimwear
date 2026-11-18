@@ -1,13 +1,14 @@
 {
-  "at": "2026-11-17T22:46:31.348Z",
+  "at": "2026-11-18T02:51:55.018Z",
   "published": 1,
   "report": [
     {
-      "file": "cost-to-start-clothing-line.json",
-      "slug": "cost-to-start-clothing-line",
+      "file": "what-is-a-tech-pack.json",
+      "slug": "what-is-a-tech-pack",
       "failures": [],
       "warnings": [
-        "the opening answer is 68 words (aim for at most 60)"
+        "22 placeholder(s) still the writer's stand-in for our own claim: R1 (case), R2 (case), R25 (case), R26 (case), R27 (case), R28 (case), R40 (case), R42 (case), R43 (test_result), R44 (test_result), R45 (case), R51 (case), R52 (case), R53 (case), R54 (case), R58 (case), R59 (case), R60 (case), R61 (case), R62 (case), R63 (case), R64 (case)",
+        "the opening answer is 101 words (aim for at most 60)"
       ]
     }
   ]

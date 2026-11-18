@@ -2526,7 +2526,7 @@
       "key": "sources:default",
       "type": "sources",
       "variant": null,
-      "uses": 2,
+      "uses": 3,
       "names": [
         "sources"
       ],
@@ -2534,31 +2534,31 @@
       "samples": [
         {
           "role": "longest",
-          "route": "/blog/which-is-better-oem-odm/",
+          "route": "/blog/what-is-a-tech-pack/",
           "pageType": "blog_post",
           "blockId": "sources",
           "splitIndex": 0,
-          "words": 34,
+          "words": 55,
           "slots": 0,
           "block": {
             "id": "sources",
             "type": "sources",
             "items": [
               {
-                "title": "SEACOMP's manufacturing comparison",
-                "url": "https://www.seacomp.com/resources/oem-vs-odm-manufacturing"
+                "title": "UpHance's guide to creating a fashion tech pack",
+                "url": "https://uphance.com/blog/how-to-create-fashion-tech-pack/"
               },
               {
-                "title": "Brightpearl's OEM vs ODM guide",
-                "url": "https://www.brightpearl.com/blog/oem-vs-odm-explained"
+                "title": "Techpacker's What Is a Tech Pack? The Complete Fashion Guide",
+                "url": "https://techpacker.com/blog/tech-packs/what-is-a-tech-pack/"
               },
               {
-                "title": "JLCCNC's OEM vs ODM comparison",
-                "url": "https://jlccnc.com/blog/oem-vs-odm"
+                "title": "Shopify's How To Create a Tech Pack To Send To Manufacturers",
+                "url": "https://www.shopify.com/blog/how-to-create-a-tech-pack"
               },
               {
-                "title": "inFlow's OEM vs ODM guide",
-                "url": "https://www.inflowinventory.com/blog/difference-between-oem-vs-odm/"
+                "title": "AI Techpacks' Fashion Tech Pack Template (Free Download + Checklist)",
+                "url": "https://aitechpacks.com/blog/fashion-tech-pack-template"
               }
             ]
           }
