@@ -18,6 +18,9 @@ test('a module repeated more times in a row than the competitor does is found; t
   const page = ['a', 'b', 'c', 'd', 'e'].map((id) => ({ id, type: 'splitMedia' }));
   assert.deepEqual(repeatedModules(page, reference), [{ type: 'splitMedia', length: 5, allowed: 3, blocks: ['a', 'b', 'c', 'd', 'e'] }]);
   assert.deepEqual(repeatedModules(page.slice(0, 3), reference), []);
+  const faqPage = [{ id: 'intro', type: 'intro' }, ...['f1', 'f2', 'f3', 'f4'].map((id) => ({ id, type: 'faq' })), { id: 'cta', type: 'cta' }];
+  assert.deepEqual(repeatedModules(faqPage, {}), [], "an FAQ page's topics one after another are its content");
+  assert.deepEqual(repeatedModules([...faqPage.slice(1, 4), ...page], {}).map((run) => run.type), ['faq', 'splitMedia'], 'FAQ sections that are not most of the page still count, as the split run does');
   // Six rows where the competitor shows two at most: every third becomes a centred text section, copy unchanged.
   const varied = varyLongRuns(['a', 'b', 'c', 'd', 'e', 'f'].map(split), 2);
   assert.deepEqual(varied.map((block) => block.type), ['splitMedia', 'splitMedia', 'intro', 'splitMedia', 'splitMedia', 'intro']);
@@ -31,6 +34,10 @@ test('a module repeated more times in a row than the competitor does is found; t
   const goesOn = [{ id: 'a', type: 'intro' }, { id: 'b', type: 'intro' }, ...['b~2', 'b~3', 'b~4'].map((id) => ({ id, type: 'intro', continues: 'b' }))];
   assert.deepEqual(repeatedModules(goesOn, {}), []);
   assert.equal(repeatedModules([...goesOn, { id: 'c', type: 'intro' }], {}).length, 1, 'three sections in a row still are three');
+  // A card set laid out as a list (pattern bullets) is a list between two card grids, not a third grid (aloha 2026-11-17).
+  const cards = [{ id: 'g1', type: 'featureGrid', pattern: 'media' }, { id: 'm2', type: 'featureGrid', pattern: 'bullets' }, { id: 'g3', type: 'featureGrid', pattern: 'media' }];
+  assert.deepEqual(repeatedModules(cards, {}), []);
+  assert.equal(repeatedModules(cards.map((block) => ({ ...block, pattern: 'media' })), {}).length, 1);
   // Photo rows placed between the blocks of one section are not a run of photo rows: the section shows between them.
   const broken = [{ id: 'b', type: 'intro' }, ...['b~2', 'b~3', 'b~4'].flatMap((id, index) => [{ id: `g${index}`, type: 'gallery' }, { id, type: 'intro', continues: 'b' }])];
   assert.deepEqual(repeatedModules(broken, {}), []);
@@ -161,7 +168,7 @@ test('logos take the site\'s variant, a page type\'s own first; the contract kno
   assert.deepEqual(BLOCK_VARIANTS.certifications, ['grid', 'strip']);
 });
 
-test('controls smaller than 24 pixels are reported once per block and size, as warnings', async () => {
+test('controls smaller than 24 pixels are reported once per block and size (no position: no spacing exception)', async () => {
   const { smallTargets } = await import('../lib/visual-checks.mjs');
   const targets = [{ block: 'footer', text: 'FAQ', width: 30, height: 18 }, { block: 'footer', text: 'Blog', width: 30, height: 18 }, { block: 'hero', text: 'Get a quote', width: 160, height: 48 }];
   assert.deepEqual(smallTargets(targets).map((target) => target.text), ['FAQ']);

@@ -359,6 +359,17 @@
           "default": {},
           "title": "Held Mentions",
           "type": "object"
+        },
+        "data_practices": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DataPractices"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
         }
       },
       "required": [
@@ -581,6 +592,16 @@
         "publisher": {
           "title": "Publisher",
           "type": "string"
+        },
+        "retrieved": {
+          "default": "",
+          "title": "Retrieved",
+          "type": "string"
+        },
+        "quote": {
+          "default": "",
+          "title": "Quote",
+          "type": "string"
         }
       },
       "required": [
@@ -671,6 +692,69 @@
         }
       },
       "title": "Contact",
+      "type": "object"
+    },
+    "DataPracticeRow": {
+      "additionalProperties": false,
+      "description": "One thing the site collects, in the collection contract's three columns (08's config/site-collection.json, copied\nbyte for byte to domain/site-collection.json): what, what is recorded, why.",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "what": {
+          "title": "What",
+          "type": "string"
+        },
+        "recorded": {
+          "title": "Recorded",
+          "type": "string"
+        },
+        "why": {
+          "title": "Why",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "what",
+        "recorded",
+        "why"
+      ],
+      "title": "DataPracticeRow",
+      "type": "object"
+    },
+    "DataPractices": {
+      "additionalProperties": false,
+      "description": "The privacy page's table of what the site collects (自查自修方案 11-17 §3.4): the collection items the site has\non, word for word the contract's, put in by code and never by a model; how long enquiries are kept and whom to ask,\nthe project's `privacy` (an empty retention: none stated). 08 renders it and checks the rows against its own\nconfiguration.",
+      "properties": {
+        "rows": {
+          "items": {
+            "$ref": "#/$defs/DataPracticeRow"
+          },
+          "title": "Rows",
+          "type": "array"
+        },
+        "retention": {
+          "default": "",
+          "title": "Retention",
+          "type": "string"
+        },
+        "contact": {
+          "default": "",
+          "title": "Contact",
+          "type": "string"
+        },
+        "placeholder": {
+          "default": true,
+          "title": "Placeholder",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "rows"
+      ],
+      "title": "DataPractices",
       "type": "object"
     },
     "DensityStandard": {
@@ -767,6 +851,14 @@
             "type": "string"
           },
           "title": "Mentions",
+          "type": "array"
+        },
+        "sources": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/CitedSource"
+          },
+          "title": "Sources",
           "type": "array"
         }
       },

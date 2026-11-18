@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { PAGE_LEAD, TRUST_BAR, tintedSections, tintStyle } from '../lib/section-surfaces.mjs';
+import { TRUST_BAR, tintedSections, tintStyle } from '../lib/section-surfaces.mjs';
 
 const block = (id, type) => ({ id, type });
 
@@ -27,7 +27,7 @@ test('the last of a run stays white before a band of its own, so two grey bands 
 
 test('the style tints each section across the page and turns its grey cards white', () => {
   assert.equal(tintStyle(new Set()), '');
-  assert.match(tintStyle(new Set(['b'])), /main \[data-block-id="b"\] \{ background: var\(--section-tint\); --surface-secondary: var\(--surface-primary\); --sticky-surface: var\(--section-tint\); \}/);
+  assert.match(tintStyle(new Set(['b'])), /main \[data-block-id="b"\] \{ background: var\(--section-tint\); --surface-secondary: var\(--surface-primary\); --sticky-surface: var\(--section-tint\); --table-ground: var\(--section-tint\); \}/);
 });
 
 test('a section going on in blocks of its own keeps one surface and does not count in the alternation', () => {
@@ -76,13 +76,19 @@ test('steps going on from a split row with a photo are a plain section of the ne
   assert.deepEqual([...tintedSections(blocks, (item) => (item.id === 'p' ? 'photo-cards' : undefined))], ['s-steps']);
 });
 
-test("the hero's lead opened under the hero is the run's first plain section, so the section after it is tinted (motel's contact page)", () => {
-  const blocks = [{ id: 'overview', type: 'prose' }, { id: 'grid', type: 'featureGrid' }, { id: 'faq', type: 'faq' }];
-  assert.deepEqual([...tintedSections(blocks)], ['grid']);
-  assert.deepEqual([...tintedSections([PAGE_LEAD, ...blocks])], ['overview', 'faq']);
-});
-
 test('a split row with its photo and the enquiry form alternate like plain sections; the closing call still parts the page (motel 2026-11-14)', () => {
   const blocks = [{ id: 'grid', type: 'featureGrid' }, { id: 'split', type: 'splitMedia' }, { id: 'related', type: 'relatedPages' }, { id: 'faq', type: 'faq' }, { id: 'form', type: 'form' }, { id: 'channels', type: 'contactChannels' }, { id: 'cta', type: 'cta' }];
   assert.deepEqual([...tintedSections(blocks, (item) => (item.id === 'split' ? 'panel' : undefined))], ['split', 'faq', 'channels']);
+});
+
+test("a section's later parts, each after the steps of the part before, keep its surface and the steps between them alternate with it (aloha 2026-11-17: /custom-labels-hang-tags/)", () => {
+  // One section in four split rows (the first plain, the rest going on from it with its surface), the steps of rows 2-4
+  // after each row: the steps between two of its rows meet both, so they take the other surface.
+  const split = (id, continues = null) => ({ id, type: 'splitMedia', continues });
+  const steps = (id, continues) => ({ id, type: 'process', continues });
+  const blocks = [block('overview', 'text'), split('s1'), split('s2', 's1'), steps('s2-steps', 's2'), split('s3', 's1'), steps('s3-steps', 's3'), split('s4', 's1'), steps('s4-steps', 's4'), block('owner-testimonials', 'testimonials'), block('related', 'relatedPages'), block('faq', 'faq'), { id: 'cta', type: 'cta' }];
+  const variant = (item) => (item.id === 's1' ? 'single' : undefined);
+  const tinted = tintedSections(blocks, variant);
+  const order = blocks.map((item) => (tinted.has(item.id) ? 'T' : 'W'));
+  assert.deepEqual(order, ['W', 'T', 'T', 'W', 'T', 'W', 'T', 'W', 'T', 'W', 'T', 'W']);
 });

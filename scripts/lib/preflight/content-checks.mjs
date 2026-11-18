@@ -1,7 +1,9 @@
 // Preflight checks on the content: Site Factory's record and holds, the owner's sign-off, placeholders.
 import { placeholderProperties } from '../review-markup.mjs';
+import { sitePeople } from '../site-people.mjs';
 import { PLACEHOLDER_BLOCKS, placeholderRoutes } from '../site-proof.mjs';
 import { found } from './findings.mjs';
+import { hasLaunchReason } from './owner-pack-checks.mjs';
 
 export const CONTENT_CHECKS = [
   // A record a check depends on that is missing holds the release; it never reads as "nothing to report".
@@ -24,7 +26,11 @@ export const CONTENT_CHECKS = [
   // Placeholder prices, reviews or ratings in structured data (Site Factory structuredDataPlaceholders): no sign-off
   // releases them; only real values do.
   { code: 'placeholder_structured_data', level: 'hold', run: (ctx) => found('structured data with placeholder prices, reviews or ratings (Site Factory structured_data_placeholders): real values are needed, no sign-off releases them', ctx.pages.flatMap((page) => placeholderProperties(page).map((property) => `${page.route} ${property}`))) },
-  { code: 'owner_signoff_pending', level: 'hold', run: (ctx) => (ctx.signoff?.items || []).filter((entry) => entry.status !== 'confirmed' && !PLACEHOLDER_BLOCKS.some((block) => block.signoff === entry.id)).map((item) => ({ detail: `${item.id}: ${item.description}`, items: item.factId ? (ctx.imported?.pages || []).filter((page) => (page.citedFacts || []).includes(item.factId)).map((page) => page.route) : item.pageId ? ctx.pages.filter((page) => page.id === item.pageId).map((page) => `${page.route}${item.sectionId ? ` ${item.sectionId}` : ''}`) : [] })) },
+  // An item Site Factory gave a launch reason (scope_unconfirmed, needs_owner_number) holds under that code instead.
+  { code: 'owner_signoff_pending', level: 'hold', run: (ctx) => (ctx.signoff?.items || []).filter((entry) => entry.status !== 'confirmed' && !PLACEHOLDER_BLOCKS.some((block) => block.signoff === entry.id) && !hasLaunchReason(entry)).map((item) => ({ detail: `${item.id}: ${item.description}`, items: item.factId ? (ctx.imported?.pages || []).filter((page) => (page.citedFacts || []).includes(item.factId)).map((page) => page.route) : item.pageId ? ctx.pages.filter((page) => page.id === item.pageId).map((page) => `${page.route}${item.sectionId ? ` ${item.sectionId}` : ''}`) : [] })) },
+  // Named people (four-site audit 2026-11-17): the owner may name nobody, so a site without them is a notice, never a
+  // hold; stand-in people hold through their sign-off item (proof-team) like every stand-in.
+  { code: 'people_missing', level: 'notice', run: (ctx) => !sitePeople(ctx.pages) && { detail: 'no named people on the site (src/data/site-proof.json team: the about page\'s team section, the blog\'s author): allowed, but it lowers E-E-A-T and GEO (who stands behind the site, who wrote its articles)' } },
   // Pages still holding placeholder copy (noindex, not in the sitemap).
   { code: 'placeholder_page_present', level: 'hold', run: (ctx) => found('pages still show placeholder copy and are noindex', ctx.pages.filter((page) => page.status === 'placeholder').map((page) => page.route)) },
   // Articles built for review (blog-posts.json status review, e.g. imported by blog:geo): published only through the

@@ -1,3 +1,0 @@
-```json
-{"figures": [{"value": "50 pieces", "label": "Minimum per style colour"}, {"value": "10 to 15 days", "label": "Sample time"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "5 inch, 7 inch or 9 inch", "label": "Classic trunk inseams"}, {"value": "3 inch", "label": "Retro trunk inseam"}, {"value": "S to 3XL", "label": "Standard size range"}]}
-```

@@ -1,15 +1,21 @@
 ---
 import { cardSet, cardSetColumns } from '../../../scripts/lib/block-layout.mjs';
-import { bandLink, withMediaModules } from '../../../scripts/lib/media-slots.mjs';
-import { headingFitVars, leadBelowHero, wrapEmFor } from '../../../scripts/lib/heading-fit.mjs';
-import { PAGE_LEAD, TRUST_BAR, tintedSections, tintStyle } from '../../../scripts/lib/section-surfaces.mjs';
+import { bandLink, markFirstViewportImage, withMediaModules } from '../../../scripts/lib/media-slots.mjs';
+import { headingFitVars, wrapEmFor } from '../../../scripts/lib/heading-fit.mjs';
+import { TRUST_BAR, tintedSections, tintStyle } from '../../../scripts/lib/section-surfaces.mjs';
 import { trustBarContent } from '../../../scripts/lib/site-trust.mjs';
-import { blockVariant, isBuilt, pageFigures, pageHero, pageMedia, siteTrust, variants, type AuthoringPage } from '../../lib/authoring';
+import { shownUpdated } from '../../../scripts/lib/page-dates.mjs';
+import { PAGE_TOC, TOC_HEADING, pageToc } from '../../../scripts/lib/page-toc.mjs';
+import { pageReviewer } from '../../../scripts/lib/site-people.mjs';
+import { linkStandards } from '../../../scripts/lib/standard-links.mjs';
+import { figureChart } from '../../../scripts/lib/figure-charts.mjs';
+import { blockVariant, isBuilt, pageDates, pageFigures, pageHero, pageMedia, people, siteTrust, variants, type AuthoringPage, type ProseChart } from '../../lib/authoring';
+import PostDate from '../blog/PostDate.astro';
 import Breadcrumbs from '../site/Breadcrumbs.astro';
 import TrustBar from '../site/TrustBar.astro';
-import InlineText from '../blog/InlineText.astro';
 import PageHero from './PageHero.astro';
 import SectionChart from './SectionChart.astro';
+import ArticleChart from '../blog/ArticleChart.astro';
 import { dataVisuals } from '../../lib/authoring';
 import { BLOCKS, type BlockEntry } from './registry';
 
@@ -17,41 +23,50 @@ interface Props { page: AuthoringPage }
 const { page } = Astro.props;
 
 // The reference's photo walls join the authored blocks (media-slots.mjs withMediaModules; the image plan counts them too).
-const blocks = withMediaModules(page, variants, { isBuilt }) as AuthoringPage['blocks'];
+// Each standard the copy names links to its standard body's page at its first mention (lib/standard-links.mjs; no word
+// changes).
+const blocks = linkStandards(withMediaModules(page, variants, { isBuilt })) as AuthoringPage['blocks'];
 // Each block's pattern variant: split rows follow the reference page's split sequence (splitIndex: their place in it).
 let splits = 0;
 // A card set going on in grids of its own (continues) keeps one card width: every grid of the set takes the widest
 // grid's column count (scripts/lib/block-layout.mjs cardSetColumns, shared with the layout plan).
 const setColumns = cardSetColumns(blocks);
+// A long page's table of contents (lib/page-toc.mjs): each section it lists takes its block's id as its anchor.
+const toc = pageToc(page, blocks);
+const anchored = new Set(toc.map((entry) => entry.anchor));
 const resolved = blocks.map((block, index) => {
   const splitIndex = block.type === 'splitMedia' ? splits++ : 0;
   const columns = block.type === 'featureGrid' ? setColumns.get(cardSet(block)) : undefined;
   // A photo band with a button leads to the page the section before it links to (media-slots.mjs bandLink).
   const link = block.type === 'gallery' && block.action ? bandLink(blocks, index, page.route) : null;
-  const shown = columns ? { ...block, setColumns: columns } : link ? { ...block, bandLink: link } : block;
+  const own = columns ? { ...block, setColumns: columns } : link ? { ...block, bandLink: link } : block;
+  const shown = anchored.has(block.id) ? { ...own, anchor: block.id } : own;
   return { block: shown, splitIndex, variant: blockVariant(block, page.pageType, splitIndex) };
 });
 
 // Media slots are a template decision: content media wins, template media (with its origin label) fills the rest,
 // chosen for the whole site by section topic and product category (null: this position shows no photo).
 const plan = pageMedia(page.route);
-// Without a hero photo, the page's first image may sit in the first viewport: it loads eagerly.
-if (!pageHero(page).showsImage) {
-  const first = plan.flat().find((media) => media && !media.slot);
-  if (first) plan.forEach((list) => list.forEach((media, index) => { if (media === first) list[index] = { ...media, priority: true }; }));
-}
+// Without a hero photo, the first section's first image may sit in the first viewport: it loads eagerly; every other
+// image is lazy (media-slots.mjs markFirstViewportImage; site13 claude-seo audit 2026-11-17, L-5).
+if (!pageHero(page).showsImage) markFirstViewportImage(plan);
 // A closing button that points at this page leads to the page's own enquiry form instead.
-const formId = blocks.find((block) => block.type === 'form')?.id ?? null;
+const formId = blocks.find((block) => block.type === 'form' && block.request !== 'resource')?.id ?? null;
 // The title's phone line width in ems (heading-fit), for the section headings' cap on a phone (template.css).
 const titleFit = headingFitVars(page.hero.heading, { charEm: wrapEmFor(variants.heroText) });
-// A photo hero's lead much longer than the competitor's opens the page under the hero, word for word (heading-fit.mjs).
-const heroVariant = pageHero(page).variant;
-const leadBelow = leadBelowHero(page, heroVariant, variants);
 // Neighbouring plain sections alternate white and tinted (lib/section-surfaces.mjs), a section's charts with it.
 const variantOf = new Map(resolved.map(({ block, variant }) => [block.id, variant]));
 // The trust bar, when it shows, is the first section of the first run (TRUST_BAR).
 const trustShown = (({ items, certifications }) => items.length > 0 || certifications.length > 0)(trustBarContent(page, pageFigures, siteTrust));
-const tintCss = tintStyle(new Set([...tintedSections([...(trustShown ? [TRUST_BAR] : []), ...(leadBelow ? [PAGE_LEAD] : []), ...resolved.map(({ block }) => block)], (block) => variantOf.get(block.id))].flatMap((id) => [id, `${id}-charts`])));
+const tintCss = tintStyle(new Set([...tintedSections([...(trustShown ? [TRUST_BAR] : []), ...(toc.length ? [PAGE_TOC] : []), ...resolved.map(({ block }) => block)], (block) => variantOf.get(block.id))].flatMap((id) => [id, `${id}-charts`])), { secondaryInk: variants.secondaryInk === true });
+// A content page says when its content last changed (lib/page-dates.mjs shownUpdated, the sitemap's lastmod).
+const updated = shownUpdated(page, pageDates);
+// A product or service page names the person of the team who reviews its subject (lib/site-people.mjs pageReviewer),
+// linked to their place on the team section; its page node states them as reviewedBy (lib/seo-head.mjs).
+const reviewer = pageReviewer(page, people);
+// The page's lead times from its own data (its figures, its order terms, the trust figures it states), drawn on one
+// scale after the section that states them (lib/figure-charts.mjs; four-site audit 2026-11-17, Fable's plan G8).
+const timeChart = figureChart(page, page.blocks, { figures: pageFigures?.[page.route] ?? [], trust: siteTrust });
 const mainStyle = titleFit ? `--title-ems-phone: ${titleFit['--fit-ems-phone']}; --title-min-phone: ${titleFit['--fit-min-phone']}` : undefined;
 ---
 
@@ -61,17 +76,18 @@ const mainStyle = titleFit ? `--title-ems-phone: ${titleFit['--fit-ems-phone']};
   <PageHero page={page} />
   {variants.breadcrumbs === 'after-hero' && <Breadcrumbs page={page} />}
   <TrustBar page={page} />
-  {leadBelow && (
-    <section class="block block--page-lead" data-authoring-block="page-lead" data-block-id="page-lead">
-      <div class="container">{page.hero.lead!.map((paragraph) => <p class="page-lead"><InlineText text={paragraph} /></p>)}</div>
-    </section>
+  {toc.length > 0 && (
+    <nav class="block block--page-toc" aria-labelledby="page-toc-title" data-authoring-block="page-toc" data-block-id={PAGE_TOC.id}>
+      <div class="container"><div class="page-toc"><p class="page-toc__title" id="page-toc-title">{TOC_HEADING}</p><ol>{toc.map((entry) => <li><a href={`#${entry.anchor}`}>{entry.heading}</a></li>)}</ol></div></div>
+    </nav>
   )}
   {resolved.map(({ block, variant, splitIndex }, index) => {
     // Each block type's component from the registry (registry.ts), with the props it takes from this page.
     const { component: Component, props }: BlockEntry = BLOCKS[block.type as keyof typeof BLOCKS];
     // A section's data drawn after its text (a split row draws it in its photo's place; the closing band's before it).
     const charts = block.type === 'splitMedia' ? [] : dataVisuals(block);
-    const drawn = charts.length > 0 && <div class="block block--charts" data-authoring-block="charts" data-block-id={`${block.id}-charts`}><div class="container section-charts">{charts.map((visual) => <SectionChart visual={visual} />)}</div></div>;
+    const times = timeChart?.after === block.id ? (timeChart.chart as ProseChart) : null;
+    const drawn = (charts.length > 0 || times) && <div class="block block--charts" data-authoring-block="charts" data-block-id={`${block.id}-charts`}><div class="container section-charts">{charts.map((visual) => <SectionChart visual={visual} />)}{times && <ArticleChart chart={times} />}</div></div>;
     return (
       <>
         {block.type === 'cta' && drawn}
@@ -80,4 +96,11 @@ const mainStyle = titleFit ? `--title-ems-phone: ${titleFit['--fit-ems-phone']};
       </>
     );
   })}
+  {(reviewer || updated) && (
+    <p class="container page-updated">
+      {reviewer && <span class="page-reviewer">Reviewed by <a href={reviewer.href}>{reviewer.name}</a>, {reviewer.role}</span>}
+      {reviewer && updated && <span aria-hidden="true"> · </span>}
+      {updated && <PostDate value={updated} label="Last updated" />}
+    </p>
+  )}
 </main>

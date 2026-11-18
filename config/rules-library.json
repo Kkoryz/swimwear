@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "seo-site-rules-library-v1",
+  "note": "The local Google rules library (RAGFlow in Docker Desktop's WSL VM, about 9 GB) runs only while a claude-seo audit needs it, then stops and gives the memory back to Windows (owner 2026-11-17: 就是内存得释放). scripts/lib/rules-library.mjs reads this file; {LOCALAPPDATA} and {HOME} are the user's folders. lockDir is shared by every site's pipeline on this machine. timeouts are milliseconds.",
+  "mcpUrl": "http://127.0.0.1:9382/mcp",
+  "docker": "{LOCALAPPDATA}/Programs/DockerDesktop/resources/bin/docker.exe",
+  "dockerDesktop": "{LOCALAPPDATA}/Programs/DockerDesktop/Docker Desktop.exe",
+  "wsl": "wsl.exe",
+  "taskkill": "taskkill.exe",
+  "dockerProcesses": ["Docker Desktop.exe", "com.docker.backend.exe", "docker-desktop.exe"],
+  "compose": { "project": "google-search-knowledge", "file": "D:/korey_seo/google-search-knowledge/ragflow/docker-compose.yml", "profiles": ["elasticsearch", "cpu", "metadata-mysql", "tei-cpu", "mcp"], "profilesNote": "every profile the library runs: its .env COMPOSE_PROFILES (elasticsearch, cpu, metadata-mysql, tei-cpu) and mcp; a --profile on the command line replaces COMPOSE_PROFILES, so with mcp alone compose up never started elasticsearch, mysql, ragflow or tei (2026-11-18: stopped by hand, they stayed down and an audit waited about 20 minutes)" },
+  "staleDirs": ["{LOCALAPPDATA}/Docker/run", "{LOCALAPPDATA}/docker-secrets-engine"],
+  "backendLog": "{LOCALAPPDATA}/Docker/log/host/com.docker.backend.exe.log",
+  "staleSocketPattern": "stale|[.]sock.*(exist|in use|denied|refused|failed|remove|cannot be accessed)|only one usage of each socket address",
+  "wslNoneRunningPattern": "no running distributions|没有正在运行的分发",
+  "watchPorts": [9382, 9380],
+  "lockDir": "{HOME}/.seo-site-template/rules-library",
+  "timeouts": { "dockerReadyMs": 240000, "composeMs": 600000, "mcpReadyMs": 600000, "commandMs": 60000, "stopMs": 180000, "pollMs": 3000, "transitionWaitMs": 1800000 }
+}

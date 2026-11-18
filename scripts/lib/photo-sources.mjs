@@ -14,7 +14,7 @@ const sizesOf = (web) => [web.src, ...(web.srcset ?? '').split(', ').map((source
 // (src) -> { source: 'library' | 'site' | 'competitor' | null, kind } from the image plan and src/data/site-media.json.
 export function photoSources({ plan = null, siteMedia = null } = {}) {
   const bySrc = new Map();
-  for (const entry of plan?.entries ?? []) if (entry.web) for (const src of sizesOf(entry.web)) bySrc.set(src, { source: 'library', kind: entry.kind, id: entry.id });
+  for (const entry of plan?.entries ?? []) if (entry.web) for (const src of sizesOf(entry.web)) bySrc.set(src, { source: 'library', kind: entry.kind, id: entry.id, ...(entry.photoClass ? { photoClass: entry.photoClass } : {}) });
   for (const photo of siteMedia?.photos ?? []) for (const src of sizesOf(photo)) bySrc.set(src, { source: 'site', kind: photo.class, file: photo.sourceFile });
   return (src) => bySrc.get(src) ?? { source: src?.includes('/media/reference/') ? 'competitor' : null, kind: src?.match(/\/media\/reference\/(hero|product|process|material|lifestyle|portrait)-/)?.[1] ?? null };
 }
@@ -27,5 +27,7 @@ export function realPhotoSrcs(siteMedia, realFiles = []) {
 }
 
 // A photo in a class a visitor reads as real (the factory, staff, a client's face) that is not the owner's real photo:
-// the handoff asks for a real one.
-export const standInForReal = (photo, src, realSrcs) => REAL_ONLY_KINDS.includes(photo.kind) && !realSrcs.has(src);
+// the handoff asks for a real one. So does every photo of the factory-process class the image plan gave it (a
+// section's photo of sewing or inspection made as a product photo; lib/photo-class.mjs, owner 2026-11-17: process
+// photos go on the 必须实拍替换 list).
+export const standInForReal = (photo, src, realSrcs) => (REAL_ONLY_KINDS.includes(photo.kind) || photo.photoClass === 'process') && !realSrcs.has(src);

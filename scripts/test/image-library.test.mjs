@@ -193,12 +193,27 @@ test("each photo gets its own colour and model; factory scenes are not staged wi
   assert.equal(taken.filter((text) => text === 'close').length, 30, 'three of four photos take the framing three of four references use');
 });
 
-test('the library review sends back every look-alike after the first, repeated people, wrong colours and factory scenes', async () => {
+test('the library review sends back a look-alike on the same page, wrong colours and factory scenes; never the same model', async () => {
   const { reviewRejections } = await import('../review-image-library.mjs');
   const entries = ['a', 'b', 'c', 'd', 'e'].map((id) => ({ id, colour: 'navy' }));
   const rejected = reviewRejections({ lookAlike: [{ photos: [1, 3], reason: 'same wall and pose' }], samePerson: [{ photos: [2, 4] }], wrongColour: [{ photo: 5, seen: 'teal' }], factoryScene: [] }, entries);
-  assert.deepEqual([...rejected.keys()].sort(), ['c', 'd', 'e']);
+  assert.deepEqual([...rejected.keys()].sort(), ['c', 'e'], 'the same model is never sent back (owner 2026-11-17)');
   assert.match(rejected.get('c'), /looks like photo 1/);
+  // A look-alike on another page than the photo it looks like stays (owner 2026-11-17).
+  const pages = { a: ['/x/'], b: ['/y/'], c: ['/z/'], d: ['/x/'], e: ['/y/'] };
+  const apart = reviewRejections({ lookAlike: [{ photos: [1, 3] }, { photos: [1, 4] }] }, entries, { pagesOf: (entry) => new Set(pages[entry.id]) });
+  assert.deepEqual([...apart.keys()], ['d']);
+  // A photo planned in the factory (a process stand-in, a section's photo of the work) is not sent back for its
+  // factory, and a section's photo that shows no garment worn has no planned colour to miss (aloha 2026-11-17: 27 sent
+  // back, among them every process photo and a QC inspector "not dusty pink").
+  const planned = [
+    { id: 'process', kind: 'process', colour: 'navy' },
+    { id: 'qc', kind: 'process', colour: 'pink', intent: { content: 'An inspector checks a printed fabric roll on a light table', setting: 'Fabric inspection area, factory' } },
+    { id: 'worn', kind: 'product', colour: 'pink', intent: { content: 'A model wearing the brand’s aloha shirt on a terrace', setting: 'Terrace' } },
+    { id: 'shoot', kind: 'product', colour: 'navy' },
+  ];
+  const kept = reviewRejections({ factoryScene: [1, 2, 4], wrongColour: [{ photo: 2, seen: 'navy' }, { photo: 3, seen: 'navy' }] }, planned, { placeholderKinds: ['process'] });
+  assert.deepEqual([...kept.keys()].sort(), ['shoot', 'worn']);
 });
 
 test('a photo sent back as a look-alike gets the next colour, model and shot', async () => {
@@ -333,6 +348,10 @@ test('a run refuses to make again more photos already made than its batch limit 
   assert.deepEqual(hold.photos.map((photo) => photo.id), ['p0', 'p1', 'p2', 'p3']);
   assert.equal(hold.max, 3);
   assert.match(await readFile(join(root, 'docs/research/images/remake-hold.md'), 'utf8'), /--max 4/);
+  // Photos the plan made again after a send-back (triedScenes: the library review, the image-fit judge) are retried
+  // whatever their number (aloha 2026-11-17: thirteen image-fit send-backs held the run).
+  await writeFile(join(root, 'docs/research/image-plan.json'), JSON.stringify({ entries: Array.from({ length: 5 }, (_, index) => ({ id: `p${index}`, status: 'planned', ...(index < 3 ? { triedScenes: ['/ref.png'] } : {}) })) }));
+  await assert.rejects(generateImages({ root, max: 0 }), /^Error: 1 photos already made are queued again/);
 });
 
 test('where the competitor shows portrait heroes on phones, each hero gets a portrait twin, which phones show in its place', async () => {
@@ -457,6 +476,8 @@ test('a category refused on a model at every try shows the rest of its products 
   const picture = (seed, path) => sharp(noise(seed), { raw: { width: 64, height: 64, channels: 3 } }).png().toFile(path);
   const ref = join(root, 'ref.png');
   await picture(1, ref);
+  // The made photos' master (a photo recorded made without one is made again).
+  await picture(2, join(root, 'x.png'));
   const range = { colourfulness: { min: 0, max: 999 }, brightness: { min: 0, max: 999 }, contrast: { min: 0, max: 999 } };
   const profile = Object.fromEntries(['summary', 'settings', 'background', 'colour', 'lighting', 'rendering', 'casting', 'poseAndEnergy', 'framing', 'avoid'].map((field) => [field, field]));
   const one = (text) => [{ text, photos: 1 }];
@@ -493,4 +514,78 @@ test('the photo demand the images step works from: every position the site asks 
   // The plan's library entries come from the same demand.
   const plan = planLibrary({ pages, components, line: 'activewear', briefs: allKinds, styleRefs });
   assert.ok(plan.entries.length > 0);
+});
+
+test("a review's verdict applied again under today's rules keeps the photos the rules keep now, recorded with why they were sent back", async () => {
+  const { reappliedReview } = await import('../review-image-library.mjs');
+  const plan = { entries: [
+    { id: 'p1', status: 'generated', kind: 'process' },
+    { id: 'p2', status: 'rejected-review', kind: 'process', reviewNote: 'staged in a factory, workshop or warehouse' },
+    { id: 'm1', status: 'generated', kind: 'product' },
+    { id: 'm2', status: 'rejected-review', kind: 'product', reviewNote: 'same person as photo 3' },
+    { id: 'w1', status: 'rejected-review', kind: 'product', reviewNote: 'does not show its subject' },
+  ] };
+  const record = { reviewedAt: 'T', photos: plan.entries.map((entry, index) => ({ number: index + 1, id: entry.id })), review: { factoryScene: [2], samePerson: [{ photos: [3, 4] }], weakSubject: [{ photo: 5, seen: 'empty room' }] }, rejected: [{ id: 'p2', reason: 'staged in a factory, workshop or warehouse' }, { id: 'm2', reason: 'same person as photo 3' }, { id: 'w1', reason: 'does not show its subject: empty room' }] };
+  const { restored } = reappliedReview(plan, record, { placeholderKinds: ['process'], at: 'now' });
+  assert.deepEqual(restored.map((item) => item.id), ['p2', 'm2']);
+  assert.deepEqual(plan.entries.map((entry) => entry.status), ['generated', 'generated', 'generated', 'generated', 'rejected-review']);
+  assert.equal(plan.entries[1].libraryReview.wasSentBackFor, 'staged in a factory, workshop or warehouse');
+});
+
+test('a photo recorded made whose master is gone (a stopped run) is made again, not capped as a remake', async () => {
+  const { generateImages } = await import('../generate-images.mjs');
+  const { mkdtemp, mkdir, writeFile, readFile } = await import('node:fs/promises');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const root = await mkdtemp(join(tmpdir(), 'gen-gone-'));
+  await mkdir(join(root, 'docs/research'), { recursive: true });
+  await writeFile(join(root, 'docs/research/image-plan.json'), JSON.stringify({ entries: [{ id: 'gone', status: 'generated', master: 'docs/research/images/masters/gone.png' }] }));
+  await writeFile(join(root, 'docs/research/image-style.json'), JSON.stringify({ kinds: { site: { refs: [] } } }));
+  await generateImages({ root, max: 0, limit: 0 });
+  const plan = JSON.parse(await readFile(join(root, 'docs/research/image-plan.json'), 'utf8'));
+  assert.deepEqual([plan.entries[0].status, plan.entries[0].master], ['planned', undefined]);
+});
+
+test("a page's positions beyond its class's topic photos are planned plain photos, so none stays a grey frame (aloha 2026-11-18: the swimwear wall)", async () => {
+  const { photoDemand } = await import('../lib/image-plan.mjs');
+  const card = (heading) => ({ heading, paragraphs: ['P'] });
+  const page = { route: '/leggings-manufacturer/', pageType: 'product_manufacturer', blocks: [intro, { id: 'g', type: 'featureGrid', variant: 'media', pattern: 'media', heading: 'Options', items: [card('Seamless knit'), card('Squat-proof fabric'), card('Pocket options'), card('Waistband heights')] }] };
+  const capped = { ...allKinds, topicCaps: { ...(allKinds.topicCaps ?? {}), product: 1, lifestyle: 1 } };
+  const demand = photoDemand({ pages: [page], components: { ...components, featureGrid: 'media' }, briefs: capped }).filter((item) => item.category === 'leggings');
+  assert.ok(demand.filter((item) => item.topic).length > 1, 'the cards ask for topic photos');
+  const plan = planLibrary({ pages: [page], components: { ...components, featureGrid: 'media' }, line: 'activewear', briefs: capped, styleRefs });
+  for (const kind of new Set(demand.map((item) => item.kind))) {
+    const positions = demand.filter((item) => item.kind === kind).length;
+    const planned = plan.entries.filter((entry) => entry.category === 'leggings' && entry.kind === kind).length;
+    assert.ok(planned >= positions, `${kind}: ${planned} photos for ${positions} positions on one page`);
+  }
+});
+
+test("the positions the library leaves empty on a built page are planned besides the photos made (aloha 2026-11-18: a third lifestyle wall for two photos)", () => {
+  const made = (index) => ({ id: `leggings-lifestyle-${index}`, category: 'leggings', kind: 'lifestyle', index, status: 'generated', subject: 'a model wearing leggings in a relaxed everyday moment', styleRefs: ['p1.jpg'], master: 'm.png' });
+  const previous = { line: 'activewear', entries: [made(1), made(2)] };
+  const before = planLibrary({ pages, components, line: 'activewear', briefs: allKinds, styleRefs, previous });
+  const count = (plan) => plan.entries.filter((entry) => entry.category === 'leggings' && entry.kind === 'lifestyle' && entry.status !== 'retired').length;
+  const after = planLibrary({ pages, components, line: 'activewear', briefs: allKinds, styleRefs, previous, gaps: [{ route: '/leggings-manufacturer/', category: 'leggings', kind: 'lifestyle' }] });
+  assert.equal(count(after), Math.max(count(before), 3), 'the two made and one for the empty position');
+});
+
+test('every build lists the image positions it left grey, page by page, and fails nothing (aloha 2026-11-18: six grey frames first found by the audit)', async () => {
+  const { imageSlots, pageSlots } = await import('../check-image-slots.mjs');
+  const { mkdtemp, mkdir, writeFile, readFile } = await import('node:fs/promises');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  assert.deepEqual(pageSlots('<section data-block-id="media-module-1"><div class="media-box media-box--slot" data-media-slot="product"></div><div data-media-slot="product"></div></section>'), [{ kind: 'product', block: 'media-module-1' }, { kind: 'product', block: 'media-module-1' }]);
+  const root = await mkdtemp(join(tmpdir(), 'slots-'));
+  for (const [route, html] of [['', '<main></main>'], ['swim', '<section data-block-id="w"><i data-media-slot="lifestyle"></i></section>'], ['style-board', '<i data-media-slot="product"></i>']]) {
+    await mkdir(join(root, 'dist', route), { recursive: true });
+    await writeFile(join(root, 'dist', route, 'index.html'), html);
+  }
+  const report = await imageSlots({ root });
+  assert.deepEqual([report.total, report.pages.map((page) => page.route)], [1, ['/swim/']]);
+  assert.match(await readFile(join(root, 'docs/research/image-slots.md'), 'utf8'), /\/swim\/.*lifestyle（w）/);
+  const { steps } = await import('../site-run.mjs');
+  const list = steps({ reference: { origin: 'https://example.com', pages: { home: '/' } }, siteFactory: 'snap', identity: 'brand', line: 'activewear', port: 4999 });
+  assert.ok(list.find((step) => step.id === 'build').run.some((command) => command.join(' ').includes('check-image-slots.mjs')));
+  assert.ok(list.find((step) => step.id === 'images').inputs.includes('docs/research/image-slots.json'));
 });

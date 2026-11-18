@@ -15,6 +15,7 @@ import { copyFile, mkdir, readFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { cliArgs, runMain, usage } from './lib/cli.mjs';
 import { readJson, writeJson } from './lib/json-io.mjs';
+import { patchProject, readPackagePatches } from './lib/package-patches.mjs';
 import { handoffStatuses } from './lib/sf-handoff.mjs';
 import { sitePlanFromTree } from './lib/site-tree.mjs';
 
@@ -48,38 +49,61 @@ export const missingProjectFiles = (project) => Object.entries(SNAPSHOT_FILES).f
 // is privacy) takes that type.
 // navOnly (site.json): tree pages the owner leaves unbuilt, kept as menu headings, as a handoff's nav_only status does
 // (owner 2026-11-14, Strandmill: the /products/ and /solutions/ hubs the package has no copy for, "先不建").
-export async function projectPlan(project, { navOnly = [] } = {}) {
+// patches: the site's own changes to the project (lib/package-patches.mjs), applied before the plan is made.
+export async function projectPlan(project, { navOnly = [], patches = [] } = {}) {
   const read = (name) => (existsSync(resolve(project, SNAPSHOT_FILES[name])) ? readJson(resolve(project, SNAPSHOT_FILES[name])) : null);
-  const pageTypes = new Map(((await read('authoring_package.json'))?.pages ?? []).filter((page) => page.page_type).map((page) => [page.page_id, page.page_type]));
+  const { authoringPackage, tree, sitePlan } = await patchedProject(project, patches);
+  const pageTypes = new Map((authoringPackage?.pages ?? []).filter((page) => page.page_type).map((page) => [page.page_id, page.page_type]));
   const handoff = await read('handoff.json');
-  const plan = sitePlanFromTree({ tree: await read('tree.json'), sitePlan: await read('site_plan.json'), keywords: await read('keywords.json'), pageTypes });
+  const plan = sitePlanFromTree({ tree, sitePlan, keywords: await read('keywords.json'), pageTypes });
   const unknown = navOnly.filter((id) => !plan.pages.some((page) => page.page_id === id));
   if (unknown.length) throw new Error(`site.json navOnly names ${unknown.join(', ')}, which the site tree does not have`);
   const owned = navOnly.map((page_id) => ({ page_id, status: 'nav_only' }));
   return handoffStatuses(plan, owned.length ? { ...handoff, pages: [...(handoff?.pages ?? []), ...owned] } : handoff);
 }
 
-export async function freezeSiteFactory({ project, out, navOnly = [] }) {
+// The package, the tree and the site plan of the project with the site's patches applied (lib/package-patches.mjs):
+// { authoringPackage, tree, sitePlan, applied }; as they are without patches.
+export async function patchedProject(project, patches = []) {
+  const read = (name) => (existsSync(resolve(project, SNAPSHOT_FILES[name])) ? readJson(resolve(project, SNAPSHOT_FILES[name])) : null);
+  const given = { authoringPackage: await read('authoring_package.json'), tree: await read('tree.json'), sitePlan: await read('site_plan.json') };
+  return patches.length ? patchProject(given, patches) : { ...given, applied: [] };
+}
+
+// The files a patch changes: written patched into the snapshot, the others copied byte for byte.
+const PATCHED = Object.freeze({ 'authoring_package.json': 'authoringPackage', 'tree.json': 'tree', 'site_plan.json': 'sitePlan' });
+// What the site's patches did, in the snapshot beside the package (the import reports it).
+export const PATCHES_RECORD = 'package-patches.json';
+
+// patches: the site's own changes to the project (content/package-patches/, lib/package-patches.mjs).
+export async function freezeSiteFactory({ project, out, navOnly = [], patches = [] }) {
   const missing = missingProjectFiles(project);
   if (missing.length) throw new Error(`${project} lacks ${missing.join(', ')}`);
   const hash = createHash('sha256');
   for (const [name, path] of Object.entries(SNAPSHOT_FILES)) if (existsSync(resolve(project, path))) hash.update(name).update(await readFile(resolve(project, path)));
-  // The owner's menu headings make a snapshot of their own; none leaves the hash as it was.
+  // The owner's menu headings make a snapshot of their own; none leaves the hash as it was. So do the site's patches.
   if (navOnly.length) hash.update('navOnly').update(JSON.stringify([...navOnly].sort()));
+  if (patches.length) hash.update('patches').update(JSON.stringify(patches));
   const version = hash.digest('hex').slice(0, 10);
   const folder = resolve(out, `s07-${version}`);
   // The same inputs were frozen before: that snapshot is the one (complete: pages.json is written last).
   if (existsSync(resolve(folder, 'pages.json'))) return { folder, version, existed: true };
   if (existsSync(folder)) throw new Error(`${folder} is an unfinished snapshot: remove it and freeze again`);
   // The whole site's plan from the tree and its routes, before anything is copied (a broken tree freezes nothing).
-  const plan = await projectPlan(project, { navOnly });
+  const plan = await projectPlan(project, { navOnly, patches });
+  const patched = patches.length ? await patchedProject(project, patches) : null;
   await mkdir(folder, { recursive: true });
   const copied = [];
   for (const [name, path] of Object.entries(SNAPSHOT_FILES)) {
     if (!existsSync(resolve(project, path))) continue;
     await mkdir(dirname(resolve(folder, name)), { recursive: true });
-    await copyFile(resolve(project, path), resolve(folder, name));
+    if (patched && PATCHED[name]) await writeJson(resolve(folder, name), patched[PATCHED[name]]);
+    else await copyFile(resolve(project, path), resolve(folder, name));
     copied.push(name);
+  }
+  if (patched) {
+    await writeJson(resolve(folder, PATCHES_RECORD), patched.applied);
+    copied.push(PATCHES_RECORD);
   }
   await writeJson(resolve(folder, 'pages.json'), plan);
   return { folder, version, existed: false, files: [...copied, 'pages.json'], pages: plan.pages.length };
@@ -88,6 +112,7 @@ export async function freezeSiteFactory({ project, out, navOnly = [] }) {
 runMain(import.meta.url, async () => {
   const { values } = cliArgs({ project: { type: 'string' }, out: { type: 'string' } });
   if (!values.project || !values.out) return usage('Usage: node scripts/freeze-site-factory.mjs --project <site-factory project> --out <freeze folder>/<line>');
-  const result = await freezeSiteFactory({ project: resolve(values.project), out: resolve(values.out) });
+  // Run from the site: its patches (content/package-patches/) go into the snapshot, as site-run's freeze puts them.
+  const result = await freezeSiteFactory({ project: resolve(values.project), out: resolve(values.out), patches: await readPackagePatches(process.cwd()) });
   console.log(result.existed ? `${result.folder}: already frozen (unchanged inputs)` : `${result.folder} (${result.pages} pages): ${result.files.join(', ')}\nset site.json "siteFactory" to this folder`);
 });

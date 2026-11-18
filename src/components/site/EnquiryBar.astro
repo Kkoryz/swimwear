@@ -1,0 +1,20 @@
+---
+// The enquiry bar: the site's call to action (scripts/lib/primary-cta.mjs chromeCta: the home page's words and link,
+// the page's own where that call leads to the page itself), held at the foot of the screen below the width where the
+// header shows its button (four-site audit 2026-11-17: on the swimwear site 29 of 37 pages showed no enquiry button in
+// a phone's first screen, the product pages opening on a full photo with the title under it; owner 2026-11-17: the
+// call in the first screen on a phone, after claude-seo). One short row, the only bar fixed at the foot, under 12% of
+// the screen, a 44px target, clear of the safe area (Modern Web Guidance, content-first-noise-reduction,
+// form-factor-adaptation); template.css .enquiry-bar.
+import { chromeCta } from '../../../scripts/lib/primary-cta.mjs';
+import { isBuilt, pages, type AuthoringPage } from '../../lib/authoring';
+
+interface Props { page: AuthoringPage }
+const cta = chromeCta(Astro.props.page, pages);
+---
+
+{cta && isBuilt(cta.href) && (
+  <div class="enquiry-bar" data-enquiry-bar>
+    <a class="button button--primary enquiry-bar__link" href={cta.href} data-primary-cta data-umami-event="enquiry-bar">{cta.label}</a>
+  </div>
+)}

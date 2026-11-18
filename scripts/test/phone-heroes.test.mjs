@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import test from 'node:test';
 
-import { cropBox, derivePhoneHeroes, fillsRatio, frameCrops, phoneFrames, widestFile } from '../derive-phone-heroes.mjs';
+import { DEFAULT_HERO_PHONE_RATIO, cropBox, derivePhoneHeroes, fillsRatio, frameCrops, phoneFrames, widestFile } from '../derive-phone-heroes.mjs';
 import { heroPhoto } from '../lib/media-slots.mjs';
 import { FOCUS_BATCH, focusPath, photosInUse } from '../lib/photo-focus.mjs';
 
@@ -123,6 +123,26 @@ test('every photo the site shows is judged once, FOCUS_BATCH to a run, numbered 
   const runs = await focusRuns(root);
   assert.deepEqual(runs.map((run) => run.images.length), [FOCUS_BATCH, 1], 'the judged hero is not asked again');
   assert.match(runs[0].values.photos, /^1\. \/media\/reference\/p0\.jpg\n2\. /);
+  // A photo made again under its name is judged again: each answer records the bytes it judged (Strandmill's six
+  // remade photos kept the points of the photos they replaced, 2026-11-17).
+  await mkdir(join(root, 'public/media/reference'), { recursive: true });
+  await writeFile(join(root, 'public/media/reference/hero.jpg'), 'the first hero');
+  const { utimes } = await import('node:fs/promises');
+  const later = new Date(Date.now() + 60_000);
+  await utimes(join(root, focusPath('/media/reference/hero.jpg')), later, later);
+  const [hero] = (await focusRuns(root)).flatMap((run) => JSON.parse(run.values.srcs).map((src, index) => ({ src, sha: JSON.parse(run.values.shas)[index] }))).filter((item) => item.src.endsWith('/hero.jpg'));
+  assert.equal(hero, undefined, 'an answer from before it recorded the bytes counts for a photo no newer than the answer');
+  const { focusReply } = await import('../site-run.mjs');
+  const earlier = new Date(Date.now() - 60_000);
+  await utimes(join(root, focusPath('/media/reference/hero.jpg')), earlier, earlier);
+  await writeFile(join(root, 'public/media/reference/hero.jpg'), 'the hero made again');
+  const asked = (await focusRuns(root)).find((run) => run.values.srcs.includes('hero.jpg'));
+  assert.ok(asked, 'a photo newer than its answer is asked again');
+  const [answer] = focusReply({ ...asked.values, srcs: JSON.stringify(['/media/reference/hero.jpg']), shas: JSON.stringify([JSON.parse(asked.values.shas)[JSON.parse(asked.values.srcs).indexOf('/media/reference/hero.jpg')]]) }, [{ index: 1, x: 0.5, y: 0.5, subject: 'a hero' }]);
+  await writeFile(join(root, answer.path), JSON.stringify(answer.data));
+  assert.ok(!(await focusRuns(root)).some((run) => run.values.srcs.includes('hero.jpg')), 'answered for these bytes');
+  await writeFile(join(root, 'public/media/reference/hero.jpg'), 'the hero made a third time');
+  assert.ok((await focusRuns(root)).some((run) => run.values.srcs.includes('hero.jpg')), 'other bytes: asked again');
   // New instructions: every photo is judged again.
   await writeFile(join(root, 'config/agent-steps/photo-focus.md'), 'Name the product in {{photos}}');
   assert.deepEqual((await focusRuns(root)).map((run) => run.images.length), [FOCUS_BATCH, 2]);
@@ -154,4 +174,71 @@ test("a phone crop is cut from the photo's widest file, not the rendition the pa
   assert.deepEqual(widestFile(photo), { ...photo, src: '/media/photos/a-1536.webp', width: 1536, height: 1024 });
   assert.equal(widestFile({ src: '/a.webp', width: 960, height: 640 }).src, '/a.webp');
   assert.equal(widestFile({ ...photo, srcset: '/media/photos/a-480.webp 480w' }).src, photo.src);
+});
+
+test('a phone crop is held to its desktop file by weight: the quality goes down to 70, then the crop narrows to 480; none within is none', async () => {
+  const { CROP_MIN_WIDTH, cropWidths, encodeWithin } = await import('../derive-phone-heroes.mjs');
+  assert.deepEqual(cropWidths(717), [717, 640, 560, CROP_MIN_WIDTH]);
+  assert.deepEqual(cropWidths(461), [461]);
+  // An encoding's weight grows with its width and its quality; the budget is a desktop file of 103 KB (site13's general hero).
+  const tried = [];
+  const render = async (width, quality) => { tried.push(`${width}@${quality}`); return Buffer.alloc(Math.round(width * quality * 2.4)); };
+  const fits = await encodeWithin(render, 717, 103 * 1024);
+  assert.deepEqual([fits.width, fits.quality, tried], [560, 76, ['717@82', '717@76', '717@70', '640@82', '640@76', '640@70', '560@82', '560@76']]);
+  assert.equal((await encodeWithin(render, 717, 200 * 1024)).quality, 82, 'within the budget: as it was');
+  assert.equal(await encodeWithin(render, 717, 1024), null);
+});
+
+test("a crop of a busy photo is written within its photo's desktop file; one that cannot be is not made and is reported", async () => {
+  const { default: sharp } = await import('sharp');
+  const { existsSync } = await import('node:fs');
+  const { stat } = await import('node:fs/promises');
+  sharp.cache(false);
+  const root = await mkdtemp(join(tmpdir(), 'phone-budget-'));
+  await mkdir(join(root, 'public/media/photos'), { recursive: true });
+  await mkdir(join(root, 'src/data'), { recursive: true });
+  await mkdir(join(root, 'docs/research/analysis'), { recursive: true });
+  // A noisy 1536 x 1024 widest file (it compresses badly) and the 960 file the page names.
+  const noise = Buffer.alloc(1536 * 1024 * 3);
+  for (let index = 0; index < noise.length; index += 1) noise[index] = (index * 2654435761) >>> 24;
+  const raw = { raw: { width: 1536, height: 1024, channels: 3 } };
+  await sharp(noise, raw).webp({ quality: 90 }).toFile(join(root, 'public/media/photos/a-1536.webp'));
+  const desktop = join(root, 'public/media/photos/a-960.webp');
+  await sharp(noise, raw).resize({ width: 960 }).webp({ quality: 80 }).toFile(desktop);
+  const photo = { src: '/media/photos/a-960.webp', alt: 'A swimsuit', width: 960, height: 640, srcset: '/media/photos/a-960.webp 960w, /media/photos/a-1536.webp 1536w' };
+  await writeFile(join(root, 'src/data/template-variants.json'), JSON.stringify({ components: { hero: 'media-banner', media: { hero: photo } } }));
+  await writeFile(join(root, 'src/data/authoring-pages.json'), '[]');
+  await writeFile(join(root, 'src/data/placeholder-pages.json'), JSON.stringify([{ route: '/about/', pageType: 'about', status: 'placeholder', blocks: [] }]));
+  await writeFile(join(root, 'docs/research/pattern-inventory.json'), JSON.stringify({ pages: [{ pageType: 'about', sections: [section(1, 'hero:media-banner', { width: 390, height: 557 })] }] }));
+  await writeFile(join(root, 'docs/research/analysis/section-modules.json'), JSON.stringify([{ pageType: 'about', index: 1, module: 'hero:media-banner' }]));
+  const made = await derivePhoneHeroes({ root });
+  assert.equal(made.crops, 1);
+  const crop = JSON.parse(await readFile(join(root, 'src/data/phone-heroes.json'), 'utf8')).crops[photo.src]['0.70'];
+  assert.ok((await stat(join(root, 'public', crop.src))).size <= (await stat(desktop)).size, 'no heavier than the desktop file');
+  // A desktop file far lighter than any crop can be (a flat 960 file beside the noisy widest one): no crop, reported.
+  await sharp({ create: { width: 960, height: 640, channels: 3, background: '#808080' } }).webp().toFile(desktop);
+  const none = await derivePhoneHeroes({ root });
+  assert.equal(none.crops, 0);
+  assert.equal(none.overBudget.length, 1);
+  assert.match(none.overBudget[0], /a-960-phone-70\.webp/);
+  assert.ok(!existsSync(join(root, 'public', crop.src)), 'the old crop is removed');
+});
+test("a competitor page whose hero is no section of the capture (baliswim's video heroes, aloha 2026-11-17) takes the measured heroes' median, else a 4:5 frame", () => {
+  const inventory = { pages: [
+    { pageType: 'solution', sections: [section(1, 'iconList:checks'), section(2, 'splitMedia:tinted')] },
+    { pageType: 'about', sections: [section(1, 'figure', { width: 342, height: 257 })] },
+  ] };
+  const modules = [{ pageType: 'solution', index: 1, module: 'iconList:icons' }, { pageType: 'about', index: 1, module: 'figure' }];
+  assert.deepEqual(phoneFrames(inventory, modules).hero.byPageType, { solution: DEFAULT_HERO_PHONE_RATIO, about: DEFAULT_HERO_PHONE_RATIO });
+  assert.equal(DEFAULT_HERO_PHONE_RATIO, 0.8);
+  // One page type's hero measured: the others without a hero section take it.
+  const measured = { pages: [...inventory.pages, { pageType: 'home', sections: [section(1, 'hero:media-overlay', { width: 390, height: 717 })] }] };
+  assert.deepEqual(phoneFrames(measured, [...modules, { pageType: 'home', index: 1, module: 'hero:media-overlay' }]).hero.byPageType, { solution: 0.54, about: 0.54, home: 0.54 });
+});
+
+test("a page type of the site the competitor has no page of takes the median hero frame too (aloha 2026-11-18: /our-process/, a general page with a split hero)", () => {
+  const inventory = { pages: [{ pageType: 'home', sections: [section(1, 'hero:media-overlay', { width: 390, height: 717 })] }] };
+  const modules = [{ pageType: 'home', index: 1, module: 'hero:media-overlay' }];
+  assert.deepEqual(phoneFrames(inventory, modules, ['home', 'general']).hero.byPageType, { home: 0.54, general: 0.54 });
+  assert.deepEqual(phoneFrames(inventory, modules).hero.byPageType, { home: 0.54 }, 'without the site\'s types, the competitor\'s only');
 });

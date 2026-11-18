@@ -35,6 +35,8 @@ export function treeChecks({ plan, authored, nav, built, sitemap, exists }) {
     return (list?.itemListElement ?? []).map((item) => new URL(item.item, 'https://x').pathname);
   };
   const navRoutes = (nodes) => nodes.flatMap((node) => [node.route, ...navRoutes(node.children)]).filter(Boolean);
+  // A blog hub with no published post is held (lib/blog.mjs hubPages): built noindex, out of the sitemap and the menus.
+  const heldHub = (page) => page.page_type === 'blog_hub' && /noindex/.test(parsed.get(route(page))?.robots ?? '');
   const expectedNav = siteNavFromPlan(plan);
   return [
     fail('every planned page is built', pages.filter((page) => page.page_type !== 'blog_hub' && !built.get(route(page))).map(route)),
@@ -48,7 +50,7 @@ export function treeChecks({ plan, authored, nav, built, sitemap, exists }) {
     fail('placeholders and held pages are noindex and out of the sitemap; written pages are in it', pages.filter((page) => built.get(route(page))).flatMap((page) => {
       const html = parsed.get(route(page));
       const placeholder = !written.has(route(page)) && page.page_type !== 'blog_hub';
-      if (placeholder) return [!/noindex/.test(html.robots ?? '') && `${route(page)} indexable`, inSitemap.has(route(page)) && `${route(page)} in sitemap`].filter(Boolean);
+      if (placeholder || heldHub(page)) return [!/noindex/.test(html.robots ?? '') && `${route(page)} indexable`, inSitemap.has(route(page)) && `${route(page)} in sitemap`].filter(Boolean);
       return written.has(route(page)) && !inSitemap.has(route(page)) ? [`${route(page)} missing from sitemap`] : [];
     })),
     fail('the menus are the site tree\'s', JSON.stringify(navRoutes(nav.header)) === JSON.stringify(navRoutes(expectedNav.header)) && JSON.stringify(navRoutes(nav.footer)) === JSON.stringify(navRoutes(expectedNav.footer)) ? [] : ['src/data/site-nav.json differs from the plan\'s menus']),
@@ -59,7 +61,7 @@ export function treeChecks({ plan, authored, nav, built, sitemap, exists }) {
     })),
     fail('a parent page links its children', pages.filter((page) => built.get(route(page))).flatMap((page) => {
       const links = new Set(internalLinks(built.get(route(page))));
-      return pages.filter((child) => child.parent_page_id === page.page_id && built.get(route(child))).filter((child) => !links.has(route(child))).map((child) => `${route(page)} -> ${route(child)}`);
+      return pages.filter((child) => child.parent_page_id === page.page_id && built.get(route(child)) && !heldHub(child)).filter((child) => !links.has(route(child))).map((child) => `${route(page)} -> ${route(child)}`);
     })),
     fail('Site Factory\'s structural links and breadcrumb agree with the tree', structuralDisagreements(plan, authored.pages ?? [], ancestors)),
   ];

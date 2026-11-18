@@ -1,6 +1,7 @@
 {
   "note": "Words 08 adds to a service business's pages (config/wording.json).",
   "relatedHeading": "Related services",
+  "relatedPagesHeading": "Related pages",
   "caseHeading": "Client results",
   "caseLink": "About this service",
   "trustBarLeaveOut": {

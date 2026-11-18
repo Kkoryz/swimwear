@@ -58,13 +58,26 @@ test('service cards with photos, tall photo steps, a phone hero strip and walls 
   assert.ok(issues([page([], { signatureFloor: 2, signatureBands: 1 })]).includes('signature_floor'));
 });
 
+test('a page\'s picture area passes within 30% either way of its band (owner 2026-11-16: planned to the band, passed within 30%)', async () => {
+  const { pictureBand } = await import('../lib/rules.mjs');
+  assert.deepEqual(pictureBand({ min: 7, max: 36 }), { min: 4.9, max: 46.8 });
+  const band = { wordsPer1000px: { max: 266 }, visualAreaPct: { min: 7, max: 36 }, longestTextOnlyPx: { max: 8545 } };
+  const at = (visualAreaPct) => planGate([page([], { band, estimate: { heightPx: 3000, visualAreaPct, longestTextOnlyPx: 600, wordsPer1000px: 90 }, feasibility: { verdict: 'fits', walls: 0, limits: [] } })]);
+  // Staylumen's /resources/ (43.4% calibrated) and /locations/, short pages a hero, a table and a closing photo take over 36%.
+  assert.deepEqual(at(43.4).items, []);
+  assert.deepEqual(at(39.9).items, []);
+  assert.match(at(46.9).items[0].detail, /pictures 46.9% over 46.8% \(36% \+ 30%\)/);
+  assert.match(at(4.8).items[0].detail, /pictures 4.8% under 4.9% \(7% - 30%\)/);
+});
+
 test("a page whose pictures cannot reach the band is the owner's and 08's to know, not held and not Site Factory's; one planned off its band that could fit is held", () => {
   const band = { wordsPer1000px: { max: 36 }, visualAreaPct: { min: 47, max: 85 }, longestTextOnlyPx: { max: 820 } };
   const gate = planGate([page([], { band, estimate: { heightPx: 13900, visualAreaPct: 45, longestTextOnlyPx: 1300, wordsPer1000px: 86 }, feasibility: { verdict: 'does_not_fit', limits: [{ metric: 'visualAreaPct', walls: 6 }], reachPct: 45, gapPct: 2, cap: 3, estimate: {} } })]);
   assert.deepEqual(gate.items.map((item) => [item.assertion, item.gate, item.owner]), [['does_not_fit', 'report', 'owner']]);
   assert.match(gate.items[0].detail, /2 points short of 47%/);
   assert.equal(gate.failed, 0);
-  const off = planGate([page([], { band, estimate: { heightPx: 9000, visualAreaPct: 40, longestTextOnlyPx: 700, wordsPer1000px: 30 }, feasibility: { verdict: 'fits_with_walls', walls: 2, limits: [] } })]);
+  // 30% is under 47% less 30% (32.9%).
+  const off = planGate([page([], { band, estimate: { heightPx: 9000, visualAreaPct: 30, longestTextOnlyPx: 700, wordsPer1000px: 30 }, feasibility: { verdict: 'fits_with_walls', walls: 2, limits: [] } })]);
   assert.deepEqual(off.items.map((item) => [item.assertion, item.gate]), [['density_band', 'fail']]);
   // The words a 1,000px and the longest text-only run hold nothing (owner 2026-11-14: only the picture area counts).
   const wordy = planGate([page([], { band, estimate: { heightPx: 9000, visualAreaPct: 50, longestTextOnlyPx: 2700, wordsPer1000px: 90 }, feasibility: { verdict: 'fits', walls: 0, limits: [] } })]);

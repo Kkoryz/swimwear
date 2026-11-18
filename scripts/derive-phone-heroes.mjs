@@ -16,13 +16,15 @@
 // crops). src/data/phone-heroes.json maps frame -> page type -> ratio and photo -> ratio -> crop; the renderer
 // (src/lib/media.ts pageHero, CtaBlock.astro) gives a photo without a phone photo of its own the crop for its frame. The
 // judged subjects of all the site's photos go to src/data/photo-focus.json, where every frame that cuts a photo centres
-// on its subject.
+// on its subject. A crop is held to its photo's desktop file by weight (encodeWithin); one that cannot be is not made.
 // Usage: node scripts/derive-phone-heroes.mjs
 
+import { FRAMED_HEROES } from './lib/layout-plan.mjs';
 import { existsSync } from 'node:fs';
-import { mkdir } from 'node:fs/promises';
+import { mkdir, rm, stat, writeFile } from 'node:fs/promises';
 import { basename, dirname, extname, join, resolve } from 'node:path';
 import { runMain } from './lib/cli.mjs';
+import { phoneCropBudget } from './lib/image-budgets.mjs';
 import { readJson, writeJson } from './lib/json-io.mjs';
 import { allocateSite } from './lib/media-allocation.mjs';
 import { MIN_SHOWN } from './lib/media-ratio.mjs';
@@ -34,6 +36,28 @@ import { loadSitePages } from './lib/site-pages.mjs';
 const MAX_WIDTH = 900;
 // Narrowest crop that stays sharp on a phone (a 390px screen at 1.5x); a narrower one is used but reported.
 const SHARP_WIDTH = 585;
+
+// A crop never weighs more than its photo's desktop file, nor PHONE_CROP_MAX_BYTES (lib/image-budgets.mjs phoneCropBudget;
+// four-site audit 2026-11-17: site13's 717-wide crops at quality 82 were 155-224 KB against desktop files of 80-180 KB):
+// the quality goes down to 70 first, then the crop narrows by steps to CROP_MIN_WIDTH (a 390px screen at about 1.25x).
+export const CROP_QUALITIES = Object.freeze([82, 76, 70]);
+export const CROP_MIN_WIDTH = 480;
+const NARROWER = Object.freeze([720, 640, 560, CROP_MIN_WIDTH]);
+
+// The widths a crop of this width tries, widest first.
+export const cropWidths = (width) => [width, ...NARROWER.filter((step) => step < width)];
+
+// The first encoding within the budget, widest and best first: { data, width, quality }, or null when none is.
+// render(width, quality) gives the encoded crop at that width.
+export async function encodeWithin(render, width, budget) {
+  for (const step of cropWidths(width)) {
+    for (const quality of CROP_QUALITIES) {
+      const data = await render(step, quality);
+      if (data.length <= budget) return { data, width: step, quality };
+    }
+  }
+  return null;
+}
 
 // Our blocks whose photo frame takes the competitor's phone shape, each with the competitor modules it was made from
 // (section-modules.json names; the capture's decision stands in when no module is named) and which such section
@@ -47,17 +71,31 @@ export const PHONE_FRAMES = Object.freeze({
 // inventory's `phone` shapes. { <frame>: { byPageType: { <page type>: ratio } } }; a page type without a measured
 // section (an inventory from before phone shapes, a competitor page without the module, a module without a photo on
 // phones) is left out.
-export function phoneFrames(inventory, sectionModules = []) {
+// A competitor page whose hero the capture did not cut into a section of its own (no hero module named or decided:
+// baliswim's heroes run a video under their title, aloha 2026-11-17) has no hero shape to follow: its hero frame is the
+// median of the heroes measured on the competitor's other pages, else this 4:5 frame, so a framed hero still does not
+// show a strip on a phone (lib/plan-assertions.mjs phone_hero_strip).
+export const DEFAULT_HERO_PHONE_RATIO = 0.8;
+
+// siteTypes: the site's own page types; one the competitor has no page of (a general page whose hero the template lays
+// out as a split: aloha 2026-11-18, /our-process/) takes the same median frame.
+export function phoneFrames(inventory, sectionModules = [], siteTypes = []) {
   const frames = Object.fromEntries(Object.keys(PHONE_FRAMES).map((frame) => [frame, { byPageType: {} }]));
+  const heroless = [];
+  const competitorTypes = new Set((inventory?.pages ?? []).map((page) => page.pageType));
   for (const page of inventory?.pages ?? []) {
     const named = sectionModules.filter((item) => item.pageType === page.pageType);
     for (const [frame, rule] of Object.entries(PHONE_FRAMES)) {
       const indexes = (named.length ? named.filter((item) => rule.modules.test(item.module ?? '')).map((item) => item.index) : page.sections.filter((section) => rule.modules.test(section.decision ?? '')).map((section) => section.index)).sort((a, b) => a - b);
+      if (frame === 'hero' && !indexes.length) heroless.push(page.pageType);
       const index = rule.pick === 'last' ? indexes.at(-1) : indexes[0];
       const ratio = page.sections.find((section) => section.index === index)?.phone?.photo?.ratio;
       if (ratio) frames[frame].byPageType[page.pageType] = ratio;
     }
   }
+  const measured = Object.values(frames.hero.byPageType).sort((a, b) => a - b);
+  const median = measured.length ? measured[Math.floor((measured.length - 1) / 2)] : DEFAULT_HERO_PHONE_RATIO;
+  for (const pageType of [...heroless, ...(competitorTypes.size ? siteTypes.filter((type) => !competitorTypes.has(type)) : [])]) frames.hero.byPageType[pageType] ??= median;
   return frames;
 }
 
@@ -117,10 +155,11 @@ export async function derivePhoneHeroes({ root = process.cwd() } = {}) {
   const components = (await readJson(resolve(root, 'src/data/template-variants.json'))).components;
   const sitePhotos = (await readJson(resolve(root, 'src/data/site-media.json'), { photos: [] })).photos ?? [];
   const pages = await loadSitePages(root);
-  const frames = phoneFrames(await readJson(resolve(root, 'docs/research/pattern-inventory.json'), null), await readJson(resolve(root, 'docs/research/analysis/section-modules.json'), []));
+  const frames = phoneFrames(await readJson(resolve(root, 'docs/research/pattern-inventory.json'), null), await readJson(resolve(root, 'docs/research/analysis/section-modules.json'), []), [...new Set(pages.map((page) => page.pageType))].filter((type) => FRAMED_HEROES.has(components.heroByPageType?.[type] ?? components.hero)));
   const crops = {};
   const soft = [];
   const unfocused = [];
+  const overBudget = [];
   for (const { photo, ratios } of frameCrops({ pages, components, sitePhotos, frames })) {
     const named = resolve(root, 'public', photo.src.replace(/^\//, ''));
     if (!existsSync(named)) throw new Error(`photo ${photo.src} is not in public/`);
@@ -131,21 +170,33 @@ export async function derivePhoneHeroes({ root = process.cwd() } = {}) {
     const source = existsSync(widestPath) ? widestPath : named;
     const focus = await readJson(resolve(root, focusPath(photo.src)), null);
     if (!focus) unfocused.push(photo.src);
+    const budget = phoneCropBudget((await stat(named)).size);
     for (const ratio of ratios) {
-      const width = Math.min(cut.width, Math.round(cut.height * ratio), MAX_WIDTH);
-      const height = Math.round(width / ratio);
       const file = join(dirname(photo.src), `${basename(photo.src, extname(photo.src))}-phone-${Math.round(ratio * 100)}.webp`).replace(/\\/g, '/');
       const target = resolve(root, 'public', file.replace(/^\//, ''));
       await mkdir(dirname(target), { recursive: true });
-      const image = focus
-        ? sharp(source).extract(cropBox(cut, ratio, focus)).resize({ width, height, fit: 'fill' })
-        : sharp(source).resize({ width, height, fit: 'cover', position: sharp.strategy.attention });
-      await image.webp({ quality: 82 }).toFile(target);
+      const render = (width, quality) => {
+        const height = Math.round(width / ratio);
+        const image = focus
+          ? sharp(source).extract(cropBox(cut, ratio, focus)).resize({ width, height, fit: 'fill' })
+          : sharp(source).resize({ width, height, fit: 'cover', position: sharp.strategy.attention });
+        return image.webp({ quality }).toBuffer();
+      };
+      const encoded = await encodeWithin(render, Math.min(cut.width, Math.round(cut.height * ratio), MAX_WIDTH), budget);
+      if (!encoded) {
+        // No crop within the budget: the frame shows the desktop photo, cut by the frame (object-fit), and it is reported.
+        await rm(target, { force: true });
+        overBudget.push(`${file} (over ${Math.round(budget / 1024)} KB even ${CROP_MIN_WIDTH}px wide at quality ${CROP_QUALITIES.at(-1)})`);
+        continue;
+      }
+      const { width } = encoded;
+      const height = Math.round(width / ratio);
+      await writeFile(target, encoded.data);
       (crops[photo.src] ||= {})[ratio.toFixed(2)] = { src: file, width, height };
       if (width < SHARP_WIDTH) soft.push(`${file} (${width}px wide, from ${cut.width}x${cut.height})`);
     }
   }
-  await writeJson(resolve(root, 'src/data/phone-heroes.json'), { frames, crops, soft, unfocused });
+  await writeJson(resolve(root, 'src/data/phone-heroes.json'), { frames, crops, soft, unfocused, overBudget });
   // Every photo's judged subject, for the frames that cut it.
   const focus = {};
   for (const photo of photosInUse(components, sitePhotos)) {
@@ -153,14 +204,15 @@ export async function derivePhoneHeroes({ root = process.cwd() } = {}) {
     if (judged) focus[photo.src] = { x: judged.x, y: judged.y };
   }
   await writeJson(resolve(root, 'src/data/photo-focus.json'), focus);
-  return { frames, crops: Object.values(crops).reduce((sum, byRatio) => sum + Object.keys(byRatio).length, 0), soft, unfocused };
+  return { frames, crops: Object.values(crops).reduce((sum, byRatio) => sum + Object.keys(byRatio).length, 0), soft, unfocused, overBudget };
 }
 
 runMain(import.meta.url, async () => {
-  const { frames, crops, soft, unfocused } = await derivePhoneHeroes();
+  const { frames, crops, soft, unfocused, overBudget } = await derivePhoneHeroes();
   const shapes = Object.entries(frames).map(([frame, { byPageType }]) => `${frame} ${Object.keys(byPageType).length ? JSON.stringify(byPageType) : 'none measured'}`).join('; ');
   console.log(`${crops} phone crop(s); the competitor's phone shapes: ${shapes}`);
   // A soft crop comes from a photo too small for its phone frame: a larger photo (generated or the owner's) fixes it.
   if (soft.length) console.log(`soft on phones (under ${SHARP_WIDTH}px wide): ${soft.join('; ')}`);
   if (unfocused.length) console.log(`cut without a judged subject (attention crop, may miss it): ${unfocused.join('; ')}`);
+  if (overBudget.length) console.log(`no phone crop within its budget (the desktop photo shows): ${overBudget.join('; ')}`);
 });

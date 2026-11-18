@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "seo-site-rules-library-v1",
+  "note": "Firecrawl, the GEO module's page fetcher (its fetch step posts to /v2/scrape), held while a site writes its blog posts (scripts/geo-blogs.mjs) and let go after, as the rules library is (scripts/lib/rules-library.mjs FIRECRAWL: the library's Docker settings, these over them). Docker Desktop quits only when neither runs.",
+  "name": "Firecrawl",
+  "mcpUrl": "http://localhost:3002/",
+  "probe": "http",
+  "compose": {
+    "project": "firecrawl",
+    "file": [
+      "D:/korey_seo/firecrawl/docker-compose.yaml",
+      "D:/korey_seo/firecrawl/docker-compose.override.yaml"
+    ],
+    "profiles": []
+  },
+  "watchPorts": [
+    3002
+  ],
+  "lockDir": "{HOME}/.seo-site-template/firecrawl",
+  "services": [
+    "api",
+    "playwright-service",
+    "redis",
+    "rabbitmq",
+    "nuq-postgres"
+  ],
+  "servicesNote": "the services the fetcher runs on: api and what it depends on (foundationdb and its init are not used here and have not run for months)"
+}

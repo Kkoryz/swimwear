@@ -22,10 +22,14 @@ const sections = [
   { section_id: 'h', kind: 'cta', heading: 'Start your bikini line', body: 'Send your brief and we reply within a day.' },
 ];
 
-test('a section\'s visuals go with its first block (a grid split in two carries them once)', () => {
-  const visuals = [{ id: 'v1', type: 'photo', content: 'A worker pairs fabric with lining.', setting: 'Fabric room' }];
-  const { blocks } = planKindBlocks(kindPage(sections.map((section) => (section.section_id === 'c' ? { ...section, visuals } : section))));
-  assert.deepEqual(blocks.filter((block) => block.visuals).map((block) => [block.id, block.visuals]), [['c', visuals]]);
+test('a section\'s visuals go with its first block (a grid split in two carries them once), its photos as candidates only', () => {
+  const photo = { id: 'v1', type: 'photo', content: 'A worker pairs fabric with lining.', setting: 'Fabric room' };
+  const data = { id: 'd1', type: 'data', data: { shape: 'shares', items: [{ label: 'Cotton', percent: 60 }, { label: 'Linen', percent: 40 }] } };
+  const { blocks } = planKindBlocks(kindPage(sections.map((section) => (section.section_id === 'c' ? { ...section, visuals: [photo, data] } : section))));
+  assert.deepEqual(blocks.filter((block) => block.visuals).map((block) => [block.id, block.visuals]), [['c', [data]]]);
+  // Site Factory's photo intents (its package with include_photos) are what the section's own photo positions show,
+  // never a photo position more (owner 2026-11-17; Fable 11-11 C): the block keeps them as photoCandidates.
+  assert.deepEqual(blocks.filter((block) => block.photoCandidates).map((block) => [block.id, block.photoCandidates]), [['c', [photo]]]);
 });
 
 test('the closing section\'s visuals go with the closing band, a closing section going on adding its own (none were dropped)', () => {
@@ -33,7 +37,7 @@ test('the closing section\'s visuals go with the closing band, a closing section
   const more = { id: 's2', type: 'photo', content: 'A sales lead on a video call.', setting: 'Office' };
   const page = kindPage([...sections.slice(0, -1), { ...sections.at(-1), visuals: [steps] }, { section_id: 'h~2', kind: 'cta', continuation_of: 'h', heading: '', body: 'Or write to us.', visuals: [more] }]);
   const cta = planKindBlocks(page).blocks.at(-1);
-  assert.deepEqual([cta.type, cta.visuals], ['cta', [steps, more]]);
+  assert.deepEqual([cta.type, cta.visuals, cta.photoCandidates], ['cta', [steps], [more]]);
   assert.equal(planKindBlocks(kindPage(sections)).blocks.at(-1).visuals, undefined);
 });
 
@@ -222,4 +226,16 @@ test('long cards (three to a row at most) come in grids of three, a set\'s parts
   // Short cards keep their grids of four (5 -> 3 + 2, 7 -> 4 + 3).
   const short = planKindBlocks(kindPage([sections[0], { ...sections[2], items: items(7, 'Option') }, sections.at(-1)])).blocks.filter((block) => block.type === 'featureGrid');
   assert.deepEqual(short.map((block) => block.items.length), [4, 3]);
+});
+
+test("rows the writer went on with after a blank line, no header and as many cells, are the same table's rows; a different table or text stays apart (aloha 2026-11-18 H-7)", async () => {
+  const { markdownTable } = await import('../lib/markdown-table.mjs');
+  const body = ['Compare flat measurements.', '', '| Item | Detail |', '|---|---|', "| Men's sizes | XS to 3XL |", '', "| Men's inseams | 5, 7 and 9 inch |", "| Kids' inseams | 4 to 6 inch |", '', '| Custom inseams | 3 to 11 inches |', '', 'Charts come with your quote.'].join('\n');
+  const parsed = markdownTable(body);
+  assert.deepEqual(parsed.rows.map((row) => row[0]), ["Men's sizes", "Men's inseams", "Kids' inseams", 'Custom inseams']);
+  assert.deepEqual(parsed.after, ['Charts come with your quote.']);
+  // A second table with its own header, or rows of another width, are not taken in.
+  const two = markdownTable(['| A | B |', '|---|---|', '| 1 | 2 |', '', '| C | D |', '|---|---|', '| 3 | 4 |'].join('\n'));
+  assert.equal(two.rows.length, 1);
+  assert.equal(markdownTable(['| A | B |', '|---|---|', '| 1 | 2 |', '', '| x | y | z |'].join('\n')).rows.length, 1);
 });

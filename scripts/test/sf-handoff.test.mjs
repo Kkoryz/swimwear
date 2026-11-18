@@ -61,3 +61,17 @@ test("the handoff's identity file must be the one it names by sha256", async () 
   assert.deepEqual(await identityProblems(named('0'.repeat(64))), ['package/identity/project.yaml is not the file the handoff names']);
   assert.deepEqual(await identityProblems({ ...named('0'.repeat(64)), identity: { project_yaml: 'package/identity/gone.yaml', project_yaml_sha256: '0'.repeat(64) } }), ['package/identity/gone.yaml is missing']);
 });
+
+test("a handoff naming an earlier contract version 08 keeps is checked against it; one 08 does not hold is refused (2026-11-17)", async () => {
+  const { contractBytes } = await import('../lib/sf-handoff.mjs');
+  const { createHash } = await import('node:crypto');
+  const { readFile } = await import('node:fs/promises');
+  const sha = (bytes) => createHash('sha256').update(bytes).digest('hex');
+  const contracts = 'config/sf-contracts';
+  const current = await readFile(`${contracts}/authoring.schema.json`);
+  assert.equal(sha(await contractBytes(contracts, 'authoring.schema.json', sha(current))), sha(current), 'the current copy');
+  const kept = '35ab40678795d9e7f8cb59e6c70ccc67fdb52c2c976e5f4281510e255fc3313e';
+  assert.equal(sha(await contractBytes(contracts, 'authoring.schema.json', kept)), kept, "the version the 16408acb packages name");
+  assert.equal(await contractBytes(contracts, 'authoring.schema.json', 'f'.repeat(64)), null, 'a version 08 does not hold');
+  assert.equal(sha(await contractBytes(contracts, 'authoring.schema.json')), sha(current), 'none named: the current copy');
+});

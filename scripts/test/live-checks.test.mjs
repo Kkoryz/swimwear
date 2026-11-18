@@ -4,7 +4,7 @@ import test from 'node:test';
 import { liveProblems, liveRequests } from '../lib/live-checks.mjs';
 
 const origin = 'https://knitpace.com';
-const headers = { 'strict-transport-security': 'max-age=31536000', 'x-content-type-options': 'nosniff', 'referrer-policy': 'strict-origin-when-cross-origin', 'x-frame-options': 'SAMEORIGIN', 'cache-control': 'no-cache' };
+const headers = { 'strict-transport-security': 'max-age=31536000', 'x-content-type-options': 'nosniff', 'referrer-policy': 'strict-origin-when-cross-origin', 'x-frame-options': 'SAMEORIGIN', 'permissions-policy': 'camera=()', 'content-security-policy': "default-src 'self'; script-src 'self'", 'cache-control': 'no-cache' };
 const good = () => ({
   http: { status: 301, headers: { location: `${origin}/` } },
   www: { status: 301, headers: { location: `${origin}/` } },
@@ -38,4 +38,17 @@ test('robots.txt must not block a crawler the owner allows', async () => {
   const responses = good();
   responses.robots.body = `User-agent: GPTBot\nDisallow: /\n\nUser-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`;
   assert.deepEqual(liveProblems(origin, responses, null, ['GPTBot', 'ClaudeBot']).map((problem) => `${problem.check} ${problem.detail}`), ['crawler_blocked GPTBot']);
+});
+
+test('the live CSP allows the home page\'s inline scripts, never every inline script; HSTS lasts a year', async () => {
+  const { scriptHash } = await import('../lib/csp.mjs');
+  const script = 'console.log(1)';
+  const responses = good();
+  responses.home.body = `<link rel="canonical" href="${origin}/"><script>${script}</script><script type="application/ld+json">{"@type":"Organization"}</script>`;
+  assert.deepEqual(liveProblems(origin, responses).map((problem) => problem.check), ['csp_blocks_inline_script'], 'JSON-LD needs no hash');
+  responses.home.headers['content-security-policy'] = `default-src 'self'; script-src 'self' ${scriptHash(script)}`;
+  assert.deepEqual(liveProblems(origin, responses), []);
+  responses.home.headers['content-security-policy'] = "script-src 'self' 'unsafe-inline'";
+  responses.home.headers['strict-transport-security'] = 'max-age=300';
+  assert.deepEqual(liveProblems(origin, responses).map((problem) => problem.check), ['hsts_short', 'csp_unsafe_inline_scripts', 'csp_blocks_inline_script']);
 });

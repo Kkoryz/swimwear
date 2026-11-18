@@ -14,7 +14,7 @@ const grid = gridPlan(block.rows.length, 2);
 const mark = (cell: string) => (/^(yes|included|available)\b/i.test(cell.trim()) ? 'yes' : /^(no|not)\b/i.test(cell.trim()) ? 'no' : null);
 ---
 
-<section class="block block--table" data-authoring-block="table" data-block-id={block.id} data-variant={variant}>
+<section class="block block--table" id={block.anchor} data-authoring-block="table" data-block-id={block.id} data-variant={variant}>
   <div class="container">
     <Eyebrow text={block.eyebrow} />
     {block.heading && <h2 class="table-block__heading">{block.heading}</h2>}

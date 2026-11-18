@@ -642,6 +642,121 @@
         }
       ]
     },
+    "places_hub": {
+      "hero": {
+        "variant": "media-overlay",
+        "words": {
+          "heading": [
+            4,
+            12
+          ],
+          "lead": [
+            15,
+            35
+          ]
+        },
+        "cta": true
+      },
+      "slots": [
+        {
+          "id": "intro",
+          "block": "intro",
+          "fill": "copy",
+          "purpose": "Where we manage rentals and how we work there",
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              40,
+              100
+            ]
+          },
+          "media": {
+            "kind": "product",
+            "count": 4
+          },
+          "module": "intro:gallery"
+        },
+        {
+          "id": "children",
+          "block": "gallery",
+          "fill": "plan",
+          "source": "children:self",
+          "purpose": "Every city we manage in, each card linking to its page",
+          "items": [
+            2,
+            12
+          ],
+          "media": {
+            "kind": "product",
+            "count": 1
+          },
+          "module": "gallery:grid"
+        },
+        {
+          "id": "key-figures",
+          "block": "stats",
+          "fill": "structured",
+          "field": "key_figures",
+          "purpose": "Order figures, each stated verbatim in an approved fact",
+          "items": [
+            3,
+            5
+          ],
+          "module": "stats:default"
+        },
+        {
+          "id": "comparison",
+          "block": "table",
+          "fill": "structured",
+          "field": "comparison",
+          "purpose": "Options or choices compared side by side",
+          "rows": [
+            3,
+            8
+          ],
+          "columns": [
+            2,
+            4
+          ],
+          "module": "table:default"
+        },
+        {
+          "id": "faq",
+          "block": "faq",
+          "fill": "copy",
+          "purpose": "Buyer questions, each answered in its first sentence",
+          "items": [
+            4,
+            8
+          ],
+          "itemWords": {
+            "question": [
+              6,
+              16
+            ],
+            "answer": [
+              30,
+              80
+            ]
+          },
+          "module": "faq:accordion"
+        },
+        {
+          "id": "cta",
+          "block": "cta",
+          "fill": "copy",
+          "purpose": "Closing call to action; the related links come from the site plan",
+          "links": [
+            2,
+            6
+          ],
+          "module": "cta:dark"
+        }
+      ]
+    },
     "wholesale_hub": {
       "hero": {
         "variant": "media-overlay",
@@ -1294,6 +1409,184 @@
           "block": "faq",
           "fill": "copy",
           "purpose": "Buyer questions, each answered in its first sentence",
+          "items": [
+            4,
+            8
+          ],
+          "itemWords": {
+            "question": [
+              6,
+              16
+            ],
+            "answer": [
+              30,
+              80
+            ]
+          },
+          "module": "faq:accordion"
+        },
+        {
+          "id": "cta",
+          "block": "cta",
+          "fill": "copy",
+          "purpose": "Closing call to action; the related links come from the site plan",
+          "links": [
+            2,
+            6
+          ],
+          "module": "cta:dark"
+        }
+      ]
+    },
+    "place": {
+      "hero": {
+        "variant": "media-overlay",
+        "words": {
+          "heading": [
+            4,
+            12
+          ],
+          "lead": [
+            15,
+            35
+          ]
+        },
+        "cta": true
+      },
+      "slots": [
+        {
+          "id": "intro",
+          "block": "intro",
+          "fill": "copy",
+          "purpose": "What we run for owners in this city and who it is for",
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              40,
+              100
+            ]
+          },
+          "media": {
+            "kind": "product",
+            "count": 4
+          },
+          "module": "intro:gallery"
+        },
+        {
+          "id": "key-figures",
+          "block": "stats",
+          "fill": "structured",
+          "field": "key_figures",
+          "purpose": "Order figures, each stated verbatim in an approved fact",
+          "items": [
+            3,
+            5
+          ],
+          "module": "stats:default"
+        },
+        {
+          "id": "scope",
+          "block": "splitMedia",
+          "fill": "copy",
+          "purpose": "What managing a rental here involves: its season, its rules and its usual problems",
+          "repeat": [
+            2,
+            4
+          ],
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              60,
+              150
+            ]
+          },
+          "media": {
+            "kind": "process",
+            "count": 1
+          },
+          "module": "splitMedia:single > single > single"
+        },
+        {
+          "id": "options",
+          "block": "featureGrid",
+          "fill": "copy",
+          "purpose": "What we handle here, remotely and through local partners",
+          "items": [
+            2,
+            4
+          ],
+          "itemWords": {
+            "title": [
+              2,
+              6
+            ],
+            "text": [
+              15,
+              40
+            ]
+          },
+          "module": "featureGrid:media"
+        },
+        {
+          "id": "comparison",
+          "block": "table",
+          "fill": "structured",
+          "field": "comparison",
+          "purpose": "Options or choices compared side by side",
+          "rows": [
+            3,
+            8
+          ],
+          "columns": [
+            2,
+            4
+          ],
+          "module": "table:default"
+        },
+        {
+          "id": "terms",
+          "block": "proof",
+          "fill": "copy",
+          "purpose": "Ordering this product or service: the one or two terms its buyers ask about (such as the minimum for this product or its sample time), with the rest left to the How to Order page it links to",
+          "words": {
+            "heading": [
+              4,
+              10
+            ],
+            "body": [
+              30,
+              70
+            ]
+          },
+          "media": {
+            "kind": "material",
+            "count": 1
+          },
+          "module": "proof:dark"
+        },
+        {
+          "id": "process",
+          "block": "process",
+          "fill": "structured",
+          "field": "process_steps",
+          "purpose": "How an order runs, step by step",
+          "items": [
+            4,
+            6
+          ],
+          "module": "process:default"
+        },
+        {
+          "id": "faq",
+          "block": "faq",
+          "fill": "copy",
+          "purpose": "Owner questions about this city, each answered in its first sentence",
           "items": [
             4,
             8

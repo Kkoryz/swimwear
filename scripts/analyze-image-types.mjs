@@ -12,10 +12,10 @@ import { mkdir, readFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { cliArgs, runMain } from './lib/cli.mjs';
 import { runJudge } from './lib/judge-exec.mjs';
-import { DESCRIBE_BATCH, IMAGE_TYPES_SCHEMA, allowedTypes, notWornIn, spreadSlots, describePrompt, parseDescribed, parseProducts, parseSlots, parseTypes, photoContexts, productsPrompt, section, slotsPrompt, typed, typesPrompt, usedFor } from './lib/image-types.mjs';
+import { DESCRIBE_BATCH, IMAGE_TYPES_SCHEMA, allowedTypes, notWornIn, spreadSlots, typeCategory, typedPhoto, describePrompt, parseDescribed, parseProducts, parseSlots, parseTypes, photoContexts, productsPrompt, section, slotsPrompt, typesPrompt, usedFor } from './lib/image-types.mjs';
 import { readJson, writeJson } from './lib/json-io.mjs';
 import { pageCategory } from './lib/image-plan.mjs';
-import { GENERAL } from './lib/media-allocation.mjs';
+import { GENERAL, SERVICE_HERO } from './lib/media-allocation.mjs';
 import { styleReferences } from './lib/style-references.mjs';
 import { imageBriefs } from './lib/trade.mjs';
 
@@ -105,7 +105,8 @@ export async function analyzeImageTypes({ root = process.cwd(), force = false, r
   // What each category's photos show, from its name and its page's headings (the whole line for general pages), and
   // whether it is worn: read before the kinds, which a category nobody wears takes none of a model.
   const authored = await readJson(resolve(root, 'src/data/authoring-pages.json'), []);
-  const categories = [...new Set(plan.entries.filter((entry) => entry.status !== 'retired').map((entry) => entry.category))].sort();
+  // A theme's set is the line's product (typeCategory); a service page's own opening photo has no product to read.
+  const categories = [...new Set(plan.entries.filter((entry) => entry.status !== 'retired' && entry.intent?.id !== SERVICE_HERO).map((entry) => typeCategory(entry.category)))].sort();
   const productSources = categories.map((category) => ({ category, ...(category === GENERAL ? { about: `the whole ${plan.line} line` } : {}), headings: authored.filter((page) => (plan.routes?.[page.route] ?? pageCategory(page, briefs)) === category).flatMap((page) => page.blocks.map((block) => block.heading).filter(Boolean)) }));
   const products = previous?.products?.printed && same(previous.products.from, productSources) ? previous.products : { from: productSources, ...(await ask('types-products', productsPrompt(productSources, siteKind), [], (reply) => parseProducts(reply, productSources.map((item) => item.category)))) };
   productsRead = products;
@@ -113,7 +114,7 @@ export async function analyzeImageTypes({ root = process.cwd(), force = false, r
   const marked = (entry) => notWornIn({ products }, entry);
 
   // Each page's photos that a kind is chosen for (a process photo when the reference has a kind that shows making).
-  const queue = [...Map.groupBy(plan.entries.map(marked).filter((entry) => typed(entry) && allowedTypes(entry, types).length), (entry) => entry.category)];
+  const queue = [...Map.groupBy(plan.entries.map(marked).filter((entry) => typedPhoto(entry) && allowedTypes(entry, types).length), (entry) => typeCategory(entry.category))];
   await Promise.all(Array.from({ length: PAGE_CONCURRENCY }, async () => {
     while (queue.length) {
       const [category, entries] = queue.shift();

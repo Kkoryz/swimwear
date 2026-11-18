@@ -3,7 +3,7 @@
 // each page as built, the owner's to-do items and their status, and what 08 found that is Site Factory's to fix
 // (issues: the content audit, design findings of the copy, the import's sections longer than their module holds,
 // audit failures of the copy, and the layout plan's: section headings over three lines and titles too long, found
-// before the build by scripts/plan-layout.mjs; a page whose pictures cannot reach the density band is the owner's and
+// before the build by scripts/plan-layout.mjs; the SEO audit's findings of the copy; a page whose pictures cannot reach the density band is the owner's and
 // 08's, never a rewrite for Site Factory, owner 2026-11-14). Written as docs/research/sf-report.json and, for people, sf-report.md in Chinese.
 // Only written: whether it goes to Site Factory is the owner's decision (Fable's 08-onward review, plan 5).
 // Usage: node scripts/sf-report.mjs
@@ -22,13 +22,17 @@ const sha256 = async (path) => (existsSync(path) ? createHash('sha256').update(a
 const routeFile = (route) => (route === '/' ? 'index.html' : `${route.replace(/^\/|\/$/g, '')}/index.html`);
 
 // The issues Site Factory fixes, from 08's reports: [{ source, route, section?, kind, detail }].
-export function siteFactoryIssues({ content = null, review = null, imported = null, layout = null, plan = null } = {}) {
+// seo: the SEO audit's report; its findings Site Factory clears (lib/issue-owners.mjs), failures and warnings alike.
+export function siteFactoryIssues({ content = null, review = null, imported = null, layout = null, plan = null, seo = null } = {}) {
   return [
     ...(content?.issues ?? []).map((issue) => ({ source: 'content-audit', route: issue.route, kind: issue.kind, detail: [issue.field, issue.why].filter(Boolean).join(': ') })),
     ...(review?.findings ?? []).filter((finding) => finding.scope === 'content' && ['P0', 'P1'].includes(finding.severity) && !finding.resolution).map((finding) => ({ source: 'design-review', route: finding.route, section: finding.block, kind: 'design_finding', detail: finding.issue })),
     ...(imported?.overLength ?? []).map((item) => ({ source: 'import', route: item.route, section: item.sectionId, kind: 'over_length', detail: `${item.kind} in ${item.component}: ${item.words} words, the module holds ${item.maximum}` })),
+    // A trust bar value whose word after the number is no unit ("65 that"): 08 shows the number alone (lib/site-trust.mjs).
+    ...(imported?.trustValueTrimmed ?? []).map((item) => ({ source: 'import', route: null, section: 'trust_bar', kind: 'trust_value_not_a_unit', detail: `${item.label}: "${item.value}" shows as "${item.kept}" ("${item.dropped}" is not a unit of config/trust-units.json; fact ${item.factId ?? 'none'})` })),
     ...(imported?.jsonLdMarkdown ?? []).map((item) => ({ source: 'import', route: item.route ?? null, kind: 'json_ld_markdown', detail: JSON.stringify(item).slice(0, 200) })),
     ...(layout?.failures ?? []).filter((failure) => ownerOf(failure.issue) === 'site-factory').map((failure) => ({ source: 'layout-audit', route: failure.route, kind: failure.issue, detail: failure.detail ?? failure.message ?? '' })),
+    ...[...(seo?.failures ?? []), ...(seo?.warnings ?? [])].filter((finding) => ownerOf(finding.issue) === 'site-factory').map((finding) => ({ source: 'seo-audit', route: finding.route, kind: finding.issue, detail: finding.detail ?? '' })),
     ...(plan?.gate?.items ?? []).filter((item) => item.owner === 'site-factory').map((item) => ({ source: 'layout-plan', route: item.route, ...(item.block && item.block !== 'page' ? { section: item.block } : {}), kind: item.assertion, detail: [item.viewport, item.detail].filter(Boolean).join(': ') })),
   ];
 }
@@ -43,7 +47,7 @@ export async function sfReport({ root = process.cwd(), at = new Date().toISOStri
   const signoff = await data('docs/research/release-signoff.json');
   // The layout plan once made, else the feasibility report (both scripts/plan-layout.mjs).
   const plan = (await data('docs/research/layout-plan.json')) ?? (await data('docs/research/feasibility.json'));
-  const issues = siteFactoryIssues({ content: await data('docs/research/content-issues.json'), review: await data('docs/research/design-review.json'), imported: await data('docs/research/site-factory-import.json'), layout: await data('docs/research/authoring-layout-audit.json'), plan });
+  const issues = siteFactoryIssues({ content: await data('docs/research/content-issues.json'), review: await data('docs/research/design-review.json'), imported: await data('docs/research/site-factory-import.json'), layout: await data('docs/research/authoring-layout-audit.json'), plan, seo: await data('docs/research/seo-audit.json') });
   const handoff = snap ? (await sha256(resolve(snap, 'handoff.json'))) ?? (await sha256(resolve(snap, 'authoring_package.json'))) : null;
   const report = {
     schema_version: SF_REPORT_SCHEMA,

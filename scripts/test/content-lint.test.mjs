@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { contentIssuesMarkdown, keywordList, lintContent, termsSentences } from '../lib/content-lint.mjs';
+import { contentIssuesMarkdown, keywordList, lintContent, termsSentences, verbatimKeys } from '../lib/content-lint.mjs';
 
 const page = (route, blocks, extra = {}) => ({ route, pageType: 'product_manufacturer', status: 'authored', seo: { title: 'T', description: 'D' }, hero: { heading: 'H' }, blocks, ...extra });
 const terms = 'Our minimum order quantity is 50 pieces per style per colour. Standard samples take 10 to 15 days from the approved brief. Bulk production normally takes 35 to 40 days after sample approval and deposit.';
@@ -84,4 +84,25 @@ test("the owner's order terms, written out word for word on every product and se
   // The writer's own sentences in a terms section are checked as before.
   const padded = ['/a/', '/b/', '/c/'].map((route) => page(route, [{ id: 'terms', type: 'intro', heading: 'Terms', paragraphs: [`${terms} ${own} ${own.replace('twice', 'three times')} ${own.replace('floor', 'gate')}`] }]));
   assert.equal(lintContent(padded, { exempt }).filter((issue) => issue.kind === 'repeated_paragraph').length, 3);
+});
+
+test("sentences the owner requires word for word (site.json verbatimSentences) are not boilerplate where no fact_ids cite them (aloha 2026-11-17)", () => {
+  const terms = 'We ship on FOB, CIF or DDP terms. With worldwide DDP, one all-in price covers delivery to your door, and we handle duties, customs and freight through our forwarding partners. You pay a 50% deposit when you confirm the order and the remaining 50% before shipment.';
+  const pages = ['/a/', '/b/', '/c/'].map((route) => page(route, [{ id: 'm1', type: 'intro', heading: 'Shipping', paragraphs: [terms] }]));
+  assert.ok(lintContent(pages).some((issue) => issue.kind === 'repeated_paragraph'));
+  assert.deepEqual(lintContent(pages, { exempt: verbatimKeys([terms]) }).filter((issue) => issue.kind === 'repeated_paragraph'), []);
+});
+
+test("a product page's review about another of the site's products goes back to Site Factory; one about its kind stays (aloha 2026-11-18, audit H-8)", async () => {
+  const { testimonialsOffPage } = await import('../lib/content-lint.mjs');
+  const reviews = (...quotes) => ({ id: 'owner-testimonials', type: 'testimonials', items: quotes.map((quote) => ({ quote })) });
+  const product = (route, heading, ...quotes) => ({ route, pageType: 'product_manufacturer', status: 'authored', seo: { title: heading }, hero: { heading }, blocks: [reviews(...quotes)] });
+  const pages = [
+    product('/swimwear-manufacturer/', 'Swimwear Manufacturer', 'The aloha shirts filled a gap in our range.', 'Our swimwear sold out.'),
+    product('/big-and-tall-aloha-shirt-manufacturer/', 'Big and Tall Aloha Shirts', 'The shirts fit our larger sizes.'),
+    product('/aloha-work-uniform-manufacturer/', 'Aloha Work Uniforms', 'Our first batch of rayon shirts held up.'),
+  ];
+  const issues = testimonialsOffPage(pages);
+  assert.deepEqual(issues.map((issue) => [issue.route, issue.text]), [['/swimwear-manufacturer/', 'The aloha shirts filled a gap in our range.']]);
+  assert.equal(issues[0].kind, 'testimonial_off_page');
 });

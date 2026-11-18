@@ -11,6 +11,12 @@ import { forChildren, mentionsAny } from './image-plan.mjs';
 // A config template with its {name} slots filled (a slot with no value stays as written).
 export const fillTemplate = (template, slots) => template.replace(/\{(\w+)\}/g, (match, name) => slots[name] ?? match);
 const sentence = (...parts) => parts.filter(Boolean).join(' ');
+// The model line: who wears it when the page's theme says (entry.wearer, lib/page-theme.mjs: "one adult man" on the
+// boardshorts page under Men's Swimwear, which "of the gender that wears it" left to the image model and it made a
+// woman; site13 claude-seo audit 2026-11-17, M-13), else the casting alone.
+// A photo of the making: the trade's worker line, and which of its few workers it shows (briefs.workerCasting).
+const workerLine = (worker, prompts) => [prompts.worker, worker && prompts.workerLook ? fillTemplate(prompts.workerLook, { worker }) : ''].filter(Boolean).join(' ');
+const modelLine = (entry, prompts) => (entry.wearer && prompts.modelWearer ? fillTemplate(prompts.modelWearer, { wearer: entry.wearer, casting: entry.casting ?? '' }) : fillTemplate(prompts.model, { casting: entry.casting }));
 // The built-in tool by name, not the owner's reference-style-imagegen skill: the judge homes that make photos too have
 // none of the owner's skills, and the same description made the same photo there (site10, 2026-10-30).
 const TOOL = 'Use your built-in image generation tool (not a CLI fallback). Pass the description below to it as written: do not expand or reword it.';
@@ -89,9 +95,9 @@ export function typedPrompt(entry, { type, master, briefs, garments = null, line
     making ? `It shows our ${name} being made${topic}.` : worn ? `The model wears our ${name}${topic}.` : fabricOnly ? `It shows the fabrics of our ${name}${topic}, as fabric only.` : `It shows our ${name}${topic}.`,
     productDesign({ ...entry, kind: 'product' }, entry.subject ?? '', { name, garments, briefs, fabricOnly }),
     entry.modestCut ? prompts.modestCut : '',
-    worn && entry.casting ? fillTemplate(prompts.model, { casting: entry.casting }) : '',
+    worn && entry.casting ? modelLine(entry, prompts) : '',
     worn && entry.coverUp ? prompts.coverUp : '',
-    making ? prompts.worker : '',
+    making ? workerLine(entry.worker, prompts) : '',
     !worn && !making && !chart ? 'No person in the image.' : '',
     ...closing(entry, master, prompts, { person: worn || making, fabric: true, modelled: worn, chart, orientation }),
   ].filter(Boolean).join('\n');
@@ -106,7 +112,7 @@ export function typedPrompt(entry, { type, master, briefs, garments = null, line
 // pictures of one article were mostly one navy swimsuit on one pool deck).
 // source: what the picture is for ('article', or 'page' for a page section's photo); extra: lines on what it shows
 // (a worn product and its model, intentPrompt); modelled: a person wears the product.
-export function articleVisualPrompt(visual, { master, profile, briefs, article, size = '1536x1024', others = [], source = 'article', extra = [], modelled = false }) {
+export function articleVisualPrompt(visual, { master, profile, briefs, article, size = '1536x1024', others = [], source = 'article', extra = [], modelled = false, worker = null }) {
   const { prompts } = briefs;
   const orientation = orientationOf(size);
   const photo = visual.type === 'photo';
@@ -132,7 +138,7 @@ export function articleVisualPrompt(visual, { master, profile, briefs, article, 
     // outdoor sun moved a sampling room's bench onto a stone terrace); only the site's camera rendering stays.
     photo && visual.setting ? `The light and colours are the setting's own. Rendering as on the company's website: ${profile.rendering}`
       : photo ? `Light, colour and rendering as on the company's website: ${sentence(profile.lighting, profile.colour, profile.rendering)}` : `Colour as on the company's website: ${profile.colour}`,
-    person ? prompts.worker : photo && !modelled ? 'No person in the image.' : '',
+    person ? workerLine(worker, prompts) : photo && !modelled ? 'No person in the image.' : '',
     ...closing({ size }, master, prompts, { person: photo && (person || modelled), fabric: photo, modelled, chart: !photo, orientation }),
   ].filter(Boolean).join('\n');
 }
@@ -148,10 +154,10 @@ export function intentPrompt(entry, { master, profile, briefs, garments = null, 
   const extra = worn ? [
     `The model wears our ${name}.`,
     productDesign({ ...entry, kind: 'product' }, '', { name, garments, briefs }),
-    entry.casting ? fillTemplate(briefs.prompts.model, { casting: entry.casting }) : '',
+    entry.casting ? modelLine(entry, briefs.prompts) : '',
   ] : [];
   const visual = { type: 'photo', title: intent.caption ?? intent.content, content: intent.content, setting: intent.setting ?? undefined, purpose: intent.purpose ?? intent.caption ?? '', section: intent.section ?? name };
-  return articleVisualPrompt(visual, { master, profile, briefs, article: name, size: entry.size, others, source: 'page', extra, modelled: worn });
+  return articleVisualPrompt(visual, { master, profile, briefs, article: name, size: entry.size, others, source: 'page', extra, modelled: worn, worker: entry.worker });
 }
 
 // A photo of a trade whose photos are scenes of its work (briefs.photos "scenes": a service business), not a product on
@@ -205,7 +211,7 @@ export function imagePrompt(entry, { master, profile, briefs, shot = null, garme
     `Subject: ${subject}${topic}.`,
     productDesign(entry, subject, { name, garments, briefs }),
     entry.modestCut ? prompts.modestCut : '',
-    withModel && entry.casting ? fillTemplate(prompts.model, { casting: entry.casting }) : '',
+    withModel && entry.casting ? modelLine(entry, prompts) : '',
     withModel && entry.coverUp ? prompts.coverUp : '',
     entry.kind === 'portrait' ? prompts.portrait : '',
     `Avoid: ${profile.avoid}`,

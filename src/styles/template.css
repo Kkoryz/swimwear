@@ -86,6 +86,7 @@ main[data-authoring-page] img { display: block; max-width: 100%; }
   text-decoration: none;
   text-transform: var(--nav-transform, none);
 }
+button.site-nav__link { border: 0; background: none; line-height: inherit; cursor: pointer; }
 .site-nav__item:hover > .site-nav__link,
 .site-nav__item:focus-within > .site-nav__link { color: var(--accent); }
 .site-nav__panel {
@@ -156,33 +157,54 @@ main[data-authoring-page] img { display: block; max-width: 100%; }
    40px h2 sat over a long title held at the 36px floor, the order upside down). On a phone the title keeps its four
    lines and the section headings come down to it instead (.block h2 --section-cap: at their size, ten-word titles
    took five lines). */
-[data-heading-fit] { container-type: inline-size; --fit-ems: var(--fit-ems-desktop); --fit-min: max(var(--fit-min-desktop), var(--fit-above, 0px)); --heading-fit: max(var(--fit-min), 100cqi / var(--fit-ems)); }
+[data-heading-fit] { container-type: inline-size; --fit-ems: var(--fit-ems-desktop); --fit-min: max(var(--fit-min-desktop), var(--fit-above, 0px)); --heading-fit: max(var(--fit-floor, var(--fit-min)), 100cqi / var(--fit-ems)); }
 @media (max-width: 767px) { [data-heading-fit] { --fit-ems: var(--fit-ems-phone); --fit-min: max(var(--fit-min-phone), var(--fit-above, 0px)); --fit-above-step: 0; } }
-.page-hero__copy[data-heading-fit] { --fit-above: calc(var(--size-display) * var(--fit-above-step, 1.125)); width: 100%; max-width: max(var(--hero-copy-max, 46rem), var(--fit-ems) * min(var(--size-hero), var(--fit-min))); }
+/* A hero title whose two lines need a size under the step over the section headings, in a copy column the site keeps
+   narrow, comes down to a pixel over them rather than taking a third line (site14 2026-11-17: Staylumen's 677px column,
+   40.5px titles in three lines where 37.7px keeps two, its h2s at 36px). The column's widening keeps the full step. */
+.page-hero__copy[data-heading-fit] { --fit-above: calc(var(--size-display) * var(--fit-above-step, 1.125)); --fit-floor: max(var(--fit-min-desktop), min(var(--fit-above), max(calc(var(--size-display) + 1px), 100cqi / var(--fit-ems)))); width: 100%; max-width: max(var(--hero-copy-max, 46rem), var(--fit-ems) * min(var(--size-hero), var(--fit-min))); }
+@media (max-width: 767px) { .page-hero__copy[data-heading-fit] { --fit-floor: var(--fit-min); } }
 .page-hero__lead { font-size: var(--size-lead, 1.125rem); }
 /* Over a photo the lead is set in the title's face, at its regular weight: the body's serif under a bold capital sans
    read as two voices on the hotel home's hero (owner 2026-11-12: "文字tone很奇怪"; the competitor's mastheads carry
    their title alone). */
 .page-hero[data-variant="media-overlay"] .page-hero__lead { font-family: var(--font-hero); font-weight: 400; letter-spacing: 0.01em; }
-/* A lead too long for the photo opens the page under the hero (PageView.astro), on the section headings' axis. */
-.page-lead { max-width: min(46rem, 68ch); margin-inline: var(--lead-inline, auto); text-align: var(--lead-align, center); font-size: var(--size-lead, 1.125rem); line-height: 1.6; }
-.page-lead + .page-lead { margin-top: 0.75rem; }
+/* A long page's table of contents (PageView.astro, lib/page-toc.mjs): the contents box of the blog's posts, its links in
+   columns on a wide screen and one a line on a phone, each tall enough to tap; a section it links to stops clear of
+   the sticky header. */
+.page-toc { padding: 1.25rem 1.5rem; border-left: 4px solid var(--accent); background: var(--surface-secondary); }
+.page-toc__title { margin: 0 0 0.5rem; font-family: var(--font-ui); font-weight: 700; font-size: 0.9375rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.page-toc ol { margin: 0; padding-left: 1.2rem; columns: 16rem 3; column-gap: 2.5rem; }
+.page-toc li { break-inside: avoid; padding-block: 0.125rem; }
+.page-toc a { display: inline-block; min-height: 24px; padding-block: 0.125rem; color: var(--text-primary); }
+main [data-block-id][id] { scroll-margin-top: 6rem; }
+/* The first screen (four-site audit 2026-11-17: the hotel site's title at y=904 of a 1366×768 screen under a
+   full-screen photo, the swimwear product titles under a full phone photo; owner 2026-11-17: the page title in the
+   first screen on a phone, 390×844, and a desktop, 1366×768, after claude-seo, the competitor's look kept otherwise).
+   A photo hero keeps its look and gives way in height only: an overlay hero is at most the screen under its own top
+   (its copy centred on it); a banner photo is as tall as the screen leaves over the title, its lead and its button
+   (site13 claude-seo audit 2026-11-17, M-14: a product page's button at y=763-807 of 768 under a fixed-height photo;
+   site12 V-1: the contact page's at 745-809), never taller than its treatment asks and never so short that it shows
+   less than half its photo (the audit's heavy_crop). --fold-screen: the screen under the hero's top (--fold-top, set
+   by PageHero.astro's script: the header, a breadcrumb trail or nothing where the header lies over the photo; else the
+   header's height) and over the enquiry bar (--fold-bar); --hero-copy: the copy's height, set by the same script (else
+   --fold-room); --fold-gap: the room kept under the button. The layout audit measures it (lib/visual-checks.mjs
+   foldProblems, HERO_FOLD). */
+:root { --fold-room: clamp(11rem, 30svh, 15rem); --fold-gap: 1rem; }
+.page-hero { --fold-screen: calc(100svh - var(--fold-top, var(--header-height)) - var(--fold-bar, 0px)); }
 .page-hero[data-variant="media-overlay"] { color: var(--text-inverse); background: var(--surface-dark); }
-.page-hero[data-variant="media-overlay"] .page-hero__inner { min-height: var(--hero-min-height, clamp(360px, 42vw, 560px)); }
+.page-hero[data-variant="media-overlay"] .page-hero__inner { min-height: min(var(--hero-min-height, clamp(360px, 42vw, 560px)), var(--fold-screen)); }
 .page-hero__backdrop { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--hero-focal, center); }
 .page-hero[data-variant="media-overlay"]::before { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--hero-overlay, rgb(0 0 0 / 0.45)); }
 .page-hero[data-variant="media-overlay"] .page-hero__inner { z-index: 2; }
 @media (min-width: 900px) { .page-hero[data-variant="media-split"] .page-hero__inner { grid-template-columns: 1.1fr 1fr; } }
 .page-hero[data-variant="media-banner"] { background: var(--surface-primary); }
-/* A banner is never taller than its photo can fill: at most the height that still shows 60% of it (the audit's
-   heavy_crop), whatever height a treatment asks for; a taller phone banner needs a portrait photo (art direction). */
-.page-hero__banner { --hero-fit-ratio: var(--hero-photo-ratio, 0.01); margin: 0; height: min(var(--hero-banner-height, clamp(220px, 26vw, 372px)), calc(100vw / var(--hero-fit-ratio) / 0.6)); overflow: hidden; }
+/* A banner's height: what the screen leaves over its copy, between half its photo shown (--banner-floor, the audit's
+   heavy_crop) and its cap (--banner-cap: the treatment's height, never more than still shows 60% of the photo; a
+   phone photo of its own, art-directed to the competitor's phone hero shape, its whole shape on a phone). */
+.page-hero__banner { --hero-fit-ratio: var(--hero-photo-ratio, 0.01); --banner-full: calc(100vw / var(--hero-fit-ratio)); --banner-cap: min(var(--hero-banner-height, clamp(220px, 26vw, 372px)), calc(var(--banner-full) / 0.6)); --banner-floor: min(var(--banner-cap), calc(var(--banner-full) * 0.5)); margin: 0; width: 100%; height: clamp(var(--banner-floor), calc(var(--fold-screen) - var(--hero-copy, var(--fold-room)) - var(--fold-gap)), var(--banner-cap)); overflow: hidden; }
 @media (max-width: 767px) { .page-hero__banner { --hero-fit-ratio: var(--hero-phone-ratio, var(--hero-photo-ratio, 0.01)); } }
-/* A phone photo of its own (art direction: cut to the competitor's phone hero shape) is the banner's shape on phones,
-   whatever height the treatment gives the desktop banner. */
-/* (min-width 0: a minimum height set on it would otherwise turn into a minimum width through the ratio, wider than the
-   phone.) */
-@media (max-width: 767px) { .page-hero__banner[data-phone-photo] { height: auto; aspect-ratio: var(--hero-phone-ratio); min-width: 0; max-width: 100%; } }
+@media (max-width: 767px) { .page-hero__banner[data-phone-photo] { --banner-cap: var(--banner-full); } }
 /* So does a closing band's photo panel: at least the photo's shape (taller when the copy needs it). */
 @media (max-width: 767px) { .cta[data-phone-photo] { aspect-ratio: var(--cta-phone-ratio); min-width: 0; max-width: 100%; } }
 .page-hero__banner img { width: 100%; height: 100%; object-fit: cover; object-position: var(--hero-focal, center); }
@@ -191,8 +213,18 @@ main[data-authoring-page] img { display: block; max-width: 100%; }
    and the button under the middle of left-set text). */
 .page-hero[data-variant="media-banner"] { --banner-align: var(--hero-align, center); }
 body[data-heading-align="start"] .page-hero[data-variant="media-banner"] { --banner-align: var(--hero-align, start); }
-.page-hero[data-variant="media-banner"] .page-hero__inner { padding-block: clamp(2rem, 4vw, 3rem) 0; justify-items: var(--banner-align); text-align: var(--banner-align); }
-.page-hero[data-variant="media-banner"] .page-hero__copy { justify-items: var(--banner-align); text-align: var(--banner-align); }
+/* Under a banner the copy's room follows the screen's height, and so does the title, down to its floor (--fit-min):
+   at 1366×768 a 3:2 banner photo takes at least 455px, and the hotel site's 56px two-line title, its lead and its
+   64px button did not fit under it (site12 claude-seo audit 2026-11-17, V-1). */
+.page-hero[data-variant="media-banner"] .page-hero__inner { padding-block: clamp(1rem, 3.2svh, 3rem) 0; justify-items: var(--banner-align); text-align: var(--banner-align); }
+.page-hero[data-variant="media-banner"] .page-hero__copy { gap: clamp(0.75rem, 1.6svh, 1.25rem); justify-items: var(--banner-align); text-align: var(--banner-align); }
+.page-hero[data-variant="media-banner"] h1 { font-size: min(var(--size-hero), var(--heading-fit, var(--size-hero)), max(var(--fit-min, 0px), 5.5svh)); }
+
+/* The contact page's direct channels under its button (PageHero.astro; site13 claude-seo audit 2026-11-17, M-15): one
+   wrapping row on the copy's axis, each link a 44px target (Modern Web Guidance). */
+.page-hero__contact { display: flex; flex-wrap: wrap; justify-content: var(--hero-align, start); gap: 0 1.25rem; margin: 0; padding: 0; list-style: none; font-family: var(--font-ui); font-size: 0.9375rem; }
+.page-hero[data-variant="media-banner"] .page-hero__contact { justify-content: var(--banner-align); }
+.page-hero__contact a { display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
 
 /* Media boxes: an explicit ratio, crop and focal point so an asset never leaves an empty band. */
 .media-box { margin: 0; aspect-ratio: var(--media-ratio, 4 / 3); overflow: hidden; border-radius: var(--radius-media); background: var(--surface-secondary); }
@@ -268,8 +300,13 @@ body[data-heading-align="start"] .page-hero[data-variant="media-banner"] { --ban
 .faq__item summary::-webkit-details-marker { display: none; }
 .faq__item summary::after { content: "+"; font-family: var(--font-ui); font-size: 1.25rem; line-height: 1; color: var(--accent); }
 .faq__item[open] summary::after { content: "−"; }
-.faq__item h3 { font-family: var(--font-subheading); font-size: var(--size-subheading); font-weight: 600; line-height: 1.4; }
+/* The question (FaqBlock.astro: the summary's text, no heading inside it) keeps the look its h3 had: the subheading's
+   face, size and weight, in balanced lines that break only a word too long for the row. */
+.faq__question { display: block; font-family: var(--font-subheading); font-size: var(--size-subheading); font-weight: 600; line-height: 1.4; overflow-wrap: break-word; hyphens: manual; text-wrap: balance; }
 .faq__item p { padding: 0 1.25rem 1.25rem; }
+/* An open list's question is the item's h3 (FaqBlock.astro, lib/faq-layout.mjs): set where the summary sits, in the
+   same look, with no open/close mark (nothing folds). */
+.faq__item > .faq__question { margin: 0; padding: 1.125rem 1.25rem 0.75rem; }
 @media (min-width: 900px) {
   [data-variant="two-column"] .faq { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); align-items: start; }
   /* The questions keep their column when the block goes on from the one before it (no heading of its own). */
@@ -344,10 +381,45 @@ body[data-heading-align="start"] .page-hero[data-variant="media-banner"] { --ban
   --text-muted-2: var(--text-inverse-muted, rgb(255 255 255 / 0.78));
 }
 :is([data-variant="dark"] .text-block, [data-variant="dark"] .cta, [data-variant="image-band"] .cta) :is(h2, h3, p, li, dt, dd) { color: var(--text-inverse); }
+/* The secondary surface's own text (four-site audit 2026-11-17: Staylumen's white text on its light grey, 1.47:1 on
+   19 pages). Where the site's text does not read on its --surface-secondary, apply-reference-analysis.mjs writes
+   --text-on-secondary and --muted-on-secondary and sets components.secondaryInk (body[data-secondary-ink]): every part
+   painted with the secondary surface (the second list; token-contrast.test.mjs keeps it whole) takes them, at zero
+   specificity so a treatment's own colour on a part still wins. The parts painted with the page's surface (the first
+   list) keep the page's colours wherever they sit, and so do the secondary parts inside a tinted section, whose
+   --surface-secondary is the page's (lib/section-surfaces.mjs tintStyle sets --secondary-ink and the rest there). A
+   treatment that paints the secondary surface another colour in one section sets --secondary-ink (and
+   --secondary-muted, --secondary-link, --secondary-accent) there too. */
+:root { --page-link: var(--link, var(--accent-text, var(--text-primary))); --page-accent: var(--accent-text, var(--accent)); --page-focus: var(--focus-ring, var(--accent)); }
+:where(body[data-secondary-ink]) :where([data-variant="outlined"] .feature-card, [data-pattern="outline-numbered"] .feature-card, .faq__item, .logos__item[data-wordmark], .certification, .track__button, .contact-channels[data-variant="cards"] .contact-channel, .post-card, .pricing-card, main[data-post-layout="paper"] .post-article) {
+  color: var(--text-ink);
+  --text-primary: var(--text-ink);
+  --heading-color: var(--heading-ink);
+  --text-muted: var(--muted-ink);
+  --text-muted-2: var(--muted-ink);
+  --link: var(--page-link);
+  --accent-text: var(--page-accent);
+  --focus-ring: var(--page-focus);
+}
+:where(body[data-secondary-ink]) :where(.page-hero:not([data-variant="media-overlay"], [data-variant="media-banner"], [data-variant="plain"]), [data-variant="band"] .text-block, [data-variant="band"] .cta, .media-box--slot, .block--split[data-variant="tinted"], .block--split[data-variant="panel"] .split__copy, .case, .testimonial, .contact-channel__icon, .gallery[data-tiles="icons"] .gallery__item, .block--gallery[data-variant="product-cards"] .gallery__item, .blog-hub-hero[data-header="hero"], .post-takeaways, .post-toc--inline, .page-toc, .prose__chart, .chart-comparison tbody th, .prose__table th, .post-aside .post-toc, .post-recent, .post-author, main[data-post-layout="sidebar-start"] .post-header, .block--stats[data-variant="tiles"] .stats__item, .block--faq[data-variant="bars"] .faq__item, [data-pattern="icon-cards"] .feature-card, .block--cta[data-variant="form"]:not([data-has-photo]) .cta, .process-step__time, .order-case, .order-route, .team-card, .post-author-card) {
+  color: var(--secondary-ink, var(--text-on-secondary));
+  --text-primary: var(--secondary-ink, var(--text-on-secondary));
+  --heading-color: var(--secondary-ink, var(--text-on-secondary));
+  --text-muted: var(--secondary-muted, var(--muted-on-secondary));
+  --text-muted-2: var(--secondary-muted, var(--muted-on-secondary));
+  --link: var(--secondary-link, var(--text-on-secondary));
+  --accent-text: var(--secondary-accent, var(--text-on-secondary));
+  --focus-ring: var(--secondary-ink, var(--text-on-secondary));
+}
 /* Text over a photo: a soft shade right behind the copy keeps it readable wherever the photo is bright (the
    reference's overlay was set for the reference's own photos). A treatment with dark text on a light photo sets
    --text-scrim: transparent. (Turning it off by default left 44 to 850 texts per site below contrast, 2026-10-25.) */
 .page-hero[data-variant="media-overlay"] .page-hero__copy, [data-variant="image-band"] .cta__content { position: relative; isolation: isolate; }
+/* Over a photo the main button is the site's own call (the header's: its accent, its contrast colour, its corners),
+   whatever a page type's treatment paints its buttons on the page's light ground (site13 2026-11-18: the product
+   pages' black buttons, taken from the competitor's banner page where the button sits on white, went dark on dark
+   when the majority of its pages put the title over the photo; owner: "按钮不明显了"). */
+:is(.page-hero[data-variant="media-overlay"], [data-variant="image-band"] .cta) .button--primary { background: var(--accent); color: var(--accent-contrast); border-radius: var(--radius-button); font-weight: 600; }
 .page-hero[data-variant="media-overlay"] .page-hero__copy::before, [data-variant="image-band"] .cta__content::before { content: ""; position: absolute; inset: -14% -10%; z-index: -1; background: radial-gradient(farthest-side, var(--text-scrim, rgb(0 0 0 / 0.45)) 55%, transparent); pointer-events: none; }
 
 /* Gallery: equal image tiles, 3 or 4 per row, 2 on phones. */
@@ -361,8 +433,10 @@ body[data-heading-align="start"] .page-hero[data-variant="media-banner"] { --ban
 .page-hero[data-variant="plain"] .page-hero__inner { padding-block: calc(var(--section-space) / 2) 0; }
 
 /* Accessibility baseline (WCAG 2.2 AA): skip link, visible keyboard focus, reduced motion. */
-.skip-link { position: absolute; left: 0.75rem; top: -3rem; z-index: 100; padding: 0.5rem 1rem; background: var(--surface-primary); color: var(--text-primary); font-family: var(--font-ui); text-decoration: none; }
-.skip-link:focus { top: 0.75rem; }
+/* Out of sight by its own height, not a fixed offset: at -3rem its foot showed as a thin strip at the top of every page
+   (MotelPilot claude-seo audit 2026-11-17, L-11). */
+.skip-link { position: absolute; left: 0.75rem; top: 0; transform: translateY(-100%); z-index: 100; padding: 0.5rem 1rem; background: var(--surface-primary); color: var(--text-primary); font-family: var(--font-ui); text-decoration: none; }
+.skip-link:focus { transform: translateY(0.75rem); }
 :where(a, button, summary, input, textarea, select):focus-visible { outline: 2px solid var(--focus-ring, var(--accent)); outline-offset: 2px; }
 img { height: auto; }
 @media (prefers-reduced-motion: reduce) {
@@ -387,3 +461,16 @@ img { height: auto; }
 
 /* A text-only introduction is a centred reading column, not a column pinned left beside empty space. */
 .block--intro[data-variant="text"] .text-block { margin-inline: auto; }
+
+/* The enquiry bar (EnquiryBar.astro): the page's call to action at the foot of the screen wherever the header shows no
+   button (below its desktop width), so a phone's first screen holds it under any hero (four-site audit 2026-11-17;
+   owner 2026-11-17). One row, the only bar fixed at the foot, a 44px target, under 12% of the screen, clear of the safe
+   area; the page keeps room for it at its end and focus scrolls clear of it (Modern Web Guidance). */
+.enquiry-bar { display: none; }
+@media (max-width: 1023px) {
+  .enquiry-bar { position: fixed; inset: auto 0 0; z-index: 40; display: flex; padding: 0.5rem var(--gutter) calc(0.5rem + env(safe-area-inset-bottom, 0px)); background: var(--surface-primary); border-top: 1px solid var(--border-color); }
+  .enquiry-bar .enquiry-bar__link { flex: 1 1 auto; min-height: 44px; padding-block: 0.5rem; text-align: center; }
+  body:has(> .enquiry-bar) { --fold-bar: calc(44px + 1rem + 1px + env(safe-area-inset-bottom, 0px)); padding-bottom: var(--fold-bar); }
+  html:has(> body > .enquiry-bar) { scroll-padding-bottom: calc(44px + 1rem + 1px + env(safe-area-inset-bottom, 0px)); }
+}
+@media print { .enquiry-bar { display: none; } }

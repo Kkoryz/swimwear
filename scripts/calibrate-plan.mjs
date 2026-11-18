@@ -20,6 +20,7 @@ import { dirname, resolve } from 'node:path';
 import { cliArgs, runMain } from './lib/cli.mjs';
 import { DENSITY_EXEMPT_PAGE_TYPES, measureBlocks, measureDensity } from './lib/density.mjs';
 import { readJson, writeJson } from './lib/json-io.mjs';
+import { pictureBand } from './lib/rules.mjs';
 import { loadSitePages } from './lib/site-pages.mjs';
 import { serveStatic } from './lib/static-server.mjs';
 import { TRIAL_TOLERANCE } from './lib/trial-build.mjs';
@@ -34,8 +35,12 @@ const DESKTOP = { width: 1440, height: 1000 };
 const CONCURRENCY = 4;
 const round1 = (value) => Math.round(value * 10) / 10;
 
-// Whether a picture area is inside a page's band (a page type held to the ceiling only has no floor).
-const inBand = (pct, band, floorExempt) => (floorExempt || band.visualAreaPct?.min == null || pct >= band.visualAreaPct.min) && (band.visualAreaPct?.max == null || pct <= band.visualAreaPct.max);
+// Whether a picture area passes a page's band, a fifth wider either way (lib/rules.mjs pictureBand; a page type held to
+// the ceiling only has no floor).
+const inBand = (pct, band, floorExempt) => {
+  const passes = pictureBand(band.visualAreaPct);
+  return (floorExempt || passes.min == null || pct >= passes.min) && (passes.max == null || pct <= passes.max);
+};
 
 // Each measured page with a band against its plan: the estimate's height off the measure (% of it) and its picture
 // area off the measure (points); wrongCall: the plan calls the page inside its band and the trial build measures it

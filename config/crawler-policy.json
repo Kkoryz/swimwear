@@ -1,6 +1,11 @@
 {
   "schemaVersion": "seo-site-crawler-policy-v1",
-  "note": "Owner decision 2026-09-25: search engines, AI search crawlers and AI training crawlers are all allowed. The SEO audit and verify-live fail when robots.txt blocks any crawler listed here from the site. Tokens from claude-seo scripts/agentic_check.py AI_AGENTS (MIT) and the vendors' crawler documentation.",
+  "note": "Owner decision 2026-09-25: search engines, AI search crawlers and AI training crawlers are all allowed. The SEO audit and verify-live fail when robots.txt blocks any crawler listed here from the site. Tokens from claude-seo scripts/agentic_check.py AI_AGENTS (MIT) and the vendors' crawler documentation. groups: robots.txt states the decision for each purpose as a group of its own (scripts/lib/seo-head.mjs robotsTxt; four-site audit 2026-11-17, G1/A2: claude-seo seo-agentic robots-ai-groups), then the rest of the web; allow is the owner's decision for that purpose.",
+  "groups": [
+    { "purposes": ["search"], "label": "Search engines", "allow": true },
+    { "purposes": ["ai-search", "ai-user"], "label": "AI search and answer engines: their search indexes and the pages a person asks them to read", "allow": true },
+    { "purposes": ["ai-training"], "label": "AI model training", "allow": true }
+  ],
   "allow": [
     { "token": "Googlebot", "purpose": "search" },
     { "token": "Bingbot", "purpose": "search" },

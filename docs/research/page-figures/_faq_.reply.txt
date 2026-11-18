@@ -1,3 +1,0 @@
-```json
-{"figures": [{"value": "50 pieces", "label": "Minimum per style"}, {"value": "10 to 15 days", "label": "Sample time"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "5 to 7 days", "label": "DHL sample delivery"}, {"value": "4 to 7 days", "label": "Customs and dispatch"}, {"value": "3 to 4 sizes", "label": "Sizes per minimum"}]}
-```

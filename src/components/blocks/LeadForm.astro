@@ -1,50 +1,134 @@
 ---
-// The enquiry form from the form contract (config/lead-form.json): disabled and without an action until the contract
-// says connected; every enquiry carries the site, the page, the referrer and the UTM parameters.
-import { privacyRouteOf } from '../../../scripts/lib/lead-form.mjs';
+// The enquiry form from the form contract (config/lead-form.json): live (POST to the contract's first-party endpoint,
+// which forwards it to the site's mailbox; owner 2026-11-17) while the contract's status is ready or connected,
+// disabled and without an action while it is not-connected; the status is the contract's when the page is built.
+// The recipient is never in the page. Every enquiry carries the site, the page, the referrer and the UTM parameters.
+// The resource request form (request "resource") is the same form with its own fields and a hidden request_type.
+// Modern Web Guidance's form rules (forms.md, required-field-feedback, accessible-error-announcement, privacy.md): the
+// asterisk is explained before the fields, each field says what it is for beside it, an error is styled with
+// :user-invalid and kept in step with aria-invalid, and one polite live region announces a submit with errors and the result.
+import { formEndpoint, formIsLive, formStatus, formTool, privacyRouteOf, siteEnquiryForm } from '../../../scripts/lib/lead-form.mjs';
 import { absoluteUrl } from '../../../scripts/lib/seo-head.mjs';
 import { siteIdentity, siteRuntime, type FormBlock } from '../../lib/authoring';
 import { pages } from '../../lib/site-data';
 import SmartLink from '../site/SmartLink.astro';
 
 interface Props { block: FormBlock }
-const { block } = Astro.props;
-const connected = block.status === 'connected';
-const disabled = !connected;
+// An enquiry form asks what the contract asks when the page is built, the ask fields of the site's kind with its own
+// pages as choices (lib/lead-form.mjs siteEnquiryForm; site13 claude-seo audit 2026-11-17, M-15), whatever fields an
+// earlier import wrote into the page; the privacy table reads the same. The resource request form keeps its own.
+const block: FormBlock = Astro.props.block.request === 'resource' ? Astro.props.block : { ...Astro.props.block, fields: siteEnquiryForm(Astro.props.block.id, pages).fields };
+const status = formStatus();
+const live = formIsLive(status);
+const disabled = !live;
+const endpoint = formEndpoint() ?? block.endpoint;
 const pageUrl = absoluteUrl(siteIdentity, Astro.url.pathname);
 const UTM = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+// Ids unique on the page: a page may carry the hero's form, a form block and a closing band's form.
+const idOf = (field: FormBlock['fields'][number], index: number) => `${block.id}-${field.name ?? `field-${index}`}`;
+const messages = block.messages;
+// A live form is a WebMCP declarative tool, every control it sends described (lib/lead-form.mjs formTool; no
+// toolautosubmit: the person sends it); a form that does not post carries none of it.
+const tool = formTool(block, live);
+const toolForm = tool ? { toolname: tool.name, tooldescription: tool.description } : {};
+const param = (name: string) => (tool?.params[name] ? { toolparamdescription: tool.params[name] } : {});
 ---
 
-<form class="form-block__form" data-form-status={connected ? 'connected' : 'not-connected'} method={connected ? 'post' : undefined} action={connected ? block.endpoint : undefined}>
-  {block.fields.map((field, index) => (
-    <label class:list={['form-block__field', { 'form-block__field--wide': field.kind === 'textarea' }]}>
-      <span>{field.label}{field.required && <span aria-hidden="true"> *</span>}</span>
-      {field.kind === 'textarea'
-        ? <textarea name={field.name ?? `field-${index}`} rows="5" required={field.required} disabled={disabled} />
-        : <input type={field.kind} name={field.name ?? `field-${index}`} autocomplete={field.autocomplete} required={field.required} disabled={disabled} />}
-    </label>
-  ))}
-  {siteRuntime?.site?.id && <input type="hidden" name="site_id" value={siteRuntime.site.id} />}
-  <input type="hidden" name="page_url" value={pageUrl} />
-  <input type="hidden" name="referrer" value="" data-lead-referrer />
-  {UTM.map((key) => <input type="hidden" name={key} value="" data-lead-utm={key} />)}
+<form class="form-block__form" data-lead-form data-form-status={status} data-request={block.request} method={live ? 'post' : undefined} action={live ? endpoint : undefined} data-message-invalid={messages?.invalid} data-message-sending={messages?.sending} data-message-sent={messages?.sent} data-message-failed={messages?.failed} {...toolForm}>
+  {block.requiredNote && block.fields.some((field) => field.required) && <p class="form-block__note form-block__field--wide">{block.requiredNote}</p>}
+  {block.fields.map((field, index) => {
+    const id = idOf(field, index);
+    const name = field.name ?? `field-${index}`;
+    const described = field.purpose ? `${id}-purpose` : undefined;
+    const common = { id, name, required: field.required, disabled, 'aria-labelledby': `${id}-label`, 'aria-describedby': described, 'aria-invalid': 'false' as const, 'data-describedby': described ?? '', 'data-error': `${id}-error`, ...param(name) };
+    return (
+      <label class:list={['form-block__field', { 'form-block__field--wide': field.kind === 'textarea' }]}>
+        <span id={`${id}-label`}>{field.label}{field.required && <span aria-hidden="true"> *</span>}</span>
+        {field.kind === 'textarea'
+          ? <textarea {...common} rows="5" />
+          : field.kind === 'select'
+            ? <select {...common}><option value="" />{(field.options ?? []).map((option) => <option value={option}>{option}</option>)}</select>
+            : <input {...common} type={field.kind} autocomplete={field.autocomplete} min={field.min} step={field.kind === 'number' ? 1 : undefined} />}
+        {field.purpose && <small class="form-block__hint" id={`${id}-purpose`}>{field.purpose}</small>}
+        <small class="form-block__error" id={`${id}-error`} hidden></small>
+      </label>
+    );
+  })}
+  {siteRuntime?.site?.id && <input type="hidden" name="site_id" value={siteRuntime.site.id} {...param('site_id')} />}
+  {block.requestType && <input type="hidden" name="request_type" value={block.requestType} {...param('request_type')} />}
+  <input type="hidden" name="page_url" value={pageUrl} {...param('page_url')} />
+  <input type="hidden" name="referrer" value="" data-lead-referrer {...param('referrer')} />
+  {UTM.map((key) => <input type="hidden" name={key} value="" data-lead-utm={key} {...param(key)} />)}
   {block.honeypot && (
     <label class="form-block__trap" aria-hidden="true">
       <span>Leave this field empty</span>
-      <input type="text" name={block.honeypot} tabindex="-1" autocomplete="off" />
+      <input type="text" name={block.honeypot} tabindex="-1" autocomplete="off" {...param(block.honeypot)} />
     </label>
   )}
   {block.consent && (
     <label class="form-block__consent form-block__field--wide">
-      <input type="checkbox" name="consent" value="yes" required disabled={disabled} />
+      <input type="checkbox" name="consent" value="yes" required disabled={disabled} aria-invalid="false" {...param('consent')} />
       <span>{block.consent.label} <SmartLink href={privacyRouteOf(pages, { consent: block.consent })}>Privacy policy</SmartLink></span>
     </label>
   )}
-  <button type={connected ? 'submit' : 'button'} class="button button--primary" disabled={disabled} data-umami-event="form-submit">{block.submitLabel}</button>
+  <button type={live ? 'submit' : 'button'} class="button button--primary" disabled={disabled} data-umami-event={block.request === 'resource' ? 'resource-request-submit' : 'form-submit'}>{block.submitLabel}</button>
+  <p class="form-block__status form-block__field--wide" role="status" aria-live="polite" data-form-message></p>
 </form>
 <script>
   // The visit's referrer and UTM parameters travel with the enquiry.
   const params = new URLSearchParams(location.search);
   for (const input of document.querySelectorAll<HTMLInputElement>('[data-lead-utm]')) input.value = params.get(input.dataset.leadUtm ?? '') ?? '';
   for (const input of document.querySelectorAll<HTMLInputElement>('[data-lead-referrer]')) input.value = document.referrer;
+
+  type Control = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+  // aria-invalid and the field's message follow its validity once the visitor has been told of an error (the
+  // browser's invalid event on a submit) or has left the field; the message joins aria-describedby only while it stands.
+  const mark = (control: Control) => {
+    const invalid = !control.validity.valid;
+    control.setAttribute('aria-invalid', String(invalid));
+    const error = control.dataset.error ? document.getElementById(control.dataset.error) : null;
+    if (error) { error.textContent = invalid ? control.validationMessage : ''; error.hidden = !invalid; }
+    const ids = [control.dataset.describedby, invalid && error ? error.id : ''].filter(Boolean).join(' ');
+    if (ids) control.setAttribute('aria-describedby', ids); else control.removeAttribute('aria-describedby');
+  };
+  for (const form of document.querySelectorAll<HTMLFormElement>('form[data-lead-form]')) {
+    const status = form.querySelector<HTMLElement>('[data-form-message]');
+    const say = (text?: string) => { if (status && text) status.textContent = text; };
+    const touched = new WeakSet<Control>();
+    form.addEventListener('invalid', (event) => {
+      if (!isControl(event.target)) return;
+      touched.add(event.target);
+      mark(event.target);
+      say(form.dataset.messageInvalid);
+    }, true);
+    const isControl = (target: EventTarget | null): target is Control => target instanceof Element && target.matches('input:not([type="hidden"]), select, textarea');
+    form.addEventListener('focusout', (event) => { if (isControl(event.target) && event.target.value) { touched.add(event.target); mark(event.target); } });
+    form.addEventListener('input', (event) => { if (isControl(event.target) && touched.has(event.target)) mark(event.target); });
+    // A connected form is sent in place so its result can be announced; without the script it posts as a plain form.
+    // The button is disabled only after a successful send (no second copy), never to hold back validation. While a send
+    // is under way the form is busy: a second submit does nothing, and a failed send can be tried again (RateHarbor
+    // claude-seo audit 2026-11-17, L-3: a slow network let one person or agent post twice).
+    form.addEventListener('submit', async (event) => {
+      if (!['ready', 'connected'].includes(form.dataset.formStatus ?? '') || !form.action) return;
+      event.preventDefault();
+      if (form.getAttribute('aria-busy') === 'true') return;
+      const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      form.setAttribute('aria-busy', 'true');
+      if (button) button.disabled = true;
+      say(form.dataset.messageSending);
+      let sent = false;
+      try {
+        const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (!response.ok) throw new Error(String(response.status));
+        say(form.dataset.messageSent);
+        form.reset();
+        sent = true;
+      } catch {
+        say(form.dataset.messageFailed);
+      } finally {
+        form.removeAttribute('aria-busy');
+        if (button) button.disabled = sent;
+      }
+    });
+  }
 </script>

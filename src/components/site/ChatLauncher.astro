@@ -204,7 +204,7 @@ const quickReplies = chat?.quickReplies ?? DEFAULT_QUICK_REPLIES;
 </script>
 
 <style is:global>
-  .chat { --chat-bg: var(--chat-color, var(--accent)); --chat-fg: var(--chat-contrast, var(--accent-contrast)); position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 1000; display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; font-family: var(--font-ui); }
+  .chat { --chat-bg: var(--chat-color, var(--accent)); --chat-fg: var(--chat-contrast, var(--accent-contrast)); position: fixed; right: 1.25rem; bottom: calc(1.25rem + var(--fold-bar, 0px)); z-index: 1000; display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; font-family: var(--font-ui); }
   .chat__bubble { position: relative; display: flex; align-items: center; gap: 0.5rem; min-height: 3.5rem; padding: 0 1.25rem; border: 0; border-radius: 999px; background: var(--chat-bg); color: var(--chat-fg); box-shadow: 0 8px 24px rgb(0 0 0 / 0.2); cursor: pointer; font: inherit; font-weight: 600; }
   .chat--open .chat__bubble { width: 3.5rem; padding: 0; justify-content: center; }
   .chat--open .chat__bubble-label { display: none; }
@@ -243,7 +243,7 @@ const quickReplies = chat?.quickReplies ?? DEFAULT_QUICK_REPLIES;
   .chat__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   /* On a phone the bubble is an icon only; the window opens only when tapped, full screen above the site header. */
   @media (max-width: 767px) {
-    .chat { right: 0.75rem; bottom: 0.75rem; }
+    .chat { right: 0.75rem; bottom: calc(0.75rem + var(--fold-bar, 0px)); }
     .chat__bubble { width: 3.5rem; padding: 0; justify-content: center; }
     .chat__bubble-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     .chat__window { position: fixed; inset: 0; width: 100%; height: 100dvh; border-radius: 0; }

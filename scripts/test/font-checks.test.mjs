@@ -26,6 +26,14 @@ test('font_not_loaded: the first family has no loaded file (the browser shows a 
   assert.deepEqual(fontProblems({ used: [text('Georgia', 400), text('sans-serif', 400)], faces: [] }, { system: ['Georgia'] }), []);
 });
 
+test('a weight the family does not have, recorded as synthesized as on the reference, is no problem; another still is', () => {
+  // Staylumen 2026-11-16: Marcellus has a regular face only and the reference shows it at 600 and 700 (installed-fonts.json
+  // families[].synthesized); 132 audit failures were these.
+  const fonts = { used: [text('Marcellus', 600), text('Marcellus', 700), text('Montserrat', 800), text('Marcellus', 400, 'italic')], faces: [face('Marcellus', '400'), face('Montserrat', '400')] };
+  const problems = fontProblems(fonts, { synthesized: [{ family: 'Marcellus', synthesized: [600, 700] }] });
+  assert.deepEqual(problems.map((item) => [item.family, item.weight, item.synthesized]), [['Montserrat', 800, ['weight']], ['Marcellus', 400, ['style']]]);
+});
+
 test('font_synthesized: a bold drawn from a regular face, an italic with no italic face', () => {
   // The hotel site: Josefin Sans shipped as one static 400 file, headings at 700 and navigation at 600.
   const used = [text('Josefin Sans', 400), text('Josefin Sans', 700), text('Josefin Sans', 600), text('"Josefin Sans"', 400, 'italic')];
@@ -41,4 +49,11 @@ test('font_synthesized: a bold drawn from a regular face, an italic with no ital
   assert.deepEqual(fontProblems({ used: used.slice(0, 3), faces: [face('Josefin Sans', '100 900')] }), []);
   // A face that failed to load does not count.
   assert.equal(fontProblems({ used: [text('Josefin Sans', 700)], faces: [face('Josefin Sans', '400'), face('Josefin Sans', '700', 'normal', 'error')] })[0].issue, 'font_synthesized');
+});
+
+test('the first screen\'s font files are preloaded: the basic Latin file of each family, at most two (RateHarbor M-3, 2026-11-18)', async () => {
+  const { fontPreloads } = await import('../../src/lib/font-preload.ts');
+  const face = (family, file, range) => `@font-face { font-family: "${family}"; font-weight: 400; font-display: swap; src: url("${file}") format("woff2"); unicode-range: ${range}; }`;
+  const css = [face('A', '/fonts/a-latin.woff2', 'U+0000-00FF'), face('A', '/fonts/a-latin-ext.woff2', 'U+0100-02BA'), face('A', '/fonts/a-latin.woff2', 'U+0000-00FF'), face('B', '/fonts/b-latin.woff2', 'U+0000-00FF'), face('C', '/fonts/c-latin.woff2', 'U+0000-00FF')].join('\n');
+  assert.deepEqual(fontPreloads(css), ['/fonts/a-latin.woff2', '/fonts/b-latin.woff2']);
 });

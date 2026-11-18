@@ -30,18 +30,25 @@ import { readJson, writeJson } from './lib/json-io.mjs';
 export const DESKTOP = Object.freeze({ width: 1440, height: 1000 });
 export const PHONE = Object.freeze({ width: 390, height: 844 });
 
+// A reference that refuses this machine keeps its earlier measure (lib/reference-access.mjs).
+export { BLOCKED_STATUSES } from './lib/reference-access.mjs';
+import { BLOCKED_STATUSES } from './lib/reference-access.mjs';
+
 // The reference page's sections, measured at desktop and at phone width; the page is left at desktop width, scrolled
-// to the top, for the section crops.
-export async function measureReference(browser, url) {
+// to the top, for the section crops. desktopOnly: a hero sample's sections at desktop width only (its hero's pattern
+// needs no more).
+export async function measureReference(browser, url, { desktopOnly = false } = {}) {
   const page = await browser.newPage({ viewport: { ...DESKTOP } });
   const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
-  if (!response?.ok()) throw new Error(`reference page failed: ${response?.status() ?? 'no response'} ${url}`);
+  if (!response?.ok()) throw Object.assign(new Error(`reference page failed: ${response?.status() ?? 'no response'} ${url}`), { status: response?.status() ?? null });
   await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
   await revealDeferredContent(page);
   await scrollThroughPage(page);
   const shapes = await page.evaluate(extractSectionShapes, PAGE_SHELL);
   const headings = await page.evaluate(measureHeadingAlign, PAGE_SHELL);
   const heroText = await page.evaluate(measureHeroText, PAGE_SHELL);
+  const siblings = await page.evaluate(navSiblings, url).catch(() => []);
+  if (desktopOnly) return { page, shapes, headings, heroText, siblings };
   // A site may reload its page when the viewport changes (a script re-running on resize): the measurement waits for
   // that, reveals the lazy content again and finds the sections by their anchors; a reload during a step is retried.
   const atWidth = async (viewport, work) => {
@@ -62,7 +69,36 @@ export async function measureReference(browser, url) {
   const phones = await atWidth(PHONE, () => page.evaluate(measurePhoneSections, shapes.map((shape) => shape.anchor)));
   shapes.forEach((shape, index) => { shape.phone = phones[index]; });
   await atWidth(DESKTOP, async () => {});
-  return { page, shapes, headings, heroText };
+  return { page, shapes, headings, heroText, siblings };
+}
+
+// The competitor's pages in the same menu as a reference page, same site, the page itself left out: the samples its
+// page type's hero is decided by besides it (heroByMajority). The menu is the largest list (three links or more) that
+// holds a link to the page, a header's or nav's before the rest of the page's (a footer's). A "#…" link is a button,
+// not a link to the page (swimwearbali.com's header opens its menu popup with one, which ended the search empty).
+export function navSiblings(url) {
+  const norm = (href) => { try { const parsed = new URL(href, location.href); return parsed.origin === location.origin ? `${parsed.origin}${parsed.pathname}`.replace(/\/?$/, '/') : null; } catch { return null; } };
+  const target = norm(url) ?? norm(location.href);
+  const real = (anchor) => !anchor.getAttribute('href').trim().startsWith('#');
+  const links = (list) => [...new Set([...list.querySelectorAll(':scope > li > a[href]')].filter(real).map((anchor) => norm(anchor.href)).filter(Boolean))];
+  const lists = (selector) => [...new Set([...document.querySelectorAll(selector)].filter((anchor) => real(anchor) && norm(anchor.href) === target).map((anchor) => anchor.closest('ul')).filter(Boolean))].map(links).filter((hrefs) => hrefs.length >= 3);
+  const menus = lists('header a[href], nav a[href]');
+  const [largest = []] = (menus.length ? menus : lists('a[href]')).sort((a, b) => b.length - a.length);
+  return largest.filter((href) => href !== target);
+}
+
+// A page type's hero by the majority of the competitor's pages of that kind (owner 2026-11-18, through Site Factory:
+// design is decided by several samples, never by one; Strandmill's product pages took the banner of /swimwear-manufacturer/
+// while three of the four pages beside it in its menu put the title over the photo). A tie, or no sample, keeps the
+// reference page's.
+export const HERO_SAMPLES = 4;
+export const SINGLE_PAGE_TYPES = Object.freeze(['home', 'about', 'contact', 'privacy', 'terms', 'blog_hub', 'blog_post']);
+export function heroByMajority(reference, samples = []) {
+  const counts = new Map();
+  for (const variant of [reference, ...samples].filter(Boolean)) counts.set(variant, (counts.get(variant) ?? 0) + 1);
+  const most = Math.max(0, ...counts.values());
+  const leaders = [...counts].filter(([, count]) => count === most).map(([variant]) => variant);
+  return leaders.length === 1 ? leaders[0] : reference ?? leaders[0];
 }
 
 // The page's title as the competitor sets it (its first visible h1 outside the shell, at desktop width): its font
@@ -83,10 +119,38 @@ export function measureHeroText(shell) {
   const width = [...range.getClientRects()].reduce((sum, rect) => sum + rect.width, 0);
   const size = Number.parseFloat(style.fontSize);
   if (!size || !width) return null;
-  // The words the competitor sets under its title on the photo (its hero's paragraphs, not its buttons): Concord's
-  // mastheads carry their title alone (lib/heading-fit.mjs heroLeadShown).
-  const hero = heading.closest('section, header, [class*="hero"], [class*="masthead"], [class*="banner"]') ?? heading.parentElement;
-  const leadWords = [...(hero?.querySelectorAll('p') ?? [])].filter((p) => !p.closest('a, button') && p.getBoundingClientRect().width > 0).reduce((sum, p) => sum + p.textContent.trim().split(/\s+/).filter(Boolean).length, 0);
+  // The words the competitor sets under its title on the photo (recorded only: no rule moves a lead by it since the
+  // site13 claude-seo audit 2026-11-17, M-10): the text between the
+  // title as seen (a heading below a small h1 set much larger than it: an eyebrow h1 over the visual title) and the
+  // hero's first button or link, whatever its tags; not a strip under the buttons. A title not set on a photo (a banner
+  // with its title under it, a plain header) measures none: null. Concord's mastheads carry their title alone
+  // (swimwearbali.com 2026-11-17: its home's 8-word lead is an h3 under an 88px h2 and a 14px h1; counting the <p>s of
+  // the title's section missed it, took the manufacturer page's 61-word introduction under its banner, and averaged 27).
+  const box = heading.getBoundingClientRect();
+  const centre = { x: box.left + box.width / 2, y: box.top + box.height / 2 };
+  const holds = (rect) => rect.width > 0 && rect.height > 0 && rect.left <= centre.x && rect.right >= centre.x && rect.top <= centre.y && rect.bottom >= centre.y;
+  let photo = null;
+  for (let node = heading.parentElement; node && node !== document.body && !photo; node = node.parentElement) {
+    if (/url\(/.test(getComputedStyle(node).backgroundImage) && holds(node.getBoundingClientRect())) photo = { scope: node, rect: node.getBoundingClientRect() };
+    else {
+      const media = [...node.querySelectorAll('img, video, picture')].find((item) => !heading.contains(item) && holds(item.getBoundingClientRect()));
+      if (media) photo = { scope: node, rect: media.getBoundingClientRect() };
+    }
+  }
+  let leadWords = null;
+  if (photo) {
+    const visible = (element) => { const rect = element.getBoundingClientRect(); return rect.width > 0 && rect.height > 0 && getComputedStyle(element).visibility !== 'hidden' && rect.left >= photo.rect.left - 1 && rect.right <= photo.rect.right + 1 && rect.top >= photo.rect.top - 1 && rect.bottom <= photo.rect.bottom + 1; };
+    const ownWords = (element) => [...element.childNodes].filter((child) => child.nodeType === 3).map((child) => child.textContent).join(' ').trim().split(/\s+/).filter(Boolean).length;
+    const titleSize = Number.parseFloat(style.fontSize);
+    const title = [...photo.scope.querySelectorAll('h1, h2, h3, h4, h5, h6')].filter((item) => visible(item) && item.getBoundingClientRect().top >= box.top - 2 && Number.parseFloat(getComputedStyle(item).fontSize) >= titleSize * 1.5).sort((a, b) => Number.parseFloat(getComputedStyle(b).fontSize) - Number.parseFloat(getComputedStyle(a).fontSize))[0] ?? heading;
+    const below = title.getBoundingClientRect().bottom;
+    // A button or a link standing on its own (not a link inside a sentence of the lead).
+    const actions = [...photo.scope.querySelectorAll('a, button')].filter((item) => visible(item) && item.textContent.trim() && !item.parentElement?.closest('p, li, h1, h2, h3, h4, h5, h6') && item.getBoundingClientRect().top >= below - 2).map((item) => item.getBoundingClientRect().top);
+    const limit = actions.length ? Math.min(...actions) : photo.rect.bottom;
+    leadWords = [...photo.scope.querySelectorAll('*')]
+      .filter((element) => !title.contains(element) && !heading.contains(element) && !element.closest('a, button, nav, script, style') && visible(element) && element.getBoundingClientRect().top >= below - 2 && element.getBoundingClientRect().bottom <= limit + 2)
+      .reduce((sum, element) => sum + ownWords(element), 0);
+  }
   return { family: style.fontFamily, textTransform: style.textTransform, chars: heading.textContent.trim().replace(/\s+/g, ' ').length, ems: width / size, leadWords };
 }
 
@@ -98,7 +162,8 @@ export function heroTextAverage(samples) {
   if (!chars) return null;
   const ems = found.reduce((sum, sample) => sum + sample.ems, 0);
   const leads = found.filter((sample) => typeof sample.leadWords === 'number');
-  return { family: found[0].family, textTransform: found[0].textTransform, chars, charEm: Math.round((ems / chars) * 1000) / 1000, ...(leads.length ? { leadWords: Math.round(leads.reduce((sum, sample) => sum + sample.leadWords, 0) / leads.length) } : {}) };
+  const byType = Object.fromEntries(leads.filter((sample) => sample.pageType).map((sample) => [sample.pageType, sample.leadWords]));
+  return { family: found[0].family, textTransform: found[0].textTransform, chars, charEm: Math.round((ems / chars) * 1000) / 1000, ...(leads.length ? { leadWords: Math.round(leads.reduce((sum, sample) => sum + sample.leadWords, 0) / leads.length) } : {}), ...(Object.keys(byType).length ? { leadWordsByPageType: byType } : {}) };
 }
 
 // How a page sets its section headings: of its visible h2s outside the shell, how many start their text on the left of
@@ -123,7 +188,7 @@ export function measureHeadingAlign(shell) {
 }
 
 // Page types a representative stands for (site-template.json representatives, named by their capture folder).
-const REPRESENTATIVE_TYPES = Object.fromEntries(['product_manufacturer', 'product_wholesale', 'solution', 'about', 'contact'].map((pageType) => [captureFolder(pageType), pageType]));
+const REPRESENTATIVE_TYPES = Object.fromEntries(['product_manufacturer', 'product_wholesale', 'solution', 'place', 'about', 'contact'].map((pageType) => [captureFolder(pageType), pageType]));
 
 // site-template.json follows the pages that are built: authoring mode, all routes, and a representative per page type
 // (one that still exists is kept; a missing or gone one is the first built page of its type, or dropped).
@@ -150,6 +215,11 @@ export async function recordRoutes(root, builtPages) {
 // analysis names another.
 const heroGuess = (inventory, pageType) => inventory?.pages?.find((page) => page.pageType === pageType)?.heroVariant;
 const followsEvidence = (current, guess) => current === undefined || current === guess;
+// A page type whose hero the majority of the competitor's pages decided (pattern-inventory heroSamples, heroByMajority)
+// keeps it: the analysis names the hero of the one reference page only (site13 2026-11-18: its "hero:media-banner" of
+// /swimwear-manufacturer/ undid the product pages' media-overlay, 3 of 5 pages, and the accessories page's button fell
+// under the first screen).
+const majorityDecided = (inventory, pageType) => Boolean(inventory?.pages?.find((page) => page.pageType === pageType)?.heroSamples?.length);
 
 // The site's pages Site Factory has not authored, built from the blueprints (marked placeholders), the site's menus,
 // and the slot manifest that goes to Site Factory 06 (docs/research/slot-manifest.json). Without Site Factory's
@@ -202,7 +272,7 @@ export async function writeBlueprintPages({ root = process.cwd(), pagesPlan, blu
     else delete variants.components.tradePhotos;
   }
   // A hero the analysis named for a page type (section-modules "hero:<variant>") replaces the capture's guess.
-  const heroes = sections.filter((item) => item.module?.startsWith('hero:') && followsEvidence(variants.components.heroByPageType?.[item.pageType], heroGuess(inventory, item.pageType)));
+  const heroes = sections.filter((item) => item.module?.startsWith('hero:') && !majorityDecided(inventory, item.pageType) && followsEvidence(variants.components.heroByPageType?.[item.pageType], heroGuess(inventory, item.pageType)));
   if (heroes.length) variants.components.heroByPageType = { ...(variants.components.heroByPageType || {}), ...Object.fromEntries(heroes.map((item) => [item.pageType, item.module.slice(5)])) };
   if (heroes.length || tradeChanged) await writeJson(variantsPath, variants);
   await writeJson(resolve(root, 'docs/research/slot-manifest.json'), slotManifest({ components: variants.components, source: variants.sourceUrl ?? null, blueprints: used }));
@@ -238,11 +308,30 @@ export async function scaffoldReferencePatterns({ pagesPlan, references, bluepri
   const report = { schemaVersion: 'seo-site-pattern-inventory-v1', viewport: DESKTOP.width, phoneViewport: PHONE.width, pages: [], headings: { start: 0, center: 0 } };
   const pageTypes = {};
   const heroTexts = [];
+  const inventoryPath = resolve(root, 'docs/research/pattern-inventory.json');
+  const previous = await readJson(inventoryPath, null);
+  // A page kept from an earlier measure without its own heading and hero counts (an inventory written before they were
+  // kept per page): the site's counts stay the earlier ones.
+  let keptWithoutCounts = false;
   try {
     for (const [pageType, url] of Object.entries(references)) {
-      const { page, shapes, headings, heroText } = await measureReference(browser, url);
+      let measured;
+      try {
+        measured = await measureReference(browser, url);
+      } catch (error) {
+        const kept = previous?.pages?.find((entry) => entry.pageType === pageType && entry.reference === url);
+        if (!BLOCKED_STATUSES.includes(error.status) || !kept) throw error;
+        console.warn(`patterns: ${url} answered ${error.status}; the ${pageType} page keeps the measure an earlier run took (stale in docs/research/pattern-inventory.json, crops kept)`);
+        pageTypes[pageType] = kept.modules;
+        report.pages.push({ ...kept, stale: { status: error.status } });
+        if (kept.headings) for (const [align, count] of Object.entries(kept.headings)) report.headings[align] += count;
+        heroTexts.push(kept.heroText ? { ...kept.heroText, pageType } : null);
+        if (!kept.headings || !('heroText' in kept)) keptWithoutCounts = true;
+        continue;
+      }
+      const { page, shapes, headings, heroText } = measured;
       for (const [align, count] of Object.entries(headings)) report.headings[align] += count;
-      heroTexts.push(heroText);
+      heroTexts.push(heroText && { ...heroText, pageType });
       if (shapes.length < 2) throw new Error(`could not find the section list on ${url}`);
       const sections = inventory(shapes, { pageType });
       // One crop per reference section for pattern-by-pattern review; the crops of an earlier capture go (another
@@ -258,16 +347,30 @@ export async function scaffoldReferencePatterns({ pagesPlan, references, bluepri
       }
       await page.close();
       pageTypes[pageType] = authoredPatterns(sections);
-      const hero = sections.find((section) => section.pattern.startsWith('hero-'));
-      const heroVariant = hero ? PATTERN_DECISIONS[hero.pattern].slice('hero:'.length) : undefined;
-      report.pages.push({ pageType, reference: url, modules: pageTypes[pageType], heroVariant, coverage: coverage(sections), sections: sections.map(({ shape, ...rest }) => rest) });
+      const heroOf = (list) => { const hero = list.find((section) => section.pattern.startsWith('hero-')); return hero ? PATTERN_DECISIONS[hero.pattern].slice('hero:'.length) : undefined; };
+      const ownHero = heroOf(sections);
+      // The hero by the majority of this page and the competitor's pages beside it in its menu (heroByMajority): only
+      // their heroes are measured; one that cannot be read is left out.
+      const heroSamples = [];
+      const others = new Set(Object.values(references).map((ref) => String(ref).replace(/\/?$/, '/')));
+      for (const sampleUrl of SINGLE_PAGE_TYPES.includes(pageType) ? [] : (measured.siblings ?? []).filter((href) => !others.has(href)).slice(0, HERO_SAMPLES)) {
+        try {
+          const sample = await measureReference(browser, sampleUrl, { desktopOnly: true });
+          await sample.page.close();
+          const variant = heroOf(inventory(sample.shapes, { pageType }));
+          if (variant) heroSamples.push({ url: sampleUrl, heroVariant: variant });
+        } catch (error) {
+          console.warn(`patterns: hero sample ${sampleUrl} not measured (${error.message.slice(0, 120)})`);
+        }
+      }
+      const heroVariant = heroByMajority(ownHero, heroSamples.map((sample) => sample.heroVariant));
+      report.pages.push({ pageType, reference: url, modules: pageTypes[pageType], heroVariant, ...(heroSamples.length ? { heroOwn: ownHero, heroSamples } : {}), coverage: coverage(sections), headings, heroText: heroText ?? null, sections: sections.map(({ shape, ...rest }) => rest) });
     }
   } finally {
     await browser.close();
   }
-  report.heroText = heroTextAverage(heroTexts);
-  const inventoryPath = resolve(root, 'docs/research/pattern-inventory.json');
-  const previous = await readJson(inventoryPath, null);
+  report.heroText = keptWithoutCounts && previous?.heroText ? previous.heroText : heroTextAverage(heroTexts);
+  if (keptWithoutCounts && previous?.headings) report.headings = previous.headings;
   await writeJson(inventoryPath, report);
   const variantsPath = resolve(root, 'src/data/template-variants.json');
   const variants = await readJson(variantsPath);

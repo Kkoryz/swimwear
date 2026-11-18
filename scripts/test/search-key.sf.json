@@ -1,0 +1,431 @@
+{
+ "note": "Site Factory written_form and query_key (sitefactory.core.keyword_data, core.text) of these searches, at sf-blog-v2 120b0d7e (2026-11-18): the port in scripts/lib/search-key.mjs is held to them (test/search-key.test.mjs). Remake with SITE_FACTORY_CODE set when Site Factory changes either.",
+ "sitefactory": "120b0d7e",
+ "rows": [
+  [
+   "Vacation Rentals Cleaning Services",
+   "vacation rental cleaning service",
+   "cleaning rental service vacation"
+  ],
+  [
+   "Airbnb co-hosts",
+   "airbnb co host",
+   "airbnb co host"
+  ],
+  [
+   "women's jeans wholesale",
+   "women jean wholesale",
+   "jean wholesale women"
+  ],
+  [
+   "wholesale womens jeans",
+   "wholesale women jean",
+   "jean wholesale women"
+  ],
+  [
+   "best property managers for airbnb",
+   "best property manager airbnb",
+   "airbnb best manager property"
+  ],
+  [
+   "what is the 80 20 rule for airbnb",
+   "what is 80 20 rule airbnb",
+   "20 80 airbnb is rule what"
+  ],
+  [
+   "short-term rental licensing & compliance",
+   "short term rental licensing compliance",
+   "compliance licensing rental short term"
+  ],
+  [
+   "movies",
+   "movie",
+   "movie"
+  ],
+  [
+   "scarves",
+   "scarf",
+   "scarf"
+  ],
+  [
+   "dresses",
+   "dress",
+   "dress"
+  ],
+  [
+   "boxes",
+   "box",
+   "box"
+  ],
+  [
+   "gas",
+   "gas",
+   "gas"
+  ],
+  [
+   "buses",
+   "bus",
+   "bus"
+  ],
+  [
+   "airbnb’s fees",
+   "airbnb fee",
+   "airbnb fee"
+  ],
+  [
+   "the of and",
+   "",
+   "and of the"
+  ],
+  [
+   "Café rentals",
+   "café rental",
+   "caf rental"
+  ],
+  [
+   "co host",
+   "co host",
+   "co host"
+  ],
+  [
+   "tea leaves",
+   "tea leave",
+   "leave tea"
+  ],
+  [
+   "t shirt printing",
+   "t shirt printing",
+   "printing shirt t"
+  ],
+  [
+   "tshirt printing",
+   "tshirt printing",
+   "printing tshirt"
+  ],
+  [
+   "kids swimsuits",
+   "kid swimsuit",
+   "kid swimsuit"
+  ],
+  [
+   "plus size swimwear",
+   "plu size swimwear",
+   "plu size swimwear"
+  ],
+  [
+   "hoodies",
+   "hoodie",
+   "hoodie"
+  ],
+  [
+   "leggings",
+   "legging",
+   "legging"
+  ],
+  [
+   "short term rental management",
+   "short term rental management",
+   "management rental short term"
+  ],
+  [
+   "vacation rental management",
+   "vacation rental management",
+   "management rental vacation"
+  ],
+  [
+   "airbnb property management",
+   "airbnb property management",
+   "airbnb management property"
+  ],
+  [
+   "airbnb management company",
+   "airbnb management company",
+   "airbnb company management"
+  ],
+  [
+   "airbnb management",
+   "airbnb management",
+   "airbnb management"
+  ],
+  [
+   "vacation rental management company",
+   "vacation rental management company",
+   "company management rental vacation"
+  ],
+  [
+   "str management",
+   "str management",
+   "management str"
+  ],
+  [
+   "short term rental management companies",
+   "short term rental management company",
+   "company management rental short term"
+  ],
+  [
+   "short term rental management services",
+   "short term rental management service",
+   "management rental service short term"
+  ],
+  [
+   "str property manager",
+   "str property manager",
+   "manager property str"
+  ],
+  [
+   "short term rental management firms",
+   "short term rental management firm",
+   "firm management rental short term"
+  ],
+  [
+   "vacation rental cleaning",
+   "vacation rental cleaning",
+   "cleaning rental vacation"
+  ],
+  [
+   "airbnb cleaning",
+   "airbnb cleaning",
+   "airbnb cleaning"
+  ],
+  [
+   "vacation rental cleaning services",
+   "vacation rental cleaning service",
+   "cleaning rental service vacation"
+  ],
+  [
+   "short term rental cleaning",
+   "short term rental cleaning",
+   "cleaning rental short term"
+  ],
+  [
+   "airbnb cleaning company",
+   "airbnb cleaning company",
+   "airbnb cleaning company"
+  ],
+  [
+   "airbnb turnover cleaning",
+   "airbnb turnover cleaning",
+   "airbnb cleaning turnover"
+  ],
+  [
+   "airbnb listing optimization",
+   "airbnb listing optimization",
+   "airbnb listing optimization"
+  ],
+  [
+   "airbnb seo",
+   "airbnb seo",
+   "airbnb seo"
+  ],
+  [
+   "airbnb listing optimization service",
+   "airbnb listing optimization service",
+   "airbnb listing optimization service"
+  ],
+  [
+   "airbnb listing consultant",
+   "airbnb listing consultant",
+   "airbnb consultant listing"
+  ],
+  [
+   "airbnb design",
+   "airbnb design",
+   "airbnb design"
+  ],
+  [
+   "airbnb interior design",
+   "airbnb interior design",
+   "airbnb design interior"
+  ],
+  [
+   "airbnb furnishing",
+   "airbnb furnishing",
+   "airbnb furnishing"
+  ],
+  [
+   "airbnb interior designer",
+   "airbnb interior designer",
+   "airbnb designer interior"
+  ],
+  [
+   "vacation rental design",
+   "vacation rental design",
+   "design rental vacation"
+  ],
+  [
+   "vacation rental interior design",
+   "vacation rental interior design",
+   "design interior rental vacation"
+  ],
+  [
+   "airbnb co host service",
+   "airbnb co host service",
+   "airbnb co host service"
+  ],
+  [
+   "airbnb co hosting company",
+   "airbnb co hosting company",
+   "airbnb co company hosting"
+  ],
+  [
+   "airbnb dynamic pricing",
+   "airbnb dynamic pricing",
+   "airbnb dynamic pricing"
+  ],
+  [
+   "vacation rental revenue management",
+   "vacation rental revenue management",
+   "management rental revenue vacation"
+  ],
+  [
+   "airbnb price optimization",
+   "airbnb price optimization",
+   "airbnb optimization price"
+  ],
+  [
+   "short term rental revenue management",
+   "short term rental revenue management",
+   "management rental revenue short term"
+  ],
+  [
+   "airbnb booking management",
+   "airbnb booking management",
+   "airbnb booking management"
+  ],
+  [
+   "vacation rental booking management",
+   "vacation rental booking management",
+   "booking management rental vacation"
+  ],
+  [
+   "guaranteed rental income",
+   "guaranteed rental income",
+   "guaranteed income rental"
+  ],
+  [
+   "guaranteed rent vacation rental",
+   "guaranteed rent vacation rental",
+   "guaranteed rent rental vacation"
+  ],
+  [
+   "airbnb guaranteed income",
+   "airbnb guaranteed income",
+   "airbnb guaranteed income"
+  ],
+  [
+   "vacation rental maintenance",
+   "vacation rental maintenance",
+   "maintenance rental vacation"
+  ],
+  [
+   "airbnb maintenance company",
+   "airbnb maintenance company",
+   "airbnb company maintenance"
+  ],
+  [
+   "airbnb property maintenance",
+   "airbnb property maintenance",
+   "airbnb maintenance property"
+  ],
+  [
+   "short term rental compliance",
+   "short term rental compliance",
+   "compliance rental short term"
+  ],
+  [
+   "short term rental licensing",
+   "short term rental licensing",
+   "licensing rental short term"
+  ],
+  [
+   "airbnb licensing",
+   "airbnb licensing",
+   "airbnb licensing"
+  ],
+  [
+   "str compliance",
+   "str compliance",
+   "compliance str"
+  ],
+  [
+   "vacation rental compliance",
+   "vacation rental compliance",
+   "compliance rental vacation"
+  ],
+  [
+   "san diego short term rental management",
+   "san diego short term rental management",
+   "diego management rental san short term"
+  ],
+  [
+   "vacation rental management san diego",
+   "vacation rental management san diego",
+   "diego management rental san vacation"
+  ],
+  [
+   "airbnb management san diego",
+   "airbnb management san diego",
+   "airbnb diego management san"
+  ],
+  [
+   "short term rental management san diego",
+   "short term rental management san diego",
+   "diego management rental san short term"
+  ],
+  [
+   "vacation rental management scottsdale",
+   "vacation rental management scottsdale",
+   "management rental scottsdale vacation"
+  ],
+  [
+   "airbnb management scottsdale",
+   "airbnb management scottsdale",
+   "airbnb management scottsdale"
+  ],
+  [
+   "scottsdale short term rental management",
+   "scottsdale short term rental management",
+   "management rental scottsdale short term"
+  ],
+  [
+   "scottsdale airbnb management",
+   "scottsdale airbnb management",
+   "airbnb management scottsdale"
+  ],
+  [
+   "airbnb management nashville",
+   "airbnb management nashville",
+   "airbnb management nashville"
+  ],
+  [
+   "short term rental management nashville",
+   "short term rental management nashville",
+   "management nashville rental short term"
+  ],
+  [
+   "vacation rental management nashville",
+   "vacation rental management nashville",
+   "management nashville rental vacation"
+  ],
+  [
+   "nashville vacation rental management",
+   "nashville vacation rental management",
+   "management nashville rental vacation"
+  ],
+  [
+   "vacation rental management agreement",
+   "vacation rental management agreement",
+   "agreement management rental vacation"
+  ],
+  [
+   "vacation rental management fees",
+   "vacation rental management fee",
+   "fee management rental vacation"
+  ],
+  [
+   "vacation rental profitability",
+   "vacation rental profitability",
+   "profitability rental vacation"
+  ]
+ ]
+}

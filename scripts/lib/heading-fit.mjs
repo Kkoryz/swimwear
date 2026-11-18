@@ -11,10 +11,17 @@
 // Desktop titles: two lines, at least 36px. Phone titles: four lines, at least 24px. Below 24px a phone title is barely
 // above the lead (17-18px) and under the section headings a phone shows (24-28px), so it stops reading as the title;
 // 24px still fits four lines of a 60-character title in a 360px column (15 characters a line at 0.68em).
+import { cssItems, splitSelectors } from './css-subset.mjs';
+import { TITLE_GLYPHS } from './title-glyphs.mjs';
+
 export const HERO_FIT = Object.freeze({ desktop: { lines: 2, minPx: 36 }, phone: { lines: 4, minPx: 24 } });
 // A blog post's title keeps the floor its own scale already has (patterns.css .post-header__title, 1.75rem); on a phone
 // the hero's 24px, the size of the article's own largest headings there (an 86-character question took six lines at
 // 28px).
+// A split hero's title has half the row (the copy beside the photo, the competitor's column ratio in the site's sheet):
+// on a desktop it may take one more line, as a phone's narrow column takes four (aloha 2026-11-17: long titles over a
+// competitor's large section headings ran to three lines in a 648px column whatever the grid).
+export const SPLIT_HERO_FIT = Object.freeze({ desktop: { lines: 3, minPx: 36 }, phone: { lines: 4, minPx: 24 } });
 export const POST_TITLE_FIT = Object.freeze({ desktop: { lines: 2, minPx: 28 }, phone: { lines: 4, minPx: 24 } });
 // Section headings: past three lines the audit warns (scripts/audit-authoring-layout.mjs section_heading_lines).
 export const SECTION_HEADING_MAX_LINES = 3;
@@ -26,9 +33,10 @@ export const WRAP_MARGIN = 1.05;
 // Average character widths (em, spaces included) where the competitor's own title could not be measured, by kind of
 // family and case. Conservative: at the wide end of common faces, so a title is a little small rather than one line
 // too long. Measured for reference: Josefin Sans bold caps 0.60-0.66, Georgia mixed case 0.50-0.53, Inter/Helvetica
-// mixed case 0.52-0.56.
+// mixed case 0.52-0.56, Montserrat bold mixed case 0.595 (Staylumen 2026-11-17: its solution titles in Montserrat 700,
+// fitted at 0.57 to two lines, took three: "Airbnb Booking Management" ran 15.6em where 14.96 was allowed).
 export const DEFAULT_CHAR_EM = Object.freeze({
-  sans: { upper: 0.68, mixed: 0.57 },
+  sans: { upper: 0.68, mixed: 0.6 },
   serif: { upper: 0.7, mixed: 0.55 },
   mono: { upper: 0.62, mixed: 0.62 },
 });
@@ -75,22 +83,10 @@ export const wrapEmFor = (heroText = null) => charEmFor(heroText) * (heroText?.t
 
 const words = (text) => String(text ?? '').trim().split(/\s+/).filter(Boolean);
 
-// Whether a page's lead stays on its hero photo: while it is about as long as the competitor's (heroText.leadWords,
-// measured at capture) or a short line; a longer one opens the page under the hero instead, word for word (owner
-// 2026-11-12: "副标题是不是太长 你看看竞品的": Concord's mastheads carry their title alone, ours a 20-word paragraph).
-export const HERO_LEAD_SLACK = 8;
-// Whether a page sets its hero's lead under the hero, as text of its own (PageView.astro page-lead): a photo hero
-// whose lead runs much longer than the competitor's. One function for the renderer, the layout plan and the visual
-// budget (motel /our-process/ 2026-11-14: the budget counted a 40-word lead as hero photo and planned no wall).
-/** @param {{ hero?: { lead?: string[] } }} page @param {string} heroVariant @param {{ heroText?: { leadWords?: number } | null }} [components] */
-export const leadBelowHero = (page, heroVariant, components = {}) => ['media-overlay', 'media-form'].includes(heroVariant) && Boolean(page.hero?.lead?.length) && !heroLeadShown(page.hero?.lead, components.heroText);
-
-/** @param {string[]} [lead] @param {{ leadWords?: number } | null} [heroText] */
-export function heroLeadShown(lead = [], heroText = null) {
-  const competitor = heroText?.leadWords;
-  if (typeof competitor !== 'number') return true;
-  return lead.reduce((sum, paragraph) => sum + words(paragraph).length, 0) <= Math.max(competitor * 1.5, competitor + HERO_LEAD_SLACK);
-}
+// A hero's lead is never moved off it by the competitor's lead length (the rule that did, HERO_LEAD_SLACK, is gone:
+// site13 claude-seo audit 2026-11-17, M-10, the home lead with the main keyword fell out of the first screen; owner:
+// claude-seo over the competitor's look). PageHero.astro sets it under the title on every page; the layout audit
+// reports one too long for the first screen (hero_lead_long, lib/visual-checks.mjs foldProblems).
 
 // The lines a title wraps to when a line holds `capacity` characters (greedy, as browsers wrap: a word longer than a
 // line takes a line of its own).
@@ -120,7 +116,112 @@ export function lineCapacity(text, maxLines) {
 
 // The title's line width in ems at its line limit (capacity x average width x margin): the column's width divided by
 // it is the largest size that keeps the title within its lines.
-export const lineEms = (text, maxLines, charEm) => lineCapacity(text, maxLines) * charEm * WRAP_MARGIN;
+export const lineEms = (text, maxLines, charEm) => (isGlyphs(charEm) ? lineWidthEms(text, maxLines, charEm) : lineCapacity(text, maxLines) * charEm) * WRAP_MARGIN;
+
+// A title in a face the template knows the real widths of (lib/title-glyphs.mjs) wraps by them, not by an average:
+// a line of wide letters ("Airbnb Management", 0.64em a letter in Montserrat 700) runs past what a count of its
+// characters at the 0.6em average allows, and Staylumen's Nashville title took five phone lines where the fit planned
+// four (2026-11-18). charEm, wherever the fit takes it, is then these glyphs instead of a number.
+/** @typedef {{ family: string, weight: number, widths: Record<string, number>, upper?: boolean }} TitleGlyphs */
+/** @param {unknown} value @returns {value is TitleGlyphs} */
+export const isGlyphs = (value) => Boolean(value) && typeof value === 'object' && typeof (/** @type {any} */ (value)).widths === 'object';
+// The face's widths at the nearest weight it has; null for a face the template does not know (the average then).
+/** @param {string} family @param {number} [weight] @param {{ upper?: boolean }} [options] @returns {TitleGlyphs | null} */
+export function titleGlyphs(family, weight = 700, { upper = false } = {}) {
+  const name = firstFamily(family);
+  const faces = /** @type {Record<string, Record<string, Record<string, number>>>} */ (TITLE_GLYPHS)[name.toLowerCase()];
+  if (!faces) return null;
+  const nearest = Object.keys(faces).map(Number).reduce((best, each) => (Math.abs(each - weight) < Math.abs(best - weight) ? each : best));
+  return { family: name, weight: nearest, widths: faces[nearest], upper };
+}
+// A text's width in ems in the face (a character it has no width for counts as its "n").
+/** @param {string} text @param {TitleGlyphs} glyphs */
+export function textEms(text, glyphs) {
+  const fallback = glyphs.widths.n ?? 0.6;
+  let sum = 0;
+  for (const char of glyphs.upper ? String(text).toUpperCase() : String(text)) sum += glyphs.widths[char] ?? fallback;
+  return sum;
+}
+// The lines a title wraps to in a line widthEms wide (greedy, at the spaces, as wrapLines).
+/** @param {string} text @param {number} widthEms @param {TitleGlyphs} glyphs */
+export function wrapLinesEm(text, widthEms, glyphs) {
+  const space = textEms(' ', glyphs);
+  /** @type {string[]} */
+  const lines = [];
+  let width = 0;
+  for (const word of words(text)) {
+    const own = textEms(word, glyphs);
+    if (lines.length && width + space + own <= widthEms) { lines[lines.length - 1] += ' ' + word; width += space + own; }
+    else { lines.push(word); width = own; }
+  }
+  return lines;
+}
+// The narrowest line (ems, to a thousandth) at which the title wraps to at most maxLines lines.
+/** @param {string} text @param {number} maxLines @param {TitleGlyphs} glyphs */
+export function lineWidthEms(text, maxLines, glyphs) {
+  const parts = words(text);
+  if (!parts.length) return 0;
+  let low = Math.max(...parts.map((word) => textEms(word, glyphs)));
+  let high = textEms(parts.join(' '), glyphs);
+  if (wrapLinesEm(text, low, glyphs).length <= maxLines) return Math.ceil(low * 1000) / 1000;
+  while (high - low > 0.001) {
+    const middle = (low + high) / 2;
+    if (wrapLinesEm(text, middle, glyphs).length <= maxLines) high = middle; else low = middle;
+  }
+  return Math.ceil(high * 1000) / 1000;
+}
+
+// The face a page type's hero title is set in, from the site's treatment (src/styles/reference.css): the --font-hero
+// and --weight-heading its rules give the hero (.page-hero, or the root's tokens), a rule naming the page type over
+// one that names none, a later rule over an earlier; a var() of a root token is read through. Top-level rules only (a
+// media query's are left out). { family, weight }, null where the sheet says nothing.
+/** @param {string} css @param {string} pageType @returns {{ family: string | null, weight: number | null }} */
+export function heroFontFromCss(css, pageType) {
+  /** @type {Record<string, { value: string, rank: number } | null>} */
+  const found = { '--font-hero': null, '--weight-heading': null };
+  /** @type {Record<string, string>} */
+  const root = {};
+  for (const { prelude, body } of cssItems(String(css ?? ''))) {
+    if (!body || prelude.startsWith('@') || body.includes('{')) continue;
+    const declarations = [...body.matchAll(/(--[\w-]+)\s*:\s*([^;]+)/g)].map((match) => [match[1], match[2].trim()]);
+    for (const selector of splitSelectors(prelude)) {
+      const isRoot = /^(:root|html|body)(:root)*$/.test(selector.replace(/\s+/g, ''));
+      if (isRoot) for (const [name, value] of declarations) root[name] = value;
+      // The hero itself: the selector ends at .page-hero (its own attributes and states allowed), not at a part in it.
+      const hero = /\.page-hero(?:\[[^\]]*\]|:[\w-]+(?:\([^)]*\))?)*$/.test(selector);
+      if (!(isRoot || hero) || /:not\([^)]*data-page-type/.test(selector)) continue;
+      const types = [...selector.matchAll(/data-page-type\s*=\s*["']?([\w-]+)/g)].map((match) => match[1]);
+      if (types.length && !types.includes(pageType)) continue;
+      const rank = types.length ? 2 : hero ? 1 : 0;
+      for (const [name, value] of declarations) {
+        const held = found[name];
+        if (name in found && (!held || rank >= held.rank)) found[name] = { value, rank };
+      }
+    }
+  }
+  /** @param {string | null} value */
+  const read = (value) => {
+    let text = value;
+    for (let depth = 0; depth < 3 && text; depth += 1) {
+      const ref = /^var\(\s*(--[\w-]+)\s*(?:,\s*([^)]*))?\)$/.exec(text);
+      if (!ref) break;
+      text = root[ref[1]] ?? ref[2] ?? null;
+    }
+    return text;
+  };
+  const family = read(found['--font-hero']?.value ?? null);
+  const weight = Number.parseInt(read(found['--weight-heading']?.value ?? null) ?? '', 10);
+  return { family: family ? firstFamily(family) : null, weight: Number.isFinite(weight) ? weight : null };
+}
+// What a page type's hero title is fitted with: the real widths of the face the treatment sets it in, when the
+// template knows that face (at the treatment's weight, else 700, the widest it has), else the competitor's average
+// (wrapEmFor).
+/** @param {{ css?: string, pageType: string, heroText?: any }} options @returns {number | TitleGlyphs} */
+export function titleMetrics({ css = '', pageType, heroText = null }) {
+  const font = heroFontFromCss(css, pageType);
+  const glyphs = font.family ? titleGlyphs(font.family, font.weight ?? 700, { upper: heroText?.textTransform === 'uppercase' }) : null;
+  return glyphs ?? wrapEmFor(heroText);
+}
 
 const round = (value, places = 3) => Math.round(value * 10 ** places) / 10 ** places;
 
@@ -140,13 +241,25 @@ export function fitHeading(text, { columnPx, containerPx = columnPx, capPx, minP
 
 // The lines the model says a title takes at sizePx in columnPx (without the margin: the plain average).
 export function predictLines(text, { columnPx, sizePx, charEm }) {
+  if (isGlyphs(charEm)) return wrapLinesEm(text, columnPx / sizePx, charEm).length;
   return wrapLines(text, Math.floor(columnPx / (sizePx * charEm))).length;
+}
+
+// A hero with the enquiry form beside its copy (PageHero.astro media-form; patterns.css: 7fr and 5fr of the 1152px
+// container, a 2.5rem gap) leaves the title about 650px, and the column cannot widen past the form. A title that runs
+// over the desktop's two lines there even at the floor takes the hero's whole row and the form goes under the copy
+// (Staylumen's Scottsdale page, 2026-11-16: 68 characters, three lines beside the form).
+export const FORM_HERO_TITLE_PX = Math.round(((1152 - 40) * 7) / 12);
+/** @param {string} text @param {{ charEm: number | TitleGlyphs, columnPx?: number }} options */
+export function titleNeedsRow(text, { charEm, columnPx = FORM_HERO_TITLE_PX }) {
+  if (!words(text).length) return false;
+  return predictLines(text, { columnPx, sizePx: HERO_FIT.desktop.minPx, charEm }) > HERO_FIT.desktop.lines;
 }
 
 // The custom properties a fitted title's box carries (template.css [data-heading-fit]): the line width in ems at the
 // desktop and the phone limit, and the floors. The stylesheet does the division by the box's width.
 /** @typedef {{ desktop: { lines: number, minPx: number }, phone: { lines: number, minPx: number } }} FitRule */
-/** @param {string} text @param {{ charEm: number, fit?: FitRule }} options */
+/** @param {string} text @param {{ charEm: number | TitleGlyphs, fit?: FitRule }} options */
 export function headingFitVars(text, { charEm, fit = HERO_FIT }) {
   if (!words(text).length) return null;
   return {
@@ -156,7 +269,7 @@ export function headingFitVars(text, { charEm, fit = HERO_FIT }) {
     '--fit-min-phone': `${fit.phone.minPx}px`,
   };
 }
-/** @param {string} text @param {{ charEm: number, fit?: FitRule }} options @returns {string | undefined} */
+/** @param {string} text @param {{ charEm: number | TitleGlyphs, fit?: FitRule }} options @returns {string | undefined} */
 export const headingFitStyle = (text, options) => {
   const vars = headingFitVars(text, options);
   return vars ? Object.entries(vars).map(([name, value]) => `${name}: ${value}`).join('; ') : undefined;
@@ -174,7 +287,8 @@ export function headingLineIssues(result, { article = false } = {}) {
   const base = { desktop: HERO_FIT.desktop.lines, mobile: HERO_FIT.phone.lines }[result.viewport];
   if (!base || !result.headingLines) return { failures, warnings };
   const limit = base + (article ? ARTICLE_EXTRA_LINES : 0);
-  for (const heading of result.headingLines.h1 ?? []) if (heading.lines > limit) failures.push({ ...at, issue: 'h1_lines', value: heading.text, lines: heading.lines, maximum: limit });
+  const allowed = (heading) => (heading.split && result.viewport === 'desktop' ? Math.max(limit, SPLIT_HERO_FIT.desktop.lines) : limit);
+  for (const heading of result.headingLines.h1 ?? []) if (heading.lines > allowed(heading)) failures.push({ ...at, issue: 'h1_lines', value: heading.text, lines: heading.lines, maximum: allowed(heading) });
   // The page title is the largest heading on the page: one smaller than a section heading reads upside down
   // (heading_scale_inverted; the hero floor in template.css keeps it a step above). Desktop and phone, as the lines.
   const title = (result.headingLines.h1 ?? [])[0];
@@ -203,6 +317,6 @@ export function measureHeadingLines() {
     const style = getComputedStyle(element);
     return box.width > 0 && box.height > 0 && style.visibility !== 'hidden' && style.display !== 'none' && !(element.parentElement?.closest('details:not([open])') && !element.closest('summary'));
   };
-  const read = (selector) => [...document.querySelectorAll(selector)].filter((element) => element.textContent.trim() && shown(element)).map((element) => ({ text: element.textContent.trim().replace(/\s+/g, ' ').slice(0, 80), lines: lines(element), fontPx: Number.parseFloat(getComputedStyle(element).fontSize) || 0 }));
+  const read = (selector) => [...document.querySelectorAll(selector)].filter((element) => element.textContent.trim() && shown(element)).map((element) => ({ text: element.textContent.trim().replace(/\s+/g, ' ').slice(0, 80), lines: lines(element), fontPx: Number.parseFloat(getComputedStyle(element).fontSize) || 0, ...(element.closest('.page-hero[data-variant="media-split"]') ? { split: true } : {}) }));
   return { h1: read('main h1'), sections: read('main h2') };
 }

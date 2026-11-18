@@ -175,7 +175,7 @@ export function extractSectionShapes(pageShell) {
       coversSection: large.some((media) => media.width >= rect.width * 0.9 && media.height >= rect.height * 0.8),
       backgroundOnly,
       coverBackground,
-      hasForm: Boolean(section.querySelector('form')) || section.querySelectorAll('input, textarea').length >= 2,
+      hasForm: Boolean(section.querySelector('form')) || section.querySelectorAll('input, textarea').length >= 2 || Boolean(pageShell.formEmbeds && section.querySelector(pageShell.formEmbeds)),
       hasTable: Boolean(section.querySelector('table')),
       // Tabs (role=tab) and menus also expose aria-expanded; only disclosure-style questions count.
       // Carousel arrows and menu toggles also carry aria-expanded: count only disclosures with a visible label.

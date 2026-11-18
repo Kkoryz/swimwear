@@ -59,10 +59,23 @@ export function buildFontLock({ sourceUrl, elements, assets }) {
     size: element.styles['font-size'],
     lineHeight: element.styles['line-height'],
   } : null;
-  const body = find((element) => element.tag === 'p' && element.directText) || find((element) => element.tag === 'body');
-  const hero = find((element) => element.tag === 'h1' && element.directText);
-  const display = find((element) => element.tag === 'h2' && element.directText);
-  const subheading = find((element) => element.tag === 'h3' && element.directText);
+  // An element's text: its own, else its children's (a page builder puts a heading's or a paragraph's text in spans:
+  // Duda, hometeamluxuryrentals.com 2026-11-16, where no h1 had text of its own and the first p was a small-print line).
+  const textOf = (element) => (element.directText?.trim() ? element.directText : element.selector ? elements.filter((child) => child.selector?.startsWith(`${element.selector} > `)).map((child) => child.directText ?? '').join(' ').trim() : '');
+  // The body: the paragraph type (family, size, weight) that carries the most text.
+  const weightOf = new Map();
+  for (const element of elements) {
+    if (element.tag !== 'p' || !element.styles?.['font-family']) continue;
+    const key = [cleanFamily(element.styles['font-family']), element.styles['font-size'], element.styles['font-weight']].join('|');
+    const entry = weightOf.get(key) ?? { element, chars: 0 };
+    entry.chars += textOf(element).length;
+    weightOf.set(key, entry);
+  }
+  const copy = [...weightOf.values()].filter((entry) => entry.chars > 0).sort((a, b) => b.chars - a.chars)[0]?.element;
+  const body = copy || find((element) => element.tag === 'body');
+  const hero = find((element) => element.tag === 'h1' && textOf(element));
+  const display = find((element) => element.tag === 'h2' && textOf(element));
+  const subheading = find((element) => element.tag === 'h3' && textOf(element));
   // Navigation: the first visible link text inside the header or nav, from computed styles (no page-builder rules).
   const navigation = find((element) => element.tag === 'a' && /(^|> )(header|nav)\b/i.test(element.selector) && element.directText && element.rect?.width > 1)
     || find((element) => /(header|nav)/i.test(element.selector) && element.directText && element.rect?.width > 1);

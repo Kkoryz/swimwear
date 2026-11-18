@@ -74,7 +74,8 @@
   --channel-card-padding: 0.9375rem 0.9375rem 1.5rem;
   --channel-icon-box: 4.625rem;
   --channel-icon-size: 2.25rem;
-  --channel-icon-bg: transparent;
+  /* The icon on a light neutral disc (the competitor's round badges above the label bar). */
+  --channel-icon-bg: #eef1f4;
   --channel-icon-color: #0b2a4a;
 
   --footer-brand-align: center;
@@ -100,20 +101,29 @@
 }
 .block--cta[data-variant="link-band"] { --text-eyebrow: var(--accent-contrast); --link: var(--accent-contrast); }
 
-/* Type: section headings Maison 700 60/60 (32/32 on phones), eyebrows 600 uppercase, body 17/25.5. */
-.block h2 { line-height: 1; }
+/* Type: section headings Maison 700 (32px on phones), eyebrows 600 uppercase, body 17/25.5. A heading that runs to
+   several lines is spaced openly (the competitor's headings about 1.1-1.4), not set solid at 1 with descenders on the
+   next line's capitals (style-board: process-1). */
+.block h2 { line-height: 1.15; }
 .eyebrow { font-weight: 600; line-height: 1.3; }
 .page-hero h1 { line-height: 1.1; }
-/* Card titles set solid, wrapping only between words (the competitor never hyphenates a heading). */
-.feature-card__title { font-weight: 700; line-height: 1.25; }
+/* Card titles set solid, wrapping only between words (the competitor never hyphenates a heading), in the page's heading
+   weight, so a card title never outweighs its section heading (style-board: featureGrid-cards m2). */
+.feature-card__title { font-weight: var(--weight-heading); line-height: 1.25; }
 .feature-grid .feature-card .feature-card__title { hyphens: manual; }
 .stats__value { font-weight: 700; }
-/* Running text holds to a reading column (about 70 characters) at every width; the larger lead of a text flow to the
-   same line width as the runs under it. */
-main[data-authoring-page] .block p, .page-hero__lead { max-width: 70ch; }
-main[data-authoring-page] .block p.text-flow__lead { max-width: 62ch; }
+/* Running text holds to a reading column of about 70 characters at every width; the larger lead of a text flow to the
+   same line width as the runs under it. The body face's "0" (the ch unit) is wide, about 0.66em against an average
+   letter of about 0.48em, so 70ch held about 95-100 letters a line (design-gate: /, /case-studies/, /blog/,
+   /custom-swimwear-printing/ overview, featureGrid-8): 52ch is about 70 letters. */
+:root:root { --measure: 52ch; }
+main[data-authoring-page] .block p { max-width: var(--measure); }
+.page-hero__lead { max-width: 70ch; }
+main[data-authoring-page] .block p.text-flow__lead { max-width: calc(var(--measure) / 1.125); }
 /* Inline links: the competitor's underlined blue (darkened to pass AA, global.css --link). */
-main[data-authoring-page] :is(.text-flow, .block__lead, .page-lead, .page-hero__lead, .faq__item, .cta__text, .point-list__item, .band__copy) a:not(.button) { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+/* A table's notes are lines of the copy too: their mail link reads as a link (design-gate: /privacy-policy/
+   data-practices). */
+main[data-authoring-page] :is(.text-flow, .block__lead, .page-lead, .page-hero__lead, .faq__item, .cta__text, .point-list__item, .band__copy, .table-block__note) a:not(.button) { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
 
 /* Buttons: uppercase pills, Maison Neue 700 14px, 48px tall, 36px side padding; aqua with deep-blue text. */
 .button { min-height: 48px; padding: 0 2.25rem; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.01em; line-height: 1.2; text-align: center; text-transform: uppercase; }
@@ -150,12 +160,21 @@ main[data-page-type="home"] .page-hero[data-variant="media-overlay"] .page-hero_
 .page-hero__actions { gap: 0.75rem; }
 /* Phones: a hero button keeps its label on one line, as the closing button does (narrower side padding). */
 @media (max-width: 767px) { .page-hero .page-hero__actions .button { padding-inline: 1rem; letter-spacing: 0; } }
+/* Phones: the buttons on a hero photo run the column's width, one under the other (the competitor's phone hero pills),
+   as the closing band's button does. */
+@media (max-width: 767px) { .page-hero[data-variant="media-overlay"] .page-hero__actions .button { width: 100%; } }
+/* The copy grid sets its items at the hero's alignment (start, or centre on a centred hero), so the actions row shrank
+   to its button and the 100% above was 100% of the label: on phones the copy and its actions row run the column's
+   width (the text keeps its alignment), so the buttons do too, under the text they end (/, /about-us/, /faq/). */
+@media (max-width: 767px) { .page-hero[data-variant="media-overlay"] :is(.page-hero__copy, .page-hero__actions) { justify-self: stretch; } }
 .page-hero[data-variant="media-overlay"] {
   --button-secondary-bg: #f6f3ec;
   --button-secondary-text: #111111;
   --button-secondary-border: #f6f3ec;
-  --hero-min-height: clamp(560px, 62.5vw, 900px);
 }
+/* The tall first screen is the home hero's (its long copy and two buttons); a photo hero of other pages with a short
+   title and lead takes the template's own height for its copy, not the home band's 900px (design-gate: /faq/ hero). */
+main[data-page-type="home"] .page-hero[data-variant="media-overlay"] { --hero-min-height: clamp(560px, 62.5vw, 900px); }
 /* Text across the photo (tablets, phones): an even overlay. 0.55 keeps the white eyebrow at 4.5:1 and the aqua title
    at 3:1 over a white patch of photo. */
 main[data-hero-photo] .page-hero[data-variant="media-overlay"] { --hero-overlay: rgb(0 0 0 / 0.55); }
@@ -178,14 +197,20 @@ main[data-page-type="solution"] {
 }
 main[data-page-type="solution"] .page-hero[data-variant="media-overlay"] { --hero-min-height: clamp(420px, 38vw, 560px); }
 @media (max-width: 767px) { main[data-page-type="solution"] .page-hero[data-variant="media-overlay"] { --hero-min-height: 150vw; } }
-main[data-page-type="solution"] .page-hero .button--primary { background: var(--surface-dark); color: var(--text-inverse); }
+/* The solution hero's primary pill keeps the site's aqua fill (its label in navy, below): a navy pill was lost on the
+   dark side of a photo without the competitor's sunlit patch behind it (design-polish repair 2026-11-16). */
 main[data-page-type="solution"] .page-hero { --button-secondary-bg: transparent; --button-secondary-text: #ffffff; --button-secondary-border: #ffffff; }
+/* A primary pill on a hero photo sets its label in the site's navy on the aqua (8.9:1; the deep blue was 4.6:1 and read
+   washed out on the dark hero), as the competitor's hero pills are high-contrast (design-gate: /custom-swimwear-printing/).
+   A text-only hero's pill too, written for the plain variant (design-gate: /terms-and-conditions/, /privacy-policy/,
+   /contact-us/ hero). */
+.page-hero:is([data-variant="media-overlay"], [data-variant="plain"]) .page-hero__actions { --accent-contrast: var(--surface-dark); }
+/* The header's quote pill and the phone's fixed enquiry bar are the same aqua pill: their label in the navy too (the
+   deep blue read washed out on the aqua; design-gate: /terms-and-conditions/, /privacy-policy/ header). */
+.site-header__cta, .enquiry-bar, .enquiry-bar .enquiry-bar__link { --accent-contrast: var(--surface-dark); }
 /* About: the white title centred over the middle of the photo, so the overlay is even (0.42: 3:1 for the large title
-   over a white patch). */
-main[data-page-type="about"] {
-  --size-hero: clamp(2rem, 3.125vw, 2.8125rem);
-  --size-display: clamp(1.625rem, 2.222vw, 2rem);
-}
+   over a white patch). The title and the section headings are fitted by the template to their own words (the
+   competitor's 45px / 32px are not copied; design-gate: /about-us/ hero). */
 main[data-page-type="about"] .page-hero[data-variant="media-overlay"] { --hero-align: center; --hero-overlay: rgb(0 0 0 / 0.42); --hero-min-height: clamp(320px, 36vw, 518px); }
 @media (max-width: 767px) { main[data-page-type="about"] .page-hero[data-variant="media-overlay"] { --hero-min-height: 138vw; } }
 main[data-page-type="contact"] {
@@ -194,6 +219,12 @@ main[data-page-type="contact"] {
 }
 main[data-page-type="contact"] .page-hero { --hero-align: center; --size-lead: 1.0625rem; }
 main[data-page-type="contact"] .page-hero__lead { line-height: 1.5; }
+/* The hero's quick contact links are one even set, never one link stranded on a line of its own (design-gate:
+   /contact-us/ hero): on phones one link a line under the button, each at the hero's alignment; from tablets up one
+   row, which may run wider than the copy column up to the content's width (it still wraps where the content is too
+   narrow for it). */
+@media (max-width: 767px) { .page-hero__contact { flex-direction: column; } }
+@media (min-width: 768px) { .page-hero__contact { width: max-content; max-width: min(100vw - 2 * var(--gutter), var(--container-max)); } }
 /* Manufacturer: Maison Neue 32px headings (500 for the section headings); the title a step above them. */
 main[data-page-type="product_manufacturer"] {
   --size-hero: clamp(1.875rem, 2.5vw, 2.25rem);
@@ -208,6 +239,23 @@ main[data-page-type="product_manufacturer"] .button { min-height: 44px; padding:
 main[data-page-type="product_manufacturer"] .button--primary { background: #000000; color: #ffffff; }
 main[data-page-type="product_manufacturer"] .button--primary:hover { background: var(--surface-dark); color: var(--text-inverse); }
 .block--page-lead { --size-lead: clamp(1.0625rem, 1.4vw, 1.25rem); }
+/* A text-only hero (privacy, contact) and the section under it share the gap between them: half a section's space
+   under the hero's button, half above the next heading (the whole space sat above the heading, the button on the
+   hero's edge). The gap between them stays one section space. */
+.page-hero[data-variant="plain"]:has(+ .block) .page-hero__inner { padding-bottom: calc(var(--section-space) / 2); }
+.page-hero[data-variant="plain"] + .block { padding-top: calc(var(--section-space) / 2); }
+/* Solution: the lead on the photo is small running text under the title (the competitor's 15/24), the site's large
+   body step on a body line height, so the title alone carries the photo. */
+@media (min-width: 768px) {
+  main[data-page-type="solution"] .page-hero[data-variant="media-overlay"] { --size-lead: 1.125rem; }
+  main[data-page-type="solution"] .page-hero[data-variant="media-overlay"] .page-hero__lead { line-height: 1.5; }
+}
+/* On desktops the overlay is dark as far as the hero's copy column (--hero-copy-end, the column's --hero-copy-max), but
+   the copy widens to its fitted title, so the lead ran one line past the title onto the subject: the lead keeps to the
+   copy column the overlay is drawn for, in even lines. */
+@media (min-width: 1024px) {
+  main[data-page-type="solution"] .page-hero[data-variant="media-overlay"] .page-hero__lead { max-width: min(70ch, var(--hero-copy-max, 46rem)); text-wrap: balance; }
+}
 /* Blog hub: the title on its photo band, bold and in title case as the competitor's page titles (its size stays the
    template's); a lead on the band takes the title's alignment. */
 .blog-hub-hero h1 { font-weight: 700; }
@@ -215,27 +263,89 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
 .blog-hub-hero[data-header="banner"] .blog-hub-hero__lead { margin-inline: auto; }
 /* Title and lead on the band share one alignment (centred) at every width. */
 .blog-hub-hero[data-header="banner"] :is(.blog-hub-hero__copy, h1, .blog-hub-hero__lead) { text-align: center; }
+/* The copy runs the band's content width (it shrank to its title, so the one-line title filled its own box and read
+   as set from the start while the lead under it was centred): title and lead are centred on one axis. */
+.blog-hub-hero[data-header="banner"] .blog-hub-hero__copy { justify-self: stretch; }
 
 /* Text sections: plain text on the page (the competitor's text sections carry no panel). */
 .block--proof[data-variant="band"] .text-block { padding: 0; border-radius: 0; background: transparent; }
-/* A text section going on from the one before it (no heading of its own) keeps the section rhythm above its first line
-   (half the section space on each side, from the blocks' own padding), not the cards' gap of a continued grid. */
-.block:has(+ .block--proof[data-variant="band"][data-continues]) { padding-bottom: calc(var(--section-space) / 2); }
-.block--proof[data-variant="band"][data-continues] { padding-top: calc(var(--section-space) / 2); }
+/* The heading-and-paragraph intro and proof headings in a light weight (the competitor's "Your Collection, Kept On
+   Track", its manufacturer intro at 500), so they lead without weighing down the paragraph; their size stays the
+   template's (style-board: intro-text overview, proof-band m9). */
+.block--intro[data-variant="text"] h2, .block--proof[data-variant="band"] h2 { font-weight: 500; }
+/* The home, general, blog hub, about, contact and policy pages' intro heading, and the solution pages' intro and
+   text-section headings, in the page's one heading weight, as the section h2s around them (the competitor keeps one
+   bold weight for its section headings on these pages, its home "We Build Swimwear Brands" too; design-gate: /,
+   /faq/, /case-studies/, /blog/, /about-us/, /contact-us/, /terms-and-conditions/, /privacy-policy/ overview,
+   /custom-swimwear-printing/ overview and m12). Their size stays the template's. */
+main:is([data-page-type="home"], [data-page-type="general"], [data-page-type="blog_hub"], [data-page-type="about"], [data-page-type="contact"], [data-page-type="privacy"]) .block--intro[data-variant="text"] h2,
+main[data-page-type="solution"] :is(.block--intro[data-variant="text"], .block--proof[data-variant="band"]) h2 { font-weight: var(--weight-heading); }
+/* The proof band's and the text intro's first paragraph at the body size of the paragraphs under it (the competitor
+   sets every paragraph of these modules at one size at every width, emphasis by bold phrases only), on the running
+   text's measure (design-gate: /blog/ overview, phones). */
+:is(.block--proof[data-variant="band"], .block--intro[data-variant="text"]) .text-flow__lead { font-size: inherit; line-height: inherit; }
+main[data-authoring-page] :is(.block--proof[data-variant="band"], .block--intro[data-variant="text"]) p.text-flow__lead { max-width: var(--measure); }
+/* A text section going on from the one before it (no heading of its own) is more paragraphs of that section: it sits
+   one paragraph gap (about 20px, half from each block's padding) under the block before it, as the competitor keeps the
+   paragraphs of one text section under their heading (design-gate: /faq/ proof-2; half a section space on each side
+   read as two sections). */
+.block:has(+ .block--proof[data-variant="band"][data-continues]) { padding-bottom: 0.625rem; }
+.block--proof[data-variant="band"][data-continues] { padding-top: 0.625rem; }
 
-/* Order cases: the competitor's 1px grey outline, no accent rule. */
+/* Team cards: the person's name is the card's title, bold in the sub-heading face as the competitor's card titles
+   (Maison 700 over their text); its size stays the template's. The team heading keeps the heading-to-content gap of
+   the card and quote sections' headings (design-gate: /about-us/ owner-team). */
+.team-card__name { font-family: var(--font-subheading); font-weight: var(--weight-heading); }
+.block .team__heading { margin-bottom: 1.5rem !important; }
+
+/* Order cases: the competitor's 1px grey outline, no accent rule. The case's label is set as the site's eyebrow
+   (14px uppercase, letter-spaced, the light-surface blue), with clear space before its paragraph. */
 .order-case { border: 1px solid #979797; }
+.order-case__product { margin-bottom: 0.625rem; font-size: var(--size-eyebrow); letter-spacing: var(--tracking-eyebrow); color: var(--text-eyebrow); }
 
 /* Tables: single light row rules, no cell grid (the competitor's facts carry hairlines only). A table's long column
    keeps to a reading line: the table holds about 70 characters of text beside its label columns, from the heading's
    left edge. A chart panel's scroll shade takes the panel's own colour. */
 .prose__table th, .prose__table td { border: 0; border-bottom: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent); }
-/* The table blocks part their rows on the same light hairline, the header rule too (no heavy black rules). */
-.block--table { --border-table: color-mix(in srgb, var(--text-primary) 18%, transparent); }
-.block--table .table-block thead th { border-bottom-width: 1px; }
-.block--table .table-block__scroll { max-width: calc(70ch + 20rem); }
+/* The table blocks and the privacy policy's data table part their rows on the same light hairline, the header rule too
+   (no heavy black rules; design-gate: /privacy-policy/ data-practices). */
+:is(.block--table, .block--data-practices) { --border-table: color-mix(in srgb, var(--text-primary) 18%, transparent); }
+:is(.block--table, .block--data-practices) .table-block thead th { border-bottom-width: 1px; }
+/* The long column keeps to the running text's reading measure (--measure, about 70 letters) beside the label column
+   (design-gate: /swimwear-accessories/ m6, 120-135 characters a line at 70ch + 20rem). */
+.block--table .table-block__scroll { max-width: calc(var(--measure) + 16rem); }
+/* A section's comparison chart keeps to the same width as the tables, from the heading's left edge, so its short cells
+   sit close to their row labels and a page's tables and comparisons share one width (design-gate:
+   /swimwear-accessories/ faq-charts). A wider chart keeps its sideways scroll inside the panel. A bar chart keeps to the
+   same width, so its values stay by the question column (style-board: faq-bars). Every chart of a section keeps to it,
+   whatever its kind (timeline, shares, ...), so the parts of one section share one width (design-gate: /faq/ m5-charts,
+   /terms-and-conditions/ proof-1-charts). */
+.block--charts .prose__chart { max-width: calc(var(--measure) + 16rem); }
 /* A row's label keeps to one line beside the long column on desktops (two-word labels broke over two lines). */
 @media (min-width: 900px) { .block--table .table-block :is(th, td):first-child { white-space: nowrap; } }
+/* A table's heading in the one heavy weight of the section h2s (the competitor's), whatever the page's heading weight
+   (style-board: table-grid m5 read lighter than m9). Its size stays the template's. */
+.block--table .table-block__heading { font-weight: 700; }
+/* The privacy table's notes are paragraphs of the policy: a paragraph gap under the table, from its left edge, on the
+   running text's measure, at the body size and colour (they sat a few pixels under the table, small and grey, centred
+   in a narrow column; design-gate: /privacy-policy/ data-practices). */
+.block--data-practices .table-block__note { max-width: var(--measure); margin: 1.25rem 0 0; font-size: inherit; color: var(--text-primary); }
+/* The mail address cannot break, so on the overview's measure the note wrapped after "write" and read as a narrow
+   two-line caption: the note's line gets room for its one sentence and the address (a few ch over --measure, well
+   inside the audit's 80ch), so it runs as one line of the policy on desktops; on phones it wraps evenly (design-gate:
+   /privacy-policy/ data-practices). */
+main[data-authoring-page] .block--data-practices p.table-block__note { max-width: calc(var(--measure) + 10ch); text-wrap: pretty; }
+/* Manufacturer pages: a table's heading in the page's lighter heading weight, as every other section heading there
+   (the competitor's manufacturer page keeps one regular weight; design-gate: /swimwear-accessories/ m6). */
+main[data-page-type="product_manufacturer"] .block--table .table-block__heading { font-weight: var(--weight-heading); }
+/* Phones: a table of three or more columns gives each column room for two short words a line (an age column broke one
+   word a line beside roomy value columns), on a narrower inset between the columns. */
+@media (max-width: 599px) {
+  .block--table .table-block__scroll:not([data-columns="2"]) :is(th, td) { padding-inline: 0.5rem; min-inline-size: 4.5em; }
+}
+/* The first column's text starts on the heading's and the row rules' left edge at every width; the cells keep their
+   inset between columns. */
+.block--table .table-block :is(th, td):first-child { padding-inline-start: 0; }
 /* Phones: a two-column table stacks and its header row is visually hidden (patterns.css, a 1px clipped thead); its
    cells keep no inset there, so the hidden "Item" / "What we provide" labels stay inside that 1px box instead of
    standing as 32px boxes over the first row (text_overlap). Nothing visible changes; screen readers keep the header. */
@@ -258,11 +368,6 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
 @media (min-width: 768px) {
   .block--charts { padding-bottom: calc(var(--section-space) / 2 + 1rem); }
 }
-/* Phones: the wide row's photo (stacked under its text) shows in its own shape, not the desktop strip cut from it. */
-@media (max-width: 767px) {
-  
-  
-}
 /* A split row's charts in the photo's place: each chart at its own height, the set level with the copy's middle. */
 @media (min-width: 900px) {
   .block--split:not([data-variant="stacked"]) .split[data-layout="split"] > .split__charts { grid-template-rows: none; }
@@ -278,7 +383,23 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
      inline inset to the table, so the values take the column's full width (the cells keep their own inset). */
   .chart-comparison table:not(:has(thead tr > :nth-child(4))) { table-layout: fixed; }
   .prose__chart[data-chart="comparison"]:not(:has(thead tr > :nth-child(4))) { padding-inline: 0; }
+  /* The row labels stand clear of the first value column. */
+  .chart-comparison tbody th { padding-inline-end: 1rem; }
 }
+/* A chart panel is one surface: its pinned first column and the empty corner cell over it take the panel's colour,
+   not a white cut-out. */
+.prose__chart { --sticky-surface: var(--surface-secondary); }
+/* A comparison's caption starts on the row labels' text edge (the cells' inline inset). */
+.prose__chart[data-chart="comparison"] figcaption { padding-inline: 0.75rem; }
+@media (max-width: 767px) { .prose__chart[data-chart="comparison"] figcaption { padding-inline: 0.4rem; } }
+@media (max-width: 599px) { .prose__chart[data-chart="comparison"] figcaption { padding-inline: 0.6rem; } }
+/* A share bar's parts in the site's dark blues: each at least 3:1 on the panel (navy 14:1, the text blue 5.4:1 on
+   white, 4.6:1 on beige) and 2.7:1 apart, so the two halves read apart. */
+:is(.chart-shares__part, .chart-shares__key)[data-part="0"] { background: var(--surface-dark); }
+:is(.chart-shares__part, .chart-shares__key)[data-part="1"] { background: var(--accent-text); }
+/* Bars and timeline spans in the same deep blue (5.4:1 on white, 4.6:1 on beige), not the pale aqua that barely stood
+   off the panel: the page's charts share one palette. */
+.chart-bars__bar, .chart-timeline__span { background: var(--accent-text); }
 
 /* Answer cards (table cards): light cards in the competitor's 1px outline, a bold title over the label and answer. */
 .block--table .table-card { --heading-color: var(--text-primary); border: 1px solid var(--border-color); background: var(--surface-primary); color: var(--text-primary); }
@@ -290,17 +411,32 @@ main[data-page-type="product_manufacturer"] .button--primary:hover { background:
    light hairline of the page's other rows, not a dark outline. The section keeps the shared section padding of the
    blocks around it (a whole section space inside it doubled the gap above and below its links). */
 .related-pages--grid .related-links:has(> li:only-child) { width: fit-content; max-width: 100%; }
-.block .related-pages--grid .related-links__link { border-color: color-mix(in srgb, var(--text-primary) 18%, transparent); }
+/* Beside each other, the link cards are as wide as their longest label (the template's columns and count unchanged:
+   the list shrinks to its cards, its equal tracks to the longest label), from the content's left edge, not stretched
+   into half-page bars with the arrow far from its word (design-gate: /case-studies/ related). A list wider than the
+   content keeps the content width. */
+@media (min-width: 600px) { .related-pages--grid .related-links { width: fit-content; max-width: 100%; } }
+/* The link labels at the body's 16px, never a step under the page's text (the competitor's link buttons). */
+.block .related-pages--grid .related-links__link { border-color: color-mix(in srgb, var(--text-primary) 18%, transparent); font-size: 1rem; }
 
 /* Cards: 1px black outline, 6px corners, 32px inset, no shadow; the number in the title's own type. */
 .block--grid { --grid-gap: 1.75rem; }
 [data-pattern="outline-numbered"] .feature-card { border-radius: var(--radius-card); }
-[data-pattern="outline-numbered"] .feature-card__number { font-family: var(--font-display); font-size: var(--size-card-heading); font-weight: 700; line-height: 1.5; color: var(--text-primary); }
+[data-pattern="outline-numbered"] .feature-card__number { font-family: var(--font-display); font-size: var(--size-card-heading); font-weight: 700; line-height: 1.25; color: var(--text-primary); }
+/* The number on its title's line, one line "01  Custom Designs" (the competitor's "3 Ways To Get Started" cards), the
+   text the card's own gap under them (design-gate: / m3, m3-2, featureGrid-6, featureGrid-7: number, title and text
+   stood about 40px apart each). Number and title share the card's first row track, the text takes the rest of the
+   card's shared tracks, so titles and text still start level across a row; a wrapped title keeps its edge past the
+   number. Written for the card type, not for one set. */
+[data-pattern="outline-numbered"] .feature-card:has(> .feature-card__number):not(:has(> .feature-card__media)) > :is(.feature-card__number, .feature-card__title) { grid-row: 1; grid-column: 1; align-self: start; }
+[data-pattern="outline-numbered"] .feature-card:has(> .feature-card__number):not(:has(> .feature-card__media)) > .text-flow { grid-row: 2 / span 2; }
+[data-pattern="outline-numbered"] .feature-card:has(> .feature-card__number):not(:has(> .feature-card__media)) > .feature-card__title { padding-inline-start: calc(var(--size-card-heading) * 1.75); }
 [data-pattern="numbered"] .feature-card__number { font-size: 1.75rem; font-weight: 500; line-height: 1.2; color: var(--accent-text); }
 [data-pattern="boxed"] .feature-card__title { border-radius: 0; }
-/* Solution: the cards are filled panels without an outline (beige on white, white on the tinted band: the tint sets
-   --surface-secondary to white inside it). */
-main[data-page-type="solution"] [data-variant="outlined"] .feature-card { border-color: transparent; background: var(--surface-secondary); }
+/* Solution, general and manufacturer pages: the cards are filled panels without an outline (beige on white, white on
+   the tinted band: the tint sets --surface-secondary to white inside it), as the competitor's card module (solution 2,
+   7) is. */
+main:is([data-page-type="solution"], [data-page-type="general"], [data-page-type="product_manufacturer"]) [data-variant="outlined"] .feature-card { border-color: transparent; background: var(--surface-secondary); }
 /* Points beside their heading (bullets): a bold title over its text, the check lists' own drawn check (the
    .icon-list__icon path) in the light-surface blue as the marker, level with the first line, so a page shows one check. */
 .point-list__title { font-weight: 700; }
@@ -317,9 +453,17 @@ main[data-page-type="solution"] [data-variant="outlined"] .feature-card { border
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
 }
+/* The points' intro stays in view beside the longer list it introduces, as the process list's does. */
+@media (min-width: 900px) { .block--grid .point-list__intro { position: sticky; top: 6rem; } }
 /* The intro and its points stack at the list's own gap on phones (the lead's bottom margin added a second gap). */
 .point-list__intro > .block__lead:last-child { margin-bottom: 0 !important; }
 @media (max-width: 899px) { .point-list { row-gap: 1.25rem; } }
+/* Stacked, a heading that ends the points' intro keeps only the list's own gap to the first point (its 1.5rem margin
+   and the row gap made about 50px), the heading-to-content gap of the other lists. */
+@media (max-width: 899px) { .point-list__intro > h2:last-child { margin-bottom: 0 !important; } }
+/* A single column of points holds to the reading measure (each point's title and text, past its check), as the running
+   text does. */
+.point-list__items:not([data-columns="2"]) > .point-list__item { max-inline-size: calc(var(--measure) + 22px + 0.75rem); }
 
 /* Check lists: bold item titles set solid, the check in the light-surface blue, level with the title's first line. */
 .icon-list__item { align-items: baseline; }
@@ -343,6 +487,30 @@ main[data-page-type="solution"] [data-variant="outlined"] .feature-card { border
   .block--split[data-variant="panel"] .split { margin-inline: calc(-1 * var(--gutter)); }
   .block--split[data-variant="panel"] .split__copy { padding-inline: var(--gutter); }
 }
+/* The panel row's copy panel and photo run to the section's top and bottom (no band of tint above or below them; on
+   phones the photo ends the section), and on desktops the photo runs to the page's outer edge (the competitor's
+   sampling split: two flush halves). The section clips what passes the page's edge, so nothing overflows. */
+.block--split[data-variant="panel"] { padding-block: 0; }
+/* Stacked (phones, tablets): the blush copy panel opens with the section's own top space above its heading and keeps the
+   same space under its copy before the photo, which meets the panel (no grid gap added to the panel's inset). */
+@media (max-width: 899px) {
+  .block--split[data-variant="panel"] .split { row-gap: 0; }
+  .block--split[data-variant="panel"] .split__copy { padding-block: calc(var(--section-space) / 2); }
+}
+@media (min-width: 900px) {
+  /* The blush copy half meets its photo half: one panel, no strip of the page between them. */
+  .block--split[data-variant="panel"] .split[data-layout="split"] { column-gap: 0; }
+  .block--split[data-variant="panel"] { --split-bleed: max(var(--gutter), (100vw - var(--container-max)) / 2); overflow-x: clip; }
+  .block--split[data-variant="panel"] .split[data-layout="split"]:not([data-side="media-start"]) > .split__media-set:not(.split__charts) { margin-inline-end: calc(-1 * var(--split-bleed)); }
+  .block--split[data-variant="panel"] .split[data-layout="split"][data-side="media-start"] > .split__media-set:not(.split__charts) { margin-inline-start: calc(-1 * var(--split-bleed)); }
+}
+/* Stacked on phones, a split row's lead runs its column's width as the body under it does (its pretty wrap evened
+   the three lines about 90px short of the edge). */
+@media (max-width: 767px) { .block--split .split__copy .text-flow__lead { text-wrap: wrap; } }
+/* A split row's first paragraph at the size of the text under it (the competitor's split module sets every paragraph
+   at one body size, key points in bold), on the running text's measure. */
+.block--split .split__copy .text-flow__lead { font-size: inherit; }
+main[data-authoring-page] .block--split .split__copy p.text-flow__lead { max-width: var(--measure); }
 
 /* Figures: navy tiles with 20px corners and aqua figures (home MOQ band); the timeline bar's values over a hairline. */
 .block--stats[data-variant="tiles"] .stats__item { --heading-color: var(--accent); --text-primary: var(--text-inverse); --link: var(--text-inverse); border-radius: 20px; background: var(--surface-dark); color: var(--text-inverse); }
@@ -355,20 +523,48 @@ main[data-page-type="solution"] [data-variant="outlined"] .feature-card { border
 .trust-bar__value, .block--stats[data-variant="trust-bar"] .stats__value { text-wrap: balance; }
 /* A label breaks into even lines, never one word left alone. */
 .trust-bar__label, .block--stats[data-variant="trust-bar"] .stats__label { text-wrap: balance; }
-.trust-bar__item { align-content: start; }
+/* The trust bar's columns: a thin hairline along each column's top, no rules between the columns (the competitor's
+   trust bar). Each label sits directly under its own figure, from the top of its cell (a tight figure-and-label
+   pair, no gap opened under a one-line figure). */
+.trust-bar__items { column-gap: var(--grid-gap); }
+.trust-bar__item, .trust-bar__item + .trust-bar__item, .trust-bar__item:nth-child(even) { border-left: 0; }
+.trust-bar__item { align-content: start; padding: 0.75rem 0 0.25rem; border-top: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent); }
 
-/* Steps: bold step titles over regular text (the competitor's sub-heads are Maison 700). */
-.block--process { --size-subheading: 1.0625rem; }
+/* Steps: bold step titles over regular text (the competitor's sub-heads are Maison 700), at the template's sub-heading
+   step, the size of the check lists' item titles (no smaller step set for the process block). */
 .block--process :is(.process-step__title, .point-list__title) { font-weight: 700; }
-/* The list variant: each step under a light hairline, its zero-padded number large and bold in the light-surface blue
-   in a column of its own (the competitor's process list, 01 02 03). */
+/* Manufacturer: the step titles in the page's lighter heading weight, never heavier than the section heading over them
+   (the competitor's manufacturer page keeps one lighter weight, as its FAQ questions below). */
+main[data-page-type="product_manufacturer"] .block--process :is(.process-step__title, .point-list__title) { font-weight: 500; }
+/* The list variant: each step under a light hairline, its zero-padded number bold in the light-surface blue in a column
+   of its own (the competitor's process list, 01 02 03), at the step title's size on the title's line (the competitor's
+   "01. Custom Designs") at every width, so the title stays the step's strongest line. */
 .block--process .point-list__items[data-numbered] { padding-left: 0; list-style: none; counter-reset: step; gap: 0; }
-.block--process .point-list__items[data-numbered] > .point-list__item { position: relative; padding-block: 1rem; padding-left: 3.5rem; border-top: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent); counter-increment: step; }
-.block--process .point-list__items[data-numbered] > .point-list__item::before { content: counter(step, decimal-leading-zero); position: absolute; top: 1rem; left: 0; font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1; color: var(--accent-text); }
+.block--process .point-list__items[data-numbered] > .point-list__item { position: relative; padding-block: 1rem; padding-left: 2.5rem; border-top: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent); counter-increment: step; }
+.block--process .point-list__items[data-numbered] > .point-list__item::before { content: counter(step, decimal-leading-zero); position: absolute; top: 1rem; left: 0; font-family: var(--font-display); font-size: 1.0625rem; font-weight: 700; line-height: 1.35; color: var(--accent-text); }
+/* Each step a row of its own (the competitor's 1.5-2rem between hairline and step name on desktops), its name clear of
+   its text, and the list closed by a hairline under its last step as over its first. */
+@media (min-width: 900px) {
+  .block--process .point-list__items[data-numbered] > .point-list__item { padding-block: 1.5rem; }
+  .block--process .point-list__items[data-numbered] > .point-list__item::before { top: 1.5rem; }
+}
+.block--process .point-list__items[data-numbered] .point-list__title { margin-bottom: 0.5rem; }
+/* The step's text at or under its title's size (the template's 1rem step title), so the bold title stays the step's
+   strongest line, and its number at the title's size on the title's line (design-gate: /case-studies/ overview-steps:
+   the 17px text read larger than the 16px title). The title's own size stays the template's. */
+.block--process .point-list__items[data-numbered] .point-list__item p { font-size: 1rem; }
+.block--process .point-list__items[data-numbered] > .point-list__item::before { font-size: 1rem; }
+/* The steps and their hairlines fill the list column out to the content's right edge, shared by the sections around
+   them; the step text keeps its own reading measure (every .block p). (design-gate: /blog/ overview-steps.) */
+.block--process .point-list__items[data-numbered] > .point-list__item { max-inline-size: none; }
+.block--process .point-list__items[data-numbered] > .point-list__item:last-child { border-bottom: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent); }
 /* The list's intro stays in view beside the longer steps; an intro without a heading of its own is set as the steps'
    lead, in the heading face a size step over the step titles (the card-heading size), so the column reads as their
    heading, not a stray caption or one more step title. */
 @media (min-width: 900px) { .block--process .point-list__intro { position: sticky; top: 6rem; } }
+/* Stacked (phones, tablets): a heading alone over the steps keeps only the list's own gap to its first step, the
+   heading-to-content gap of the other sections (its 1.75rem margin and the row gap made about 50px). */
+@media (max-width: 899px) { .block--process .point-list__intro > .process__heading:last-child { margin-bottom: 0 !important; } }
 .block--process .point-list__intro:not(:has(h2)) > .block__lead,
 .block--process[data-variant="timeline"] .process:not(:has(> .process__heading)) > .block__lead { font-family: var(--font-display); font-size: var(--size-card-heading); font-weight: var(--weight-heading); line-height: 1.3; color: var(--heading-color, var(--text-primary)); }
 /* The timeline starts on the content's left edge under its heading; its rows part on the light hairline of the FAQ
@@ -382,6 +578,11 @@ body[data-heading-align="start"] .block--process .process-timeline { margin-inli
 .block--process[data-variant="band"] { --process-marker-bg: transparent; --process-marker-text: var(--text-inverse); }
 .block--process[data-variant="band"] .process-step__marker { width: auto; place-items: center start; }
 .block--process .process__cta { margin-top: 2rem; }
+/* Photo cards: the text inset evenly inside the outline (the competitor's about 32px on every side), the number badge
+   over the title's left edge, no margin of the last line added to the card's bottom inset. */
+.block--process[data-variant="photo-cards"] .process-step { padding-inline: 2rem; }
+.block--process[data-variant="photo-cards"] .process-step__marker { left: 2rem; }
+.block--process[data-variant="photo-cards"] .process-step > :last-child { margin-bottom: 0; }
 /* Phones: each band step sets its number beside its title and text, the steps parted by the band's hairline (the
    competitor's phone step band), not three loose lines a grid gap apart. */
 @media (max-width: 767px) {
@@ -405,31 +606,54 @@ body[data-heading-align="start"] .block--process .process-timeline { margin-inli
 }
 
 /* FAQ: navy Maison Neue 700 questions on hairline rows, the mark at the right (home); separate rounded bars
-   (solution). The questions take the template's sub-heading size, a step over their answers. */
-main[data-page-type="home"] .block--faq { --size-display: clamp(2rem, 3.611vw, 3.25rem); }
-.block--faq:not([data-variant="dark-cards"]) .faq__item h3 { font-family: var(--font-hero); font-weight: 700; line-height: 1.4; color: var(--surface-dark); }
+   (solution). The questions take the template's sub-heading size, a step over their answers; the FAQ heading is sized
+   by the template as every other section heading is. */
+.block--faq:not([data-variant="dark-cards"]) .faq__item .faq__question { font-family: var(--font-hero); font-weight: 700; line-height: 1.4; color: var(--surface-dark); }
 /* The open/close mark plainly visible at the row's end: larger, heavier, in the light-surface blue (the competitor's
    accent-blue +). */
 .block--faq:not([data-variant="dark-cards"]) .faq__item summary::after { font-size: 1.5rem; font-weight: 600; color: var(--accent-text); }
 /* Manufacturer: the questions a level under the 500-weight section heading beside them, not heavier than it. */
-main[data-page-type="product_manufacturer"] .block--faq:not([data-variant="dark-cards"]) .faq__item h3 { font-weight: 500; }
+main[data-page-type="product_manufacturer"] .block--faq:not([data-variant="dark-cards"]) .faq__item .faq__question { font-weight: 500; }
 /* A question runs along its row up to the mark (balanced, a two-line question left half the row empty before it). */
-.block--faq .faq__item summary h3 { flex: 1 1 auto; text-wrap: pretty; }
-.block--faq:is([data-variant="accordion"], [data-variant="two-column"], [data-variant="open-list"]) .faq__items { gap: 0; }
+.block--faq .faq__item summary .faq__question { flex: 1 1 auto; text-wrap: pretty; }
+/* Two columns: the +/− mark level with the middle of its question. */
+.block--faq[data-variant="two-column"] .faq__item summary { align-items: center; }
+/* Every question between two rules: the list opens with the hairline of its rows, at every width. */
+.block--faq:is([data-variant="accordion"], [data-variant="two-column"], [data-variant="open-list"]) .faq__items { gap: 0; border-top: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent); }
 .block--faq:is([data-variant="accordion"], [data-variant="two-column"], [data-variant="open-list"]) .faq__item { border-width: 0 0 1px; border-color: color-mix(in srgb, var(--text-primary) 18%, transparent); border-radius: 0; background: transparent; }
 .block--faq:is([data-variant="accordion"], [data-variant="two-column"], [data-variant="open-list"]) .faq__item summary { padding: 1.25rem 0; }
 .block--faq:is([data-variant="accordion"], [data-variant="two-column"], [data-variant="open-list"]) .faq__item p { padding: 0 0 1.25rem; }
+/* An open list's question (an h3 over its shown answer, lib/faq-layout.mjs) starts on its answer's edge: its sides go to
+   0 as the answer's do (audit: text_edge_offset 20px, every open FAQ list). */
+.block--faq:is([data-variant="accordion"], [data-variant="two-column"], [data-variant="open-list"]) .faq__item > .faq__question { padding-inline: 0; }
 .block--faq[data-variant="bars"] .faq__item { border-radius: var(--radius-card); }
+/* The bars hang their inset (the template's 1.25rem question and answer sides) into the gutter: the tint runs past the
+   content's edge and every question and answer starts on the section heading's left edge, open list or closed rows
+   alike (audit: text_edge_offset -20px, the solution pages' long FAQ shown as an open list). The gutter is 1.25rem, so
+   on phones the bars meet the screen's edges, as the panel row's copy does, and nothing passes them. */
+.block--faq[data-variant="bars"] .faq__item { margin-inline: -1.25rem; }
+@media (max-width: 767px) { .block--faq[data-variant="bars"] .faq__item { border-radius: 0; } }
+/* From tablets up the closed bars (a question that opens) stand inside the content as the competitor's rounded panels,
+   with the page's margin on every side, their text on the bar's own inset; at 1440 the hanging inset had run them to the
+   window's edge (design-gate: /swimwear-consulting/ faq). An open list's bars keep the hang, so its answers stay on the
+   heading's edge (audit: text_edge_offset). */
+@media (min-width: 768px) { .block--faq[data-variant="bars"] details.faq__item { margin-inline: 0; } }
+/* A one-column FAQ list holds to the reading measure from the heading's left edge (the competitor's narrower FAQ
+   column), so a question stays a short line near its mark; the questions keep their size. */
+.block--faq:is([data-variant="accordion"], [data-variant="bars"], [data-variant="open-list"]) .faq__items { max-width: 70ch; }
 /* The two-column FAQ splits as the page's other heading-beside-list sections do (the process and check lists' 5:7
-   with their gap), so its questions start on the shared right-column edge; its first question level with the heading. */
+   with their gap), so its questions start on the shared right-column edge; the list's top rule level with the heading,
+   the first question as far under it as every other row. */
 @media (min-width: 900px) {
   .block--faq[data-variant="two-column"] .faq { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(1.5rem, 4vw, 4rem); }
-  .block--faq[data-variant="two-column"] .faq__item:first-child summary { padding-top: 0; }
 }
 
 /* Inline close (manufacturer pages): heading, text and button one under the other, the button under the text it ends
    (the template's wrapping row set it beside the 70ch paragraph). */
-.block--cta[data-variant="inline"] .cta__content { flex-direction: column; align-items: flex-start; }
+.block--cta[data-variant="inline"] .cta__content { flex-direction: column; align-items: flex-start; gap: 1rem; }
+/* The action stands apart from the text it ends (the competitor's inline close: about twice the paragraph spacing
+   before its buttons), still under it on the left edge. */
+.block--cta[data-variant="inline"] .cta__content > :not(.button):has(+ .button) { margin-block-end: 1rem; }
 
 /* Closing photo band: the copy on the darker left of the photo, solid white pills with dark text, the heading set as
    tight as the other headings. As the page's last section it runs into the footer with the same space under it as
@@ -437,20 +661,45 @@ main[data-page-type="product_manufacturer"] .block--faq:not([data-variant="dark-
 [data-variant="image-band"] .cta { min-height: clamp(320px, 42vw, 614px); --cta-overlay: rgb(0 0 0 / 0.55); }
 [data-variant="image-band"] .cta__content { max-width: 40rem; }
 [data-variant="image-band"] .cta__heading { line-height: 1.1; }
-.block--cta[data-variant="image-band"]:last-child { padding-bottom: calc(var(--section-space) / 2); }
-/* Phones: a narrower inset and a smaller label keep the full-width pill's label on one line. */
+/* The band's copy openly spaced (the competitor's about 45px under the heading, 40px before its pills), so heading, text
+   and button read as three parts. */
+[data-variant="image-band"] .cta__content > .cta__heading { margin-block-end: 1.5rem; }
+[data-variant="image-band"] .cta__content > :not(.button):has(+ .button) { margin-block-end: 1.25rem; }
+/* The closing band runs edge to edge as the competitor's does (and as the page's other photo bands do): its container
+   gives up the content width, the band's inline padding is the content's own edge, so the copy stays on the content's
+   left edge at every width; anything under the band (related links) keeps the content width. */
+.block--cta[data-variant="image-band"] > .container { max-width: none; padding-inline: 0; }
+.block--cta[data-variant="image-band"] > .container > :not(.cta) { margin-inline: max(var(--gutter), (100% - var(--container-max)) / 2); }
+.block--cta[data-variant="image-band"] .cta { padding-inline: max(var(--gutter), (100% - var(--container-max)) / 2); border-radius: 0; }
+/* A photo with a phone crop comes in a <picture>, which stood in the band's flex row as an empty item, so the row's
+   2rem column gap pushed the copy off the content edge on desktops: the picture lies behind the band as its image does. */
+.block--cta[data-variant="image-band"] .cta > picture { position: absolute; inset: 0; }
+/* As the page's last section, a closing section runs into the footer with the same space under it as above it; the
+   closing photo band (with nothing under it) meets the footer edge to edge, no white strip between the two. */
+.block--cta:last-child { padding-bottom: calc(var(--section-space) / 2); }
+.block--cta[data-variant="image-band"]:last-child:not(:has(> .container > :not(.cta))) { padding-bottom: 0; }
+/* The photo band (nothing over it in its section) meets the section before it edge to edge too, no white strip. */
+.block--cta[data-variant="image-band"]:not(:has(> .container > :not(.cta))) { padding-top: 0; }
+/* Phones: a smaller label keeps the full-width pill's label on one line. */
 @media (max-width: 767px) {
-  [data-variant="image-band"] .cta { padding-inline: 1.25rem; }
   [data-variant="image-band"] .cta .button { font-size: 0.8125rem; }
 }
 [data-variant="image-band"] .cta .button--primary { background: #ffffff; color: #000000; border: 1px solid #ffffff; }
 [data-variant="image-band"] .cta .button--primary:hover { background: var(--accent); color: var(--accent-contrast); border-color: var(--accent); }
-/* Phones: a closing button runs its column's width, its label on one line (the competitor's full-width pills). */
+/* Phones: a closing button runs its column's width, its label on one line (the competitor's full-width pills). The
+   inline close keeps its button to its label under the text (the competitor's small black buttons there). */
 @media (max-width: 767px) { .block--cta .cta .button { width: 100%; padding-inline: 1rem; letter-spacing: 0; } }
+@media (max-width: 767px) { .block--cta[data-variant="inline"] .cta .button { width: auto; max-width: 100%; padding-inline: 1.5rem; } }
 @media (min-width: 1024px) {
+  /* The copy sits in the lower part of the band, the upper photo clear (the competitor's home 17: copy from about 42%
+     to 84% of the band's height); the band keeps its height. */
+  [data-variant="image-band"] .cta { align-items: flex-end; padding-block-end: clamp(3rem, 7vw, 6rem); }
   [data-variant="image-band"] .cta {
-    --cta-copy-end: calc(clamp(2rem, 5vw, 4rem) + 40rem);
-    --cta-overlay: linear-gradient(to right, rgb(0 0 0 / 0.6) 0, rgb(0 0 0 / 0.55) calc(var(--cta-copy-end) + 2rem), rgb(0 0 0 / 0.32) calc(var(--cta-copy-end) + 12rem), rgb(0 0 0 / 0) calc(var(--cta-copy-end) + 30rem));
+    --cta-copy-end: calc(max(var(--gutter), (100% - var(--container-max)) / 2) + 40rem);
+    /* Held at 0.6 a little past the copy column (about half the band at 1440), so the paragraph's line ends sit on the
+       dark part too (design-gate: /case-studies/ cta), then 0.32 within about 15% of the band past the text, clear by
+       30rem past it. */
+    --cta-overlay: linear-gradient(to right, rgb(0 0 0 / 0.62) 0, rgb(0 0 0 / 0.6) calc(var(--cta-copy-end) + 4rem), rgb(0 0 0 / 0.32) calc(var(--cta-copy-end) + 11rem), rgb(0 0 0 / 0) calc(var(--cta-copy-end) + 30rem));
   }
 }
 /* Photo band (home sustainability band): the same left-side shade; even across on tablets and phones. */
@@ -462,19 +711,29 @@ main[data-page-type="product_manufacturer"] .block--faq:not([data-variant="dark-
   }
 }
 
+/* A photo band (one photo across the page, no copy of its own) meets the sections before and after it edge to edge,
+   as the competitor's full-width photos do, with no white strip of its own padding above or below (design-gate:
+   /custom-swimwear-printing/ media-module-1). A band's button on its lower edge keeps the frame's own room under it. */
+.block--gallery[data-variant="band"] { padding-block: 0; }
+
 /* Contact: square black-outlined fields, a full-width dark SEND bar, a photo with rounded corners, channel cards with
    a black label bar. */
 .form-block__media { --radius-media: 10px; }
-/* Photo and form (form media): the heading runs over both columns, so the photo and the form start level under it and
-   the photo runs the form's height (at least its own shape), the two sharing their top and bottom edges; a form
-   shorter than the photo sits level with its middle. */
+/* Photo and form (form media): the heading runs over both columns, so the photo and the form start level under it.
+   The photo keeps its own shape (stretched to a long form's height it showed only ~41% of itself: heavy_crop) and
+   stays in view beside the longer form as it scrolls; a form shorter than the photo sits level with its middle. */
 @media (min-width: 900px) {
   .form-block[data-variant="media"]:has(> .form-block__intro > .form-block__media) { row-gap: 1rem; }
   .form-block[data-variant="media"] > .form-block__intro:has(> .form-block__media) { display: contents; }
   .form-block[data-variant="media"] > .form-block__intro:has(> .form-block__media) > * { grid-column: 1 / -1; }
-  .form-block[data-variant="media"] > .form-block__intro > .form-block__media { grid-column: 1; width: 100%; height: 100%; margin-top: 0; }
+  .form-block[data-variant="media"] > .form-block__intro > .form-block__media { grid-column: 1; align-self: start; position: sticky; top: calc(var(--header-height, 0px) + 1.5rem); width: 100%; margin-top: 0; }
   .form-block[data-variant="media"]:has(> .form-block__intro > .form-block__media) > .form-block__form { grid-column: 2; align-self: center; }
 }
+/* Every one-line field one height and one type (the competitor's fields): the date field and the select drew taller
+   than the text fields, and the date's own text read larger and bolder (it inherited the label's 600). The height is
+   the fields' own line, inset and border, not a copied value. */
+:is(.form-block__form, .cta__form) .form-block__field :is(input:not([type="checkbox"], [type="radio"]), select) { box-sizing: border-box; block-size: calc(1.5em + 1.2rem + 2px); line-height: 1.5; font-weight: 400; }
+:is(.form-block__form, .cta__form) .form-block__field textarea { font-weight: 400; }
 :is(.form-block__form, .cta__form) .button--primary { width: 100%; min-height: 37px; border-radius: 0; background: #262626; color: #ffffff; font-size: 0.9375rem; font-weight: 400; }
 :is(.form-block__form, .cta__form) .button--primary:hover { background: #000000; color: #ffffff; }
 /* The consent tick: full size, a white box in the fields' 1px black outline before it is ticked, filled in the bar's
@@ -485,22 +744,44 @@ main[data-page-type="product_manufacturer"] .block--faq:not([data-variant="dark-
 /* The channel cards share the content's width from its left edge, under their heading, with the heading's gap. */
 .block .contact-channels__heading { margin-bottom: 1.5rem !important; }
 .contact-channels[data-variant="cards"] { justify-content: flex-start; }
+/* The cards wrap by their own least width at every width (no one-per-row rule on phones): as many as fit share a row,
+   so at 390px they sit side by side as the competitor's small tiles do, each a short card, not a wide empty box. */
 .contact-channels[data-variant="cards"] > .contact-channel { flex: 1 1 0; min-width: min(100%, 10rem); }
-@media (max-width: 599px) { .contact-channels[data-variant="cards"] > .contact-channel { flex-basis: 100%; } }
 .contact-channels[data-variant="cards"] .contact-channel { gap: 0.75rem; }
+/* A linked value (mail, phone) starts as close under its label bar as a plain one (address, hours): no extra block
+   padding above it; it keeps a 24px target. */
+.contact-channels[data-variant="cards"] a.contact-channel__value { min-block-size: var(--tap-min, 24px); padding-block: 0; }
 /* Phones: compact cards, the competitor's tight inset (about 12px) with the icon close to the card's top. */
-@media (max-width: 767px) { .contact-channels[data-variant="cards"] { --channel-card-padding: 0.75rem; --channel-icon-box: var(--channel-icon-size); } }
+@media (max-width: 767px) { .contact-channels[data-variant="cards"] { --channel-card-padding: 0.75rem 0.5rem; --channel-icon-box: 2.75rem; } }
+/* Phones: the cards pair up at one card width (the template's --channel-card-width hook, half the row less its gap),
+   not growing, so a short last row keeps the set's card width and sits centred (the template's own centring), as the
+   competitor's two-by-two phone tiles (a lone "Hours" card had stretched across the row). The values in small card text
+   so an address or a number keeps to its line (design-gate: /contact-us/ channels). */
+@media (max-width: 767px) {
+  .contact-channels[data-variant="cards"] { --channel-card-width: calc(50% - var(--grid-gap) / 2); justify-content: center; }
+  .contact-channels[data-variant="cards"] > .contact-channel { flex: 0 1 var(--channel-card-width); min-width: 0; }
+  .contact-channels[data-variant="cards"] .contact-channel__value { font-size: 0.875rem; }
+}
+@media (min-width: 360px) and (max-width: 767px) { .contact-channels[data-variant="cards"] a.contact-channel__value[href^="tel:"] { white-space: nowrap; } }
 .contact-channels[data-variant="cards"] .contact-channel__name { justify-self: stretch; padding: 0.5rem 1rem; border-radius: 8px; background: #000000; color: #ffffff; font-family: var(--font-ui); font-size: 1.25rem; font-weight: 700; letter-spacing: 0; line-height: 1.5; text-transform: none; }
+/* Phones: the label a small bold pill label (the competitor's about 14px), not a heavy 20px bar. */
+@media (max-width: 767px) { .contact-channels[data-variant="cards"] .contact-channel__name { padding-block: 0.375rem; font-size: 1rem; } }
 .contact-channels[data-variant="list"] .contact-channel { padding: 1rem 1.25rem; border: 1px solid #979797; border-radius: var(--radius-card); background: var(--surface-primary); }
 
 /* Logos: bare marks in one moving row, no tiles; a name keeps to one line, moving or at rest (its tile as wide as the
    name). The moving row fades out at both ends; at rest it spreads across the content. */
 .logos__item, .logos__item[data-wordmark] { border-color: transparent; background: transparent; }
-.logos-marquee[data-marquee-run] .logos-marquee__viewport { --marquee-fade: clamp(3rem, 15%, 6rem); -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--marquee-fade), #000 calc(100% - var(--marquee-fade)), transparent); mask-image: linear-gradient(to right, transparent, #000 var(--marquee-fade), #000 calc(100% - var(--marquee-fade)), transparent); }
+/* The fade only where the rail is several fades wide (tablets, desktops); on phones the moving names run plain to the
+   content's edges, nothing masked (style-board: owner-logos, phone). */
+@media (min-width: 600px) {
+  .logos-marquee[data-marquee-run] .logos-marquee__viewport { --marquee-fade: clamp(3rem, 15%, 6rem); -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--marquee-fade), #000 calc(100% - var(--marquee-fade)), transparent); mask-image: linear-gradient(to right, transparent, #000 var(--marquee-fade), #000 calc(100% - var(--marquee-fade)), transparent); }
+}
 .logos-marquee:not([data-marquee-run]) .logos-marquee__rail { width: 100%; }
 .logos-marquee:not([data-marquee-run]) .logos-marquee__row { flex: 1 1 auto; justify-content: space-between; padding-right: 0; }
 .logos-marquee .logos-marquee__row .logos__item { flex: 0 0 auto; min-width: var(--logos-item-width, 10rem); }
-.logos-marquee .logos__name { white-space: nowrap; }
+/* The brand names are the row's marks: well above the body size (the competitor's marks carry the row), each on one
+   line; the note under them stays small and muted. */
+.logos-marquee .logos__name { font-size: clamp(1.125rem, 1.6vw, 1.5rem); white-space: nowrap; }
 /* The line under a brand name at a readable size, in the muted text colour (5.3:1 on white). */
 .logos__note { font-size: 0.875rem; color: var(--text-muted); }
 /* Testimonials: the quote cards take the template's card fill (the beige on white, white inside a tinted band), so a
@@ -509,16 +790,41 @@ main[data-page-type="product_manufacturer"] .block--faq:not([data-variant="dark-
 /* A quote card's parts level across the row: the row of cards shares two row tracks (the quote, the attribution) and
    each card takes them as a subgrid, so every card's rule sits on one line with its attribution starting under it. The
    cards keep the carousel's own width (--carousel-item-width) and share the row when every card is in view. */
-.testimonials[data-variant="carousel"]:not(:has(.testimonial__headline)) .track__items { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(var(--carousel-item-width, min(100%, clamp(16rem, 30vw, 24rem))), 1fr); grid-template-rows: auto auto; row-gap: 0; }
-.testimonials[data-variant="carousel"]:not(:has(.testimonial__headline)) .track__item { grid-row: span 2; grid-template-rows: subgrid; }
-.testimonials[data-variant="carousel"]:not(:has(.testimonial__headline)) .track__item > .testimonial { display: grid; grid-row: span 2; grid-template-rows: subgrid; row-gap: 1rem; }
-.testimonials[data-variant="carousel"]:not(:has(.testimonial__headline)) .testimonial figcaption { margin-top: 0; align-self: start; }
+/* Only where cards share a row (tablets and desktops): on phones one card is in view and sizes to its own quote, with
+   no empty band left by a longer quote on a hidden card. */
+@media (min-width: 768px) {
+  .testimonials[data-variant="carousel"]:not(:has(.testimonial__headline)) .track__items { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(var(--carousel-item-width, min(100%, clamp(16rem, 30vw, 24rem))), 1fr); grid-template-rows: auto auto; row-gap: 0; }
+  .testimonials[data-variant="carousel"]:not(:has(.testimonial__headline)) .track__item { grid-row: span 2; grid-template-rows: subgrid; }
+  .testimonials[data-variant="carousel"]:not(:has(.testimonial__headline)) .track__item > .testimonial { display: grid; grid-row: span 2; grid-template-rows: subgrid; row-gap: 1rem; }
+  .testimonials[data-variant="carousel"]:not(:has(.testimonial__headline)) .testimonial figcaption { margin-top: 0; align-self: start; }
+}
+/* Phones: the sliding row does not stretch its cards to the tallest one (a hidden card's longer quote), so the card in
+   view ends under its own attribution, with no empty band between quote and rule. */
+@media (max-width: 767px) { .testimonials[data-variant="carousel"] .track__items { align-items: flex-start; } }
+/* The quote cards are raised as the competitor's slider cards are: a soft shadow on the white card. The sliding row
+   keeps room for the shadow above and below (its scroll box would cut it), without moving the cards. */
+.testimonials { --shadow-card: 0 2px 12px rgb(0 0 0 / 0.08); }
+/* The quote and its attribution part by space alone, as on the competitor's cards (no rule between them). */
+.testimonials .testimonial figcaption { border-top: 0; }
+.testimonials[data-variant="carousel"] .track__viewport { padding-block: 1rem; margin-block: -1rem; }
 
 /* Footer: #003049, the brand column centred beside a thin rule, uppercase column titles, 16/24 links 36px apart,
    centred legal lines; on phones the groups fold under letter-spaced titles with a chevron. */
 .site-footer { padding-block: 3.5rem 2rem; background: var(--surface-footer); }
-/* The brand name takes its column's alignment (centred), as the contact lines and links under it do. */
+/* The brand name takes its column's alignment (centred), as the contact lines and links under it do. It shows the
+   header's wordmark in white (the logo image, the header's filter and height), so the page carries the brand in one
+   face, as the competitor's footer repeats its own white mark (design-gate: / footer); the name stays its alt text,
+   and the spaced UI face is only the fallback where an element's content cannot be an image. */
 .site-footer__brand { justify-self: var(--footer-brand-align, start); text-align: var(--footer-brand-align, start); font-family: var(--font-ui); font-size: 1.25rem; font-weight: 600; letter-spacing: 4px; line-height: 1.3; text-transform: uppercase; }
+.site-footer__brand {
+  content: url("/logo-header.webp");
+  content: url("/logo-header.webp") / "Strandmill";
+  width: auto;
+  height: var(--logo-height);
+  max-width: min(100%, var(--logo-max-width));
+  object-fit: contain;
+  filter: var(--logo-filter);
+}
 .site-footer__contact { font-size: 1rem; gap: 0.75rem; }
 .site-footer__title { font-family: var(--font-ui); font-size: 1.125rem; font-weight: 600; letter-spacing: 0.3px; line-height: 1.3; text-transform: uppercase; }
 .site-footer__links { gap: 0.75rem; font-size: 1rem; line-height: 1.5; }
@@ -528,6 +834,14 @@ main[data-page-type="product_manufacturer"] .block--faq:not([data-variant="dark-
 .site-footer__legal { justify-content: center; }
 @media (max-width: 767px) {
   .site-footer__title { letter-spacing: 0.12em; }
-  .site-footer__fold > summary::after { content: "\203A"; font-size: 1.75em; transition: transform 0.2s ease; }
-  .site-footer__fold[open] > summary::after { content: "\203A"; transform: rotate(90deg); }
+  /* The fold marker: a thin line chevron (the competitor's), two 1.5px sides of a 10px square, pointing right when
+     closed and down when open, a little in from the row's end. */
+  .site-footer__fold > summary::after { content: ""; flex: none; width: 0.625rem; height: 0.625rem; margin-inline-end: 0.375rem; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(-45deg); transition: transform 0.2s ease; }
+  .site-footer__fold[open] > summary::after { content: ""; transform: rotate(45deg); }
+}
+
+/* The blog hub's photo on a phone shows its lower part, not the model's face: the hub's title and lead are set
+   centred across the photo (claude-seo audit 5 L-7, 2026-11-18: the H1 lay across her face at 390px). */
+@media (max-width: 767px) {
+  .blog-hub-hero__backdrop { object-position: 50% 100% !important; }
 }

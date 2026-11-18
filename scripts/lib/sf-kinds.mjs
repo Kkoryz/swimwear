@@ -7,7 +7,7 @@ import BLOCK_KINDS from '../../config/block-kinds.json' with { type: 'json' };
 import { CARDINALITY } from './authoring-contract.mjs';
 import { markdownTable } from './markdown-table.mjs';
 import { cardGridMax } from './rules.mjs';
-import { chunkCards, closingBlock, leadOf, listBlock, listItems, paragraphsOf, parseFaq, textBlock } from './sf-sections.mjs';
+import { chunkCards, closingBlock, leadOf, listBlock, listItems, paragraphsOf, parseFaq, splitVisuals, textBlock } from './sf-sections.mjs';
 import { normalizeFact, verifyCited } from './sf-structured.mjs';
 
 export { BLOCK_KINDS };
@@ -245,9 +245,9 @@ export function planKindBlocks(page, { styles = new Map(), table = BLOCK_KINDS }
       default:
         throw new Error(`${page.page_id}: section ${section.section_id}: no renderer for component ${component}`);
     }
-    // What the section asks to show (its visuals: a photo's subject and setting, or data) goes with its first block;
-    // the template decides where and how (lib/media-slots.mjs, lib/visual-data.mjs).
-    if (section.visuals?.length && blocks[blockStart]) blocks[blockStart] = { ...blocks[blockStart], visuals: section.visuals };
+    // What the section asks to show goes with its first block: its data visuals, which the template draws, and its
+    // photo visuals as candidates of the block's own photo positions only (lib/sf-sections.mjs splitVisuals).
+    if (section.visuals?.length && blocks[blockStart]) blocks[blockStart] = { ...blocks[blockStart], ...splitVisuals(section.visuals) };
     if (goesOn == null) firsts.set(section.section_id, { kind: section.kind, blockId: blocks[blockStart]?.id ?? null });
     else {
       for (let index = blockStart; index < blocks.length; index += 1) {

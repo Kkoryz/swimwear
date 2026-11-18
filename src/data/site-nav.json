@@ -49,18 +49,8 @@
           "route": "/children-s-swimwear-manufacturer/",
           "children": [
             {
-              "label": "Teen Swimwear",
-              "route": "/teen-swimwear-manufacturer/",
-              "children": []
-            },
-            {
               "label": "Baby Swimwear",
               "route": "/baby-swimwear-manufacturer/",
-              "children": []
-            },
-            {
-              "label": "Toddler Swimwear",
-              "route": "/toddler-swimwear-manufacturer/",
               "children": []
             }
           ]

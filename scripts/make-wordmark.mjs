@@ -88,10 +88,13 @@ export async function lettersTouch(sharp, path, letters) {
 }
 
 // A drawing in one ink on white as that ink with transparency, trimmed to the drawing: each pixel's darkness is its
-// opacity, so the edges stay smooth.
-export async function inkOnTransparent(sharp, path, ink) {
-  const [r, g, b] = [1, 3, 5].map((index) => parseInt(ink.slice(index, index + 2), 16));
-  const inkLight = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+// opacity, so the edges stay smooth. drawnIn: the ink it was drawn in, when another ink is to colour it (the opacity is
+// measured against the drawn ink's darkness).
+const rgbOf = (hex) => [1, 3, 5].map((index) => parseInt(hex.slice(index, index + 2), 16));
+export async function inkOnTransparent(sharp, path, ink, drawnIn = ink) {
+  const [r, g, b] = rgbOf(ink);
+  const [dr, dg, db] = rgbOf(drawnIn);
+  const inkLight = 0.2126 * dr + 0.7152 * dg + 0.0722 * db;
   const { data, info } = await sharp(path).flatten({ background: '#ffffff' }).greyscale().raw().toBuffer({ resolveWithObject: true });
   const out = Buffer.alloc(info.width * info.height * 4);
   for (let index = 0; index < info.width * info.height; index += 1) {
@@ -117,7 +120,7 @@ export async function makeWordmark({ name, domain, designs = DIRECTIONS.length, 
   for (const [index, direction] of DIRECTIONS.slice(0, designs).entries()) {
     const file = `${dir}/wordmark-${index + 1}.png`;
     await rm(resolve(root, file), { force: true });
-    await draw({ root, prompt: wordmarkPrompt({ name, ink, direction, file }), lastMessage: resolve(root, `${file}.reply.json`) });
+    await draw({ root, prompt: wordmarkPrompt({ name, ink, direction, file }), lastMessage: resolve(root, `${file}.reply.json`), kind: 'image', label: 'wordmark drawing' });
     if (!existsSync(resolve(root, file))) { drawings.push({ file, direction, problems: ['not drawn'] }); continue; }
     const problems = await drawingProblems(sharp, resolve(root, file), { wide: true });
     const read = problems.length ? null : await reads(file);
@@ -140,21 +143,25 @@ export async function makeWordmark({ name, domain, designs = DIRECTIONS.length, 
   const letter = [...name.trim()][0].toUpperCase();
   const markFile = `${dir}/mark.png`;
   await rm(resolve(root, markFile), { force: true });
-  await draw({ root, prompt: monogramPrompt({ letter, file: markFile, wordmark: chosen.file }), images: [resolve(root, chosen.file)], lastMessage: resolve(root, `${markFile}.reply.json`) });
+  await draw({ root, prompt: monogramPrompt({ letter, file: markFile, wordmark: chosen.file }), images: [resolve(root, chosen.file)], lastMessage: resolve(root, `${markFile}.reply.json`), kind: 'image', label: 'wordmark mark' });
   const markOk = existsSync(resolve(root, markFile)) && !(await drawingProblems(sharp, resolve(root, markFile), { wide: false })).length && spells(await reads(markFile), letter);
   record.mark = markOk ? markFile : null;
   return record;
   };
-  // Drawings already made for this name and ink are kept: a change to this script rebuilds the site's files from them
-  // and draws nothing again.
+  // Drawings already made for this name are kept: a change to this script rebuilds the site's files from them and
+  // draws nothing again. A new ink colours the drawings by code (they are one flat ink on white: each pixel's darkness
+  // is its opacity), as every logo is coloured: owner 2026-11-17, site13's 40-minute run, where a contrast fix moved
+  // the heading colour from #171717 to #000000 and the brand step drew all four wordmarks and the mark again (12 minutes).
+  // record.ink stays the ink the drawings were drawn in.
   const made = await readJson(resolve(root, `${dir}/wordmark.json`), null);
-  const reusable = made?.name === name && made?.ink === ink && made.chosen && existsSync(resolve(root, made.chosen)) && (!made.mark || existsSync(resolve(root, made.mark)));
+  const reusable = made?.name === name && /^#[0-9a-f]{6}$/i.test(made?.ink ?? '') && made.chosen && existsSync(resolve(root, made.chosen)) && (!made.mark || existsSync(resolve(root, made.mark)));
   const record = reusable ? made : await drawAll();
+  const drawnIn = record.ink ?? ink;
   if (!record.chosen) return record;
   // The site files: the wordmark in ink on transparency; the icons the mark (or, without one, the wordmark's own
   // first letter is not cut out: the typeset fallback keeps its icons) in ink on white, opaque for every launcher.
   const files = {};
-  const logo = await sharp(await inkOnTransparent(sharp, resolve(root, record.chosen), ink)).resize({ height: LOGO_HEIGHT }).png().toBuffer();
+  const logo = await sharp(await inkOnTransparent(sharp, resolve(root, record.chosen), ink, drawnIn)).resize({ height: LOGO_HEIGHT }).png().toBuffer();
   await sharp(logo).toFile(resolve(root, 'public/logo.png'));
   const logoMeta = await sharp(logo).metadata();
   files['logo.png'] = { width: logoMeta.width, height: logoMeta.height };
@@ -162,7 +169,7 @@ export async function makeWordmark({ name, domain, designs = DIRECTIONS.length, 
   const paper = /^#[0-9a-f]{6}$/i.test(resolveToken(css, '--surface-primary') ?? '') ? resolveToken(css, '--surface-primary') : '#ffffff';
   files['og-image.png'] = await writeShareImage(sharp, { logo, background: paper, path: resolve(root, 'public/og-image.png') });
   if (record.mark) {
-    const glyph = await inkOnTransparent(sharp, resolve(root, record.mark), ink);
+    const glyph = await inkOnTransparent(sharp, resolve(root, record.mark), ink, drawnIn);
     for (const { file, size } of MARK_SIZES) {
       const inner = Math.round(size * 0.68);
       const fitted = await sharp(glyph).resize({ width: inner, height: inner, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } }).png().toBuffer();

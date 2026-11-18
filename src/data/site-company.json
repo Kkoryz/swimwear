@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "seo-site-company-v1",
+  "note": "The company behind the site (scripts/scaffold-site-company.mjs, lib/site-company.mjs). Fields in standIns are invented or unconfirmed stand-ins: they are stated in the structured data and hold the launch until replaced. Replace a value and take its field out of standIns; a field not in standIns is kept on the next run.",
+  "legalName": "Guangzhou Strandmill Swimwear Co., Ltd.",
+  "legalForm": "Limited liability company",
+  "address": {
+    "addressLocality": "Guangzhou",
+    "addressRegion": "Guangdong",
+    "addressCountry": "CN"
+  },
+  "foundingDate": "2011",
+  "serviceArea": [
+    {
+      "type": "Place",
+      "name": "Worldwide"
+    }
+  ],
+  "seoMarket": "US",
+  "sameAs": [],
+  "standIns": [
+    "legalName",
+    "legalForm",
+    "address"
+  ],
+  "sources": {
+    "address": "contact",
+    "legalForm": "stand-in",
+    "legalName": "stand-in",
+    "foundingDate": "fact owner:founded",
+    "serviceArea": "default",
+    "sameAs": "none"
+  },
+  "seed": "Strandmill"
+}

@@ -4,9 +4,9 @@
   "siteName": "Strandmill",
   "origin": "https://strandmill.com",
   "logo": {
-    "src": "/logo.png",
-    "width": 2239,
-    "height": 240
+    "src": "/logo-header.webp",
+    "width": 521,
+    "height": 56
   },
   "schemaLogo": {
     "src": "/icon-512.png",
@@ -36,7 +36,19 @@
   "generated": {
     "wordmark": "docs/research/brand/wordmark-3.png",
     "mark": "docs/research/brand/mark.png",
-    "ink": "#171717",
+    "ink": "#000000",
     "replaceable": true
+  },
+  "logoFit": {
+    "source": "docs/research/brand/logo.png",
+    "background": "#306180",
+    "contrast": 6.62,
+    "inverse": false,
+    "png": {
+      "src": "/logo.png",
+      "width": 521,
+      "height": 56,
+      "sha256": "a5ff2f3807e1f043bbdd53a069ca08ed63f8e757bbdd53d4a15b7d5e3047ec77"
+    }
   }
 }

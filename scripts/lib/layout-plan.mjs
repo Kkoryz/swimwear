@@ -10,9 +10,10 @@
 
 import { cardGridColumns, cardSet, cardSetColumns, cardTitleLevel, iconListLayout, longestCardWords } from './block-layout.mjs';
 import { DENSITY_EXEMPT_PAGE_TYPES, DENSITY_FLOOR_EXEMPT_PAGE_TYPES, bandFor } from './density.mjs';
-import { HERO_FIT, fitHeading, leadBelowHero, wrapEmFor, wrapLines } from './heading-fit.mjs';
+import { HERO_FIT, SPLIT_HERO_FIT, fitHeading, titleMetrics, wrapLines } from './heading-fit.mjs';
 import { PROOF_BLOCKS, blockWords, copyWords, drawsCharts, heroShowsPhoto, renderedWords, mediaSlots, modelVariant, resolveVariant, signatureFloor, splitsSection, withMediaModules } from './media-slots.mjs';
-import { PAGE_LEAD, TRUST_BAR, tintedSections } from './section-surfaces.mjs';
+import { TRUST_BAR, tintedSections } from './section-surfaces.mjs';
+import { PAGE_TOC, pageToc } from './page-toc.mjs';
 import { DEFAULT_BLOCK_MODEL, MAX_BUDGET_WALLS, estimateBlock, modelKey, pageEstimate } from './visual-budget.mjs';
 
 // The words a page renders as the density measure counts them (lib/media-slots.mjs renderedWords, blockWords).
@@ -108,7 +109,7 @@ export const PHONE_STEP_PX = 270;
 export const PHONE_STEPS_BASE_PX = 160;
 // A hero whose photo is not laid full-bleed under its title (a banner, a split) keeps its photo's own shape on a phone
 // unless its phone frame (src/data/phone-heroes.json) is taller (lib/plan-assertions.mjs phone_hero_strip).
-const FRAMED_HEROES = new Set(['media-banner', 'media-split']);
+export const FRAMED_HEROES = new Set(['media-banner', 'media-split']);
 // The content's width at 1440 (--container-max 72rem) and on a 390px phone (1.25rem gutters).
 export const TITLE_COLUMNS = Object.freeze({ desktop: 1152, phone: 350 });
 
@@ -119,7 +120,7 @@ export const TITLE_COLUMNS = Object.freeze({ desktop: 1152, phone: 350 });
  */
 // trustBar: whether the page shows its trust bar under the hero (lib/site-trust.mjs trustBarContent: planSite reads
 // the figures); the page's estimate counts it and the charts drawn after a section, as the trial build measures them.
-export function planPage(page, components, { isBuilt = () => true, headingModel = null, charEm = 0.6, pageTypes = new Map(), phoneHeroes = null, maxWalls = MAX_BUDGET_WALLS, trustBar = false } = {}) {
+export function planPage(page, components, { isBuilt = () => true, headingModel = null, charEm = 0.6, pageTypes = new Map(), phoneHeroes = null, maxWalls = MAX_BUDGET_WALLS, trustBar = false, treatmentCss = '' } = {}) {
   const options = { isBuilt };
   const blocks = withMediaModules(page, components, options);
   const model = components.blockModel ? { ...DEFAULT_BLOCK_MODEL, ...components.blockModel } : DEFAULT_BLOCK_MODEL;
@@ -128,8 +129,9 @@ export function planPage(page, components, { isBuilt = () => true, headingModel 
   let at = 0;
   const variants = new Map(shown.map((block) => [block.id, resolveVariant(block, page.pageType, block.type === 'splitMedia' ? at++ : 0, components)]));
   const heroVariant = components.heroByPageType?.[page.pageType] ?? components.hero;
-  const leadBelow = leadBelowHero(page, heroVariant, components);
-  const tinted = tintedSections([...(trustBar ? [TRUST_BAR] : []), ...(leadBelow ? [PAGE_LEAD] : []), ...shown], (block) => variants.get(block.id));
+  // A long page's table of contents under the hero (PageView.astro, lib/page-toc.mjs) is a part of its own.
+  const toc = pageToc(page, blocks);
+  const tinted = tintedSections([...(trustBar ? [TRUST_BAR] : []), ...(toc.length ? [PAGE_TOC] : []), ...shown], (block) => variants.get(block.id));
   let splits = 0;
   const rows = shown.map((block, index) => {
     const splitIndex = block.type === 'splitMedia' ? splits++ : 0;
@@ -157,17 +159,18 @@ export function planPage(page, components, { isBuilt = () => true, headingModel 
     return row;
   });
   const heroShown = (page.pageType !== 'privacy' || Boolean(components.heroByPageType?.privacy)) && heroShowsPhoto(heroVariant);
-  const heroEstimate = page.hero ? estimateBlock({ type: 'hero' }, heroShown ? heroVariant : 'plain', renderedWords(leadBelow ? { ...page.hero, lead: null } : page.hero), model, page.pageType) : null;
-  const titleEm = wrapEmFor(components.heroText);
-  const fit = (width) => fitHeading(page.hero.heading, { columnPx: TITLE_COLUMNS[width], capPx: 999, minPx: HERO_FIT[width].minPx, maxLines: HERO_FIT[width].lines, charEm: titleEm });
+  const heroEstimate = page.hero ? estimateBlock({ type: 'hero' }, heroShown ? heroVariant : 'plain', renderedWords(page.hero), model, page.pageType) : null;
+  // The title in the face the treatment sets it in (src/styles/reference.css), as PageHero.astro fits it.
+  const titleEm = titleMetrics({ css: treatmentCss, pageType: page.pageType, heroText: components.heroText });
+  const heroFit = heroShown && heroVariant === 'media-split' ? SPLIT_HERO_FIT : HERO_FIT;
+  const fit = (width) => fitHeading(page.hero.heading, { columnPx: TITLE_COLUMNS[width], capPx: 999, minPx: heroFit[width].minPx, maxLines: heroFit[width].lines, charEm: titleEm });
   const title = page.hero?.heading ? { desktop: fit('desktop'), phone: fit('phone') } : null;
-  const hero = page.hero ? { variant: heroShown ? heroVariant : 'plain', photo: heroShown, framed: heroShown && FRAMED_HEROES.has(heroVariant), phoneFrame: phoneHeroes?.frames?.hero?.byPageType?.[page.pageType] ?? null, leadBelow, title: title ? { text: page.hero.heading, desktopLines: title.desktop.lines, phoneLines: title.phone.lines, fits: title.desktop.fits && title.phone.fits } : null } : null;
+  const hero = page.hero ? { variant: heroShown ? heroVariant : 'plain', photo: heroShown, framed: heroShown && FRAMED_HEROES.has(heroVariant), phoneFrame: phoneHeroes?.frames?.hero?.byPageType?.[page.pageType] ?? null, title: title ? { text: page.hero.heading, desktopLines: title.desktop.lines, phoneLines: title.phone.lines, fits: title.desktop.fits && title.phone.fits } : null } : null;
   // In page order, each with the block it belongs to (null: the hero and the trust bar): a section's charts after it,
   // a closing band's before it (PageView.astro).
   const part = (type) => estimateBlock({ type }, '', 0, model, page.pageType);
-  // The hero's lead set under it is a part of its own (PageView.astro page-lead), after the trust bar.
-  const lead = leadBelow ? [{ block: null, estimate: estimateBlock({ type: 'page-lead' }, '', renderedWords(page.hero.lead), model, page.pageType) }] : [];
-  const entries = [...(heroEstimate ? [{ block: null, estimate: heroEstimate }] : []), ...(trustBar ? [{ block: null, estimate: part('trustBar') }] : []), ...lead, ...rows.flatMap((row, index) => {
+  const contents = toc.length ? [{ block: null, estimate: estimateBlock({ type: 'page-toc' }, '', copyWords(toc.map((entry) => entry.heading)), model, page.pageType) }] : [];
+  const entries = [...(heroEstimate ? [{ block: null, estimate: heroEstimate }] : []), ...(trustBar ? [{ block: null, estimate: part('trustBar') }] : []), ...contents, ...rows.flatMap((row, index) => {
     const own = { block: blocks[index], estimate: { height: row.estimate.heightPx, visual: row.estimate.visualPx, pictured: row.estimate.pictured, before: row.estimate.before, after: row.estimate.after } };
     if (!drawsCharts(blocks[index])) return [own];
     const charts = { block: blocks[index], estimate: part('charts') };
@@ -216,11 +219,12 @@ export function wallPlaces(blocks) {
 }
 
 // A section's surface as the renderer sets it (lib/section-surfaces.mjs, the call PageView makes): tinted; a band of its
-// own (a tinted split row, the testimonials) tinted; a section that parts the page (a photo, a wall, the closing call,
-// steps over a photo) its own; else white.
+// own (a tinted split row) tinted; a section that parts the page (a photo, a wall, the closing call, steps over a photo)
+// its own; else white. The testimonials are a plain section of the alternation, as the renderer has drawn them since
+// 3253435 (swimwear 2026-11-15: the plan still took them for a tinted band and failed 22 pairs the page draws apart).
 function surfaceOf(block, variant, tinted) {
   if (tinted.has(block.id)) return 'tinted';
-  if (block.continues == null && (block.type === 'testimonials' || (block.type === 'splitMedia' && variant === 'tinted'))) return 'tinted';
+  if (block.continues == null && block.type === 'splitMedia' && variant === 'tinted') return 'tinted';
   if (isWall(block) || ['figure', 'gallery', 'cta'].includes(block.type) || (block.type === 'process' && variant === 'photo-cards')) return 'own';
   return 'white';
 }

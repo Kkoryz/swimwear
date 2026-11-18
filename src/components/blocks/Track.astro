@@ -32,8 +32,8 @@ const { label, count } = Astro.props;
       const dots = [...root.querySelectorAll('[data-track-dot]')];
       const [previous, next] = ['[data-track-prev]', '[data-track-next]'].map((selector) => root.querySelector(selector));
       const step = () => (items[1] ? items[1].offsetLeft - items[0].offsetLeft : viewport.clientWidth);
-      // Whole items only: a row that does not hold every item shows a whole number of them (site10's third testimonial
-      // was cut in half at the edge), each at most 15% narrower than its own width, else wider.
+      // Whole items only: a row that does not hold every item shows a whole number of them, each at most 15% narrower
+      // than its own width, else wider.
       const fit = () => {
         root.style.removeProperty('--carousel-item-width');
         if (!items[0]) return;

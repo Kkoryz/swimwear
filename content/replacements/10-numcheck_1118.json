@@ -1,0 +1,37 @@
+[
+ {
+  "n": 1,
+  "url": "/development/",
+  "old": "Any style that needs custom development, including a new mould or print, needs an extra 2-3 weeks.",
+  "new": "Any style that needs a new mould or print needs an extra 2 to 3 weeks.",
+  "reason": "numcheck 2026-11-18 (blog_1118/numcheck): the page against the site fact sheet"
+ },
+ {
+  "n": 2,
+  "url": "/",
+  "old": "We arrange stock samples within 1 to 2 days.",
+  "new": "We arrange stock samples within 1 to 2 business days.",
+  "reason": "numcheck 2026-11-18 (blog_1118/numcheck): the page against the site fact sheet"
+ },
+ {
+  "n": 3,
+  "url": "/",
+  "old": "Reply within one day",
+  "new": "Reply within one business day",
+  "reason": "numcheck 2026-11-18 (blog_1118/numcheck): the page against the site fact sheet"
+ },
+ {
+  "n": 4,
+  "url": "/swimwear-packaging-custom-brand-labels/",
+  "old": "with labels and packaging done in-house near the end",
+  "new": "with labels and packaging from our trim suppliers applied in our factory near the end",
+  "reason": "numcheck 2026-11-18 (blog_1118/numcheck): the page against the site fact sheet"
+ },
+ {
+  "n": 5,
+  "url": "/about-us/",
+  "old": "Our certifications back shipments to Australia, the EU, the US, the Middle East and other regions.",
+  "new": "Our paperwork and order-specific test reports back shipments to Australia, the EU, the US, the Middle East and other regions.",
+  "reason": "numcheck 2026-11-18 (blog_1118/numcheck): the page against the site fact sheet"
+ }
+]

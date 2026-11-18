@@ -134,3 +134,9 @@ test('each site gets its own virtual agent name, kept across runs', () => {
   assert.equal(agentGreeting({ name: 'Emma' }, 'Strandmill'), "Hi, I'm Emma from Strandmill. Tell us about your project and we will get back to you.");
   assert.match(chatProblems({ ...chat, agent: { avatar: '/x.webp' } })[0], /agent needs a name/);
 });
+
+test('a site without a chat loads no chat script: the layout renders the launcher only where the runtime sets one (site13 claude-seo audit 2026-11-17, L-5)', async () => {
+  const layout = await readFile(new URL('../../src/layouts/BaseLayout.astro', import.meta.url), 'utf8');
+  assert.match(layout, /\{shell && page && siteRuntime\?\.chat && <ChatLauncher page=\{page\} \/>\}/);
+  assert.doesNotMatch(layout, /\{shell && page && <ChatLauncher/);
+});

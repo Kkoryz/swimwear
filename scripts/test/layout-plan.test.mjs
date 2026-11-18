@@ -94,6 +94,20 @@ test('a page is planned as the renderer places it: variants, columns, card title
   assert.equal(plan.feasibility, undefined, 'a contact page has no density band');
 });
 
+test('the testimonials are planned on the surface the renderer gives them: a plain section of the alternation', async () => {
+  // swimwear 2026-11-15: the plan took them for a tinted band of their own and failed 22 pairs the page draws apart
+  // (iconList-1 tinted, testimonials white, related tinted).
+  const { planPage } = await import('../lib/layout-plan.mjs');
+  const page = { route: '/p/', pageType: 'contact', hero: { heading: 'A product' }, blocks: [
+    { id: 'intro', type: 'intro', heading: 'Intro', paragraphs: ['Short intro.'] },
+    { id: 'list', type: 'iconList', heading: 'Points', items: [{ heading: 'One', text: 'A point.' }, { heading: 'Two', text: 'A point.' }] },
+    { id: 'quotes', type: 'testimonials', heading: 'Clients', items: [{ quote: 'Good work.', name: 'A client' }] },
+    { id: 'faq', type: 'faq', heading: 'Questions', items: [{ question: 'How long?', answer: 'Two weeks.' }] },
+  ] };
+  const plan = planPage(page, {}, { headingModel: { desktop: { '*': 30 }, mobile: { '*': 12 } }, charEm: 0.6 });
+  assert.deepEqual(plan.blocks.map((block) => block.surface), ['white', 'tinted', 'white', 'tinted']);
+});
+
 test('a page with a band gets its feasibility from the plan without the walls added for density', async () => {
   const { planPage } = await import('../lib/layout-plan.mjs');
   const text = (id, words) => ({ id, type: 'intro', heading: id, paragraphs: [Array.from({ length: words }, () => 'word').join(' ')] });
@@ -143,37 +157,31 @@ test("the page's estimate holds what the page renders outside its blocks: the tr
   assert.equal(blockWords({ id: 't', type: 'table', heading: 'Rate parity', columns: ['Situation', 'What we do'], rows: [['Channel mix', 'We decide which']] }, 'cards', {}), 2 + 4 + 5);
 });
 
-test("a hero's lead set under it (page-lead) is part of the page's estimate", async () => {
+test("a hero's lead is counted in the hero, where it is set, whatever the competitor's hero carries (site13 claude-seo audit 2026-11-17, M-10)", async () => {
   const { planPage } = await import('../lib/layout-plan.mjs');
   const lead = Array.from({ length: 120 }, () => 'word').join(' ');
   const page = { route: '/s/', pageType: 'solution', hero: { heading: 'A service', lead: [lead] }, blocks: [{ id: 'a', type: 'intro', heading: 'A', paragraphs: ['Words.'] }] };
-  const model = { 'page-lead:': { base: 100, perWord: 1, visual: 0, before: 1, after: 1 }, 'intro:text': { base: 300, perWord: 0, visual: 0, before: 1, after: 1 }, 'hero:media-overlay': { base: 600, perWord: 0, visual: 1, before: 0, after: 0 } };
+  const model = { 'intro:text': { base: 300, perWord: 0, visual: 0, before: 1, after: 1 }, 'hero:media-overlay': { base: 600, perWord: 1, visual: 1, before: 0, after: 0 } };
   const components = { hero: 'media-overlay', heroText: { leadWords: 20 }, blockModel: model };
   const plan = planPage(page, components);
-  assert.equal(plan.hero.leadBelow, true);
-  // motel /our-history/ 2026-11-14: 188px the plan did not hold.
-  assert.equal(plan.estimate.heightPx, 600 + (100 + 120) + 300);
+  assert.equal('leadBelow' in plan.hero, false);
+  assert.equal(plan.estimate.heightPx, 600 + 2 + 120 + 300);
 });
 
-test("the planner counts a hero's long lead where the page sets it, under the hero as text, and plans the page into its band", async () => {
+test("the planner plans a page with a long hero lead into its band", async () => {
   const { planPage } = await import('../lib/layout-plan.mjs');
-  const { leadBelowHero } = await import('../lib/heading-fit.mjs');
   const words = (count) => Array.from({ length: count }, () => 'word').join(' ');
   const page = { route: '/p/', pageType: 'general', hero: { heading: 'Our process', lead: [words(40)] }, blocks: [
     ...['a', 'b', 'c', 'd', 'e', 'f'].map((id) => ({ id, type: 'intro', heading: id, paragraphs: [words(100)] })),
     { id: 'cta', type: 'cta', heading: 'Call', paragraphs: ['Now.'] },
   ] };
   const model = {
-    'hero:media-overlay': { base: 500, perWord: 20, visual: 1, before: 0, after: 0 },
-    'page-lead:': { base: 80, perWord: 3, visual: 0, before: 1, after: 1 },
+    'hero:media-overlay': { base: 500, perWord: 0, visual: 1, before: 0, after: 0 },
     'intro:text': { base: 200, perWord: 3, visual: 0, before: 1, after: 1 },
     'gallery:band': { base: 800, perWord: 0, visual: 0.95, before: 0.02, after: 0.02 },
   };
   const components = { hero: 'media-overlay', heroText: { leadWords: 5 }, blockModel: model, densityBands: { wordsPer1000px: { max: 999 }, visualAreaPct: { min: 30, max: 80 }, longestTextOnlyPx: { max: 99999 } }, pageTypes: { general: { mediaModules: [{ at: 0.5, type: 'band' }] } } };
-  assert.equal(leadBelowHero(page, 'media-overlay', components), true);
-  assert.equal(leadBelowHero(page, 'plain', components), false, 'a hero without a photo keeps its lead');
-  // motel /our-process/ 2026-11-14: the planner counted the 40-word lead as 800px of hero photo, planned no wall, and
-  // the plan, counting the lead as the text under the hero it is, found the page at 15.6% for a band from 19%.
+  // motel /our-process/ 2026-11-14: the page under its band without a wall.
   const plan = planPage(page, components);
   assert.ok(plan.budgetWalls > 0, `walls: ${plan.budgetWalls}`);
   assert.ok(plan.estimate.visualAreaPct >= 30, `picture area ${plan.estimate.visualAreaPct}%`);

@@ -88,14 +88,14 @@ test("the trial build fails the plan only where it calls a page inside its band 
   const plans = [
     // Off by 5 points, both inside 26-50: reported, the plan's call stands.
     { route: '/a/', pageType: 'solution', band: BAND, estimate: { heightPx: 5000, visualAreaPct: 40 } },
-    // Called inside, measured under the floor: the photos would be made for a page the audit finds short.
+    // Called inside, measured under the floor less 30% (18.2%): the photos would be made for a page the audit finds short.
     { route: '/b/', pageType: 'solution', band: BAND, estimate: { heightPx: 5000, visualAreaPct: 28 } },
     // Known not to fit (the owner's): under the floor in the plan and the measure, reported, not held.
-    { route: '/c/', pageType: 'solution', band: BAND, estimate: { heightPx: 5000, visualAreaPct: 20 } },
+    { route: '/c/', pageType: 'solution', band: BAND, estimate: { heightPx: 5000, visualAreaPct: 17 } },
     // An about page is held to the ceiling only.
     { route: '/about/', pageType: 'about', band: BAND, floorExempt: true, estimate: { heightPx: 5000, visualAreaPct: 30 } },
   ];
-  const measured = [['/a/', 35], ['/b/', 24], ['/c/', 19], ['/about/', 20]].map(([route, pct]) => ({ route, density: { contentHeight: 5000, visualAreaPct: pct } }));
+  const measured = [['/a/', 35], ['/b/', 16], ['/c/', 15], ['/about/', 20]].map(([route, pct]) => ({ route, density: { contentHeight: 5000, visualAreaPct: pct } }));
   const rows = compareToPlan(plans, measured);
   assert.deepEqual(rows.map((row) => [row.route, row.within, row.wrongCall]), [['/a/', false, false], ['/b/', false, true], ['/c/', true, false], ['/about/', false, false]]);
 });

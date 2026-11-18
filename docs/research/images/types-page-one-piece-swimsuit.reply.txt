@@ -1,1 +1,0 @@
-{"slots":[{"id":"one-piece-swimsuit-hero-1","kind":5},{"id":"one-piece-swimsuit-product-construction-bust-support-and-trim-details","kind":2},{"id":"one-piece-swimsuit-lifestyle-1","kind":1}]}

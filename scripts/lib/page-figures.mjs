@@ -1,15 +1,18 @@
 // Each page's own key figures for the band under its hero (owner 2026-10-30: the site-wide band showed site10's one
 // approved figure, "2011 since", on every page; a page shows its own important figures instead). A judge lists a
 // page's figures most important first (config/agent-steps/page-figures.md); one is kept only when the page's text
-// states it word for word, with a label of at most FIGURE_LABEL_WORDS words. A figure that many of the site's pages
+// states it word for word, with a label of at most FIGURE_LABEL_WORDS words, and reads (lib/figure-reads.mjs: site13
+// 2026-11-17, "3 to 4 sizes" over "Sizes per style"). A figure that many of the site's pages
 // state (the ordering terms every product page repeats) comes after the page's own and only fills the room they leave,
 // so pages do not all show the same band.
+
+import { trustValueProblem, withoutRepeatedUnit } from './figure-reads.mjs';
 
 export const PAGE_FIGURES_SCHEMA = 'seo-site-page-figures-v1';
 export const FIGURES_MAX = 4;
 // A page with none of its own shows this many of the common ones.
 export const FIGURES_COMMON_ONLY = 3;
-export const FIGURE_LABEL_WORDS = 4;
+export const FIGURE_LABEL_WORDS = 6;
 // The page types that keep the site-wide band (founding year, certificates), and those with no band.
 export const SITE_BAND_PAGE_TYPES = Object.freeze(['home', 'about']);
 export const NO_BAND_PAGE_TYPES = Object.freeze(['privacy']);
@@ -49,9 +52,9 @@ export function parseFigures(reply) {
 export function pickFigures(candidates, text, siteTexts) {
   const own = normalizeText(text);
   const seen = new Set();
-  const valid = candidates.filter((figure) => {
+  const valid = candidates.map(withoutRepeatedUnit).filter((figure) => {
     const value = normalizeText(figure.value);
-    if (!/\d/.test(value) || !own.includes(value) || figure.label.split(/\s+/).length > FIGURE_LABEL_WORDS || seen.has(value) || NOT_SHOWN.test(`${figure.value} ${figure.label}`)) return false;
+    if (!/\d/.test(value) || !own.includes(value) || figure.label.split(/\s+/).length > FIGURE_LABEL_WORDS || seen.has(value) || NOT_SHOWN.test(`${figure.value} ${figure.label}`) || trustValueProblem(figure)) return false;
     seen.add(value);
     return true;
   });

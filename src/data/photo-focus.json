@@ -19,25 +19,21 @@
     "x": 0.73,
     "y": 0.2
   },
+  "/media/photos/boardshorts-hero-1-960.webp": {
+    "x": 0.61,
+    "y": 0.23
+  },
   "/media/photos/swim-trunks-hero-1-960.webp": {
-    "x": 0.66,
-    "y": 0.17
+    "x": 0.65,
+    "y": 0.18
   },
   "/media/photos/children-s-swimwear-hero-1-960.webp": {
     "x": 0.34,
     "y": 0.52
   },
-  "/media/photos/teen-swimwear-hero-1-960.webp": {
-    "x": 0.37,
-    "y": 0.5
-  },
   "/media/photos/baby-swimwear-hero-1-960.webp": {
-    "x": 0.34,
+    "x": 0.35,
     "y": 0.52
-  },
-  "/media/photos/toddler-swimwear-hero-1-960.webp": {
-    "x": 0.33,
-    "y": 0.5
   },
   "/media/photos/modest-swimwear-hero-1-960.webp": {
     "x": 0.7,
@@ -45,54 +41,90 @@
   },
   "/media/photos/burkini-hero-1-960.webp": {
     "x": 0.53,
-    "y": 0.35
+    "y": 0.32
   },
   "/media/photos/watersports-apparel-hero-1-960.webp": {
-    "x": 0.74,
-    "y": 0.25
+    "x": 0.755,
+    "y": 0.235
   },
   "/media/photos/rash-guard-hero-1-960.webp": {
-    "x": 0.55,
-    "y": 0.37
+    "x": 0.68,
+    "y": 0.25
   },
   "/media/photos/resort-wear-hero-1-960.webp": {
-    "x": 0.745,
-    "y": 0.3
-  },
-  "/media/photos/cover-up-hero-1-960.webp": {
-    "x": 0.625,
+    "x": 0.75,
     "y": 0.31
   },
+  "/media/photos/cover-up-hero-1-960.webp": {
+    "x": 0.81,
+    "y": 0.56
+  },
+  "/media/photos/swimwear-embroidery-service-hero-960.webp": {
+    "x": 0.22,
+    "y": 0.6
+  },
+  "/media/photos/swimwear-consulting-service-hero-960.webp": {
+    "x": 0.71,
+    "y": 0.28
+  },
+  "/media/photos/development-service-hero-960.webp": {
+    "x": 0.77,
+    "y": 0.38
+  },
+  "/media/photos/swimwear-packaging-brand-labels-hero-1-960.webp": {
+    "x": 0.38,
+    "y": 0.5
+  },
+  "/media/photos/custom-swimwear-printing-service-hero-960.webp": {
+    "x": 0.79,
+    "y": 0.28
+  },
+  "/media/photos/swimwear-hardware-hero-1-960.webp": {
+    "x": 0.33,
+    "y": 0.52
+  },
+  "/media/photos/swimwear-fabrics-sourcing-service-hero-960.webp": {
+    "x": 0.3,
+    "y": 0.36
+  },
+  "/media/photos/swimwear-launch-services-service-hero-960.webp": {
+    "x": 0.31,
+    "y": 0.38
+  },
+  "/media/photos/about-us-service-hero-960.webp": {
+    "x": 0.25,
+    "y": 0.47
+  },
   "/media/photos/general-hero-2-960.webp": {
-    "x": 0.8,
+    "x": 0.81,
     "y": 0.23
+  },
+  "/media/photos/faq-service-hero-960.webp": {
+    "x": 0.21,
+    "y": 0.42
+  },
+  "/media/photos/case-studies-service-hero-960.webp": {
+    "x": 0.29,
+    "y": 0.34
   },
   "/media/photos/general-hero-3-960.webp": {
     "x": 0.62,
-    "y": 0.29
+    "y": 0.3
   },
   "/media/photos/general-hero-4-960.webp": {
     "x": 0.67,
     "y": 0.31
   },
-  "/media/photos/swimwear-packaging-brand-labels-hero-1-960.webp": {
-    "x": 0.38,
-    "y": 0.47
-  },
-  "/media/photos/swimwear-hardware-hero-1-960.webp": {
-    "x": 0.33,
-    "y": 0.45
-  },
   "/media/photos/swimwear-accessories-hero-1-960.webp": {
-    "x": 0.38,
+    "x": 0.47,
     "y": 0.45
   },
   "/media/photos/plus-size-swimwear-hero-1-960.webp": {
     "x": 0.64,
-    "y": 0.23
+    "y": 0.25
   },
   "/media/photos/couples-matching-swimsuit-hero-1-960.webp": {
-    "x": 0.68,
+    "x": 0.67,
     "y": 0.31
   },
   "/media/photos/general-product-1-960.webp": {
@@ -100,12 +132,12 @@
     "y": 0.28
   },
   "/media/photos/general-product-2-960.webp": {
-    "x": 0.68,
-    "y": 0.05
+    "x": 0.66,
+    "y": 0.06
   },
   "/media/photos/general-product-3-960.webp": {
     "x": 0.55,
-    "y": 0.28
+    "y": 0.29
   },
   "/media/photos/general-product-4-960.webp": {
     "x": 0.55,
@@ -113,51 +145,75 @@
   },
   "/media/photos/general-product-5-960.webp": {
     "x": 0.73,
-    "y": 0.39
+    "y": 0.4
   },
   "/media/photos/general-product-wholesale-swimwear-ready-to-brand-and-ship-960.webp": {
     "x": 0.46,
-    "y": 0.16
+    "y": 0.17
   },
   "/media/photos/general-product-quality-checked-at-every-stage-of-your-order-960.webp": {
     "x": 0.5,
-    "y": 0.49
+    "y": 0.48
   },
   "/media/photos/general-product-starting-with-samples-before-bulk-960.webp": {
     "x": 0.46,
     "y": 0.2
   },
+  "/media/photos/home-brief-splitmedia-1-1-960.webp": {
+    "x": 0.67,
+    "y": 0.25
+  },
+  "/media/photos/home-brief-splitmedia-2-1-960.webp": {
+    "x": 0.31,
+    "y": 0.29
+  },
   "/media/photos/general-process-1-960.webp": {
-    "x": 0.47,
-    "y": 0.3
+    "x": 0.45,
+    "y": 0.33
   },
   "/media/photos/general-process-2-960.webp": {
-    "x": 0.58,
-    "y": 0.38
+    "x": 0.61,
+    "y": 0.32
   },
   "/media/photos/general-process-3-960.webp": {
-    "x": 0.42,
+    "x": 0.44,
+    "y": 0.34
+  },
+  "/media/photos/general-process-4-960.webp": {
+    "x": 0.4,
+    "y": 0.36
+  },
+  "/media/photos/general-process-5-960.webp": {
+    "x": 0.48,
+    "y": 0.3
+  },
+  "/media/photos/general-process-6-960.webp": {
+    "x": 0.62,
+    "y": 0.32
+  },
+  "/media/photos/development-brief-splitmedia-2-1-960.webp": {
+    "x": 0.48,
     "y": 0.3
   },
   "/media/photos/general-material-1-960.webp": {
     "x": 0.45,
-    "y": 0.6
+    "y": 0.62
   },
   "/media/photos/general-lifestyle-1-960.webp": {
-    "x": 0.5,
-    "y": 0.25
+    "x": 0.51,
+    "y": 0.24
   },
   "/media/photos/general-lifestyle-2-960.webp": {
     "x": 0.72,
-    "y": 0.17
+    "y": 0.16
   },
   "/media/photos/general-lifestyle-3-960.webp": {
     "x": 0.59,
-    "y": 0.29
+    "y": 0.28
   },
   "/media/photos/general-lifestyle-4-960.webp": {
     "x": 0.5,
-    "y": 0.45
+    "y": 0.5
   },
   "/media/photos/general-lifestyle-5-960.webp": {
     "x": 0.57,
@@ -165,11 +221,35 @@
   },
   "/media/photos/general-lifestyle-6-960.webp": {
     "x": 0.5,
-    "y": 0.45
+    "y": 0.5
+  },
+  "/media/photos/general-lifestyle-7-960.webp": {
+    "x": 0.67,
+    "y": 0.22
+  },
+  "/media/photos/general-lifestyle-8-960.webp": {
+    "x": 0.61,
+    "y": 0.24
+  },
+  "/media/photos/general-lifestyle-9-960.webp": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "/media/photos/general-lifestyle-10-960.webp": {
+    "x": 0.41,
+    "y": 0.13
+  },
+  "/media/photos/general-lifestyle-11-960.webp": {
+    "x": 0.31,
+    "y": 0.27
+  },
+  "/media/photos/general-lifestyle-12-960.webp": {
+    "x": 0.4,
+    "y": 0.5
   },
   "/media/photos/women-s-swimwear-lifestyle-1-960.webp": {
     "x": 0.34,
-    "y": 0.21
+    "y": 0.22
   },
   "/media/photos/women-s-swimwear-lifestyle-2-960.webp": {
     "x": 0.5,
@@ -177,131 +257,155 @@
   },
   "/media/photos/one-piece-swimsuit-product-construction-bust-support-and-trim-details-960.webp": {
     "x": 0.55,
-    "y": 0.11
+    "y": 0.12
   },
   "/media/photos/one-piece-swimsuit-lifestyle-1-960.webp": {
     "x": 0.67,
-    "y": 0.19
+    "y": 0.2
   },
   "/media/photos/bikini-lifestyle-1-960.webp": {
-    "x": 0.48,
-    "y": 0.57
+    "x": 0.47,
+    "y": 0.52
   },
   "/media/photos/men-s-swimwear-lifestyle-1-960.webp": {
     "x": 0.53,
-    "y": 0.25
+    "y": 0.24
   },
   "/media/photos/men-s-swimwear-lifestyle-2-960.webp": {
     "x": 0.38,
     "y": 0.2
   },
+  "/media/photos/men-s-swimwear-manufacturer-brief-splitmedia-1-1-960.webp": {
+    "x": 0.34,
+    "y": 0.32
+  },
   "/media/photos/boardshorts-product-sublimation-prints-and-colour-matching-960.webp": {
     "x": 0.55,
-    "y": 0.05
+    "y": 0.15
   },
   "/media/photos/boardshorts-lifestyle-1-960.webp": {
-    "x": 0.66,
-    "y": 0.29
+    "x": 0.64,
+    "y": 0.27
   },
   "/media/photos/swim-trunks-lifestyle-1-960.webp": {
-    "x": 0.69,
-    "y": 0.3
+    "x": 0.68,
+    "y": 0.31
   },
   "/media/photos/children-s-swimwear-lifestyle-1-960.webp": {
-    "x": 0.5,
+    "x": 0.47,
     "y": 0.5
   },
   "/media/photos/children-s-swimwear-lifestyle-2-960.webp": {
-    "x": 0.5,
+    "x": 0.51,
     "y": 0.53
-  },
-  "/media/photos/teen-swimwear-lifestyle-1-960.webp": {
-    "x": 0.47,
-    "y": 0.5
   },
   "/media/photos/baby-swimwear-lifestyle-1-960.webp": {
     "x": 0.53,
-    "y": 0.5
-  },
-  "/media/photos/toddler-swimwear-lifestyle-1-960.webp": {
-    "x": 0.45,
-    "y": 0.45
+    "y": 0.48
   },
   "/media/photos/modest-swimwear-product-wholesale-stock-and-ready-made-modest-designs-960.webp": {
-    "x": 0.54,
-    "y": 0.23
+    "x": 0.55,
+    "y": 0.25
   },
   "/media/photos/modest-swimwear-lifestyle-1-960.webp": {
-    "x": 0.81,
-    "y": 0.25
+    "x": 0.82,
+    "y": 0.27
+  },
+  "/media/photos/modest-swimwear-lifestyle-2-960.webp": {
+    "x": 0.255,
+    "y": 0.16
+  },
+  "/media/photos/modest-swimwear-manufacturer-brief-splitmedia-2-1-960.webp": {
+    "x": 0.4,
+    "y": 0.31
   },
   "/media/photos/burkini-lifestyle-1-960.webp": {
     "x": 0.49,
-    "y": 0.22
+    "y": 0.21
   },
   "/media/photos/burkini-lifestyle-2-960.webp": {
-    "x": 0.75,
+    "x": 0.74,
     "y": 0.27
   },
   "/media/photos/watersports-apparel-product-1-960.webp": {
-    "x": 0.56,
+    "x": 0.55,
     "y": 0.11
   },
+  "/media/photos/watersports-apparel-manufacturer-brief-splitmedia-2-1-960.webp": {
+    "x": 0.51,
+    "y": 0.32
+  },
   "/media/photos/watersports-apparel-lifestyle-1-960.webp": {
-    "x": 0.46,
-    "y": 0.23
+    "x": 0.6,
+    "y": 0.21
   },
   "/media/photos/rash-guard-lifestyle-1-960.webp": {
-    "x": 0.72,
-    "y": 0.55
+    "x": 0.76,
+    "y": 0.52
   },
   "/media/photos/resort-wear-lifestyle-1-960.webp": {
-    "x": 0.59,
-    "y": 0.29
+    "x": 0.58,
+    "y": 0.27
+  },
+  "/media/photos/resort-wear-lifestyle-2-960.webp": {
+    "x": 0.56,
+    "y": 0.15
+  },
+  "/media/photos/resort-wear-manufacturer-brief-splitmedia-2-1-960.webp": {
+    "x": 0.44,
+    "y": 0.21
   },
   "/media/photos/cover-up-lifestyle-1-960.webp": {
     "x": 0.47,
-    "y": 0.2
+    "y": 0.19
   },
   "/media/photos/cover-up-lifestyle-2-960.webp": {
-    "x": 0.42,
-    "y": 0.09
+    "x": 0.39,
+    "y": 0.15
   },
   "/media/photos/swimwear-packaging-brand-labels-lifestyle-1-960.webp": {
     "x": 0.5,
-    "y": 0.47
+    "y": 0.48
   },
   "/media/photos/swimwear-packaging-brand-labels-lifestyle-2-960.webp": {
-    "x": 0.52,
-    "y": 0.5
+    "x": 0.5,
+    "y": 0.55
+  },
+  "/media/photos/swimwear-packaging-brand-labels-lifestyle-3-960.webp": {
+    "x": 0.57,
+    "y": 0.42
   },
   "/media/photos/swimwear-hardware-lifestyle-1-960.webp": {
-    "x": 0.48,
-    "y": 0.45
+    "x": 0.49,
+    "y": 0.52
   },
   "/media/photos/swimwear-hardware-lifestyle-2-960.webp": {
     "x": 0.48,
-    "y": 0.45
+    "y": 0.5
   },
   "/media/photos/swimwear-hardware-lifestyle-3-960.webp": {
     "x": 0.5,
+    "y": 0.42
+  },
+  "/media/photos/swimwear-hardware-brief-splitmedia-1-1-960.webp": {
+    "x": 0.51,
     "y": 0.38
   },
   "/media/photos/swimwear-accessories-material-1-960.webp": {
-    "x": 0.66,
-    "y": 0.45
+    "x": 0.73,
+    "y": 0.5
   },
   "/media/photos/swimwear-accessories-lifestyle-1-960.webp": {
     "x": 0.45,
-    "y": 0.42
+    "y": 0.4
   },
   "/media/photos/swimwear-accessories-lifestyle-2-960.webp": {
-    "x": 0.56,
-    "y": 0.45
+    "x": 0.58,
+    "y": 0.42
   },
   "/media/photos/plus-size-swimwear-lifestyle-1-960.webp": {
-    "x": 0.66,
-    "y": 0.22
+    "x": 0.68,
+    "y": 0.23
   },
   "/media/photos/couples-matching-swimsuit-lifestyle-1-960.webp": {
     "x": 0.63,

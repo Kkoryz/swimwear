@@ -260,6 +260,13 @@
       "before": 0.24,
       "after": 0.37
     },
+    "relatedPages:links": {
+      "base": 235,
+      "perWord": 0,
+      "visual": 0,
+      "before": 1,
+      "after": 1
+    },
     "splitMedia:*": {
       "base": 462,
       "perWord": 2.71,

@@ -5,6 +5,7 @@
 // box in the text, newest posts on the right). No figures bar: it sits between the title and the opening answer
 // (owner 2026-10-30).
 import { headingFitStyle, POST_TITLE_FIT, wrapEmFor } from '../../../scripts/lib/heading-fit.mjs';
+import { experience } from '../../../scripts/lib/site-people.mjs';
 import { articleRhythmStyle, blogVariants, builtRoutes, focusStyle, pages, siteIdentity, variants, type AuthoringPage, type ProseBlock } from '../../lib/authoring';
 import CtaBlock from '../blocks/CtaBlock.astro';
 import FaqBlock from '../blocks/FaqBlock.astro';
@@ -20,9 +21,15 @@ const { page } = Astro.props;
 const article = page.article!;
 const { layout } = blogVariants.post;
 const sections = page.blocks.filter((block): block is ProseBlock => block.type === 'prose');
+// A person of the site's team (scripts/lib/site-people.mjs withPostAuthors) carries their role: the post closes on their
+// card, linked to their profile on the about page (four-site audit 2026-11-17: no named author anywhere).
+const aboutRoute = pages.find((other) => other.pageType === 'about')?.route ?? (builtRoutes.has('/about/') ? '/about/' : '/');
 const author = article.author.type === 'Person'
-  ? { name: article.author.name!, href: article.author.url! }
-  : { name: siteIdentity?.siteName ?? '[Placeholder] Company', href: builtRoutes.has('/about/') ? '/about/' : '/' };
+  ? { name: article.author.name!, href: article.author.url!, role: article.author.jobTitle, bio: article.author.description, years: article.author.years }
+  : { name: siteIdentity?.siteName ?? '[Placeholder] Company', href: aboutRoute };
+// The author's card closes the article's text, before its FAQ, sources and closing call.
+const lastProse = page.blocks.findLastIndex((block) => block.type === 'prose');
+const card = 'role' in author && author.role ? { ...author, line: [author.role, experience(author.years)].filter(Boolean).join(' · ') } : null;
 const updated = article.dateModified.slice(0, 10) !== article.datePublished.slice(0, 10);
 // Newest other posts (the related-posts module; the links a writer placed in the text do the real linking).
 const others = pages.filter((other) => other.pageType === 'blog_post' && other.route !== page.route && other.status === page.status)
@@ -68,8 +75,19 @@ const fitStyle = headingFitStyle(page.hero.heading, { charEm: wrapEmFor(variants
           <nav class="post-toc post-toc--inline" aria-label="Contents"><p class="post-toc__title">{layout === 'sidebar-end' ? 'Article overview' : 'Contents'}</p><ol>{sections.map((section) => <li><a href={`#${section.anchor}`}>{section.heading}</a></li>)}</ol></nav>
         )}
       </div>
-      {page.blocks.map((block) => {
-        if (block.type === 'prose') return <ProseBlockView block={block} />;
+      {page.blocks.map((block, index) => {
+        if (block.type === 'prose') return (
+          <>
+            <ProseBlockView block={block} />
+            {index === lastProse && card && (
+              <aside class="post-author-card" aria-label="About the author">
+                <p class="post-author-card__name"><SmartLink href={card.href}>{card.name}</SmartLink></p>
+                <p class="post-author-card__role">{card.line}</p>
+                {card.bio && <p class="post-author-card__bio">{card.bio}</p>}
+              </aside>
+            )}
+          </>
+        );
         if (block.type === 'faq') return <FaqBlock block={block} />;
         if (block.type === 'sources') return <SourcesBlock block={block} />;
         if (block.type === 'cta') return <CtaBlock block={block} variant="band" />;

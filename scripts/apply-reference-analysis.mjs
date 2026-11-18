@@ -10,10 +10,10 @@ import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { basename, extname, resolve } from 'node:path';
 import sharp from 'sharp';
 import { cliArgs, runMain } from './lib/cli.mjs';
-import { contrastRatio } from './lib/contrast.mjs';
 import { altFromDescription } from './lib/alt-text.mjs';
 import { readJson, writeJson } from './lib/json-io.mjs';
 import { PHONE_MEDIA } from './lib/library-media.mjs';
+import { readableTokens, rootTokens, tokenSheets } from './lib/token-contrast.mjs';
 
 const START = '/* design-lock:start */';
 const END = '/* design-lock:end */';
@@ -25,45 +25,44 @@ export function designLockTokens(lock) {
 }
 
 // Adjustments made inside the block, each a token with a comment line right above it saying why (a contrast fix):
-// they survive a new analysis.
+// they survive a new analysis. The tokens the code derived (readableTokens, notes starting "Derived") are derived
+// anew each time instead, from the analysis as it is then.
 export function adjustedTokens(css) {
   if (!css.includes(START) || !css.includes(END)) return new Map();
   const block = css.slice(css.indexOf(START), css.indexOf(END));
-  return new Map([...block.matchAll(/^[ \t]*(\/\*[^\n]*\*\/)[ \t]*\r?\n[ \t]*(--[\w-]+)[ \t]*:[ \t]*([^;]+);/gm)].map((match) => [match[2], { note: match[1], value: match[3].trim() }]));
+  return new Map([...block.matchAll(/^[ \t]*(\/\*[^\n]*\*\/)[ \t]*\r?\n[ \t]*(--[\w-]+)[ \t]*:[ \t]*([^;]+);/gm)].filter((match) => !match[1].startsWith('/* Derived')).map((match) => [match[2], { note: match[1], value: match[3].trim() }]));
 }
 
-// The reference's link colour as text on the page's light surfaces (the page, and the cards and bands on the
-// secondary surface) below WCAG AA (4.5:1): the same hue made darker until it reads on both, noted in the block (so it
-// is kept like any other adjustment).
-const rgbOf = (value) => (/^#[0-9a-f]{6}$/i.test(value ?? '') ? [1, 3, 5].map((at) => Number.parseInt(value.slice(at, at + 2), 16)) : null);
-const hexOf = (rgb) => `#${rgb.map((channel) => Math.round(channel).toString(16).padStart(2, '0')).join('')}`;
-export function readableLink(tokens) {
-  const link = rgbOf(tokens['--link']);
-  const surfaces = ['--surface-primary', '--surface-secondary'].filter((token) => rgbOf(tokens[token]));
-  if (!link || !surfaces.length) return null;
-  const worst = (color) => surfaces.map((token) => ({ token, ratio: contrastRatio(color, rgbOf(tokens[token])) })).sort((a, b) => a.ratio - b.ratio)[0];
-  const before = worst(link);
-  if (before.ratio >= 4.5) return null;
-  for (let scale = 0.98; scale > 0; scale -= 0.02) {
-    const shade = link.map((channel) => channel * scale);
-    const after = worst(shade);
-    if (after.ratio >= 4.5) return { value: hexOf(shade), note: `/* The reference's ${tokens['--link']} as link text is ${before.ratio.toFixed(1)}:1 on ${tokens[before.token]}; this shade of it is ${after.ratio.toFixed(1)}:1 or more on the light surfaces (WCAG AA). */` };
-  }
-  return null;
-}
-
+// notes: tokens the code derived ({ value, note }): written after the analysis's own (a derived token the analysis also
+// sets replaces its value), a person's adjustment kept over either.
 export function writeTokenBlock(css, tokens, notes = {}) {
   const adjusted = adjustedTokens(css);
   const line = (token, value) => {
     const kept = adjusted.get(token) ?? notes[token];
     return kept ? `  ${kept.note}\n  ${token}: ${kept.value};` : `  ${token}: ${value};`;
   };
-  const body = Object.entries(tokens).map(([token, value]) => line(token, value)).join('\n');
-  const block = `${START}\n:root {\n${body}\n}\n${END}`;
-  if (css.includes(START) && css.includes(END)) return css.replace(new RegExp(`${START.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}[\\s\\S]*?${END.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}`), block);
-  // First run: remove the same tokens from the default :root so the locked values are the only definitions.
-  let stripped = css;
-  for (const token of Object.keys(tokens)) stripped = stripped.replace(new RegExp(`^\\s*${token.replace(/[-]/g, '\\-')}\\s*:[^;]*;\\n`, 'm'), '');
+  // A derived token mending one the treatment set (override) goes in a rule of its own that outranks the treatment's
+  // :root:root (owner 2026-11-17: claude-seo over the reference).
+  const overrides = Object.fromEntries(Object.entries(notes).filter(([, note]) => note.override));
+  const all = { ...tokens, ...Object.fromEntries(Object.entries(notes).filter(([, note]) => !note.override).map(([token, note]) => [token, note.value])) };
+  const body = Object.entries(all).map(([token, value]) => line(token, value)).join('\n');
+  const strong = Object.keys(overrides).length ? `\n:root:root:root {\n${Object.entries(overrides).map(([token, note]) => `  ${note.note}\n  ${token}: ${note.value};`).join('\n')}\n}` : '';
+  const block = `${START}\n:root {\n${body}\n}${strong}\n${END}`;
+  // The same tokens leave the template's default :root after the block, so the locked values are the only definitions
+  // (the default rule comes later and would win). Every time, and whatever the line endings: with CRLF the first-run
+  // removal never matched, and the four sites' defaults overrode their design locks wherever the treatment did not
+  // set the token again (four-site audit 2026-11-17).
+  const strip = (text) => text.replace(/:root\s*\{[^}]*\}/g, (rule) => {
+    let kept = rule;
+    for (const token of Object.keys(all)) kept = kept.replace(new RegExp(`^[ \\t]*${token.replace(/[-]/g, '\\-')}[ \\t]*:[^;]*;[ \\t]*\\r?\\n`, 'm'), '');
+    return kept;
+  });
+  if (css.includes(START) && css.includes(END)) {
+    const from = css.indexOf(START);
+    const to = css.indexOf(END) + END.length;
+    return `${strip(css.slice(0, from))}${block}${strip(css.slice(to))}`;
+  }
+  const stripped = strip(css);
   const importsEnd = [...stripped.matchAll(/^@import[^\n]*\n/gm)].pop();
   const at = importsEnd ? importsEnd.index + importsEnd[0].length : 0;
   return `${stripped.slice(0, at)}\n${block}\n${stripped.slice(at)}`;
@@ -105,11 +104,26 @@ export async function applyReferenceAnalysis({ root = process.cwd(), designLockP
     const lock = await readJson(designLockPath);
     const tokens = designLockTokens(lock);
     const cssPath = resolve(root, 'src/styles/global.css');
-    const link = readableLink(tokens);
-    await writeFile(cssPath, writeTokenBlock(await readFile(cssPath, 'utf8'), tokens, link ? { '--link': link } : {}));
+    // The lock's own tokens first; then, read as the stylesheets set them (the treatment's root tokens included), the
+    // colours the reference left out that a pair needs to read (lib/token-contrast.mjs readableTokens).
+    await writeFile(cssPath, writeTokenBlock(await readFile(cssPath, 'utf8'), tokens));
+    const sheets = await tokenSheets(root);
+    const treatment = await readFile(resolve(root, 'src/styles/reference.css'), 'utf8').catch(() => '');
+    const treated = new Set(rootTokens([treatment]).keys());
+    const defined = new Set([...Object.keys(tokens), ...treated]);
+    const readable = readableTokens(rootTokens(sheets), defined, treated);
+    await writeFile(cssPath, writeTokenBlock(await readFile(cssPath, 'utf8'), tokens, readable.tokens));
+    // The parts on the secondary surface take its own text colour (template.css body[data-secondary-ink]).
+    const variantsPath = resolve(root, 'src/data/template-variants.json');
+    const variants = await readJson(variantsPath, null);
+    if (variants?.components) {
+      if (readable.secondaryInk) variants.components.secondaryInk = true; else delete variants.components.secondaryInk;
+      await writeJson(variantsPath, variants);
+    }
     await mkdir(resolve(root, 'docs/research/raw'), { recursive: true });
     await writeJson(resolve(root, 'docs/research/raw/design-lock.json'), lock);
     result.tokens = Object.keys(tokens).length;
+    result.derived = Object.keys(readable.tokens);
   }
   if (mediaPath) {
     const media = await readJson(mediaPath);

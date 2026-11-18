@@ -1,3 +1,0 @@
-```json
-{"figures": [{"value": "50 pieces", "label": "Minimum per style colour"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "10 to 15 days", "label": "Standard sample time"}, {"value": "one day", "label": "Strike-off turnaround"}, {"value": "300 dpi", "label": "Minimum artwork resolution"}, {"value": "3 business days", "label": "Sublimation quote time"}]}
-```

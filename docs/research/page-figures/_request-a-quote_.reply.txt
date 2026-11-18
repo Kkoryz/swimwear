@@ -1,3 +1,0 @@
-```json
-{"figures": [{"value": "2 to 3 working days", "label": "Quotation turnaround"}, {"value": "50 pieces", "label": "Minimum per style"}, {"value": "10 to 15 days", "label": "Sampling time"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "30 days", "label": "Quotation validity"}, {"value": "one business day", "label": "Enquiry reply time"}]}
-```

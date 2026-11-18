@@ -16,6 +16,9 @@ export const BLOCK_TYPES = Object.freeze([
   'orderRoutes',
   // The company's ways to be reached, from its own details (lib/site-contact.mjs): no copy of its own.
   'contactChannels',
+  // The owner's people (lib/site-people.mjs) and what the site collects, from its configuration (lib/data-practices.mjs:
+  // no copy of its own, the privacy page's site-level module).
+  'team', 'dataPractices',
   // The pages a page links to outside its copy, as cards before the FAQ (import-site-factory.mjs placeRelated).
   'relatedPages',
   // Site Factory's style cards of a line page (a photo, the name, a sentence, a quote link) and its borrowed client case.
@@ -105,6 +108,7 @@ export const CARDINALITY = Object.freeze({
   sources: [1, 30],
   pricing: [2, 4],
   swatches: [3, 24],
+  team: [1, 8],
 });
 
 const isText = (value) => typeof value === 'string' && value.trim().length > 0;
@@ -132,11 +136,13 @@ function checkMedia(errors, where, media) {
 const optionalText = (errors, where, value, name) => { if (value != null && !isText(value)) errors.push(`${where}.${name} must be text when present`); };
 
 // What a section asks to show (Site Factory's visuals: a photo's subject and setting, or data; lib/visual-data.mjs).
-function checkVisuals(errors, where, visuals) {
+// Site Factory's photo candidates (photoCandidates, lib/sf-sections.mjs splitVisuals) are its photo visuals.
+function checkVisuals(errors, where, visuals, field = 'visuals') {
   if (visuals == null) return;
-  if (!Array.isArray(visuals)) { errors.push(`${where}.visuals must be an array`); return; }
+  if (!Array.isArray(visuals)) { errors.push(`${where}.${field} must be an array`); return; }
   for (const [index, visual] of visuals.entries()) {
-    const at = `${where}.visuals[${index}]`;
+    const at = `${where}.${field}[${index}]`;
+    if (field === 'photoCandidates' && visual?.type !== 'photo') { errors.push(`${at}.type must be photo`); continue; }
     if (!isText(visual?.id)) errors.push(`${at}.id is required`);
     if (visual?.type === 'photo') { if (!isText(visual.content)) errors.push(`${at}.content (what the photo shows) is required`); }
     else if (visual?.type === 'data') errors.push(...dataErrors(visual.data, `${at}.data`));
@@ -152,6 +158,7 @@ function checkBlock(errors, where, block) {
   if (block.variant != null && !(BLOCK_VARIANTS[block.type] || []).includes(block.variant)) errors.push(`${where}.variant ${block.variant} is not a ${block.type} variant`);
   optionalText(errors, where, block.eyebrow, 'eyebrow');
   checkVisuals(errors, where, block.visuals);
+  checkVisuals(errors, where, block.photoCandidates, 'photoCandidates');
   switch (block.type) {
     case 'intro':
     case 'splitMedia':
@@ -286,15 +293,35 @@ function checkBlock(errors, where, block) {
     case 'contactChannels':
       optionalText(errors, where, block.heading, 'heading');
       break;
+    case 'dataPractices':
+      optionalText(errors, where, block.heading, 'heading');
+      // Site Factory's table (lib/data-practices.mjs dataPracticesBlock): every row an id and its three columns.
+      if (block.practices !== undefined) {
+        if (!Array.isArray(block.practices?.rows) || !block.practices.rows.length) errors.push(`${where}.practices needs its rows`);
+        for (const [index, row] of (block.practices?.rows ?? []).entries()) if (!['id', 'what', 'recorded', 'why'].every((key) => isText(row?.[key]))) errors.push(`${where}.practices.rows[${index}] needs id, what, recorded and why`);
+      }
+      break;
+    case 'team':
+      optionalText(errors, where, block.heading, 'heading');
+      checkCount(errors, `${where}.items`, block.items, CARDINALITY.team);
+      for (const [index, item] of (block.items || []).entries()) {
+        if (!isText(item?.name) || !isText(item?.role) || !/^[a-z0-9-]+$/.test(item?.anchor ?? '')) errors.push(`${where}.items[${index}] needs name, role and anchor`);
+        optionalText(errors, `${where}.items[${index}]`, item?.bio, 'bio');
+        if (item?.years != null && !(Number.isInteger(item.years) && item.years > 0)) errors.push(`${where}.items[${index}].years must be a positive whole number`);
+      }
+      break;
     case 'form':
       optionalText(errors, where, block.heading, 'heading');
       checkParagraphs(errors, where, block.paragraphs, { optional: true });
       checkCount(errors, `${where}.fields`, block.fields, CARDINALITY.formFields);
       for (const [index, field] of (block.fields || []).entries()) {
-        if (!isText(field?.label) || !['text', 'email', 'tel', 'textarea', 'url'].includes(field?.kind)) errors.push(`${where}.fields[${index}] needs a label and a kind (text, email, tel, textarea, url)`);
+        if (!isText(field?.label) || !['text', 'email', 'tel', 'textarea', 'url', 'select', 'date', 'number'].includes(field?.kind)) errors.push(`${where}.fields[${index}] needs a label and a kind (text, email, tel, textarea, url, select, date, number)`);
+        if (field?.kind === 'select' && !(Array.isArray(field.options) && field.options.length >= 2 && field.options.every(isText))) errors.push(`${where}.fields[${index}] is a select: it needs two or more options`);
+        optionalText(errors, `${where}.fields[${index}]`, field?.purpose, 'purpose');
       }
+      if (block.request !== undefined && !(block.request === 'resource' && isText(block.requestType))) errors.push(`${where}.request must be "resource" with a requestType`);
       if (!isText(block.submitLabel)) errors.push(`${where}.submitLabel is required`);
-      if (block.status === 'connected' && !(isText(block.endpoint) && block.endpoint.startsWith('/api/'))) errors.push(`${where}: a connected form needs a same-origin /api/ endpoint`);
+      if (['ready', 'connected'].includes(block.status) && !(isText(block.endpoint) && block.endpoint.startsWith('/api/'))) errors.push(`${where}: a live form needs a same-origin /api/ endpoint`);
       if (block.consent && !(isText(block.consent.label) && isText(block.consent.privacyRoute))) errors.push(`${where}.consent needs a label and a privacyRoute`);
       break;
     case 'sources':
@@ -302,6 +329,7 @@ function checkBlock(errors, where, block) {
       for (const [index, item] of (block.items || []).entries()) {
         if (!isText(item?.title) || !/^https?:\/\//.test(item?.url ?? '')) errors.push(`${where}.items[${index}] needs a title and an absolute http(s) url`);
         optionalText(errors, `${where}.items[${index}]`, item?.publisher, 'publisher');
+        if (item?.retrieved !== undefined && !/^\d{4}-\d{2}-\d{2}$/.test(item.retrieved)) errors.push(`${where}.items[${index}].retrieved must be a YYYY-MM-DD date`);
       }
       break;
     case 'gallery':

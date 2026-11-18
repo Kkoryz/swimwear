@@ -18,3 +18,10 @@ export function updatePageDates(pages, previous = {}, today = new Date().toISOSt
 
 // The page's lastmod, only when the record matches its current content. An article carries its own modified date.
 export const lastModified = (page, dates) => page.article?.dateModified ?? (dates?.[page.route]?.hash === pageHash(page) ? dates[page.route].modified : null);
+
+// The date a content page shows as "Last updated" (four-site audit 2026-11-17: no visible dates; claude-seo
+// seo-content: the last updated date of revised content): the same recorded date as its lastmod, never the build's.
+// The home page shows its date too (four-site audit 2026-11-17, C11/G6: claude-seo seo-geo "Publication date"; Google's
+// byline-date guidance); the contact page shows none, nor the blog (a post shows its own dates) or a placeholder page.
+export const UNDATED_PAGE_TYPES = Object.freeze(['contact', 'blog_hub', 'blog_post']);
+export const shownUpdated = (page, dates) => (UNDATED_PAGE_TYPES.includes(page.pageType) || page.status === 'placeholder' ? null : lastModified(page, dates));

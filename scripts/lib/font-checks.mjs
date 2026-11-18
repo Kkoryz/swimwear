@@ -51,8 +51,11 @@ export function matchedWeight(wanted, ranges) {
 // system fonts on purpose (installed-fonts.json roles with source "system"), which have no file. A family is reported
 // once (font_not_loaded), a synthesized weight or style once per family, weight and style. Chromium draws a bold when a
 // weight of 600 or more is drawn from a face under 600, and an oblique when an italic has no italic face.
-export function fontProblems({ used = [], faces = [] } = {}, { system = [] } = {}) {
+// synthesized: installed-fonts.json families ({ family, synthesized: [weights] }): weights the family does not have,
+// which the reference shows bolded by its browser too (lib/font-install.mjs downloadFaces); a bold of these is no problem.
+export function fontProblems({ used = [], faces = [] } = {}, { system = [], synthesized: recorded = [] } = {}) {
   const exempt = new Set([...GENERIC, ...system.map(clean)]);
+  const asOnReference = (family, weight) => recorded.some((item) => clean(item.family) === family && (item.synthesized ?? []).includes(weight));
   const loaded = faces.filter((face) => face.status === 'loaded');
   const problems = [];
   const missing = new Map();
@@ -70,7 +73,7 @@ export function fontProblems({ used = [], faces = [] } = {}, { system = [] } = {
     const synthesized = [];
     if (!styled.length) synthesized.push('style');
     const matched = matchedWeight(text.weight, (styled.length ? styled : own).map((face) => weightRange(face.weight)));
-    if (text.weight >= 600 && matched < 600) synthesized.push('weight');
+    if (text.weight >= 600 && matched < 600 && !asOnReference(family, text.weight)) synthesized.push('weight');
     if (synthesized.length) problems.push({ issue: 'font_synthesized', family: text.family, weight: text.weight, style: text.style, synthesized, drawnFrom: matched, sample: text.sample, where: text.where });
   }
   return [...missing.values(), ...problems];

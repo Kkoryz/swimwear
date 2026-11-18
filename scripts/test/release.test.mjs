@@ -33,13 +33,13 @@ test('an image the plan drops is kept in the register as retired', () => {
   assert.deepEqual(plan.entries.map((entry) => [entry.id, entry.status]), [['general-process-1', 'retired']]);
 });
 
-test('a form slot on an authored page gets the form contract, disabled until connected, before the closing CTA', () => {
+test('a form slot on an authored page gets the form contract, live once ready, before the closing CTA', () => {
   const blocks = [{ id: 'i', type: 'intro' }, { id: 'c', type: 'cta' }];
   const mapping = [];
   placeSiteSlots(blocks, mapping, { planned: { page_type: 'contact' }, blueprints: { contact: [{ id: 'form', block: 'form', fill: 'site' }] } });
   assert.deepEqual(blocks.map((block) => block.type), ['intro', 'form', 'cta']);
   const form = leadFormBlock('form');
-  assert.equal(form.status, 'not-connected');
+  assert.equal(form.status, 'ready');
   assert.equal(form.endpoint, '/api/leads');
   assert.ok(form.consent.privacyRoute);
   assert.ok(form.fields.every((field) => field.name));

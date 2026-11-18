@@ -12,7 +12,7 @@ export const ON_BACKLOG = Object.freeze({ sites: 2, pagesOnOneSite: 3 });
 
 // The page types whose competitor page sets the site's look: the home page and the content pages (a service or a
 // product page). A layout gap of theirs is the site's look, not a detail.
-export const HOLD_PAGE_TYPES = Object.freeze(['home', 'solution', 'product_manufacturer', 'product_wholesale']);
+export const HOLD_PAGE_TYPES = Object.freeze(['home', 'solution', 'place', 'product_manufacturer', 'product_wholesale']);
 // A layout the template cannot render holds the run when its competitor section takes this share of its page's height
 // or more. 15% of the hotel site's competitor home (5,977 px) is 897 px, about the 1,000 px desktop window the design
 // review looks through: a module the visitor sees whole, which makes the page look as it does, and the nearest module

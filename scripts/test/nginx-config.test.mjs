@@ -48,3 +48,19 @@ test('build:nginx-config serves the live release and removes configs for other d
   assert.deepEqual((await readdir(join(root, 'deploy/nginx'))).sort(), ['strandmill.com-headers.conf', 'strandmill.com.conf']);
   assert.match(await readFile(join(root, 'deploy/nginx/strandmill.com.conf'), 'utf8'), /root \/var\/www\/strandmill\.com\/current;/);
 });
+
+test('the server layer the blind SEO audit is shown is read back from the generated config (four-site audit 2026-11-17, T5)', async () => {
+  const { nginxConfig, serverResponses } = await import('../lib/nginx-config.mjs');
+  const config = nginxConfig({ host: 'knitpace.com', root: '/var/www/knitpace.com/current', redirects: [{ from: '/old/', to: '/new/' }, { from: '/gone/', status: 410 }], previousHosts: ['old-brand.com'], leadRecipient: 'info@knitpace.com', csp: "default-src 'self'; script-src 'self' 'sha256-abc='" });
+  const lines = serverResponses(config);
+  assert.deepEqual(lines.slice(0, 3), [
+    '- http://old-brand.com, https://old-brand.com, http://www.old-brand.com, https://www.old-brand.com: 301 to https://knitpace.com with the same path',
+    '- http://knitpace.com, http://www.knitpace.com: 301 to https://knitpace.com with the same path',
+    '- https://www.knitpace.com: 301 to https://knitpace.com with the same path',
+  ]);
+  for (const line of ['- https://knitpace.com: the site, over HTTP/2 with TLS', '- A URL with no file: status 404 with the page /404.html', '- /old/: 301 to /new/', '- /gone/: 410 Gone', '- Cache-Control "no-cache" for files matching \\.html$', '- Cache-Control "public, max-age=31536000, immutable" for everything under /_astro/', '- Cache-Control "public, max-age=2592000" for files matching \\.(?:webp|avif|png|jpe?g|svg|ico|woff2?)$', "  - Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-abc='", '  - Strict-Transport-Security: max-age=31536000']) assert.ok(lines.includes(line), line);
+  assert.ok(lines.some((line) => /^- Compression: gzip \(level 5, from 1024 bytes, Vary: Accept-Encoding\) for text\/html and text\/plain text\/css .*image\/svg\+xml/.test(line)));
+  // Every header the snippet sets is listed; the API's upstream and the enquiry mailbox are not.
+  assert.equal(lines.filter((line) => line.startsWith('  - ')).length, (config.snippet.match(/^add_header /gm) || []).length);
+  assert.ok(!lines.join('\n').match(/info@knitpace\.com|127\.0\.0\.1|X-Lead-Recipient/));
+});

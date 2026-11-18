@@ -10,10 +10,17 @@ export const PLACEHOLDER_PATTERN = /\[Placeholder\]|\[(?:[A-Z][A-Za-z ]{2,40})\]
 
 const has = (value) => value !== undefined && value !== null && !(typeof value === 'string' && !value.trim()) && !(Array.isArray(value) && !value.length);
 
+// Service: claude-seo's key properties (schema-types.md: name, provider, areaServed, description); areaServed is
+// required once the site states its service area (lib/site-company.mjs; options.serviceArea). The page nodes (T-3,
+// T-4 of the four-site audit 2026-11-17) carry their URL, name and last change.
 const RULES = {
-  Organization: { required: ['name', 'url'], recommended: ['logo'] },
+  Organization: { required: ['name', 'url'], recommended: ['logo', 'description', 'contactPoint'] },
   WebSite: { required: ['name', 'url'], recommended: [] },
-  Service: { required: ['name'], recommended: ['provider', 'description', 'areaServed', 'serviceType'] },
+  Service: { required: ['name', 'provider'], recommended: ['description', 'areaServed', 'serviceType'] },
+  WebPage: { required: ['url', 'name'], recommended: ['dateModified'] },
+  AboutPage: { required: ['url', 'name'], recommended: ['dateModified', 'about'] },
+  ContactPage: { required: ['url', 'name'], recommended: ['dateModified', 'about'] },
+  Blog: { required: ['url', 'name'], recommended: ['publisher', 'dateModified'] },
   Product: {
     required: ['name'],
     anyOf: [['offers', 'review', 'aggregateRating']],
@@ -23,8 +30,23 @@ const RULES = {
   FAQPage: { required: ['mainEntity'], recommended: [] },
 };
 
-// Problems for one JSON-LD node: [{ level: 'error' | 'warning', issue, detail }].
-export function schemaProblems(node) {
+// ISO 8601 dates (claude-seo: "Invalid date formats"): a year, a date, or a date and time with its zone.
+export const ISO_DATE = /^\d{4}(?:-\d{2}(?:-\d{2}(?:T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})?)?)?)?$/;
+const DATE_KEYS = new Set(['datePublished', 'dateModified', 'dateCreated', 'foundingDate', 'uploadDate']);
+// A telephone in E.164: + and the country code, digits only (lib/site-company.mjs e164).
+export const E164 = /^\+[1-9]\d{6,14}$/;
+
+// Every [key, value] in a node and the nodes inside it.
+function entries(value, found = []) {
+  if (Array.isArray(value)) value.forEach((item) => entries(item, found));
+  else if (value && typeof value === 'object') for (const [key, item] of Object.entries(value)) { found.push([key, item]); entries(item, found); }
+  return found;
+}
+
+// Problems for one JSON-LD node: [{ level: 'error' | 'warning', issue, detail }]. serviceArea: the site states where
+// it serves (src/data/site-company.json serviceArea), so an Organization or Service without areaServed is an error.
+const AREA_TYPES = new Set(['Place', 'AdministrativeArea', 'Country', 'State', 'City', 'GeoShape', 'GeoCircle']);
+export function schemaProblems(node, { serviceArea = false } = {}) {
   const problems = [];
   const add = (level, issue, detail) => problems.push({ level, issue, detail });
   const types = [node['@type']].flat().filter(Boolean);
@@ -37,7 +59,28 @@ export function schemaProblems(node) {
     if (!rule) continue;
     for (const property of rule.required) if (!has(node[property])) add('error', 'json_ld_required_missing', `${type}.${property}`);
     for (const group of rule.anyOf || []) if (!group.some((property) => has(node[property]))) add('error', 'json_ld_required_missing', `${type} needs one of ${group.join(', ')}`);
-    for (const property of rule.recommended) if (!has(node[property])) add('warning', 'json_ld_recommended_missing', `${type}.${property}`);
+    for (const property of rule.recommended) if (!has(node[property]) && !(serviceArea && property === 'areaServed')) add('warning', 'json_ld_recommended_missing', `${type}.${property}`);
+  }
+  // Where the company serves (claude-seo seo-local: a service-area business states areaServed).
+  for (const type of ['Organization', 'Service']) if (serviceArea && types.includes(type) && !has(node.areaServed)) add('error', 'service_area_missing', `${type}.areaServed`);
+  // areaServed as schema.org has it (AdministrativeArea, GeoShape, Place or Text): text, or a named place (a Country,
+  // a City, the worldwide Place) or a shape (owner 2026-11-17: the worldwide default is a Place named Worldwide).
+  for (const area of [node.areaServed ?? []].flat()) {
+    const named = area && typeof area === 'object' && AREA_TYPES.has(area['@type']) && (has(area.name) || has(area.geo) || area['@type'].startsWith('Geo'));
+    if (!(typeof area === 'string' && area.trim()) && !named) add('error', 'area_served_invalid', `areaServed ${JSON.stringify(area).slice(0, 80)} is not text or a named Place, AdministrativeArea or GeoShape`);
+  }
+  // The company as an entity (T-1): its postal address and public profiles (its legal name is withheld for now, owner
+  // 2026-11-17: lib/seo-head.mjs WITHHELD_COMPANY_KEYS).
+  if (types.includes('Organization')) {
+    const thin = ['address', 'sameAs'].filter((property) => !has(node[property]));
+    if (thin.length) add('warning', 'organization_thin', `Organization has no ${thin.join(', ')}`);
+    if (typeof node.address === 'string') add('warning', 'address_not_structured', 'Organization.address is text, not a PostalAddress');
+    else if (node.address && node.address['@type'] !== 'PostalAddress') add('error', 'address_not_structured', 'Organization.address is not a PostalAddress');
+    else if (node.address && !has(node.address.addressCountry)) add('warning', 'json_ld_recommended_missing', 'PostalAddress.addressCountry');
+  }
+  for (const [key, value] of entries(node)) {
+    if (DATE_KEYS.has(key) && !(typeof value === 'string' && ISO_DATE.test(value))) add('error', 'json_ld_date_invalid', `${key}: ${JSON.stringify(value)}`);
+    if (key === 'telephone' && !(typeof value === 'string' && E164.test(value))) add('error', 'json_ld_telephone_format', `telephone ${JSON.stringify(value)} is not E.164 (+ and the country code, digits only)`);
   }
   if (types.includes('BreadcrumbList')) {
     const items = node.itemListElement || [];

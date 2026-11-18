@@ -5,7 +5,10 @@ export interface Link { label: string; href: string }
 // mediaKind: the photography the blueprint slot declares (null: no template photo); absent: the module design decides.
 // What a section asks to show (Site Factory's visuals; lib/visual-data.mjs draws the data).
 export type SectionVisual = { id: string; caption?: string; purpose?: string } & ({ type: 'photo'; content: string; setting?: string } | { type: 'data'; data: { shape: string; items: unknown } });
-interface BaseBlock { id: string; sourceSectionIds?: string[]; variant?: string; eyebrow?: string; mediaKind?: MediaKind | null; visuals?: SectionVisual[] }
+// anchor: the section's id when the page's table of contents links to it (PageView.astro, lib/page-toc.mjs), set when rendered.
+// photoCandidates: Site Factory's photo visuals, what the block's own photo positions show (scripts/plan-photo-briefs.mjs),
+// never rendered.
+interface BaseBlock { id: string; sourceSectionIds?: string[]; variant?: string; eyebrow?: string; mediaKind?: MediaKind | null; visuals?: SectionVisual[]; photoCandidates?: SectionVisual[]; anchor?: string }
 // heading: absent on a block that goes on from another (continues: that block's id; a section longer than a block holds).
 export interface TextBlock extends BaseBlock { heading?: string; continues?: string; paragraphs: string[]; wordCount?: number }
 export interface IntroBlock extends TextBlock { type: 'intro' }
@@ -54,11 +57,15 @@ export interface StyleGridBlock extends BaseBlock { type: 'styleGrid'; heading?:
 export interface OrderCaseBlock extends BaseBlock { type: 'orderCase'; heading?: string; items: { product: string; text: string; placeholder?: boolean }[] }
 export interface RelatedPagesBlock extends BaseBlock { type: 'relatedPages'; heading?: string; links: Link[] }
 export interface OrderRoutesBlock extends BaseBlock { type: 'orderRoutes'; heading?: string; items: { heading: string; text: string; placeholder?: boolean }[] }
-export interface FormField { name?: string; label: string; kind: 'text' | 'email' | 'tel' | 'textarea' | 'url'; required?: boolean; autocomplete?: string }
-// The enquiry form (config/lead-form.json): posts to the first-party API only when its status is "connected".
-export interface FormBlock extends BaseBlock { type: 'form'; heading?: string; paragraphs?: string[]; fields: FormField[]; submitLabel: string; consent?: { label: string; privacyRoute: string }; honeypot?: string; endpoint?: string; status?: 'connected' | 'not-connected' }
+// purpose: what the field is for, shown beside it (Modern Web Guidance, privacy.md); options: a select's choices.
+export interface FormField { name?: string; label: string; kind: 'text' | 'email' | 'tel' | 'textarea' | 'url' | 'select' | 'date' | 'number'; required?: boolean; autocomplete?: string; purpose?: string; options?: string[]; min?: number }
+// The live region's words: a submit with errors, while sending, sent, not sent.
+export interface FormMessages { invalid: string; sending: string; sent: string; failed: string }
+// The enquiry form (config/lead-form.json): posts to the first-party API while the contract's status is "ready" or "connected". request
+// "resource": the resource request form (lib/lead-form.mjs resourceFormBlock), sent with request_type requestType.
+export interface FormBlock extends BaseBlock { type: 'form'; heading?: string; paragraphs?: string[]; fields: FormField[]; submitLabel: string; consent?: { label: string; privacyRoute: string }; honeypot?: string; endpoint?: string; status?: 'connected' | 'ready' | 'not-connected'; requiredNote?: string; messages?: FormMessages; request?: 'resource'; requestType?: string }
 // The published sources of the industry knowledge a page's sections were given (07 AuthoredPage.knowledge).
-export interface SourcesBlock extends BaseBlock { type: 'sources'; items: { title: string; url: string; publisher?: string }[] }
+export interface SourcesBlock extends BaseBlock { type: 'sources'; items: { title: string; url: string; publisher?: string; retrieved?: string }[] }
 // The blog (scripts/lib/blog.mjs): an article section (paragraphs may link inline with [label](/route/)), and the hub's
 // list of posts. A section written as an ordered body keeps the writer's order of paragraphs, subheadings, lists,
 // tables and figures.
@@ -80,10 +87,20 @@ export interface PostCard { title: string; href: string; excerpt: string; date: 
 export interface PostListBlock extends BaseBlock { type: 'postList'; items: PostCard[]; pagination: { page: number; pages: number; base: string } }
 // The company's ways to be reached, rendered from site-contact.json and the chat lines (lib/site-contact.mjs).
 export interface ContactChannelsBlock extends BaseBlock { type: 'contactChannels'; heading?: string }
+// The owner's people (scripts/lib/site-people.mjs): each with their anchor on the team section, their profile.
+// reviews: the page types the person reviews (lib/site-people.mjs pageReviewer: "Reviewed by" on those pages).
+export interface TeamMember { anchor: string; name: string; role: string; years?: number; bio?: string; blogAuthor?: boolean; reviews?: string[] }
+export interface TeamBlock extends BaseBlock { type: 'team'; heading?: string; items: TeamMember[] }
+// What the site collects, written from its configuration (scripts/lib/data-practices.mjs): no copy of its own; or Site
+// Factory's table as its package gives it (practices: data_practices, Site Factory integ deb67119, 2026-11-17).
+export interface DataPracticesRow { id: string; what: string; recorded: string; why: string }
+export interface DataPracticesBlock extends BaseBlock { type: 'dataPractices'; heading?: string; practices?: { rows: DataPracticesRow[]; retention: string; contact: string; placeholder: boolean } }
 export type Block = IntroBlock | ProofBlock | SplitMediaBlock | FeatureGridBlock | GalleryBlock | ProcessBlock | FaqBlock | CtaBlock
   | BandBlock | FigureBlock | IconListBlock | StatsBlock | TableBlock | LogosBlock | TestimonialsBlock | FormBlock | SourcesBlock | ProseBlock | PostListBlock
-  | CertificationsBlock | CaseStudiesBlock | OrderRoutesBlock | RelatedPagesBlock | StyleGridBlock | OrderCaseBlock | ContactChannelsBlock | PricingBlock | SwatchesBlock;
-export interface Article { datePublished: string; dateModified: string; author: { type: 'Organization' | 'Person'; name?: string; url?: string }; image: Media | null; category: string | null; takeaways: string[]; minutes: number }
+  | CertificationsBlock | CaseStudiesBlock | OrderRoutesBlock | RelatedPagesBlock | StyleGridBlock | OrderCaseBlock | ContactChannelsBlock | PricingBlock | SwatchesBlock
+  | TeamBlock | DataPracticesBlock;
+// author: a person of the site's team carries their role, what they do and years (scripts/lib/site-people.mjs).
+export interface Article { datePublished: string; dateModified: string; author: { type: 'Organization' | 'Person'; name?: string; url?: string; jobTitle?: string; description?: string; years?: number }; image: Media | null; category: string | null; takeaways: string[]; minutes: number }
 
 export interface AuthoringPage {
   id: string;
@@ -100,6 +117,8 @@ export interface AuthoringPage {
   // A blog post: its article data and its place under the blog.
   article?: Article;
   parent?: { name: string; route: string };
+  // The site plan's label and primary query for the page (Site Factory pages.json): a Service's name and type.
+  planned?: { label: string; primaryQuery?: string };
 }
 
 // route null: a menu heading without a page of its own (Site Factory: a specialist site's "Products" has no hub page).
@@ -140,10 +159,13 @@ export interface TemplateVariants {
   // headingAlign: how the reference sets its section headings (start: on the content's left edge; centre otherwise),
   // measured from its pages (scaffold-placeholder-pages.mjs); every section heading and its lead follow it.
   headingAlign?: 'start' | 'center';
+  // secondaryInk: the site's text does not read on its secondary surface, so the parts painted with it take
+  // --text-on-secondary (apply-reference-analysis.mjs, lib/token-contrast.mjs; template.css body[data-secondary-ink]).
+  secondaryInk?: boolean;
   // heroText: the competitor's page titles as measured at capture (scaffold-placeholder-pages.mjs measureHeroText):
   // their first font family, case and average character width (em, over `chars` characters); the page titles are
-  // sized to their own words with it (scripts/lib/heading-fit.mjs); leadWords: the words under the title on its photo (heroLeadShown).
-  heroText?: { family?: string; textTransform?: string; charEm?: number; chars?: number; leadWords?: number };
+  // sized to their own words with it (scripts/lib/heading-fit.mjs); leadWords: the words under the title on its photo (recorded, not used to move a lead).
+  heroText?: { family?: string; textTransform?: string; charEm?: number; chars?: number; leadWords?: number; leadWordsByPageType?: Record<string, number> };
   // breadcrumbs: the trail above the hero (top, the default) or under it, where the header lies over the hero photo.
   breadcrumbs?: 'top' | 'after-hero';
   // testimonials: the cards side by side (grid, the default) or one sliding row with previous/next controls and dots
@@ -203,9 +225,24 @@ export interface SiteChat {
   labels?: Record<string, string>;
 }
 // Per-site services (src/data/site-runtime.json); site: the registry entry (pnpm site:config).
-export interface SiteRuntime { site?: { id: string; status: 'building' | 'live' | 'paused' | 'retired'; notice?: string; announcement?: string; previousDomains?: string[]; indexnowKey?: string }; analytics?: { provider: 'umami'; scriptSrc: string; websiteId: string }; chat?: SiteChat | false }
+export interface SiteRuntime { site?: { id: string; status: 'building' | 'live' | 'paused' | 'retired'; notice?: string; announcement?: string; previousDomains?: string[]; indexnowKey?: string }; analytics?: { provider: 'umami'; scriptSrc: string; websiteId: string }; chat?: SiteChat | false; newsletter?: { provider: 'listmonk' } }
 // The company's contact details (src/data/site-contact.json); placeholder: true until the owner replaces them.
-export interface SiteContact { email?: string; phone?: string; address?: string; hours?: string; same_as?: string[]; placeholder?: boolean; standIns?: string[] }
+export interface SiteContact { email?: string; phone?: string; whatsapp?: string; address?: string; hours?: string; same_as?: string[]; placeholder?: boolean; standIns?: string[] }
+// The company behind the site (src/data/site-company.json, scripts/lib/site-company.mjs); standIns: the fields still
+// invented or unconfirmed, replaced before launch.
+export interface SiteCompany {
+  schemaVersion: string;
+  legalName: string;
+  legalForm: string;
+  address: { streetAddress?: string; addressLocality?: string; addressRegion?: string; postalCode?: string; addressCountry?: string } | null;
+  foundingDate: string;
+  serviceArea: { type: 'Country' | 'City' | 'Place' | string; name: string; code?: string }[];
+  // The country the site's keywords target (the SEO market); never narrows serviceArea.
+  seoMarket?: string | null;
+  sameAs: string[];
+  standIns: string[];
+  sources?: Record<string, string>;
+}
 // The site-wide trust bar (src/data/site-trust.json, scripts/lib/site-trust.mjs).
 export interface SiteTrust { items: { value: string; label: string; note?: string; factId?: string; unconfirmed?: boolean }[]; founded?: string; location?: string; certifications?: string[] }
 

@@ -13,7 +13,7 @@ const grid = gridPlan(block.items.length, 5);
 const wordy = block.items.some((item) => `${item.value} ${item.unit ?? ''}`.trim().length > 24);
 ---
 
-<section class="block block--stats" data-authoring-block="stats" data-block-id={block.id} data-variant={variant} data-boundary-anchor={variant === 'trust-bar' ? 'box' : undefined}>
+<section class="block block--stats" id={block.anchor} data-authoring-block="stats" data-block-id={block.id} data-variant={variant} data-boundary-anchor={variant === 'trust-bar' ? 'box' : undefined}>
   <div class="container">
     <Eyebrow text={block.eyebrow} />
     {block.heading && <h2 class="stats__heading">{block.heading}</h2>}

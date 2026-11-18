@@ -46,7 +46,7 @@ test('the handoff rows: open sign-off items, contact details, placeholder struct
     sourceOf,
   });
   assert.ok(rows.every((row) => JSON.stringify(Object.keys(row)) === JSON.stringify(COLUMNS)));
-  assert.deepEqual(rows.filter((row) => row.category !== '图片').map((row) => row.field_id), ['company:founded', 'contact:email', 'contact:phone', 'contact:address', 'contact:hours', 'contact:same_as', 'schema:/bikini/:Product.offers']);
+  assert.deepEqual(rows.filter((row) => row.category !== '图片').map((row) => row.field_id), ['company:founded', 'contact:email', 'contact:phone', 'contact:address', 'contact:hours', 'contact:same_as', 'schema:/bikini/:Product.offers', 'entity:linkedin', 'entity:bing-places', 'entity:google-business-profile', 'entity:industry-directories', 'entity:youtube']);
   // Only what is missing is required: what the project has is shown and optional; a city is not a street address.
   const asked = Object.fromEntries(rows.filter((row) => row.category !== '图片').map((row) => [row.field_id, [row.required, row.status]]));
   assert.deepEqual(asked['company:founded'], ['选填', '已有，可改']);
@@ -75,4 +75,22 @@ test('a logo the site made for itself is listed for the owner to replace; a supp
   const made = handoffRows({ pages: [], built: new Map(), sourceOf: () => null, identity: { source: 'make-wordmark' } });
   assert.deepEqual(made.filter((row) => row.field_id === 'brand:logo').map((row) => [row.status, row.current_placeholder]), [['已有，可改', 'AI 生成的纯文字标']]);
   assert.equal(handoffRows({ pages: [], built: new Map(), sourceOf: () => null, identity: { source: 'stage-00' } }).filter((row) => row.field_id === 'brand:logo').length, 0);
+});
+
+test('after launch: the entity-building rows, done once sameAs holds the profile; --same-as adds the owner\'s URL for good', async () => {
+  const { mkdtemp, mkdir, readFile, writeFile } = await import('node:fs/promises');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { addSameAs, entityRows } = await import('../handoff.mjs');
+  const rows = entityRows({ sameAs: ['https://www.linkedin.com/company/knit-pace'], standIns: [] });
+  assert.deepEqual(rows.map((row) => [row.field_id, row.status]), [['entity:linkedin', '已有，可改'], ['entity:bing-places', '待填'], ['entity:google-business-profile', '待填'], ['entity:industry-directories', '待填'], ['entity:youtube', '待填']]);
+  assert.ok(rows.every((row) => row.required === '选填' && row.category === '实体建设'));
+  assert.equal(entityRows({ sameAs: ['https://www.linkedin.com/company/guess'], standIns: ['sameAs'] })[0].status, '待填', 'a guessed profile is not the owner\'s');
+  const root = await mkdtemp(join(tmpdir(), 'same-as-'));
+  await mkdir(join(root, 'src/data'), { recursive: true });
+  await writeFile(join(root, 'src/data/site-company.json'), JSON.stringify({ schemaVersion: 'seo-site-company-v1', sameAs: ['https://x.com/guess'], standIns: ['sameAs', 'address'], sources: { sameAs: 'contact' } }));
+  assert.deepEqual(await addSameAs(root, 'https://www.linkedin.com/company/knit-pace'), ['https://www.linkedin.com/company/knit-pace']);
+  const company = JSON.parse(await readFile(join(root, 'src/data/site-company.json'), 'utf8'));
+  assert.deepEqual([company.standIns, company.sources.sameAs], [['address'], 'owner']);
+  await assert.rejects(addSameAs(root, 'http://linkedin.com/x'), /https URL/);
 });

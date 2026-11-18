@@ -1,3 +1,0 @@
-```json
-{"figures": [{"value": "50 pieces", "label": "Minimum per style colour"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "10 to 15 days", "label": "Sample development time"}, {"value": "one business day", "label": "Enquiry reply time"}, {"value": "8 weeks", "label": "Pre-Chinese New Year ordering"}, {"value": "since 2011", "label": "Own factory running"}]}
-```

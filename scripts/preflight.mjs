@@ -6,7 +6,9 @@
 // people), 1 on an error.
 // Checks: inherited holds, placeholder pages, competitor files and placeholder photos, image slots, unreviewed or
 // unlabelled AI images, the enquiry form and privacy page, analytics, site identity, the stage 10 SEO audit, broken
-// internal links and the LCP image budget. After deployment (not checked here): HTTPS/headers/redirects on the live
+// internal links and the LCP image budget, the owner pack (legal entity, privacy facts, Site Factory's unconfirmed
+// scope and owner numbers), the server's CSP against this build, the model SEO audit's confirmed Critical findings.
+// After deployment (not checked here): HTTPS/headers/redirects on the live
 // host, a real form POST, Search Console and Bing verification with the sitemap, field Core Web Vitals, indexing.
 // Usage: node scripts/preflight.mjs
 
@@ -16,8 +18,10 @@ import { runMain } from './lib/cli.mjs';
 import { readJson, writeJson } from './lib/json-io.mjs';
 import { checklistMarkdown } from './lib/launch-checklist.mjs';
 import { BUILD_CHECKS } from './lib/preflight/build-checks.mjs';
+import { COLLECTION_CHECKS } from './lib/preflight/collection-checks.mjs';
 import { CONTENT_CHECKS } from './lib/preflight/content-checks.mjs';
 import { loadContext } from './lib/preflight/context.mjs';
+import { OWNER_PACK_CHECKS } from './lib/preflight/owner-pack-checks.mjs';
 import { RELEASE_CHECKS } from './lib/preflight/release-checks.mjs';
 import { SITE_CHECKS } from './lib/preflight/site-checks.mjs';
 import { VERIFICATION_CHECKS } from './lib/preflight/verification-checks.mjs';
@@ -28,7 +32,7 @@ const POST_DEPLOY = ['https_headers_and_redirects_on_live_host', 'form_post_end_
 // The gate, in hold order. run(ctx) returns nothing (pass), a finding { detail, items? } or a list of findings; a
 // finding may carry its own code. Notices are for the owner's review and never block release. The checks live by
 // domain in lib/preflight/.
-export const CHECKS = [...CONTENT_CHECKS, ...VERIFICATION_CHECKS, ...BUILD_CHECKS, ...SITE_CHECKS, ...RELEASE_CHECKS];
+export const CHECKS = [...CONTENT_CHECKS, ...OWNER_PACK_CHECKS, ...VERIFICATION_CHECKS, ...BUILD_CHECKS, ...SITE_CHECKS, ...COLLECTION_CHECKS, ...RELEASE_CHECKS];
 
 export function runChecks(ctx, checks = CHECKS) {
   const results = { hold: [], notice: [] };
@@ -45,7 +49,9 @@ export async function preflight({ root = process.cwd() } = {}) {
   await writeJson(resolve(root, 'docs/research/launch-preflight.json'), gate);
   // The same holds for people: grouped by who clears them, with Site Factory's open content issues.
   const contentIssues = (await readJson(resolve(root, 'docs/research/content-issues.json'), { issues: [] })).issues ?? [];
-  await writeFile(resolve(root, 'docs/research/launch-checklist.md'), `${checklistMarkdown(gate, { contentIssues, site: ctx.identity?.siteName ?? '' })}\n`);
+  // The SEO audit the context ran on this build (docs/research/seo-audit.json), its findings by owner.
+  const seo = await readJson(resolve(root, 'docs/research/seo-audit.json'), null);
+  await writeFile(resolve(root, 'docs/research/launch-checklist.md'), `${checklistMarkdown(gate, { contentIssues, seo, site: ctx.identity?.siteName ?? '' })}\n`);
   return gate;
 }
 

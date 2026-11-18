@@ -11,9 +11,12 @@
 // Sizes are ranges: words per field, item counts. `repeat` lets one slot take several consecutive sections.
 
 import DEFAULT_MANIFEST from '../../config/page-blueprints.default.json' with { type: 'json' };
+import { indexBefore } from './block-position.mjs';
+import { dataPracticesBlock, isPrivacyPolicy } from './data-practices.mjs';
 import { leadFormBlock } from './lead-form.mjs';
+import { placeResourceForm } from './resource-promise.mjs';
 import { childCards, childPages } from './site-plan.mjs';
-import { proofBlock, withProofSlots } from './site-proof.mjs';
+import { ownerSlotsOf, proofBlock, withProofSlots } from './site-proof.mjs';
 import { cardGridVariant } from './slot-visuals.mjs';
 
 export const SLOT_MANIFEST_SCHEMA = 'seo-site-slot-manifest-v1';
@@ -22,6 +25,14 @@ export const PLACEHOLDER = '[Placeholder]';
 // Page types the template owns (Site Factory plans them with blueprint_required false and writes no copy): they always
 // use this template's blueprint, also when Site Factory's slot manifest is passed.
 export const TEMPLATE_PAGE_TYPES = Object.freeze(['privacy']);
+
+// What a page cannot do without, whatever its copy holds (a page written by kind has no form section): the contact
+// page's enquiry form and its ways to reach the company (the hotel site's contact page said "the form below" over
+// neither), and the site tree's inquiry page (site:inquiry, a general page) its enquiry form: every "Request a quote"
+// button lands on it (Strandmill audit 2026-11-17: three of four sites' quote page had no form, the fourth one only
+// because its closing band brings the competitor's form). Keyed by page type, or by the tree's name of a general page.
+export const REQUIRED_BLOCKS = Object.freeze({ contact: ['form', 'contactChannels'], inquiry: ['form'] });
+export const requiredBlocks = (pageType, pageId = null) => REQUIRED_BLOCKS[pageType] ?? (pageType === 'general' && pageId?.startsWith('site:') ? REQUIRED_BLOCKS[pageId.slice(5)] : null) ?? [];
 
 // The fallback blueprint, stored in the same format as Site Factory's slot manifest.
 export const BLUEPRINTS = blueprintsFrom(DEFAULT_MANIFEST);
@@ -232,6 +243,22 @@ export function blueprintPage({ page, pagesPlan, contactRoute, blueprints = BLUE
   // A legal page has no call to action either (an imported one keeps Site Factory's).
   const legal = TEMPLATE_PAGE_TYPES.includes(page.page_type);
   const blocks = legalText(page.page_type, slots.flatMap((slot) => slotBlocks(slot, { page, pagesPlan, contactRoute, proof, trust })));
+  // The owner slots the page's tree name adds (site-proof.mjs PAGE_PROOF_SLOTS), before the FAQ, as on an imported page.
+  for (const slot of ownerSlotsOf(slots, page.page_type, page.page_id).filter((item) => item.page)) {
+    const block = proofBlock(slot.id, proof, { route: page.url, trust });
+    if (block) blocks.splice(indexBefore(blocks, ['faq', 'cta']), 0, block);
+  }
+  // A required block its blueprint has no slot for (the inquiry page's form), before the closing call, as on an
+  // imported page (page-assembly.mjs placeRequiredBlocks).
+  for (const type of requiredBlocks(page.page_type, page.page_id)) {
+    if (blocks.some((block) => block.type === type)) continue;
+    const id = blocks.some((block) => block.id === type) ? `${type}-required` : type;
+    blocks.splice(indexBefore(blocks, ['cta']), 0, type === 'form' ? leadFormBlock(id) : { id, type });
+  }
+  // The site tree's resources page asks for its resources by form until it has files (lib/resource-promise.mjs).
+  placeResourceForm(blocks, { id: page.page_id, pageType: page.page_type });
+  // The privacy policy's "what this site collects" is the site's own, written or not (lib/data-practices.mjs).
+  if (legal && isPrivacyPolicy({ route: page.url, label: page.label })) blocks.push(dataPracticesBlock('data-practices'));
   const heroCta = page.url !== contactRoute && !legal;
   return {
     id: page.page_id, route: page.url, pageType: page.page_type, status: 'placeholder',

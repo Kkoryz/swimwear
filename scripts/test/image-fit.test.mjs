@@ -17,7 +17,7 @@ test('a reply gives one of the two labels, or none', () => {
   assert.equal(fitLabel(''), null);
 });
 
-test('each photo is judged once per page subject and kept by its content: an unchanged photo is not judged again', async () => {
+test('each photo is judged once per question and kept by its content: an unchanged photo is not judged again', async () => {
   const root = await mkdtemp(join(tmpdir(), 'image-fit-'));
   await mkdir(join(root, 'src/data'), { recursive: true });
   await mkdir(join(root, 'dist/wetsuit'), { recursive: true });
@@ -25,11 +25,11 @@ test('each photo is judged once per page subject and kept by its content: an unc
   await writeFile(join(root, 'src/data/authoring-pages.json'), JSON.stringify([{ id: 'w', route: '/wetsuit/', pageType: 'product_manufacturer', status: 'authored', seo: { title: 'T', description: 'D', canonical: '/wetsuit/' }, jsonLd: [], hero: { heading: 'Wetsuits' }, blocks: [] }]));
   await writeFile(join(root, 'dist/media/a.webp'), 'bikini');
   await writeFile(join(root, 'dist/media/b.webp'), 'bikini');
-  await writeFile(join(root, 'dist/wetsuit/index.html'), '<main><section data-authoring-block="hero"><h1>Wetsuits</h1><img src="/media/a.webp" alt="x"><img src="/media/b.webp" alt="y"></section></main>');
+  await writeFile(join(root, 'dist/wetsuit/index.html'), '<main><section data-authoring-block="hero"><h1>Wetsuits</h1><img src="/media/a.webp" alt="x"><img src="/media/b.webp" alt="x"></section></main>');
   const calls = [];
   const run = async ({ prompt, lastMessage }) => { calls.push(prompt); await writeFile(lastMessage, '{"label": "wrong_subject"}'); return { code: 0, stderr: '' }; };
   const first = await judgeImageFit({ root, run, reads: 2 });
-  assert.equal(calls.length, 2, 'two photos of the same content: one judgment, read twice');
+  assert.equal(calls.length, 2, 'two photos of the same content under the same heading and alt: one judgment, read twice');
   assert.match(calls[0], /page_subject: Wetsuits/);
   assert.deepEqual(first.pages[0].images.map((image) => image.fit), ['wrong_subject', 'wrong_subject']);
   assert.equal(first.agreement, 1);
@@ -39,6 +39,12 @@ test('each photo is judged once per page subject and kept by its content: an unc
   await writeFile(join(root, 'dist/media/b.webp'), 'a real wetsuit photo');
   await judgeImageFit({ root, run });
   assert.equal(calls.length, 1, 'a changed photo is judged again');
+  // The question is what the judge is shown (owner 2026-11-17): another alt is another question.
+  calls.length = 0;
+  await writeFile(join(root, 'dist/wetsuit/index.html'), '<main><section data-authoring-block="hero"><h1>Wetsuits</h1><img src="/media/a.webp" alt="a wetsuit on a diver"><img src="/media/b.webp" alt="x"></section></main>');
+  await judgeImageFit({ root, run });
+  assert.equal(calls.length, 1, 'the photo with a new alt is asked again, the other is not');
+  assert.match(calls[0], /alt: a wetsuit on a diver/);
 });
 
 test('a library photo judged off its own page\'s subject goes back to generation once; a stand-in, a site-wide photo on a site-wide page and one remade before stay', async () => {

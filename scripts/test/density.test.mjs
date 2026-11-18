@@ -28,7 +28,8 @@ test("a picture-less run may hold the band's longest run at the reference's spar
 
 test('a text wall with a single image fails, a reference-like page passes', () => {
   const bands = densityBands(reference);
-  const wall = densityFailures({ wordsPer1000px: 315, photoAreaPct: 14, visualAreaPct: 14, longestTextOnlyPx: 2199 }, bands).map((failure) => failure.issue);
+  // Under the band's floor less 30% (lib/rules.mjs pictureBand).
+  const wall = densityFailures({ wordsPer1000px: 315, photoAreaPct: 8, visualAreaPct: 8, longestTextOnlyPx: 2199 }, bands).map((failure) => failure.issue);
   assert.deepEqual(wall, ['density_text_heavy', 'density_too_few_images', 'density_long_text_run']);
   assert.deepEqual(densityFailures({ wordsPer1000px: 170, photoAreaPct: 30, visualAreaPct: 30, longestTextOnlyPx: 600 }, bands), []);
   assert.deepEqual(densityFailures({ wordsPer1000px: 90, photoAreaPct: 55, visualAreaPct: 55, longestTextOnlyPx: 300 }, bands).map((failure) => failure.issue), ['density_too_many_images']);
@@ -38,5 +39,5 @@ test('tables, charts and cards count with the photos (owner 2026-11-10): a page 
   // baliswim's manufacturer page: 18% photos and 16% embeds (a fabric explorer) is a 34% visual page.
   const bands = densityBands(reference);
   assert.deepEqual(densityFailures({ wordsPer1000px: 90, photoAreaPct: 12, visualAreaPct: 30, longestTextOnlyPx: 900 }, bands), []);
-  assert.deepEqual(densityFailures({ wordsPer1000px: 90, photoAreaPct: 12, visualAreaPct: 12, longestTextOnlyPx: 900 }, bands).map((failure) => failure.issue), ['density_too_few_images']);
+  assert.deepEqual(densityFailures({ wordsPer1000px: 90, photoAreaPct: 8, visualAreaPct: 8, longestTextOnlyPx: 900 }, bands).map((failure) => failure.issue), ['density_too_few_images']);
 });

@@ -42,6 +42,31 @@ test('the site tree and its routes make the whole site\'s plan: every page, its 
   assert.deepEqual(relatedPages(women, plan).map((page) => page.url), ['/products/', '/bikini/', '/one-piece/', '/men-swimwear/']);
 });
 
+test('city pages (kind place) are a page type of their own under their hub, which closes the header; a city page links its hub, not the other cities', () => {
+  const places = { pages: [
+    { id: 'home', name: 'Rentals', type: 'home', parent: null },
+    { id: 'solutions', name: 'Services', type: 'hub', parent: 'home' },
+    { id: 'cleaning', name: 'Cleaning', type: 'service', parent: 'solutions' },
+    { id: 'pricing', name: 'Pricing', type: 'service', parent: 'solutions' },
+    { id: 'site:about', name: 'About Us', type: 'general', parent: 'home' },
+    { id: 'site:contact', name: 'Contact Us', type: 'general', parent: 'home' },
+    { id: 'places', name: 'Locations', type: 'hub', parent: 'home' },
+    { id: 'place:san-diego', name: 'San Diego', type: 'place', parent: 'places' },
+    { id: 'place:nashville', name: 'Nashville', type: 'place', parent: 'places' },
+  ] };
+  const placeRoutes = Object.fromEntries(places.pages.map((page) => [page.id, { url: page.type === 'home' ? '/' : url(page.name), page_name: page.name }]));
+  const plan = sitePlanFromTree({ tree: places, sitePlan: { routes: placeRoutes } });
+  const types = Object.fromEntries(plan.pages.map((page) => [page.page_id, page.page_type]));
+  assert.deepEqual([types['place:san-diego'], types.places, types.cleaning], ['place', 'places_hub', 'solution']);
+  const nav = siteNavFromPlan(plan);
+  // Site Factory 2026-11-16 (Staylumen): Locations at the end of the header, the cities under it.
+  assert.deepEqual(nav.header.map((node) => node.route), ['/services/', '/about-us/', '/contact-us/', '/locations/']);
+  assert.deepEqual(nav.header.at(-1).children.map((node) => node.route), ['/san-diego/', '/nashville/']);
+  const sanDiego = plan.pages.find((page) => page.page_id === 'place:san-diego');
+  assert.deepEqual(relatedPages(sanDiego, plan).map((page) => page.url), ['/locations/'], 'no other city');
+  assert.deepEqual(relatedPages(plan.pages.find((page) => page.page_id === 'cleaning'), plan).map((page) => page.url), ['/services/', '/pricing/'], 'a service still links its siblings');
+});
+
 test('a tree page without a route, or a route without a tree page, is refused', () => {
   const withoutFaq = Object.fromEntries(Object.entries(routes).filter(([id]) => id !== 'site:faq'));
   assert.throws(() => sitePlanFromTree({ tree, sitePlan: { routes: withoutFaq } }), /no route for site:faq/);
@@ -115,4 +140,41 @@ test("a page type the authoring package declares (a legal page: page_type privac
   assert.equal(plan.pages.find((page) => page.page_id === 'site:faq').page_type, 'privacy');
   assert.equal(plan.pages.find((page) => page.page_id === 'site:about').page_type, 'about', 'a page that declares none keeps the tree\'s');
   assert.throws(() => sitePlanFromTree({ tree, sitePlan: { routes }, pageTypes: new Map([['site:faq', 'legal']]) }), /site:faq declares page type legal, which the template does not have/);
+});
+
+test("a tree page marked nav_only is a menu heading, and a category group merged into a hub (category_hub_merges) needs no route of its own", () => {
+  const pages = [
+    ...tree.pages.map((page) => (page.id === 'products' ? { ...page, nav_only: true } : page)),
+    { id: 'group:tops', name: 'Tops', type: 'product', parent: 'products', nav_only: true },
+    { id: 'tee', name: 'Tee', type: 'product', parent: 'group:tops' },
+  ];
+  const withTee = { ...routes, tee: { url: '/tee/', page_name: 'Tee' } };
+  const plan = sitePlanFromTree({ tree: { pages }, sitePlan: { routes: withTee, category_hub_merges: [{ id: 'group:tops', page_name: 'Tops', merged_into: 'products' }] } });
+  const byId = new Map(plan.pages.map((page) => [page.page_id, page]));
+  assert.equal(byId.get('products').nav_only, true);
+  assert.equal(byId.get('group:tops').nav_only, true);
+  assert.equal(byId.get('group:tops').url, '/products/');
+  assert.equal(byId.get('tee').nav_only, undefined);
+  const nav = siteNavFromPlan(plan);
+  assert.equal(nav.header[0].route, null);
+  const tops = nav.header[0].children.find((node) => node.label === 'Tops');
+  assert.deepEqual([tops.route, tops.children.map((child) => child.route)], [null, ['/tee/']]);
+  // A group that is neither routed nor merged still fails.
+  assert.throws(() => sitePlanFromTree({ tree: { pages }, sitePlan: { routes: withTee } }), /no route for group:tops/);
+});
+
+test('a held blog hub (no post published) is built noindex, out of the sitemap, and its parent need not link it', async () => {
+  const { treeChecks } = await import('../verify-site-tree.mjs');
+  const { siteNavFromPlan } = await import('../lib/site-plan.mjs');
+  const plan = { pages: [{ page_id: 'home', page_type: 'home', label: 'Home', url: '/' }, { page_id: 'site:blog', page_type: 'blog_hub', label: 'Blog', url: '/blog/', parent_page_id: 'home' }], header_nav: [], footer_nav: [] };
+  const html = (robots = '') => `<html><head><title>T</title><meta name="description" content="D">${robots}</head><body><main><h1>H</h1></main></body></html>`;
+  const authored = { pages: [{ url: '/', title: 'T', meta_description: 'D', release_status: 'ready_for_template' }, { url: '/blog/', title: 'T', meta_description: 'D', release_status: 'ready_for_template' }] };
+  const failures = (built) => Object.fromEntries(treeChecks({ plan, authored, nav: siteNavFromPlan(plan), built, sitemap: '<loc>https://x.test/</loc>', exists: (href) => built.has(href) }).map((check) => [check.check, check.failures]));
+  const held = failures(new Map([['/', html()], ['/blog/', html('<meta name="robots" content="noindex, follow">')]]));
+  assert.deepEqual(held['placeholders and held pages are noindex and out of the sitemap; written pages are in it'], []);
+  assert.deepEqual(held['a parent page links its children'], []);
+  // With its first published post the hub is indexable again: in the sitemap and linked from its parent.
+  const released = failures(new Map([['/', html()], ['/blog/', html()]]));
+  assert.deepEqual(released['placeholders and held pages are noindex and out of the sitemap; written pages are in it'], ['/blog/ missing from sitemap']);
+  assert.deepEqual(released['a parent page links its children'], ['/ -> /blog/']);
 });

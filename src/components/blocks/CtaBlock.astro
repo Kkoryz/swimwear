@@ -15,7 +15,9 @@ interface Props { block: CtaBlock; media?: Media | null; variant?: string; route
 const { block, media = null, variant, route = null, formId = null } = Astro.props;
 // A button to the page it sits on leads to that page's enquiry form, or is left out.
 const primary = block.cta.href !== route ? block.cta.href : formId ? `#${formId}` : null;
-const requested = variant ?? variants.cta;
+// One enquiry form a page: on a page with its own form (the contact and the inquiry page: REQUIRED_BLOCKS), a closing
+// band whose module brings the form keeps its copy and its button over its photo (Strandmill audit 2026-11-17).
+const requested = (variant ?? variants.cta) === 'form' && formId ? 'image-band' : variant ?? variants.cta;
 const resolved = requested === 'image-band' && (!media || media.slot) ? 'band' : requested;
 // Related pages are navigation: like the menus, they list only pages that exist.
 const related = block.links.filter((link) => isBuilt(link.href));
@@ -29,7 +31,7 @@ const linkBand = resolved === 'link-band';
 const form = resolved === 'form' ? (leadFormBlock(`${block.id}-form`) as FormBlock) : null;
 ---
 
-<section class="block block--cta" data-authoring-block="cta" data-block-id={block.id} data-variant={resolved} data-has-photo={photo ? 'true' : undefined} data-form-layout={form && variants.ctaForm === 'below' ? 'below' : undefined}>
+<section class="block block--cta" id={block.anchor} data-authoring-block="cta" data-block-id={block.id} data-variant={resolved} data-has-photo={photo ? 'true' : undefined} data-form-layout={form && variants.ctaForm === 'below' ? 'below' : undefined}>
   <div class="container">
     <div class="cta" data-layout="cta" data-media-slot={media?.slot} style={phoneShape} data-phone-photo={phoneShape ? '' : undefined}>
       {/* The band spans the page: its photo's widest file (2026-11-15: swimwear's bands showed the 960 file 1400px wide). */}

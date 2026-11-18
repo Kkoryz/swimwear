@@ -5,6 +5,8 @@
 // designs, custom designs, a starter kit...) fill the order routes block of the ordering page and the home page; one
 // whose fact is not in facts.yaml word for word is borrowed from a competitor and marked a placeholder.
 
+import { withoutRepeatedUnit } from './figure-reads.mjs';
+import TRUST_UNITS from '../../config/trust-units.json' with { type: 'json' };
 import { factApproved, factConfirmed } from './facts.mjs';
 import { NO_BAND_PAGE_TYPES, SITE_BAND_PAGE_TYPES } from './page-figures.mjs';
 
@@ -14,6 +16,31 @@ export const TRUST_BAR_ITEMS = 5;
 // and is reported back to Site Factory (trustBarRefused).
 export const TRUST_VALUE_MAX_WORDS = 5;
 const isFigure = (item) => item?.value && item?.label && item.value.trim().split(/\s+/).length <= TRUST_VALUE_MAX_WORDS;
+
+// A trust value is a number with an optional unit from a closed list (config/trust-units.json): a word after the
+// number outside it is dropped ("65 that" -> "65", site13 blind audit: Site Factory's value pattern took the word after
+// the number), and the drop is reported back to Site Factory (trustValueTrimmed). The label is left as it is (08 does
+// not rewrite copy). A value that does not start with a number ("since 2016") is left as it is.
+const NUMBER = /^(?:[~≈<>]\s*)?\d[\d,./]*(?:\s*(?:-|–|to)\s*\d[\d,./]*)?\+?/;
+const BOUNDARY = /^$|^[\s/.,;:)!?]/;
+const unitForms = (units) => [...new Set(units.flatMap((unit) => { const lower = unit.toLowerCase(); return lower.length > 3 && lower.endsWith('s') ? [lower, lower.slice(0, -1)] : [lower]; }))].sort((a, b) => b.length - a.length);
+const KNOWN_UNITS = unitForms(TRUST_UNITS.units);
+/** @returns {{ value: string, dropped: string | null }} */
+export function trustValue(value, units = null) {
+  const text = String(value ?? '').trim();
+  const number = text.match(NUMBER)?.[0];
+  const rest = number ? text.slice(number.length).trim().toLowerCase().replace(/^[-–]/, '') : '';
+  if (!number || !rest) return { value: text, dropped: null };
+  const known = units ? unitForms(units) : KNOWN_UNITS;
+  if (known.some((unit) => rest.startsWith(unit) && BOUNDARY.test(rest.slice(unit.length)))) return { value: text, dropped: null };
+  return { value: number.trim(), dropped: text.slice(number.length).trim() };
+}
+
+// The package's trust bar values whose word after the number is no unit: { factId, label, value, kept, dropped }.
+export const trustValueTrimmed = (authoringPackage) => (authoringPackage?.trust_bar ?? []).filter(isFigure).flatMap(({ fact_id: factId, label, value }) => {
+  const trimmed = trustValue(value);
+  return trimmed.dropped ? [{ factId: factId ?? null, label, value, kept: trimmed.value, dropped: trimmed.dropped }] : [];
+});
 
 // The package's trust bar items too long for the bar: { fact_id, label, value }.
 export const trustBarRefused = (authoringPackage) => (authoringPackage?.trust_bar ?? []).filter((item) => item?.value && item?.label && !isFigure(item)).map(({ fact_id: factId, label, value }) => ({ factId, label, value }));
@@ -49,7 +76,7 @@ export function trustFromPackage(authoringPackage, facts = null, { leaveOut = []
   // Every figure the package gives shows (owner 2026-11-12: "不要卡这个": the hotel site's bar showed one of its three, the
   // other two standing on a brief that did not state them word for word); one the owner has not confirmed is on the
   // pre-launch replacements (trustBarUnconfirmed) like the rest of the copy.
-  const items = readerFigures((authoringPackage?.trust_bar ?? []).filter(isFigure), leaveOut).map((item) => ({ value: item.value, label: item.label, ...(item.note ? { note: item.note } : {}), ...(item.fact_id ? { factId: item.fact_id } : {}), ...(confirmedFigure(item, known) ? {} : { unconfirmed: true }) }));
+  const items = readerFigures((authoringPackage?.trust_bar ?? []).filter(isFigure), leaveOut).map((item) => ({ ...withoutRepeatedUnit({ value: trustValue(item.value).value, label: item.label }), ...(item.note ? { note: item.note } : {}), ...(item.fact_id ? { factId: item.fact_id } : {}), ...(confirmedFigure(item, known) ? {} : { unconfirmed: true }) }));
   const fact = (id) => (known.get(id)?.confirmed ? known.get(id).text : null);
   const founded = fact('founded')?.match(/\b(19|20)\d{2}\b/)?.[0] ?? null;
   // Where the company is: the confirmed fact named for its location, whatever the trade (location, location-<place>).

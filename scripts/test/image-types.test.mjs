@@ -57,6 +57,12 @@ test("a photo made as a kind: the kind's recipe and our place, pose and design; 
   const making = typedPrompt(entry, { type: kinds[1], master: 'm.png', briefs, line: 'swimwear' });
   assert.ok(making.includes(briefs.prompts.worker) && making.includes('It shows our bikini being made, for the page section "Quality control"'));
   assert.match(briefs.prompts.worker, /Chinese factory worker/, 'the factories are in China (owner 2026-10-30)');
+  // Owner 2026-11-18: a few workers in turn, none of them the reference's own (site13: one woman a dozen times).
+  const worker = briefs.workerCasting[1];
+  assert.ok(briefs.workerCasting.length >= 3 && briefs.workerCasting.length <= 5, 'a few workers, not a crowd');
+  const named = typedPrompt({ ...entry, worker }, { type: kinds[1], master: 'm.png', briefs, line: 'swimwear', attached: 2 });
+  assert.ok(named.includes(`This worker: ${worker}. Not the person in any attached photo`), 'the photo names its worker');
+  assert.ok(!making.includes('This worker:'), 'no worker named, no worker line');
   assert.ok(!making.includes('Model: one adult') && !making.includes('Pose:') && !making.includes('attached images'));
   // A photo of the making keeps the reference's kind of place, the production floor, not one of our places.
   assert.match(typedPrompt({ ...entry, place: undefined }, { type: kinds[1], master: 'm.png', briefs, line: 'swimwear', attached: 2 }), /kind of place \(the working production floor they show\)/);

@@ -7,7 +7,8 @@ const page = (route, extra = {}) => ({ route, pageType: 'product', status: 'auth
 const html = (body) => `<html lang="en"><head><title>T</title></head><body><main>${body}</main></body></html>`;
 // A site ready for release: every check passes.
 const context = (overrides = {}) => ({
-  pages: [page('/'), page('/contact/', { pageType: 'contact' }), page('/privacy/')],
+  // The home page names a person (lib/site-people.mjs): a site without one has a notice.
+  pages: [page('/', { blocks: [{ id: 'owner-team', type: 'team', items: [{ anchor: 'team-ana-lee', name: 'Ana Lee', role: 'Founder' }] }] }), page('/contact/', { pageType: 'contact' }), page('/privacy/')],
   built: new Map([['/', html('<img src="/media/generated/a-960.webp" alt="A leggings sample" loading="eager"><a href="/contact/">Contact</a>')], ['/contact/', html('<a href="mailto:sales@knitpace.com">Email</a>')], ['/privacy/', html('<p>Privacy</p>')]]),
   hasDist: true,
   distStat: (path) => ({ 'media/generated/a-960.webp': { size: 120 * 1024 } })[path] ?? null,
@@ -21,10 +22,12 @@ const context = (overrides = {}) => ({
   diversity: null,
   form: { consent: { privacyRoute: '/privacy/' } },
   contact: null,
+  company: { legalName: 'Knit Pace Co., Ltd.', sameAs: ['https://www.linkedin.com/company/knit-pace'], standIns: [] },
+  proof: null,
   redirects: [],
   crossSite: { threshold: 0.5, duplicates: [] },
   drift: [],
-  nginx: { configs: ['knitpace.com.conf', 'knitpace.com-headers.conf'], own: 'server {\n  root /srv/knitpace/current;\n}' },
+  nginx: { configs: ['knitpace.com.conf', 'knitpace.com-headers.conf'], own: 'server {\n  root /srv/knitpace/current;\n}', headers: 'add_header Content-Security-Policy "default-src \'self\'; script-src \'self\'" always;\n' },
   seoAuditError: null,
   ...overrides,
 });
@@ -97,16 +100,18 @@ test('what a visitor must not see: pages the plan does not deliver, placeholder 
   assert.deepEqual(holds('text_not_in_page_language', foreign)[0].items, ['/ text: Our fabric 面料 is tested.', '/ alt a.webp: 粉色比基尼的近景']);
   const chinese = context({ built: new Map([['/', '<html lang="zh-CN"><head><title>T</title></head><body><main><p>面料</p></main></body></html>']]) });
   assert.deepEqual(holds('text_not_in_page_language', chinese), []);
-  // A photo judged not to show its page's subject holds.
+  // A photo judged not to show its page's subject is reported, it does not hold (owner 2026-11-18).
   const imageFit = { pages: [{ route: '/wetsuit/', images: [{ src: '/media/photos/a-960.webp', fit: 'wrong_subject' }, { src: '/media/photos/b-960.webp', fit: 'fits' }] }] };
-  assert.deepEqual(holds('image_wrong_subject', context({ imageFit }))[0].items, ['/wetsuit/ a-960.webp']);
+  assert.deepEqual(holds('image_wrong_subject', context({ imageFit })), []);
+  assert.deepEqual(run('image_wrong_subject', context({ imageFit })).notices[0].items, ['/wetsuit/ a-960.webp']);
 });
 
-test('AI images: unregistered, unapproved and alt-less ones hold; decorative ones may have an empty alt', () => {
+test('AI images: unregistered and alt-less ones hold, unapproved ones are reported; decorative ones may have an empty alt', () => {
   const images = '<img src="/media/generated/a-960.webp" alt=""><img class="hero__backdrop" src="/media/generated/b-960.webp" alt=""><img src="/media/generated/c-960.webp" alt data-decorative><div data-media-origin="generated"></div>';
   const plan = { entries: ['a', 'b', 'c'].map((id) => ({ id, status: 'generated', review: 'pending', web: { srcset: `/media/generated/${id}-960.webp 960w` } })) };
   const ctx = context({ built: new Map([...context().built, ['/', html(images)]]), plan });
-  assert.deepEqual(holds('image_not_approved', ctx)[0].items, ['a (pending)', 'b (pending)', 'c (pending)']);
+  assert.deepEqual(holds('image_not_approved', ctx), [], 'reported only (owner 2026-11-18)');
+  assert.deepEqual(run('image_not_approved', ctx).notices[0].items, ['a (pending)', 'b (pending)', 'c (pending)']);
   assert.deepEqual(holds('image_alt_missing', ctx)[0].items, ['a']);
   assert.deepEqual(holds('image_register_missing', { ...ctx, plan: null })[0].items, ['/']);
 });
@@ -193,4 +198,41 @@ test('placeholder prices and reviews in structured data hold with no way to sign
   // The sign-off item names the pages, so a page that gains reviews asks again.
   assert.equal(reviewSignoffItem([{ route: '/', jsonLd: [product] }, { route: '/x/', jsonLd: [] }]).description.includes('of /'), true);
   assert.equal(reviewSignoffItem([{ route: '/x/', jsonLd: [] }]), null);
+});
+
+test('the owner pack: a site with no legal entity holds; privacy facts are required once a form collects personal data', () => {
+  assert.deepEqual(holds('owner_pack_missing', context({ company: { legalName: null } })).map((hold) => hold.items), [['legal_entity']]);
+  const withForm = { built: new Map([...context().built, ['/contact/', html('<a href="mailto:sales@knitpace.com">Email</a><form data-form-status="connected"></form>')]]) };
+  assert.match(holds('owner_pack_missing', context(withForm))[0].detail, /^privacy_facts: how long enquiries are kept and whom to ask/);
+  assert.match(holds('owner_pack_missing', context({ ...withForm, contact: { email: 'privacy@knitpace.com' } }))[0].detail, /^privacy_facts: how long enquiries are kept \(/, 'the company address answers whom to ask');
+  assert.deepEqual(holds('owner_pack_missing', context({ ...withForm, proof: { privacy: { retention: '24 months', contact: 'privacy@knitpace.com' } } })), []);
+  assert.deepEqual(holds('owner_pack_missing', context({ proof: null })), [], 'no form, no privacy facts needed');
+});
+
+test('Site Factory unconfirmed scope and owner numbers hold under their own codes until signed off, not as plain sign-off items', () => {
+  const items = [
+    { id: 'sf-OT-1', description: 'Site Factory: Influencer marketing', status: 'pending', reason: 'scope_unconfirmed', pageId: 'svc' },
+    { id: 'sf-OT-2', description: 'Site Factory: Minimum contract term?', status: 'pending', reason: 'needs_owner_number' },
+    { id: 'sf-OT-3', description: 'Site Factory: Price from?', status: 'confirmed', reason: 'needs_owner_number' },
+  ];
+  const ctx = context({ signoff: { items }, pages: [...context().pages, page('/services/influencers/', { id: 'svc' })] });
+  assert.deepEqual(holds('scope_unconfirmed', ctx).map((hold) => hold.items), [['/services/influencers/']]);
+  assert.match(holds('needs_owner_number', ctx)[0].detail, /^sf-OT-2: .*pnpm signoff --confirm sf-OT-2\)$/);
+  assert.equal(holds('needs_owner_number', ctx).length, 1);
+  assert.deepEqual(holds('owner_signoff_pending', ctx), []);
+});
+
+test('the server CSP must allow the build inline scripts', async () => {
+  const { scriptHash } = await import('../lib/csp.mjs');
+  const built = new Map([...context().built, ['/', html('<script>track()</script>')]]);
+  assert.deepEqual(holds('nginx_csp_stale', context({ built })).map((hold) => hold.items), [['/']]);
+  const headers = `add_header Content-Security-Policy "default-src 'self'; script-src 'self' ${scriptHash('track()')}" always;`;
+  assert.deepEqual(holds('nginx_csp_stale', context({ built, nginx: { ...context().nginx, headers } })), []);
+  assert.match(holds('nginx_csp_stale', context({ nginx: { ...context().nginx, headers: null } }))[0].detail, /sets no Content-Security-Policy/);
+});
+
+test('no public profile in sameAs is a notice, never a hold', () => {
+  const ctx = context({ company: { legalName: 'Knit Pace Co., Ltd.', sameAs: [], standIns: [] } });
+  assert.deepEqual(runChecks(ctx).notices.map((notice) => notice.code), ['entity_profiles_missing']);
+  assert.deepEqual(runChecks(ctx).holds, []);
 });

@@ -4,7 +4,11 @@
 
 // redirects (src/data/redirects.json): [{ from: '/old/', to: '/new/' }] answers 301, [{ from: '/gone/', status: 410 }]
 // answers 410. previousHosts: domains the site used before, redirected permanently (path kept) to the canonical host.
-export function nginxConfig({ host, root, apiUpstream = 'http://127.0.0.1:3001', certDir = `/etc/letsencrypt/live/${host}`, redirects = [], previousHosts = [] }) {
+// leadRecipient: the mailbox the first-party API forwards the site's enquiries to (config/lead-form.json recipient,
+// owner 2026-11-17), passed to it in the X-Lead-Recipient header: the address stays on the server, never in a page.
+// csp: the Content-Security-Policy made from the release build (lib/csp.mjs); without one the snippet sets the
+// build-independent part only (default-src 'self' and the frame, object and base rules, no inline script).
+export function nginxConfig({ host, root, apiUpstream = 'http://127.0.0.1:3001', certDir = `/etc/letsencrypt/live/${host}`, redirects = [], previousHosts = [], leadRecipient = null, csp = null }) {
   const isHost = (value) => /^[a-z0-9-]+(\.[a-z0-9-]+)+$/.test(value);
   if (!isHost(host)) throw new Error(`not a host: ${host}`);
   for (const old of previousHosts) if (!isHost(old)) throw new Error(`not a host: ${old}`);
@@ -12,6 +16,8 @@ export function nginxConfig({ host, root, apiUpstream = 'http://127.0.0.1:3001',
   if (!/^\/[^\s;{}$'"]*$/.test(root ?? '')) throw new Error(`root must be an absolute path: ${root}`);
   // proxy_pass adds the trailing slash, so the upstream is an origin or a path without one.
   if (!/^https?:\/\/[a-z0-9.-]+(:\d+)?(\/[^\s;{}$'"]*[^\s;{}$'"/])?$/.test(apiUpstream)) throw new Error(`api must be an http(s) URL without a trailing slash: ${apiUpstream}`);
+  if (csp !== null && /["\r\n]/.test(csp)) throw new Error('csp must be one line without double quotes');
+  if (leadRecipient !== null && !/^[a-z0-9._%+-]+@[a-z0-9-]+(\.[a-z0-9-]+)+$/i.test(leadRecipient)) throw new Error(`lead recipient must be an email address: ${leadRecipient}`);
   const rules = redirects.map((rule) => {
     if (!/^\/[^\s{};]*$/.test(rule.from ?? '')) throw new Error(`redirect from must be a path: ${rule.from}`);
     if ((rule.status ?? 301) === 410) return `    location = ${rule.from} { return 410; }`;
@@ -101,28 +107,68 @@ ${rules.length ? `    # Moved and removed pages (src/data/redirects.json).\n${ru
         default_type application/manifest+json;
     }
 
-    # First-party API on the same origin (enquiry form endpoint, attribution); no CORS, no third-party host.
+    # First-party API on the same origin (enquiry form endpoint, attribution); no CORS, no third-party host. The API
+    # forwards each enquiry to the mailbox in X-Lead-Recipient.
     location /api/ {
         proxy_pass ${apiUpstream}/;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
-    }
+${leadRecipient ? `        proxy_set_header X-Lead-Recipient ${leadRecipient};
+` : ''}    }
 
     error_page 404 /404.html;
 }
 `;
   const snippet = `# Security headers for ${host} (included in every location: a location's add_header replaces the server's).
-# No includeSubDomains: other services (Directus, Umami, Listmonk) may run on subdomains with their own TLS setup.
+# HSTS needs the http -> https 301 above, which this config has. No includeSubDomains: other services (Directus, Umami, Listmonk) may run on subdomains with their own TLS setup.
 add_header Strict-Transport-Security "max-age=31536000" always;
 add_header X-Content-Type-Options "nosniff" always;
 add_header Referrer-Policy "strict-origin-when-cross-origin" always;
 add_header X-Frame-Options "SAMEORIGIN" always;
-add_header Permissions-Policy "camera=(), microphone=(), geolocation=()" always;
+add_header Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()" always;
+# Content-Security-Policy made from the release build (scripts/lib/csp.mjs): inline scripts by hash, never
+# 'unsafe-inline' for scripts. A release whose inline scripts changed needs this snippet made and installed again (the
+# launch preflight holds it as nginx_csp_stale; verify-live reports csp_blocks_inline_script).
+add_header Content-Security-Policy "${csp ?? "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'"}" always;
 `;
   return { server, snippet };
 }
 
 // The two files a site's config is written to (build-nginx-config); any other .conf in deploy/nginx is another host's.
 export const ownConfigFiles = (host) => [`${host}.conf`, `${host}-headers.conf`];
+
+// What the generated config answers, as a list a reader of the build can check (four-site audit 2026-11-17, Fable's
+// plan T5: the blind SEO audit reads dist/ only and marked the server layer down for not seeing it). Read back from
+// the two files nginxConfig writes, so the list is what the server is given: the redirects to the one canonical
+// origin, directory URLs, the 404 page, the moved and removed pages, the headers on every response (the CSP among
+// them), compression and the caching of each kind of file. The API's upstream and the enquiry mailbox are left out.
+export function serverResponses({ server, snippet }) {
+  const blocks = [...server.matchAll(/^server \{\n([\s\S]*?)\n\}/gm)].map((match) => match[1]);
+  const names = (block) => block.match(/^\s*server_name ([^;]+);/m)?.[1].split(/\s+/) ?? [];
+  const lines = [];
+  for (const block of blocks) {
+    const to = block.match(/^\s*return 301 (https:\/\/[^$\s]+)\$request_uri;/m)?.[1];
+    if (!to) continue;
+    const schemes = [...(/listen 80;/.test(block) ? ['http'] : []), ...(/listen 443 ssl/.test(block) ? ['https'] : [])];
+    lines.push(`- ${names(block).flatMap((name) => schemes.map((scheme) => `${scheme}://${name}`)).join(', ')}: 301 to ${to} with the same path`);
+  }
+  const main = blocks.find((block) => /^\s*root /m.test(block)) ?? '';
+  if (main) {
+    if (/listen 443 ssl http2;/.test(main)) lines.push(`- https://${names(main)[0]}: the site, over HTTP/2 with TLS`);
+    if (/try_files \$uri \$uri\/ =404;/.test(main)) lines.push('- A directory URL without its trailing slash: 301 to the same URL with it (the canonical URLs end in a slash)');
+    const notFound = main.match(/^\s*error_page 404 (\S+);/m)?.[1];
+    if (notFound) lines.push(`- A URL with no file: status 404 with the page ${notFound}`);
+    for (const match of main.matchAll(/^\s*location = (\S+) \{ return (301 \S+|410); \}/gm)) lines.push(`- ${match[1]}: ${match[2].startsWith('301') ? `301 to ${match[2].slice(4)}` : '410 Gone'}`);
+    const gzip = (name) => main.match(new RegExp(`^\\s*${name} ([^;]+);`, 'm'))?.[1];
+    if (gzip('gzip') === 'on') lines.push(`- Compression: gzip (level ${gzip('gzip_comp_level')}, from ${gzip('gzip_min_length')} bytes${gzip('gzip_vary') === 'on' ? ', Vary: Accept-Encoding' : ''}) for text/html and ${gzip('gzip_types')}; no Brotli`);
+    for (const match of main.matchAll(/^ {4}location (?:(\S+) )?(\S+) \{\n([\s\S]*?)\n {4}\}/gm)) {
+      const cache = match[3].match(/add_header Cache-Control "([^"]+)";/)?.[1];
+      if (cache) lines.push(`- Cache-Control "${cache}" for ${match[1] === '^~' ? `everything under ${match[2]}` : `files matching ${match[2]}`}`);
+    }
+  }
+  const headers = [...snippet.matchAll(/^add_header (\S+) "([^"]*)" always;$/gm)].map((match) => `  - ${match[1]}: ${match[2]}`);
+  if (headers.length) lines.push('- Headers on every response (pages, assets, the 404 page):', ...headers);
+  return lines;
+}

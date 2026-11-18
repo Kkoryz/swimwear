@@ -12,7 +12,8 @@ const image = { src: media.src, srcset: sizes ? media.srcset : undefined, sizes:
 
 {media.sources?.length ? (
   <picture>
-    {media.sources.map((source) => <source media={source.media} srcset={source.srcset ?? source.src} width={source.width} height={source.height} />)}
+    {/* A source's width candidates come with sizes, the image's own or the full width (MWG: every srcset says how wide it shows). */}
+    {media.sources.map((source) => <source media={source.media} srcset={source.srcset ?? source.src} sizes={source.srcset ? sizes ?? '100vw' : undefined} width={source.width} height={source.height} />)}
     <img class={className} {...image} />
   </picture>
 ) : <img class={className} {...image} />}

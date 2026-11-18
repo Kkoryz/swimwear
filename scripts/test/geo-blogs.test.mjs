@@ -39,6 +39,15 @@ test('the GEO profile names the site, its main query, its competitor and its imp
   assert.equal('stages' in profile || 'trade_examples' in profile, false);
 });
 
+test('the GEO profile carries the site\'s words per picture, as 08 holds the articles to it, only when the site measured its reference', async () => {
+  const { root, site } = await siteFixture();
+  assert.equal('words_per_picture' in await geoSiteProfile(root, site), false, 'not measured: the writer uses its own');
+  await writeFile(join(root, 'src/data/article-rhythm.json'), JSON.stringify({ wordsPerPicture: 233 }));
+  assert.equal((await geoSiteProfile(root, site)).words_per_picture, 233);
+  await writeFile(join(root, 'src/data/article-rhythm.json'), JSON.stringify({ wordsPerPicture: 90 }));
+  assert.equal((await geoSiteProfile(root, site)).words_per_picture, 150, 'never denser than the readable limit (pictureTarget)');
+});
+
 test('a trade other than a manufacturer\'s passes its question stages and examples to the GEO module', async () => {
   const stages = { start: 'awareness', find: 'search', fees: 'evaluation', contract: 'decision' };
   const { root, site } = await siteFixture({ niche: 'n', persona: 'p', stages, tradeExamples: { hero: 'an owner at the front desk' } });
@@ -66,7 +75,10 @@ test('the site can ask for another number of posts or market, and names its GEO 
 test('the GEO posts are the last step before the release, and a run waits there for the owner', async () => {
   const { root, site } = await siteFixture();
   const ids = steps(site).map((step) => step.id);
-  assert.equal(ids.indexOf('geo-blogs'), ids.indexOf('release') - 1);
+  // Then only the release; the claude-seo audit of the release build (on by default, owner 2026-11-17) comes just
+  // before the posts, so a site waiting for them is audited all the same.
+  assert.deepEqual(ids.slice(ids.indexOf('geo-blogs') + 1), ['release']);
+  assert.equal(ids[ids.indexOf('geo-blogs') - 1], 'claude-seo-audit');
   await writeFile(join(root, 'site.json'), JSON.stringify(site));
   const waiting = await siteRun({ root, from: 'geo-blogs', to: 'geo-blogs', runner: async () => 2 });
   assert.equal(waiting.code, 2);

@@ -1,3 +1,0 @@
-```json
-{"figures": [{"value": "6 to 8 weeks", "label": "Fixed-scope project duration"}, {"value": "3 to 4 weeks", "label": "Single workstream duration"}, {"value": "3 months", "label": "Retainer minimum term"}, {"value": "50 pieces", "label": "Minimum per style colour"}, {"value": "10 to 15 days", "label": "Standard sample time"}, {"value": "35 to 40 days", "label": "Bulk production time"}]}
-```

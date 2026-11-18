@@ -13,7 +13,7 @@ import { readFile, readdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { parsePageArgs } from './capture-reference-pages.mjs';
 import { normalizeReferenceUrl } from './capture-reference.mjs';
-import { SNAPSHOT_FILES, missingProjectFiles, projectPlan } from './freeze-site-factory.mjs';
+import { SNAPSHOT_FILES, missingProjectFiles, patchedProject, projectPlan } from './freeze-site-factory.mjs';
 import { BRAND_FILES, imageSize, projectIdentity } from './import-brand-kit.mjs';
 import { BUILT_STATUSES, SUPPORTED_PACKAGE_SCHEMA } from './import-site-factory.mjs';
 import { KIND_TO_CLASS } from './import-site-media.mjs';
@@ -21,6 +21,7 @@ import { identityErrors, identityFromFiles } from './lib/brand-kit.mjs';
 import { runMain } from './lib/cli.mjs';
 import { factsFromFile } from './lib/facts.mjs';
 import { readJson, readText } from './lib/json-io.mjs';
+import { readPackagePatches } from './lib/package-patches.mjs';
 import { captureFolder } from './lib/rules.mjs';
 import { CORE_MANIFEST, coreSourceOf } from './lib/template-core.mjs';
 import { aliasRoutes, handoffProblems, routeAliases } from './lib/sf-handoff.mjs';
@@ -157,9 +158,12 @@ async function siteFactorySource(root, at, site, add) {
     // tree and its routes (lib/site-tree.mjs sitePlanFromTree), and a tree page without a route, a route without a
     // tree page, a page under one not built, or a page type the template lacks stops it. The same plan is made here.
     let pagesPlan;
-    try { pagesPlan = await projectPlan(project, { navOnly: site.navOnly ?? [] }); } catch (error) { add('site-plan', message(error)); return null; }
+    // With the site's own patches (content/package-patches/), as the freeze applies them.
+    let patches;
+    try { patches = await readPackagePatches(root); } catch (error) { add('package-patches', message(error)); return null; }
+    try { pagesPlan = await projectPlan(project, { navOnly: site.navOnly ?? [], patches }); } catch (error) { add('site-plan', message(error)); return null; }
     const file = (name) => (existsSync(resolve(project, SNAPSHOT_FILES[name])) ? resolve(project, SNAPSHOT_FILES[name]) : null);
-    return { file, pagesPlan };
+    return { file, pagesPlan, ...(patches.length ? { authoringPackage: (await patchedProject(project, patches)).authoringPackage } : {}) };
   }
   if (typeof site.siteFactory !== 'string' || !site.siteFactory.trim()) { add('site-factory', 'site.json needs siteFactory (a frozen snapshot folder) or siteFactoryProject'); return null; }
   const snap = at(site.siteFactory);
@@ -172,7 +176,7 @@ async function siteFactorySource(root, at, site, add) {
 async function siteFactoryProblems(root, at, site, add) {
   const source = await siteFactorySource(root, at, site, add);
   if (!source) return;
-  const { file, pagesPlan } = source;
+  const { file, pagesPlan, authoringPackage: patchedPackage } = source;
   if (!Array.isArray(pagesPlan?.pages)) { add('site-plan', 'the site plan (pages.json) has no pages list'); return; }
   // scaffold-placeholder-pages.mjs (patterns step, after the capture's browser work) and competitor-blueprint.mjs
   // (import step) throw "the site plan has no contact page": every placeholder's call to action links to it.
@@ -182,7 +186,7 @@ async function siteFactoryProblems(root, at, site, add) {
   try { siteNavFromPlan(pagesPlan); } catch (error) { add('navigation', message(error)); }
 
   let authoringPackage;
-  try { authoringPackage = await readJson(file('authoring_package.json')); } catch (error) { add('package', `authoring_package.json: ${message(error)}`); return; }
+  try { authoringPackage = patchedPackage ?? await readJson(file('authoring_package.json')); } catch (error) { add('package', `authoring_package.json: ${message(error)}`); return; }
   // The import step checks a handoff beside the package against Site Factory's contracts (config/sf-contracts/) and
   // the block-kinds table before anything is imported (import-site-factory.mjs runImport), then points the copy's
   // links at the handoff's route aliases.

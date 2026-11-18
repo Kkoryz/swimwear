@@ -44,7 +44,7 @@ const List = numbered ? 'ol' : 'div';
 const Item = numbered ? 'li' : 'article';
 ---
 
-<section class="block block--grid" data-authoring-block="featureGrid" data-block-id={block.id} data-continues={block.continues} data-variant={variants.featureGrid} data-pattern={pattern}>
+<section class="block block--grid" id={block.anchor} data-authoring-block="featureGrid" data-block-id={block.id} data-continues={block.continues} data-variant={variants.featureGrid} data-pattern={pattern}>
   {pattern === 'bullets' ? (
   <div class="container point-list" data-layout="split" data-continues={block.continues ? '' : undefined}>
     <div class="point-list__intro">

@@ -5,15 +5,17 @@ import type { SourcesBlock } from '../../lib/authoring';
 
 interface Props { block: SourcesBlock }
 const { block } = Astro.props;
+// When a source was read (a page's researched figures, Site Factory 2026-11-17), as the site writes dates.
+const accessed = (date: string) => new Date(`${date}T00:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 ---
 
-<section class="block block--sources" data-authoring-block="sources" data-block-id={block.id}>
+<section class="block block--sources" id={block.anchor} data-authoring-block="sources" data-block-id={block.id}>
   <div class="container">
     <details class="sources-panel">
       <summary><h2 class="sources__heading">Sources ({block.items.length})</h2></summary>
       <ol class="sources" data-layout="list">
         {block.items.map((item) => (
-          <li class="sources__item"><a href={item.url} rel="noopener">{item.title}</a>{item.publisher && <span class="sources__publisher">, {item.publisher}</span>}</li>
+          <li class="sources__item"><a href={item.url} rel="noopener">{item.title}</a>{item.publisher && <span class="sources__publisher">, {item.publisher}</span>}{item.retrieved && <span class="sources__retrieved">, accessed <time datetime={item.retrieved}>{accessed(item.retrieved)}</time></span>}</li>
         ))}
       </ol>
     </details>

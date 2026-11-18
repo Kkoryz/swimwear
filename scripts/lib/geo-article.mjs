@@ -113,7 +113,10 @@ export function articlePost(article, { visuals = [], images = {}, previous = nul
     if (byId.get(item.visual)?.type === 'hero') { image = { src: made.wide?.src ?? made.src, alt: item.alt, width: made.wide?.width ?? made.width, height: made.wide?.height ?? made.height }; return []; }
     return [{ figure: { src: made.src, srcset: made.srcset, alt: item.alt, width: made.width, height: made.height, ...(byId.get(item.visual)?.title ? { caption: byId.get(item.visual).title } : {}) } }];
   };
-  const sections = article.sections.map((section) => ({ heading: section.heading, body: section.body.flatMap(part) }));
+  // A visual placed in the opening (the 11-16 writer puts the hero there, after the answer) is made as any other: the
+  // hero is the featured image, another one opens the first section (the opening holds text only).
+  const opening = article.lead.filter((item) => item.visual).flatMap(part);
+  const sections = article.sections.map((section, index) => ({ heading: section.heading, body: [...(index ? [] : opening), ...section.body.flatMap(part)] }));
   // The opening answer: the text before the first H2, else the first section's first paragraph.
   let lead = article.lead.filter((item) => item.text).map((item) => item.text);
   if (!lead.length) {

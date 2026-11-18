@@ -1,0 +1,80 @@
+[
+ {
+  "n": 1,
+  "page_id": "site:blog",
+  "url": "/blog/",
+  "section": "title",
+  "old": "Blog: Certifications, Fabrics and Design | Strandmill",
+  "new": "Strandmill Blog: Swimwear Manufacturing Guides",
+  "reason": "a blog hub that grows daily: whom it is for and its buyer topics (coordinator 11-18)",
+  "hits_in_last_package": 1,
+  "hits_in_structured_data": 0,
+  "script": "hand_07_bloghub_1118.py",
+  "delete_if_present": false
+ },
+ {
+  "n": 2,
+  "page_id": "site:blog",
+  "url": "/blog/",
+  "section": "h1",
+  "old": "The Strandmill Blog",
+  "new": "Strandmill Blog",
+  "reason": "a hub H1 is \"<brand> Blog\"",
+  "hits_in_last_package": 1,
+  "hits_in_structured_data": 0,
+  "script": "hand_07_bloghub_1118.py",
+  "delete_if_present": false
+ },
+ {
+  "n": 3,
+  "page_id": "site:blog",
+  "url": "/blog/",
+  "section": "hero_lead",
+  "old": "You get factory-floor answers on fabrics, fit, quality checks and freight before you commit.",
+  "new": "Guides for swimwear brands and buyers on fabrics, fit, sampling, quality checks and freight.",
+  "reason": "a blog hub that grows daily: whom it is for and its buyer topics (coordinator 11-18)",
+  "hits_in_last_package": 1,
+  "hits_in_structured_data": 0,
+  "script": "hand_07_bloghub_1118.py",
+  "delete_if_present": false
+ },
+ {
+  "n": 4,
+  "page_id": "site:blog",
+  "url": "/blog/",
+  "section": "meta",
+  "old": "Swimwear factory insights on certifications, fabrics and design capabilities from the Strandmill blog, with a direct line to send your enquiry.",
+  "new": "The Strandmill blog: guides for swimwear brands on fabrics, certifications, fit, sampling, minimums, quality checks and shipping.",
+  "reason": "a blog hub that grows daily: whom it is for and its buyer topics (coordinator 11-18)",
+  "hits_in_last_package": 1,
+  "hits_in_structured_data": 0,
+  "script": "hand_07_bloghub_1118.py",
+  "delete_if_present": false
+ },
+ {
+  "n": 5,
+  "page_id": "site:blog",
+  "url": "/blog/",
+  "section": "overview",
+  "old": "We make your swimwear ourselves, in our own single factory in Guangzhou, Guangdong, China. Through our [factory ownership and direct B2B sales](/about-us/), production and export sit inside one company, so we control quality, cost and delivery directly. Our factory has been running since 2011, we check each order all the way through, and you agree every order with our team. We sell only through this website and our team, never through an online shop or a third-party marketplace or platform.",
+  "new": "These guides are written by the people who make your swimwear. Through our [factory ownership and direct B2B sales](/about-us/), production and export sit inside one company, so the answers on [fabrics and sourcing](/swimwear-fabrics-sourcing/), [certifications](/sustainability/), [development and samples](/development/), quality and delivery come from the factory floor.",
+  "reason": "a short intro to the guides; three of the dropped table's links kept here",
+  "hits_in_last_package": 1,
+  "hits_in_structured_data": 0,
+  "script": "hand_07_bloghub_1118.py",
+  "delete_if_present": false
+ },
+ {
+  "n": 6,
+  "page_id": "site:blog",
+  "url": "/blog/",
+  "section": "overview_2",
+  "old": "Certifications, Fabrics and Design at Our Factory",
+  "new": "",
+  "reason": "a hub carries the article cards, an intro and one CTA, no table (competitors' hubs)",
+  "hits_in_last_package": 1,
+  "hits_in_structured_data": 0,
+  "script": "hand_07_bloghub_1118.py",
+  "delete_if_present": false
+ }
+]

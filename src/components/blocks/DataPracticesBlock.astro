@@ -1,0 +1,41 @@
+---
+// What this site collects, on its privacy policy after Site Factory's text (scripts/lib/data-practices.mjs): written
+// from the enquiry form (and the resource request form, where a page carries one), the site runtime's services and the owner's privacy facts, as a table with the table
+// module's look, then how long enquiries are kept and whom to ask. A block with Site Factory's table (block.practices,
+// the package's data_practices: Site Factory integ deb67119, 2026-11-17) shows that table, its retention and its
+// contact as given (an empty retention: no period stated); the preflight holds one whose rows are not the site's own.
+import { DATA_PRACTICES_COLUMNS, dataPractices, siteForms } from '../../../scripts/lib/data-practices.mjs';
+import { plainText } from '../../../scripts/lib/blog.mjs';
+import { pages, siteContact, siteProof, siteRuntime, type AuthoringPage, type DataPracticesBlock } from '../../lib/authoring';
+import SmartLink from '../site/SmartLink.astro';
+import BlockSection from './BlockSection.astro';
+
+interface Props { block: DataPracticesBlock; page?: AuthoringPage }
+const { block, page } = Astro.props;
+// The page's own copy (its other sections): the contact and the retention it states are the page's one source
+// (lib/data-practices.mjs; four-site audit 2026-11-17, C4).
+const strings = (value: unknown): string[] => (typeof value === 'string' ? [value] : Array.isArray(value) ? value.flatMap(strings) : value && typeof value === 'object' ? Object.entries(value).filter(([key]) => !['id', 'type', 'href', 'variant', 'sourceSectionIds'].includes(key)).flatMap(([, item]) => strings(item)) : []);
+const copy = (page?.blocks ?? []).filter((item) => item.id !== block.id).flatMap(strings).map(plainText).join('\n');
+// The resource request form is listed when a page of the site carries one (siteForms).
+const { form, resourceForm } = siteForms(pages);
+const given = block.practices;
+const { rows, retention, contact } = given
+  ? { rows: given.rows.map((row) => [row.what, row.recorded, row.why]), retention: given.retention || null, contact: given.contact || null }
+  : dataPractices({ form, resourceForm, runtime: siteRuntime, privacy: siteProof?.privacy ? { ...siteProof.privacy, standIn: siteProof.standIn === true } : null, copy, contactEmail: siteContact && !siteContact.placeholder ? siteContact.email ?? null : null });
+const contactRoute = pages.find((page) => page.pageType === 'contact')?.route ?? null;
+---
+
+{rows.length > 0 && (
+  <BlockSection block={block} name="data-practices" headingClass="table-block__heading">
+    <div class="table-block__scroll" data-layout="table" data-scroll="sideways" data-columns={DATA_PRACTICES_COLUMNS.length} role="region" tabindex="0" aria-label={block.heading ?? DATA_PRACTICES_COLUMNS.join(', ')}>
+      <table class="table-block">
+        <thead><tr>{DATA_PRACTICES_COLUMNS.map((column) => <th scope="col">{column}</th>)}</tr></thead>
+        <tbody>{rows.map((row) => <tr>{row.map((cell) => <td>{cell}</td>)}</tr>)}</tbody>
+      </table>
+    </div>
+    {retention && <p class="table-block__note">How long we keep what you send us: {retention}.</p>}
+    {(contact || contactRoute) && (
+      <p class="table-block__note">To see, correct or delete what we hold about you, {contact ? <>write to <a href={`mailto:${contact}`}>{contact}</a>.</> : <>use the <SmartLink href={contactRoute}>contact page</SmartLink>.</>}</p>
+    )}
+  </BlockSection>
+)}

@@ -47,10 +47,20 @@ export function lineAlignment(rects, column) {
 export const sectionBlocks = (blocks) => blocks.filter((block, index) => !(block.continues && index > 0 && [blocks[index - 1].id, blocks[index - 1].continues].includes(block.continues)));
 
 // Runs of one block type longer than the competitor's (at least two in a row are always allowed), counted by section;
-// none on a document.
+// none on a document. A list type (LIST_TYPES: an FAQ section is a list of questions under its topic) that most of the
+// page's sections are is the page's content, its topics one after another (site13's FAQ page 2026-11-17: 21 sections).
+// A card set the template sets out as a list (featureGrid pattern bullets: lib/visual-budget.mjs varyItemRows) is a
+// list on the page, the module it varies a run of card grids with (aloha 2026-11-17: cards, a list, cards counted as
+// three card grids in a row).
+export const LIST_TYPES = Object.freeze(['faq']);
+const moduleType = (block) => (block.type === 'featureGrid' && block.pattern === 'bullets' ? 'iconList' : block.type);
 export function repeatedModules(blocks, reference = {}, pageType = null) {
   if (DOCUMENT_PAGE_TYPES.includes(pageType)) return [];
-  return longestRuns(sectionBlocks(blocks)).filter((run) => run.length > Math.max(2, reference[run.type] ?? 0)).map((run) => ({ type: run.type, length: run.length, allowed: Math.max(2, reference[run.type] ?? 0), blocks: run.blocks }));
+  const sections = sectionBlocks(blocks).map((block) => ({ ...block, type: moduleType(block) }));
+  const counts = new Map();
+  for (const block of sections) counts.set(block.type, (counts.get(block.type) ?? 0) + 1);
+  const listed = [...counts].find(([type, count]) => LIST_TYPES.includes(type) && count * 2 > sections.length)?.[0];
+  return longestRuns(sections).filter((run) => run.type !== listed).filter((run) => run.length > Math.max(2, reference[run.type] ?? 0)).map((run) => ({ type: run.type, length: run.length, allowed: Math.max(2, reference[run.type] ?? 0), blocks: run.blocks }));
 }
 
 // sRGB "rgb(r, g, b[, a])" -> CIE Lab, and the CIE76 distance between two colours.
@@ -128,7 +138,7 @@ export const CROP_MINIMUM = 0.5;
 export function measurePage() {
   const main = document.querySelector('main[data-authoring-page]') ?? document.querySelector('main');
   const visible = (element) => { const box = element.getBoundingClientRect(); const style = getComputedStyle(element); return box.width > 0 && box.height > 0 && style.visibility !== 'hidden' && style.display !== 'none' && Number(style.opacity) > 0; };
-  const blocks = [...main.querySelectorAll(':scope [data-authoring-block]')].filter((element) => !element.parentElement.closest('[data-authoring-block]')).map((element) => ({ type: element.getAttribute('data-authoring-block'), id: element.getAttribute('data-block-id') ?? element.getAttribute('data-authoring-block'), continues: element.getAttribute('data-continues') }));
+  const blocks = [...main.querySelectorAll(':scope [data-authoring-block]')].filter((element) => !element.parentElement.closest('[data-authoring-block]')).map((element) => ({ type: element.getAttribute('data-authoring-block'), id: element.getAttribute('data-block-id') ?? element.getAttribute('data-authoring-block'), continues: element.getAttribute('data-continues'), pattern: element.getAttribute('data-pattern') }));
   // The palette: every colour a :root custom property of the page's stylesheets resolves to.
   const names = new Set();
   for (const sheet of document.styleSheets) {
@@ -199,11 +209,13 @@ export function measurePage() {
   });
   // Controls a finger has to hit (links and buttons on their own; a link inside running text is exempt, as WCAG has it,
   // and so is a box whose label can be tapped instead). A control inside a closed menu or fold cannot be hit yet.
-  const folded = (element) => Boolean(element.parentElement?.closest('details:not([open])')) && !element.closest('summary');
+  // A closed fold's own summary can be hit; a summary of a fold nested in a closed menu cannot (site14 2026-11-18: the
+  // closed phone menu's 'Locations' toggle, laid out 4px wide in the hidden panel, failed tap_target).
+  const folded = (element) => { for (let fold = element.parentElement?.closest('details:not([open])'); fold; fold = fold.parentElement?.closest('details:not([open])')) { const own = fold.querySelector(':scope > summary'); if (!own || !own.contains(element)) return true; } return false; };
   const labelled = (element) => element.tagName === 'INPUT' && /checkbox|radio/.test(element.type) && Boolean(element.closest('label') || (element.id && document.querySelector(`label[for="${element.id}"]`)));
   const targets = [...document.querySelectorAll('a[href], button, summary, input:not([type="hidden"]), select, textarea')].filter((element) => visible(element) && !folded(element) && !labelled(element) && !(element.tagName === 'A' && element.closest('p, dd, td, blockquote'))).map((element) => {
     const box = element.getBoundingClientRect();
-    return { block: element.closest('[data-block-id]')?.getAttribute('data-block-id') ?? (element.closest('header') ? 'header' : element.closest('footer') ? 'footer' : null), text: (element.textContent || element.getAttribute('aria-label') || '').trim().slice(0, 40), width: Math.round(box.width), height: Math.round(box.height) };
+    return { block: element.closest('[data-block-id]')?.getAttribute('data-block-id') ?? (element.closest('header') ? 'header' : element.closest('footer') ? 'footer' : null), text: (element.textContent || element.getAttribute('aria-label') || '').trim().slice(0, 40), width: Math.round(box.width), height: Math.round(box.height), x: Math.round(box.left), y: Math.round(box.top + window.scrollY) };
   });
   // Alignment inside the page itself (owner 2026-11-03: elements line up with one another, whatever the competitor
   // does): each heading outside a card, list, table or figure with the running paragraph that follows it in its column
@@ -269,8 +281,9 @@ export function measurePage() {
     const sticky = photos.some((item) => getComputedStyle(item).position === 'sticky');
     return [{ block: row.closest('[data-block-id]')?.getAttribute('data-block-id') ?? null, media: { top: Math.round(media.top), bottom: Math.round(media.bottom) }, copy: { top: Math.round(text.top), bottom: Math.round(text.bottom) }, sticky }];
   });
-  // Each section's buttons and the text right above them (actionsDetached).
-  const actions = [...main.querySelectorAll('[data-authoring-block] .button')].filter((button) => button.getBoundingClientRect().width > 0 && !button.closest('form, nav, .track__controls, .related-tile, .gallery__item, .feature-card, .case, article')).flatMap((button) => {
+  // Each section's buttons and the text right above them (actionsDetached). A row of buttons is measured by its first:
+  // the one beside it sits where the row puts it (aloha's quote page, 2026-11-18: the form's call, then "Prefer email?").
+  const actions = [...main.querySelectorAll('[data-authoring-block] .button')].filter((button) => button.getBoundingClientRect().width > 0 && !button.previousElementSibling?.classList.contains('button') && !button.closest('form, nav, .track__controls, .related-tile, .gallery__item, .feature-card, .case, article')).flatMap((button) => {
     const section = button.closest('[data-authoring-block]');
     const box = button.getBoundingClientRect();
     const above = [...section.querySelectorAll('h1, h2, h3, p, li')].filter((item) => !item.contains(button) && item.getBoundingClientRect().height > 0 && item.getBoundingClientRect().bottom <= box.top + 2 && item.getBoundingClientRect().right > box.left - 400 && item.getBoundingClientRect().left < box.right + 400);
@@ -377,14 +390,26 @@ export function gutterOutliers(axes = []) {
   return known.filter((item) => Math.abs(item.axis - site) > EDGE_TOLERANCE).map(({ route, axis }) => ({ route, axis, site }));
 }
 
-// Controls smaller than TARGET_MIN pixels across (WCAG 2.2 target size, minimum), one per block and size: a warning for
-// now, not a failure (the plan: see how many the sites have first). [{ block, text, width, height }]
+// Controls smaller than TARGET_MIN pixels across (WCAG 2.2 2.5.8 target size, minimum), one per block and size: a
+// failure since the four-site audit 2026-11-17 (the swimwear logo at 20px, hotel-rm's footer links at 23px; Fable's
+// plan 4.2). WCAG's spacing exception holds: an undersized target passes when a TARGET_MIN circle on its centre meets
+// no other target, nor the circle of another undersized one (a lone 20px logo, footer links 23px high a gap apart).
+// Targets measured without a position (x, y) get no exception. [{ block, text, width, height, x?, y? }]
 export const TARGET_MIN = 24;
+const centre = (target) => [target.x + target.width / 2, target.y + target.height / 2];
+const small = (target) => target.width < TARGET_MIN || target.height < TARGET_MIN;
+// The distance from a point to a target's box (0 inside it).
+const toBox = ([x, y], target) => Math.hypot(Math.max(target.x - x, 0, x - (target.x + target.width)), Math.max(target.y - y, 0, y - (target.y + target.height)));
+export function spacedApart(target, targets) {
+  if (!Number.isFinite(target.x) || !Number.isFinite(target.y)) return false;
+  const point = centre(target);
+  return targets.every((other) => other === target || !Number.isFinite(other.x) || (small(other) ? Math.hypot(point[0] - centre(other)[0], point[1] - centre(other)[1]) >= TARGET_MIN : toBox(point, other) >= TARGET_MIN / 2));
+}
 export function smallTargets(targets = []) {
   const seen = new Set();
   return targets.filter((target) => {
     const key = `${target.block} ${target.width}x${target.height}`;
-    if ((target.width >= TARGET_MIN && target.height >= TARGET_MIN) || seen.has(key)) return false;
+    if (!small(target) || seen.has(key) || spacedApart(target, targets)) return false;
     seen.add(key);
     return true;
   });
@@ -395,6 +420,120 @@ export function smallTargets(targets = []) {
 export const unmarkedScrollers = (scrollers = []) => scrollers.filter((scroller) => !scroller.marked).map(({ block, selector }) => ({ block, selector }));
 // A carousel whose items do not fit but that shows fewer than its two buttons. [{ block, controls }]
 export const carouselsWithoutControls = (carousels = []) => carousels.filter((carousel) => carousel.overflows && carousel.controls < 2).map(({ block, controls }) => ({ block, controls }));
+
+// The first screen (four-site audit 2026-11-17: on the swimwear site 29 of 37 pages showed no enquiry button in a
+// phone's first screen; the hotel site's title sat at y=904 of a 1366×768 screen; owner 2026-11-17: the page title and
+// its primary call to action inside the first screen of a phone, 390×844, and a desktop, 1366×768, after claude-seo,
+// over the competitor's full-screen photo). The screens measured, and the bar at their foot: at most STICKY_SHARE of the
+// screen high and a FOLD_TARGET px target (Modern Web Guidance: sticky bars under 12% of the viewport, 44px touch
+// targets).
+export const FOLD_SCREENS = Object.freeze({ mobile: { width: 390, height: 844 }, desktop: { width: 1366, height: 768 } });
+export const STICKY_SHARE = 0.12;
+export const FOLD_TARGET = 44;
+// How a banner hero gives its copy the first screen (template.css, the media-banner rules): the copy's top padding and
+// gaps follow the screen's height (svh), the title is at most titleMaxSvh of it (never under its fit floor), and the
+// button keeps edgeGapRem over the screen's foot. Measured on site13's product pages and site12's banner pages at
+// 1366×768 (claude-seo audit 2026-11-17, M-14 and V-1: under a 3:2 photo's 455px heavy_crop floor the 56px two-line
+// title, a two-line lead and a 64px button did not fit at 6svh; at 5.5svh the button ends at 763).
+export const HERO_FOLD = Object.freeze({ copyPadSvh: 3.2, copyGapSvh: 1.6, titleMaxSvh: 5.5, edgeGapRem: 1 });
+
+// In the page, at the top of it: the screen, the page title's box, its lead's (the hero's lead paragraphs, top of the
+// first to the foot of the last), the boxes of the page's calls to action (the hero's button, the header's, the enquiry
+// bar's: lib/primary-cta.mjs) and the enquiry bar's.
+export async function measureFold() {
+  scrollTo(0, 0);
+  await new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done)));
+  const shown = (element) => { const rect = element.getBoundingClientRect(); const style = getComputedStyle(element); return rect.width > 0 && rect.height > 0 && style.visibility !== 'hidden' && style.display !== 'none'; };
+  const box = (element) => { const rect = element.getBoundingClientRect(); return { top: Math.round(rect.top), bottom: Math.round(rect.bottom), height: Math.round(rect.height), width: Math.round(rect.width) }; };
+  const bar = [...document.querySelectorAll('[data-enquiry-bar]')].find(shown) ?? null;
+  const h1 = document.querySelector('main h1') ?? document.querySelector('h1');
+  const leads = [...document.querySelectorAll('.page-hero__lead, .blog-hub-hero__lead')].filter(shown);
+  const lead = leads.length ? { top: box(leads[0]).top, bottom: box(leads.at(-1)).bottom } : null;
+  const ctas = [...document.querySelectorAll('a[data-primary-cta], .page-hero__actions a.button--primary, a.site-header__cta')].filter(shown).map((element) => {
+    const fixed = Boolean(element.closest('[data-enquiry-bar]'));
+    return { ...box(element), label: element.textContent.trim().slice(0, 40), where: fixed ? 'bar' : element.closest('[data-site-header]') ? 'header' : 'hero', fixed };
+  });
+  return { width: innerWidth, height: innerHeight, h1: h1 && shown(h1) ? { ...box(h1), text: h1.textContent.trim().slice(0, 60) } : null, lead, ctas, bar: bar ? { ...box(bar), target: box(bar.querySelector('a') ?? bar).height } : null };
+}
+
+// What keeps a page's title or call out of its first screens: [{ screen, issue, ... }]. h1_below_fold: the title ends
+// under the screen (or under the enquiry bar over its foot); cta_below_fold: the hero's own button (expectsCta: the
+// hero has one) is not wholly in the screen above the bar. The header's button and the bar's are the site's chrome, not
+// the page's call: they never stand in for it (site13 claude-seo audit 2026-11-17, M-14: the product pages' button at
+// y=763-807 of 768 passed because the header's at 15-64 did; site12 V-1 the same at 730-809). hero_lead_long: the lead
+// itself runs under the screen, the call under it then too: the copy is Site Factory's to shorten, a warning, never
+// moved off the hero (coordinator 2026-11-17). sticky_bar_height, sticky_bar_target: the bar over 12% of the screen, or
+// its button under 44px.
+export function foldProblems(folds = [], { expectsCta = true } = {}) {
+  const problems = [];
+  for (const fold of folds ?? []) {
+    const screen = `${fold.width}x${fold.height}`;
+    const edge = fold.height - (fold.bar ? Math.max(0, fold.height - fold.bar.top) : 0);
+    if (!fold.h1) problems.push({ screen, issue: 'h1_below_fold', value: 'no visible h1' });
+    else if (fold.h1.top < 0 || fold.h1.bottom > edge + 1) problems.push({ screen, issue: 'h1_below_fold', text: fold.h1.text, bottom: fold.h1.bottom, fold: edge });
+    const leadLong = Boolean(fold.lead && fold.h1 && fold.h1.bottom <= edge + 1 && fold.lead.bottom > edge + 1);
+    if (leadLong) problems.push({ screen, issue: 'hero_lead_long', bottom: fold.lead.bottom, fold: edge });
+    const own = (fold.ctas ?? []).filter((cta) => cta.where === 'hero');
+    if (expectsCta && !leadLong && !own.some((cta) => cta.top >= 0 && cta.bottom <= edge + 1)) {
+      const nearest = [...own].sort((a, b) => a.top - b.top)[0];
+      problems.push({ screen, issue: 'cta_below_fold', ...(nearest ? { label: nearest.label, top: nearest.top, bottom: nearest.bottom, where: nearest.where } : { value: 'no call to action shown' }), fold: edge });
+    }
+    if (fold.bar && fold.bar.height > fold.height * STICKY_SHARE) problems.push({ screen, issue: 'sticky_bar_height', height: fold.bar.height, limit: Math.floor(fold.height * STICKY_SHARE) });
+    if (fold.bar && fold.bar.target < FOLD_TARGET) problems.push({ screen, issue: 'sticky_bar_target', height: fold.bar.target, minimum: FOLD_TARGET });
+  }
+  return problems;
+}
+
+// The enquiry bar over the controls it might hide (four-site audit 2026-11-17, Fable's plan A8; claude-seo
+// agent-friendly-pages item 4: no overlay on an interactive node; Modern Web Guidance form-factor-adaptation): on a
+// phone each form control and primary button of the page, brought up from just under the screen's foot as the next
+// stop of a keyboard or an agent is, takes focus (a disabled control, which cannot, is scrolled into view the same
+// nearest way) and must then sit clear of the fixed bar (template.css keeps scroll-padding-bottom for it). In the
+// page: { bar, controls: [{ block, control, text, focused, covered }] }, covered the pixels of it under the bar.
+// BAR_CONTROLS_MAX bounds the work on a page of many buttons.
+export const BAR_CONTROLS_MAX = 40;
+export const BAR_OVERLAP_TOLERANCE = 1;
+export async function measureBarCover(maxControls = 40) {
+  const shown = (element) => { const rect = element.getBoundingClientRect(); const style = getComputedStyle(element); return rect.width > 0 && rect.height > 0 && style.visibility !== 'hidden' && style.display !== 'none' && !(element.parentElement?.closest('details:not([open])') && !element.closest('summary')); };
+  const bar = [...document.querySelectorAll('[data-enquiry-bar]')].find(shown) ?? null;
+  if (!bar) return { bar: null, controls: [] };
+  const frames = () => new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done)));
+  const root = document.documentElement;
+  const behaviour = root.style.scrollBehavior;
+  root.style.scrollBehavior = 'auto';
+  // What a visitor or an agent moves to: controls and primary buttons in the page, not the bar's own, not one kept
+  // out of the tab order or the accessibility tree (a form's spam trap), not a disabled one, which nobody moves to (site12
+  // 2026-11-17: a carousel's Previous button, disabled on its first photo).
+  const controls = [...document.querySelectorAll('main :is(input:not([type="hidden"]), select, textarea, button, a.button--primary)')]
+    .filter((element) => shown(element) && !element.closest('[data-enquiry-bar], [aria-hidden="true"]') && element.getAttribute('tabindex') !== '-1' && !element.disabled)
+    .slice(0, maxControls);
+  const found = [];
+  for (const element of controls) {
+    scrollTo(0, Math.max(0, element.getBoundingClientRect().top + scrollY - innerHeight + 4));
+    await frames();
+    element.focus();
+    await frames();
+    const box = element.getBoundingClientRect();
+    const over = bar.getBoundingClientRect();
+    const covered = Math.max(0, Math.min(box.bottom, over.bottom) - Math.max(box.top, over.top)) * (Math.min(box.right, over.right) > Math.max(box.left, over.left) ? 1 : 0);
+    found.push({ block: element.closest('[data-authoring-block]')?.getAttribute('data-authoring-block') ?? null, control: element.matches('a') ? 'button-link' : element.tagName.toLowerCase(), text: (element.getAttribute('name') || element.textContent || '').trim().slice(0, 40), focused: document.activeElement === element, covered: Math.round(covered) });
+  }
+  document.activeElement?.blur?.();
+  scrollTo(0, 0);
+  root.style.scrollBehavior = behaviour;
+  await frames();
+  return { bar: { top: Math.round(bar.getBoundingClientRect().top), height: Math.round(bar.getBoundingClientRect().height) }, controls: found };
+}
+// The controls the bar hides once they are brought into view: [{ block, control, text, covered }], one per block and kind.
+export function barCovers(measured) {
+  const seen = new Set();
+  return (measured?.controls ?? []).filter((item) => {
+    const key = `${item.block} ${item.control}`;
+    if (item.covered <= BAR_OVERLAP_TOLERANCE || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).map(({ block, control, text, covered, focused }) => ({ block, control, text, covered, focused }));
+}
 
 // Paragraphs whose lines run wider than MEASURE_LIMIT ch (treatment-practice: a text column of about 70ch; the limit
 // leaves room), one finding per block with its widest: [{ block, ch }].

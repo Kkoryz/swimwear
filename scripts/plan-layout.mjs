@@ -17,7 +17,7 @@
 // Usage: node scripts/plan-layout.mjs [siteRoot] [--feasibility | --gate] [--out <dir>]
 
 import { existsSync } from 'node:fs';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { cliArgs, runMain } from './lib/cli.mjs';
 import { wrapEmFor } from './lib/heading-fit.mjs';
@@ -75,7 +75,8 @@ export async function planSite({ root = process.cwd(), maxWalls = MAX_BUDGET_WAL
   const figures = await readJson(resolve(root, 'src/data/page-figures.json'), null);
   const trust = await readJson(resolve(root, 'src/data/site-trust.json'), null);
   const trustBar = (page) => { const { items, certifications } = trustBarContent(page, figures, trust); return items.length > 0 || certifications.length > 0; };
-  const plans = pages.map((page) => planPage(page, components, { isBuilt, headingModel, charEm, pageTypes, phoneHeroes, maxWalls, trustBar: trustBar(page) }));
+  const treatmentCss = await readFile(resolve(root, 'src/styles/reference.css'), 'utf8').catch(() => '');
+  const plans = pages.map((page) => planPage(page, components, { isBuilt, headingModel, charEm, pageTypes, phoneHeroes, maxWalls, trustBar: trustBar(page), treatmentCss }));
   // Cards that name services carry a line icon where the site's cards carry icons (Fable's plan 3.2: "站点卡片用图标时";
   // lib/slot-visuals.mjs cardVisual: the site's choice, else icons for a trade whose photos are scenes).
   const context = { serviceCards: cardVisual(components) === 'icon', phoneHeroes: Boolean(phoneHeroes), maxWalls };

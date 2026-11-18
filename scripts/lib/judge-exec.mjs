@@ -22,7 +22,9 @@ export function runJudge(options, { claude = runClaude, codex = runCodex, env = 
   if (options.image) return codex(options);
   if (agentFor(options.root, env) === 'codex') return codex(options);
   const { root, prompt, images, lastMessage, sandbox, timeoutMs, tokenLog, label } = options;
-  let model = env.CLAUDE_JUDGE_MODEL || null;
+  // A run may name its own Claude model: the claude-seo audit's auditors mix models (config/claude-seo-auditors.json;
+  // owner 2026-11-17: "可以 而且可以并行不是吗", two Opus and one other), which the site's one judge model would undo.
+  let model = options.model || env.CLAUDE_JUDGE_MODEL || null;
   try { model ||= JSON.parse(readFileSync(resolve(root, 'site.json'), 'utf8')).agentModel || null; } catch { /* no site.json */ }
   return claude({ root, prompt, images, lastMessage, sandbox, timeoutMs, tokenLog, label, model });
 }

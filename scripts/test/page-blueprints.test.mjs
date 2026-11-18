@@ -104,7 +104,10 @@ test('the closing call to action follows the competitor page\'s last closing sec
 test('the privacy page is legal text without photos or calls to action; the contact page does not ask to contact us', () => {
   const privacy = blueprintPage({ page: { page_id: 'privacy', page_type: 'privacy', label: 'Privacy Policy', url: '/privacy/' }, pagesPlan: plan, contactRoute: '/contact/' });
   assert.equal(privacy.hero.cta, undefined);
-  assert.deepEqual(privacy.blocks.map((block) => [block.type, block.variant]), [['intro', 'text']]);
+  // Its text, then what the site collects (lib/data-practices.mjs, written from the configuration).
+  assert.deepEqual(privacy.blocks.map((block) => [block.type, block.variant]), [['intro', 'text'], ['dataPractices', undefined]]);
+  const terms = blueprintPage({ page: { page_id: 'terms', page_type: 'privacy', label: 'Terms and Conditions', url: '/terms-and-conditions/' }, pagesPlan: plan, contactRoute: '/contact/' });
+  assert.deepEqual(terms.blocks.map((block) => block.type), ['intro']);
   const contact = blueprintPage({ page: plan.pages.find((page) => page.page_type === 'contact'), pagesPlan: plan, contactRoute: '/contact/' });
   assert.ok(!contact.blocks.some((block) => block.type === 'cta'));
   const about = blueprintPage({ page: plan.pages.find((page) => page.page_type === 'about'), pagesPlan: plan, contactRoute: '/contact/' });

@@ -21,6 +21,11 @@ const steps = chart.kind === 'steps' ? chart.items : [];
 const ranges = chart.kind === 'ranges' ? chart.items : [];
 const top = Math.max(1, ...ranges.map((item) => item.max));
 const unitText = chart.unit ? ` ${chart.unit}` : '';
+// A mark on a track stays on it: a point at the scale's end (one day, or one value: "Chinese New Year 15 days" at the top
+// of its scale) is drawn ending there, not starting there (aloha audit 2026-11-18 L-9: left 100%, past the track's end).
+// Ranges that are all single values are lengths: each drawn from 0, as bars.
+const span = (left: number, width: number) => { const wide = Math.min(100, Math.max(1.5, width)); return `left: ${Math.max(0, Math.min(left, 100 - wide)).toFixed(1)}%; width: ${wide.toFixed(1)}%`; };
+const lengths = ranges.length > 0 && ranges.every((item) => item.min === item.max);
 const stats = chart.kind === 'stats' ? chart.items : [];
 const shares = chart.kind === 'shares' ? chart.items : [];
 const comparison = chart.kind === 'comparison' ? chart : null;
@@ -43,7 +48,7 @@ const comparison = chart.kind === 'comparison' ? chart : null;
       {spans.map((item) => (
         <li class="chart-timeline__row">
           <span class="chart-timeline__label">{item.label}</span>
-          <span class="chart-timeline__track"><span class="chart-timeline__span" style={`left: ${at(item.start).toFixed(1)}%; width: ${Math.max(1.5, at(item.end) - at(item.start)).toFixed(1)}%`}></span></span>
+          <span class="chart-timeline__track"><span class="chart-timeline__span" style={span(at(item.start), at(item.end) - at(item.start))}></span></span>
           <span class="chart-timeline__dates">{item.start === item.end ? day(item.start) : `${day(item.start)} – ${day(item.end)}`}</span>
         </li>
       ))}
@@ -64,7 +69,7 @@ const comparison = chart.kind === 'comparison' ? chart : null;
       {ranges.map((item) => (
         <li class="chart-timeline__row">
           <span class="chart-timeline__label">{item.label}</span>
-          <span class="chart-timeline__track"><span class="chart-timeline__span" style={`left: ${((item.min / top) * 100).toFixed(1)}%; width: ${Math.max(1.5, ((item.max - item.min) / top) * 100).toFixed(1)}%`}></span></span>
+          <span class="chart-timeline__track"><span class="chart-timeline__span" style={lengths ? span(0, (item.max / top) * 100) : span((item.min / top) * 100, ((item.max - item.min) / top) * 100)}></span></span>
           <span class="chart-timeline__dates">{item.min === item.max ? item.min : `${item.min}–${item.max}`}{unitText}</span>
         </li>
       ))}

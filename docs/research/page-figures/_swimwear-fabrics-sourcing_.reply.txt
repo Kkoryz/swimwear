@@ -1,3 +1,0 @@
-```json
-{"figures": [{"value": "50 to 100 m", "label": "Mill minimum per colour"}, {"value": "70 m", "label": "Carvico Vita/Sumatra minimum"}, {"value": "50 pieces", "label": "Minimum per style colour"}, {"value": "3 to 5 weeks", "label": "Import time before bulk"}, {"value": "10 to 15 days", "label": "Sample lead time"}, {"value": "35 to 40 days", "label": "Bulk production time"}]}
-```

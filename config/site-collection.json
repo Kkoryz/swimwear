@@ -1,0 +1,182 @@
+{
+  "schemaVersion": "site-collection/v1",
+  "source": {
+    "made": "exported by stage 08 (seo_website_template scripts/export-site-collection.mjs); Site Factory copies it byte for byte to domain/site-collection.json",
+    "files": [
+      "config/lead-form.json (fields, consent, resourceRequest)",
+      "scripts/lib/data-practices.mjs (DATA_PRACTICES_HEADING, DATA_PRACTICES_COLUMNS, ENQUIRY_CONTEXT, COLLECTION_DEFAULTS, collectionItems)",
+      "scripts/lib/lead-form.mjs (leadFormBlock, resourceFormBlock: the forms' fields)",
+      "scripts/lib/site-collection.mjs (SITE_FACTS: Site Factory's own sentences, carried word for word)"
+    ],
+    "rows": "each item's what / recorded / why is dataPractices()'s row word for word (scripts/test/site-collection.test.mjs)",
+    "when": "\"always\", or {switch: value}: the item is on when every switch has that value; the switches are Site Factory's project.yaml site_services over the defaults, resource_form on when the site has its resources page",
+    "labels": "the words a privacy page sentence repeating the row would hold (Site Factory S07-12)"
+  },
+  "heading": "What this site collects",
+  "columns": [
+    "What",
+    "What is recorded",
+    "Why"
+  ],
+  "enquiry_context": [
+    "page_url",
+    "referrer",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content"
+  ],
+  "form_fields": {
+    "enquiry": [
+      "name",
+      "email",
+      "company",
+      "phone",
+      "product",
+      "quantity",
+      "target_date",
+      "reference_url",
+      "message",
+      "service"
+    ],
+    "resource": [
+      "name",
+      "email",
+      "resource",
+      "message"
+    ],
+    "file_upload": false
+  },
+  "defaults": {
+    "analytics": "umami",
+    "chat": "none",
+    "whatsapp": false,
+    "newsletter": false
+  },
+  "items": [
+    {
+      "id": "enquiry-form",
+      "when": "always",
+      "what": "The enquiry form",
+      "recorded": "Your name, email and message; your company and phone if you give them; the details of your request if you give them (what it is about, how many, by when, a reference link), and that you agreed to this use",
+      "why": "To answer your enquiry",
+      "labels": [
+        "name",
+        "email",
+        "company",
+        "phone",
+        "product",
+        "quantity (pieces)",
+        "target date",
+        "tech pack or reference link",
+        "message"
+      ]
+    },
+    {
+      "id": "enquiry-context",
+      "when": "always",
+      "what": "With each enquiry",
+      "recorded": "The page you sent it from, the page that linked you here (referrer) and any campaign tags in the link you followed (UTM)",
+      "why": "To know which pages and campaigns bring enquiries",
+      "labels": [
+        "referrer",
+        "UTM",
+        "campaign tags"
+      ]
+    },
+    {
+      "id": "resource-request",
+      "when": {
+        "resource_form": true
+      },
+      "what": "The resource request form",
+      "recorded": "Your name, email and which resource; anything else you tell us, and that you agreed to this use; it carries the same page, referrer and campaign tags as an enquiry",
+      "why": "To send you the resource you asked for",
+      "labels": [
+        "name",
+        "email",
+        "which resource"
+      ]
+    },
+    {
+      "id": "analytics",
+      "when": {
+        "analytics": "umami"
+      },
+      "what": "Visit statistics (Umami)",
+      "recorded": "Pages viewed, the site you came from, browser, device type and country, and when a form is sent; counted without cookies and without identifying you",
+      "why": "To see which pages help visitors",
+      "labels": [
+        "pages viewed",
+        "browser",
+        "device type",
+        "country"
+      ]
+    },
+    {
+      "id": "chat",
+      "when": {
+        "chat": "chatwoot"
+      },
+      "what": "Live chat",
+      "recorded": "Your messages and, if you leave it, your email address",
+      "why": "To answer you in the chat",
+      "labels": [
+        "your messages",
+        "email address"
+      ]
+    },
+    {
+      "id": "whatsapp",
+      "when": {
+        "whatsapp": true
+      },
+      "what": "WhatsApp",
+      "recorded": "Nothing on this site: the button opens WhatsApp with a message naming the page, and the conversation continues there under WhatsApp's terms",
+      "why": "To answer you where you prefer",
+      "labels": []
+    },
+    {
+      "id": "newsletter",
+      "when": {
+        "newsletter": true
+      },
+      "what": "The newsletter",
+      "recorded": "Your email address, when you subscribe",
+      "why": "To send the newsletter; every issue has a link to unsubscribe",
+      "labels": [
+        "email address"
+      ]
+    }
+  ],
+  "site_facts": {
+    "collects": "{what}: {why_lower}.",
+    "channels": {
+      "label": "Ways to reach us",
+      "text": "only {items}",
+      "items": {
+        "email": "email ({email})",
+        "phone": "phone ({phone})",
+        "whatsapp": "WhatsApp ({whatsapp_number})",
+        "form": "the enquiry form on this website",
+        "chat": "the live chat on this website"
+      },
+      "join": [
+        ", ",
+        " and "
+      ]
+    },
+    "attachments": {
+      "label": "Files and attachments",
+      "text": "the forms on this website take no attachments; files are sent to us by email"
+    },
+    "resource_delivery": {
+      "form": "Visitors ask for a resource through the resource request form on this website, and we email it to them.",
+      "files": "These resources are files on this website for visitors to open: {names}."
+    },
+    "privacy_retention": "We keep the details sent through this website for {retention}.",
+    "privacy_contact": "Questions about the details this website holds go to {contact}.",
+    "privacy_rights": "To see, correct or delete the details we hold about you, write to {contact}."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "seo-site-photo-text-check-v1",
+  "note": "The words the text check of a photo before it is made leaves out (check-photo-text.mjs, lib/photo-class.mjs; owner 2026-11-17, via Site Factory: a photo's subject is checked against its page's H1 and copy by code, no model, and one that does not match is not made and is reported). A photo's subject shares at least PHOTO_TEXT_MIN_SHARED of its own words with its page's H1 and copy (a section's brief, with the page's H1 and its section's heading and text); these words say how a photo is taken or name what any photo can show, so they never count as shared. Words are read lower case, plural s dropped, three letters or more.",
+  "stopWords": [
+    "the", "and", "for", "with", "from", "into", "onto", "over", "under", "beside", "behind", "across", "along", "around", "between", "through", "their", "its", "his", "her", "they", "them", "this", "that", "these", "those", "who", "whose", "which", "while", "where", "when", "one", "two", "three", "each", "every", "all", "some", "any", "other", "another", "both", "only", "more", "most", "less", "very", "just", "not", "nothing", "here", "there", "out", "off", "own", "same", "new", "next",
+    "photo", "photograph", "image", "picture", "shot", "scene", "view", "close", "closeup", "wide", "medium", "overhead", "seen", "shown", "show", "showing", "frame", "framed", "camera", "lens", "light", "lit", "daylight", "window", "soft", "bright", "warm", "natural", "space", "open", "side", "headline", "background", "foreground", "focus", "blurred", "unreadable", "readable", "visible", "indistinct", "clear", "clearly",
+    "person", "people", "man", "woman", "hand", "hands", "finger", "fingertip", "face", "arm", "standing", "seated", "sits", "sitting", "holding", "holds", "hold", "looking", "looks", "working", "work", "busy", "relaxed", "everyday", "moment",
+    "desk", "table", "surface", "room", "wall", "floor", "shelf", "pen", "cup", "coffee", "beside", "laid", "lying", "stack", "pile", "set", "kept", "placed", "place",
+    "model", "wear", "wearing", "worn", "dressed", "posed", "posing",
+    "name", "names", "figure", "figures", "number", "numbers", "logo", "logos", "word", "words", "text", "sign"
+  ]
+}

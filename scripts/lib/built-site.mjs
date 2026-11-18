@@ -1,7 +1,9 @@
 // The built site (dist/) as the stage 10-12 checks read it: one file per route, read once, and what a page's HTML says
 // to search engines and visitors. Plain patterns over Astro's own output (double-quoted attributes, closed tags).
 
-import { resolve } from 'node:path';
+import { existsSync } from 'node:fs';
+import { readdir, readFile } from 'node:fs/promises';
+import { join, resolve } from 'node:path';
 import { mainText } from './content-fingerprint.mjs';
 import { readText } from './json-io.mjs';
 
@@ -15,6 +17,12 @@ export async function readBuiltPages(root, pages) {
   const built = new Map();
   for (const page of pages) built.set(page.route, await readBuiltPage(root, page.route));
   return built;
+}
+
+// The HTML of every file in dist/ (pages, the 404 page, whatever else the build wrote), sorted by path; [] without dist.
+export async function builtHtmlFiles(root) {
+  const walk = async (dir) => (existsSync(dir) ? (await Promise.all((await readdir(dir, { withFileTypes: true })).map((entry) => (entry.isDirectory() ? walk(join(dir, entry.name)) : entry.name.endsWith('.html') ? [join(dir, entry.name)] : [])))).flat() : []);
+  return Promise.all((await walk(resolve(root, 'dist'))).sort().map((file) => readFile(file, 'utf8')));
 }
 
 export const attribute = (tag, name) => tag.match(new RegExp(`\\s${name}="([^"]*)"`))?.[1] ?? null;

@@ -9,8 +9,8 @@ interface Props { block: BandBlock; media?: Media | null; variant?: string }
 const { block, media = null, variant = 'left' } = Astro.props;
 ---
 
-<section class="block block--band" data-authoring-block="band" data-block-id={block.id} data-variant={variant} data-boundary-anchor="box" data-media-slot={media?.slot}>
-  {media && !media.slot && <img class="band__backdrop" src={media.src} alt="" width={media.width} height={media.height} loading={media.priority ? 'eager' : 'lazy'} decoding="async" style={focusStyle(media.src)} />}
+<section class="block block--band" id={block.anchor} data-authoring-block="band" data-block-id={block.id} data-variant={variant} data-boundary-anchor="box" data-media-slot={media?.slot}>
+  {media && !media.slot && <img class="band__backdrop" src={media.src} alt="" width={media.width} height={media.height} loading={media.priority ? 'eager' : 'lazy'} fetchpriority={media.priority ? 'high' : undefined} decoding="async" style={focusStyle(media.src)} />}
   <div class="container band__inner">
     <div class="band__copy">
       <Eyebrow text={block.eyebrow} />

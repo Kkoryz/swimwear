@@ -22,7 +22,11 @@ test('the shared stylesheets set no property twice for one selector, name no ret
 
 test('dark FAQ cards fold like the accordion, the first open; a caption panel sits over its photo, not under it', async () => {
   const faq = await readFile(new URL('../../src/components/blocks/FaqBlock.astro', import.meta.url), 'utf8');
-  assert.match(faq, /const open = \['open-list', 'cards'\]\.includes\(variant\)/, 'only the open list and the light cards show every answer');
+  // Of the variants only the open list and the light cards show every answer (lib/faq-layout.mjs; a long FAQ or the FAQ
+  // page's is an open list in any variant: G3 of the four-site audit 2026-11-17).
+  assert.match(faq, /const list = faqOpenList\(block, variant, page\)/);
+  const layout = await readFile(new URL('../lib/faq-layout.mjs', import.meta.url), 'utf8');
+  assert.match(layout, /const OPEN_VARIANTS = new Set\(\['open-list', 'cards'\]\)/, 'only the open list and the light cards show every answer');
   const patterns = await readFile(new URL('../../src/styles/patterns.css', import.meta.url), 'utf8');
   assert.doesNotMatch(patterns, /\[data-variant="dark-cards"\]\) summary \{ cursor: default; pointer-events: none/, 'a dark card\'s summary can be clicked');
   assert.match(patterns, /\[data-variant="caption-panel"\] figcaption \{ position: absolute; inset: auto/, 'the caption panel is inside the photo');

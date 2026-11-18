@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "seo-site-claude-seo-auditors-v1",
+  "note": "The independent auditors of the claude-seo full audit (scripts/claude-seo-audit.mjs). Owner 2026-11-17: \"可以 而且可以并行不是吗\": three auditors at once over one set of measurements, the same release build, the same claude-seo checklists and weights and the same Google rules library, none seeing another's reply; models mixed (two Opus and one other) so their blind spots overlap less. The third is another Claude model, not Codex: a Codex judge runs read-only without network and cannot ask the local rules library. Each model is a Claude model id for claude -p --model; it wins over site.json agentModel and CLAUDE_JUDGE_MODEL, which still name the verification's model. On a site whose agent is codex every auditor runs on Codex's judge model. The list is part of the key that decides whether an audit is run again.",
+  "auditors": [
+    { "id": "a1", "model": "claude-opus-5-5", "why": "the model every judgment of this pipeline runs on (lib/claude-exec.mjs JUDGE_MODEL), as the single audit did" },
+    { "id": "a2", "model": "claude-opus-5-5", "why": "a second independent Opus run: the same model reads a long site differently from run to run (site13's seo-audit-3 and seo-audit-4 shared few findings), so two runs of it catch more than one" },
+    { "id": "a3", "model": "claude-sonnet-5-5", "why": "another model family member with its own blind spots, and it can call the local Google rules library through the same curl rule (a Codex judge cannot)" }
+  ]
+}

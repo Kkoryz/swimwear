@@ -7,7 +7,11 @@ import ArticleChart from '../blog/ArticleChart.astro';
 
 interface Props { visual: Extract<SectionVisual, { type: 'data' }> }
 const { visual } = Astro.props;
-const chart = { ...chartOfData(visual.data), alt: visual.caption ?? visual.purpose ?? '', ...(visual.caption ? { caption: visual.caption } : {}) } as ProseChart;
+// Its accessible name: its caption, else what it shows (its items' labels). Never its purpose, a note to the writer
+// ("Explain why buyers…" was read out on aloha's /shipping/, audit 2026-11-18 L-3).
+const drawn = chartOfData(visual.data) as Record<string, any>;
+const shown = [...(drawn.items ?? []).map((item: { label?: string }) => item.label), ...(drawn.rows ?? []).map((row: unknown) => (Array.isArray(row) ? row[0] : (row as { label?: string })?.label)), ...(drawn.options ?? [])].filter((text) => typeof text === 'string' && text.trim());
+const chart = { ...drawn, alt: visual.caption ?? shown.join('; '), ...(visual.caption ? { caption: visual.caption } : {}) } as ProseChart;
 ---
 
 <ArticleChart chart={chart} />

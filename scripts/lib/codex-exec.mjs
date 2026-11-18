@@ -3,6 +3,7 @@ import { existsSync } from 'node:fs';
 import { appendFile, mkdir } from 'node:fs/promises';
 import { homedir } from 'node:os';
 import { basename, delimiter, dirname, join, resolve } from 'node:path';
+import { noteModelCall } from './model-calls.mjs';
 
 const CODEX_TIMEOUT_MS = 12 * 60 * 1000;
 
@@ -132,7 +133,9 @@ export function spawnCodex({ args, prompt, env, timeoutMs }) {
 // token use is appended to that file as one JSON line ({ label } names the run there).
 // image: an image generation, in the image homes in turn (above).
 // wait: the pause after a rate limit (a stand-in in tests).
-export async function runCodex({ root, prompt, images = [], lastMessage, sandbox = 'workspace-write', timeoutMs = CODEX_TIMEOUT_MS, lean = false, judge = false, image = false, tokenLog = null, label = '', spawnRun = spawnCodex, wait = pause }) {
+export async function runCodex({ root, prompt, images = [], lastMessage, sandbox = 'workspace-write', timeoutMs = CODEX_TIMEOUT_MS, lean = false, judge = false, image = false, tokenLog = null, label = '', kind = null, spawnRun = spawnCodex, wait = pause }) {
+  // Every call is counted for the run's summary, and refused in an iteration run (lib/model-calls.mjs).
+  await noteModelCall(root, { label, kind: kind ?? (image ? 'image' : 'judge') });
   const base = ['exec', '--skip-git-repo-check', '-C', root, '-s', sandbox, ...(lean ? LEAN_ARGS : []), ...images.flatMap((image) => ['-i', image]), '-o', lastMessage];
   if (image) return inImageHomes({ root, base, prompt, timeoutMs, spawnRun, wait });
   if (!judge) {

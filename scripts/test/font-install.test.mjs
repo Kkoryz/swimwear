@@ -68,7 +68,9 @@ const answer = (url) => {
   const family = name.replace(/\+/g, ' ');
   const tuples = axes.split('@')[1].split(';').map((tuple) => (tuple.includes(',') ? tuple.split(',') : ['0', tuple]));
   const slug = family.toLowerCase().replace(/\s+/g, '');
-  return tuples.flatMap(([italic, weight]) => ['cyrillic', 'latin-ext', 'latin'].map((subset) => `/* ${subset} */\n@font-face {\n  font-family: '${family}';\n  font-style: ${italic === '1' ? 'italic' : 'normal'};\n  font-weight: ${weight};\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/${slug}/v1/${subset}-${italic}.woff2) format('woff2');\n  unicode-range: U+0000-00FF;\n}\n`)).join('');
+  // Marcellus has one face, regular 400: Google answers the others it is asked for with nothing (and a request of none it
+  // has with 400).
+  return tuples.filter(([italic, weight]) => family !== 'Marcellus' || (weight === '400' && italic === '0')).flatMap(([italic, weight]) => ['cyrillic', 'latin-ext', 'latin'].map((subset) => `/* ${subset} */\n@font-face {\n  font-family: '${family}';\n  font-style: ${italic === '1' ? 'italic' : 'normal'};\n  font-weight: ${weight};\n  font-display: swap;\n  src: url(https://fonts.gstatic.com/s/${slug}/v1/${subset}-${italic}.woff2) format('woff2');\n  unicode-range: U+0000-00FF;\n}\n`)).join('');
 };
 function fakeFetch({ fail = null } = {}) {
   const calls = [];
@@ -120,6 +122,20 @@ test('a network failure or a family Google Fonts does not have fails with what t
   assert.deepEqual(await readdir(cacheDir), []);
   const unknown = { ...plan, families: [{ family: 'Freight Text Pro', source: 'google-fonts', weights: [400], styles: ['normal'] }] };
   await assert.rejects(downloadFaces({ plan: unknown, cacheDir, fetch: fakeFetch().fetch }), /Google Fonts has no "Freight Text Pro".*SUBSTITUTES/);
+});
+
+test('a weight the family does not have is left to the browser to synthesize, as on the reference, and recorded; a style with no face at all fails', async (t) => {
+  const cacheDir = await mkdtemp(join(tmpdir(), 'font-cache-'));
+  t.after(() => rm(cacheDir, { recursive: true, force: true }));
+  const plan = fontPlan({ fontRoles, fontLock });
+  // hometeamluxuryrentals.com shows Marcellus at 600 and 700: its browser bolds the one regular face it loads.
+  const marcellus = { ...plan, families: [{ family: 'Marcellus', source: 'google-fonts', weights: [400, 600, 700], styles: ['normal'] }] };
+  const download = await downloadFaces({ plan: marcellus, cacheDir, fetch: fakeFetch().fetch });
+  assert.deepEqual([...new Set(download.faces.map((face) => face.weight))], [400]);
+  assert.deepEqual(download.synthesized, { Marcellus: [600, 700] });
+  assert.deepEqual(installedFonts({ plan: marcellus, ...download }).families[0].synthesized, [600, 700]);
+  const italic = { ...plan, families: [{ family: 'Marcellus', source: 'google-fonts', weights: [400], styles: ['normal', 'italic'] }] };
+  await assert.rejects(downloadFaces({ plan: italic, cacheDir, fetch: fakeFetch().fetch }), /no latin face of "Marcellus" in italic/);
 });
 
 test('fonts.css is generated from the record: the faces and the role tokens over every other definition', async (t) => {

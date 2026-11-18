@@ -6,7 +6,7 @@
 
 import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
-import { copyFile, mkdir, readFile } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fillPrompt } from './agent-step.mjs';
 import { readJson, writeJson } from './json-io.mjs';
@@ -52,4 +52,29 @@ export async function recordAnswer(root, key, step, files) {
     await copyFile(resolve(root, file), target);
   }
   await writeJson(recordPath(root, key), { step: step.id, prompt: step.prompt, key, at: new Date().toISOString(), files });
+}
+
+// One judgment kept by the exact payload it was asked with (.pipeline/cache/judgments/<key>.txt): the prompt text and
+// the bytes of every image shown, so the same question is never asked twice and any change to either asks again
+// (owner 2026-11-17, site13's 40-minute run: the image library review judged all 67 unchanged photos again because a
+// script it imports had changed). ask() returns { code, reply }; only a reply accept(reply) takes is kept.
+export async function payloadKey({ prompt, images = [] }) {
+  const hash = createHash('sha256').update(prompt);
+  for (const image of images) hash.update('\0image\0').update(await content(image));
+  return hash.digest('hex').slice(0, 32);
+}
+const judgmentPath = (root, key) => resolve(root, '.pipeline/cache/judgments', `${key}.txt`);
+export async function keptJudgment(root, { prompt, images = [] }, ask, { accept = () => true } = {}) {
+  const key = await payloadKey({ prompt, images });
+  const path = judgmentPath(root, key);
+  if (existsSync(path)) {
+    const reply = await readFile(path, 'utf8');
+    if (accept(reply)) return { code: 0, reply, kept: true, key };
+  }
+  const { code, reply = '', ...rest } = await ask();
+  if (code === 0 && accept(reply)) {
+    await mkdir(dirname(path), { recursive: true });
+    await writeFile(path, reply);
+  }
+  return { code, reply, kept: false, key, ...rest };
 }

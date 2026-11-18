@@ -20,7 +20,7 @@
     "splitMedia": "alternate",
     "proof": "band",
     "faq": "two-column",
-    "faqFirst": "open",
+    "faqFirst": "closed",
     "cta": "image-band",
     "testimonials": "carousel",
     "logos": "marquee",
@@ -55,7 +55,7 @@
         },
         "/women-s-swimwear-manufacturer/": {
           "src": "/media/photos/women-s-swimwear-hero-1-960.webp",
-          "srcset": "/media/photos/women-s-swimwear-hero-1-480.webp 480w, /media/photos/women-s-swimwear-hero-1-960.webp 960w, /media/photos/women-s-swimwear-hero-1-1536.webp 1536w",
+          "srcset": "/media/photos/women-s-swimwear-hero-1-480.webp 480w, /media/photos/women-s-swimwear-hero-1-960.webp 960w, /media/photos/women-s-swimwear-hero-1-1536.webp 1344w",
           "width": 960,
           "height": 640,
           "alt": "Colourful swimwear with bow ties arranged on hangers and folded on rumpled ivory linen.",
@@ -86,12 +86,12 @@
           "category": "men's swimwear"
         },
         "/boardshorts-manufacturer/": {
-          "src": "/media/photos/general-hero-1-960.webp",
-          "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
+          "src": "/media/photos/boardshorts-hero-1-960.webp",
+          "srcset": "/media/photos/boardshorts-hero-1-480.webp 480w, /media/photos/boardshorts-hero-1-960.webp 960w, /media/photos/boardshorts-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in navy swimwear holds a lily on a garden terrace beside a stone fountain.",
-          "category": "general"
+          "alt": "A blond man in navy floral boardshorts tucks a pink flower behind his ear beside an ochre wall.",
+          "category": "boardshorts"
         },
         "/swim-trunks-manufacturer/": {
           "src": "/media/photos/swim-trunks-hero-1-960.webp",
@@ -103,19 +103,11 @@
         },
         "/children-s-swimwear-manufacturer/": {
           "src": "/media/photos/children-s-swimwear-hero-1-960.webp",
-          "srcset": "/media/photos/children-s-swimwear-hero-1-480.webp 480w, /media/photos/children-s-swimwear-hero-1-960.webp 960w, /media/photos/children-s-swimwear-hero-1-1536.webp 1536w",
+          "srcset": "/media/photos/children-s-swimwear-hero-1-480.webp 480w, /media/photos/children-s-swimwear-hero-1-960.webp 960w, /media/photos/children-s-swimwear-hero-1-1536.webp 1344w",
           "width": 960,
           "height": 640,
           "alt": "Children's swimwear hangs and lies folded on sunlit travertine with decorative shadows.",
           "category": "children's swimwear"
-        },
-        "/teen-swimwear-manufacturer/": {
-          "src": "/media/photos/teen-swimwear-hero-1-960.webp",
-          "srcset": "/media/photos/teen-swimwear-hero-1-480.webp 480w, /media/photos/teen-swimwear-hero-1-960.webp 960w, /media/photos/teen-swimwear-hero-1-1536.webp 1536w",
-          "width": 960,
-          "height": 640,
-          "alt": "Colourful swimwear on wooden hangers and cream linen, with open space on the right.",
-          "category": "teen swimwear"
         },
         "/baby-swimwear-manufacturer/": {
           "src": "/media/photos/baby-swimwear-hero-1-960.webp",
@@ -124,14 +116,6 @@
           "height": 640,
           "alt": "Colourful baby swimwear hangs on a clothing rail above sunlit terracotta tiles with patterned shadows.",
           "category": "baby swimwear"
-        },
-        "/toddler-swimwear-manufacturer/": {
-          "src": "/media/photos/toddler-swimwear-hero-1-960.webp",
-          "srcset": "/media/photos/toddler-swimwear-hero-1-480.webp 480w, /media/photos/toddler-swimwear-hero-1-960.webp 960w, /media/photos/toddler-swimwear-hero-1-1536.webp 1536w",
-          "width": 960,
-          "height": 640,
-          "alt": "Colourful toddler swimwear hangs and lies folded against a sand-coloured wall with palm shadows.",
-          "category": "toddler swimwear"
         },
         "/modest-swimwear-manufacturer/": {
           "src": "/media/photos/modest-swimwear-hero-1-960.webp",
@@ -143,7 +127,7 @@
         },
         "/burkini-manufacturer/": {
           "src": "/media/photos/burkini-hero-1-960.webp",
-          "srcset": "/media/photos/burkini-hero-1-480.webp 480w, /media/photos/burkini-hero-1-960.webp 960w, /media/photos/burkini-hero-1-1536.webp 1536w",
+          "srcset": "/media/photos/burkini-hero-1-480.webp 480w, /media/photos/burkini-hero-1-960.webp 960w, /media/photos/burkini-hero-1-1536.webp 1344w",
           "width": 960,
           "height": 640,
           "alt": "A woman in a blue patterned burkini reclines on coastal rocks with one arm shading her eyes.",
@@ -154,7 +138,7 @@
           "srcset": "/media/photos/watersports-apparel-hero-1-480.webp 480w, /media/photos/watersports-apparel-hero-1-960.webp 960w, /media/photos/watersports-apparel-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in a coral checked long-sleeve swimsuit sits on grass beneath a fig tree beside a coastal stone wall.",
+          "alt": "A woman in a forest green paddle suit holds a notebook and leans against a weathered post above the sea.",
           "category": "watersports apparel"
         },
         "/rash-guard-manufacturer/": {
@@ -162,7 +146,7 @@
           "srcset": "/media/photos/rash-guard-hero-1-480.webp 480w, /media/photos/rash-guard-hero-1-960.webp 960w, /media/photos/rash-guard-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in an orange-print rash guard reclines in a garden chair with an open book resting on her chest.",
+          "alt": "A woman in a white rash guard tucks a flower behind her ear on a stone terrace overlooking a bay.",
           "category": "rash guard"
         },
         "/resort-wear-manufacturer/": {
@@ -178,48 +162,48 @@
           "srcset": "/media/photos/cover-up-hero-1-480.webp 480w, /media/photos/cover-up-hero-1-960.webp 960w, /media/photos/cover-up-hero-1-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in a floral wrap holds a straw hat and tucks a pink flower behind her ear beside sunlit stone steps.",
+          "alt": "A woman in a beige cover-up rests beside an open notebook in a sunlit conservatory filled with palms and ferns.",
           "category": "cover up"
         },
         "/swimwear-embroidery/": {
-          "src": "/media/photos/general-hero-2-960.webp",
-          "srcset": "/media/photos/general-hero-2-480.webp 480w, /media/photos/general-hero-2-960.webp 960w, /media/photos/general-hero-2-1536.webp 1536w",
+          "src": "/media/photos/swimwear-embroidery-service-hero-960.webp",
+          "srcset": "/media/photos/swimwear-embroidery-service-hero-480.webp 480w, /media/photos/swimwear-embroidery-service-hero-960.webp 960w, /media/photos/swimwear-embroidery-service-hero-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in cherry-print swimwear sits in a chair holding a cup beside coastal dunes in warm evening light.",
-          "category": "general"
+          "alt": "A worker uses an embroidery machine to stitch a coral flower onto a blue bikini top in a bright workshop.",
+          "category": "swimwear embroidery"
         },
         "/swimwear-consulting/": {
-          "src": "/media/photos/general-hero-3-960.webp",
-          "srcset": "/media/photos/general-hero-3-480.webp 480w, /media/photos/general-hero-3-960.webp 960w, /media/photos/general-hero-3-1536.webp 1536w",
+          "src": "/media/photos/swimwear-consulting-service-hero-960.webp",
+          "srcset": "/media/photos/swimwear-consulting-service-hero-480.webp 480w, /media/photos/swimwear-consulting-service-hero-960.webp 960w, /media/photos/swimwear-consulting-service-hero-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in navy swimwear and a patterned wrap sits beneath a pine by the sea, holding a fig near her lips.",
-          "category": "general"
+          "alt": "A worker checks the coral trim of a floral bikini top on a table in a bright sewing workshop.",
+          "category": "swimwear consulting"
         },
         "/development/": {
-          "src": "/media/photos/general-hero-4-960.webp",
-          "srcset": "/media/photos/general-hero-4-480.webp 480w, /media/photos/general-hero-4-960.webp 960w, /media/photos/general-hero-4-1536.webp 1536w",
+          "src": "/media/photos/development-service-hero-960.webp",
+          "srcset": "/media/photos/development-service-hero-480.webp 480w, /media/photos/development-service-hero-960.webp 960w, /media/photos/development-service-hero-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in blue floral swimwear sits on grass holding leather sandals in a sunlit stone-walled garden.",
-          "category": "general"
+          "alt": "A worker sews a floral bikini top with an industrial sewing machine in a bright workshop.",
+          "category": "development"
         },
         "/swimwear-packaging-custom-brand-labels/": {
           "src": "/media/photos/swimwear-packaging-brand-labels-hero-1-960.webp",
-          "srcset": "/media/photos/swimwear-packaging-brand-labels-hero-1-480.webp 480w, /media/photos/swimwear-packaging-brand-labels-hero-1-960.webp 960w, /media/photos/swimwear-packaging-brand-labels-hero-1-1536.webp 1536w",
+          "srcset": "/media/photos/swimwear-packaging-brand-labels-hero-1-480.webp 480w, /media/photos/swimwear-packaging-brand-labels-hero-1-960.webp 960w, /media/photos/swimwear-packaging-brand-labels-hero-1-1536.webp 1344w",
           "width": 960,
           "height": 640,
           "alt": "Colourful swimsuits, drawstring bags, hang tags and woven labels arranged on a wooden tabletop.",
           "category": "swimwear packaging brand labels"
         },
         "/custom-swimwear-printing/": {
-          "src": "/media/photos/general-hero-1-960.webp",
-          "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
+          "src": "/media/photos/custom-swimwear-printing-service-hero-960.webp",
+          "srcset": "/media/photos/custom-swimwear-printing-service-hero-480.webp 480w, /media/photos/custom-swimwear-printing-service-hero-960.webp 960w, /media/photos/custom-swimwear-printing-service-hero-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in navy swimwear holds a lily on a garden terrace beside a stone fountain.",
-          "category": "general"
+          "alt": "A worker handles blue floral fabric emerging from a large printer in a bright workshop.",
+          "category": "swimwear printing"
         },
         "/swimwear-hardware/": {
           "src": "/media/photos/swimwear-hardware-hero-1-960.webp",
@@ -230,46 +214,54 @@
           "category": "swimwear hardware"
         },
         "/swimwear-fabrics-sourcing/": {
-          "src": "/media/photos/general-hero-2-960.webp",
-          "srcset": "/media/photos/general-hero-2-480.webp 480w, /media/photos/general-hero-2-960.webp 960w, /media/photos/general-hero-2-1536.webp 1536w",
+          "src": "/media/photos/swimwear-fabrics-sourcing-service-hero-960.webp",
+          "srcset": "/media/photos/swimwear-fabrics-sourcing-service-hero-480.webp 480w, /media/photos/swimwear-fabrics-sourcing-service-hero-960.webp 960w, /media/photos/swimwear-fabrics-sourcing-service-hero-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in cherry-print swimwear sits in a chair holding a cup beside coastal dunes in warm evening light.",
-          "category": "general"
+          "alt": "A worker stretches blue fabric beside colorful fabric samples and floral swimwear on a workshop table.",
+          "category": "swimwear fabrics sourcing"
         },
         "/swimwear-launch-services/": {
-          "src": "/media/photos/general-hero-3-960.webp",
-          "srcset": "/media/photos/general-hero-3-480.webp 480w, /media/photos/general-hero-3-960.webp 960w, /media/photos/general-hero-3-1536.webp 1536w",
+          "src": "/media/photos/swimwear-launch-services-service-hero-960.webp",
+          "srcset": "/media/photos/swimwear-launch-services-service-hero-480.webp 480w, /media/photos/swimwear-launch-services-service-hero-960.webp 960w, /media/photos/swimwear-launch-services-service-hero-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in navy swimwear and a patterned wrap sits beneath a pine by the sea, holding a fig near her lips.",
-          "category": "general"
+          "alt": "A worker sews floral swimwear at an industrial sewing machine in a bright workshop.",
+          "category": "swimwear launch services"
         },
         "/about-us/": {
-          "src": "/media/photos/general-hero-4-960.webp",
-          "srcset": "/media/photos/general-hero-4-480.webp 480w, /media/photos/general-hero-4-960.webp 960w, /media/photos/general-hero-4-1536.webp 1536w",
+          "src": "/media/photos/about-us-service-hero-960.webp",
+          "srcset": "/media/photos/about-us-service-hero-480.webp 480w, /media/photos/about-us-service-hero-960.webp 960w, /media/photos/about-us-service-hero-1536.webp 1536w",
           "width": 960,
           "height": 640,
-          "alt": "A woman in blue floral swimwear sits on grass holding leather sandals in a sunlit stone-walled garden.",
+          "alt": "A woman draws paper patterns beside fabric swatches and swimwear racks in a bright sample room.",
           "category": "general"
         },
         "/contact-us/": {
-          "src": "/media/photos/general-hero-1-960.webp",
-          "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
-          "width": 960,
-          "height": 640,
-          "alt": "A woman in navy swimwear holds a lily on a garden terrace beside a stone fountain.",
-          "category": "general"
-        },
-        "/faq/": {
           "src": "/media/photos/general-hero-2-960.webp",
-          "srcset": "/media/photos/general-hero-2-480.webp 480w, /media/photos/general-hero-2-960.webp 960w, /media/photos/general-hero-2-1536.webp 1536w",
+          "srcset": "/media/photos/general-hero-2-480.webp 480w, /media/photos/general-hero-2-960.webp 960w, /media/photos/general-hero-2-1536.webp 1344w",
           "width": 960,
           "height": 640,
           "alt": "A woman in cherry-print swimwear sits in a chair holding a cup beside coastal dunes in warm evening light.",
           "category": "general"
         },
+        "/faq/": {
+          "src": "/media/photos/faq-service-hero-960.webp",
+          "srcset": "/media/photos/faq-service-hero-480.webp 480w, /media/photos/faq-service-hero-960.webp 960w, /media/photos/faq-service-hero-1536.webp 1536w",
+          "width": 960,
+          "height": 640,
+          "alt": "A worker checks a floral swimsuit seam on a dress form beside fabric swatches and a tape measure.",
+          "category": "general"
+        },
         "/case-studies/": {
+          "src": "/media/photos/case-studies-service-hero-960.webp",
+          "srcset": "/media/photos/case-studies-service-hero-480.webp 480w, /media/photos/case-studies-service-hero-960.webp 960w, /media/photos/case-studies-service-hero-1536.webp 1344w",
+          "width": 960,
+          "height": 640,
+          "alt": "Folded printed swimwear rests beside a measuring tape and checklist on a bright factory table.",
+          "category": "general"
+        },
+        "/sustainability/": {
           "src": "/media/photos/general-hero-3-960.webp",
           "srcset": "/media/photos/general-hero-3-480.webp 480w, /media/photos/general-hero-3-960.webp 960w, /media/photos/general-hero-3-1536.webp 1536w",
           "width": 960,
@@ -277,15 +269,15 @@
           "alt": "A woman in navy swimwear and a patterned wrap sits beneath a pine by the sea, holding a fig near her lips.",
           "category": "general"
         },
-        "/sustainability/": {
+        "/privacy-policy/": {
           "src": "/media/photos/general-hero-4-960.webp",
-          "srcset": "/media/photos/general-hero-4-480.webp 480w, /media/photos/general-hero-4-960.webp 960w, /media/photos/general-hero-4-1536.webp 1536w",
+          "srcset": "/media/photos/general-hero-4-480.webp 480w, /media/photos/general-hero-4-960.webp 960w, /media/photos/general-hero-4-1536.webp 1344w",
           "width": 960,
           "height": 640,
           "alt": "A woman in blue floral swimwear sits on grass holding leather sandals in a sunlit stone-walled garden.",
           "category": "general"
         },
-        "/privacy-policy/": {
+        "/terms-and-conditions/": {
           "src": "/media/photos/general-hero-1-960.webp",
           "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
           "width": 960,
@@ -293,25 +285,17 @@
           "alt": "A woman in navy swimwear holds a lily on a garden terrace beside a stone fountain.",
           "category": "general"
         },
-        "/terms-and-conditions/": {
+        "/request-a-quote/": {
           "src": "/media/photos/general-hero-2-960.webp",
-          "srcset": "/media/photos/general-hero-2-480.webp 480w, /media/photos/general-hero-2-960.webp 960w, /media/photos/general-hero-2-1536.webp 1536w",
+          "srcset": "/media/photos/general-hero-2-480.webp 480w, /media/photos/general-hero-2-960.webp 960w, /media/photos/general-hero-2-1536.webp 1344w",
           "width": 960,
           "height": 640,
           "alt": "A woman in cherry-print swimwear sits in a chair holding a cup beside coastal dunes in warm evening light.",
-          "category": "general"
-        },
-        "/request-a-quote/": {
-          "src": "/media/photos/general-hero-3-960.webp",
-          "srcset": "/media/photos/general-hero-3-480.webp 480w, /media/photos/general-hero-3-960.webp 960w, /media/photos/general-hero-3-1536.webp 1536w",
-          "width": 960,
-          "height": 640,
-          "alt": "A woman in navy swimwear and a patterned wrap sits beneath a pine by the sea, holding a fig near her lips.",
           "category": "general"
         },
         "/swimwear-accessories/": {
           "src": "/media/photos/swimwear-accessories-hero-1-960.webp",
-          "srcset": "/media/photos/swimwear-accessories-hero-1-480.webp 480w, /media/photos/swimwear-accessories-hero-1-960.webp 960w, /media/photos/swimwear-accessories-hero-1-1536.webp 1536w",
+          "srcset": "/media/photos/swimwear-accessories-hero-1-480.webp 480w, /media/photos/swimwear-accessories-hero-1-960.webp 960w, /media/photos/swimwear-accessories-hero-1-1536.webp 1344w",
           "width": 960,
           "height": 640,
           "alt": "White and colourful swimwear, straps, cups and gold hardware arranged on sunlit wood.",
@@ -327,18 +311,42 @@
         },
         "/couples-matching-swimsuit-manufacturer/": {
           "src": "/media/photos/couples-matching-swimsuit-hero-1-960.webp",
-          "srcset": "/media/photos/couples-matching-swimsuit-hero-1-480.webp 480w, /media/photos/couples-matching-swimsuit-hero-1-960.webp 960w, /media/photos/couples-matching-swimsuit-hero-1-1536.webp 1536w",
+          "srcset": "/media/photos/couples-matching-swimsuit-hero-1-480.webp 480w, /media/photos/couples-matching-swimsuit-hero-1-960.webp 960w, /media/photos/couples-matching-swimsuit-hero-1-1536.webp 1344w",
           "width": 960,
           "height": 640,
           "alt": "Adults in coral swimwear kneel in a sunlit cottage garden beside roses and fruit trees.",
           "category": "couples matching swimsuit"
         },
         "/blog/": {
+          "src": "/media/photos/general-hero-3-960.webp",
+          "srcset": "/media/photos/general-hero-3-480.webp 480w, /media/photos/general-hero-3-960.webp 960w, /media/photos/general-hero-3-1536.webp 1536w",
+          "width": 960,
+          "height": 640,
+          "alt": "A woman in navy swimwear and a patterned wrap sits beneath a pine by the sea, holding a fig near her lips.",
+          "category": "general"
+        },
+        "/blog/which-is-better-oem-odm/": {
           "src": "/media/photos/general-hero-4-960.webp",
-          "srcset": "/media/photos/general-hero-4-480.webp 480w, /media/photos/general-hero-4-960.webp 960w, /media/photos/general-hero-4-1536.webp 1536w",
+          "srcset": "/media/photos/general-hero-4-480.webp 480w, /media/photos/general-hero-4-960.webp 960w, /media/photos/general-hero-4-1536.webp 1344w",
           "width": 960,
           "height": 640,
           "alt": "A woman in blue floral swimwear sits on grass holding leather sandals in a sunlit stone-walled garden.",
+          "category": "general"
+        },
+        "/blog/cost-to-start-clothing-line/": {
+          "src": "/media/photos/general-hero-1-960.webp",
+          "srcset": "/media/photos/general-hero-1-480.webp 480w, /media/photos/general-hero-1-960.webp 960w, /media/photos/general-hero-1-1536.webp 1536w",
+          "width": 960,
+          "height": 640,
+          "alt": "A woman in navy swimwear holds a lily on a garden terrace beside a stone fountain.",
+          "category": "general"
+        },
+        "/blog/what-is-a-tech-pack/": {
+          "src": "/media/photos/general-hero-2-960.webp",
+          "srcset": "/media/photos/general-hero-2-480.webp 480w, /media/photos/general-hero-2-960.webp 960w, /media/photos/general-hero-2-1536.webp 1344w",
+          "width": 960,
+          "height": 640,
+          "alt": "A woman in cherry-print swimwear sits in a chair holding a cup beside coastal dunes in warm evening light.",
           "category": "general"
         }
       },
@@ -395,9 +403,9 @@
           },
           {
             "src": "/media/photos/general-product-quality-checked-at-every-stage-of-your-order-960.webp",
-            "srcset": "/media/photos/general-product-quality-checked-at-every-stage-of-your-order-480.webp 480w, /media/photos/general-product-quality-checked-at-every-stage-of-your-order-960.webp 960w",
-            "width": 960,
-            "height": 960,
+            "srcset": "/media/photos/general-product-quality-checked-at-every-stage-of-your-order-480.webp 480w, /media/photos/general-product-quality-checked-at-every-stage-of-your-order-960.webp 840w",
+            "width": 840,
+            "height": 840,
             "alt": "Sky blue ruched one-piece swimsuit with a gold zipper pull against a sunlit sandstone wall.",
             "category": "general",
             "topic": "Quality Checked at Every Stage of Your Order"
@@ -410,6 +418,24 @@
             "alt": "A woman in a green and yellow gathered swimsuit sits on a stone patio beneath a leafy pergola.",
             "category": "general",
             "topic": "Starting With Samples Before Bulk"
+          },
+          {
+            "src": "/media/photos/home-brief-splitmedia-1-1-960.webp",
+            "srcset": "/media/photos/home-brief-splitmedia-1-1-480.webp 480w, /media/photos/home-brief-splitmedia-1-1-960.webp 960w",
+            "width": 960,
+            "height": 960,
+            "alt": "A warehouse worker picks bagged printed swimwear from shelf bins beside an open carton on a cart.",
+            "category": "general",
+            "intent": "/#brief-splitMedia-1-1"
+          },
+          {
+            "src": "/media/photos/home-brief-splitmedia-2-1-960.webp",
+            "srcset": "/media/photos/home-brief-splitmedia-2-1-480.webp 480w, /media/photos/home-brief-splitmedia-2-1-960.webp 960w",
+            "width": 960,
+            "height": 960,
+            "alt": "A worker lifts a heat press above a blue bikini top with a triangular transfer and an embroidered patch.",
+            "category": "general",
+            "intent": "/#brief-splitMedia-2-1"
           }
         ],
         "process": [
@@ -418,7 +444,7 @@
             "srcset": "/media/photos/general-process-1-480.webp 480w, /media/photos/general-process-1-960.webp 960w, /media/photos/general-process-1-1536.webp 1536w",
             "width": 960,
             "height": 640,
-            "alt": "A worker inspects an olive-green bikini top with dark green trim at a table stacked with swimwear.",
+            "alt": "A factory worker handles cobalt blue swimwear with dark green trim.",
             "category": "general"
           },
           {
@@ -426,7 +452,7 @@
             "srcset": "/media/photos/general-process-2-480.webp 480w, /media/photos/general-process-2-960.webp 960w, /media/photos/general-process-2-1536.webp 1536w",
             "width": 960,
             "height": 640,
-            "alt": "A worker sews beige swimwear at a sewing machine in a bright workshop.",
+            "alt": "A worker sews cobalt blue swimwear at a sewing machine in a bright workshop.",
             "category": "general"
           },
           {
@@ -434,14 +460,47 @@
             "srcset": "/media/photos/general-process-3-480.webp 480w, /media/photos/general-process-3-960.webp 960w, /media/photos/general-process-3-1536.webp 1536w",
             "width": 960,
             "height": 640,
-            "alt": "A worker inspects an orange-print bikini top at a table stacked with swimwear.",
+            "alt": "A worker handles patterned swimwear with ecru lace trim against an olive-green wall.",
             "category": "general"
+          },
+          {
+            "src": "/media/photos/general-process-4-960.webp",
+            "srcset": "/media/photos/general-process-4-480.webp 480w, /media/photos/general-process-4-960.webp 960w, /media/photos/general-process-4-1536.webp 1536w",
+            "width": 960,
+            "height": 640,
+            "alt": "A worker sews forest green swimwear with white piping at a sewing machine in a bright workshop.",
+            "category": "general"
+          },
+          {
+            "src": "/media/photos/general-process-5-960.webp",
+            "srcset": "/media/photos/general-process-5-480.webp 480w, /media/photos/general-process-5-960.webp 960w, /media/photos/general-process-5-1536.webp 1536w",
+            "width": 960,
+            "height": 640,
+            "alt": "A worker inspects a seashell-print bikini top beside stacks of swimwear on a factory table.",
+            "category": "general"
+          },
+          {
+            "src": "/media/photos/general-process-6-960.webp",
+            "srcset": "/media/photos/general-process-6-480.webp 480w, /media/photos/general-process-6-960.webp 960w, /media/photos/general-process-6-1536.webp 1536w",
+            "width": 960,
+            "height": 640,
+            "alt": "A worker sews coral floral swimwear at a machine in a bright workshop with garments spread across the table.",
+            "category": "general"
+          },
+          {
+            "src": "/media/photos/development-brief-splitmedia-2-1-960.webp",
+            "srcset": "/media/photos/development-brief-splitmedia-2-1-480.webp 480w, /media/photos/development-brief-splitmedia-2-1-960.webp 960w, /media/photos/development-brief-splitmedia-2-1-1536.webp 1536w",
+            "width": 960,
+            "height": 640,
+            "alt": "A woman draws swimsuit technical flats beside rolled elastic, a hook-and-eye closure and blue fabric.",
+            "category": "general",
+            "intent": "/development/#brief-splitMedia-2-1"
           }
         ],
         "material": [
           {
             "src": "/media/photos/general-material-1-960.webp",
-            "srcset": "/media/photos/general-material-1-480.webp 480w, /media/photos/general-material-1-960.webp 960w, /media/photos/general-material-1-1536.webp 1536w",
+            "srcset": "/media/photos/general-material-1-480.webp 480w, /media/photos/general-material-1-960.webp 960w, /media/photos/general-material-1-1536.webp 1344w",
             "width": 960,
             "height": 640,
             "alt": "Heather grey bikini fabric with visible stitching and a gold toggle closure rests on white linen beside flowers.",
@@ -451,7 +510,7 @@
         "lifestyle": [
           {
             "src": "/media/photos/general-lifestyle-1-960.webp",
-            "srcset": "/media/photos/general-lifestyle-1-480.webp 480w, /media/photos/general-lifestyle-1-960.webp 960w, /media/photos/general-lifestyle-1-1536.webp 1536w",
+            "srcset": "/media/photos/general-lifestyle-1-480.webp 480w, /media/photos/general-lifestyle-1-960.webp 960w, /media/photos/general-lifestyle-1-1536.webp 1344w",
             "width": 960,
             "height": 640,
             "alt": "A woman in green gingham swimwear and an open overshirt holds a woven bag of lemons on a sunlit terrace.",
@@ -459,7 +518,7 @@
           },
           {
             "src": "/media/photos/general-lifestyle-2-960.webp",
-            "srcset": "/media/photos/general-lifestyle-2-480.webp 480w, /media/photos/general-lifestyle-2-960.webp 960w, /media/photos/general-lifestyle-2-1536.webp 1536w",
+            "srcset": "/media/photos/general-lifestyle-2-480.webp 480w, /media/photos/general-lifestyle-2-960.webp 960w, /media/photos/general-lifestyle-2-1536.webp 1344w",
             "width": 960,
             "height": 640,
             "alt": "A woman in a fig-print swimsuit and olive wrap holds herbs near her face on coastal dunes in golden light.",
@@ -475,7 +534,7 @@
           },
           {
             "src": "/media/photos/general-lifestyle-4-960.webp",
-            "srcset": "/media/photos/general-lifestyle-4-480.webp 480w, /media/photos/general-lifestyle-4-960.webp 960w, /media/photos/general-lifestyle-4-1536.webp 1536w",
+            "srcset": "/media/photos/general-lifestyle-4-480.webp 480w, /media/photos/general-lifestyle-4-960.webp 960w, /media/photos/general-lifestyle-4-1536.webp 1344w",
             "width": 960,
             "height": 640,
             "alt": "Floral and solid-colour swimwear with ecru lace trim displayed against a sage plaster wall.",
@@ -491,13 +550,139 @@
           },
           {
             "src": "/media/photos/general-lifestyle-6-960.webp",
-            "srcset": "/media/photos/general-lifestyle-6-480.webp 480w, /media/photos/general-lifestyle-6-960.webp 960w, /media/photos/general-lifestyle-6-1536.webp 1536w",
+            "srcset": "/media/photos/general-lifestyle-6-480.webp 480w, /media/photos/general-lifestyle-6-960.webp 960w, /media/photos/general-lifestyle-6-1536.webp 1344w",
             "width": 960,
             "height": 640,
             "alt": "Bikinis, one-piece swimsuits, trunks and a tiger-striped wrap against a beige wall with palm shadows.",
             "category": "general"
+          },
+          {
+            "src": "/media/photos/general-lifestyle-7-960.webp",
+            "srcset": "/media/photos/general-lifestyle-7-480.webp 480w, /media/photos/general-lifestyle-7-960.webp 960w, /media/photos/general-lifestyle-7-1536.webp 1536w",
+            "width": 960,
+            "height": 640,
+            "alt": "A woman in floral swimwear and an open wrap sits on sand beside a chair at a rocky cove.",
+            "category": "general"
+          },
+          {
+            "src": "/media/photos/general-lifestyle-8-960.webp",
+            "srcset": "/media/photos/general-lifestyle-8-480.webp 480w, /media/photos/general-lifestyle-8-960.webp 960w, /media/photos/general-lifestyle-8-1536.webp 1344w",
+            "width": 960,
+            "height": 640,
+            "alt": "A woman in burgundy swimwear and a loose wrap stands on sunlit whitewashed stone stairs.",
+            "category": "general"
+          },
+          {
+            "src": "/media/photos/general-lifestyle-9-960.webp",
+            "srcset": "/media/photos/general-lifestyle-9-480.webp 480w, /media/photos/general-lifestyle-9-960.webp 960w, /media/photos/general-lifestyle-9-1536.webp 1344w",
+            "width": 960,
+            "height": 640,
+            "alt": "Cream shell-print bikini with a matching bucket hat and olive wrap on a sunlit textured surface.",
+            "category": "general"
+          },
+          {
+            "src": "/media/photos/general-lifestyle-10-960.webp",
+            "srcset": "/media/photos/general-lifestyle-10-480.webp 480w, /media/photos/general-lifestyle-10-960.webp 960w, /media/photos/general-lifestyle-10-1536.webp 1536w",
+            "width": 960,
+            "height": 640,
+            "alt": "A woman in a green floral swimsuit reclines on stone steps beside a terracotta jug and beach grass.",
+            "category": "general"
+          },
+          {
+            "src": "/media/photos/general-lifestyle-11-960.webp",
+            "srcset": "/media/photos/general-lifestyle-11-480.webp 480w, /media/photos/general-lifestyle-11-960.webp 960w, /media/photos/general-lifestyle-11-1536.webp 1344w",
+            "width": 960,
+            "height": 640,
+            "alt": "A grey-haired woman in cream floral swimwear and an olive wrap reclines on a cushion beside a rocky coast.",
+            "category": "general"
+          },
+          {
+            "src": "/media/photos/general-lifestyle-12-960.webp",
+            "srcset": "/media/photos/general-lifestyle-12-480.webp 480w, /media/photos/general-lifestyle-12-960.webp 960w, /media/photos/general-lifestyle-12-1536.webp 1344w",
+            "width": 960,
+            "height": 640,
+            "alt": "A green tiger-striped bikini and matching tied wrap lie on sunlit weathered wooden boards.",
+            "category": "general"
           }
         ]
+      },
+      "themePools": {
+        "theme:children": {
+          "process": [
+            {
+              "src": "/media/photos/theme-children-process-1-960.webp",
+              "srcset": "/media/photos/theme-children-process-1-480.webp 480w, /media/photos/theme-children-process-1-960.webp 960w, /media/photos/theme-children-process-1-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "A worker inspects a black swimsuit with white trim beside stacks of garments on a factory table.",
+              "category": "theme:children"
+            }
+          ]
+        },
+        "theme:watersports": {
+          "process": [
+            {
+              "src": "/media/photos/theme-watersports-process-1-960.webp",
+              "srcset": "/media/photos/theme-watersports-process-1-480.webp 480w, /media/photos/theme-watersports-process-1-960.webp 960w, /media/photos/theme-watersports-process-1-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "A worker sews burgundy lemon-print swimwear at a machine in a bright workshop.",
+              "category": "theme:watersports"
+            }
+          ]
+        },
+        "theme:family-resort-wear": {
+          "process": [
+            {
+              "src": "/media/photos/theme-family-resort-wear-process-1-960.webp",
+              "srcset": "/media/photos/theme-family-resort-wear-process-1-480.webp 480w, /media/photos/theme-family-resort-wear-process-1-960.webp 960w, /media/photos/theme-family-resort-wear-process-1-1536.webp 1344w",
+              "width": 960,
+              "height": 640,
+              "alt": "A woman sews blue and green leaf-print fabric beside folded swimwear in a bright workshop.",
+              "category": "theme:family-resort-wear"
+            }
+          ]
+        },
+        "theme:women": {
+          "process": [
+            {
+              "src": "/media/photos/theme-women-process-1-960.webp",
+              "srcset": "/media/photos/theme-women-process-1-480.webp 480w, /media/photos/theme-women-process-1-960.webp 960w, /media/photos/theme-women-process-1-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "A woman in a white apron inspects a floral swimsuit at a factory table stacked with garments.",
+              "category": "theme:women"
+            }
+          ]
+        },
+        "theme:couples": {
+          "process": [
+            {
+              "src": "/media/photos/theme-couples-process-1-960.webp",
+              "srcset": "/media/photos/theme-couples-process-1-480.webp 480w, /media/photos/theme-couples-process-1-960.webp 960w, /media/photos/theme-couples-process-1-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "A worker sews blue and beige checked swimwear at a sewing machine in a bright workshop.",
+              "category": "theme:couples"
+            },
+            {
+              "src": "/media/photos/theme-couples-process-2-960.webp",
+              "srcset": "/media/photos/theme-couples-process-2-480.webp 480w, /media/photos/theme-couples-process-2-960.webp 960w, /media/photos/theme-couples-process-2-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "A worker inspects a cobalt blue bikini top beside stacks of blue swimwear on a factory table.",
+              "category": "theme:couples"
+            },
+            {
+              "src": "/media/photos/theme-couples-process-3-960.webp",
+              "srcset": "/media/photos/theme-couples-process-3-480.webp 480w, /media/photos/theme-couples-process-3-960.webp 960w, /media/photos/theme-couples-process-3-1536.webp 1344w",
+              "width": 960,
+              "height": 640,
+              "alt": "A worker sews dusty pink swimwear at a sewing machine in a bright workshop.",
+              "category": "theme:couples"
+            }
+          ]
+        }
       },
       "routePools": {
         "/women-s-swimwear-manufacturer/": {
@@ -512,7 +697,7 @@
             },
             {
               "src": "/media/photos/women-s-swimwear-lifestyle-2-960.webp",
-              "srcset": "/media/photos/women-s-swimwear-lifestyle-2-480.webp 480w, /media/photos/women-s-swimwear-lifestyle-2-960.webp 960w, /media/photos/women-s-swimwear-lifestyle-2-1536.webp 1536w",
+              "srcset": "/media/photos/women-s-swimwear-lifestyle-2-480.webp 480w, /media/photos/women-s-swimwear-lifestyle-2-960.webp 960w, /media/photos/women-s-swimwear-lifestyle-2-1536.webp 1344w",
               "width": 960,
               "height": 640,
               "alt": "Women's swimwear with forest-green trim arranged on pale limestone flagstones in warm sunlight.",
@@ -547,7 +732,7 @@
           "lifestyle": [
             {
               "src": "/media/photos/bikini-lifestyle-1-960.webp",
-              "srcset": "/media/photos/bikini-lifestyle-1-480.webp 480w, /media/photos/bikini-lifestyle-1-960.webp 960w, /media/photos/bikini-lifestyle-1-1536.webp 1536w",
+              "srcset": "/media/photos/bikini-lifestyle-1-480.webp 480w, /media/photos/bikini-lifestyle-1-960.webp 960w, /media/photos/bikini-lifestyle-1-1536.webp 1344w",
               "width": 960,
               "height": 640,
               "alt": "A coral floral bikini with green leaves and a gold toggle lies on rumpled cream linen in warm sunlight.",
@@ -573,6 +758,17 @@
               "alt": "A man in white swim shorts sits on a stone step with his hands clasped between his knees.",
               "category": "men's swimwear"
             }
+          ],
+          "process": [
+            {
+              "src": "/media/photos/men-s-swimwear-manufacturer-brief-splitmedia-1-1-960.webp",
+              "srcset": "/media/photos/men-s-swimwear-manufacturer-brief-splitmedia-1-1-480.webp 480w, /media/photos/men-s-swimwear-manufacturer-brief-splitmedia-1-1-960.webp 960w, /media/photos/men-s-swimwear-manufacturer-brief-splitmedia-1-1-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "Sewing machine operators stitch navy and printed swim trunks beside bins of fabric panels.",
+              "category": "men's swimwear",
+              "intent": "/men-s-swimwear-manufacturer/#brief-splitMedia-1-1"
+            }
           ]
         },
         "/boardshorts-manufacturer/": {
@@ -582,7 +778,7 @@
               "srcset": "/media/photos/boardshorts-product-sublimation-prints-and-colour-matching-480.webp 480w, /media/photos/boardshorts-product-sublimation-prints-and-colour-matching-960.webp 960w",
               "width": 960,
               "height": 960,
-              "alt": "A woman wears white floral boardshorts with ecru lace trim beside sunlit stone steps and a notebook.",
+              "alt": "A man wears olive boardshorts with pink and coral pinstripes and holds lavender at his hip.",
               "category": "boardshorts",
               "topic": "Sublimation Prints and Colour Matching"
             }
@@ -614,7 +810,7 @@
           "lifestyle": [
             {
               "src": "/media/photos/children-s-swimwear-lifestyle-1-960.webp",
-              "srcset": "/media/photos/children-s-swimwear-lifestyle-1-480.webp 480w, /media/photos/children-s-swimwear-lifestyle-1-960.webp 960w, /media/photos/children-s-swimwear-lifestyle-1-1536.webp 1536w",
+              "srcset": "/media/photos/children-s-swimwear-lifestyle-1-480.webp 480w, /media/photos/children-s-swimwear-lifestyle-1-960.webp 960w, /media/photos/children-s-swimwear-lifestyle-1-1536.webp 1344w",
               "width": 960,
               "height": 640,
               "alt": "Charcoal floral rash guard, swim shorts and matching sun hat laid on a sunlit textured cream surface.",
@@ -622,7 +818,7 @@
             },
             {
               "src": "/media/photos/children-s-swimwear-lifestyle-2-960.webp",
-              "srcset": "/media/photos/children-s-swimwear-lifestyle-2-480.webp 480w, /media/photos/children-s-swimwear-lifestyle-2-960.webp 960w, /media/photos/children-s-swimwear-lifestyle-2-1536.webp 1536w",
+              "srcset": "/media/photos/children-s-swimwear-lifestyle-2-480.webp 480w, /media/photos/children-s-swimwear-lifestyle-2-960.webp 960w, /media/photos/children-s-swimwear-lifestyle-2-1536.webp 1344w",
               "width": 960,
               "height": 640,
               "alt": "Colourful children's swimsuits, rash guard sets and a sun suit displayed against a sunlit sandstone wall.",
@@ -630,39 +826,15 @@
             }
           ]
         },
-        "/teen-swimwear-manufacturer/": {
-          "lifestyle": [
-            {
-              "src": "/media/photos/teen-swimwear-lifestyle-1-960.webp",
-              "srcset": "/media/photos/teen-swimwear-lifestyle-1-480.webp 480w, /media/photos/teen-swimwear-lifestyle-1-960.webp 960w, /media/photos/teen-swimwear-lifestyle-1-1536.webp 1536w",
-              "width": 960,
-              "height": 640,
-              "alt": "Cream floral swimwear with a crochet top and matching wrap lies on sunlit terracotta tiles with leaf shadows.",
-              "category": "teen swimwear"
-            }
-          ]
-        },
         "/baby-swimwear-manufacturer/": {
           "lifestyle": [
             {
               "src": "/media/photos/baby-swimwear-lifestyle-1-960.webp",
-              "srcset": "/media/photos/baby-swimwear-lifestyle-1-480.webp 480w, /media/photos/baby-swimwear-lifestyle-1-960.webp 960w, /media/photos/baby-swimwear-lifestyle-1-1536.webp 1536w",
+              "srcset": "/media/photos/baby-swimwear-lifestyle-1-480.webp 480w, /media/photos/baby-swimwear-lifestyle-1-960.webp 960w, /media/photos/baby-swimwear-lifestyle-1-1536.webp 1344w",
               "width": 960,
               "height": 640,
               "alt": "Coral floral baby swimwear with a matching swim nappy and sun hat laid on peeling cream plaster.",
               "category": "baby swimwear"
-            }
-          ]
-        },
-        "/toddler-swimwear-manufacturer/": {
-          "lifestyle": [
-            {
-              "src": "/media/photos/toddler-swimwear-lifestyle-1-960.webp",
-              "srcset": "/media/photos/toddler-swimwear-lifestyle-1-480.webp 480w, /media/photos/toddler-swimwear-lifestyle-1-960.webp 960w, /media/photos/toddler-swimwear-lifestyle-1-1536.webp 1536w",
-              "width": 960,
-              "height": 640,
-              "alt": "Grey rosebud-print toddler swimwear and a matching sun hat lie on oak boards in warm, dappled sunlight.",
-              "category": "toddler swimwear"
             }
           ]
         },
@@ -681,11 +853,30 @@
           "lifestyle": [
             {
               "src": "/media/photos/modest-swimwear-lifestyle-1-960.webp",
-              "srcset": "/media/photos/modest-swimwear-lifestyle-1-480.webp 480w, /media/photos/modest-swimwear-lifestyle-1-960.webp 960w, /media/photos/modest-swimwear-lifestyle-1-1536.webp 1536w",
+              "srcset": "/media/photos/modest-swimwear-lifestyle-1-480.webp 480w, /media/photos/modest-swimwear-lifestyle-1-960.webp 960w, /media/photos/modest-swimwear-lifestyle-1-1536.webp 1344w",
               "width": 960,
               "height": 640,
               "alt": "A woman in beige swimwear sits in a wicker chair holding a cup beside sunlit coastal rocks and stacked pebbles.",
               "category": "modest swimwear"
+            },
+            {
+              "src": "/media/photos/modest-swimwear-lifestyle-2-960.webp",
+              "srcset": "/media/photos/modest-swimwear-lifestyle-2-480.webp 480w, /media/photos/modest-swimwear-lifestyle-2-960.webp 960w, /media/photos/modest-swimwear-lifestyle-2-1536.webp 1344w",
+              "width": 960,
+              "height": 640,
+              "alt": "A woman in a patterned swim tunic, black leggings and swim hijab sits on sand beside a sunlit terrace.",
+              "category": "modest swimwear"
+            }
+          ],
+          "process": [
+            {
+              "src": "/media/photos/modest-swimwear-manufacturer-brief-splitmedia-2-1-960.webp",
+              "srcset": "/media/photos/modest-swimwear-manufacturer-brief-splitmedia-2-1-480.webp 480w, /media/photos/modest-swimwear-manufacturer-brief-splitmedia-2-1-960.webp 960w, /media/photos/modest-swimwear-manufacturer-brief-splitmedia-2-1-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "A woman checks the seam of a navy swim tunic beside folded leggings and swim hijabs on a factory table.",
+              "category": "modest swimwear",
+              "intent": "/modest-swimwear-manufacturer/#brief-splitMedia-2-1"
             }
           ]
         },
@@ -693,7 +884,7 @@
           "lifestyle": [
             {
               "src": "/media/photos/burkini-lifestyle-1-960.webp",
-              "srcset": "/media/photos/burkini-lifestyle-1-480.webp 480w, /media/photos/burkini-lifestyle-1-960.webp 960w, /media/photos/burkini-lifestyle-1-1536.webp 1536w",
+              "srcset": "/media/photos/burkini-lifestyle-1-480.webp 480w, /media/photos/burkini-lifestyle-1-960.webp 960w, /media/photos/burkini-lifestyle-1-1536.webp 1344w",
               "width": 960,
               "height": 640,
               "alt": "A smiling woman in a blue shell-print burkini raises her arms on a sunny terrace with lemon trees.",
@@ -701,7 +892,7 @@
             },
             {
               "src": "/media/photos/burkini-lifestyle-2-960.webp",
-              "srcset": "/media/photos/burkini-lifestyle-2-480.webp 480w, /media/photos/burkini-lifestyle-2-960.webp 960w, /media/photos/burkini-lifestyle-2-1536.webp 1536w",
+              "srcset": "/media/photos/burkini-lifestyle-2-480.webp 480w, /media/photos/burkini-lifestyle-2-960.webp 960w, /media/photos/burkini-lifestyle-2-1536.webp 1344w",
               "width": 960,
               "height": 640,
               "alt": "A woman in a striped blue burkini sits in a sunlit garden holding half an orange and leather sandals.",
@@ -718,6 +909,15 @@
               "height": 960,
               "alt": "A woman in burgundy dotted watersports apparel and an open wrap kneels on grass above the sea.",
               "category": "watersports apparel"
+            },
+            {
+              "src": "/media/photos/watersports-apparel-manufacturer-brief-splitmedia-2-1-960.webp",
+              "srcset": "/media/photos/watersports-apparel-manufacturer-brief-splitmedia-2-1-480.webp 480w, /media/photos/watersports-apparel-manufacturer-brief-splitmedia-2-1-960.webp 960w",
+              "width": 960,
+              "height": 960,
+              "alt": "A woman arranges fabric swatches beside a printed rash guard panel, swimwear clasps and rings on a desk.",
+              "category": "watersports apparel",
+              "intent": "/watersports-apparel-manufacturer/#brief-splitMedia-2-1"
             }
           ],
           "lifestyle": [
@@ -726,7 +926,7 @@
               "srcset": "/media/photos/watersports-apparel-lifestyle-1-480.webp 480w, /media/photos/watersports-apparel-lifestyle-1-960.webp 960w, /media/photos/watersports-apparel-lifestyle-1-1536.webp 1536w",
               "width": 960,
               "height": 640,
-              "alt": "A blonde woman in a striped long-sleeve swimsuit holds melon while seated on a garden patio.",
+              "alt": "A woman in floral watersports apparel stands with her back to the camera on a grassy headland above the sea.",
               "category": "watersports apparel"
             }
           ]
@@ -752,6 +952,25 @@
               "height": 640,
               "alt": "A woman in an indigo patterned dress sits on a stool beside sunlit stone steps and a notebook.",
               "category": "resort wear"
+            },
+            {
+              "src": "/media/photos/resort-wear-lifestyle-2-960.webp",
+              "srcset": "/media/photos/resort-wear-lifestyle-2-480.webp 480w, /media/photos/resort-wear-lifestyle-2-960.webp 960w, /media/photos/resort-wear-lifestyle-2-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "A woman in a burgundy floral swimsuit and wrap holds a wooden chair on a sunlit rooftop terrace.",
+              "category": "resort wear"
+            }
+          ],
+          "process": [
+            {
+              "src": "/media/photos/resort-wear-manufacturer-brief-splitmedia-2-1-960.webp",
+              "srcset": "/media/photos/resort-wear-manufacturer-brief-splitmedia-2-1-480.webp 480w, /media/photos/resort-wear-manufacturer-brief-splitmedia-2-1-960.webp 960w, /media/photos/resort-wear-manufacturer-brief-splitmedia-2-1-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "A woman checks the fit of a sand-coloured cover-up worn over a navy swimsuit.",
+              "category": "resort wear",
+              "intent": "/resort-wear-manufacturer/#brief-splitMedia-2-1"
             }
           ]
         },
@@ -779,7 +998,7 @@
           "lifestyle": [
             {
               "src": "/media/photos/swimwear-packaging-brand-labels-lifestyle-1-960.webp",
-              "srcset": "/media/photos/swimwear-packaging-brand-labels-lifestyle-1-480.webp 480w, /media/photos/swimwear-packaging-brand-labels-lifestyle-1-960.webp 960w, /media/photos/swimwear-packaging-brand-labels-lifestyle-1-1536.webp 1536w",
+              "srcset": "/media/photos/swimwear-packaging-brand-labels-lifestyle-1-480.webp 480w, /media/photos/swimwear-packaging-brand-labels-lifestyle-1-960.webp 960w, /media/photos/swimwear-packaging-brand-labels-lifestyle-1-1536.webp 1176w",
               "width": 960,
               "height": 640,
               "alt": "Olive and cream garment bags, blank hang tags and woven labels lie flat on rippled sand in warm sunlight.",
@@ -787,10 +1006,18 @@
             },
             {
               "src": "/media/photos/swimwear-packaging-brand-labels-lifestyle-2-960.webp",
-              "srcset": "/media/photos/swimwear-packaging-brand-labels-lifestyle-2-480.webp 480w, /media/photos/swimwear-packaging-brand-labels-lifestyle-2-960.webp 960w, /media/photos/swimwear-packaging-brand-labels-lifestyle-2-1536.webp 1536w",
+              "srcset": "/media/photos/swimwear-packaging-brand-labels-lifestyle-2-480.webp 480w, /media/photos/swimwear-packaging-brand-labels-lifestyle-2-960.webp 960w, /media/photos/swimwear-packaging-brand-labels-lifestyle-2-1536.webp 1344w",
               "width": 960,
               "height": 640,
               "alt": "Beige drawstring bags, hang tags, woven labels and swimwear with a gold-tone clasp rest on sunlit sand.",
+              "category": "swimwear packaging brand labels"
+            },
+            {
+              "src": "/media/photos/swimwear-packaging-brand-labels-lifestyle-3-960.webp",
+              "srcset": "/media/photos/swimwear-packaging-brand-labels-lifestyle-3-480.webp 480w, /media/photos/swimwear-packaging-brand-labels-lifestyle-3-960.webp 960w, /media/photos/swimwear-packaging-brand-labels-lifestyle-3-1536.webp 1344w",
+              "width": 960,
+              "height": 640,
+              "alt": "Stacked fabric drawstring bags, blank hang tags and fabric labels rest on a sage stucco surface in dappled sunlight.",
               "category": "swimwear packaging brand labels"
             }
           ]
@@ -799,7 +1026,7 @@
           "lifestyle": [
             {
               "src": "/media/photos/swimwear-hardware-lifestyle-1-960.webp",
-              "srcset": "/media/photos/swimwear-hardware-lifestyle-1-480.webp 480w, /media/photos/swimwear-hardware-lifestyle-1-960.webp 960w, /media/photos/swimwear-hardware-lifestyle-1-1536.webp 1536w",
+              "srcset": "/media/photos/swimwear-hardware-lifestyle-1-480.webp 480w, /media/photos/swimwear-hardware-lifestyle-1-960.webp 960w, /media/photos/swimwear-hardware-lifestyle-1-1536.webp 1344w",
               "width": 960,
               "height": 640,
               "alt": "Gold-toned rings, sliders, clasps and hooks with burgundy fabric and a drawcord lie on off-white plaster.",
@@ -807,7 +1034,7 @@
             },
             {
               "src": "/media/photos/swimwear-hardware-lifestyle-2-960.webp",
-              "srcset": "/media/photos/swimwear-hardware-lifestyle-2-480.webp 480w, /media/photos/swimwear-hardware-lifestyle-2-960.webp 960w, /media/photos/swimwear-hardware-lifestyle-2-1536.webp 1536w",
+              "srcset": "/media/photos/swimwear-hardware-lifestyle-2-480.webp 480w, /media/photos/swimwear-hardware-lifestyle-2-960.webp 960w, /media/photos/swimwear-hardware-lifestyle-2-1536.webp 1344w",
               "width": 960,
               "height": 640,
               "alt": "Charcoal swimwear and gold-tone rings, sliders, a clasp and a hook rest on a sandy surface with palm shadows.",
@@ -815,11 +1042,22 @@
             },
             {
               "src": "/media/photos/swimwear-hardware-lifestyle-3-960.webp",
-              "srcset": "/media/photos/swimwear-hardware-lifestyle-3-480.webp 480w, /media/photos/swimwear-hardware-lifestyle-3-960.webp 960w, /media/photos/swimwear-hardware-lifestyle-3-1536.webp 1536w",
+              "srcset": "/media/photos/swimwear-hardware-lifestyle-3-480.webp 480w, /media/photos/swimwear-hardware-lifestyle-3-960.webp 960w, /media/photos/swimwear-hardware-lifestyle-3-1536.webp 1344w",
               "width": 960,
               "height": 640,
               "alt": "Colourful swimwear and metal rings, sliders, clasps and hooks arranged on sunlit blush stucco.",
               "category": "swimwear hardware"
+            }
+          ],
+          "process": [
+            {
+              "src": "/media/photos/swimwear-hardware-brief-splitmedia-1-1-960.webp",
+              "srcset": "/media/photos/swimwear-hardware-brief-splitmedia-1-1-480.webp 480w, /media/photos/swimwear-hardware-brief-splitmedia-1-1-960.webp 960w, /media/photos/swimwear-hardware-brief-splitmedia-1-1-1536.webp 1536w",
+              "width": 960,
+              "height": 640,
+              "alt": "A worker sews a black swimsuit strap with a gold slider beside trays of metal rings and sliders.",
+              "category": "swimwear hardware",
+              "intent": "/swimwear-hardware/#brief-splitMedia-1-1"
             }
           ]
         },
@@ -827,7 +1065,7 @@
           "material": [
             {
               "src": "/media/photos/swimwear-accessories-material-1-960.webp",
-              "srcset": "/media/photos/swimwear-accessories-material-1-480.webp 480w, /media/photos/swimwear-accessories-material-1-960.webp 960w, /media/photos/swimwear-accessories-material-1-1536.webp 1536w",
+              "srcset": "/media/photos/swimwear-accessories-material-1-480.webp 480w, /media/photos/swimwear-accessories-material-1-960.webp 960w, /media/photos/swimwear-accessories-material-1-1536.webp 1344w",
               "width": 960,
               "height": 640,
               "alt": "Olive swimwear, straps, cups, gold hardware and fabric swatches lie flat on sunlit damp sand.",
@@ -837,7 +1075,7 @@
           "lifestyle": [
             {
               "src": "/media/photos/swimwear-accessories-lifestyle-1-960.webp",
-              "srcset": "/media/photos/swimwear-accessories-lifestyle-1-480.webp 480w, /media/photos/swimwear-accessories-lifestyle-1-960.webp 960w, /media/photos/swimwear-accessories-lifestyle-1-1536.webp 1536w",
+              "srcset": "/media/photos/swimwear-accessories-lifestyle-1-480.webp 480w, /media/photos/swimwear-accessories-lifestyle-1-960.webp 960w, /media/photos/swimwear-accessories-lifestyle-1-1536.webp 1176w",
               "width": 960,
               "height": 640,
               "alt": "Beige swimwear with black lacing, straps, cups, silver hardware and packaging lies flat on sunlit sand.",
@@ -857,7 +1095,7 @@
           "lifestyle": [
             {
               "src": "/media/photos/plus-size-swimwear-lifestyle-1-960.webp",
-              "srcset": "/media/photos/plus-size-swimwear-lifestyle-1-480.webp 480w, /media/photos/plus-size-swimwear-lifestyle-1-960.webp 960w, /media/photos/plus-size-swimwear-lifestyle-1-1536.webp 1536w",
+              "srcset": "/media/photos/plus-size-swimwear-lifestyle-1-480.webp 480w, /media/photos/plus-size-swimwear-lifestyle-1-960.webp 960w, /media/photos/plus-size-swimwear-lifestyle-1-1536.webp 1344w",
               "width": 960,
               "height": 640,
               "alt": "A woman in a burgundy floral swimsuit lounges in a terrace chair, holding a peach near her lips.",
@@ -887,9 +1125,7 @@
         "/boardshorts-manufacturer/": "boardshorts",
         "/swim-trunks-manufacturer/": "swim trunks",
         "/children-s-swimwear-manufacturer/": "children's swimwear",
-        "/teen-swimwear-manufacturer/": "teen swimwear",
         "/baby-swimwear-manufacturer/": "baby swimwear",
-        "/toddler-swimwear-manufacturer/": "toddler swimwear",
         "/modest-swimwear-manufacturer/": "modest swimwear",
         "/burkini-manufacturer/": "burkini",
         "/watersports-apparel-manufacturer/": "watersports apparel",
@@ -915,7 +1151,39 @@
         "/swimwear-accessories/": "swimwear accessories",
         "/plus-size-swimwear-manufacturer/": "plus size swimwear",
         "/couples-matching-swimsuit-manufacturer/": "couples matching swimsuit",
-        "/blog/": "general"
+        "/blog/": "general",
+        "/blog/which-is-better-oem-odm/": "general",
+        "/blog/cost-to-start-clothing-line/": "general",
+        "/blog/what-is-a-tech-pack/": "general"
+      },
+      "routeThemes": {
+        "/women-s-swimwear-manufacturer/": "women",
+        "/one-piece-swimsuit-manufacturer/": "women",
+        "/bikini-manufacturer/": "women",
+        "/men-s-swimwear-manufacturer/": "men",
+        "/boardshorts-manufacturer/": "men",
+        "/swim-trunks-manufacturer/": "men",
+        "/children-s-swimwear-manufacturer/": "children",
+        "/baby-swimwear-manufacturer/": "children",
+        "/modest-swimwear-manufacturer/": "modest",
+        "/burkini-manufacturer/": "modest",
+        "/watersports-apparel-manufacturer/": "watersports",
+        "/rash-guard-manufacturer/": "watersports",
+        "/resort-wear-manufacturer/": "family-resort-wear",
+        "/cover-up-manufacturer/": "family-resort-wear",
+        "/plus-size-swimwear-manufacturer/": "women",
+        "/couples-matching-swimsuit-manufacturer/": "couples"
+      },
+      "pagePhotos": {
+        "/about-us/": {
+          "hero": "the bright sample room of a swimwear factory in Guangzhou: finished swimsuits and bikinis on rails, a pattern-cutting table with paper patterns and fabric swatches, a Chinese pattern maker at work, with some open space on one side for a headline"
+        },
+        "/faq/": {
+          "hero": "a sampling table in a swimwear factory: a swimsuit sample on a half dress form, a tape measure, fabric swatch cards and a printed spec sheet, a Chinese sample maker's hands checking a seam, with some open space on one side for a headline"
+        },
+        "/case-studies/": {
+          "hero": "finished swimwear on a quality-control table in a bright factory: folded one-pieces and bikinis in several prints beside a measuring tape and an inspection checklist, a Chinese inspector checking a garment, with some open space on one side for a headline"
+        }
       },
       "placeholders": []
     },
@@ -934,7 +1202,7 @@
       "pageTypes": {
         "home": {
           "wordsPer1000px": {
-            "max": 155
+            "max": 152
           },
           "visualAreaPct": {
             "min": 33,
@@ -950,11 +1218,15 @@
       "home": "media-overlay",
       "about": "media-overlay",
       "contact": "plain",
-      "product_manufacturer": "media-banner",
+      "product_manufacturer": "media-overlay",
       "solution": "media-overlay"
     },
     "pageTypes": {
       "home": {
+        "faq": "two-column",
+        "logos": "marquee",
+        "testimonials": "carousel",
+        "cta": "image-band",
         "splitSequence": [
           "single",
           "tinted",
@@ -973,19 +1245,14 @@
             "action": true
           }
         ],
-        "featureGrid": "outline-numbered",
-        "gallery": "grid",
-        "faq": "two-column",
-        "logos": "marquee",
-        "testimonials": "carousel",
-        "cta": "image-band"
+        "featureGrid": "columns",
+        "gallery": "mosaic"
       },
       "about": {},
       "contact": {
-        "featureGrid": "columns",
         "form": "media",
         "contactChannels": "cards",
-        "process": "list"
+        "featureGrid": "columns"
       },
       "general": {
         "process": "timeline",
@@ -1003,6 +1270,12 @@
         }
       },
       "product_manufacturer": {
+        "cta": "inline",
+        "blocks": {
+          "m7": {
+            "variant": "panel"
+          }
+        },
         "splitSequence": [
           "single",
           "single",
@@ -1015,15 +1288,11 @@
             "at": 0.45,
             "type": "band"
           }
-        ],
-        "cta": "inline",
-        "blocks": {
-          "m7": {
-            "variant": "panel"
-          }
-        }
+        ]
       },
       "solution": {
+        "faq": "bars",
+        "contactChannels": "list",
         "splitSequence": [
           "wide",
           "single",
@@ -1035,11 +1304,7 @@
             "type": "band"
           }
         ],
-        "featureGrid": "numbered",
-        "faq": "bars",
-        "process": "band",
-        "gallery": "band",
-        "contactChannels": "list"
+        "featureGrid": "numbered"
       }
     },
     "headingAlign": "start",
@@ -1048,7 +1313,12 @@
       "textTransform": "uppercase",
       "chars": 108,
       "charEm": 0.603,
-      "leadWords": 27
+      "leadWords": 21,
+      "leadWordsByPageType": {
+        "home": 7,
+        "about": 0,
+        "solution": 56
+      }
     },
     "blockModel": {
       "*": {
@@ -1059,39 +1329,39 @@
         "after": 1
       },
       "caseStudies:*": {
-        "base": 1262,
+        "base": 856,
         "perWord": 0,
-        "visual": 0.43,
-        "before": 0.13,
-        "after": 0.31
+        "visual": 0.31,
+        "before": 0.19,
+        "after": 0.46
       },
       "caseStudies:": {
-        "base": 1262,
+        "base": 856,
         "perWord": 0,
-        "visual": 0.43,
-        "before": 0.13,
-        "after": 0.31
+        "visual": 0.31,
+        "before": 0.19,
+        "after": 0.46
       },
       "charts:*": {
-        "base": 179,
-        "perWord": 5.44,
-        "visual": 0.87,
+        "base": 165,
+        "perWord": 6.57,
+        "visual": 0.86,
         "before": 0,
         "after": 0.21
       },
       "charts:": {
-        "base": 179,
-        "perWord": 5.44,
-        "visual": 0.87,
+        "base": 165,
+        "perWord": 6.57,
+        "visual": 0.86,
         "before": 0,
         "after": 0.21
       },
       "cta:*": {
         "base": 453,
         "perWord": 0,
-        "visual": 0.36,
-        "before": 0.62,
-        "after": 0.62
+        "visual": 0.43,
+        "before": 0.55,
+        "after": 0.58
       },
       "cta:form+photo": {
         "base": 950,
@@ -1108,11 +1378,11 @@
         "after": 0.76
       },
       "cta:image-band+photo": {
-        "base": 691,
+        "base": 648,
         "perWord": 0,
-        "visual": 0.88,
-        "before": 0.06,
-        "after": 0.06
+        "visual": 0.96,
+        "before": 0,
+        "after": 0.07
       },
       "cta:image-band": {
         "base": 554,
@@ -1123,24 +1393,24 @@
       },
       "featureGrid:*": {
         "base": 133,
-        "perWord": 2.34,
-        "visual": 0.48,
-        "before": 0.5,
-        "after": 0.42
+        "perWord": 2.39,
+        "visual": 0.45,
+        "before": 0.52,
+        "after": 0.43
       },
       "featureGrid:bullets": {
-        "base": 160,
-        "perWord": 2.28,
+        "base": 213,
+        "perWord": 2.11,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "featureGrid:cards": {
-        "base": 154,
-        "perWord": 2.06,
-        "visual": 0.56,
+        "base": 149,
+        "perWord": 2.17,
+        "visual": 0.57,
         "before": 0.4,
-        "after": 0.31
+        "after": 0.28
       },
       "featureGrid:icons": {
         "base": 215,
@@ -1157,105 +1427,105 @@
         "after": 0.53
       },
       "gallery:*": {
-        "base": 801,
+        "base": 718,
         "perWord": 0,
-        "visual": 0.92,
-        "before": 0.05,
-        "after": 0.05
+        "visual": 1,
+        "before": 0,
+        "after": 0
       },
       "gallery:band": {
-        "base": 807,
+        "base": 720,
         "perWord": 0,
-        "visual": 0.92,
-        "before": 0.05,
-        "after": 0.05
+        "visual": 1,
+        "before": 0,
+        "after": 0
       },
       "gallery:grid": {
         "base": 579,
         "perWord": 0,
-        "visual": 0.87,
+        "visual": 0.84,
         "before": 0.07,
         "after": 0.07
       },
       "hero:*": {
-        "base": 424,
-        "perWord": 8.78,
-        "visual": 0.84,
+        "base": 541,
+        "perWord": 1.13,
+        "visual": 1,
         "before": 0,
-        "after": 0.2
+        "after": 0
       },
       "hero:media-overlay": {
-        "base": 134,
-        "perWord": 15.23,
+        "base": 541,
+        "perWord": 1.13,
         "visual": 1,
         "before": 0,
         "after": 0
       },
       "iconList:*": {
-        "base": 132,
-        "perWord": 3.16,
+        "base": 140,
+        "perWord": 3.43,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "iconList:checks": {
-        "base": 132,
-        "perWord": 3.16,
+        "base": 140,
+        "perWord": 3.43,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "intro:*": {
-        "base": 47,
-        "perWord": 3.63,
+        "base": 91,
+        "perWord": 3.67,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "intro:text": {
-        "base": 47,
-        "perWord": 3.63,
+        "base": 91,
+        "perWord": 3.67,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "logos:*": {
-        "base": 236,
+        "base": 249,
         "perWord": 0,
-        "visual": 0.42,
+        "visual": 0.41,
         "before": 0.48,
-        "after": 0.18
+        "after": 0.17
       },
       "logos:": {
-        "base": 236,
+        "base": 249,
         "perWord": 0,
-        "visual": 0.42,
+        "visual": 0.41,
         "before": 0.48,
-        "after": 0.18
+        "after": 0.17
       },
       "process:*": {
-        "base": 337,
-        "perWord": 1.88,
-        "visual": 0.24,
-        "before": 0.7,
-        "after": 0.67
+        "base": 443,
+        "perWord": 1.89,
+        "visual": 0.19,
+        "before": 0.79,
+        "after": 0.74
       },
       "process:circles": {
-        "base": 175,
-        "perWord": 2.12,
-        "visual": 0.65,
+        "base": 183,
+        "perWord": 2.27,
+        "visual": 0.64,
         "before": 0.29,
-        "after": 0.1
+        "after": 0.09
       },
       "process:list": {
-        "base": 356,
-        "perWord": 2.03,
+        "base": 453,
+        "perWord": 2.43,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "process:photo-cards": {
-        "base": 430,
+        "base": 459,
         "perWord": 0,
         "visual": 1,
         "before": 0,
@@ -1269,28 +1539,28 @@
         "after": 0.05
       },
       "process:timeline": {
-        "base": 212,
-        "perWord": 3.23,
-        "visual": 0.46,
-        "before": 0.25,
-        "after": 0.09
+        "base": 309,
+        "perWord": 2.81,
+        "visual": 0.41,
+        "before": 0.33,
+        "after": 0.08
       },
       "proof:*": {
         "base": 40,
-        "perWord": 4.49,
+        "perWord": 5.27,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "proof:band": {
         "base": 40,
-        "perWord": 4.49,
+        "perWord": 5.27,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "relatedPages:*": {
-        "base": 235,
+        "base": 250,
         "perWord": 0,
         "visual": 0,
         "before": 1,
@@ -1310,26 +1580,33 @@
         "before": 0.24,
         "after": 0.37
       },
-      "splitMedia:*": {
-        "base": 700,
+      "relatedPages:links": {
+        "base": 250,
         "perWord": 0,
-        "visual": 0.37,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "splitMedia:*": {
+        "base": 715,
+        "perWord": 0,
+        "visual": 0.38,
         "before": 0.23,
-        "after": 0.22
+        "after": 0.21
       },
       "splitMedia:panel": {
-        "base": 615,
+        "base": 577,
         "perWord": 0,
-        "visual": 0.22,
-        "before": 0.53,
-        "after": 0.53
+        "visual": 0.26,
+        "before": 0.5,
+        "after": 0.5
       },
       "splitMedia:single": {
-        "base": 663,
+        "base": 668,
         "perWord": 0,
         "visual": 0.34,
         "before": 0.21,
-        "after": 0.23
+        "after": 0.22
       },
       "stats:*": {
         "base": 269,
@@ -1346,9 +1623,9 @@
         "after": 0.1
       },
       "table:*": {
-        "base": 205,
-        "perWord": 2.46,
-        "visual": 0.62,
+        "base": 173,
+        "perWord": 3.12,
+        "visual": 0.48,
         "before": 0.19,
         "after": 0.06
       },
@@ -1360,169 +1637,162 @@
         "after": 0.07
       },
       "table:grid": {
-        "base": 205,
-        "perWord": 2.46,
-        "visual": 0.62,
+        "base": 173,
+        "perWord": 3.12,
+        "visual": 0.48,
         "before": 0.19,
         "after": 0.06
       },
       "trustBar:*": {
-        "base": 85,
-        "perWord": 0,
-        "visual": 0,
-        "before": 1,
-        "after": 1
+        "base": 86,
+        "perWord": 0.36,
+        "visual": 1,
+        "before": 0.01,
+        "after": 0.01
       },
       "trustBar:": {
-        "base": 85,
-        "perWord": 0,
-        "visual": 0,
-        "before": 1,
-        "after": 1
+        "base": 86,
+        "perWord": 0.36,
+        "visual": 1,
+        "before": 0.01,
+        "after": 0.01
       },
       "hero:media-banner": {
-        "base": 782,
-        "perWord": 0.08,
-        "visual": 0.71,
+        "base": 653,
+        "perWord": 5.49,
+        "visual": 0.73,
         "before": 0,
-        "after": 0.33
+        "after": 0.32
       },
       "hero:media-banner@product_manufacturer": {
-        "base": 782,
-        "perWord": 0.08,
-        "visual": 0.71,
+        "base": 653,
+        "perWord": 5.49,
+        "visual": 0.73,
         "before": 0,
-        "after": 0.33
+        "after": 0.32
       },
       "trustBar:@product_manufacturer": {
-        "base": 85,
-        "perWord": 0,
-        "visual": 0,
-        "before": 1,
-        "after": 1
+        "base": 80,
+        "perWord": 0.5,
+        "visual": 1,
+        "before": 0.01,
+        "after": 0.01
       },
       "intro:text@product_manufacturer": {
-        "base": 40,
-        "perWord": 3.64,
+        "base": 62,
+        "perWord": 3.76,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "process:circles@product_manufacturer": {
-        "base": 176,
-        "perWord": 2.04,
-        "visual": 0.64,
+        "base": 186,
+        "perWord": 2.16,
+        "visual": 0.65,
         "before": 0.29,
         "after": 0.1
       },
       "table:grid@product_manufacturer": {
-        "base": 178,
-        "perWord": 2.56,
-        "visual": 0.62,
+        "base": 124,
+        "perWord": 3.34,
+        "visual": 0.48,
         "before": 0.19,
-        "after": 0.06
+        "after": 0.05
       },
       "featureGrid:bullets@product_manufacturer": {
-        "base": 141,
-        "perWord": 2.34,
+        "base": 182,
+        "perWord": 2.21,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "gallery:band@product_manufacturer": {
-        "base": 806,
+        "base": 720,
         "perWord": 0,
-        "visual": 0.92,
-        "before": 0.05,
-        "after": 0.05
+        "visual": 1,
+        "before": 0,
+        "after": 0
       },
       "featureGrid:cards@product_manufacturer": {
-        "base": 160,
-        "perWord": 1.98,
+        "base": 159,
+        "perWord": 2.07,
         "visual": 0.59,
-        "before": 0.38,
-        "after": 0.29
+        "before": 0.37,
+        "after": 0.25
       },
       "testimonials:": {
-        "base": 389,
-        "perWord": 0.39,
+        "base": 359,
+        "perWord": 0.63,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "testimonials:*": {
-        "base": 389,
-        "perWord": 0.39,
+        "base": 359,
+        "perWord": 0.63,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "testimonials:@product_manufacturer": {
-        "base": 385,
-        "perWord": 0.42,
-        "visual": 0,
-        "before": 1,
-        "after": 1
-      },
-      "relatedPages:links": {
-        "base": 235,
-        "perWord": 0,
+        "base": 352,
+        "perWord": 0.7,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "relatedPages:links@product_manufacturer": {
-        "base": 237,
+        "base": 250,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "faq:two-column": {
-        "base": 467,
-        "perWord": 1.84,
+        "base": 265,
+        "perWord": 2.91,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "faq:*": {
-        "base": 455,
-        "perWord": 2.07,
+        "base": 252,
+        "perWord": 3.24,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "faq:two-column@product_manufacturer": {
-        "base": 278,
-        "perWord": 3.33,
+        "base": 407,
+        "perWord": 2.64,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "cta:inline": {
-        "base": 214,
-        "perWord": 2.06,
+        "base": 155,
+        "perWord": 3.69,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "cta:inline@product_manufacturer": {
-        "base": 214,
-        "perWord": 2.06,
+        "base": 155,
+        "perWord": 3.69,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "process:list@product_manufacturer": {
-        "base": 400,
-        "perWord": 1.35,
+        "base": 453,
+        "perWord": 2.4,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "iconList:checks@product_manufacturer": {
-        "base": 122,
-        "perWord": 3.29,
+        "base": 137,
+        "perWord": 3.47,
         "visual": 0,
         "before": 1,
         "after": 1
@@ -1530,14 +1800,14 @@
       "splitMedia:single@product_manufacturer": {
         "base": 660,
         "perWord": 0,
-        "visual": 0.33,
+        "visual": 0.32,
         "before": 0.25,
-        "after": 0.26
+        "after": 0.27
       },
       "charts:@product_manufacturer": {
-        "base": 163,
-        "perWord": 6.21,
-        "visual": 0.87,
+        "base": 140,
+        "perWord": 7.29,
+        "visual": 0.86,
         "before": 0,
         "after": 0.21
       },
@@ -1549,58 +1819,58 @@
         "after": 0
       },
       "trustBar:@home": {
-        "base": 85,
+        "base": 94,
         "perWord": 0,
-        "visual": 0,
-        "before": 1,
-        "after": 1
+        "visual": 1,
+        "before": 0.01,
+        "after": 0.01
       },
       "intro:text@home": {
-        "base": 459,
+        "base": 549,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "gallery:band@home": {
-        "base": 811,
+        "base": 722,
         "perWord": 0,
-        "visual": 0.91,
-        "before": 0.05,
-        "after": 0.06
+        "visual": 1,
+        "before": 0,
+        "after": 0
       },
       "process:list@home": {
-        "base": 447,
+        "base": 549,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "iconList:checks@home": {
-        "base": 417,
+        "base": 468,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "featureGrid:outline-numbered": {
-        "base": 195,
-        "perWord": 1.92,
-        "visual": 0.55,
-        "before": 0.45,
-        "after": 0.43
+        "base": 40,
+        "perWord": 4.06,
+        "visual": 0.38,
+        "before": 0.58,
+        "after": 0.55
       },
       "featureGrid:outline-numbered@home": {
-        "base": 195,
-        "perWord": 1.92,
-        "visual": 0.55,
-        "before": 0.45,
-        "after": 0.43
+        "base": 40,
+        "perWord": 4.06,
+        "visual": 0.38,
+        "before": 0.58,
+        "after": 0.55
       },
       "gallery:grid@home": {
         "base": 579,
         "perWord": 0,
-        "visual": 0.87,
+        "visual": 0.84,
         "before": 0.07,
         "after": 0.07
       },
@@ -1626,49 +1896,49 @@
         "after": 0.02
       },
       "logos:@home": {
-        "base": 250,
+        "base": 265,
         "perWord": 0,
-        "visual": 0.39,
+        "visual": 0.38,
         "before": 0.51,
-        "after": 0.17
+        "after": 0.16
       },
       "testimonials:@home": {
-        "base": 416,
+        "base": 424,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "relatedPages:links@home": {
-        "base": 230,
+        "base": 351,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "faq:two-column@home": {
-        "base": 603,
+        "base": 502,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "cta:image-band+photo@home": {
-        "base": 691,
+        "base": 648,
         "perWord": 0,
-        "visual": 0.87,
-        "before": 0.06,
-        "after": 0.06
+        "visual": 0.96,
+        "before": 0,
+        "after": 0.07
       },
       "proof:band@product_manufacturer": {
-        "base": 267,
+        "base": 294,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "process:photo-cards@product_manufacturer": {
-        "base": 430,
+        "base": 459,
         "perWord": 0,
         "visual": 1,
         "before": 0,
@@ -1682,35 +1952,35 @@
         "after": 0
       },
       "trustBar:@solution": {
-        "base": 85,
-        "perWord": 0,
-        "visual": 0,
-        "before": 1,
-        "after": 1
+        "base": 89,
+        "perWord": 0.36,
+        "visual": 1,
+        "before": 0.01,
+        "after": 0.01
       },
       "intro:text@solution": {
-        "base": 132,
-        "perWord": 2.58,
+        "base": 167,
+        "perWord": 2.75,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "splitMedia:wide": {
-        "base": 733,
-        "perWord": 3.21,
-        "visual": 0.61,
-        "before": 0.31,
+        "base": 773,
+        "perWord": 3.14,
+        "visual": 0.6,
+        "before": 0.33,
         "after": 0.08
       },
       "splitMedia:wide@solution": {
-        "base": 733,
-        "perWord": 3.21,
-        "visual": 0.61,
-        "before": 0.31,
+        "base": 773,
+        "perWord": 3.14,
+        "visual": 0.6,
+        "before": 0.33,
         "after": 0.08
       },
       "splitMedia:single@solution": {
-        "base": 654,
+        "base": 662,
         "perWord": 0,
         "visual": 0.35,
         "before": 0.19,
@@ -1731,133 +2001,133 @@
         "after": 0.36
       },
       "featureGrid:bullets@solution": {
-        "base": 228,
-        "perWord": 2,
+        "base": 269,
+        "perWord": 1.81,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "featureGrid:cards@solution": {
-        "base": 119,
-        "perWord": 2.44,
-        "visual": 0.52,
-        "before": 0.44,
-        "after": 0.35
+        "base": 125,
+        "perWord": 2.42,
+        "visual": 0.54,
+        "before": 0.42,
+        "after": 0.32
       },
       "iconList:checks@solution": {
-        "base": 171,
-        "perWord": 2.92,
+        "base": 148,
+        "perWord": 3.42,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "table:grid@solution": {
-        "base": 245,
-        "perWord": 2.32,
-        "visual": 0.61,
+        "base": 223,
+        "perWord": 2.9,
+        "visual": 0.48,
         "before": 0.19,
         "after": 0.06
       },
       "process:list@solution": {
-        "base": 312,
-        "perWord": 2.37,
+        "base": 443,
+        "perWord": 2.49,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "gallery:band@solution": {
-        "base": 806,
+        "base": 720,
         "perWord": 0,
-        "visual": 0.92,
-        "before": 0.05,
-        "after": 0.05
+        "visual": 1,
+        "before": 0,
+        "after": 0
       },
       "orderCase:": {
-        "base": 86,
-        "perWord": 5.15,
+        "base": 90,
+        "perWord": 5.52,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "orderCase:*": {
-        "base": 86,
-        "perWord": 5.15,
+        "base": 90,
+        "perWord": 5.52,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "orderCase:@solution": {
-        "base": 323,
+        "base": 344,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "testimonials:@solution": {
-        "base": 431,
+        "base": 452,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "relatedPages:links@solution": {
-        "base": 232,
+        "base": 229,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "faq:bars": {
-        "base": 235,
-        "perWord": 4.15,
+        "base": 445,
+        "perWord": 3.12,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "faq:bars@solution": {
-        "base": 235,
-        "perWord": 4.15,
+        "base": 445,
+        "perWord": 3.12,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "charts:@solution": {
-        "base": 183,
-        "perWord": 4.47,
-        "visual": 0.85,
+        "base": 192,
+        "perWord": 5.32,
+        "visual": 0.88,
         "before": 0,
-        "after": 0.2
+        "after": 0.19
       },
       "cta:image-band+photo@solution": {
-        "base": 691,
+        "base": 648,
         "perWord": 0,
-        "visual": 0.88,
-        "before": 0.06,
-        "after": 0.06
+        "visual": 0.96,
+        "before": 0,
+        "after": 0.07
       },
       "proof:band@solution": {
-        "base": 71,
-        "perWord": 2.98,
+        "base": 40,
+        "perWord": 5.57,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "hero:media-overlay@about": {
-        "base": 556,
+        "base": 518,
         "perWord": 0,
         "visual": 1,
         "before": 0,
         "after": 0
       },
       "trustBar:@about": {
-        "base": 85,
+        "base": 94,
         "perWord": 0,
-        "visual": 0,
-        "before": 1,
-        "after": 1
+        "visual": 1,
+        "before": 0.01,
+        "after": 0.01
       },
       "intro:text@about": {
-        "base": 211,
+        "base": 342,
         "perWord": 0,
         "visual": 0,
         "before": 1,
@@ -1866,156 +2136,156 @@
       "splitMedia:single@about": {
         "base": 758,
         "perWord": 0,
-        "visual": 0.44,
+        "visual": 0.43,
         "before": 0.06,
         "after": 0.06
       },
       "featureGrid:cards@about": {
-        "base": 333,
+        "base": 364,
         "perWord": 0,
-        "visual": 0.27,
-        "before": 0.72,
+        "visual": 0.23,
+        "before": 0.76,
         "after": 0.52
       },
       "process:circles@about": {
-        "base": 640,
+        "base": 704,
         "perWord": 0,
-        "visual": 0.67,
-        "before": 0.28,
-        "after": 0.07
+        "visual": 0.63,
+        "before": 0.31,
+        "after": 0.06
       },
       "iconList:checks@about": {
-        "base": 556,
+        "base": 620,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "logos:@about": {
-        "base": 222,
+        "base": 233,
         "perWord": 0,
-        "visual": 0.44,
+        "visual": 0.43,
         "before": 0.45,
-        "after": 0.19
+        "after": 0.18
       },
       "testimonials:@about": {
-        "base": 363,
+        "base": 399,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "faq:two-column@about": {
-        "base": 632,
+        "base": 429,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "cta:image-band+photo@about": {
-        "base": 691,
+        "base": 648,
         "perWord": 0,
-        "visual": 0.87,
-        "before": 0.06,
-        "after": 0.06
+        "visual": 0.96,
+        "before": 0,
+        "after": 0.07
       },
       "hero:media-overlay@general": {
-        "base": 900,
+        "base": 560,
         "perWord": 0,
         "visual": 1,
         "before": 0,
         "after": 0
       },
       "trustBar:@general": {
-        "base": 85,
-        "perWord": 0,
-        "visual": 0,
-        "before": 1,
-        "after": 1
+        "base": 40,
+        "perWord": 5.1,
+        "visual": 1,
+        "before": 0.01,
+        "after": 0.01
       },
       "intro:text@general": {
-        "base": 96,
-        "perWord": 3.79,
+        "base": 128,
+        "perWord": 3.82,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "process:list@general": {
-        "base": 520,
-        "perWord": 0.68,
+        "base": 703,
+        "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "orderCase:@general": {
-        "base": 544,
+        "base": 583,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "relatedPages:links@general": {
-        "base": 230,
+        "base": 241,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "faq:two-column@general": {
-        "base": 505,
-        "perWord": 1.38,
+        "base": 157,
+        "perWord": 3.29,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "cta:image-band+photo@general": {
-        "base": 691,
+        "base": 648,
         "perWord": 0,
-        "visual": 0.89,
-        "before": 0.06,
-        "after": 0.06
+        "visual": 0.97,
+        "before": 0,
+        "after": 0.07
       },
       "gallery:band@general": {
-        "base": 806,
+        "base": 720,
         "perWord": 0,
-        "visual": 0.92,
-        "before": 0.05,
-        "after": 0.05
+        "visual": 1,
+        "before": 0,
+        "after": 0
       },
       "proof:band@general": {
         "base": 40,
-        "perWord": 5.1,
+        "perWord": 6.56,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "featureGrid:cards@general": {
-        "base": 405,
+        "base": 414,
         "perWord": 0,
-        "visual": 0.62,
-        "before": 0.31,
-        "after": 0.11
+        "visual": 0.61,
+        "before": 0.33,
+        "after": 0.1
       },
       "iconList:checks@general": {
-        "base": 128,
-        "perWord": 2.99,
+        "base": 91,
+        "perWord": 3.43,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "splitMedia:single@general": {
         "base": 40,
-        "perWord": 10.07,
-        "visual": 0.33,
+        "perWord": 9.36,
+        "visual": 0.32,
         "before": 0.29,
         "after": 0.29
       },
       "charts:@general": {
-        "base": 185,
-        "perWord": 6.94,
-        "visual": 0.87,
+        "base": 154,
+        "perWord": 9.56,
+        "visual": 0.83,
         "before": 0,
-        "after": 0.2
+        "after": 0.24
       },
       "process:circles@general": {
         "base": 558,
@@ -2025,25 +2295,151 @@
         "after": 0.08
       },
       "featureGrid:bullets@general": {
-        "base": 960,
+        "base": 935,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "process:timeline@general": {
-        "base": 212,
-        "perWord": 3.23,
-        "visual": 0.46,
-        "before": 0.25,
-        "after": 0.09
+        "base": 309,
+        "perWord": 2.81,
+        "visual": 0.41,
+        "before": 0.33,
+        "after": 0.08
       },
       "splitMedia:panel@product_manufacturer": {
-        "base": 615,
+        "base": 577,
         "perWord": 0,
-        "visual": 0.22,
-        "before": 0.53,
-        "after": 0.53
+        "visual": 0.26,
+        "before": 0.5,
+        "after": 0.5
+      },
+      "featureGrid:bullets@home": {
+        "base": 346,
+        "perWord": 1.73,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "page-lead:": {
+        "base": 150,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "page-lead:*": {
+        "base": 150,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "page-lead:@home": {
+        "base": 150,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "page-lead:@about": {
+        "base": 150,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "team:": {
+        "base": 384,
+        "perWord": 0,
+        "visual": 0.56,
+        "before": 0.35,
+        "after": 0.11
+      },
+      "team:*": {
+        "base": 384,
+        "perWord": 0,
+        "visual": 0.56,
+        "before": 0.35,
+        "after": 0.11
+      },
+      "team:@about": {
+        "base": 384,
+        "perWord": 0,
+        "visual": 0.56,
+        "before": 0.35,
+        "after": 0.11
+      },
+      "form:": {
+        "base": 1079,
+        "perWord": 0,
+        "visual": 0.17,
+        "before": 0.12,
+        "after": 0.49
+      },
+      "form:*": {
+        "base": 1079,
+        "perWord": 0,
+        "visual": 0.17,
+        "before": 0.12,
+        "after": 0.49
+      },
+      "form:@general": {
+        "base": 1079,
+        "perWord": 0,
+        "visual": 0.17,
+        "before": 0.12,
+        "after": 0.49
+      },
+      "page-toc:": {
+        "base": 331,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "page-toc:*": {
+        "base": 331,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "page-toc:@product_manufacturer": {
+        "base": 325,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "page-toc:@solution": {
+        "base": 341,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "caseStudies:@general": {
+        "base": 856,
+        "perWord": 0,
+        "visual": 0.31,
+        "before": 0.19,
+        "after": 0.46
+      },
+      "page-toc:@general": {
+        "base": 350,
+        "perWord": 0,
+        "visual": 0,
+        "before": 1,
+        "after": 1
+      },
+      "hero:media-overlay@product_manufacturer": {
+        "base": 560,
+        "perWord": 0,
+        "visual": 1,
+        "before": 0,
+        "after": 0
       }
     }
   }

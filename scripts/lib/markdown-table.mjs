@@ -21,10 +21,19 @@ export function markdownTable(body = '') {
     if (cells(lines[index + 1]).length !== columns.length || columns.length < 2) continue;
     let end = index + 2;
     const rows = [];
-    while (end < lines.length && lines[end].trim() && lines[end].includes('|')) {
-      const row = cells(lines[end]);
-      rows.push(columns.map((_, column) => row[column] ?? ''));
-      end += 1;
+    const rowLine = (line) => /^\s*\|.*\|\s*$/.test(line ?? '');
+    for (;;) {
+      while (end < lines.length && lines[end].trim() && lines[end].includes('|')) {
+        const row = cells(lines[end]);
+        rows.push(columns.map((_, column) => row[column] ?? ''));
+        end += 1;
+      }
+      // Rows the writer went on with after a blank line, no header of their own and as many cells as the table's, are
+      // the same table's rows (aloha 2026-11-18: two runs of inseam and size rows were shown as notes, pipes and all).
+      let next = end;
+      while (next < lines.length && !lines[next].trim()) next += 1;
+      if (next === end || !rowLine(lines[next]) || delimiter(lines[next + 1] ?? '') || cells(lines[next]).length !== columns.length) break;
+      end = next;
     }
     const paragraphs = (text) => text.split(/\n\s*\n/).map((part) => part.trim()).filter(Boolean);
     return { lead: paragraphs(lines.slice(0, index).join('\n')), columns, rows, after: paragraphs(lines.slice(end).join('\n')) };

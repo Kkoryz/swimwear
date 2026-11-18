@@ -1,3 +1,0 @@
-```json
-{"figures": [{"value": "50 pieces", "label": "Minimum per style colour"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "10 to 15 days", "label": "Standard sample time"}, {"value": "200–210 gsm", "label": "Standard fabric weight"}, {"value": "UPF 50+", "label": "Fabric sun protection"}, {"value": "S to 4XL", "label": "Sport block sizes"}]}
-```

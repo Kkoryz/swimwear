@@ -13,7 +13,7 @@ export function childCards(slot, children) {
 }
 
 // Pages the site plan relates a page to, closest first: its manufacturing or wholesale counterpart (sibling_page_id,
-// either way), its parent (not the home page), its children, then its siblings of the same page type.
+// either way), its parent (not the home page), its children, then its siblings of the same page type (not a city's).
 export function relatedPages(page, pagesPlan) {
   const byId = new Map(pagesPlan.pages.map((item) => [item.page_id, item]));
   const parent = byId.get(page.parent_page_id);
@@ -22,7 +22,8 @@ export function relatedPages(page, pagesPlan) {
     ...pagesPlan.pages.filter((item) => item.sibling_page_id === page.page_id),
     parent?.page_type === 'home' || parent?.nav_only ? null : parent,
     ...childPages(pagesPlan, page.page_id),
-    ...pagesPlan.pages.filter((item) => item.parent_page_id === page.parent_page_id && item.page_type === page.page_type),
+    // A city page does not link the other cities (Site Factory 2026-11-16: "城市页之间不互相链接").
+    ...(page.page_type === 'place' ? [] : pagesPlan.pages.filter((item) => item.parent_page_id === page.parent_page_id && item.page_type === page.page_type)),
   ];
   return [...new Map(list.filter((item) => item && item.page_id !== page.page_id).map((item) => [item.page_id, item])).values()];
 }

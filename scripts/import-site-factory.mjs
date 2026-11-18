@@ -6,7 +6,8 @@
 // from pages.json labels and links, never with new copy.
 
 import { createHash } from 'node:crypto';
-import { mkdir, readFile, rm } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { mkdir, readdir, readFile, rm } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { assertAuthoringPages } from './lib/authoring-contract.mjs';
 import { plainText } from './lib/blog.mjs';
@@ -24,7 +25,8 @@ import { pageHash } from './lib/page-dates.mjs';
 import { citedFactIds, pageFactsOf, placeStructured, verifySectionFacts, verifyStructured } from './lib/sf-structured.mjs';
 import { recordPageDates } from './lib/site-pages.mjs';
 import { aliasRoutes, handoffProblems, routeAliases } from './lib/sf-handoff.mjs';
-import { trustBarRefused, trustBarUnconfirmed, trustFromPackage } from './lib/site-trust.mjs';
+import { homeCategoryGroups, placeHomeCategories } from './lib/home-categories.mjs';
+import { trustBarRefused, trustBarUnconfirmed, trustFromPackage, trustValueTrimmed } from './lib/site-trust.mjs';
 
 export { factsFromFile, parseFacts } from './lib/facts.mjs';
 
@@ -39,16 +41,51 @@ const plainJsonLd = (value) => (typeof value === 'string' ? plainText(value) : A
 // The contact details shown until the owner gives the real ones (owner 2026-11-12: "真实联系方式先占位"): an empty
 // field takes a stand-in that reads as one (an example.com address, a 555-01xx number), and the details stay marked
 // placeholder, so the contact page shows its ways to reach the company and the launch preflight holds them.
-export const CONTACT_STAND_INS = Object.freeze({ email: 'hello@example.com', phone: '+1 555 0100', address: 'Office address to be confirmed', hours: 'Monday to Friday, 8:00 to 18:00' });
-export function withContactStandIns(contact) {
+// Owner 2026-11-17: the stand-in email is info@ the site's own domain (origin: src/data/site-identity.json), not an
+// example.com address, and an address nobody gave is left out (not "to be confirmed" on every page); both stay listed
+// in standIns, so the launch preflight still holds them.
+// A stand-in phone number in the format of the site's country (owner 2026-11-17: "直接留个假的号码就行", the sites are
+// not launched): made from the site's domain, the same on every run; China in Guangzhou's 020, Canada in Toronto's
+// 416, anywhere else a US number; never 555. Invented, it may still be someone's: it stays in standIns, and the
+// preflight holds it until the owner gives the real one.
+export function standInPhone(host, address = '') {
+  const digits = createHash('sha256').update(String(host)).digest().toString('hex').replace(/[a-f]/g, '').padEnd(12, '7');
+  const place = String(address ?? '');
+  if (/china|guangzhou|guangdong|\bcn\b/i.test(place)) return `+86 20 ${3 + (Number(digits[0]) % 6)}${digits.slice(1, 4)} ${digits.slice(4, 8)}`;
+  const exchange = `${2 + (Number(digits[0]) % 8)}${digits.slice(1, 3)}`.replace(/^555$/, '556');
+  const area = /canada|ontario|toronto|\bca\b/i.test(place) ? '416' : ['312', '617', '214', '404', '602'][Number(digits[3]) % 5];
+  return `+1 ${area} ${exchange} ${digits.slice(4, 8)}`;
+}
+// A stand-in WhatsApp number (owner 2026-11-17: "whatsapp号码随便编"; the site13 blind audit found WhatsApp in the copy
+// and no number anywhere): a mobile number of the site's country, made from the site's domain as the phone is (salted,
+// so its digits are not the phone's), the same on every run: China a 13x-19x mobile, Canada a Toronto 647, anywhere else
+// a US number; never 555. Invented, it may still be someone's: it stays in standIns until the owner gives the real one.
+const CHINA_MOBILE = Object.freeze(['135', '136', '137', '139', '150', '151', '152', '157', '158', '159', '182', '183', '187', '188', '198']);
+export function standInWhatsapp(host, address = '') {
+  const digits = createHash('sha256').update(`${host}\u0000whatsapp`).digest().toString('hex').replace(/[a-f]/g, '').padEnd(12, '6');
+  const place = String(address ?? '');
+  if (/china|guangzhou|guangdong|\bcn\b/i.test(place)) return `+86 ${CHINA_MOBILE[Number(digits.slice(0, 2)) % CHINA_MOBILE.length]} ${digits.slice(2, 6)} ${digits.slice(6, 10)}`;
+  const exchange = `${2 + (Number(digits[0]) % 8)}${digits.slice(1, 3)}`.replace(/^555$/, '556');
+  const area = /canada|ontario|toronto|\bca\b/i.test(place) ? '647' : ['312', '617', '214', '404', '602'][Number(digits[3]) % 5];
+  return `+1 ${area} ${exchange} ${digits.slice(4, 8)}`;
+}
+// No stand-in opening hours (Site Factory integ deb67119, 2026-11-17: the hours are a site fact of project.yaml contact,
+// and the pages' any-hour claims are checked against them; a made-up "Monday to Friday" contradicted them): hours
+// nobody gave are not shown.
+export const CONTACT_STAND_INS = Object.freeze({ email: 'hello@example.com', phone: '+1 555 0100', address: '' });
+// whatsapp: the copy names WhatsApp as a way to reach the company; without a number of its own, the contact details
+// take a stand-in one (standInWhatsapp), in standIns like the rest.
+export function withContactStandIns(contact, { origin = null, whatsapp = false } = {}) {
   const given = contact ?? {};
-  const empty = Object.keys(CONTACT_STAND_INS).filter((key) => !String(given[key] ?? '').trim());
+  const host = origin ? new URL(origin).hostname.replace(/^www\./, '') : null;
+  const empty = [...Object.keys(CONTACT_STAND_INS), ...(whatsapp && host ? ['whatsapp'] : [])].filter((key) => !String(given[key] ?? '').trim());
   if (!empty.length) return contact;
-  return { ...given, ...Object.fromEntries(empty.map((key) => [key, CONTACT_STAND_INS[key]])), placeholder: true, standIns: empty };
+  const standIn = (key) => (key === 'email' && host ? `info@${host}` : key === 'phone' && host ? standInPhone(host, given.address) : key === 'whatsapp' ? standInWhatsapp(host, given.address) : CONTACT_STAND_INS[key]);
+  return { ...given, ...Object.fromEntries(empty.map((key) => [key, standIn(key)])), placeholder: true, standIns: empty };
 }
 
 // wording: the words 08 adds to a page in the site's trade (config/wording*.json).
-export function importSiteFactory({ authoringPackage: given, pagesPlan, only = null, structuredOverlay = null, facts = null, blueprints = BLUEPRINTS, proof = null, moduleRuns = {}, relatedVariant = null, wording = null }) {
+export function importSiteFactory({ authoringPackage: given, pagesPlan, only = null, structuredOverlay = null, facts = null, blueprints = BLUEPRINTS, proof = null, moduleRuns = {}, relatedVariant = null, wording = null, origin = null }) {
   if (given?.schema_version !== SUPPORTED_PACKAGE_SCHEMA) throw new Error(`unsupported authoring package schema: ${given?.schema_version}`);
   // The site-wide flows in the sections that use them (lib/sf-kinds.mjs withSiteModules).
   const authoringPackage = withSiteModules(given);
@@ -91,7 +128,9 @@ export function importSiteFactory({ authoringPackage: given, pagesPlan, only = n
   const refusedTrust = trustBarRefused(authoringPackage);
   // Trust bar figures no confirmed fact states (borrowed, or with no fact at all): off the bar, back to the owner.
   const unconfirmedTrust = trustBarUnconfirmed(authoringPackage, facts);
-  const report = { schemaVersion: 'seo-site-factory-import-v1', project: authoringPackage.project, packageSchema: authoringPackage.schema_version, rules: { longSectionWords: LONG_SECTION_WORDS, minProofNumbers: MIN_PROOF_NUMBERS }, pages: [], skipped: [], held: [], jsonLdMarkdown: [], overLength: [], withheld: pagesPlan.pages.filter((item) => item.withheld).map((item) => ({ pageId: item.page_id, route: item.url, reason: item.withheld })), ...(refusedTrust.length ? { trustBarRefused: refusedTrust } : {}), ...(unconfirmedTrust.length ? { trustBarUnconfirmed: unconfirmedTrust } : {}) };
+  // Trust bar values whose word after the number is no unit ("65 that"): the number alone shows, reported to Site Factory.
+  const trimmedTrust = trustValueTrimmed(authoringPackage);
+  const report = { schemaVersion: 'seo-site-factory-import-v1', project: authoringPackage.project, packageSchema: authoringPackage.schema_version, rules: { longSectionWords: LONG_SECTION_WORDS, minProofNumbers: MIN_PROOF_NUMBERS }, pages: [], skipped: [], held: [], jsonLdMarkdown: [], overLength: [], withheld: pagesPlan.pages.filter((item) => item.withheld).map((item) => ({ pageId: item.page_id, route: item.url, reason: item.withheld })), ...(refusedTrust.length ? { trustBarRefused: refusedTrust } : {}), ...(unconfirmedTrust.length ? { trustBarUnconfirmed: unconfirmedTrust } : {}), ...(trimmedTrust.length ? { trustValueTrimmed: trimmedTrust } : {}) };
   for (const source of authoringPackage.pages) {
     if (source.release_status === 'hold') report.held.push({ pageId: source.page_id, route: source.url, reason: 'release_status:hold', holdReasons: source.hold_reasons || [] });
     if (!builds(source)) { report.skipped.push({ pageId: source.page_id, reason: `release_status:${source.release_status}`, holdReasons: source.hold_reasons || [] }); continue; }
@@ -140,14 +179,15 @@ export function importSiteFactory({ authoringPackage: given, pagesPlan, only = n
     }
     placePlanSlots(blocks, mapping, { planned, pagesPlan, blueprints });
     placeSiteSlots(blocks, mapping, { planned, blueprints });
-    placeRequiredBlocks(blocks, mapping, { planned });
+    // The privacy page's table, when the package gives it (Site Factory integ deb67119, 2026-11-17; an older one does not).
+    placeRequiredBlocks(blocks, mapping, { planned, hero: { heading: source.h1, lead: source.hero_lead ? [source.hero_lead] : [] }, practices: source.data_practices ?? null });
     placeOwnerSlots(blocks, mapping, { planned, proof, blueprints, trust, testimonials: source.testimonials ?? null, cases: source.cases ?? null });
     // A case card's link in the trade's words (a service has no product to see).
     for (const block of blocks) if (block.type === 'caseStudies' && wording?.caseLink) block.linkLabel = wording.caseLink;
     placeStyleGrid(blocks, mapping, { source, planned });
     placeCases(blocks, mapping, { source, proof, heading: wording?.caseHeading });
     placeSources(blocks, mapping, source);
-    const related = placeRelated(blocks, { planned, pagesPlan, built, links: source.links || [], variant: relatedVariant, heading: wording?.relatedHeading });
+    const related = placeRelated(blocks, { planned, pagesPlan, built, links: source.links || [], variant: relatedVariant, heading: wording?.relatedHeading, pagesHeading: wording?.relatedPagesHeading });
     if (related.fromPage + related.added) mapping.push({ sectionId: 'links', blockType: 'relatedPages', rule: `related pages: ${related.fromPage} page links (${related.inCopy} already in the copy), ${related.added} from the site plan` });
     assertSectionsUsedOnce(source, mapping);
     // A package whose every section names its slot is laid out in the blueprint's order.
@@ -167,9 +207,12 @@ export function importSiteFactory({ authoringPackage: given, pagesPlan, only = n
       // Structured data properties Site Factory filled with placeholders (Product offers, reviews...): shown in a
       // development build, never released (lib/review-markup.mjs).
       ...(source.structured_data_placeholders?.length ? { structuredDataPlaceholders: source.structured_data_placeholders } : {}),
-      // hero_lead: the answer-first line under the H1 (Site Factory 07, 15-35 words).
+      // hero_lead: the answer-first line under the H1 (Site Factory 07, 15-35 words), the first screen's subtitle. No
+      // second identity line: Site Factory adds no hero_tagline, it would say what hero_lead says (coordinator 2026-11-17).
       hero: { heading: source.h1, ...(source.hero_lead ? { lead: [source.hero_lead] } : {}), ...(source.cta ? { cta: { label: source.cta.label, href: source.cta.target_url } } : {}) },
       blocks,
+      // The plan's label and primary query: the name and type of the Service stage 10 gives the page (lib/seo-head.mjs).
+      ...(planned.label ? { planned: { label: planned.label, ...(planned.primary_query ? { primaryQuery: planned.primary_query } : {}) } } : {}),
       source: { package: authoringPackage.schema_version, project: authoringPackage.project, pageId: source.page_id },
     });
     const unplaced = [];
@@ -179,10 +222,25 @@ export function importSiteFactory({ authoringPackage: given, pagesPlan, only = n
       // Every fact the page cites: stage 11 names the pages behind a fact still awaiting the owner's sign-off.
       citedFacts: [...citedFactIds(source)].sort() });
   }
-  assertAuthoringPages(pages);
   const nav = siteNavFromPlan(pagesPlan);
+  // The home page's body links the site's categories (lib/home-categories.mjs; site13 blind audit M8): a module of
+  // them when its own links miss one. Only authored pages are linked (a held or placeholder page is noindex).
+  const home = pages.find((page) => page.pageType === 'home');
+  if (home) {
+    const typeAt = new Map(pagesPlan.pages.map((item) => [item.url, item.page_type]));
+    const authored = new Set(pages.filter((page) => page.status === 'authored').map((page) => page.route));
+    const added = placeHomeCategories(home.blocks, { groups: homeCategoryGroups(nav, (route) => typeAt.get(route), (route) => authored.has(route)), hero: home.hero });
+    const entry = added ? report.pages.find((item) => item.route === home.route) : null;
+    if (entry) {
+      entry.mapping.push({ sectionId: `site.${added.id}`, blockType: 'relatedPages', rule: `the home page links its categories: ${added.links.length} hub and category pages its copy does not all reach` });
+      entry.blocks = home.blocks.map((block) => ({ id: block.id, type: block.type }));
+    }
+  }
+  assertAuthoringPages(pages);
   // The company's contact details (project.yaml via the package): email, phone, address, hours, profiles.
-  return { pages, nav, report, contact: withContactStandIns(authoringPackage.contact ?? null), blog, trust };
+  // The copy names WhatsApp (Site Factory's pages): the contact details carry a number for it, a stand-in until given.
+  const whatsapp = /\bwhats\s?app\b/i.test(JSON.stringify(authoringPackage.pages ?? []));
+  return { pages, nav, report, contact: withContactStandIns(authoringPackage.contact ?? null, { origin, whatsapp }), blog, trust };
 }
 
 export async function runImport({ packagePath, pagesPlanPath, only = null, structuredPath = null, factsPaths = [], blueprintsPath = null, root = process.cwd() }) {
@@ -213,7 +271,9 @@ export async function runImport({ packagePath, pagesPlanPath, only = null, struc
   const { trade } = await siteTrade(root);
   const wording = await readJson(tradeConfigPath('wording', trade));
   for (const key of ['relatedHeading', 'caseHeading', 'caseLink']) if (!wording[key]) throw new Error(`config/wording${trade === DEFAULT_TRADE ? '' : `.${trade}`}.json has no ${key}`);
-  const result = importSiteFactory({ authoringPackage, pagesPlan, only, structuredOverlay, facts, blueprints, proof, moduleRuns, relatedVariant, wording });
+  // The site's own domain, for the stand-in email (info@ it).
+  const origin = (await readJson(resolve(root, 'src/data/site-identity.json'), null))?.origin ?? null;
+  const result = importSiteFactory({ authoringPackage, pagesPlan, only, structuredOverlay, facts, blueprints, proof, moduleRuns, relatedVariant, wording, origin });
   // Each page's input key (what it was imported from: its part of the package and of the plan, the facts it cites,
   // its type's blueprint and module runs, the proof) and output hash (what it became), and the pages this import
   // changed: a fact reaches only the pages that cite it, and the report says which those were.
@@ -238,6 +298,9 @@ export async function runImport({ packagePath, pagesPlanPath, only = null, struc
     const used = blueprintsPath ? createHash('sha256').update(await readFile(resolve(blueprintsPath))).digest('hex') : null;
     result.report.upstream = { codeVersion: upstream.code_version ?? null, createdAt: upstream.created_at ?? null, ...(planned ? { plannedSlotManifest: planned.path, slotManifestMatches: used === planned.sha256 } : {}) };
   }
+  // The site's own patches the snapshot was frozen with (freeze-site-factory.mjs, lib/package-patches.mjs).
+  const patches = await readJson(resolve(packagePath, '..', 'package-patches.json'), null);
+  if (patches) result.report.packagePatches = patches;
   result.report.inputs = { package: resolve(packagePath), pagesPlan: resolve(pagesPlanPath), only, structured: structuredPath && resolve(structuredPath), facts: factsPaths.map((path) => resolve(path)), blueprints: blueprintsPath ? resolve(blueprintsPath) : 'built-in' };
   await mkdir(resolve(root, 'src/data'), { recursive: true });
   await mkdir(resolve(root, 'docs/research'), { recursive: true });
@@ -250,8 +313,11 @@ export async function runImport({ packagePath, pagesPlanPath, only = null, struc
   const trustPath = resolve(root, 'src/data/site-trust.json');
   if (result.trust) await writeJson(trustPath, result.trust);
   else await rm(trustPath, { force: true });
-  // The sitemap's lastmod moves only for pages whose content this import changed.
-  await recordPageDates({ root });
+  // The sitemap's lastmod moves only for pages whose content this import changed. A site with replacement lists has its
+  // dates recorded once they are applied (apply-replacements.mjs, right after the import): recorded here on the copy
+  // as imported, every replaced page would read as changed today on every import.
+  const lists = resolve(root, 'content/replacements');
+  if (!(existsSync(lists) && (await readdir(lists)).some((name) => name.endsWith('.json') && name !== 'skipped.json'))) await recordPageDates({ root });
   return result;
 }
 

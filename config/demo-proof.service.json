@@ -9,12 +9,16 @@
     "testimonials": "What clients say",
     "history": "Our story",
     "terms": "Working with us at a glance",
-    "orderRoutes": "Ways to get started"
+    "orderRoutes": "Ways to get started",
+    "team": "Meet the team"
   },
   "foundedLabel": "founded in {location}",
   "locationFact": "location",
   "clientNote": "{country}",
   "termsColumns": ["Term", "Details"],
+  "clientNames": {"note": "Stand-in clients are made per site (scripts/scaffold-site-proof.mjs standInClients): a first part, a second part and a place, picked by the site's name, so no two sites show the same clients (owner 2026-11-17). Invented; listed for replacement before launch.", "first": ["Pine Hollow", "Redstone", "Bayline", "Northgate", "Copper Mesa", "Harbor Lane", "Cedar Ridge", "Willow Bend", "Stonebridge", "Lakeshore", "Maple Crest", "Silver Creek", "Blue Heron", "Granite Peak", "Oak Meadow", "Riverbend", "Sandpiper", "Highfield", "Juniper Row", "Briarwood", "Clearwater", "Fox Run", "Kestrel", "Lantern Bay", "Millbrook", "Old Mill", "Prairie Wind", "Quail Hollow", "Rosewood", "Sagebrush", "Tall Pines", "Westbrook", "Windmere", "Ashford", "Beacon Point", "Coldwater", "Driftwood", "Eagle Rock", "Fairhaven", "Glenmoor", "Hearthstone", "Ironwood", "Larkspur", "Northwind", "Pinecrest", "Red Barn", "Summit Bay", "Twin Oaks"], "second": ["Holdings", "Family Partners", "Properties", "Owners Group", "Ventures", "Partners", "Hospitality", "Hotel Group", "Lodging Co.", "Inns", "Hospitality Partners", "Hotel Holdings"], "places": ["Ohio, USA", "Texas, USA", "Florida, USA", "Minnesota, USA", "Arizona, USA", "Oregon, USA", "Georgia, USA", "Colorado, USA", "Tennessee, USA", "Michigan, USA", "North Carolina, USA", "Utah, USA", "Washington, USA", "Missouri, USA", "Wisconsin, USA", "Virginia, USA"]},
+  "team": {"note": "Stand-in team for a service business, made per site as config/demo-proof.json's: one invented person per role, a given name and a family name picked by the site's name. A role, years of experience and what they do; never a credential, a licence number or a photo; reviews: the page types whose pages name them as reviewer (lib/site-people.mjs pageReviewer). Listed for replacement before launch.", "names": {"first": ["Megan", "Daniel", "Laura", "Marcus", "Priya", "Ethan", "Rachel", "Tyler", "Hannah", "Jordan", "Claire", "Owen", "Natalie", "Brandon", "Erin", "Caleb", "Alicia", "Grant", "Monica", "Derek"], "second": ["Walsh", "Brennan", "Okafor", "Lindqvist", "Navarro", "Whitfield", "Castellano", "Draper", "Hollis", "Kowalski", "Mercer", "Rourke", "Sandoval", "Thorne", "Vance", "Yates", "Ashby", "Carver", "Delgado", "Pruitt"]}, "members": [{"role": "Founder", "years": 18, "bio": "Runs the company and agrees the scope of the work with each new owner.", "reviews": ["place", "location"]}, {"role": "Revenue manager", "years": 12, "bio": "Sets the rates and watches the booking pace for the properties we work for.", "blogAuthor": true, "reviews": ["solution", "service", "product_manufacturer", "product_wholesale"]}, {"role": "Account lead", "years": 9, "bio": "The owner's day-to-day contact: the weekly report, questions and changes to the plan."}]},
+  "privacy": {"note": "Stand-in privacy facts for the privacy page's \"what this site collects\" (lib/data-practices.mjs): how long enquiries are kept; the contact is privacy@ the site's domain. The owner gives the real ones before launch (listed for sign-off).", "retention": "24 months after our last exchange, then deleted"},
   "certificates": [],
   "certificateAliases": {},
   "factory": [
@@ -26,7 +30,7 @@
     {
       "value": "25",
       "label": "people on the team",
-      "measure": "([\\d,]+) (?:staff|people|employees|team members)\\b"
+      "measure": "([\\d,]+) (?:staff|people|employees|team members)\\b(?![^.,;]{0,30}\\baddress)"
     }
   ],
   "history": [

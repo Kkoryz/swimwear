@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
-import { CAPS_SPREAD, DEFAULT_CHAR_EM, HERO_FIT, POST_TITLE_FIT, UNKNOWN_CHAR_EM, WRAP_MARGIN, charEmFor, familyKind, fitHeading, headingFitStyle, headingFitVars, headingLineIssues, lineCapacity, predictLines, heroLeadShown, wrapEmFor, wrapLines } from '../lib/heading-fit.mjs';
+import { CAPS_SPREAD, DEFAULT_CHAR_EM, HERO_FIT, POST_TITLE_FIT, UNKNOWN_CHAR_EM, WRAP_MARGIN, charEmFor, familyKind, fitHeading, headingFitStyle, headingFitVars, headingLineIssues, lineCapacity, predictLines, wrapEmFor, wrapLines } from '../lib/heading-fit.mjs';
 import { heroTextAverage, withCapture } from '../scaffold-placeholder-pages.mjs';
 
 const HOME = 'A hotel management company for independent hotels and motels';
@@ -75,7 +76,9 @@ test('the stylesheet takes the fit: the competitor size the ceiling, no !importa
   const { readFile } = await import('node:fs/promises');
   const css = await readFile(new URL('../../src/styles/template.css', import.meta.url), 'utf8');
   assert.match(css, /\.page-hero h1 \{[^}]*font-size: min\(var\(--size-hero\), var\(--heading-fit, var\(--size-hero\)\)\)/);
-  assert.match(css, /\[data-heading-fit\] \{ container-type: inline-size;[^}]*--heading-fit: max\(var\(--fit-min\), 100cqi \/ var\(--fit-ems\)\)/);
+  assert.match(css, /\[data-heading-fit\] \{ container-type: inline-size;[^}]*--heading-fit: max\(var\(--fit-floor, var\(--fit-min\)\), 100cqi \/ var\(--fit-ems\)\)/);
+  // A hero title's floor comes down to a pixel over the section headings when its two lines need it (site14 2026-11-17).
+  assert.match(css, /\.page-hero__copy\[data-heading-fit\] \{[^}]*--fit-floor: max\(var\(--fit-min-desktop\), min\(var\(--fit-above\), max\(calc\(var\(--size-display\) \+ 1px\), 100cqi \/ var\(--fit-ems\)\)\)\)/);
   assert.match(css, /@media \(max-width: 767px\) \{ \[data-heading-fit\] \{ --fit-ems: var\(--fit-ems-phone\); --fit-min: max\(var\(--fit-min-phone\), var\(--fit-above, 0px\)\); --fit-above-step: 0; \} \}/, 'on a phone a title keeps its four lines');
   assert.match(css, /\.block h2 \{[^}]*font-size: min\(var\(--size-display\), var\(--section-cap, var\(--size-display\)\)\)/, 'section headings come down to the title on a phone');
   assert.match(css, /main\[style\*="--title-ems-phone"\] \{ --section-cap: calc\(max\(var\(--title-min-phone, 24px\), \(100vw - 2 \* var\(--gutter\)\) \/ var\(--title-ems-phone\)\) \* 0\.95\); \}/);
@@ -108,6 +111,11 @@ test('the capture averages the competitor\'s titles into heroText and keeps an e
   assert.deepEqual(withCapture({ pageTypes: {} }, { pages: [], heroText: average }, null).heroText, average);
   assert.deepEqual(withCapture({ pageTypes: {}, heroText: average }, { pages: [], heroText: null }, null).heroText, average);
   assert.equal('heroText' in withCapture({ pageTypes: {} }, { pages: [] }, null), false);
+  // The words on each page type's hero photo, by page type; a page whose title is not on a photo (null) gives none.
+  // swimwearbali.com 2026-11-17: home 8 words on its photo, about none, solution 53, the manufacturer's title under its
+  // banner (not on it); averaged over all pages the hero took 27, so a 17-word home lead stayed on the photo.
+  const byType = heroTextAverage([{ pageType: 'home', family: 'A', textTransform: 'none', chars: 20, ems: 12, leadWords: 8 }, { pageType: 'about', family: 'A', textTransform: 'none', chars: 20, ems: 12, leadWords: 0 }, { pageType: 'solution', family: 'A', textTransform: 'none', chars: 20, ems: 12, leadWords: 53 }, { pageType: 'product_manufacturer', family: 'A', textTransform: 'none', chars: 20, ems: 12, leadWords: null }]);
+  assert.deepEqual([byType.leadWords, byType.leadWordsByPageType], [20, { home: 8, about: 0, solution: 53 }]);
 });
 
 test("an article's title may run one line longer than a page's", async () => {
@@ -117,10 +125,73 @@ test("an article's title may run one line longer than a page's", async () => {
   assert.equal(headingLineIssues(result, { article: true }).failures.length, 0);
 });
 
-test('a hero lead much longer than the competitor\'s leaves the photo', () => {
-  const twenty = ['We take daily operations, pricing and booking channels off your hands remotely, while your property and accounts stay yours.'];
-  assert.equal(heroLeadShown(twenty, { leadWords: 0 }), false, 'Concord: its title alone');
-  assert.equal(heroLeadShown(['Hotel management for independent owners.'], { leadWords: 0 }), true, 'a short line stays');
-  assert.equal(heroLeadShown(twenty, { leadWords: 18 }), true, 'about as long as the competitor\'s');
-  assert.equal(heroLeadShown(twenty, {}), true, 'not measured: as written');
+test('a hero lead stays under its title whatever the competitor\'s hero carries (site13 claude-seo audit 2026-11-17, M-10)', async () => {
+  const fit = await import('../lib/heading-fit.mjs');
+  assert.equal('heroLeadShown' in fit || 'leadBelowHero' in fit || 'HERO_LEAD_SLACK' in fit, false);
+  const hero = await readFile(new URL('../../src/components/blocks/PageHero.astro', import.meta.url), 'utf8');
+  assert.match(hero, /<h1>\{page\.hero\.heading\}<\/h1>[\s\S]*?\{page\.hero\.lead\?\.map\(\(paragraph\) => <p class="page-hero__lead">/);
+  for (const view of ['src/components/blocks/PageView.astro', 'src/components/blog/BlogHubView.astro']) assert.doesNotMatch(await readFile(new URL(`../../${view}`, import.meta.url), 'utf8'), /page-lead|leadBelow/);
+});
+
+test("a split hero's title may take three lines on a desktop, half the row being its column; a full-width title two (aloha 2026-11-17)", async () => {
+  const { headingLineIssues: issues, SPLIT_HERO_FIT: split } = await import('../lib/heading-fit.mjs');
+  const result = (h1, viewport = 'desktop') => ({ route: '/x/', viewport, headingLines: { h1: [h1], sections: [] } });
+  assert.equal(split.desktop.lines, 3);
+  assert.deepEqual(issues(result({ text: 'T', lines: 3, fontPx: 54, split: true })).failures, []);
+  assert.equal(issues(result({ text: 'T', lines: 4, fontPx: 54, split: true })).failures[0].maximum, 3);
+  assert.equal(issues(result({ text: 'T', lines: 3, fontPx: 54 })).failures[0].issue, 'h1_lines');
+  assert.deepEqual(issues(result({ text: 'T', lines: 4, fontPx: 30, split: true }, 'mobile')).failures, []);
+});
+
+test('a title the form beside it leaves too little room for (two lines at the floor) takes the hero\'s whole row, the form under the copy', async () => {
+  const { FORM_HERO_TITLE_PX, titleNeedsRow } = await import('../lib/heading-fit.mjs');
+  // Staylumen's Scottsdale page, 2026-11-16: its 68-character title ran three lines in the 7/12 column beside the form.
+  const charEm = wrapEmFor({ family: 'Montserrat, Arial, sans-serif', textTransform: 'none' });
+  assert.ok(FORM_HERO_TITLE_PX > 600 && FORM_HERO_TITLE_PX < 700);
+  assert.equal(titleNeedsRow('Full-Service Vacation Rental Management Scottsdale Owners Can Rely On', { charEm }), true);
+  assert.equal(titleNeedsRow('Vacation Rental Management in San Diego', { charEm }), false);
+  assert.equal(titleNeedsRow('', { charEm }), false);
+});
+
+test("a sans title with no measure of its own is fitted wide enough for Montserrat bold (Staylumen 2026-11-17)", async () => {
+  const { charEmFor, lineEms, HERO_FIT } = await import('../lib/heading-fit.mjs');
+  const charEm = charEmFor({ charEm: 1.228, chars: 192, family: 'Montserrat, Arial, sans-serif', textTransform: 'none' });
+  // "Airbnb Booking Management" measured 15.58em in Montserrat 700: the two-line width must hold it.
+  assert.ok(lineEms('Airbnb Booking Management With 24/7 Guest Messaging', HERO_FIT.desktop.lines, charEm) >= 15.58);
+});
+
+test('a title in a face the template knows wraps by its real widths, in the face the treatment sets for its page type', async () => {
+  const { heroFontFromCss, lineEms, lineWidthEms, predictLines, textEms, titleGlyphs, titleMetrics, wrapEmFor, wrapLinesEm } = await import('../lib/heading-fit.mjs');
+  const css = [
+    ':root:root { --font-body: Montserrat, Arial, sans-serif; --font-hero: Marcellus, Georgia, serif; }',
+    "main:is([data-page-type='solution'], [data-page-type='place']) .page-hero { --font-hero: Montserrat, Arial, sans-serif; --weight-heading: 700; }",
+    "main[data-page-type='home'] .page-hero { --weight-heading: 400; }",
+    "main[data-page-type='general'][data-hero-photo] .page-hero { --font-hero: var(--font-body); --weight-heading: 600; }",
+    "main[data-page-type='about'] .page-hero h1 { --font-hero: Montserrat; }",
+    "@media (max-width: 767px) { main[data-page-type='home'] .page-hero { --font-hero: Montserrat; } }",
+  ].join('\n');
+  assert.deepEqual(heroFontFromCss(css, 'place'), { family: 'Montserrat', weight: 700 });
+  assert.deepEqual(heroFontFromCss(css, 'home'), { family: 'Marcellus', weight: 400 }, 'the root token; a media query is left out');
+  assert.deepEqual(heroFontFromCss(css, 'general'), { family: 'Montserrat', weight: 600 }, 'a var() of a root token is read through');
+  assert.deepEqual(heroFontFromCss(css, 'about'), { family: 'Marcellus', weight: null }, 'a rule for a part inside the hero is not the hero');
+  // Staylumen's Nashville title (2026-11-18): four phone lines planned at the 0.6em average, five rendered in Montserrat 700.
+  const nashville = 'Airbnb Management Nashville: Full-Service Care for Your Rental';
+  const bold = titleGlyphs('"Montserrat", sans-serif', 700);
+  assert.equal(bold.weight, 700);
+  assert.equal(titleGlyphs('Montserrat', 650).weight, 600, 'the nearest weight measured (a tie goes to the lighter)');
+  assert.ok(textEms('Airbnb Management', bold) > 10.8, 'its first line runs 0.64em a letter');
+  const phone = lineWidthEms(nashville, 4, bold);
+  assert.ok(phone >= textEms('Airbnb Management', bold));
+  assert.equal(wrapLinesEm(nashville, phone, bold).length, 4);
+  assert.ok(wrapLinesEm(nashville, phone - 0.01, bold).length > 4, 'the narrowest width that keeps four lines');
+  const sizePx = 358 / lineEms(nashville, 4, bold);
+  assert.ok(sizePx < 358 / lineEms(nashville, 4, 0.6), 'smaller than the average fitted it');
+  assert.equal(predictLines(nashville, { columnPx: 358, sizePx, charEm: bold }), 4);
+  assert.ok(lineEms(nashville, 4, bold) >= textEms('Airbnb Management', bold) * 1.05 - 0.001, 'the margin over the widest line');
+  // The page types the treatment sets in a face the template does not know keep the competitor's average.
+  assert.equal(titleMetrics({ css, pageType: 'home', heroText: { family: 'Marcellus' } }), wrapEmFor({ family: 'Marcellus' }));
+  assert.equal(titleMetrics({ css: '', pageType: 'place', heroText: null }), wrapEmFor(null));
+  assert.equal(titleMetrics({ css, pageType: 'place', heroText: null }).family, 'Montserrat');
+  assert.equal(titleGlyphs('Marcellus'), null);
+  assert.ok(textEms('ABC', titleGlyphs('Montserrat', 700, { upper: true })) === textEms('abc', titleGlyphs('Montserrat', 700, { upper: true })), 'a title set in capitals is measured in capitals');
 });

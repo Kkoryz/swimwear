@@ -1,1 +1,0 @@
-{"slots":[{"id":"rash-guard-hero-1","kind":5},{"id":"rash-guard-lifestyle-1","kind":1}]}

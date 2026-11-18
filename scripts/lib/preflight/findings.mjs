@@ -11,6 +11,9 @@ export const routesWhere = (ctx, test) => builtPages(ctx).filter(([page, html]) 
 export const acrossPages = (ctx, find) => [...new Set(builtPages(ctx).flatMap(([page, html]) => find(parsePage(html), page)))];
 // Image register entries by every web source they are served at.
 export const planBySrc = (ctx) => new Map((ctx.plan?.entries ?? []).filter((entry) => entry.web).flatMap((entry) => entry.web.srcset.split(', ').map((source) => [source.split(' ')[0], entry])));
-export const formsNotConnected = (ctx) => routesWhere(ctx, (html) => html.includes('data-form-status="not-connected"'));
+// Pages with a form of the contract (LeadForm.astro writes its status), and those whose form is not "connected" yet:
+// disabled (not-connected) or live but untested on the server (ready).
+export const formRoutes = (ctx) => routesWhere(ctx, (html) => /data-form-status="[\w-]+"/.test(html));
+export const formsNotConnected = (ctx) => routesWhere(ctx, (html) => /data-form-status="(?!connected")[\w-]+"/.test(html));
 export const siteStatus = (ctx) => (ctx.runtime?.site?.id ? ctx.runtime.site.status : null);
 export const nginxHost = (ctx) => new URL(ctx.identity.origin).host;

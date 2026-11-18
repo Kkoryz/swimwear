@@ -11,7 +11,7 @@ import { blockVisual, cardGridVariant, cardVisual } from './slot-visuals.mjs';
 // The site's fitted model over the template's defaults: a module the site has not measured yet keeps its default.
 import { DEFAULT_BLOCK_MODEL, planVisualBudget, varyItemRows, varySurfaces } from './visual-budget.mjs';
 import { signatureBands } from './pattern-map.mjs';
-import { leadBelowHero } from './heading-fit.mjs';
+import { faqOpenList } from './faq-layout.mjs';
 
 // Pattern variant for one block: the content's explicit request, then the page type's reference pattern (split rows
 // cycle through the sequence observed on the matching reference page), then the template default. A card grid whose
@@ -45,7 +45,7 @@ function designedVariant(block, pageType, splitIndex, components) {
   // A page type whose reference sets its points out as bullet lists has cards only as title tiles (its sub-page
   // navigation): a section of points with text keeps to its lists, not to those tiles (the hotel site's service pages
   // kept grey card walls from Concord's service navigation).
-  if (block.type === 'featureGrid' && block.variant === 'cards' && patterns?.featureGrid === 'bullets') return 'bullets';
+  if (block.type === 'featureGrid' && block.variant === 'cards' && patterns?.featureGrid === 'bullets' && !block.keepCards) return 'bullets';
   if (block.variant) return block.variant;
   if (block.type === 'intro') return components.intro ?? 'text';
   if (block.type === 'proof') return components.proof;
@@ -178,6 +178,18 @@ export const heroShowsPhoto = (variant) => TEMPLATE_VARIANTS.hero.includes(varia
 // A legal page opens without a photo unless the site sets its own hero for it (components.heroByPageType.privacy: the
 // competitor's privacy page opens on a photo masthead; the hotel review asked twice for the configured hero to show).
 export const privacyHero = (page, components = {}) => page.pageType !== 'privacy' || Boolean(components.heroByPageType?.privacy);
+// A page whose hero shows no photo loads its first image at once only when that image is in its first section, the
+// one that can sit in the first viewport: the first photo of the page anywhere made the privacy and terms pages fetch
+// their closing call to action's backdrop eagerly with fetchpriority high (site13 claude-seo audit 2026-11-17, L-5).
+// plan: the page's media lists in block order (the renderer's pageMedia), marked in place; returns the photo marked.
+export function markFirstViewportImage(plan) {
+  const list = plan[0] ?? [];
+  const index = list.findIndex((media) => media && !media.slot);
+  if (index < 0) return null;
+  list[index] = { ...list[index], priority: true };
+  return list[index];
+}
+
 export function heroPhoto(page, components, sitePhotos = []) {
   if (!privacyHero(page, components)) return null;
   const own = sitePhotos.find((photo) => photo.class === 'hero' && photo.pages?.includes(page.route)) ?? sitePhotos.find((photo) => photo.class === 'hero' && !photo.pages);
@@ -193,8 +205,8 @@ export function heroPhoto(page, components, sitePhotos = []) {
 // A content page type whose reference has none gets one mosaic; utility pages, the home page (its structure is the
 // blueprint's) and the hubs (a photo card per child page already) get none. A wall follows a copy section: between
 // two proof sections (certificates, testimonials...) a photo wall has no purpose, so a run of proof gets none.
-const MEDIA_MODULE_EXEMPT = new Set(['contact', 'privacy', 'home', 'products_hub', 'solutions_hub', 'wholesale_hub', 'blog_hub', 'blog_post']);
-export const PROOF_BLOCKS = new Set(['certifications', 'testimonials', 'caseStudies', 'logos', 'stats', 'table', 'orderCase', 'orderRoutes', 'styleGrid', 'relatedPages', 'sources', 'trustBar', 'gallery', 'pricing', 'swatches']);
+const MEDIA_MODULE_EXEMPT = new Set(['contact', 'privacy', 'home', 'products_hub', 'solutions_hub', 'places_hub', 'wholesale_hub', 'blog_hub', 'blog_post']);
+export const PROOF_BLOCKS = new Set(['certifications', 'testimonials', 'caseStudies', 'logos', 'stats', 'table', 'orderCase', 'orderRoutes', 'styleGrid', 'relatedPages', 'sources', 'trustBar', 'gallery', 'pricing', 'swatches', 'team', 'dataPractices']);
 // A text section that asks for a photo of its own (Site Factory's visuals of type photo) shows it beside its text, as
 // a split row (the competitor's photo-beside-text module) (owner 2026-10-30: a photo where the writer asked for one;
 // the density audit keeps the page within the competitor's share of photos). Renderer, allocation and plan all see it.
@@ -248,7 +260,7 @@ export const withSectionVisuals = (blocks, components = {}, pageType = '') => jo
 // eyebrows, captions, a table's cells, a person's name and role, and the answers under a FAQ's closed questions. Over
 // the two sites' 34 measured pages this is within about 15% of the count the audit measured; copyWords, which counts
 // every string, ran 6-49% over (the FAQ answers).
-const NOT_RENDERED = new Set(['id', 'type', 'variant', 'href', 'src', 'srcset', 'media', 'mediaKind', 'continues', 'sourceSectionIds', 'visuals', 'factIds', 'slot', 'eyebrow', 'cta', 'secondaryCta', 'label', 'submitLabel', 'table', 'alt', 'caption', 'author', 'role', 'name', 'issuer', 'scope', 'number', 'validUntil', 'unit', 'value', 'fields', 'answer', 'photoBrief', 'brief']);
+const NOT_RENDERED = new Set(['id', 'type', 'variant', 'href', 'src', 'srcset', 'media', 'mediaKind', 'continues', 'sourceSectionIds', 'visuals', 'photoCandidates', 'factIds', 'slot', 'eyebrow', 'cta', 'secondaryCta', 'label', 'submitLabel', 'table', 'alt', 'caption', 'author', 'role', 'name', 'issuer', 'scope', 'number', 'validUntil', 'unit', 'value', 'fields', 'answer', 'photoBrief', 'brief']);
 export function renderedWords(value) {
   if (typeof value === 'string') return (value.replace(/\]\([^)]*\)/g, ']').match(/[\p{L}\p{N}][\p{L}\p{N}'’.-]*/gu) ?? []).length;
   if (Array.isArray(value)) return value.reduce((sum, item) => sum + renderedWords(item), 0);
@@ -273,7 +285,7 @@ export function blockWords(block, variant, components = {}) {
 
 
 // The words of a section's copy (every string but ids, links and settings), as a stand-in for how tall its text renders.
-const NOT_COPY = new Set(['id', 'type', 'variant', 'href', 'src', 'srcset', 'media', 'mediaKind', 'continues', 'sourceSectionIds', 'visuals', 'factIds', 'slot']);
+const NOT_COPY = new Set(['id', 'type', 'variant', 'href', 'src', 'srcset', 'media', 'mediaKind', 'continues', 'sourceSectionIds', 'visuals', 'photoCandidates', 'factIds', 'slot']);
 export function copyWords(value) {
   if (typeof value === 'string') return (value.replace(/\]\([^)]*\)/g, ']').match(/[\p{L}\p{N}][\p{L}\p{N}'’.-]*/gu) ?? []).length;
   if (Array.isArray(value)) return value.reduce((sum, item) => sum + copyWords(item), 0);
@@ -390,10 +402,8 @@ function placeMediaModules(page, components, options) {
     // for the rows the walls now stand between): steps set out as a list beside a card row hold no picture (motel
     // /our-process/ 2026-11-14: planned as circles over a photo, no wall, 16% for a band from 19%).
     varySurfaces(varyItemRows(blocks, variantOf), variantOf);
-    const below = page.hero ? leadBelowHero(page, heroShown ? heroVariant : 'plain', components) : false;
-    const hero = page.hero ? { block: { type: 'hero' }, variant: heroShown ? heroVariant : 'plain', words: renderedWords(below ? { ...page.hero, lead: null } : page.hero) } : null;
-    const lead = below ? { words: renderedWords(page.hero.lead) } : null;
-    planVisualBudget(blocks, { bands: bandFor(budget, page.pageType), floor, model: components.blockModel ? { ...DEFAULT_BLOCK_MODEL, ...components.blockModel } : DEFAULT_BLOCK_MODEL, variantOf, wordsOf: (block) => blockWords(block, variantOf(block), components), lead, chartsOf: drawsCharts, wall: (id) => wall(id, banded ? 'band' : 'grid'), isWall: (block) => String(block.id).startsWith('media-module-'), apart: (before, after) => !(PROOF_BLOCKS.has(before?.type) && PROOF_BLOCKS.has(after?.type)), hero, pageType: page.pageType });
+    const hero = page.hero ? { block: { type: 'hero' }, variant: heroShown ? heroVariant : 'plain', words: renderedWords(page.hero) } : null;
+    planVisualBudget(blocks, { bands: bandFor(budget, page.pageType), floor, model: components.blockModel ? { ...DEFAULT_BLOCK_MODEL, ...components.blockModel } : DEFAULT_BLOCK_MODEL, variantOf, wordsOf: (block) => blockWords(block, variantOf(block), components), chartsOf: drawsCharts, wall: (id) => wall(id, banded ? 'band' : 'grid'), isWall: (block) => String(block.id).startsWith('media-module-'), apart: (before, after) => !(PROOF_BLOCKS.has(before?.type) && PROOF_BLOCKS.has(after?.type)), hero, pageType: page.pageType });
   } else if (components.textRunWords) breakLongRuns(blocks, page, components, options, competitor);
   return blocks;
 }
@@ -407,6 +417,8 @@ export function modelVariant(block, page, blocks, components, options) {
   const variant = resolveVariant(block, page.pageType, splitIndex, components);
   if (block.type === 'featureGrid') return variant ?? (mediaSlots(block, variant, components, options).length ? 'media' : 'cards');
   const shown = variant ?? { process: 'circles', cta: components.cta, relatedPages: 'links', iconList: 'checks', faq: components.faq }[block.type];
+  // An FAQ the page shows as an open list (lib/faq-layout.mjs) is measured as one: every answer shown.
+  if (block.type === 'faq' && shown !== 'cards' && faqOpenList(block, shown, page)) return 'open-list';
   return block.type === 'cta' && mediaSlots(block, shown, components, options).length ? `${shown}+photo` : shown;
 }
 

@@ -1,0 +1,23 @@
+---
+// The people behind the company (scripts/lib/site-people.mjs): a card each with their name, role, years of experience
+// and what they do; the card's id is their profile, where a post's byline links. No photos: a person's own photo is
+// the owner's to give, never a generated face.
+import { experience } from '../../../scripts/lib/site-people.mjs';
+import type { TeamBlock } from '../../lib/authoring';
+import BlockSection from './BlockSection.astro';
+
+interface Props { block: TeamBlock }
+const { block } = Astro.props;
+---
+
+<BlockSection block={block} name="team" headingClass="team__heading">
+  <ul class="team" data-layout="equal-grid" data-columns={Math.min(block.items.length, 3)}>
+    {block.items.map((person) => (
+      <li class="team-card" id={person.anchor}>
+        <h3 class="team-card__name">{person.name}</h3>
+        <p class="team-card__role">{[person.role, experience(person.years)].filter(Boolean).join(' · ')}</p>
+        {person.bio && <p class="team-card__bio">{person.bio}</p>}
+      </li>
+    ))}
+  </ul>
+</BlockSection>

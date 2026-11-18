@@ -32,7 +32,7 @@ const layout = !media.length && !charts.length ? 'text' : variant === 'wide' ? '
 const ratio = variant === 'wide' ? '16 / 7' : fitRatio(usualRatio('splitMedia', variant), media);
 ---
 
-<section class="block block--split" data-authoring-block="splitMedia" data-block-id={block.id} data-continues={block.continues} data-variant={variant}>
+<section class="block block--split" id={block.anchor} data-authoring-block="splitMedia" data-block-id={block.id} data-continues={block.continues} data-variant={variant}>
   <div class="container">
     <div class="split" data-layout={layout} data-side={side} data-density={density(block.wordCount)} data-media-count={media.length}>
       <div class="split__copy">

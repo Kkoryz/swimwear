@@ -3,7 +3,7 @@
 // titles and links from the site plan, plus a bottom bar). With phoneGroups "collapsed" a column's links fold under its
 // title on phones (a <details> open everywhere else); the links stay in the page either way.
 import { contactChannels } from '../../../scripts/lib/site-contact.mjs';
-import { siteContact, siteIdentity, siteNav, siteRuntime, variants } from '../../lib/authoring';
+import { siteContact, siteIdentity, siteLegalName, siteNav, siteRuntime, variants } from '../../lib/authoring';
 import SmartLink from './SmartLink.astro';
 
 const navBrand = (siteNav as { brand?: { name?: string } | null }).brand ?? null;
@@ -15,11 +15,15 @@ const collapsed = variants.footer?.phoneGroups === 'collapsed';
 const groups = siteNav.header.filter((item) => item.children.length > 0);
 const singles = siteNav.header.filter((item) => item.children.length === 0);
 const year = new Date().getFullYear();
+// The copyright line names the site by its name for now (scripts/lib/legal-name.mjs without the company record; owner
+// 2026-11-17: the legal name is not shown until the owner gives the real one).
+const owner = siteLegalName ?? brand?.name ?? null;
+const copyright = `© ${year} ${owner ?? 'Brand placeholder'}. All rights reserved.`;
 // The site's own contact channels (the registry via site:config) on every page: a visitor can always reach a person.
 const chat = siteRuntime?.chat || null;
 // The company's own details (site-contact.json) come first (lib/site-contact.mjs, the same list the contact page's
 // channels show); a placeholder is marked until the owner replaces it.
-const contacts: { label: string; href?: string }[] = contactChannels({ contact: siteContact, chat });
+const contacts: { kind: string; label: string; href?: string }[] = contactChannels({ contact: siteContact, chat });
 const contactPlaceholder = siteContact?.placeholder ? 'true' : undefined;
 ---
 
@@ -29,7 +33,7 @@ const contactPlaceholder = siteContact?.placeholder ? 'true' : undefined;
       <div class="container site-footer__columns">
         <div class="site-footer__brand-column">
           <p class="site-footer__brand" data-placeholder={brand?.name ? undefined : 'true'}>{brand?.name ?? 'Brand placeholder'}</p>
-          {contacts.length > 0 && <address class="site-footer__contact" data-placeholder={contactPlaceholder}>{contacts.map((item) => (item.href ? <a href={item.href}>{item.label}</a> : <span>{item.label}</span>))}</address>}
+          {contacts.length > 0 && <address class="site-footer__contact" data-placeholder={contactPlaceholder}>{contacts.map((item) => (item.href ? <a href={item.href} data-contact-kind={item.kind}>{item.label}</a> : <span data-contact-kind={item.kind}>{item.label}</span>))}</address>}
           <ul class="site-footer__links">
             {singles.map((item) => <li><SmartLink href={item.route}>{item.label}</SmartLink></li>)}
           </ul>
@@ -56,7 +60,7 @@ const contactPlaceholder = siteContact?.placeholder ? 'true' : undefined;
       </div>
       <div class="site-footer__bottom">
         <div class="container site-footer__bottom-inner">
-          <span data-placeholder={brand?.name ? undefined : 'true'}>© {year} {brand?.name ?? 'Brand placeholder'}</span>
+          <span class="site-footer__copyright" data-placeholder={owner ? undefined : 'true'}>{copyright}</span>
           <ul class="site-footer__legal" data-nav-source="footer_nav">
             {siteNav.footer.map((item) => <li><SmartLink href={item.route}>{item.label}</SmartLink></li>)}
           </ul>
@@ -67,7 +71,7 @@ const contactPlaceholder = siteContact?.placeholder ? 'true' : undefined;
     <div class="container site-footer__grid">
       <div>
         <p class="site-footer__brand" data-placeholder={brand?.name ? undefined : 'true'}>{brand?.name ?? 'Brand placeholder'}</p>
-        {contacts.length > 0 && <address class="site-footer__contact" data-placeholder={contactPlaceholder}>{contacts.map((item) => (item.href ? <a href={item.href}>{item.label}</a> : <span>{item.label}</span>))}</address>}
+        {contacts.length > 0 && <address class="site-footer__contact" data-placeholder={contactPlaceholder}>{contacts.map((item) => (item.href ? <a href={item.href} data-contact-kind={item.kind}>{item.label}</a> : <span data-contact-kind={item.kind}>{item.label}</span>))}</address>}
       </div>
       <nav aria-label="Site sections" data-nav-source="header_nav">
         <ul class="site-footer__links">
@@ -79,6 +83,7 @@ const contactPlaceholder = siteContact?.placeholder ? 'true' : undefined;
           {siteNav.footer.map((item) => <li><SmartLink href={item.route}>{item.label}</SmartLink></li>)}
         </ul>
       </nav>
+      <p class="site-footer__copyright" data-placeholder={owner ? undefined : 'true'}>{copyright}</p>
     </div>
   )}
 </footer>

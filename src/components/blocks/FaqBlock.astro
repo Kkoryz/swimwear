@@ -3,27 +3,40 @@
 // two-column (heading beside the list), open-list (every answer shown), bars (tinted bars, the question in bold),
 // cards (every question and answer as a card, three a row), dark-cards (dark accordion cards, two a row: each folds
 // on its own, the first open, as the competitor's black FAQ cards do).
-import { variants, type FaqBlock } from '../../lib/authoring';
+import { faqOpenList } from '../../../scripts/lib/faq-layout.mjs';
+import { variants, type AuthoringPage, type FaqBlock } from '../../lib/authoring';
 import InlineText from '../blog/InlineText.astro';
 
-interface Props { block: FaqBlock; variant?: string }
-const { block, variant = variants.faq } = Astro.props;
-const open = ['open-list', 'cards'].includes(variant);
+interface Props { block: FaqBlock; variant?: string; page?: AuthoringPage }
+const { block, variant = variants.faq, page } = Astro.props;
+// An open list (lib/faq-layout.mjs: the open variants, the FAQ page, a long FAQ): each question an h3 with its answer
+// shown under it, no disclosure, in the variant's own look (four-site audit 2026-11-17, G3).
+const list = faqOpenList(block, variant, page);
 // An accordion opens its first answer unless the site's FAQ starts closed (variants.faqFirst); a block that goes on from
 // the one before it (no heading) is the same list continued, its first answer closed.
 const first = variants.faqFirst !== 'closed';
+// In an accordion the question is the summary's own text, set as the item titles were: a heading inside <summary>
+// loses its heading role there (the summary is the disclosure's button), so screen readers announce a button, not a
+// heading (Modern Web Guidance, html.md; four-site audit 2026-11-17). The answers stay in the page's HTML, closed or open.
 ---
 
-<section class="block block--faq" data-authoring-block="faq" data-block-id={block.id} data-variant={variant}>
+<section class="block block--faq" id={block.anchor} data-authoring-block="faq" data-block-id={block.id} data-variant={variant} data-faq-list={list ? 'open' : undefined}>
   <div class="container faq" data-layout="faq">
     {block.heading && <h2>{block.heading}</h2>}
     <div class="faq__items">
-      {block.items.map((item, index) => (
-        <details class="faq__item" open={open || (first && index === 0 && Boolean(block.heading))}>
-          <summary><h3>{item.question}</h3></summary>
-          {item.answer.split('\n').map((line) => <p><InlineText text={line} /></p>)}
-        </details>
-      ))}
+      {list
+        ? block.items.map((item) => (
+          <div class="faq__item">
+            <h3 class="faq__question">{item.question}</h3>
+            {item.answer.split('\n').map((line) => <p><InlineText text={line} /></p>)}
+          </div>
+        ))
+        : block.items.map((item, index) => (
+          <details class="faq__item" open={first && index === 0 && Boolean(block.heading)}>
+            <summary><span class="faq__question">{item.question}</span></summary>
+            {item.answer.split('\n').map((line) => <p><InlineText text={line} /></p>)}
+          </details>
+        ))}
     </div>
   </div>
 </section>

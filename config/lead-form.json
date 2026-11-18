@@ -1,18 +1,53 @@
 {
   "schemaVersion": "seo-site-lead-form-v1",
-  "note": "The enquiry form stage 09 places in a blueprint's form slot (fill \"site\"). While status is \"not-connected\" the form is laid out but disabled and has no action; stage 11 blocks release until it is \"connected\" and a real POST to the endpoint has been tested. The endpoint is the first-party API on the same origin (Nginx proxies /api/). Consent links to the privacy page; the honeypot field is hidden from people and left empty by them.",
-  "status": "not-connected",
+  "note": "The enquiry form stage 09 places in a blueprint's form slot (fill \\\"site\\\"); every other form of the site (the resource request) posts the same way. Status \\\"not-connected\\\": laid out but disabled, no action. Status \\\"ready\\\" (the default; owner 2026-11-17: the forms go to the site's info@ mailbox): live in the page, it posts to the endpoint, the first-party API on the same origin (Nginx proxies /api/ and passes the recipient in the X-Lead-Recipient header), which forwards each enquiry to the recipient; stage 11 still holds the release until the status is \\\"connected\\\", set once a real POST has been tested on the server. The recipient is info@ the site's domain ({domain}: src/data/site-identity.json origin) and is never written into a page. Consent links to the privacy page; the honeypot field is hidden from people and left empty by them. Each field says what it is for beside it (Modern Web Guidance, privacy.md); requiredNote explains the asterisk; messages are announced in the form's live region. resourceRequest is the form a page offering guides, templates or downloads carries (owner 2026-11-17): the same endpoint and status, a hidden request_type field so the owner's mailbox tells requests from enquiries. A field's recorded is what the privacy page's table says it records when its label is no noun (\"Anything else\"; lib/data-practices.mjs, exported to config/site-collection.json).",
+  "status": "ready",
+  "recipient": "info@{domain}",
   "endpoint": "/api/leads",
   "method": "POST",
   "heading": "Send an enquiry",
+  "requiredNote": "Fields marked * are required.",
   "fields": [
-    { "name": "name", "label": "Name", "kind": "text", "required": true, "autocomplete": "name" },
-    { "name": "email", "label": "Email", "kind": "email", "required": true, "autocomplete": "email" },
-    { "name": "company", "label": "Company", "kind": "text", "required": false, "autocomplete": "organization" },
-    { "name": "phone", "label": "Phone", "kind": "tel", "required": false, "autocomplete": "tel" },
-    { "name": "message", "label": "Message", "kind": "textarea", "required": true }
+    { "name": "name", "label": "Name", "kind": "text", "required": true, "autocomplete": "name", "purpose": "So we know whom we are answering." },
+    { "name": "email", "label": "Email", "kind": "email", "required": true, "autocomplete": "email", "purpose": "Where we send our reply." },
+    { "name": "company", "label": "Company", "kind": "text", "required": false, "autocomplete": "organization", "purpose": "Optional: helps us answer for your business." },
+    { "name": "phone", "label": "Phone", "kind": "tel", "required": false, "autocomplete": "tel", "purpose": "Optional: only if you would like a call back." },
+    { "name": "message", "label": "Message", "kind": "textarea", "required": true, "purpose": "What you would like to know or order." }
   ],
+  "askNote": "ask: the fields a site's enquiry form asks before the message, by the site's kind (lib/lead-form.mjs enquiryKind: a site with product category pages, a maker's, asks product; any other, a service business's, asks service), so a buyer can say what, how many and by when without a second email (site13 claude-seo audit 2026-11-17, M-15: the quote page asked for a tech pack, size chart, quantity per colour and a target date the form had no field for). A choice field is a list of the site's own pages of those pageTypes (the plan's label) and other, or a text box on a site without such pages. No file upload: /api/leads takes form fields only; a tech pack is sent as a link. Every ask field is optional and records the same thing, so the privacy table's row is one for both kinds.",
+  "ask": {
+    "product": [
+      { "name": "product", "label": "Product", "kind": "choice", "pageTypes": ["product_manufacturer", "product_wholesale"], "other": "Something else (tell us in your message)", "required": false, "purpose": "Optional: the product line your enquiry is about.", "recorded": "the details of your request if you give them (what it is about, how many, by when, a reference link)" },
+      { "name": "quantity", "label": "Quantity (pieces)", "kind": "number", "min": 1, "required": false, "purpose": "Optional: how many pieces you plan to order in all, as a whole number; split it by style and colour in your message.", "recorded": "the details of your request if you give them (what it is about, how many, by when, a reference link)" },
+      { "name": "target_date", "label": "Target date", "kind": "date", "required": false, "purpose": "Optional: when you need the samples or the goods.", "recorded": "the details of your request if you give them (what it is about, how many, by when, a reference link)" },
+      { "name": "reference_url", "label": "Tech pack or reference link", "kind": "url", "required": false, "purpose": "Optional: a link to your tech pack, size chart or reference photos (Google Drive, Dropbox, WeTransfer), starting with https://.", "recorded": "the details of your request if you give them (what it is about, how many, by when, a reference link)" }
+    ],
+    "service": [
+      { "name": "service", "label": "Service", "kind": "choice", "pageTypes": ["solution"], "other": "Something else (tell us in your message)", "required": false, "purpose": "Optional: the service your enquiry is about.", "recorded": "the details of your request if you give them (what it is about, how many, by when, a reference link)" },
+      { "name": "target_date", "label": "Preferred start date", "kind": "date", "required": false, "purpose": "Optional: when you would like us to start.", "recorded": "the details of your request if you give them (what it is about, how many, by when, a reference link)" },
+      { "name": "reference_url", "label": "Website or reference link", "kind": "url", "required": false, "purpose": "Optional: your property's or company's website, or a document you would like us to see, starting with https://.", "recorded": "the details of your request if you give them (what it is about, how many, by when, a reference link)" }
+    ]
+  },
   "consent": { "label": "I agree that my details are used to answer this enquiry, as described in the privacy policy.", "privacyRoute": "/privacy/" },
   "honeypot": "website",
-  "submitLabel": "Send enquiry"
+  "submitLabel": "Send enquiry",
+  "messages": {
+    "invalid": "Please check the highlighted fields.",
+    "sending": "Sending…",
+    "sent": "Thank you: your message has been sent. We will reply by email.",
+    "failed": "Your message could not be sent. Please try again, or write to us by email."
+  },
+  "resourceRequest": {
+    "requestType": "resource",
+    "heading": "Request a resource",
+    "intro": "Tell us which resource you would like and where to send it: we email it to you.",
+    "resourceField": { "name": "resource", "label": "Which resource", "purpose": "The guide, template or checklist we send you.", "other": "Something else (tell us below)" },
+    "fields": [
+      { "name": "name", "label": "Name", "kind": "text", "required": true, "autocomplete": "name", "purpose": "So we know whom we are writing to." },
+      { "name": "email", "label": "Email", "kind": "email", "required": true, "autocomplete": "email", "purpose": "Where we send the resource." }
+    ],
+    "noteField": { "name": "message", "label": "Anything else", "kind": "textarea", "required": false, "purpose": "Optional: a question, or the resource if it is not listed.", "recorded": "anything else you tell us" },
+    "consent": { "label": "I agree that my details are used to send me this resource, as described in the privacy policy." },
+    "submitLabel": "Request the resource"
+  }
 }

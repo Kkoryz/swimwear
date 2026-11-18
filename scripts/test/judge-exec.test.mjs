@@ -27,7 +27,9 @@ test('a site judges with Claude by default and with Codex where it says so; imag
   await runJudge({ root: claudeSite, prompt: 'review', sandbox: 'read-only' }, { claude, codex, env: {} });
   await runJudge({ root: claudeSite, prompt: 'a photo', image: true }, { claude, codex, env: {} });
   await runJudge({ root: plain, prompt: 'review', sandbox: 'read-only' }, { claude, codex, env: {} });
-  assert.deepEqual(calls, [['claude', 'read-only', 'claude-sonnet-5-5'], ['codex', true], ['codex', false]]);
+  // A run naming its own model (the claude-seo audit's auditors, owner 2026-11-17) keeps it over the site's.
+  await runJudge({ root: claudeSite, prompt: 'audit', sandbox: 'read-only', model: 'claude-opus-5-5' }, { claude, codex, env: { CLAUDE_JUDGE_MODEL: 'claude-haiku-5-5' } });
+  assert.deepEqual(calls, [['claude', 'read-only', 'claude-sonnet-5-5'], ['codex', true], ['codex', false], ['claude', 'read-only', 'claude-opus-5-5']]);
 });
 
 test("a Claude run keeps apart from the owner's settings, answers into lastMessage, and a limit or sign-in waits as Codex's does", async () => {
@@ -72,4 +74,15 @@ test("a Claude run uses the judge directories in turn, never the owner's, and no
   // With every directory out, the run says so in the words that make the step wait.
   const none = await runClaude({ root, prompt: 'p', lastMessage: join(root, 'c.md'), env: { SITE_CLAUDE_CONFIG_DIRS: JSON.stringify([first]) }, spawnRun });
   assert.ok(none.code !== 0 && usageLimit(none.stderr));
+});
+
+test("a judge whose answer is JSON gets it from an earlier message when its final one is a note (aloha 2026-11-18: two auditors closed on a note)", async () => {
+  const { replyOf, claudeArgs } = await import('../lib/claude-exec.mjs');
+  const said = (text) => JSON.stringify({ type: 'assistant', message: { content: [{ type: 'text', text }] } });
+  const result = (text) => JSON.stringify({ type: 'result', result: text, is_error: false, usage: {} });
+  const stdout = [said('Reading the pages.'), said('```json\n{"findings": []}\n```'), said('Waiting on the last reader.'), result('The final JSON is my previous reply.')].join('\n');
+  assert.match(replyOf(stdout, { earlierJson: true }).text, /"findings"/);
+  assert.equal(replyOf(stdout).text, 'The final JSON is my previous reply.', 'other judges keep their final message');
+  assert.equal(replyOf([said('{"a": 1}'), result('{"b": 2}')].join('\n'), { earlierJson: true }).text, '{"b": 2}', 'a final JSON stands');
+  assert.deepEqual(claudeArgs({ stream: true }).slice(claudeArgs({ stream: true }).indexOf('--output-format'), claudeArgs({ stream: true }).indexOf('--output-format') + 3), ['--output-format', 'stream-json', '--verbose']);
 });

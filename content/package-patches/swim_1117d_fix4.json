@@ -1,0 +1,128 @@
+{
+  "source": "Site Factory swim_1117d_fix4 (2026-11-18, README_merge.md): the toddler and teen pages merged into the children's page, the baby page kept; fix4 #4 and #5 (new sections m4_2, m4_3, new_sections_children.json) and #6 and #7 (two FAQ questions) are applied here, #1 to #3 by content/replacements/04-swim_1117d_fix4.json",
+  "removePages": [
+    {
+      "page_id": "inferred:product:8",
+      "url": "/toddler-swimwear-manufacturer/",
+      "merged_into": "c-3d3fc0c8dc39:product",
+      "reason": "merged into the children's page (owner 2026-11-18); its sizes are section m4_2 there"
+    },
+    {
+      "page_id": "inferred:product:6",
+      "url": "/teen-swimwear-manufacturer/",
+      "merged_into": "c-3d3fc0c8dc39:product",
+      "reason": "merged into the children's page (owner 2026-11-18); its shaped fits are section m4_3 there"
+    }
+  ],
+  "insertSections": [
+    {
+      "page_id": "c-3d3fc0c8dc39:product",
+      "after": "m4",
+      "sections": [
+        {
+          "section_id": "m4_2",
+          "heading": "Toddler Swimwear Sizes 2T–4T for Active Play",
+          "continuation_of": "",
+          "body": "From 2T to 4T, toddlers crawl, sit and climb around in wet suits. We line the front and seat to cope with that friction, and a 3-snap crotch or a front or back entry zip makes changes and toilet trips at the pool quicker.\n\nChoose the standard chart below or send your own before the first sample; we cut and grade to whichever sizing your labels carry.\n\n| Size | Age | Height | Weight |\n|---|---|---|---|\n| 2T | About 2 years | 88 to 94 cm | 12 to 14 kg |\n| 3T | About 3 years | 94 to 100 cm | 14 to 16 kg |\n| 4T | About 4 years | 100 to 106 cm | 16 to 18 kg |",
+          "fact_ids": [],
+          "key_facts": false,
+          "slot": "",
+          "kind": "customization",
+          "presentation": "table",
+          "items": [],
+          "qa": [],
+          "image_alt": "",
+          "visuals": [
+            {
+              "id": "toddler_play_photo",
+              "type": "photo",
+              "purpose": "Shows a toddler size in active play at the pool, the use the 2T to 4T fits are cut for.",
+              "caption": "Toddler swimwear in active play",
+              "content": "A toddler in a brightly patterned one-piece swimsuit splashing in shallow water",
+              "setting": "A sunny shallow paddling pool at a family swimming area during a summer day, where children are playing in the water"
+            }
+          ]
+        },
+        {
+          "section_id": "m4_3",
+          "heading": "Tween and Teen Swimwear Sizes and Shaped Fits",
+          "continuation_of": "",
+          "body": "For tween and young teen styles that need room at the bust, waist and hips, choose a shaped teen fit instead of our proportional children's grading.",
+          "fact_ids": [],
+          "key_facts": false,
+          "slot": "",
+          "kind": "customization",
+          "presentation": "list",
+          "items": [
+            {
+              "title": "Sizes by age or height",
+              "text": "Order tween and young teen sizes by age, from 8-10 to 12-14, or by height up to 164 cm, the chart we recommend for European markets.",
+              "fact_ids": [],
+              "placeholder": false
+            },
+            {
+              "title": "A separate teen block",
+              "text": "Each shaped style is drafted on its own teen block, allowing for a developing bust, a defined waist, fuller hips and a longer torso.",
+              "fact_ids": [],
+              "placeholder": false
+            },
+            {
+              "title": "Graded area by area",
+              "text": "We grade the bust, waist and hips separately, so proportions, coverage, support and tension stay right from the smallest teen size to the largest.",
+              "fact_ids": [],
+              "placeholder": false
+            },
+            {
+              "title": "Fit checked in movement",
+              "text": "As well as checking fit standing, we check every teen sample in movement, where riding up and gaping show.",
+              "fact_ids": [],
+              "placeholder": false
+            },
+            {
+              "title": "Support for older sizes",
+              "text": "Sewn-in or removable foam padding and cup pockets suit teen tops and one-pieces, while underwire channels and moulded cups go only into the older sizes.",
+              "fact_ids": [],
+              "placeholder": false
+            }
+          ],
+          "qa": [],
+          "image_alt": "",
+          "visuals": [
+            {
+              "id": "teen_block_photo",
+              "type": "photo",
+              "purpose": "Shows that tween and teen styles are drafted on their own block and graded area by area in our in-house pattern room.",
+              "caption": "Shaped teen styles are drafted on their own teen block",
+              "content": "A pattern maker's hands marking separate grading lines at the bust, waist and hip of a paper swimsuit pattern laid flat on a table",
+              "setting": "Pattern-making room of our own Guangzhou factory, where the in-house design team drafts and grades a new teen style"
+            },
+            {
+              "id": "teen_fit_photo",
+              "type": "photo",
+              "purpose": "Shows how a shaped teen fit looks on a teenager in real use.",
+              "caption": "Teen swimsuits sized by age or by height",
+              "content": "A teenage girl in a one-piece swimsuit that fits snugly through the torso and stays in place, standing with one foot on the pool steps",
+              "setting": "Outdoor public swimming pool on a sunny afternoon, with a teenager climbing out of the water at the shallow-end steps"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "addQuestions": [
+    {
+      "page_id": "c-3d3fc0c8dc39:product",
+      "section": "faq",
+      "qa": [
+        {
+          "question": "Can you make separate fits for toddlers in swim nappies and for toilet-trained toddlers?",
+          "answer": "Yes, we cut separate patterns. The swim-nappy fit adds 2 to 3 cm to the standard seat and rise and widens the leg openings, while the toilet-trained fit keeps the standard seat, rise and leg openings. We sample both for your approval before bulk, because a nappy layer added to a standard pattern changes the fit and the suit leaks or pulls."
+        },
+        {
+          "question": "Can you make tween and teen bikinis and tankinis with more coverage?",
+          "answer": "Yes. We make tankinis with more coverage, including cross-strap tops with swim shorts, as well as age-appropriate bikinis. Tops come high-neck or as sporty crops, and bottoms come full-coverage or mid-rise, or as swim shorts or skirted bottoms."
+        }
+      ]
+    }
+  ]
+}

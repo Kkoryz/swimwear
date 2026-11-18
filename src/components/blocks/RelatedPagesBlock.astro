@@ -5,7 +5,7 @@
 // Variants: links (a grid of boxed page links, the default), tiles (where the reference links its own pages with photo
 // tiles: each page's hero photo with its name over it and a button on the photo's lower edge, two as the reference's pair;
 // the rest stay links below them). A page whose visual budget is spent (lib/visual-budget.mjs) has them as links.
-import { isBuilt, pageHero, pages, type Media, type RelatedPagesBlock } from '../../lib/authoring';
+import { isLinkable, pageHero, pages, type Media, type RelatedPagesBlock } from '../../lib/authoring';
 import BlockSection from './BlockSection.astro';
 import MediaFigure from './MediaFigure.astro';
 import RelatedLinks from './RelatedLinks.astro';
@@ -13,7 +13,7 @@ import SmartLink from '../site/SmartLink.astro';
 
 interface Props { block: RelatedPagesBlock; variant?: string; route?: string }
 const { block, variant = 'links', route } = Astro.props;
-const links = block.links.filter((link) => isBuilt(link.href));
+const links = block.links.filter((link) => isLinkable(link.href));
 const MAX_TILES = 2;
 const photoOf = (href: string): Media | null => { const target = pages.find((page) => page.route === href); const media = target ? pageHero(target).media : null; return media && !media.slot ? media : null; };
 // Each tile a photo of its own: two pages whose heroes fall back to one photo (hotel-rm's home, 2026-11-14: Services and

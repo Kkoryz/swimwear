@@ -1,8 +1,15 @@
 {
   "schemaVersion": "seo-site-image-briefs-v1",
-  "note": "The image briefs of a service business (site.json trade \"service\", lib/trade.mjs; owner 2026-11-06: site11's motel management pages were given models, sewing floors and cutting tables from the clothing briefs). Its photos are scenes of the business's own work (photos \"scenes\"): the places it works in, the people it serves and its staff at work, never a product on a model. planFromCopy: what each page section's photo shows is planned from the page's copy (plan-photo-briefs.mjs, config/agent-steps/photo-briefs.md); the subjects below are only for photos no section describes (the heroes and the site's shared photos), written for any service: a site names its own (site.json imageSubjects, by class) for scenes of its trade. {category} is the line (site.json line). siteKind names what the site is (site.json siteKind over this one). How the photos look still comes from the reference site alone (analyze:image-style). photoToShoot is what the owner's sheet asks to be shot for each class (handoff.mjs).",
+  "note": "The image briefs of a service business (site.json trade \"service\", lib/trade.mjs; owner 2026-11-06: site11's motel management pages were given models, sewing floors and cutting tables from the clothing briefs). Its photos are of the business's own work (photos \"scenes\": no product, model or shot list), each one of the owner's online-service class (photoClasses; owner 2026-11-17, via Site Factory: no more generic scenes on a service site): a de-identified report, a working screen or a delivered file, every client name, figure and logo unreadable, mostly on paper so the site stays within photo-subjects.json's screens share; a photo planned with nothing of the kind (a place, a building, people posing) is a generic scene the text check holds before it is made (check-photo-text.mjs). Photos made before 2026-11-17 stay while they fit their pages (no batch remake). The class subsumes the evidenceSubjects of 0a455cd (site12 claude-seo audit 2026-11-17, I-1: hotel facades, rooms, bars and terraces on the remote revenue-management pages). planFromCopy: what each page section's photo shows is planned from the page's copy (plan-photo-briefs.mjs, config/agent-steps/photo-briefs.md); the subjects below are only for photos no section describes (the heroes and the site's shared photos), written for any service: a site names its own (site.json imageSubjects, by class) for its trade's work, of which only those of the online-service class are planned (a class left with none takes these; image-plan.mjs classSubjects). {category} is the line (site.json line). siteKind names what the site is (site.json siteKind over this one). How the photos look still comes from the reference site alone (analyze:image-style). photoToShoot is what the owner's sheet asks to be shot for each class (handoff.mjs).",
   "photos": "scenes",
   "planFromCopy": true,
+  "photoScope": "Its photos are new photographs made for it of what its work delivers: de-identified reports, the working screens of the job and the files it hands over to clients.",
+  "scopeRule": "Each photo shows a concrete piece of this business's own work as its subject: a de-identified report or summary, a marked-up worksheet, a handover pack, a plan or calendar of agreed changes, or the working screen of the job, every client name, figure and logo blurred or unreadable; most of them on paper, at most one in five a screen. A person appears only as hands at work or at the edge of the frame. Never a generic scene of a place, a building, a room or people posing, and nothing from another trade.",
+  "photoClassesNote": "Every photo of a service business is of the online-service class (线上服务类, lib/photo-class.mjs; owner 2026-11-17): what it shows names one of serviceWords (a report, a screen, a delivered file). One that names none is a generic scene: never planned, and held by the text check if a section's brief asks for one.",
+  "photoClasses": {
+    "default": "service",
+    "serviceWords": ["report", "summary", "dashboard", "screen", "monitor", "laptop", "tablet", "interface", "spreadsheet", "chart", "graph", "document", "file", "folder", "binder", "handover", "plan", "checklist", "calendar", "contract", "printout", "printed", "clipboard", "estimate", "forecast", "sheet", "worksheet", "proposal", "audit", "notebook", "sticky notes", "agenda", "invoice", "deck"]
+  },
   "siteKind": "a service business",
   "personWords": [
     "person",
@@ -89,55 +96,58 @@
     "outsourcing"
   ],
   "categoryAliases": {},
-  "topicSubject": "a scene of a {category} business's work that shows what the page section \"{topic}\" is about",
+  "topicSubject": "a piece of a {category} business's work about the page section \"{topic}\": a de-identified report, worksheet, handover file or working screen on it, every client name, figure and logo unreadable",
+  "subjectsNote": "Each subject is a piece of the work as its subject (photoClasses service), most on paper: of the 17, two are a screen (photo-subjects.json screens share 0.15). They replace the scenes and the evidenceSubjects of 0a455cd (owner 2026-11-17: no more generic scenes on a service site).",
   "subjects": {
     "hero": [
-      "the premises where a {category} business serves its clients, its staff at work there, with some open space on one side for a headline",
-      "a member of a {category} business's staff helping a client in person, with some open space on one side for a headline",
-      "the owner and a manager of a {category} business going over results together on a tablet, with some open space on one side for a headline",
-      "the outside of the premises a {category} business works at, in late-afternoon light, with some open space on one side for a headline"
+      "a de-identified {category} report lying open on a meeting table beside a pen and a coffee cup, its charts and figures blurred so nothing can be read, with some open space on one side for a headline",
+      "a printed {category} handover pack fanned out on a desk: a one-page action plan, a calendar of agreed changes and sticky notes, every name and figure unreadable, with some open space on one side for a headline",
+      "a specialist's hands marking up a printed {category} worksheet with a pen, its names and numbers unreadable, with some open space on one side for a headline",
+      "a binder of de-identified monthly {category} reports open at a chart on a desk by a window, every figure blurred, with some open space on one side for a headline"
     ],
     "product": [
-      "a {category} business's staff member doing the work its clients pay for",
-      "a client being served in person by a {category} business",
-      "the premises of a {category} business, clean and ready for its clients",
-      "two staff members of a {category} business working side by side"
+      "a printed sample of the {category} work a client receives, laid on a meeting table: a bound summary report whose client name, figures and logos are blurred out, a pen beside it",
+      "a specialist's hands marking up a printed before-and-after comparison sheet of {category} work, its names and numbers unreadable",
+      "the handover pack of a finished {category} job on a desk: a one-page action plan, a calendar of agreed changes and sticky notes, every name and figure unreadable",
+      "the working screen of an ongoing {category} job seen at a low angle across a desk, every listing and figure on it blurred so nothing can be read, a notebook of handwritten action points beside the keyboard"
     ],
     "process": [
-      "a manager at a laptop in a small back office of a {category} business, going over the week's figures",
-      "a {category} business's staff member at work on a routine task",
-      "a technician of a {category} business fixing something on site"
+      "a specialist's hands working through a printed {category} checklist with a pen, ticks in the margin, every word unreadable",
+      "a {category} working session seen over a shoulder: a monitor with blurred tables and calendars, a printed task list beside it",
+      "a printed {category} audit worksheet being annotated with a highlighter, its rows and figures unreadable"
     ],
     "material": [
-      "a close view of a manager's hands on a printed weekly report beside a laptop, in a {category} business's office",
-      "a close view of hands at work on the everyday task of a {category} business"
+      "a close view of a printed {category} report page with a chart and a short table, every label and figure blurred",
+      "a close view of a {category} handover folder's tabbed dividers and a one-page plan, every word unreadable"
     ],
     "lifestyle": [
-      "clients of a {category} business arriving to be served",
-      "the owner of a {category} business and a manager walking the premises together"
+      "a client's and a specialist's hands going through a printed {category} summary together across a table, the people cut off at the frame, its names and figures unreadable",
+      "a wall of a {category} job's sticky notes and a printed timeline pinned beside a project plan, every word on them unreadable",
+      "a bound {category} report and its one-page summary handed across a desk, only the hands in view, every name and figure blurred",
+      "a printed weekly {category} results sheet clipped to a board beside a pen and reading glasses, its figures unreadable"
     ]
   },
   "productOnlySubjects": {
     "hero": [
-      "the premises of a {category} business, with some open space on one side for a headline"
+      "a de-identified {category} report lying open on a meeting table, every figure blurred, with some open space on one side for a headline"
     ],
     "product": [
-      "the premises of a {category} business, clean and ready for its clients"
+      "the handover pack of a finished {category} job on a desk, every name and figure unreadable"
     ]
   },
   "itemSubjects": {
     "hero": [
-      "the premises of a {category} business, with some open space on one side for a headline"
+      "a de-identified {category} report lying open on a meeting table, every figure blurred, with some open space on one side for a headline"
     ],
     "product": [
-      "the premises of a {category} business, clean and ready for its clients"
+      "the handover pack of a finished {category} job on a desk, every name and figure unreadable"
     ]
   },
   "photoToShoot": {
-    "hero": "本页主题的实景大图（经营场所、团队工作或服务客户的场景，横幅构图，主体清晰）",
-    "product": "与本段内容对应的服务现场实拍",
+    "hero": "本页服务交付物的实拍大图（脱敏的报告、工作界面或交付资料，客户名称、数字和标志都不可辨认，横幅构图，主体清晰）",
+    "product": "与本段内容对应的交付物实拍（脱敏报告、工作界面或交付资料，不能出现可读的客户信息）",
     "material": "与本段内容对应的细节实拍（报表、工作中的手部特写等，不能出现可读的客户信息）",
-    "lifestyle": "客户在经营场所中的真实场景",
+    "lifestyle": "与本段内容对应的交付或沟通场景（只拍手和资料，不拍场所全景，不能出现可读的客户信息）",
     "process": "团队工作实拍（与本段内容对应的环节）",
     "portrait": "评价客户本人的照片（需本人书面同意）"
   },

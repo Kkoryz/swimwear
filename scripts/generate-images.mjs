@@ -12,7 +12,10 @@
 // A run makes again at most MAX_BATCH photos the plan already made unless --max says more: a larger queue (a plan gone
 // wrong) waits for a person (exit 2) with the list, docs/research/images/remake-hold.md: each photo, what it shows and
 // why it is to be made again; new photos and review send-backs are not capped.
-// Usage: node scripts/generate-images.mjs [--limit 10] [--concurrency 3] [--only id,id] [--max 40]
+// One photo of each class comes first (lib/photo-samples.mjs; owner 2026-11-17): --samples makes those alone, and the
+// rest waits (exit 2) until the image-fit judge has passed every class's sample (judge-image-fit.mjs --samples).
+// A photo the text check held (check-photo-text.mjs, status held-text) is not made.
+// Usage: node scripts/generate-images.mjs [--samples] [--limit 10] [--concurrency 3] [--only id,id] [--max 40]
 
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, rm, stat, writeFile } from 'node:fs/promises';
@@ -32,12 +35,18 @@ import { PERSON_KINDS } from './lib/rules.mjs';
 import { LIBRARY_PATH } from './lib/release-guard.mjs';
 import { writeResponsiveWebp } from './lib/web-image.mjs';
 import { imageBriefs } from './lib/trade.mjs';
+import { SAMPLES_PATH, SampleHold, UNSAMPLED_CLASSES, classOf, openClasses, recordSamples, samplesMarkdown, samplesToMake } from './lib/photo-samples.mjs';
+
+export { SampleHold };
 
 // The trade's prompt wording (config/image-briefs*.json via lib/trade.mjs: prompts, productionSceneWords).
 // Hamming distances (of 64) at or below which a result counts as a near-copy of a reference photo, or as a
 // near-duplicate of a photo already in the library (same framing and layout with another product).
 const NEAR_COPY_BITS = 10;
 const DUPLICATE_BITS = 14;
+// Times one --samples run makes a class's sample when this run's own checks send it back (a look-alike, a near-copy, a
+// failed call): the first try and two more, each with the next look (site11 2026-11-17).
+export const SAMPLE_TRIES = 3;
 export const MAX_BATCH = 12;
 
 // More photos already made queued again than a run makes at once: the run waits for a person (site-run's images step).
@@ -96,7 +105,9 @@ async function hashImage(sharp, path, mirrored = false) {
 }
 
 // run: the Codex call (a stand-in in tests).
-export async function generateImages({ root = process.cwd(), limit = Infinity, concurrency = imageHomes(root).length, only = null, max = MAX_BATCH, run: codex = runCodex } = {}) {
+// samples: make only one photo of each class whose sample has not passed (lib/photo-samples.mjs); requireSamples: make
+// nothing while a class of the queue has no passed sample (SampleHold), the command line's default.
+export async function generateImages({ root = process.cwd(), limit = Infinity, concurrency = imageHomes(root).length, only = null, max = MAX_BATCH, samples = false, requireSamples = false, run: codex = runCodex } = {}) {
   const { default: sharp } = await import('sharp');
   const planPath = resolve(root, 'docs/research/image-plan.json');
   const plan = await readJson(planPath);
@@ -117,14 +128,40 @@ export async function generateImages({ root = process.cwd(), limit = Infinity, c
   // read from too (charts and boards among them).
   const referenceHashes = [];
   for (const path of new Set([...style.kinds[SITE_STYLE].refs, ...(imageTypes?.refs ?? [])])) referenceHashes.push({ path, hash: await hashImage(sharp, path) });
-  const queue = plan.entries.filter((entry) => TO_RUN.has(entry.status) && (!only || only.includes(entry.id))).slice(0, limit);
+  // A photo recorded made whose master is gone (a run stopped while it was being made again: aloha 2026-11-17, three
+  // photos) is made again: nothing can render, review or crop it.
+  const gone = plan.entries.filter((entry) => entry.status === 'generated' && entry.master && !existsSync(resolve(root, entry.master)));
+  for (const entry of gone) { entry.status = 'planned'; delete entry.master; }
+  if (gone.length) await writeJson(planPath, plan);
+  // A service site's generic scene is never made (lib/photo-class.mjs): one sent back by the library review after the
+  // plan was made keeps its old scene subject until plan-images plans it again as the online-service class, which the
+  // images step does before it makes the send-backs (site-run.mjs; site14 2026-11-17: five such scenes were queued as
+  // they were, and held the library for a scene sample).
+  const unmade = plan.entries.filter((entry) => TO_RUN.has(entry.status) && UNSAMPLED_CLASSES.includes(classOf(entry, briefs)));
+  for (const entry of unmade) console.log(`not made ${entry.id}: a generic scene on a service site, to be planned again (plan-images.mjs)`);
+  const wanted = plan.entries.filter((entry) => TO_RUN.has(entry.status) && !unmade.includes(entry) && (!only || only.includes(entry.id))).slice(0, limit);
   // The cap is on photos the plan made again (planned, a master already on disk): a new site's first library is made in
   // one go, and photos the library review sent back (rejected-*) are its own decision, retried whatever their number.
-  const again = queue.filter((entry) => entry.status === 'planned' && existsSync(resolve(root, `docs/research/images/masters/${entry.id}.png`)));
+  // A photo sent back is planned again with the scenes it tried (lib/image-plan.mjs triedScenes): not capped either.
+  const again = wanted.filter((entry) => entry.status === 'planned' && !entry.triedScenes?.length && existsSync(resolve(root, `docs/research/images/masters/${entry.id}.png`)));
   if (again.length > max) {
     await writeRemakeHold(root, again, max);
     throw new RemakeHold(`${again.length} photos already made are queued again, more than ${max} at once: look at docs/research/images/remake-hold.md first (why so many?), then run again with --max ${again.length} or --limit`);
   }
+  // One photo of each class first (lib/photo-samples.mjs; owner 2026-11-17): --samples makes those alone; the library is
+  // made once every class of its queue has a sample the image-fit judge passed.
+  const samplesPath = resolve(root, SAMPLES_PATH);
+  const sampled = await readJson(samplesPath, null);
+  if (!samples && requireSamples) {
+    const open = openClasses(plan, wanted, sampled, briefs);
+    if (open.length) {
+      await mkdir(resolve(root, 'docs/research/images'), { recursive: true });
+      await writeFile(resolve(root, 'docs/research/images/samples.md'), samplesMarkdown(sampled, open));
+      throw new SampleHold(`no passed sample for ${open.join(', ')}: ${wanted.length} photos wait (docs/research/images/samples.md); run generate-images --samples and judge-image-fit --samples first`);
+    }
+  }
+  const queue = samples ? samplesToMake(plan, wanted, sampled, briefs) : wanted;
+  const picked = [...queue];
   let saving = Promise.resolve();
   const save = () => { saving = saving.then(() => writeJson(planPath, plan)); return saving; };
 
@@ -164,6 +201,9 @@ export async function generateImages({ root = process.cwd(), limit = Infinity, c
     // and a photo planned without a person that may now show one gets a model too: the photo takes one of the list in
     // its turn (a hero and its phone twin one model).
     if (PERSON_KINDS.includes(entry.kind) && entry.kind !== 'portrait' && briefs.casting?.length && !briefs.casting.includes(entry.casting)) entry.casting = takeTurn(briefs.casting, libraryTurn, 5);
+    // A photo of the making shows one of the trade's few workers, in turn, the next one when it is made again as a
+    // look-alike (briefs.workerCasting; owner 2026-11-18: site13's factory photos were one woman a dozen times).
+    entry.worker = briefs.workerCasting?.length ? takeTurn(briefs.workerCasting, libraryTurn + (entry.workerShift ?? 0), 1) : undefined;
     // The garments the page's photos show (analyze:image-types), named with the category in the prompt.
     entry.products = imageTypes?.products?.by?.[entry.category];
     // A print only on what the products reading says can carry one (analyze:image-types printed), and on the share of
@@ -202,7 +242,10 @@ export async function generateImages({ root = process.cwd(), limit = Infinity, c
       // Our places are where our models are photographed: a photo of the making keeps the reference's kind of place, the
       // production floor its photos of that kind show (site10's factory stand-ins were set on terraces and in sunrooms).
       const placed = type ? type.background === 'place' && type.shows === 'worn' : Boolean(entry.shot);
-      entry.place = placed ? takeTurn(places, offset, 3) : undefined;
+      // A product its page's theme places (entry.placeWords: watersports by the water; site13 claude-seo audit
+      // 2026-11-17, M-13: its watersports and rash guard pages stood in gardens) takes the places that name one.
+      const own = entry.placeWords?.length ? places.filter((item) => entry.placeWords.some((word) => new RegExp(`(^|[^a-z])${word}`, 'i').test(item))) : [];
+      entry.place = placed ? takeTurn(own.length ? own : places, offset, 3) : undefined;
       entry.backdrop = (entry.productOnly || (type && !placed && type.shows !== 'chart')) && settings.length ? settings[(turn + (entry.shotShift ?? 0)) % settings.length] : undefined;
       // After a refusal the reference photos are no longer attached (a reference of a worn product can trip the input
       // check by itself); the written profile still carries the look. A product on its own is shot on a plain setting,
@@ -287,29 +330,52 @@ export async function generateImages({ root = process.cwd(), limit = Infinity, c
   };
 
   let quotaExhausted = null;
-  const workers = Array.from({ length: Math.max(1, concurrency) }, async () => {
+  const work = () => Promise.all(Array.from({ length: Math.max(1, concurrency) }, async () => {
     while (queue.length && !quotaExhausted) {
       const entry = queue.shift();
       console.log(`generating ${entry.id} ...`);
       await generateOne(entry);
       console.log(`${entry.id}: ${entry.status}${entry.similarity ? ` (reference distance ${entry.similarity.distance}, library distance ${entry.nearestInLibrary?.distance ?? '-'}, style ${entry.styleCheck.inRange ? 'in range' : entry.styleCheck.off.join('; ')})` : ''}`);
     }
-  });
-  await Promise.all(workers);
+  }));
+  await work();
+  // A sample this run's own checks send back (a look-alike of a library photo, a near-copy of a reference, a failed
+  // call) was never judged against its page: it is made again at once, with the next look, up to SAMPLE_TRIES times,
+  // instead of the library waiting for a person with no sample to look at (site11 2026-11-17: its one photo to make,
+  // a send-back, was picked as the service sample, came out a look-alike of revenue-management-lifestyle-3, and the
+  // run stopped on "no passed sample for service" with samples.json empty).
+  for (let attempt = 1; samples && attempt < SAMPLE_TRIES && !quotaExhausted; attempt += 1) {
+    const again = picked.filter((entry) => !IN_LIBRARY.has(entry.status) && TO_RUN.has(entry.status));
+    if (!again.length) break;
+    queue.push(...again);
+    await work();
+  }
   if (quotaExhausted) console.error(`Codex usage limit reached; stopped. Run again after ${quotaExhausted}.`);
   await saving;
+  // The samples made wait for their judgment (judge-image-fit.mjs --samples).
+  if (samples && picked.length) {
+    // A class whose sample was sent back every time is named with why (samples.md), not left as an empty table.
+    const missed = picked.filter((entry) => !IN_LIBRARY.has(entry.status)).map((entry) => ({ id: entry.id, photoClass: classOf(entry, briefs), status: entry.status, ...(entry.duplicateOf ? { duplicateOf: entry.duplicateOf } : {}) }));
+    const record = { ...recordSamples(sampled, picked, briefs), ...(missed.length ? { missed } : {}) };
+    await writeJson(samplesPath, record);
+    await writeFile(resolve(root, 'docs/research/images/samples.md'), samplesMarkdown(record, [...new Set(missed.map((item) => item.photoClass))]));
+  }
   return plan;
 }
 
 runMain(import.meta.url, async () => {
-  const { values } = cliArgs({ limit: { type: 'string' }, concurrency: { type: 'string' }, only: { type: 'string' }, max: { type: 'string' } });
+  const { values } = cliArgs({ limit: { type: 'string' }, concurrency: { type: 'string' }, only: { type: 'string' }, max: { type: 'string' }, samples: { type: 'boolean' } });
   const plan = await generateImages({
     limit: values.limit ? Number(values.limit) : Infinity,
     ...(values.concurrency ? { concurrency: Number(values.concurrency) } : {}),
     only: listOption(values.only),
     ...(values.max ? { max: Number(values.max) } : {}),
+    // The samples come first and are judged (site-run's images step: --samples, the judge, then this), and the library
+    // is made whatever their verdicts, which samples.md reports (owner 2026-11-18: "不要硬卡这些图了").
+    samples: Boolean(values.samples),
+    requireSamples: false,
   }).catch((error) => {
-    if (!(error instanceof RemakeHold)) throw error;
+    if (!(error instanceof RemakeHold) && !(error instanceof SampleHold)) throw error;
     // Waits for a person (site-run: exit 2).
     console.error(error.message);
     process.exitCode = 2;

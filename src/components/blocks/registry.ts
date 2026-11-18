@@ -8,6 +8,7 @@ import CaseStudiesBlock from './CaseStudiesBlock.astro';
 import ContactChannelsBlock from './ContactChannelsBlock.astro';
 import CertificationsBlock from './CertificationsBlock.astro';
 import CtaBlock from './CtaBlock.astro';
+import DataPracticesBlock from './DataPracticesBlock.astro';
 import FaqBlock from './FaqBlock.astro';
 import FeatureGridBlock from './FeatureGridBlock.astro';
 import FigureBlock from './FigureBlock.astro';
@@ -26,6 +27,7 @@ import StatsBlock from './StatsBlock.astro';
 import StyleGridBlock from './StyleGridBlock.astro';
 import SwatchesBlock from './SwatchesBlock.astro';
 import TableBlock from './TableBlock.astro';
+import TeamBlock from './TeamBlock.astro';
 import TestimonialsBlock from './TestimonialsBlock.astro';
 import TextBlock from './TextBlock.astro';
 
@@ -82,7 +84,7 @@ export const BLOCKS = {
   featureGrid: { component: FeatureGridBlock, props: ({ block, media, variant, page }) => ({ block, media, variant, start: cardsBefore(page, block), numberless: setCards(page, block) > NUMBERED_SET_MAX }) },
   gallery: { component: GalleryBlock, props: withHeroCta },
   process: { component: ProcessBlock, props: withHeroCta },
-  faq: { component: FaqBlock, props: withVariant },
+  faq: { component: FaqBlock, props: ({ block, variant, page }: BlockContext) => ({ block, variant, page }) },
   cta: { component: CtaBlock, props: ({ block, media, variant, page, formId }) => ({ block, media: media[0] ?? null, variant, route: page.route, formId }) },
   band: { component: BandBlock, props: withFirstMedia },
   figure: { component: FigureBlock, props: ({ block, media }) => ({ block, media: media[0] ?? null }) },
@@ -102,4 +104,6 @@ export const BLOCKS = {
   orderCase: { component: OrderCaseBlock, props: blockOnly },
   pricing: { component: PricingBlock, props: blockOnly },
   swatches: { component: SwatchesBlock, props: blockOnly },
+  team: { component: TeamBlock, props: blockOnly },
+  dataPractices: { component: DataPracticesBlock, props: ({ block, page }: BlockContext) => ({ block, page }) },
 } satisfies Record<PageBlockType, BlockEntry>;

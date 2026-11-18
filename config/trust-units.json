@@ -1,0 +1,14 @@
+{
+  "note": "The units a trust bar value may carry after its number (lib/site-trust.mjs trustValue): a value is a number with an optional unit from this closed list; a word after the number outside it is dropped and reported back to Site Factory (site13 blind audit: \"65 that\", \"55 custom\", Site Factory's value pattern took the word after the number). Matched case-insensitively, a singular as its plural (piece as pieces); a multiplier (million, k) counts as a unit. A value that does not start with a number is left as it is.",
+  "units": [
+    "%", "+", "x", "×", "k", "thousand", "million", "billion",
+    "people", "persons", "staff", "workers", "employees", "engineers", "designers", "technicians", "specialists", "members",
+    "pieces", "pcs", "units", "garments", "items", "sets", "styles", "designs", "samples", "colours", "colors", "colourways", "colorways", "sizes", "fabrics", "prints", "patterns", "skus", "models",
+    "years", "yrs", "months", "weeks", "days", "hours", "hrs", "minutes", "mins",
+    "brands", "clients", "customers", "buyers", "partners", "suppliers", "mills", "countries", "markets", "cities", "regions", "languages",
+    "factories", "lines", "machines", "orders", "projects", "shipments", "containers", "collections",
+    "km", "m", "m²", "m2", "sqm", "sq m", "sq ft", "ft²", "square metres", "square meters", "square feet", "acres", "hectares",
+    "kg", "tons", "tonnes", "metres", "meters", "yards",
+    "rooms", "beds", "guests", "nights", "properties", "hotels", "stars", "reviews", "locations", "offices", "stores", "certificates", "certifications", "awards", "patents"
+  ]
+}

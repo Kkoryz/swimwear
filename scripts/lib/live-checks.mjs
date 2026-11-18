@@ -4,9 +4,14 @@
 // scripts/agentic_check.py), ported.
 
 import { parsePage } from './built-site.mjs';
+import { unallowedScripts } from './csp.mjs';
 import { robotsAllows } from './seo-head.mjs';
 
-export const SECURITY_HEADERS = ['strict-transport-security', 'x-content-type-options', 'referrer-policy', 'x-frame-options'];
+// The headers the generated Nginx config sends (lib/nginx-config.mjs), Content-Security-Policy and Permissions-Policy
+// included (four-site audit 2026-11-17, Fable's plan T3).
+export const SECURITY_HEADERS = ['strict-transport-security', 'x-content-type-options', 'referrer-policy', 'x-frame-options', 'permissions-policy', 'content-security-policy'];
+// HSTS of at least a year (the generated config sends 31536000).
+const HSTS_MIN_SECONDS = 31536000;
 
 // The requests to make for a site origin (https://example.com): { id, url, follow }.
 export function liveRequests(origin) {
@@ -34,6 +39,18 @@ export function liveProblems(origin, responses, expectedSitemapUrls = null, allo
   if (home?.status !== 200) add('home_status', String(home?.status));
   for (const header of SECURITY_HEADERS) if (!home?.headers?.[header]) add('security_header_missing', header);
   if (!/no-cache|max-age=0/.test(home?.headers?.['cache-control'] ?? '')) add('html_cache', home?.headers?.['cache-control'] ?? 'none');
+  const hsts = home?.headers?.['strict-transport-security'];
+  if (hsts && !(Number(hsts.match(/max-age=(\d+)/i)?.[1] ?? 0) >= HSTS_MIN_SECONDS)) add('hsts_short', hsts);
+  if (home?.headers?.['x-content-type-options'] && home.headers['x-content-type-options'].toLowerCase() !== 'nosniff') add('nosniff_missing', home.headers['x-content-type-options']);
+  // The live policy allows the live home page's inline scripts (a release whose scripts changed while the server kept
+  // the old snippet would have them blocked), and never every inline script.
+  const csp = home?.headers?.['content-security-policy'];
+  if (csp) {
+    const scriptSrc = csp.split(';').map((part) => part.trim()).find((part) => /^script-src\s/.test(part)) ?? '';
+    if (/'unsafe-inline'/.test(scriptSrc) && !/'(sha256|nonce)-/.test(scriptSrc)) add('csp_unsafe_inline_scripts', scriptSrc);
+    const blocked = unallowedScripts(csp, [home.body ?? '']);
+    if (blocked.length) add('csp_blocks_inline_script', `${blocked.length} inline script(s) of the home page not in the policy: install the headers snippet of this release (pnpm build:nginx-config)`);
+  }
   const { canonical, robots: homeRobots } = parsePage(home?.body ?? '');
   if (canonical !== `${origin}/`) add('home_canonical', String(canonical));
   if (homeRobots?.includes('noindex')) add('home_noindex', 'the live home page is noindex');

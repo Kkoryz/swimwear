@@ -6,6 +6,7 @@
 // kind (their light, colour and camera language only), with our own place, pose and design.
 
 import { basename } from 'node:path';
+import { GENERAL, SERVICE_HERO, isThemeCategory } from './media-allocation.mjs';
 
 export const IMAGE_TYPES_SCHEMA = 'seo-site-image-types-v1';
 // What a kind shows: the product on a person, the product alone, the factory, its workers or its process (only a real
@@ -184,13 +185,20 @@ export function parseProducts(reply, categories) {
 }
 
 // The entry marked notWorn when the products reading says its category's photos show nothing worn.
+// The page whose kinds a photo takes: a theme's shared set (lib/page-theme.mjs) is the line's product as the site-wide
+// set is, so it is read with the site-wide photos (no reading of its own; site13 claude-seo audit 2026-11-17, M-13).
+export const typeCategory = (category) => (isThemeCategory(category) ? GENERAL : category);
+// A service page's own opening photo (image-plan.mjs serviceHeroes) is made from its ask, never as a kind
+// (generate-images.mjs), and its service has no page of its own: none is read for it (no model call).
+export const typedPhoto = (entry) => typed(entry) && entry.intent?.id !== SERVICE_HERO;
+
 export const notWornIn = (imageTypes, entry) => (imageTypes?.products?.worn?.[entry.category] === false ? { ...entry, notWorn: true } : entry);
 
 // The kind a planned photo is made as (a phone twin: its hero's), with the reference photos of that kind; null when the
 // kinds were not read or the photo takes none.
 export function typeOf(imageTypes, entry) {
   entry = notWornIn(imageTypes, entry);
-  const index = imageTypes?.pages?.[entry.category]?.slots?.[entry.phoneOf ?? entry.id];
+  const index = imageTypes?.pages?.[typeCategory(entry.category)]?.slots?.[entry.phoneOf ?? entry.id];
   // A kind read before a rule changed that the photo may no longer take is not used.
   const type = Number.isInteger(index) && allowedTypes(entry, imageTypes.types).includes(index) ? imageTypes.types[index] : null;
   return type ? { ...type, refs: type.photos.map((photo) => imageTypes.refs[photo - 1]) } : null;

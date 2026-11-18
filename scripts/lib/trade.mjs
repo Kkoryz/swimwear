@@ -14,7 +14,7 @@ const CONFIG = resolve(dirname(fileURLToPath(import.meta.url)), '../../config');
 
 export async function siteTrade(root = process.cwd()) {
   const site = await readJson(resolve(root, 'site.json'), null);
-  return { trade: site?.trade ?? DEFAULT_TRADE, siteKind: site?.siteKind ?? null, imageSubjects: site?.imageSubjects ?? null };
+  return { trade: site?.trade ?? DEFAULT_TRADE, siteKind: site?.siteKind ?? null, imageSubjects: site?.imageSubjects ?? null, pagePhotos: site?.pagePhotos ?? null };
 }
 
 // A config file for the trade: config/<name>.json for the default trade, else config/<name>.<trade>.json (an unknown
@@ -28,7 +28,9 @@ export function tradeConfigPath(name, trade = DEFAULT_TRADE) {
 // The image briefs (config/image-briefs*.json) for the site's trade, with site.json siteKind over the file's own and
 // site.json imageSubjects (by class) over its subjects (the scenes of the site's own trade).
 export async function imageBriefs(root = process.cwd()) {
-  const { trade, siteKind, imageSubjects } = await siteTrade(root);
+  const { trade, siteKind, imageSubjects, pagePhotos } = await siteTrade(root);
   const briefs = await readJson(tradeConfigPath('image-briefs', trade));
-  return { ...briefs, trade, ...(siteKind ? { siteKind } : {}), ...(imageSubjects ? { subjects: { ...briefs.subjects, ...imageSubjects } } : {}) };
+  // tradeSubjects: the trade's own, for a class whose site subjects are all of another class (image-plan.mjs: a service
+  // site's generic scenes).
+  return { ...briefs, trade, tradeSubjects: briefs.subjects, ...(siteKind ? { siteKind } : {}), ...(imageSubjects ? { subjects: { ...briefs.subjects, ...imageSubjects } } : {}), ...(pagePhotos ? { pagePhotos } : {}) };
 }

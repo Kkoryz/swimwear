@@ -2,6 +2,7 @@
 // reference and on the candidate so "looks like the source" becomes a checkable band.
 
 import { PAGE_SHELL } from './page-shell.mjs';
+import { pictureBand } from './rules.mjs';
 import { scrollThroughPage } from './reveal.mjs';
 
 // v2 (owner 2026-11-10 via Site Factory): tables, charts, step and figure cards, embeds and video are visual or
@@ -145,8 +146,10 @@ export function textRunWords(referencePages, bands) {
 export function densityFailures(metrics, bands) {
   const failures = [];
   if (metrics.wordsPer1000px > bands.wordsPer1000px.max) failures.push({ issue: 'density_text_heavy', value: metrics.wordsPer1000px, maximum: bands.wordsPer1000px.max });
-  if (metrics.visualAreaPct < bands.visualAreaPct.min) failures.push({ issue: 'density_too_few_images', value: metrics.visualAreaPct, minimum: bands.visualAreaPct.min });
-  if (metrics.visualAreaPct > bands.visualAreaPct.max) failures.push({ issue: 'density_too_many_images', value: metrics.visualAreaPct, maximum: bands.visualAreaPct.max });
+  // The picture area within a fifth either way of the band (lib/rules.mjs pictureBand, owner 2026-11-16).
+  const passes = pictureBand(bands.visualAreaPct);
+  if (metrics.visualAreaPct < passes.min) failures.push({ issue: 'density_too_few_images', value: metrics.visualAreaPct, minimum: passes.min });
+  if (metrics.visualAreaPct > passes.max) failures.push({ issue: 'density_too_many_images', value: metrics.visualAreaPct, maximum: passes.max });
   if (metrics.longestTextOnlyPx > bands.longestTextOnlyPx.max) failures.push({ issue: 'density_long_text_run', value: metrics.longestTextOnlyPx, maximum: bands.longestTextOnlyPx.max });
   return failures;
 }

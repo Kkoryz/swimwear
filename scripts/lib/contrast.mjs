@@ -23,6 +23,9 @@ function textRuns() {
     const element = node.parentElement;
     if (!node.textContent.trim() || !element || seen.has(element) || ['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEMPLATE'].includes(element.tagName)) continue;
     if (!element.checkVisibility({ opacityProperty: true, visibilityProperty: true })) continue;
+    // The enquiry bar is fixed over the foot of the screen: it is left out of the shot (below) and of the runs. Its label
+    // is the button pair (--accent-contrast on --accent), checked with the tokens (check-token-contrast.mjs).
+    if (element.closest('[data-enquiry-bar]')) continue;
     const range = document.createRange();
     range.selectNodeContents(node);
     // Only the part that shows: a clamped excerpt's hidden lines (line-clamp, overflow hidden) ran over the dark section
@@ -55,7 +58,9 @@ function textRuns() {
 export async function measureContrast(page) {
   const { default: sharp } = await import('sharp');
   const runs = await page.evaluate(textRuns);
-  await page.addStyleTag({ content: '*,*::before,*::after,*::placeholder,*::marker{color:transparent!important;-webkit-text-fill-color:transparent!important;text-shadow:none!important;text-decoration-color:transparent!important}text,tspan{fill:transparent!important;stroke:transparent!important}' });
+  // The enquiry bar stays where the first screen has it in a full-page shot, over whatever text the page has there: it
+  // is hidden, not measured as that text's background.
+  await page.addStyleTag({ content: '*,*::before,*::after,*::placeholder,*::marker{color:transparent!important;-webkit-text-fill-color:transparent!important;text-shadow:none!important;text-decoration-color:transparent!important}text,tspan{fill:transparent!important;stroke:transparent!important}[data-enquiry-bar]{visibility:hidden!important}' });
   const shot = await page.screenshot({ fullPage: true, type: 'png', animations: 'disabled' });
   const { data, info } = await sharp(shot, { limitInputPixels: false }).removeAlpha().raw().toBuffer({ resolveWithObject: true });
   const low = [];

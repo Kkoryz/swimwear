@@ -1,0 +1,14 @@
+{
+  "at": "2026-11-17T22:46:31.348Z",
+  "published": 1,
+  "report": [
+    {
+      "file": "cost-to-start-clothing-line.json",
+      "slug": "cost-to-start-clothing-line",
+      "failures": [],
+      "warnings": [
+        "the opening answer is 68 words (aim for at most 60)"
+      ]
+    }
+  ]
+}

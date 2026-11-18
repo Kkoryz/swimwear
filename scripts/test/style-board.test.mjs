@@ -70,3 +70,21 @@ test('the board is shot module by module beside the competitor sections it rende
   const pages = await prepareDesignReview({ baseUrl: 'http://x.test/', root, shoot: async () => { throw new Error('no page to shoot'); } });
   assert.equal(pages.board.length, 2);
 });
+
+test('a module is cut where its label bar is in the shot, when the page laid out apart from where it was measured', async () => {
+  const { labelBars, alignToShot } = await import('../design-review.mjs');
+  // A 4-px-wide shot, 100 rows: label bars (214, 0, 110) at rows 10-14 and 60-64, white elsewhere.
+  const width = 4;
+  const raw = Buffer.alloc(width * 100 * 3, 255);
+  for (const start of [10, 60]) for (let row = start; row < start + 5; row += 1) for (let x = 0; x < width; x += 1) raw.set([214, 0, 110], (row * width + x) * 3);
+  assert.deepEqual(labelBars(raw, { width, height: 100, channels: 3 }, [214, 0, 110]), [10, 60]);
+  // Strandmill's board 2026-11-17: on phones the samples were measured 250px below where the full-page shot drew them,
+  // so the logos crop showed the module above's grey frame and the label, not the logos.
+  const modules = { a: { top: 10, bottom: 300, blocks: [{ id: 'x', main: 0, top: 20, height: 100 }] }, b: { top: 310, bottom: 400, blocks: [{ id: 'y', main: 1, top: 330, height: 50 }] } };
+  const mains = [{ key: 'a', top: 10, bottom: 300 }, { key: 'b', top: 310, bottom: 400 }];
+  const aligned = alignToShot(modules, mains, [10, 60]);
+  assert.deepEqual([aligned.b.top, aligned.b.bottom, aligned.b.blocks[0].top], [60, 150, 80]);
+  assert.deepEqual(aligned.a, { ...modules.a, top: 10, bottom: 60 }, 'a sample ends where the next one starts in the shot');
+  // Bars that do not match the samples one for one: the measures stand.
+  assert.equal(alignToShot(modules, mains, [10]), modules);
+});

@@ -120,7 +120,8 @@ export function captureTree(extraction, { html = null, shell = PAGE_SHELL } = {}
   const bySelector = new Map();
   for (const node of nodes) if (!bySelector.has(node.selector)) bySelector.set(node.selector, node);
   const root = nodes.find((node) => node.tag === 'html') ?? null;
-  const body = bySelector.get('body') ?? null;
+  // A body with an id is captured as body#<id> (Duda's body#dmRoot, hometeamluxuryrentals.com 2026-11-16).
+  const body = bySelector.get('body') ?? nodes.find((node) => node.tag === 'body') ?? null;
   const parents = html ? htmlParents(html) : new Map();
   for (const node of nodes) {
     if (node === root) continue;
@@ -164,7 +165,11 @@ export function captureTree(extraction, { html = null, shell = PAGE_SHELL } = {}
   }
   const vw = extraction.viewport?.width ?? 1440;
   const vh = extraction.viewport?.height ?? 1000;
-  return { nodes: order, root, body, viewport: { width: vw, height: vh }, scrollHeight: extraction.document?.scrollHeight ?? Math.max(0, ...nodes.map((node) => node.rect.y + node.rect.height)), url: extraction.url, header: order.find((node) => node.headerBox === node) ?? null, footer: order.find((node) => node.footerBox === node) ?? null };
+  // The header and footer shown at this width first: a page may carry one per width (Duda's phone header, 0×0 on a
+  // desktop, comes before its desktop header).
+  const shown = (node) => node.displayed && node.rect.height > 0;
+  const first = (isIt) => order.find((node) => isIt(node) && shown(node)) ?? order.find(isIt) ?? null;
+  return { nodes: order, root, body, viewport: { width: vw, height: vh }, scrollHeight: extraction.document?.scrollHeight ?? Math.max(0, ...nodes.map((node) => node.rect.y + node.rect.height)), url: extraction.url, header: first((node) => node.headerBox === node), footer: first((node) => node.footerBox === node) };
 }
 
 export function* descendants(node) {

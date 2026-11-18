@@ -8,17 +8,20 @@
 // once when they do not) and published as responsive WebP under /media/blog/<slug>/. A photo the writer wanted from the
 // company is a stand-in, listed for a real photo to replace (standIns). Visuals are made again only when what the
 // writer says about them changes, so the article is imported again after every edit (geo apply) at no image cost.
-// The post is built for review (status review: noindex, out of the sitemap and the hub; preflight holds the release)
-// and saved as a package in content/blog-queue/drafts with the blog checks' report: a person reviews it, adds review.by
-// and review.at, and publishes it with blog:publish. A published post of the same slug is never overwritten.
-// Usage: node scripts/import-geo-article.mjs <runs/slug> [--visuals V1,V2]
+// The article read is the run's final one (06-article.natural.md when the writer naturalized it) with its replacement
+// list applied (lib/blog-review.mjs). The post is built unpublished (status review: noindex, out of the sitemap and the
+// hub; preflight holds the release) and its AI review runs (owner 2026-11-16: always, no person): passed, its package
+// waits in content/blog-queue/approved for the site's publishing day (blog:publish, site.json blogPublish); held, it
+// stays in content/blog-queue/drafts with the reasons. A published post of the same slug is never overwritten.
+// Usage: node scripts/import-geo-article.mjs <runs/slug> [--visuals V1,V2] [--routes map.json]
 
 import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
-import { mkdir, readFile, rm } from 'node:fs/promises';
+import { mkdir, readFile, readdir, rm, stat } from 'node:fs/promises';
 import { basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { blogGates } from './lib/blog-gates.mjs';
+import { REVIEWER, applyReplacements, articleFiles, rerouteLinks, reviewArticle, reviewPlaceholders } from './lib/blog-review.mjs';
 import { cliArgs, listOption, runMain, usage } from './lib/cli.mjs';
 import { imageHomes } from './lib/codex-exec.mjs';
 import { runJudge } from './lib/judge-exec.mjs';
@@ -57,10 +60,56 @@ const sha = (bytes) => createHash('sha256').update(bytes).digest('hex');
 // trade's words, showed a Chinese factory worker fixing a motel lamp.
 const visualKey = (visual, trade = DEFAULT_TRADE) => sha(JSON.stringify([visual.type, visual.title, visual.content, visual.setting ?? null, visual.purpose, visual.section, SIZE, VISUAL_RULES, ...(trade === DEFAULT_TRADE ? [] : [trade])])).slice(0, 16);
 
-export async function importGeoArticle({ root = process.cwd(), runDir, only = null, run = runJudge } = {}) {
+// The final check of the 11-16 blog flow (Site Factory's sitefactory.blog.site_run writes pipeline-report.json in the
+// run): an article it held (A/B items still unanswered or wrong after its rewrite round, a gate, a conflict with the
+// site's facts) is held here too, its reasons named. A run without the report (the earlier flow) has no such check.
+export function flowHeld(report) {
+  const final = report?.final;
+  if (!final || final.passed) return [];
+  const gates = Object.entries(final.gates ?? {}).filter(([, found]) => (Array.isArray(found) ? found.length : Object.keys(found ?? {}).length)).map(([name]) => name);
+  const conflicts = [...Object.keys(final.conflicts?.against_site ?? {}), ...(final.conflicts?.internal ?? []).flat()];
+  return [`blog flow final check: held${final.held?.length ? `; A/B not right: ${final.held.join(', ')}` : ''}${gates.length ? `; gates: ${gates.join(', ')}` : ''}${conflicts.length ? `; conflicts: ${conflicts.join(', ')}` : ''}`];
+}
+
+// The final check that stands for the article as it is now: the newest hand-fix recheck in the run (handfix_*.json:
+// passed, conflicts, the gates, items), when it was made of this article - its article_sha256 the article's, or, without
+// one, written no earlier than the article (owner: a hand fix after every step, rechecked; 2026-11-18, RateHarbor's
+// recheck passed while the import still read the flow's held final) - else pipeline-report.json's final. Returns
+// { by: the file it came from, or null; final: in pipeline-report's shape }.
+const GATES = ['figures', 'sources', 'competitors', 'replacements', 'links'];
+export async function flowFinal(source, articlePath) {
+  const articleText = await readFile(articlePath);
+  const articleTime = (await stat(articlePath)).mtimeMs;
+  const articleSha = sha(articleText);
+  const checks = [];
+  for (const name of (await readdir(source)).filter((file) => /^handfix_.*\.json$/.test(file))) {
+    const path = resolve(source, name);
+    const check = await readJson(path, null);
+    if (!check || typeof check.passed !== 'boolean') continue;
+    const time = (await stat(path)).mtimeMs;
+    const ofThis = check.article_sha256 ? check.article_sha256 === articleSha : time >= articleTime;
+    if (ofThis) checks.push({ name, time, check });
+  }
+  const newest = checks.sort((a, b) => b.time - a.time)[0];
+  if (newest) {
+    const { check } = newest;
+    const items = Object.entries(check.items ?? {}).filter(([, item]) => (item?.result ?? item) !== 'right').map(([id]) => id);
+    return { by: newest.name, final: { passed: check.passed, held: items, gates: Object.fromEntries(GATES.filter((key) => key in check).map((key) => [key, check[key]])), conflicts: check.conflicts ?? {} } };
+  }
+  const report = await readJson(resolve(source, 'pipeline-report.json'), null);
+  return { by: report?.final ? 'pipeline-report.json' : null, final: report?.final ?? null };
+}
+
+// routes: links the writer placed for routes this site names otherwise, { "/writer/route/": "/site/route/" }.
+export async function importGeoArticle({ root = process.cwd(), runDir, only = null, run = runJudge, routes = {}, now = new Date() } = {}) {
   const source = resolve(runDir);
   const runName = basename(source);
-  const article = parseArticle(await readFile(resolve(source, '06-article.md'), 'utf8'));
+  // The run's final article (naturalized when the writer made one) with its replacement list applied: what the owner
+  // filled replaces the writer's text, our claims still stand-ins stay and are pending (lib/blog-review.mjs).
+  const files = articleFiles(source, existsSync);
+  if (!files.article) throw new Error(`${source} has no 06-article.md`);
+  const replaced = applyReplacements(await readFile(files.article, 'utf8'), files.replacements ? (await readJson(files.replacements)).replacements ?? [] : []);
+  const article = parseArticle(rerouteLinks(replaced.markdown, routes));
   const visuals = (await readJson(resolve(source, '06-visuals.json'))).visuals ?? [];
   const byId = new Map(visuals.map((visual) => [visual.id, visual]));
   const placed = placedVisuals(article);
@@ -169,28 +218,55 @@ export async function importGeoArticle({ root = process.cwd(), runDir, only = nu
   post.geo = { run: source.replace(/\\/g, '/'), keyword: article.fields.keyword || null };
   const isPublished = previous?.status === 'published';
   if (!isPublished) await writeJson(postsPath, [...posts.filter((item) => item.slug !== slug && !(item.slug === moved && item.status === 'review')), post]);
-  if (moved) await rm(resolve(root, 'content/blog-queue/drafts', `${moved}.json`), { force: true });
-  await mkdir(resolve(root, 'content/blog-queue/drafts'), { recursive: true });
-  await writeJson(resolve(root, 'content/blog-queue/drafts', `${slug}.json`), { ...post, source: { tool: 'geo-blog-research', run: source } });
+  const queuePath = (folder, name) => resolve(root, 'content/blog-queue', folder, `${name}.json`);
+  if (moved) for (const folder of ['drafts', 'approved']) await rm(queuePath(folder, moved), { force: true });
 
-  // The blog checks, as blog:publish runs them (with a review stand-in: the review is what a person adds).
+  // The blog checks, as blog:publish runs them (the review is the AI review's, below; the placeholders are its own).
   const facts = await companyFacts(root);
   const pages = (await loadSitePages(root)).filter((page) => page.status !== 'placeholder');
-  const { failures: checks, warnings } = blogGates({ ...post, status: 'published', review: { by: '(review pending)', at: post.dateModified } }, { facts, pages, today: new Date(Date.now() + 1000) });
+  const { failures: checks, warnings } = blogGates({ ...post, status: 'published', review: { by: REVIEWER, at: post.dateModified } }, { facts, pages, today: new Date(Date.now() + 1000) });
   // A stand-in is what the writer asks the company for now (06-visuals produce), whenever the visual was made.
   for (const [id, item] of Object.entries(made)) item.standIn = REAL_PHOTO.test(byId.get(id)?.produce ?? '');
   const standIns = Object.entries(made).filter(([id, item]) => item.standIn && current[id]).map(([id, item]) => ({ id, title: item.title, src: item.web.src, replace: 'real photo from the company' }));
   const misfits = Object.entries(made).filter(([id, item]) => current[id] && (item.fit !== 'fits' || item.lookAlike)).map(([id, item]) => ({ id, fit: item.fit, ...(item.lookAlike ? { lookAlike: item.lookAlike } : {}) }));
-  const report = { schemaVersion: GEO_ARTICLE_SCHEMA, run: source, slug, route: `/blog/${slug}/`, datePublished: post.datePublished, importedAt: new Date().toISOString(), published: isPublished, missing, seoMissing, pictures: pictureDensity(article, visuals, pictureTarget((await readJson(resolve(root, 'src/data/article-rhythm.json'), null))?.wordsPerPicture)), failures, misfits, standIns, checks: { failures: checks, warnings }, visuals: made };
+
+  // The AI review (lib/blog-review.mjs): our claims still stand-ins, links the site cannot open, the judge's verdict on
+  // every picture shown, and an article broken on its way in (frontmatter, picture files). With the publish checks it
+  // decides the queue: passed, the package waits in approved for its publishing day; else it stays in drafts, the
+  // reasons with it.
+  const pictures = wanted.filter((visual) => current[visual.id]).map((visual) => ({ id: visual.id, fit: made[visual.id].fit, ...(made[visual.id].lookAlike ? { lookAlike: made[visual.id].lookAlike } : {}) }));
+  const absent = Object.values(current).flatMap((web) => [web.src, web.wide?.src]).filter(Boolean).filter((src) => !existsSync(resolve(root, 'public', src.slice(1))));
+  // The final check of the blog flow, or the hand fix's recheck made after it (flowFinal), named in the report.
+  const finalCheck = await flowFinal(source, files.article);
+  const reviewFailures = [
+    ...reviewArticle({ post, pages, pending: replaced.pending, pictures, missing, seoMissing: [...seoMissing, ...(article.fields.slug ? [] : ['slug'])], broken: [...replaced.broken, ...absent.map((src) => `the picture file ${src} is missing`)] }),
+    ...checks.filter((item) => !item.startsWith('link to a page that does not exist')).map((item) => `publish check: ${item}`),
+    ...flowHeld({ final: finalCheck.final }),
+  ];
+  const review = { by: REVIEWER, at: now.toISOString(), passed: !reviewFailures.length, failures: reviewFailures, placeholders: reviewPlaceholders(replaced.pending) };
+  const pack = { ...post, placeholders: replaced.pending, source: { tool: 'geo-blog-research', run: source, article: files.article, replacements: files.replacements } };
+  for (const folder of ['drafts', 'approved']) await mkdir(resolve(root, 'content/blog-queue', folder), { recursive: true });
+  if (review.passed) {
+    await writeJson(queuePath('approved', slug), { ...pack, review: { by: REVIEWER, at: review.at } });
+    await rm(queuePath('drafts', slug), { force: true });
+  } else {
+    await writeJson(queuePath('drafts', slug), { ...pack, aiReview: review });
+    await rm(queuePath('approved', slug), { force: true });
+  }
+  const report = { schemaVersion: GEO_ARTICLE_SCHEMA, run: source, files, finalCheck: finalCheck.by, slug, route: `/blog/${slug}/`, datePublished: post.datePublished, importedAt: new Date().toISOString(), published: isPublished, review, missing, seoMissing, pictures: pictureDensity(article, visuals, pictureTarget((await readJson(resolve(root, 'src/data/article-rhythm.json'), null))?.wordsPerPicture)), failures, misfits, standIns, checks: { failures: checks, warnings }, visuals: made };
   await writeJson(recordPath, report);
   return report;
 }
 
 runMain(import.meta.url, async () => {
-  const { values, positionals } = cliArgs({ visuals: { type: 'string' } });
-  if (!positionals[0]) return usage('Usage: node scripts/import-geo-article.mjs <runs/slug> [--visuals V1,V2]');
-  const report = await importGeoArticle({ runDir: positionals[0], only: listOption(values.visuals) });
-  console.log(`${report.route}: ${report.published ? 'a published post of this slug exists: the draft package was updated, the page was not' : 'built for review (noindex)'}`);
+  const { values, positionals } = cliArgs({ visuals: { type: 'string' }, routes: { type: 'string' } });
+  if (!positionals[0]) return usage('Usage: node scripts/import-geo-article.mjs <runs/slug> [--visuals V1,V2] [--routes map.json]');
+  const routes = values.routes ? await readJson(resolve(values.routes)) : {};
+  const report = await importGeoArticle({ runDir: positionals[0], only: listOption(values.visuals), routes });
+  console.log(`${report.route}: ${report.published ? 'a published post of this slug exists: the package was updated, the page was not' : 'built (noindex until it is published)'}; read ${report.files.article}`);
+  console.log(report.review.passed ? 'AI review passed: queued in content/blog-queue/approved for its publishing day' : `AI review held it in content/blog-queue/drafts:\n${report.review.failures.map((item) => `  - ${item}`).join('\n')}`);
+  if (report.finalCheck) console.log(`final check read from ${report.finalCheck}`);
+  if (report.review.placeholders.length) console.log(`${report.review.placeholders.length} placeholder(s) of our own claims kept for their real values (reported, not held)`);
   if (report.missing.length) console.log(`visuals not made yet (left out of the page): ${report.missing.join(', ')}`);
   if (report.seoMissing.length) console.log(`frontmatter without ${report.seoMissing.join(', ')}: the H1 and the opening stand in`);
   const { pictures } = report;

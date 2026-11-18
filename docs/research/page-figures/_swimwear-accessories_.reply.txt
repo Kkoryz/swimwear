@@ -1,3 +1,0 @@
-```json
-{"figures": [{"value": "50 pieces", "label": "Minimum per style"}, {"value": "10 to 15 days", "label": "Sample lead time"}, {"value": "35 to 40 days", "label": "Bulk production time"}, {"value": "2 to 3 working days", "label": "Quotation turnaround"}, {"value": "300 pcs", "label": "Branded zip-lock minimum"}, {"value": "UPF 50+", "label": "Hat sun protection"}]}
-```

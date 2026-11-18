@@ -134,10 +134,14 @@ function viewportProblems(tree, bands, viewportId, limits) {
   const { width, height: windowHeight } = tree.viewport;
   const nodes = contentNodes(tree);
   const pageHeight = Math.max(tree.scrollHeight, bands?.at(-1)?.bottom ?? 0);
-  // Faded: the DOM itself holds the band's content near opacity 0 (the shot then shows nothing there).
+  // Faded: the DOM itself holds the band's content near opacity 0 (the shot then shows nothing there). The page's own
+  // content only: the header and footer, and a menu's shut sub-menus, are hidden by design (Duda's footer menu,
+  // hometeamluxuryrentals.com 2026-11-16: its closed sub-menus at opacity 0 filled the last band of every page).
+  const inMenu = (node) => { for (let at = node; at; at = at.parent) if (at.tag === 'nav' || at.attributes?.role === 'navigation') return true; return false; };
+  const own = nodes.filter((node) => !node.inShell && !inMenu(node));
   const faded = [];
   for (const band of bandsOfPage(pageHeight, limits.bandPx)) {
-    const inBand = nodes.filter((node) => overlap(rectOf(node), band.top, band.bottom) > 0);
+    const inBand = own.filter((node) => overlap(rectOf(node), band.top, band.bottom) > 0);
     const low = inBand.filter((node) => node.opacity < limits.fadedOpacity);
     if (low.length >= limits.fadedMin && low.length / inBand.length >= limits.fadedShare) faded.push(`${range(band)} ${low.length}/${inBand.length}`);
   }

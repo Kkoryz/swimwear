@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "seo-site-standard-bodies-v1",
+  "note": "Standards and certifications the copy names, each linked once a page to its standard body's own page about it (scripts/lib/standard-links.mjs; four-site audit 2026-11-17, C7/G2: claude-seo seo-content external linking and seo-geo citations to primary sources). An introduction to the standard, never a verification or certificate look-up (owner 2026-11-17: no verification buttons). names: the spellings matched in the copy, exactly as written (case counts: WRAP is not wrap); the linked words are the copy's own. Each url was checked to be the body's own page on 2026-11-17.",
+  "standards": [
+    { "id": "oeko-tex-eco-passport", "body": "OEKO-TEX", "url": "https://www.oeko-tex.com/en/our-standards/oeko-tex-eco-passport", "names": ["OEKO-TEX® ECO PASSPORT", "OEKO-TEX ECO PASSPORT", "OEKO-TEX® Eco Passport", "OEKO-TEX Eco Passport", "ECO PASSPORT", "Eco Passport"] },
+    { "id": "oeko-tex-standard-100", "body": "OEKO-TEX", "url": "https://www.oeko-tex.com/en/our-standards/oeko-tex-standard-100", "names": ["OEKO-TEX® STANDARD 100", "OEKO-TEX® Standard 100", "OEKO-TEX STANDARD 100", "OEKO-TEX Standard 100", "Oeko-Tex Standard 100", "OEKO-TEX®", "OEKO-TEX", "Oeko-Tex"] },
+    { "id": "grs", "body": "Textile Exchange", "url": "https://textileexchange.org/standards/", "names": ["Global Recycled Standard", "GRS"] },
+    { "id": "rcs", "body": "Textile Exchange", "url": "https://textileexchange.org/standards/", "names": ["Recycled Claim Standard", "RCS"] },
+    { "id": "gots", "body": "Global Standards gGmbH", "url": "https://global-standards.org/our-standards/gots", "names": ["Global Organic Textile Standard", "GOTS"] },
+    { "id": "bluesign", "body": "bluesign technologies", "url": "https://www.bluesign.com/", "names": ["bluesign®", "bluesign", "Bluesign"] },
+    { "id": "wrap", "body": "WRAP (Worldwide Responsible Accredited Production)", "url": "https://wrapcompliance.org/", "names": ["Worldwide Responsible Accredited Production", "WRAP"] },
+    { "id": "amfori-bsci", "body": "amfori", "url": "https://www.amfori.org/amfori-bsci/", "names": ["amfori BSCI", "Amfori BSCI", "BSCI"] },
+    { "id": "smeta", "body": "Sedex", "url": "https://www.sedex.com/solutions/smeta-audit/", "names": ["SMETA"] },
+    { "id": "iso-9001", "body": "ISO", "url": "https://www.iso.org/standard/9001", "names": ["ISO 9001"] }
+  ]
+}

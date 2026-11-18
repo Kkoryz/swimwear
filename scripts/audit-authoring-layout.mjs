@@ -9,9 +9,9 @@ import { readJson } from "./lib/json-io.mjs";
 import { contactChannels } from "./lib/site-contact.mjs";
 import { resolveVariant, signatureFloor, withMediaModules } from "./lib/media-slots.mjs";
 import { signatureMissing, subjectRepeat } from "./lib/photo-audit.mjs";
-import { pageSchemas } from "./lib/seo-head.mjs";
+import { isIndexable, pageSchemas } from "./lib/seo-head.mjs";
 import { writeJson } from './lib/json-io.mjs';
-import { actionsDetached, unevenSetType, carouselsWithoutControls, smallTargets, splitEdges, heavyCrops, heavyOverlays, lockPalette, longMeasures, unmarkedScrollers, measurePage, misalignedColumns, centredRunningText, gutterOutliers, headingAxes, offPalette, parseRgb, photoOverlaps, referenceRuns, repeatedModules, unevenPhotos } from "./lib/visual-checks.mjs";
+import { BAR_CONTROLS_MAX, barCovers, measureBarCover, FOLD_SCREENS, foldProblems, measureFold, actionsDetached, unevenSetType, carouselsWithoutControls, smallTargets, splitEdges, heavyCrops, heavyOverlays, lockPalette, longMeasures, unmarkedScrollers, measurePage, misalignedColumns, centredRunningText, gutterOutliers, headingAxes, offPalette, parseRgb, photoOverlaps, referenceRuns, repeatedModules, unevenPhotos } from "./lib/visual-checks.mjs";
 import { builtPageKey, sharedPageKey } from "./lib/page-keys.mjs";
 import { fontProblems, measureFonts } from "./lib/font-checks.mjs";
 import { INSTALLED_FONTS } from "./lib/font-install.mjs";
@@ -19,6 +19,9 @@ import { headingLineIssues, measureHeadingLines } from "./lib/heading-fit.mjs";
 import { protectedOverrides } from "./lib/protected-rules.mjs";
 import { assertServesDist, retryCrash } from "./lib/audit-runtime.mjs";
 import { TRIAL_TOLERANCE } from "./lib/trial-build.mjs";
+import { chromeCta, primaryCta } from "./lib/primary-cta.mjs";
+import { axeProblems, measureToolForms, scanAgentTree, toolFormProblems } from "./lib/axe-scan.mjs";
+import { lcpPages, lcpProblems, measureLcp as labLcp } from "./lib/lab-lcp.mjs";
 
 // Pages measured at the same time, each in its own browser page.
 export const AUDIT_CONCURRENCY = 4;
@@ -38,7 +41,9 @@ export const VIEWPORTS = Object.freeze([{ id: "desktop", width: 1440, height: 10
 // measure(definition, viewport) -> one result (a test passes its own; the default opens the page in Chromium).
 // routes: only these pages are measured (site-check.mjs): the report is partial, written to .pipeline/check/, and the
 // cache is left alone, so it never stands for the full audit the gate reads (lib/verified-build.mjs).
-export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), measure = null, fresh = process.env.SITE_RUN_FRESH === "audits", routes = null }) {
+// measureLcp(definition) -> { ms, element, url } | { ms: null, error }: the throttled phone load of one page of each
+// page type (lib/lab-lcp.mjs); a test passes its own, and a test's own measure without one measures none.
+export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), measure = null, measureLcp = null, fresh = process.env.SITE_RUN_FRESH === "audits", routes = null }) {
   const root = resolve(rootDir);
   // The pages measured are this site's build, or nothing is cached as ours (lib/audit-runtime.mjs).
   if (!measure) await assertServesDist(baseUrl, root);
@@ -52,6 +57,7 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
   const channels = contactChannels({ contact: await readJson(resolve(root, "src/data/site-contact.json"), null), chat: (await readJson(resolve(root, "src/data/site-runtime.json"), null))?.chat ?? null });
   const shown = (block) => block.type !== "contactChannels" || channels.length > 0;
   const routeSet = new Set(pages.map((page) => page.route));
+  const linkableSet = new Set(pages.filter((page) => isIndexable(page)).map((page) => page.route));
   const expectedSchemas = (page) => pageSchemas({ page, identity, nav, builtRoutes: routeSet }).length;
   const builtRoutes = pages.map((definition) => definition.route);
   const template = await readJson(resolve(root, "site-template.json"), {});
@@ -62,7 +68,7 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
   // measurements (.pipeline/audits/authoring-layout.json, lib/page-keys.mjs); a page that failed is always measured
   // again. SITE_RUN_FRESH=audits measures every page.
   const cachePath = resolve(root, ".pipeline/audits/authoring-layout.json");
-  const shared = await sharedPageKey(root, { code: ["scripts/audit-authoring-layout.mjs", "scripts/lib/density.mjs", "scripts/lib/heading-fit.mjs", "scripts/lib/visual-checks.mjs", "scripts/lib/contrast.mjs"], files: ["src/data/template-variants.json", "src/data/site-identity.json", "src/data/site-contact.json", "src/data/site-nav.json", "site-template.json", "docs/research/raw/reference-density.json", INSTALLED_FONTS], routes: builtRoutes });
+  const shared = await sharedPageKey(root, { code: ["scripts/audit-authoring-layout.mjs", "scripts/lib/density.mjs", "scripts/lib/heading-fit.mjs", "scripts/lib/visual-checks.mjs", "scripts/lib/contrast.mjs"], files: ["src/data/template-variants.json", "src/data/site-identity.json", "src/data/site-contact.json", "src/data/site-nav.json", "site-template.json", "docs/research/raw/reference-density.json", INSTALLED_FONTS, "node_modules/axe-core/package.json"], routes: builtRoutes });
   const cache = fresh ? null : await readJson(cachePath, null);
   const cached = cache?.shared === shared ? cache.pages ?? {} : {};
   const keys = {};
@@ -73,6 +79,10 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
   const measured = wanted ? pages.filter((page) => wanted.has(page.route)) : pages;
   const byPage = new Array(measured.length);
   let reused = 0;
+  // Milliseconds spent in the agent-tree scan and the enquiry bar check (summed over the pages, measured
+  // AUDIT_CONCURRENCY at a time) and in the LCP loads (their wall time), for the report.
+  const spent = { agentTree: 0, barCover: 0, lcp: 0 };
+  const timed = async (key, work) => { const start = Date.now(); try { return await work(); } finally { spent[key] += Date.now() - start; } };
   const measureRoute = measure ?? (async (definition, viewport) => {
         browser ??= chromium.launch({ headless: true });
         const page = await (await browser).newPage({ viewport: { width: viewport.width, height: viewport.height } });
@@ -93,7 +103,11 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
             // The site's brand link home must be visible at every width (mobile-first: same content as desktop).
             brandVisible: [...document.querySelectorAll('header a[href="/"]')].some((anchor) => { const box = anchor.getBoundingClientRect(); return box.width > 0 && box.height > 0 && getComputedStyle(anchor).visibility !== "hidden"; }),
           };
-        }, { copy: pageCopy(definition, routeSet, (block) => resolveVariant(block, definition.pageType, 0, components) ?? (block.type === "cta" ? components.cta : undefined)).map((value) => normalizeText(value).replace(/\s+/g, "")), builtRoutes });
+        }, { copy: pageCopy(definition, routeSet, (block) => resolveVariant(block, definition.pageType, 0, components) ?? (block.type === "cta" ? components.cta : undefined), linkableSet).map((value) => normalizeText(value).replace(/\s+/g, "")), builtRoutes });
+        // The accessibility tree an agent reads, once a page at the phone width Lighthouse tests (lib/axe-scan.mjs).
+        const agentTree = viewport.id === "mobile" ? await timed("agentTree", () => scanAgentTree(page)) : null;
+        // Its forms as WebMCP tools, each annotated whole or not at all (lib/axe-scan.mjs measureToolForms).
+        const toolForms = viewport.id === "mobile" ? await page.evaluate(measureToolForms) : null;
         const evidence = await page.evaluate(() => {
           const main = document.querySelector("main[data-authoring-page]");
           // Content of a closed <details> keeps a layout box in Chromium but is not visible; only its summary is.
@@ -168,9 +182,9 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
             pageId: main?.getAttribute("data-authoring-page") || null,
             h1Count: document.querySelectorAll("h1").length,
             horizontalOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
-            // The site-wide trust bar is not one of the page's blocks, nor a section's charts drawn after it (PageView.astro);
+            // The site-wide trust bar is not one of the page's blocks, nor a section's charts drawn after it, the hero's lead under it or the table of contents (PageView.astro);
             // their gaps still count.
-            blockCount: blocks.filter((block) => !["trustBar", "charts", "page-lead"].includes(block.getAttribute("data-authoring-block"))).length,
+            blockCount: blocks.filter((block) => !["trustBar", "charts", "page-toc"].includes(block.getAttribute("data-authoring-block"))).length,
             blockTypes: blocks.map((block) => block.getAttribute("data-authoring-block")),
             maxGap,
             boundaryGaps,
@@ -200,13 +214,30 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
         const visual = await page.evaluate(measurePage);
         // The fonts each text is drawn in, once the page was scrolled through (lib/font-checks.mjs).
         const fonts = await page.evaluate(measureFonts);
+        // The first screen (lib/visual-checks.mjs foldProblems): the phone as measured, and a 1366×768 desktop, the
+        // page then set back to its own width for the checks after.
+        const fold = [];
+        if (viewport.id === "mobile") fold.push(await page.evaluate(measureFold));
+        if (viewport.id === "desktop") {
+          await page.setViewportSize(FOLD_SCREENS.desktop);
+          fold.push(await page.evaluate(measureFold));
+          await page.setViewportSize({ width: viewport.width, height: viewport.height });
+          await page.evaluate(() => new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done))));
+        }
+        // The controls the phone's enquiry bar might hide (lib/visual-checks.mjs measureBarCover), before the contrast
+        // measurement hides the bar.
+        const barCover = viewport.id === "mobile" ? await timed("barCover", () => page.evaluate(measureBarCover, BAR_CONTROLS_MAX)) : null;
         // Contrast last: measuring it leaves the page's text transparent.
         const lowContrast = viewport.id === "tablet" ? [] : await measureContrast(page);
         // Text boxes drawn over one another (a note on a label, a button on a heading): neither holds the other and they
         // share more than a quarter of the smaller box.
         const textOverlaps = await page.evaluate(() => {
           const collapsed = (element) => Boolean(element.parentElement?.closest("details:not([open])")) && !element.closest("summary");
-          const shown = (element) => { const style = getComputedStyle(element); const rect = element.getBoundingClientRect(); return rect.width > 1 && rect.height > 1 && style.visibility !== "hidden" && style.display !== "none" && !collapsed(element); };
+          // Text a visually hidden ancestor clips away (a 1px box that hides its overflow, kept for screen readers): a
+          // stacked two-column table's header row keeps its cells' boxes over the first row (hotel-rm 2026-11-15: "Option"
+          // over "Managed pricing" on /request-a-quote/, three overlaps no reader sees).
+          const clippedAway = (element) => { for (let at = element.parentElement; at && at !== document.body; at = at.parentElement) { const style = getComputedStyle(at); const rect = at.getBoundingClientRect(); if ((style.overflow !== "visible" || style.clip !== "auto") && (rect.width <= 1 || rect.height <= 1)) return true; } return false; };
+          const shown = (element) => { const style = getComputedStyle(element); const rect = element.getBoundingClientRect(); return rect.width > 1 && rect.height > 1 && style.visibility !== "hidden" && style.display !== "none" && !collapsed(element) && !clippedAway(element); };
           const boxes = [...document.querySelectorAll("main :is(h1, h2, h3, p, dt, dd, li, figcaption, summary, th, td, .button)")]
             .filter((element) => element.textContent.trim() && shown(element) && getComputedStyle(element).display !== "inline")
             .map((element) => ({ element, rect: element.getBoundingClientRect() }));
@@ -225,7 +256,7 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
           return found;
         });
         await page.close();
-        return { route: definition.route, viewport: viewport.id, status: response?.status() || 0, expectedBlocks: withMediaModules(definition, components, { isBuilt: (href) => !href.startsWith("/") || routeSet.has(href) }).filter(shown).length + 1, expectedJsonLd: expectedSchemas(definition), expectedCanonical: definition.seo?.canonical || null, ...pageFacts, ...evidence, headingLines, density, blockMetrics, lowContrast, textOverlaps, visual, fonts };
+        return { route: definition.route, viewport: viewport.id, status: response?.status() || 0, expectedBlocks: withMediaModules(definition, components, { isBuilt: (href) => !href.startsWith("/") || routeSet.has(href) }).filter(shown).length + 1, expectedJsonLd: expectedSchemas(definition), expectedCanonical: definition.seo?.canonical || null, ...pageFacts, ...evidence, headingLines, density, blockMetrics, lowContrast, textOverlaps, visual, fonts, fold, ...(agentTree ? { agentTree } : {}), ...(toolForms?.length ? { toolForms } : {}), ...(barCover ? { barCover } : {}) };
   });
   // AUDIT_CONCURRENCY pages at a time; the results keep the pages' order.
   let next = 0;
@@ -248,22 +279,44 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
       }));
     }
   };
+  // The phone's LCP under Lighthouse's throttling, one page of each page type (lib/lab-lcp.mjs), after the other
+  // measurements, AUDIT_CONCURRENCY loads at a time: each runs in its own renderer with its own network and CPU
+  // throttling (site13's eight page types 2026-11-17: 49 s one at a time, 13 s four at a time, every value within the
+  // 0.3 s two serial runs differ by). A page kept from the last run keeps its measurement with its other results; only
+  // a page measured again (or one kept without it) is loaded.
+  const lcpRoute = measureLcp ?? (measure ? null : async (definition) => {
+    browser ??= chromium.launch({ headless: true });
+    return labLcp(await browser, new URL(definition.route, baseUrl).href);
+  });
+  let lcpMeasured = 0;
   try {
     await Promise.all(Array.from({ length: Math.min(AUDIT_CONCURRENCY, measured.length) }, worker));
+    const lcpDue = lcpRoute ? lcpPages(measured).map((definition) => ({ definition, mobile: byPage[measured.indexOf(definition)]?.find((result) => result.viewport === "mobile") })).filter(({ mobile }) => mobile && mobile.lcp === undefined) : [];
+    const lcpWorker = async () => {
+      while (lcpDue.length) {
+        const { definition, mobile } = lcpDue.shift();
+        mobile.lcp = await retryCrash(() => lcpRoute(definition), async () => { const current = await browser?.catch(() => null); if (current?.isConnected()) return; browser = null; await current?.close().catch(() => null); });
+        lcpMeasured += 1;
+      }
+    };
+    await timed("lcp", () => Promise.all(Array.from({ length: Math.min(AUDIT_CONCURRENCY, lcpDue.length) }, lcpWorker)));
     results.push(...byPage.flat());
   } finally {
     await browser?.then((opened) => opened.close(), () => null);
   }
 
   const failures = [];
-  // What the audit only reports (it does not fail the run): controls too small to tap on phones.
+  // What the audit only reports (it does not fail the run): headings over three lines, pages off their density band.
   const warnings = [];
   // The visual checks: runs of one module longer than the competitor's (desktop; the order is the same at every width),
   // colours outside the design lock's palette, overlapping photos and photos cropped to under half of themselves.
   const sectionModules = await readJson(resolve(root, "docs/research/analysis/section-modules.json"), []);
   const palette = lockPalette(await readJson(resolve(root, "docs/research/analysis/design-lock.json"), null));
   // The families the site uses as system fonts on purpose have no file (docs/research/installed-fonts.json).
-  const systemFonts = Object.values((await readJson(resolve(root, INSTALLED_FONTS), null))?.roles ?? {}).filter((role) => role.source === "system").map((role) => role.family);
+  const installedFonts = await readJson(resolve(root, INSTALLED_FONTS), null);
+  const systemFonts = Object.values(installedFonts?.roles ?? {}).filter((role) => role.source === "system").map((role) => role.family);
+  // Weights a family does not have, synthesized as on the reference (lib/font-install.mjs).
+  const synthesizedFonts = installedFonts?.families ?? [];
   for (const result of results.filter((item) => item.visual)) {
     const at = { route: result.route, viewport: result.viewport };
     const definition = pages.find((page) => page.route === result.route);
@@ -278,7 +331,8 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
     if (result.viewport === "desktop") for (const measure of longMeasures(result.visual.measures)) failures.push({ ...at, issue: "long_measure", ...measure });
     for (const scroller of unmarkedScrollers(result.visual.scrollers)) failures.push({ ...at, issue: "sideways_scroll", ...scroller });
     for (const carousel of carouselsWithoutControls(result.visual.carousels)) failures.push({ ...at, issue: "carousel_controls", ...carousel });
-    if (result.viewport === "mobile") for (const target of smallTargets(result.visual.targets)) warnings.push({ ...at, issue: "tap_target", ...target });
+    // Controls under 24px a finger cannot hit, on phones: a failure since the four-site audit 2026-11-17 (WCAG 2.5.8).
+    if (result.viewport === "mobile") for (const target of smallTargets(result.visual.targets)) failures.push({ ...at, issue: "tap_target", ...target });
     for (const column of misalignedColumns(result.visual.columns)) failures.push({ ...at, ...column });
     // A split row's photo and copy share their edges; a button stays with its copy (desktop, where they sit side by side).
     if (result.viewport === "desktop") for (const split of splitEdges(result.visual.splits)) failures.push({ ...at, ...split });
@@ -289,7 +343,7 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
     // Section headings on the reference's axis (owner 2026-11-12), at desktop where the axis shows.
     if (result.viewport === "desktop") for (const heading of headingAxes(result.visual.headings, components.headingAlign)) failures.push({ ...at, issue: "heading_off_axis", ...heading });
     // Text in a family with no loaded file, or in a weight or style the browser synthesizes (the fonts step installs them).
-    for (const problem of fontProblems(result.fonts, { system: systemFonts })) failures.push({ ...at, ...problem });
+    for (const problem of fontProblems(result.fonts, { system: systemFonts, synthesized: synthesizedFonts })) failures.push({ ...at, ...problem });
   }
   // One gutter for the site on phones: a page whose running text starts elsewhere than most pages' (wider screens give
   // page types their own column widths).
@@ -314,11 +368,32 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
     failures.push(...lines.failures);
     warnings.push(...lines.warnings);
     if (result.horizontalOverflow) failures.push({ route: result.route, viewport: result.viewport, issue: "horizontal_overflow" });
+    // The page title and its call to action in the first screen of a phone and a desktop (four-site audit 2026-11-17;
+    // owner 2026-11-17, after claude-seo). A page whose copy has no call to action is reported, not held to one.
+    const definition = pages.find((page) => page.route === result.route);
+    // A page held out of the index (status hold: a blog hub with no post, site12 2026-11-17) is linked from nowhere
+    // (nav_links_noindex): its first screen calls nobody to act. A placeholder page is laid out as it will be written.
+    // The call held to the first screen is the hero's own button (site13 claude-seo audit 2026-11-17, M-14: the header's
+    // stood in for it); a page whose hero has none is not held to one.
+    const callsToAct = definition.status !== "hold" && Boolean(primaryCta(definition) || chromeCta(definition, pages));
+    const expectsCta = callsToAct && Boolean(definition.hero?.cta?.label?.trim());
+    // A lead too long for the first screen is Site Factory's to shorten: reported, never moved (coordinator 2026-11-17).
+    for (const problem of foldProblems(result.fold, { expectsCta })) (problem.issue === "hero_lead_long" ? warnings : failures).push({ route: result.route, viewport: result.viewport, ...problem, ...(problem.issue === "hero_lead_long" ? { owner: "SF" } : {}) });
+    if (!callsToAct && result.viewport === "mobile") warnings.push({ route: result.route, viewport: result.viewport, issue: "no_primary_cta" });
     if (result.blockCount !== result.expectedBlocks) failures.push({ route: result.route, viewport: result.viewport, issue: "block_count", expected: result.expectedBlocks, actual: result.blockCount });
     if (result.jsonLdCount !== result.expectedJsonLd) failures.push({ route: result.route, viewport: result.viewport, issue: "json_ld_count", expected: result.expectedJsonLd, actual: result.jsonLdCount });
     if (result.expectedCanonical && !(result.canonical && new URL(result.canonical, baseUrl).pathname === result.expectedCanonical)) failures.push({ route: result.route, viewport: result.viewport, issue: "canonical", expected: result.expectedCanonical, actual: result.canonical });
     for (const run of result.lowContrast) failures.push({ route: result.route, viewport: result.viewport, issue: "low_contrast", ...run });
     for (const pair of result.textOverlaps ?? []) failures.push({ route: result.route, viewport: result.viewport, issue: "text_overlap", ...pair });
+    // The agent's accessibility tree (Lighthouse's 33 axe rules), the controls under the phone's enquiry bar, and the
+    // throttled phone LCP of the page measured for its type (four-site audit 2026-11-17, Fable's plan A4, A8, P3).
+    const at = { route: result.route, viewport: result.viewport };
+    for (const problems of [axeProblems(result.agentTree), lcpProblems(result.lcp)]) {
+      failures.push(...problems.failures.map((problem) => ({ ...at, ...problem })));
+      warnings.push(...problems.warnings.map((problem) => ({ ...at, ...problem })));
+    }
+    for (const cover of barCovers(result.barCover)) failures.push({ ...at, issue: "enquiry_bar_covers", ...cover });
+    for (const form of toolFormProblems(result.toolForms)) failures.push({ ...at, ...form });
     for (const value of result.unplacedCopy) failures.push({ route: result.route, viewport: result.viewport, issue: "unplaced_copy", value: value.slice(0, 120) });
     for (const path of result.unresolvedLinks) failures.push({ route: result.route, viewport: result.viewport, issue: "unresolved_internal_link", value: path });
     if (!Number.isFinite(result.maxGap) || result.maxGap <= 0) failures.push({ route: result.route, viewport: result.viewport, issue: "missing_boundary_gap_token" });
@@ -341,7 +416,7 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
   warnings.push(...subjectRepeat(results.filter((result) => result.viewport === "desktop").flatMap((result) => result.photos ?? [])));
   // Image positions the pools could not fill: not a layout failure, but the image supply stage must fill every one.
   const mediaSlots = results.filter((result) => result.viewport === "desktop" && result.mediaSlots.length).map((result) => ({ route: result.route, slots: result.mediaSlots }));
-  const report = { schemaVersion: "seo-site-authoring-layout-audit-v1", baseUrl, ...(wanted ? { partial: true, routes: [...wanted] } : {}), routeCount: measured.length, caseCount: results.length, cached: reused, densityBands: referenceDensity?.bands ?? null, mediaSlots, failures, warnings, results };
+  const report = { schemaVersion: "seo-site-authoring-layout-audit-v1", baseUrl, ...(wanted ? { partial: true, routes: [...wanted] } : {}), routeCount: measured.length, caseCount: results.length, cached: reused, lcpMeasured, checkMs: spent, densityBands: referenceDensity?.bands ?? null, mediaSlots, failures, warnings, results };
   // A partial audit (routes) goes to .pipeline/check/ and leaves the cache as it was.
   if (wanted) {
     await mkdir(resolve(root, ".pipeline/check"), { recursive: true });

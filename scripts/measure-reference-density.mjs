@@ -15,6 +15,7 @@ import { runMain } from './lib/cli.mjs';
 import { revealDeferredContent } from './lib/reveal.mjs';
 import { DENSITY_SCHEMA, DENSITY_TOLERANCE, measureDensity, pageTypeBands, textRunWords } from './lib/density.mjs';
 import { readJson, writeJson } from './lib/json-io.mjs';
+import { BLOCKED_STATUSES } from './lib/reference-access.mjs';
 
 // A command-line URL: <page type>=<url> for a page type's own band, else a URL of the benchmark.
 export function densityTarget(arg) {
@@ -28,12 +29,23 @@ export async function measureReferenceDensity({ urls, root = process.cwd() }) {
   const { chromium } = await import('playwright');
   const browser = await chromium.launch({ headless: true });
   const pages = [];
+  const previous = await readJson(resolve(root, 'docs/research/raw/reference-density.json'), null);
   try {
     for (const { url: given, pageType } of targets) {
       const url = normalizeReferenceUrl(given);
       const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
       const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
-      if (!response?.ok()) throw new Error(`reference density failed: ${response?.status() ?? 'no response'} ${url}`);
+      if (!response?.ok()) {
+        const status = response?.status() ?? null;
+        // A reference that refuses this machine keeps the measure an earlier run took of the same address
+        // (lib/reference-access.mjs; site12's hhmhotels.com, 2026-11-17); one never measured stops the step.
+        const kept = BLOCKED_STATUSES.includes(status) ? previous?.pages?.find((item) => item.url === url && (item.pageType ?? null) === (pageType ?? null)) : null;
+        await page.close();
+        if (!kept) throw new Error(`reference density failed: ${status ?? 'no response'} ${url}`);
+        console.warn(`density: ${url} answered ${status}; it keeps the measure an earlier run took (stale in docs/research/raw/reference-density.json)`);
+        pages.push({ ...kept, stale: { status } });
+        continue;
+      }
       await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
       await revealDeferredContent(page);
       pages.push({ url, ...(pageType ? { pageType } : {}), metrics: await measureDensity(page) });

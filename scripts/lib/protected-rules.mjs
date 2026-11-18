@@ -11,7 +11,7 @@ import { PLAN_ASSERTIONS } from './plan-assertions.mjs';
 // template alternates white and tinted: not a photo, band, closing call, form or split row, which carry their own
 // surface; the testimonials alternate since 2026-11-15). The hotel site's repairs tinted sections by their neighbours
 // (".block--gallery + .block--icon-list"), and two grey sections met where the template's alternation had one.
-const OWN_SURFACE = /^(cta|gallery|split|band|figure|form|charts|page-lead)$/;
+const OWN_SURFACE = /^(cta|gallery|split|band|figure|form|charts)$/;
 const topLevel = (text, separator) => {
   const parts = [];
   let depth = 0;
@@ -59,6 +59,10 @@ export const PROTECTED_RULES = Object.freeze([
   // four and five lines.
   { part: /[\s\S]/, properties: ['--heading-fit', '--fit-above', '--fit-above-step', '--fit-min', '--fit-ems', '--fit-min-desktop', '--fit-min-phone', '--fit-ems-desktop', '--fit-ems-phone', '--title-min-phone', '--title-ems-phone', '--section-cap'], rule: 'a title is sized to its own words so it keeps to its lines (template.css [data-heading-fit])' },
   { part: /\.page-hero\b[^,]*\bh1\b|\.page-hero__title|\.post-header__title|\.blog-hub-hero\b[^,]*\bh1\b/, properties: ['font-size'], rule: 'a title is sized to its own words so it keeps to its lines (template.css [data-heading-fit])' },
+  // The page title in the first screen of a phone (390×844) and a desktop (1366×768) (four-site audit 2026-11-17: the
+  // hotel site's title at y=904 under a full-screen photo; owner 2026-11-17, after claude-seo): a hero's height is set
+  // through --hero-min-height and --hero-banner-height, which the template caps; a height on the hero itself would not be.
+  { part: /\.page-hero(?:__inner|__banner)?(?:\[[^\]]*\]|:[\w-]+(?:\([^)]*\))?)*\s*(,|$)/, properties: ['height', 'min-height', 'max-height'], rule: 'a photo hero gives way in height so the page title shows in the first screen of a phone and a desktop: its height is set through --hero-min-height and --hero-banner-height, which the template caps (template.css --fold-room)' },
 ]);
 
 // The rules of a stylesheet as { selector, properties: [name], values: { name: value } }, innermost blocks only (media

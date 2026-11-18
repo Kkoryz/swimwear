@@ -21,7 +21,13 @@
 // each section's planned from the page's copy (the photo-briefs step), its stand-in proof and placeholder purposes in its
 // words; siteKind says what the site is in the image prompts and imageSubjects (by class) the scenes of its trade.
 // Each site keeps its own local git repository (lib/site-repo.mjs): a commit after every step that changed files.
-// Usage: node scripts/site-run.mjs [--from <step>] [--to <step>] [--list]
+// Two modes (Fable's 11-17 plan, 5.1; owner 2026-11-17, site13's 40-minute run): a certification run (the default)
+// runs every step that is due, model calls and photos included, and is the only one that records the verified build;
+// --iterate runs the build and the deterministic checks only (the audits measure the pages whose output changed): no
+// model is called (lib/model-calls.mjs refuses one), no photo made, no review read, nothing verified.
+// Every run ends with its summary: each step that ran, why (the inputs that changed), its seconds and its model calls
+// (.pipeline/runs/<run>.json).
+// Usage: node scripts/site-run.mjs [--iterate] [--from <step>] [--to <step>] [--list]
 
 import { spawn, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -30,15 +36,18 @@ import { mkdir, readFile, readdir, stat, writeFile } from 'node:fs/promises';
 import { basename, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { freezeSiteFactory } from './freeze-site-factory.mjs';
+import { readPackagePatches } from './lib/package-patches.mjs';
 import { siteRules, stripProtected } from './lib/protected-rules.mjs';
 import { REVIEW_RULES, REVIEW_SCHEMA, SCOPES, SEVERITIES, blockIdRules, minorFindings, openFindings, readReviews, reviewCurrent, reviewKey } from './design-review.mjs';
 import { AGENT_UNAVAILABLE, imagesIn, runAgentStep } from './lib/agent-step.mjs';
 import { codeClosure } from './lib/module-graph.mjs';
+import { sourceDigest } from './lib/source-norm.mjs';
 import { coreSourceOf } from './lib/template-core.mjs';
 import { serveStatic } from './lib/static-server.mjs';
 import { isProcessCrash, takeRunLock } from './lib/audit-runtime.mjs';
 import { AUDIT_OWNERS, byOwner } from './lib/issue-owners.mjs';
 import { cliArgs, runMain } from './lib/cli.mjs';
+import { NO_MODELS, modelCallsOf } from './lib/model-calls.mjs';
 import { readJson, writeJson } from './lib/json-io.mjs';
 import { changedFiles, changedSince, commitSite, ensureSiteRepo, headCommit, ownedBy, restoreFrom, restoreOutside } from './lib/site-repo.mjs';
 import { agentKey, recordAnswer, restoreAnswer } from './lib/agent-cache.mjs';
@@ -47,6 +56,7 @@ import { DENSITY_EXEMPT_PAGE_TYPES } from './lib/density.mjs';
 import { FOCUS_BATCH, focusPath, photosInUse } from './lib/photo-focus.mjs';
 import { navigationProblems } from './lib/navigation-problems.mjs';
 import { lockPalette, offPalette, stylesheetColours } from './lib/visual-checks.mjs';
+import { latestAudit, llmAuditOn } from './lib/claude-seo-audit.mjs';
 
 const node = (script, ...args) => ['node', `scripts/${script}`, ...args];
 // The exit code of a command that ran and now waits for a person (preflight holds, a release build refusing reference
@@ -59,8 +69,11 @@ const pnpm = (...args) => (process.platform === 'win32' ? [process.env.ComSpec ?
 // only those top-level fields of a JSON file, so pointing the site at a new Site Factory snapshot does not capture the
 // reference again). done: what must exist for a step a person or an agent does.
 // What the layout plan reads (plan-layout.mjs planSite): the pages, the site's choices and model, the trust bar's figures
-// (each page's estimate counts its bar), the heading measures of the last audit.
-const PLAN_INPUTS = Object.freeze(['src/data/authoring-pages.json', 'src/data/placeholder-pages.json', 'src/data/blog-posts.json', 'src/data/photo-briefs.json', 'src/data/template-variants.json', 'src/data/phone-heroes.json', 'src/data/page-figures.json', 'src/data/site-trust.json', 'site.json#trade', 'docs/research/authoring-layout-audit.json', 'code:scripts/plan-layout.mjs']);
+// (each page's estimate counts its bar), the heading measures of the last audit: its results only (the report's port
+// and its count of pages reused change every run, and planned, calibrated and shot the style board again each time:
+// owner 2026-11-17, site13's 40-minute run). The treatment's stylesheet sets the hero title's face, whose real widths
+// fit the title (heading-fit.mjs titleMetrics, 2026-11-18).
+const PLAN_INPUTS = Object.freeze(['src/data/authoring-pages.json', 'src/data/placeholder-pages.json', 'src/data/blog-posts.json', 'src/data/photo-briefs.json', 'src/data/template-variants.json', 'src/data/phone-heroes.json', 'src/data/page-figures.json', 'src/data/site-trust.json', 'site.json#trade', 'docs/research/authoring-layout-audit.json#results', 'src/styles/reference.css', 'code:scripts/plan-layout.mjs']);
 
 export function steps(site, { coreSource = null } = {}) {
   const snap = site.siteFactory;
@@ -106,6 +119,11 @@ export function steps(site, { coreSource = null } = {}) {
   // What a trade other than the default adds to the image steps' inputs (an apparel site's steps keep their inputs, so
   // their recorded state stays current).
   const tradeInputs = (site.trade ?? 'apparel') !== 'apparel' ? ['src/data/photo-briefs.json', 'site.json#trade,siteKind,imageSubjects'] : [];
+  // Every trade plans its section photos from its pages' copy before any photo is made (owner 2026-11-17, aloha: a
+  // clothing site's stock subjects drew "a model wearing packaging" and 44 photos off their pages' subjects): the
+  // briefs are an input of the photo steps on every site.
+  const briefInputs = ['src/data/photo-briefs.json'];
+  const briefsConfig = `config/image-briefs${(site.trade ?? 'apparel') === 'apparel' ? '' : `.${site.trade}`}.json`;
   if ((site.images ?? 'generate') !== 'generate') throw new Error(`site.json images: "${site.images}": a site makes its own photos ("generate"); the competitor's are never shown (owner 2026-11-12)`);
   const generate = true;
   return [
@@ -126,12 +144,16 @@ export function steps(site, { coreSource = null } = {}) {
     // content that fades in on scroll, a fixed banner over the page, a hero photo the density measure missed, a title it
     // could not find, a page cut into no sections (hotel-rm 2026-11-13/14: each found only after the analysis, by a
     // person). It stops the run; site.json captureWaivers excuses a page's check with a reason.
-    { id: 'capture-check', kind: 'auto', inputs: ['site.json#reference,captureWaivers', 'docs/research/raw', 'docs/research/reference-pages', 'docs/design-references', 'code:scripts/check-reference-capture.mjs'], run: [node('check-reference-capture.mjs', '.')] },
+    // Of docs/design-references, the origin's shots it reads (the navigation audit writes our pages' shots beside them,
+    // in routes/, every run).
+    { id: 'capture-check', kind: 'auto', inputs: ['site.json#reference,captureWaivers', 'docs/research/raw', 'docs/research/reference-pages', 'docs/design-references/desktop-1440.png', 'docs/design-references/tablet-768.png', 'docs/design-references/mobile-390.png', 'code:scripts/check-reference-capture.mjs'], run: [node('check-reference-capture.mjs', '.')] },
     { id: 'analysis', kind: 'agent', prompt: 'analysis', writes: WRITES.analysis, reads: READS.analysis, runs: async (root) => [{ values: {}, images: await referenceShots(root) }], done: ['docs/research/analysis/design-lock.json', 'docs/research/analysis/media.json'], waits: 'the reference analysis (seo-site-template skill, stage 08 step 3): design-lock, font roles, media pools, components' },
     // The design lock only: the reference photos are installed once, by the images step (use-reference-media.mjs).
-    { id: 'apply-analysis', kind: 'auto', inputs: ['docs/research/analysis/design-lock.json', 'code:scripts/apply-reference-analysis.mjs'], run: [node('apply-reference-analysis.mjs', '--design-lock', 'docs/research/analysis/design-lock.json')] },
+    // Then its colour pairs: one below WCAG AA stops the run here, named, not at the audits after the build (four-site
+    // audit 2026-11-17; check-token-contrast.mjs).
+    { id: 'apply-analysis', kind: 'auto', inputs: ['docs/research/analysis/design-lock.json', 'code:scripts/apply-reference-analysis.mjs', 'code:scripts/check-token-contrast.mjs'], run: [node('apply-reference-analysis.mjs', '--design-lock', 'docs/research/analysis/design-lock.json'), node('check-token-contrast.mjs', '.')] },
     // The brand once the site's colours and type are set: the project's own logo kit, else a wordmark drawn for the site.
-    { id: 'brand', kind: 'auto', inputs: [site.identity, 'src/styles/global.css', 'code:scripts/site-brand.mjs'], run: [node('site-brand.mjs', '--project', site.identity)] },
+    { id: 'brand', kind: 'auto', models: true, inputs: [site.identity, 'src/styles/global.css', 'code:scripts/site-brand.mjs'], run: [node('site-brand.mjs', '--project', site.identity)] },
     // The competitor's sections, one crop each (pattern-inventory.json), and first placeholder pages.
     { id: 'patterns', kind: 'auto', inputs: ['site.json#reference', `${snap}/pages.json`, ...(tradeInputs.length ? [`config/blueprint-wording.${site.trade}.json`, tradeInputs[1]] : []), 'code:scripts/scaffold-placeholder-pages.mjs'], run: [node('scaffold-placeholder-pages.mjs', '--pages-plan', `${snap}/pages.json`, ...references)] },
     { id: 'modules', kind: 'agent', prompt: 'modules', writes: WRITES.modules, reads: READS.modules, runs: crops, reply: moduleReply, join: (root) => joinSectionModules(root, pageTypes), done: ['docs/research/analysis/section-modules.json'], current: (root) => modulesCurrent(root, pageTypes), waits: 'the module of every competitor section (docs/research/analysis/section-modules.json, skill stage 08 step 3): read each section crop and name the template module that renders it' },
@@ -152,7 +174,13 @@ export function steps(site, { coreSource = null } = {}) {
     // when the site has none yet, listed for the owner's sign-off; an existing src/data/site-proof.json is kept.
     { id: 'proof', kind: 'auto', inputs: [`${snap}/facts.yaml`, `${snap}/authoring_package.json`, `${snap}/pages.json`, 'src/data/site-proof.json', 'config/demo-proof.json', ...(tradeInputs.length ? [`config/demo-proof.${site.trade}.json`, tradeInputs[1]] : []), 'code:scripts/scaffold-site-proof.mjs', 'code:scripts/proof-signoff.mjs'], run: [node('scaffold-site-proof.mjs', '--facts', `${snap}/facts.yaml`, '--package', `${snap}/authoring_package.json`, '--pages-plan', `${snap}/pages.json`), node('proof-signoff.mjs', ...ownerTodo)] },
     // The blueprint follows the named modules; the pages are imported on it (again when the template's import code changes).
-    { id: 'import', kind: 'auto', inputs: [`${snap}/authoring_package.json`, `${snap}/pages.json`, ...facts.filter((arg) => arg !== '--facts'), 'docs/research/analysis/section-modules.json', 'docs/research/pattern-inventory.json', 'docs/research/slot-manifest.json', 'src/data/site-proof.json', 'config/page-blueprints.default.json', ...(tradeInputs.length ? [`config/blueprint-wording.${site.trade}.json`, tradeInputs[1]] : []), 'config/block-kinds.json', 'code:scripts/import-site-factory.mjs', 'code:scripts/competitor-blueprint.mjs', 'code:scripts/proof-signoff.mjs'], run: [node('competitor-blueprint.mjs', '--pages-plan', `${snap}/pages.json`), node('import-site-factory.mjs', ...importArgs, '--blueprints', 'docs/research/slot-manifest.json'), node('competitor-blueprint.mjs'), node('proof-signoff.mjs', ...ownerTodo)] },
+    // Then the company behind the site from the package, the identity and the facts, stand-ins for the rest
+    // (scaffold-site-company.mjs, four-site audit 2026-11-17), listed for sign-off with the proof.
+    { id: 'import', kind: 'auto', inputs: ['content/replacements', 'code:scripts/apply-replacements.mjs', `${snap}/authoring_package.json`, `${snap}/pages.json`, ...facts.filter((arg) => arg !== '--facts'), 'docs/research/analysis/section-modules.json', 'docs/research/pattern-inventory.json', 'docs/research/slot-manifest.json', 'src/data/site-proof.json', 'config/page-blueprints.default.json', ...(tradeInputs.length ? [`config/blueprint-wording.${site.trade}.json`, tradeInputs[1]] : []), 'config/block-kinds.json', site.identity, 'src/data/site-company.json', 'code:scripts/import-site-factory.mjs', 'code:scripts/competitor-blueprint.mjs', 'code:scripts/scaffold-site-company.mjs', 'code:scripts/proof-signoff.mjs'], run: [node('competitor-blueprint.mjs', '--pages-plan', `${snap}/pages.json`), node('import-site-factory.mjs', ...importArgs, '--blueprints', 'docs/research/slot-manifest.json'), node('apply-replacements.mjs'), node('competitor-blueprint.mjs'), node('scaffold-site-company.mjs', '--package', `${snap}/authoring_package.json`, ...facts), node('proof-signoff.mjs', ...ownerTodo)] },
+    // The site's data checked before any photo or model call (check-site-data.mjs, Fable's plan V-5, four-site audit
+    // 2026-11-17): the enquiry form on the inquiry page, posts on an indexable blog hub, trust figures that read, no
+    // promised file without a way to get it; a failure stops the run here, named with who clears it.
+    { id: 'data-checks', kind: 'auto', inputs: ['src/data/authoring-pages.json', 'src/data/placeholder-pages.json', 'src/data/blog-posts.json', 'src/data/site-trust.json', 'src/data/site-identity.json', 'code:scripts/check-site-data.mjs'], run: [node('check-site-data.mjs', '.')] },
     { id: 'site-media', kind: 'auto', inputs: [site.identity], run: [node('import-site-media.mjs', '--project', site.identity)] },
     // Whether each page's copy fits the competitor's density band, with how many photo walls (at most three, owner
     // 2026-11-14), or not at all and by how much (plan-layout.mjs --feasibility, arithmetic only): what does not fit goes
@@ -170,9 +198,14 @@ export function steps(site, { coreSource = null } = {}) {
     { id: 'calibrate', kind: 'auto', inputs: [...PLAN_INPUTS, 'src/styles', 'src/components', 'src/lib', 'src/layouts', 'src/pages', 'public/fonts', 'docs/research/plan-waivers.json', 'code:scripts/calibrate-plan.mjs'], run: [node('calibrate-plan.mjs', '.'), node('plan-layout.mjs', '.'), node('plan-layout.mjs', '.', '--gate')] },
     // The reference blog's article rhythm for our articles (site.json reference.article, else its blog's first article).
     { id: 'article-rhythm', kind: 'auto', inputs: ['site.json#reference', 'code:scripts/measure-reference-article.mjs'], run: [node('measure-reference-article.mjs', site.reference.origin, ...(site.reference.article ? [new URL(site.reference.article, site.reference.origin).href] : []))] },
-    // What each section's photo shows, planned from the page's copy, for a trade that says so (site.json trade; its
-    // config/image-briefs.<trade>.json planFromCopy): plan-photo-briefs.mjs, one judgment per page, kept by its copy.
-    ...((site.images ?? 'generate') === 'generate' && tradeInputs.length ? [{ id: 'photo-briefs', kind: 'codex', inputs: ['src/data/authoring-pages.json', 'src/data/placeholder-pages.json', 'src/data/template-variants.json', 'site.json#trade,siteKind', 'config/agent-steps/photo-briefs.md', 'code:scripts/plan-photo-briefs.mjs', 'code:scripts/lib/photo-briefs.mjs'], run: [node('plan-photo-briefs.mjs')] }] : []),
+    // What each section's photo shows, planned from the page's copy, for every trade whose image briefs say so
+    // (config/image-briefs*.json planFromCopy; every trade since 2026-11-17): plan-photo-briefs.mjs, one judgment per
+    // page, kept by its copy.
+    // Site Factory's photo candidates of a section (photoCandidates) are its briefs as they are; a position whose library
+    // photo the last image-fit judgment found on its page keeps it (docs/research/image-fit.json), and a page whose
+    // briefs are all made keeps them when only the instructions change (docs/research/image-plan.json): no batch
+    // remakes (owner 2026-11-17).
+    ...((site.images ?? 'generate') === 'generate' ? [{ id: 'photo-briefs', kind: 'codex', inputs: ['docs/research/images/text-check.json', 'src/data/authoring-pages.json', 'src/data/placeholder-pages.json', 'src/data/template-variants.json', 'site.json#trade,siteKind', briefsConfig, 'docs/research/image-fit.json', 'docs/research/image-plan.json', 'config/agent-steps/photo-briefs.md', 'code:scripts/plan-photo-briefs.mjs', 'code:scripts/lib/photo-briefs.mjs'], run: [node('plan-photo-briefs.mjs')] }] : []),
     // The style board before any photo (build-style-board.mjs, lib/style-board.mjs): every module the pages use, with
     // the longest and the shortest copy written for it and grey frames for its photos, built and shot at both widths;
     // each module is reviewed against the competitor sections it renders (the design review's instructions, one run
@@ -180,7 +213,7 @@ export function steps(site, { coreSource = null } = {}) {
     // The modules no competitor section shows are listed (docs/research/style-board/modules.md).
     { id: 'style-board', kind: 'preview', paid: true, inputs: ['src/styles', 'src/components', 'src/lib', 'src/layouts', 'src/pages', 'src/data/authoring-pages.json', 'src/data/template-variants.json', 'src/data/photo-briefs.json', 'public/fonts', 'docs/research/analysis/section-modules.json', 'docs/research/pattern-sections', 'code:scripts/build-style-board.mjs', 'code:scripts/design-review.mjs', ...REVIEW_RULES], run: [node('build-style-board.mjs'), pnpm('build'), node('design-review.mjs', 'board', `http://127.0.0.1:${site.port}/`)] },
     { id: 'style-board-review', kind: 'agent', prompt: 'design-review', writes: WRITES.review, reads: READS.review, runs: boardRuns, reply: reviewReply, done: ['docs/research/design-review/manifest.json'], current: boardReviewsCurrent, waits: 'the review of every module on the style board (docs/research/design-review/board--<module>.review.json, config/agent-steps/design-review.md)' },
-    { id: 'style-board-gate', kind: 'auto', always: true, inputs: [], repair: { prompt: 'repair-design', writes: WRITES.repair, problems: boardProblems, report: 'docs/research/style-board-review.json', rebuild: [], restart: 'style-board', onWaits: true }, run: [node('design-review.mjs', 'board-gate')], waitsOnExit: 'design fixes on the style board: the open P0/P1 findings in docs/research/style-board-review.json' },
+    { id: 'style-board-gate', kind: 'auto', certify: true, always: true, inputs: [], repair: { prompt: 'repair-design', writes: WRITES.repair, problems: boardProblems, report: 'docs/research/style-board-review.json', rebuild: [], restart: 'style-board', onWaits: true }, run: [node('design-review.mjs', 'board-gate')], waitsOnExit: 'design fixes on the style board: the open P0/P1 findings in docs/research/style-board-review.json' },
     // A site that makes its own photos makes them once the style board has passed (its modules are reviewed on grey
     // frames, so the design comes before the photos: owner 2026-09-26), and its pages are reviewed with them. The
     // competitor's photos are never shown in their place (owner 2026-11-12: "不要用竞品的图"); a library already made is
@@ -193,12 +226,23 @@ export function steps(site, { coreSource = null } = {}) {
       // moves no photo position (a heading's fit, a colour; the trial build's model only where it moves a wall) makes no
       // photo again. Each command keeps what it made
       // while its own inputs are unchanged (the plan its generated entries, the readings, the scores, the review).
-      { id: 'images', kind: 'codex', inputs: ['plan:photo-slots', 'src/data/site-media.json', 'site.json#line,trade', 'docs/research/image-plan.json', ...tradeInputs, 'code:scripts/plan-images.mjs'], run: [node('plan-images.mjs', '--line', site.line), node('analyze-image-types.mjs'), node('analyze-image-style.mjs'), node('generate-images.mjs'), node('score-image-style.mjs'), node('review-image-library.mjs'), node('generate-images.mjs'), node('score-image-style.mjs'), node('apply-image-library.mjs')], waitsOnExit: 'the go-ahead to make again more photos already made than a run makes at once (docs/research/images/remake-hold.md lists each and why)' },
+      // Before any photo is made (owner 2026-11-17, via Site Factory: the four sites' photos were found off their pages
+      // by the audits after they were built, and libraries were made again in batches): each photo's class is planned
+      // and every photo to make is checked against its page's H1 and copy by code (plan-images.mjs,
+      // check-photo-text.mjs: one that does not match is reported); then one photo of each class is made and judged
+      // by the image-fit judge (generate-images.mjs --samples, judge-image-fit.mjs --samples), and the rest is made
+      // whatever the verdicts, which samples.md reports. Image problems are reported, never holding the run (owner
+      // 2026-11-18: "不要硬卡这些图了"); only the cap on remaking photos already made still waits for a go-ahead.
+      // The photos the library review sends back are planned again before they are made (plan-images.mjs: a new scene,
+      // the next look; on a service site a generic scene becomes the online-service class) and checked with the rest
+      // (site14 2026-11-17: five scenes it sent back were queued with their old subjects, unchecked, and held the
+      // library for a "scene" sample; text-check.md counted only the one photo planned before the review).
+      { id: 'images', kind: 'codex', inputs: ['plan:photo-slots', 'src/data/site-media.json', 'src/data/site-nav.json', 'site.json#line,trade', 'docs/research/image-plan.json', 'docs/research/image-slots.json', 'docs/research/photo-text-waivers.json', ...new Set([...briefInputs, ...tradeInputs]), 'config/photo-text-check.json', 'code:scripts/plan-images.mjs', 'code:scripts/check-photo-text.mjs', 'code:scripts/lib/photo-class.mjs'], run: [node('plan-images.mjs', '--line', site.line), node('analyze-image-types.mjs'), node('analyze-image-style.mjs'), node('generate-images.mjs', '--samples'), node('judge-image-fit.mjs', '--samples'), node('generate-images.mjs'), node('score-image-style.mjs'), node('review-image-library.mjs'), node('plan-images.mjs', '--line', site.line), node('generate-images.mjs', '--samples'), node('judge-image-fit.mjs', '--samples'), node('generate-images.mjs'), node('score-image-style.mjs'), node('render-web-images.mjs', '--over-budget'), node('apply-image-library.mjs'), node('check-photo-text.mjs', '--gate')], waitsOnExit: 'a person: the go-ahead to make again more photos already made than a run makes at once (docs/research/images/remake-hold.md lists each and why), a sample photo the image-fit judge found off its page, which holds the rest of the library (docs/research/images/samples.md), or a photo whose subject does not match its page\'s H1 and copy (docs/research/images/text-check.md; docs/research/photo-text-waivers.json accepts one as it is)' },
     // The subject of every photo, named once by a vision judge (lib/photo-focus.mjs): frames that cut a photo centre on
     // it, and the phone crops of photos too wide for the competitor's phone frames (the sections' 390px shapes in the
     // pattern inventory, matched to our blocks through the section modules) are cut round it.
     { id: 'photo-focus', kind: 'agent', prompt: 'photo-focus', writes: WRITES.focus, reads: [], runs: focusRuns, reply: focusReply, done: [], current: async (root) => (await focusRuns(root)).length === 0, waits: 'the subject of every photo the site shows (docs/research/photo-focus/, config/agent-steps/photo-focus.md)' },
-    { id: 'phone-heroes', kind: 'auto', inputs: ['src/data/template-variants.json', 'src/data/site-media.json', 'src/data/authoring-pages.json', 'src/data/placeholder-pages.json', ...tradeInputs.slice(0, 1), 'docs/research/pattern-inventory.json', 'docs/research/analysis/section-modules.json', 'docs/research/photo-focus', 'code:scripts/derive-phone-heroes.mjs'], run: [node('derive-phone-heroes.mjs')] },
+    { id: 'phone-heroes', kind: 'auto', inputs: ['src/data/template-variants.json', 'src/data/site-media.json', 'src/data/authoring-pages.json', 'src/data/placeholder-pages.json', ...briefInputs, 'docs/research/pattern-inventory.json', 'docs/research/analysis/section-modules.json', 'docs/research/photo-focus', 'code:scripts/derive-phone-heroes.mjs'], run: [node('derive-phone-heroes.mjs')] },
     // Each page's own key figures for the band under its hero (derive-page-figures.mjs, one judgment per page, kept by
     // its text).
     { id: 'page-figures', kind: 'codex', inputs: ['src/data/authoring-pages.json', 'src/data/placeholder-pages.json', 'config/agent-steps/page-figures.md', 'code:scripts/derive-page-figures.mjs', 'code:scripts/lib/page-figures.mjs'], run: [node('derive-page-figures.mjs')] },
@@ -207,15 +251,17 @@ export function steps(site, { coreSource = null } = {}) {
     { id: 'blog', kind: 'auto', inputs: ['src/data/template-variants.json', 'src/data/authoring-pages.json', 'src/data/placeholder-pages.json', 'code:scripts/scaffold-blog.mjs'], run: [node('scaffold-blog.mjs', '--remove')] },
     // The template's own checks (its tests, the template contract, the types) run when its code changes, not after
     // every repair of the site's stylesheet or copy (each rebuild ran them all again, 40-75s; Fable's review 11-14).
-    { id: 'template-check', kind: 'auto', inputs: ['scripts', 'src/components', 'src/layouts', 'src/lib', 'src/pages', 'src/hooks', 'src/types', 'src/styles/template.css', 'src/styles/patterns.css'], run: [pnpm('test'), pnpm('validate:template'), pnpm('typecheck')] },
-    // What undoes a template decision goes from the site's stylesheet before every build (strip-protected.mjs).
-    { id: 'build', kind: 'auto', inputs: ['src', 'public', 'scripts'], run: [node('strip-protected.mjs'), pnpm('build'), pnpm('audit:seo')] },
+    { id: 'template-check', kind: 'auto', raw: true, inputs: ['scripts', 'src/components', 'src/layouts', 'src/lib', 'src/pages', 'src/hooks', 'src/types', 'src/styles/template.css', 'src/styles/patterns.css'], run: [Object.assign(pnpm('test'), { ownModels: true }), pnpm('validate:template'), pnpm('typecheck')] },
+    // What undoes a template decision goes from the site's stylesheet before every build (strip-protected.mjs); the
+    // header logo is fitted again to the header the treatment and its repairs have coloured since the brand step
+    // (fit-header-logo.mjs, four-site audit 2026-11-17).
+    { id: 'build', kind: 'auto', raw: true, inputs: ['src', 'public', 'scripts'], run: [node('strip-protected.mjs'), node('fit-header-logo.mjs'), pnpm('build'), pnpm('audit:seo'), node('check-image-slots.mjs')] },
     // Whether each photo of the site's own library shows its page's subject (judge-image-fit.mjs, one judgment per photo
     // and page subject, kept by content); the competitor's placeholder photos never ship and are not judged.
     ...(generate ? [{ id: 'image-fit', kind: 'codex', inputs: ['dist', 'config/agent-steps/image-fit.md', 'code:scripts/judge-image-fit.mjs'], run: [node('judge-image-fit.mjs')] }] : []),
     // The library photos judged off their page's subject go back to generation once and the run goes again from the
     // images (send-back-misfits.mjs); none to send back, it goes on (never a wait).
-    ...(generate ? [{ id: 'image-refit', kind: 'auto', always: true, inputs: [], repair:{ fix: node('send-back-misfits.mjs'), rebuild: [], restart: 'images', onWaits: true, optional: true, problems: async () => [] }, run: [node('send-back-misfits.mjs', '--check')] }] : []),
+    ...(generate ? [{ id: 'image-refit', kind: 'auto', certify: true, always: true, inputs: [], repair:{ fix: node('send-back-misfits.mjs'), rebuild: [], restart: 'images', onWaits: true, optional: true, problems: async () => [] }, run: [node('send-back-misfits.mjs', '--check')] }] : []),
     // The copy as Site Factory wrote it: leaked wording, link markup, keyword lists, boilerplate, study sources
     // (docs/research/content-issues.md goes back to Site Factory 07; it never fails the run).
     { id: 'content', kind: 'auto', inputs: ['src/data/authoring-pages.json', `${snap}/authoring_package.json`, 'code:scripts/audit-content.mjs', 'code:scripts/lib/content-lint.mjs'], run: [node('audit-content.mjs'), node('sf-report.mjs')] },
@@ -224,21 +270,41 @@ export function steps(site, { coreSource = null } = {}) {
     // repair then read as "no failures". The agent repairs only the failures of the site's stylesheet (SITE_CSS_ISSUES);
     // any other stops the run with its report.
     { id: 'audits', kind: 'preview', inputs: ['dist', 'docs/research/analysis/section-modules.json', 'docs/research/raw/reference-density.json', 'docs/research/analysis/design-lock.json', 'code:scripts/audit-authoring-layout.mjs', 'code:scripts/audit-navigation-shell.mjs'], repair: { prompt: 'repair-audits', writes: WRITES.repair, problems: auditProblems, agentFixes: siteCssProblem, report: 'docs/research/authoring-layout-audit.json', rebuild: [pnpm('build')], restart: (site.images ?? 'generate') === 'generate' ? 'images' : 'audits', restartFor: (changed) => (changed.includes('src/data/template-variants.json') ? null : 'audits') }, run: [node('audit-navigation-shell.mjs', `http://127.0.0.1:${site.port}/`), node('audit-authoring-layout.mjs', `http://127.0.0.1:${site.port}/`)], keepGoing: true },
+    // The prelaunch checks after the audits (owner 2026-11-18, scripts/prelaunch.mjs): links, cannibalisation,
+    // near-duplicate pages, the owner's materials list, technical checks, the site-wide conflict check's place; each
+    // switched in site.json prelaunch, reports by default, no model call (a second or two, so every run). Here it only
+    // reports (--no-hold): a check set to "block" holds the release, not the run before the design review; the release
+    // step runs them again on the release build, before the preflight, which holds on a blocked summary.
+    { id: 'prelaunch', kind: 'auto', always: true, inputs: [], run: [node('prelaunch.mjs', '--no-hold')] },
     // The design proofread against the competitor, section by section (design-review.mjs): new shots whenever the
     // build changes, a review of the longest and the shortest page of each page type on them (a page type the
     // competitor lacks beside its nearest), and a gate that waits while a P0/P1 finding is open.
-    { id: 'design-shots', kind: 'preview', inputs: ['dist', 'docs/research/reference-pages', 'code:scripts/design-review.mjs', ...REVIEW_RULES], run: [node('design-review.mjs', 'prepare', `http://127.0.0.1:${site.port}/`)] },
+    { id: 'design-shots', kind: 'preview', certify: true, inputs: ['dist', 'docs/research/reference-pages', 'code:scripts/design-review.mjs', ...REVIEW_RULES], run: [node('design-review.mjs', 'prepare', `http://127.0.0.1:${site.port}/`)] },
     { id: 'design-review', kind: 'agent', prompt: 'design-review', writes: WRITES.review, reads: READS.review, runs: reviewRuns, reply: reviewReply, done: ['docs/research/design-review/manifest.json'], current: reviewsCurrent, waits: 'the design review of every reviewed page against the competitor (docs/research/design-review/<key>.review.json, config/agent-steps/design-review.md)' },
-    { id: 'design-gate', kind: 'auto', always: true, inputs: [], repair: { prompt: 'repair-design', writes: WRITES.repair, problems: designProblems, report: 'docs/research/design-review.json', rebuild: [pnpm('build')], restart: 'audits', onWaits: true }, run: [node('design-review.mjs', 'gate'), node('verified-build.mjs', 'record')], waitsOnExit: 'design fixes: the open P0/P1 findings in docs/research/design-review.json' },
+    { id: 'design-gate', kind: 'auto', certify: true, always: true, inputs: [], repair: { prompt: 'repair-design', writes: WRITES.repair, problems: designProblems, report: 'docs/research/design-review.json', rebuild: [pnpm('build')], restart: 'audits', onWaits: true }, run: [node('design-review.mjs', 'gate'), node('verified-build.mjs', 'record')], waitsOnExit: 'design fixes: the open P0/P1 findings in docs/research/design-review.json' },
     // The small findings the gate lets through get the same repairs (owner 2026-10-30); what they cannot mend is left
-    // in the report and the run goes on (optional: never a wait).
-    { id: 'design-polish', kind: 'auto', always: true, inputs: [], repair: { prompt: 'repair-design', writes: WRITES.repair, problems: minorProblems, report: 'docs/research/design-review.json', rebuild: [pnpm('build')], restart: 'audits', onWaits: true, optional: true }, run: [node('design-review.mjs', 'minor')] },
-    // The site's GEO blog posts, last (owner 2026-10-31): the GEO module picks the topics and writes them, each brought
+    // in the report and the run goes on (optional: never a wait). One repair a run, every small finding in it (once,
+    // V-3 of Fable's 11-17 plan: three rounds of about 12 minutes each on Strandmill 2026-11-17): the repaired site is
+    // built, audited and shot again, and only the pages that look different are reviewed, for the gate.
+    { id: 'design-polish', kind: 'auto', certify: true, always: true, inputs: [], repair: { prompt: 'repair-design', writes: WRITES.repair, problems: minorProblems, report: 'docs/research/design-review.json', rebuild: [pnpm('build')], restart: 'audits', onWaits: true, optional: true, once: true }, run: [node('design-review.mjs', 'minor')] },
+    // The claude-seo full audit of the release build, the only model audit, after the design gate (owner 2026-11-17:
+    // "在站点完成之后默认加一次claude seo全盘审计然后手改并且做流程修复"; it replaced the blind llm-audit: "有claude seo就行了"; on
+    // unless site.json says llmAudit: false). Its inputs are what the release build, its Nginx config and the
+    // instructions are made from (source files counted without their comments, lib/source-norm.mjs); when they changed
+    // but the build and the config came out the same, the script keeps the last audit (lib/claude-seo-audit.mjs
+    // releaseKey). docs/research/seo-audit-N/: findings.json, findings_sf.json; the preflight holds on the critical and
+    // high items code and the verification both confirm.
+    // Three independent auditors run it at once on one set of measurements, their findings merged (owner 2026-11-17:
+    // "可以 而且可以并行不是吗"; config/claude-seo-auditors.json, whose models, and the site's agent, are inputs).
+    // It runs before the GEO blog posts (2026-11-17): a site waiting for its posts (no GEO module, a sign-in) is audited
+    // all the same; posts brought in later change the build, and the next run audits again.
+    ...(llmAuditOn(site) ? [{ id: 'claude-seo-audit', kind: 'codex', inputs: ['src', 'public', 'config/lead-form.json', 'docs/research/audit-waivers.json', 'site.json#siteKind,claudeSeoDir,agent', 'config/agent-steps/claude-seo-audit.md', 'config/agent-steps/claude-seo-verify.md', 'config/claude-seo-findings.schema.json', 'config/claude-seo-auditors.json', 'code:scripts/claude-seo-audit.mjs'], run: [node('build-release.mjs'), node('claude-seo-audit.mjs'), pnpm('build')], waitsOnExit: 'the claude-seo audit: a release build the release guard refused (the preflight lists why), the judge cannot be asked now (usage limit or sign-in), or the local Google rules library does not answer' }] : []),
+    // The site's GEO blog posts, after the site's audit (owner 2026-10-31): the GEO module picks the topics and writes them, each brought
     // in for review by import-geo-article.mjs (geo-blogs.mjs); every run asks, and it ends at once when the posts are there.
-    { id: 'geo-blogs', kind: 'auto', always: true, inputs: [], run: [node('geo-blogs.mjs')], waitsOnExit: 'the GEO blog posts: the GEO module (site.json geoBlog.dir or GEO_BLOG_DIR), a sign-in, or a quote over the owner\'s limit' },
+    { id: 'geo-blogs', kind: 'auto', models: true, always: true, inputs: [], run: [node('geo-blogs.mjs')], waitsOnExit: 'the GEO blog posts: the GEO module (site.json geoBlog.dir or GEO_BLOG_DIR), a sign-in, or a quote over the owner\'s limit' },
     // The release build replaces dist (without the reference placeholders), so the preflight judges what would ship;
     // the development build is made again afterwards, or the site's preview would show broken images.
-    { id: 'release', kind: 'auto', inputs: ['src', 'public', 'docs/research/image-plan.json'], run: [node('build-release.mjs'), node('build-nginx-config.mjs'), node('sf-report.mjs'), node('check-cross-site.mjs', '--hold'), node('handoff.mjs'), node('preflight.mjs'), pnpm('build')], keepGoing: true, waitsOnExit: 'the owner: the launch preflight holds (docs/research/launch-preflight.json)' },
+    { id: 'release', kind: 'auto', certify: true, raw: true, inputs: ['src', 'public', 'docs/research/image-plan.json'], run: [node('build-release.mjs'), node('build-nginx-config.mjs'), node('sf-report.mjs'), node('check-cross-site.mjs', '--hold'), node('handoff.mjs'), node('prelaunch.mjs'), node('preflight.mjs'), pnpm('build')], keepGoing: true, waitsOnExit: 'the owner: the launch preflight holds (docs/research/launch-preflight.json)' },
   ];
 }
 
@@ -316,30 +382,44 @@ export const reviewReply = ({ pageType, route, shots, rules }, json) => {
 export const focusRuns = async (root) => {
   const components = (await readJson(resolve(root, 'src/data/template-variants.json'))).components;
   const sitePhotos = (await readJson(resolve(root, 'src/data/site-media.json'), { photos: [] })).photos ?? [];
-  // A point judged by other instructions is judged again (each answer records the instructions it followed).
+  // A point judged by other instructions is judged again (each answer records the instructions it followed), and so is
+  // a photo made again under the same name (each answer records the bytes it was judged on: Strandmill's six photos
+  // remade on 2026-11-17 kept the points of the photos they replaced). An answer from before it recorded them counts
+  // for a photo no newer than the answer.
   const rules = createHash('sha256').update(await readFile(resolve(root, 'config/agent-steps/photo-focus.md'), 'utf8')).digest('hex').slice(0, 16);
-  const judged = async (src) => (await readJson(resolve(root, focusPath(src)), null))?.rules === rules;
+  const fileOf = (src) => resolve(root, 'public', src.replace(/^\//, ''));
+  const shaOf = async (src) => createHash('sha256').update(await readFile(fileOf(src)).catch(() => Buffer.from('missing'))).digest('hex').slice(0, 24);
+  const judged = async (src, sha) => {
+    const record = await readJson(resolve(root, focusPath(src)), null);
+    if (record?.rules !== rules) return false;
+    if (record.sha) return record.sha === sha;
+    const [photo, answer] = await Promise.all([stat(fileOf(src)).catch(() => null), stat(resolve(root, focusPath(src))).catch(() => null)]);
+    return !photo || Boolean(answer && photo.mtimeMs <= answer.mtimeMs);
+  };
   const open = [];
-  for (const photo of photosInUse(components, sitePhotos)) if (!(await judged(photo.src))) open.push(photo.src);
-  open.sort();
+  for (const photo of photosInUse(components, sitePhotos)) { const sha = await shaOf(photo.src); if (!(await judged(photo.src, sha))) open.push({ src: photo.src, sha }); }
+  open.sort((left, right) => left.src.localeCompare(right.src));
   return Array.from({ length: Math.ceil(open.length / FOCUS_BATCH) }, (_, index) => open.slice(index * FOCUS_BATCH, (index + 1) * FOCUS_BATCH))
-    .map((srcs) => ({ values: { photos: srcs.map((src, index) => `${index + 1}. ${src}`).join('\n'), srcs: JSON.stringify(srcs), rules }, images: srcs.map((src) => resolve(root, 'public', src.replace(/^\//, ''))) }));
+    .map((batch) => ({ values: { photos: batch.map(({ src }, index) => `${index + 1}. ${src}`).join('\n'), srcs: JSON.stringify(batch.map(({ src }) => src)), shas: JSON.stringify(batch.map(({ sha }) => sha)), rules }, images: batch.map(({ src }) => fileOf(src)) }));
 };
 // A point inside each photo of the run, by its number; a missing photo or a point outside fails the run.
-export const focusReply = ({ srcs, rules }, json) => {
+export const focusReply = ({ srcs, shas = '[]', rules }, json) => {
   const photos = JSON.parse(srcs);
+  const digests = JSON.parse(shas);
   const inside = (value) => typeof value === 'number' && value >= 0 && value <= 1;
   const points = listIn(json, 'photos');
   if (!Array.isArray(points)) throw new Error('expected [{ "index", "x", "y", "subject" }]');
   return photos.map((src, index) => {
     const point = points.find((item) => item?.index === index + 1);
     if (!inside(point?.x) || !inside(point?.y)) throw new Error(`photo ${index + 1} needs { "index": ${index + 1}, "x": 0..1, "y": 0..1 }`);
-    return { path: focusPath(src), data: { src, x: point.x, y: point.y, subject: String(point.subject ?? ''), rules } };
+    return { path: focusPath(src), data: { src, x: point.x, y: point.y, subject: String(point.subject ?? ''), rules, ...(digests[index] ? { sha: digests[index] } : {}) } };
   });
 };
 
 // Repair rounds a step may get in one run, each only while its open problems keep going down.
 export const REPAIR_ROUNDS = 3;
+// Times a step goes back to its best state in one run, after repairs (its own or a later step's) leave it worse.
+export const MAX_RESTORES = 3;
 
 // What a repair would start from: its instructions (their text, and the shared treatment practice they follow) and the
 // files it may change, as they are now. The same situation repaired once already is not repaired again (the same
@@ -432,7 +512,7 @@ export async function pendingPaidSteps(root, list, state) {
   const pending = [];
   for (const step of list) {
     if (!['agent', 'codex'].includes(step.kind) && !step.paid) continue;
-    if (step.kind === 'agent' ? !(await agentStepDone(root, step)) : !(state[step.id]?.status === 'passed' && state[step.id].hash === (await inputsHash(root, step.inputs)))) pending.push(step);
+    if (step.kind === 'agent' ? !(await agentStepDone(root, step)) : !(state[step.id]?.status === 'passed' && state[step.id].hash === (await inputsHash(root, step.inputs, { raw: step.raw })))) pending.push(step);
   }
   return pending;
 }
@@ -451,7 +531,9 @@ export async function agentStepDone(root, step) {
 export async function freezeForRun(root, site, freeze = freezeSiteFactory) {
   if (!site.siteFactoryProject) return site;
   if (!site.siteFactoryFreeze) throw new Error('site.json names siteFactoryProject but not siteFactoryFreeze (the folder its snapshots go to)');
-  const { folder } = await freeze({ project: resolve(root, site.siteFactoryProject), out: resolve(root, site.siteFactoryFreeze), navOnly: site.navOnly ?? [] });
+  // The site's own changes to the project (content/package-patches/: pages merged away, sections added) go into the
+  // snapshot, so every import has them (lib/package-patches.mjs).
+  const { folder } = await freeze({ project: resolve(root, site.siteFactoryProject), out: resolve(root, site.siteFactoryFreeze), navOnly: site.navOnly ?? [], patches: await readPackagePatches(root) });
   const snapshot = folder.replaceAll('\\', '/');
   if (site.siteFactory === snapshot) return site;
   // Read again before writing: only the snapshot's place changes, never a field edited while the snapshot was made.
@@ -464,8 +546,57 @@ export async function freezeForRun(root, site, freeze = freezeSiteFactory) {
 // folder, named fields of a JSON file ("file.json#a,b"), or the code a script runs ("code:scripts/x.mjs": the script
 // and every file it imports, lib/module-graph.mjs). A file counts by its content under a label (its place in the list,
 // its path inside a folder or the code closure), never its absolute path: the same snapshot in another folder is the
-// same input.
-export async function inputsHash(root, inputs = []) {
+// same input. A source file (a script, a stylesheet, a component) counts by what runs or renders of it, without its
+// comments (lib/source-norm.mjs; owner 2026-11-17, site13's 40-minute run): a commit that only rewrote comments runs
+// nothing again. raw (the template's own checks, the build, the release) counts every byte: its tests read the
+// sources, and the verified build is of the sources as they are.
+// Each input has its own digest (inputDigests), so a run can say which input sent a step to run again.
+export async function inputDigests(root, inputs = [], { raw = false } = {}) {
+  const digests = [];
+  for (const [index, input] of inputs.entries()) {
+    const hash = createHash('sha256');
+    const add = async (path, label, normalise) => {
+      const info = await stat(path).catch(() => null);
+      if (!info) { hash.update(`missing:${label}`); return; }
+      if (info.isFile()) { hash.update(label); const bytes = await readFile(path); hash.update(normalise ? sourceDigest(path, bytes) : bytes); return; }
+      for (const entry of (await readdir(path)).sort()) if (entry !== 'node_modules' && entry !== '.pipeline') await add(join(path, entry), `${label}/${entry}`, normalise);
+    };
+    if (input.startsWith('code:')) {
+      for (const file of await codeClosure(root, [input.slice('code:'.length)])) await add(resolve(root, file), `code:${file}`, !raw);
+    } else if (input === 'plan:photo-slots') {
+      // The photo demand (plan-images.mjs imageDemand): every position the site asks a photo for and the style
+      // references, as the image plan reads them; null where the site's data is not there yet.
+      const { imageDemand } = await import('./plan-images.mjs');
+      hash.update(`plan:${index}`);
+      hash.update(JSON.stringify(await imageDemand(root).catch(() => null)));
+    } else {
+      const [file, fields] = input.split('#');
+      if (!fields) await add(resolve(root, input), `input:${index}`, !raw);
+      else {
+        const data = await readJson(resolve(root, file), null);
+        hash.update(`fields:${index}:${fields}`);
+        hash.update(JSON.stringify(fields.split(',').map((field) => data?.[field] ?? null)));
+      }
+    }
+    digests.push(hash.digest('hex').slice(0, 16));
+  }
+  return digests;
+}
+export const digestsHash = (digests) => createHash('sha256').update(digests.map((digest, index) => `${index}:${digest}`).join('\n')).digest('hex').slice(0, 16);
+export async function inputsHash(root, inputs = [], options = {}) {
+  return digestsHash(await inputDigests(root, inputs, options));
+}
+
+// Why a step runs this time: the inputs whose digests differ from those recorded when it last passed (by name; a
+// record from before per-input digests: "its inputs").
+export function changedInputs(inputs = [], before = null, now = []) {
+  if (!Array.isArray(before) || before.length !== now.length) return ['its inputs'];
+  return inputs.filter((_, index) => before[index] !== now[index]).map((input) => input.replace(/^[A-Z]:[\\/].*[\\/](?=[^\\/]+$)/i, '…/'));
+}
+
+// The hash before source files counted without their comments (every byte, one stream): a state recorded with it is
+// moved to today's hash when its inputs are unchanged, instead of running the step again.
+export async function rawInputsHash(root, inputs = []) {
   const hash = createHash('sha256');
   const add = async (path, label) => {
     const info = await stat(path).catch(() => null);
@@ -518,18 +649,24 @@ export async function legacyInputsHash(root, inputs = []) {
 export async function upgradeLegacyHashes(root, state, list) {
   let changed = false;
   for (const step of list) {
-    if (state[step.id]?.status !== 'passed' || step.inputs?.some((input) => input.startsWith('code:'))) continue;
-    const hash = await inputsHash(root, step.inputs);
+    if (state[step.id]?.status !== 'passed') continue;
+    const hash = await inputsHash(root, step.inputs, { raw: step.raw });
     if (state[step.id].hash === hash) continue;
+    // A state of every byte (rawInputsHash) moves with its digests, so the next change names its input.
+    if (state[step.id].hash === await rawInputsHash(root, step.inputs)) { state[step.id] = { ...state[step.id], hash, inputs: await inputDigests(root, step.inputs, { raw: step.raw }) }; changed = true; continue; }
+    if (step.inputs?.some((input) => input.startsWith('code:'))) continue;
     const before = [await legacyInputsHash(root, step.inputs), await legacyInputsHash(root, [...new Set(step.inputs.map((input) => input.split('#')[0]))])];
     if (before.includes(state[step.id].hash)) { state[step.id].hash = hash; changed = true; }
   }
   return changed;
 }
 
+// The template's own tests call their stand-in models (ownModels): an iteration run's refusal is not theirs (Strandmill
+// 2026-11-18: every model test failed under --iterate, template-check with them).
 const runOnce = (command, root, log) => new Promise((done) => {
   const [program, ...args] = command;
-  const child = spawn(program, args, { cwd: root });
+  const env = command.ownModels ? Object.fromEntries(Object.entries(process.env).filter(([name]) => name !== NO_MODELS)) : process.env;
+  const child = spawn(program, args, { cwd: root, env });
   const chunks = [];
   child.stdout.on('data', (chunk) => chunks.push(chunk));
   child.stderr.on('data', (chunk) => chunks.push(chunk));
@@ -553,13 +690,67 @@ async function withPreview(root, port, work) {
   try { return await work(); } finally { await server.close(); }
 }
 
-export async function siteRun({ root = process.cwd(), from = null, to = null, runner = run, repo = runner === run, agent = undefined } = {}) {
+// The steps an iteration run (--iterate) leaves to certification: those that call a model or make a photo (agent,
+// codex, paid, models), those that read the reviews or record the verified build (certify).
+export const certificationOnly = (step) => ['agent', 'codex'].includes(step.kind) || Boolean(step.paid || step.models || step.certify);
+
+// A run: its steps (runSteps), with SITE_RUN_ID and SITE_RUN_STEP set for the commands it runs (their model calls are
+// counted by step, lib/model-calls.mjs) and, in an iteration run, SITE_RUN_NO_MODELS (any model call is refused). The
+// result's report says what ran, why, for how long and at what cost; it is kept in .pipeline/runs/<run>.json.
+export async function siteRun(options = {}) {
+  const root = options.root ?? process.cwd();
+  const stamp = new Date().toISOString().replace(/[:.]/g, '-');
+  const saved = Object.fromEntries(['SITE_RUN_ID', 'SITE_RUN_STEP', NO_MODELS].map((name) => [name, process.env[name]]));
+  process.env.SITE_RUN_ID = stamp;
+  if (options.iterate) process.env[NO_MODELS] = '1';
+  const started = Date.now();
+  try {
+    const result = await runSteps({ ...options, root }, stamp);
+    result.report = await runReport(root, stamp, result.summary, { mode: options.iterate ? 'iterate' : 'certify', seconds: Math.round((Date.now() - started) / 1000), code: result.code });
+    return result;
+  } finally {
+    for (const [name, value] of Object.entries(saved)) { if (value === undefined) delete process.env[name]; else process.env[name] = value; }
+  }
+}
+
+// What a run did, by step (a step run again after a repair counts each time): { mode, seconds, calls, ran, unchanged }.
+export async function runReport(root, stamp, summary, { mode, seconds, code }) {
+  const calls = await modelCallsOf(root, stamp);
+  const ran = [];
+  const unchanged = [];
+  for (const item of summary) {
+    if (item.status === 'unchanged' || (item.status === 'done' && !item.why)) { unchanged.push(item.step); continue; }
+    if (item.seconds === undefined && !item.why) continue;
+    ran.push({ step: item.step, status: item.status, seconds: item.seconds ?? 0, why: item.why ?? null });
+  }
+  for (const [step, count] of Object.entries(calls)) { const last = ran.findLast((item) => item.step === step); if (last) last.calls = count; }
+  const total = Object.values(calls).reduce((sum, count) => ({ judge: sum.judge + count.judge, image: sum.image + count.image }), { judge: 0, image: 0 });
+  // The issue list of the site's latest claude-seo audit and Site Factory's part of it, named in every summary (owner
+  // 2026-11-17: the run summary prints both paths; the main session tells Site Factory).
+  const audit = await latestAudit(root).catch(() => null);
+  const seoAudit = audit ? { dir: audit.dir, findings: audit.data.artifacts.findings, findingsSf: audit.data.artifacts.findings_sf, holds: audit.check.holds.length } : null;
+  const report = { run: stamp, mode, code, seconds, calls: total, callsByStep: calls, ran, unchanged, seoAudit };
+  await writeJson(resolve(root, '.pipeline/runs', `${stamp}.json`), report);
+  return report;
+}
+
+// The report as lines for the console.
+export function reportLines(report) {
+  const cost = (calls) => (calls ? `${calls.judge} model call(s)${calls.image ? `, ${calls.image} image(s)` : ''}` : 'no model call');
+  return [
+    `run summary (${report.mode}): ${report.seconds}s, ${cost(report.calls)}; ${report.ran.length} step run(s), ${report.unchanged.length} unchanged`,
+    ...report.ran.map((item) => `  ${item.step}: ${item.seconds}s, ${item.status}${item.why ? `; why: ${item.why}` : ''}; ${cost(item.calls)}`),
+    ...(report.seoAudit ? [`claude-seo audit ${report.seoAudit.dir} (${report.seoAudit.holds} item(s) hold the launch): findings ${report.seoAudit.findings}; for Site Factory ${report.seoAudit.findingsSf}`] : []),
+  ];
+}
+
+async function runSteps({ root = process.cwd(), from = null, to = null, runner = run, repo = runner === run, agent = undefined, iterate = false } = {}, stamp) {
   const site = await freezeForRun(root, await readJson(resolve(root, 'site.json')));
-  // The judgment steps' agent: Codex in a real run unless site.json says "agent": "none"; none in a test.
-  const doAgent = agent !== undefined ? agent : runner === run && site.agent !== 'none' ? runAgentStep : null;
+  // The judgment steps' agent: Codex in a real run unless site.json says "agent": "none"; none in a test or an
+  // iteration run.
+  const doAgent = iterate ? null : agent !== undefined ? agent : runner === run && site.agent !== 'none' ? runAgentStep : null;
   const statePath = resolve(root, '.pipeline/state.json');
   const state = await readJson(statePath, {});
-  const stamp = new Date().toISOString().replace(/[:.]/g, '-');
   const logs = resolve(root, '.pipeline/logs', stamp);
   await mkdir(logs, { recursive: true });
   const [program, ...args] = pnpm('--version');
@@ -574,7 +765,7 @@ export async function siteRun({ root = process.cwd(), from = null, to = null, ru
   const last = to ? list.findIndex((step) => step.id === to) : list.length - 1;
   if (first < 0 || last < 0) throw new Error(`unknown step: ${from ?? to} (steps: ${list.map((step) => step.id).join(', ')})`);
   // What this run will spend, as far as the inputs say now (a real run; a test's runner runs nothing).
-  if (runner === run) {
+  if (runner === run && !iterate) {
     const paid = await pendingPaidSteps(root, list.slice(first, last + 1), state);
     console.log(paid.length ? `steps that call a model this run (at least): ${paid.map((step) => `${step.id} (${step.kind})`).join(', ')}` : 'no step that calls a model is to run (unless a step before it changes its inputs)');
   }
@@ -658,12 +849,15 @@ export async function siteRun({ root = process.cwd(), from = null, to = null, ru
     const situation = await repairSituation(root, step.repair, open);
     const moved = before?.problems?.length > 0 && before.problems.every((problem) => !open.includes(problem));
     const outside = step.repair.agentFixes ? open.filter((problem) => !step.repair.agentFixes(problem)) : [];
-    const notAgain = outside.length ? `not given to the agent: ${byOwner(outside.map(problemIssue)).join('; ')}; see ${step.repair.report}` : before && before.rounds >= REPAIR_ROUNDS ? `not tried again: ${REPAIR_ROUNDS} rounds done` : before && open.length >= before.open && !moved ? `not tried again: no progress (${open.length} open, ${before.open} before)` : tried.has(situation) ? 'not tried again: tried on this very treatment before' : null;
+    const notAgain = outside.length ? `not given to the agent: ${byOwner(outside.map(problemIssue)).join('; ')}; see ${step.repair.report}` : before && step.repair.once && before.rounds >= 1 ? 'not tried again: one repair a run for these findings (what is left stays in the report)' : before && before.rounds >= REPAIR_ROUNDS ? `not tried again: ${REPAIR_ROUNDS} rounds done` : before && open.length >= before.open && !moved ? `not tried again: no progress (${open.length} open, ${before.open} before)` : tried.has(situation) ? 'not tried again: tried on this very treatment before' : null;
     if (notAgain) {
       summary.push({ step: `${step.id}-repair`, status: notAgain });
       const top = best.get(step.id);
-      if (!repo || !top || open.length <= top.open || before?.restored) return null;
-      restoreFrom(root, top.commit, step.repair.writes);
+      if (!repo || !top || open.length <= top.open || (before?.restored ?? 0) >= MAX_RESTORES) return null;
+      // Its report goes back with the files (Staylumen 2026-11-17: the treatment restored, the audit unchanged since its
+      // best state and not run again, its report still held the 23 failures of the repair undone and the verified build
+      // refused the release).
+      restoreFrom(root, top.commit, [...step.repair.writes, ...(step.repair.report ? [step.repair.report] : [])]);
       if (await rebuild(step, log) !== 0) {
         summary.push({ step: `${step.id}-repair`, status: 'the site does not build after going back to its best state' });
         return { failed: true };
@@ -672,8 +866,11 @@ export async function siteRun({ root = process.cwd(), from = null, to = null, ru
       summary.push({ step: `${step.id}-repair`, status: `back to the state with the fewest problems (${top.open} open; ${open.length} after the last repair)` });
       // Back at its best state the rounds used still count, but what the audit finds there next is judged afresh: the
       // hotel run of 2026-11-14 came back to 0 open, then one detached button found after the rebuild was never given
-      // to the agent (all three rounds were marked done). It goes back to its best state once a run (restored).
-      repairs.set(step.id, { rounds: before?.rounds ?? 0, open: Infinity, problems: [], restored: true });
+      // to the agent (all three rounds were marked done). It goes back to its best state up to MAX_RESTORES times a run
+      // (restored): each design repair that breaks it again is undone too (Staylumen 2026-11-17: the design polish's
+      // repair was undone, the design gate's next one stayed and the run stopped on its 91 failures). The design repairs
+      // themselves are bounded (one a situation, rounds while they make progress), so this ends.
+      repairs.set(step.id, { rounds: before?.rounds ?? 0, open: Infinity, problems: [], restored: (before?.restored ?? 0) + 1 });
       return { restart: true };
     }
     repairs.set(step.id, { rounds: (before?.rounds ?? 0) + 1, open: open.length, problems: open });
@@ -718,15 +915,22 @@ export async function siteRun({ root = process.cwd(), from = null, to = null, ru
   for (let at = first; at <= last; at += 1) {
     const step = list[at];
     const began = Date.now();
-    // seconds: how long the step took this time (where the run's time goes, Fable's review 11-14).
-    const save = async (status, at = hash) => { const seconds = Math.round((Date.now() - began) / 1000); state[step.id] = { status, hash: at, at: new Date().toISOString(), seconds, log: `.pipeline/logs/${stamp}/${step.id}.log` }; await writeJson(statePath, state); summary.push({ step: step.id, status, seconds }); };
+    process.env.SITE_RUN_STEP = step.id;
+    // seconds: how long the step took this time (where the run's time goes, Fable's review 11-14); why: what sent it
+    // to run (the run's summary).
+    let why = null;
+    const save = async (status, now = digests) => { const seconds = Math.round((Date.now() - began) / 1000); state[step.id] = { status, hash: digestsHash(now), inputs: now, at: new Date().toISOString(), seconds, log: `.pipeline/logs/${stamp}/${step.id}.log` }; await writeJson(statePath, state); summary.push({ step: step.id, status, seconds, ...(why ? { why } : {}) }); };
     // A step whose time has not come (or has passed: the placeholders once the site's own photos are made) says why
     // and the run goes on; nothing is recorded, so it runs once its time comes.
     const skipped = step.skip ? await step.skip(root) : null;
     if (skipped) { summary.push({ step: step.id, status: `skipped: ${skipped}` }); continue; }
-    const hash = await inputsHash(root, step.inputs);
+    // An iteration run leaves the steps that call a model or read the reviews to the certification run.
+    if (iterate && certificationOnly(step)) { summary.push({ step: step.id, status: 'skipped: certification only' }); continue; }
+    const digests = await inputDigests(root, step.inputs, { raw: step.raw });
+    const hash = digestsHash(digests);
     if (step.kind === 'agent') {
       if (await agentStepDone(root, step)) { await save('done'); continue; }
+      why = 'its outputs are missing or not of the current shots';
       // The agent does the step; whether it is done is judged by its outputs, as for a person.
       if (doAgent && step.prompt) {
         const code = await runAgent(step, join(logs, `${step.id}.log`));
@@ -744,7 +948,15 @@ export async function siteRun({ root = process.cwd(), from = null, to = null, ru
     // A step this run has no record of, whose outputs (adopt) are already there, is recorded as done without running.
     if (!from && !state[step.id] && step.adopt?.every((path) => existsSync(resolve(root, path)))) { await save('passed'); summary.at(-1).status = 'adopted'; continue; }
     // Unchanged inputs since the step last passed: nothing to do (a step before it ran again changes its inputs).
-    if (!from && !step.always && state[step.id]?.status === 'passed' && state[step.id].hash === hash) { summary.push({ step: step.id, status: 'unchanged' }); continue; }
+    // A step with a repair is at its best state there, as when it passes: a later repair (the design gate's) that breaks
+    // it goes back to here (Staylumen 2026-11-17: its audits unchanged, the design gate's repair left 69 failures and no
+    // state to go back to, so the run stopped on them).
+    if (!from && !step.always && state[step.id]?.status === 'passed' && state[step.id].hash === hash) {
+      summary.push({ step: step.id, status: 'unchanged' });
+      if (repo && step.repair && !best.has(step.id)) best.set(step.id, { open: 0, commit: headCommit(root) });
+      continue;
+    }
+    why = from ? `--from ${from}` : step.always ? 'runs every time' : !state[step.id] ? 'no record of it' : state[step.id].status !== 'passed' ? `it was ${state[step.id].status}` : `changed: ${changedInputs(step.inputs, state[step.id].inputs, digests).join(', ')}`;
     const log = join(logs, `${step.id}.log`);
     // keepGoing: every command runs (the preflight reports even when the release build refuses reference photos). A
     // command's exit code 2 means it waits for a person (WAITS); any other failure wins over it.
@@ -762,7 +974,7 @@ export async function siteRun({ root = process.cwd(), from = null, to = null, ru
     const code = step.kind === 'preview' ? await preview(root, site.port, commands) : await commands();
     // A step with a repair (the layout audit, the design gate): a rule fix, else an agent repair; after either the run
     // goes on again from the step the repair names. Otherwise it stops for a person.
-    const repairable = step.repair && (code === WAITS ? step.repair.onWaits : code !== 0);
+    const repairable = !iterate && step.repair && (code === WAITS ? step.repair.onWaits : code !== 0);
     const repaired = repairable ? (await ruleFix(step, log)) ?? (await agentRepair(step, log)) : null;
     if (repaired?.failed) { await save('failed'); return { code: 1, failed: step.id, log, summary }; }
     if (repaired?.restart) { at = list.findIndex((item) => item.id === (repaired.at ?? step.repair.restart)) - 1; continue; }
@@ -778,7 +990,7 @@ export async function siteRun({ root = process.cwd(), from = null, to = null, ru
     if (code !== 0) { await save('failed'); return { code: 1, failed: step.id, log, summary }; }
     // The hash after the run: a step that rewrites one of its own inputs (apply-image-library writes
     // template-variants.json) is not run again for its own output.
-    await save('passed', await inputsHash(root, step.inputs));
+    await save('passed', await inputDigests(root, step.inputs, { raw: step.raw }));
     if (repo) commitSite(root, `site-run: ${step.id}`);
     // A step with a repair that passes is at its best state: a later repair (the design gate's) that breaks it and
     // cannot mend it goes back to here.
@@ -794,13 +1006,15 @@ const fileHash = async (path) => createHash('sha256').update(await readFile(path
 const ownHash = await fileHash(fileURLToPath(import.meta.url));
 
 runMain(import.meta.url, async () => {
-  const { values } = cliArgs({ from: { type: 'string' }, to: { type: 'string' }, list: { type: 'boolean' } });
+  const { values } = cliArgs({ from: { type: 'string' }, to: { type: 'string' }, list: { type: 'boolean' }, iterate: { type: 'boolean' } });
   if (values.list) { console.log(steps(await readJson(resolve('site.json'))).map((step) => `${step.id} (${step.kind})`).join('\n')); return; }
   // One run on a site at a time (two hotel runs started together made its photo briefs twice): the lock is let go
   // before a restarted run takes it.
   const release = await takeRunLock(process.cwd());
-  const result = await siteRun({ from: values.from ?? null, to: values.to ?? null }).finally(release);
+  const result = await siteRun({ from: values.from ?? null, to: values.to ?? null, iterate: values.iterate === true }).finally(release);
   console.log(result.summary.map((item) => `${item.step}: ${item.status}`).join('\n'));
+  console.log(reportLines(result.report).join('\n'));
+  if (values.iterate) console.log('an iteration run: no model was called and nothing was verified; certify with site-run without --iterate');
   if (result.restart) {
     console.log('site-run.mjs changed with the template core: running the new one');
     process.exitCode = spawnSync(process.execPath, [fileURLToPath(import.meta.url), ...process.argv.slice(2)], { stdio: 'inherit' }).status ?? 1;

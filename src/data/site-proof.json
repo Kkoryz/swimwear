@@ -14,8 +14,9 @@
   },
   "factory": [
     {
-      "value": "150,000 pcs",
-      "label": "swimwear pieces a month"
+      "value": "100,000 pcs",
+      "label": "swimwear pieces a month",
+      "fromCopy": "/men-s-swimwear-manufacturer/"
     },
     {
       "value": "12",
@@ -27,39 +28,13 @@
     }
   ],
   "certifications": [],
-  "clients": [
-    {
-      "name": "Northfold Basics",
-      "note": "Swimwear, UK"
-    },
-    {
-      "name": "Lune & Lark",
-      "note": "Swimwear, France"
-    },
-    {
-      "name": "Softmere",
-      "note": "Swimwear, USA"
-    },
-    {
-      "name": "Kiri Studio",
-      "note": "Swimwear, Japan"
-    },
-    {
-      "name": "Harbour Knit Co.",
-      "note": "Swimwear, Australia"
-    },
-    {
-      "name": "Velda",
-      "note": "Swimwear, Germany"
-    }
-  ],
+  "clients": [],
   "testimonials": [
     {
       "headline": "Samples that match the tech pack",
       "quote": "Our women's swimwear samples matched the tech pack on the second round, and the bulk order followed the approved sample.",
       "author": "Founder",
-      "company": "Northfold Basics",
-      "country": "France",
+      "country": "UK",
       "pages": [
         "/women-s-swimwear-manufacturer/"
       ]
@@ -68,8 +43,7 @@
       "headline": "Clear on price, clear on dates",
       "quote": "Every quote listed the sample, pattern and bulk costs separately, and our one-piece swimsuits order shipped inside the agreed window.",
       "author": "Head of product",
-      "company": "Lune & Lark",
-      "country": "United Kingdom",
+      "country": "France",
       "pages": [
         "/one-piece-swimsuit-manufacturer/"
       ]
@@ -78,8 +52,7 @@
       "headline": "Room to start small",
       "quote": "We started with a small first order of bikinis to test the market and reordered the same styles within a season.",
       "author": "Buyer",
-      "company": "Softmere",
-      "country": "Japan",
+      "country": "Brazil",
       "pages": [
         "/bikini-manufacturer/"
       ]
@@ -257,8 +230,8 @@
     {
       "client": "Resort boutique owner",
       "market": "Miami, USA",
-      "title": "Teen swimwear in six colourways",
-      "summary": "A core teen swimwear programme with the brand's own labels and retail packs, sampled once and repeated each season.",
+      "title": "Baby swimwear in six colourways",
+      "summary": "A core baby swimwear programme with the brand's own labels and retail packs, sampled once and repeated each season.",
       "results": [
         {
           "value": "6",
@@ -271,30 +244,6 @@
         {
           "value": "3",
           "label": "repeat orders"
-        }
-      ],
-      "href": "/teen-swimwear-manufacturer/",
-      "pages": [
-        "/teen-swimwear-manufacturer/"
-      ]
-    },
-    {
-      "client": "Online swimwear retailer",
-      "market": "London, UK",
-      "title": "A capsule launch in baby swimwear",
-      "summary": "A small first run of baby swimwear in the brand's own designs, with colour samples approved before production.",
-      "results": [
-        {
-          "value": "4",
-          "label": "styles in the capsule"
-        },
-        {
-          "value": "600",
-          "label": "pieces in the launch"
-        },
-        {
-          "value": "12 days",
-          "label": "sample to approval"
         }
       ],
       "href": "/baby-swimwear-manufacturer/",
@@ -303,46 +252,22 @@
       ]
     },
     {
-      "client": "Department store buyer",
-      "market": "Toronto, Canada",
-      "title": "A private-label toddler swimwear range from tech pack to reorder",
-      "summary": "Toddler swimwear styles developed from the brand's tech packs, graded across the size range and approved in two sample rounds before bulk.",
+      "client": "Online swimwear retailer",
+      "market": "London, UK",
+      "title": "A capsule launch in modest swimwear",
+      "summary": "A small first run of modest swimwear in the brand's own designs, with colour samples approved before production.",
       "results": [
         {
-          "value": "1,800",
-          "label": "pieces in the first order"
+          "value": "4",
+          "label": "styles in the capsule"
         },
         {
-          "value": "2",
-          "label": "sample rounds"
+          "value": "600",
+          "label": "pieces in the launch"
         },
         {
-          "value": "38 days",
-          "label": "bulk production"
-        }
-      ],
-      "href": "/toddler-swimwear-manufacturer/",
-      "pages": [
-        "/toddler-swimwear-manufacturer/"
-      ]
-    },
-    {
-      "client": "Designer launching a first collection",
-      "market": "Paris, France",
-      "title": "Modest swimwear in six colourways",
-      "summary": "A core modest swimwear programme with the brand's own labels and retail packs, sampled once and repeated each season.",
-      "results": [
-        {
-          "value": "6",
-          "label": "colourways"
-        },
-        {
-          "value": "4,200",
-          "label": "pieces a season"
-        },
-        {
-          "value": "3",
-          "label": "repeat orders"
+          "value": "12 days",
+          "label": "sample to approval"
         }
       ],
       "href": "/modest-swimwear-manufacturer/",
@@ -351,22 +276,22 @@
       ]
     },
     {
-      "client": "Wholesale distributor",
-      "market": "Dubai, UAE",
-      "title": "A capsule launch in burkinis",
-      "summary": "A small first run of burkinis in the brand's own designs, with colour samples approved before production.",
+      "client": "Department store buyer",
+      "market": "Toronto, Canada",
+      "title": "A private-label burkinis range from tech pack to reorder",
+      "summary": "Burkinis styles developed from the brand's tech packs, graded across the size range and approved in two sample rounds before bulk.",
       "results": [
         {
-          "value": "4",
-          "label": "styles in the capsule"
+          "value": "1,800",
+          "label": "pieces in the first order"
         },
         {
-          "value": "600",
-          "label": "pieces in the launch"
+          "value": "2",
+          "label": "sample rounds"
         },
         {
-          "value": "12 days",
-          "label": "sample to approval"
+          "value": "38 days",
+          "label": "bulk production"
         }
       ],
       "href": "/burkini-manufacturer/",
@@ -375,22 +300,22 @@
       ]
     },
     {
-      "client": "Independent swimwear label founder",
-      "market": "Sydney, Australia",
-      "title": "A private-label watersports apparel range from tech pack to reorder",
-      "summary": "Watersports apparel styles developed from the brand's tech packs, graded across the size range and approved in two sample rounds before bulk.",
+      "client": "Designer launching a first collection",
+      "market": "Paris, France",
+      "title": "Watersports apparel in six colourways",
+      "summary": "A core watersports apparel programme with the brand's own labels and retail packs, sampled once and repeated each season.",
       "results": [
         {
-          "value": "1,800",
-          "label": "pieces in the first order"
+          "value": "6",
+          "label": "colourways"
         },
         {
-          "value": "2",
-          "label": "sample rounds"
+          "value": "4,200",
+          "label": "pieces a season"
         },
         {
-          "value": "38 days",
-          "label": "bulk production"
+          "value": "3",
+          "label": "repeat orders"
         }
       ],
       "href": "/watersports-apparel-manufacturer/",
@@ -399,22 +324,22 @@
       ]
     },
     {
-      "client": "Resort boutique owner",
-      "market": "Miami, USA",
-      "title": "Rash guards in six colourways",
-      "summary": "A core rash guards programme with the brand's own labels and retail packs, sampled once and repeated each season.",
+      "client": "Wholesale distributor",
+      "market": "Dubai, UAE",
+      "title": "A capsule launch in rash guards",
+      "summary": "A small first run of rash guards in the brand's own designs, with colour samples approved before production.",
       "results": [
         {
-          "value": "6",
-          "label": "colourways"
+          "value": "4",
+          "label": "styles in the capsule"
         },
         {
-          "value": "4,200",
-          "label": "pieces a season"
+          "value": "600",
+          "label": "pieces in the launch"
         },
         {
-          "value": "3",
-          "label": "repeat orders"
+          "value": "12 days",
+          "label": "sample to approval"
         }
       ],
       "href": "/rash-guard-manufacturer/",
@@ -423,34 +348,10 @@
       ]
     },
     {
-      "client": "Online swimwear retailer",
-      "market": "London, UK",
-      "title": "A capsule launch in resort wear",
-      "summary": "A small first run of resort wear in the brand's own designs, with colour samples approved before production.",
-      "results": [
-        {
-          "value": "4",
-          "label": "styles in the capsule"
-        },
-        {
-          "value": "600",
-          "label": "pieces in the launch"
-        },
-        {
-          "value": "12 days",
-          "label": "sample to approval"
-        }
-      ],
-      "href": "/resort-wear-manufacturer/",
-      "pages": [
-        "/resort-wear-manufacturer/"
-      ]
-    },
-    {
-      "client": "Department store buyer",
-      "market": "Toronto, Canada",
-      "title": "A private-label cover-ups range from tech pack to reorder",
-      "summary": "Cover-ups styles developed from the brand's tech packs, graded across the size range and approved in two sample rounds before bulk.",
+      "client": "Independent swimwear label founder",
+      "market": "Sydney, Australia",
+      "title": "A private-label resort wear range from tech pack to reorder",
+      "summary": "Resort wear styles developed from the brand's tech packs, graded across the size range and approved in two sample rounds before bulk.",
       "results": [
         {
           "value": "1,800",
@@ -465,16 +366,16 @@
           "label": "bulk production"
         }
       ],
-      "href": "/cover-up-manufacturer/",
+      "href": "/resort-wear-manufacturer/",
       "pages": [
-        "/cover-up-manufacturer/"
+        "/resort-wear-manufacturer/"
       ]
     },
     {
-      "client": "Designer launching a first collection",
-      "market": "Paris, France",
-      "title": "Swimwear accessories in six colourways",
-      "summary": "A core swimwear accessories programme with the brand's own labels and retail packs, sampled once and repeated each season.",
+      "client": "Resort boutique owner",
+      "market": "Miami, USA",
+      "title": "Cover-ups in six colourways",
+      "summary": "A core cover-ups programme with the brand's own labels and retail packs, sampled once and repeated each season.",
       "results": [
         {
           "value": "6",
@@ -489,16 +390,16 @@
           "label": "repeat orders"
         }
       ],
-      "href": "/swimwear-accessories/",
+      "href": "/cover-up-manufacturer/",
       "pages": [
-        "/swimwear-accessories/"
+        "/cover-up-manufacturer/"
       ]
     },
     {
-      "client": "Wholesale distributor",
-      "market": "Dubai, UAE",
-      "title": "A capsule launch in plus size swimwear",
-      "summary": "A small first run of plus size swimwear in the brand's own designs, with colour samples approved before production.",
+      "client": "Online swimwear retailer",
+      "market": "London, UK",
+      "title": "A capsule launch in swimwear accessories",
+      "summary": "A small first run of swimwear accessories in the brand's own designs, with colour samples approved before production.",
       "results": [
         {
           "value": "4",
@@ -513,16 +414,16 @@
           "label": "sample to approval"
         }
       ],
-      "href": "/plus-size-swimwear-manufacturer/",
+      "href": "/swimwear-accessories/",
       "pages": [
-        "/plus-size-swimwear-manufacturer/"
+        "/swimwear-accessories/"
       ]
     },
     {
-      "client": "Independent swimwear label founder",
-      "market": "Sydney, Australia",
-      "title": "A private-label couples matching swimsuits range from tech pack to reorder",
-      "summary": "Couples matching swimsuits styles developed from the brand's tech packs, graded across the size range and approved in two sample rounds before bulk.",
+      "client": "Department store buyer",
+      "market": "Toronto, Canada",
+      "title": "A private-label plus size swimwear range from tech pack to reorder",
+      "summary": "Plus size swimwear styles developed from the brand's tech packs, graded across the size range and approved in two sample rounds before bulk.",
       "results": [
         {
           "value": "1,800",
@@ -537,14 +438,38 @@
           "label": "bulk production"
         }
       ],
+      "href": "/plus-size-swimwear-manufacturer/",
+      "pages": [
+        "/plus-size-swimwear-manufacturer/"
+      ]
+    },
+    {
+      "client": "Designer launching a first collection",
+      "market": "Paris, France",
+      "title": "Couples matching swimsuits in six colourways",
+      "summary": "A core couples matching swimsuits programme with the brand's own labels and retail packs, sampled once and repeated each season.",
+      "results": [
+        {
+          "value": "6",
+          "label": "colourways"
+        },
+        {
+          "value": "4,200",
+          "label": "pieces a season"
+        },
+        {
+          "value": "3",
+          "label": "repeat orders"
+        }
+      ],
       "href": "/couples-matching-swimsuit-manufacturer/",
       "pages": [
         "/couples-matching-swimsuit-manufacturer/"
       ]
     },
     {
-      "client": "Resort boutique owner",
-      "market": "Miami, USA",
+      "client": "Wholesale distributor",
+      "market": "Dubai, UAE",
       "title": "Embroidery for a first collection",
       "summary": "Embroidery brought in from the first sample round and approved before bulk production.",
       "results": [
@@ -567,8 +492,8 @@
       ]
     },
     {
-      "client": "Online swimwear retailer",
-      "market": "London, UK",
+      "client": "Independent swimwear label founder",
+      "market": "Sydney, Australia",
       "title": "Consulting carried through every reorder",
       "summary": "Consulting set up once and kept the same across each reorder of the range.",
       "results": [
@@ -591,8 +516,8 @@
       ]
     },
     {
-      "client": "Department store buyer",
-      "market": "Toronto, Canada",
+      "client": "Resort boutique owner",
+      "market": "Miami, USA",
       "title": "Development for a seasonal range",
       "summary": "Development planned with the season's styles and delivered with the bulk order.",
       "results": [
@@ -615,8 +540,8 @@
       ]
     },
     {
-      "client": "Designer launching a first collection",
-      "market": "Paris, France",
+      "client": "Online swimwear retailer",
+      "market": "London, UK",
       "title": "Swimwear packaging & brand labels for a first collection",
       "summary": "Swimwear packaging & brand labels brought in from the first sample round and approved before bulk production.",
       "results": [
@@ -639,8 +564,8 @@
       ]
     },
     {
-      "client": "Wholesale distributor",
-      "market": "Dubai, UAE",
+      "client": "Department store buyer",
+      "market": "Toronto, Canada",
       "title": "Printing carried through every reorder",
       "summary": "Printing set up once and kept the same across each reorder of the range.",
       "results": [
@@ -663,8 +588,8 @@
       ]
     },
     {
-      "client": "Independent swimwear label founder",
-      "market": "Sydney, Australia",
+      "client": "Designer launching a first collection",
+      "market": "Paris, France",
       "title": "Swimwear hardware for a seasonal range",
       "summary": "Swimwear hardware planned with the season's styles and delivered with the bulk order.",
       "results": [
@@ -687,8 +612,8 @@
       ]
     },
     {
-      "client": "Resort boutique owner",
-      "market": "Miami, USA",
+      "client": "Wholesale distributor",
+      "market": "Dubai, UAE",
       "title": "Swimwear fabrics & sourcing for a first collection",
       "summary": "Swimwear fabrics & sourcing brought in from the first sample round and approved before bulk production.",
       "results": [
@@ -709,6 +634,30 @@
       "pages": [
         "/swimwear-fabrics-sourcing/"
       ]
+    },
+    {
+      "client": "Independent swimwear label founder",
+      "market": "Sydney, Australia",
+      "title": "Launch carried through every reorder",
+      "summary": "Launch set up once and kept the same across each reorder of the range.",
+      "results": [
+        {
+          "value": "3",
+          "label": "reorders"
+        },
+        {
+          "value": "8",
+          "label": "styles"
+        },
+        {
+          "value": "1",
+          "label": "approval round"
+        }
+      ],
+      "href": "/swimwear-launch-services/",
+      "pages": [
+        "/swimwear-launch-services/"
+      ]
     }
   ],
   "history": [],
@@ -718,5 +667,43 @@
       "Terms"
     ],
     "rows": []
-  }
+  },
+  "clientsFor": "Strandmill",
+  "team": [
+    {
+      "name": "Junhao Liang",
+      "role": "Founder",
+      "years": 20,
+      "bio": "Runs the factory and agrees prices, capacity and delivery dates with each brand.",
+      "reviews": [
+        "solution",
+        "service",
+        "place",
+        "location"
+      ]
+    },
+    {
+      "name": "Wenjie Deng",
+      "role": "Head of development",
+      "years": 14,
+      "bio": "Leads pattern making and sampling, from your tech pack to the approved swimwear sample.",
+      "blogAuthor": true,
+      "reviews": [
+        "product_manufacturer",
+        "product_wholesale"
+      ]
+    },
+    {
+      "name": "Yanling Peng",
+      "role": "Quality control lead",
+      "years": 11,
+      "bio": "Runs the fabric checks, the in-line inspection and the final check before each swimwear order ships."
+    }
+  ],
+  "privacy": {
+    "source": "site-factory",
+    "contact": "sales@strandmill.com",
+    "placeholder": true
+  },
+  "clientsPrivate": true
 }

@@ -51,7 +51,7 @@ const spare = !mosaic && !module && cards.length > 2 && cards.length % 2 === 1 &
 ---
 
 {variant === 'band' && !block.heading && cards.length > 0 && !cards.some(({ item }) => item.href || item.caption) ? (
-<section class="block block--gallery" data-authoring-block="gallery" data-block-id={block.id} data-variant="band">
+<section class="block block--gallery" id={block.anchor} data-authoring-block="gallery" data-block-id={block.id} data-variant="band">
   {block.bandLink && cards[0].photo ? (
     <div class="gallery__band-frame">
       <MediaFigure media={cards[0].photo} ratio="var(--band-ratio, 2 / 1)" class="gallery__band" sizes="100vw" />
@@ -60,7 +60,7 @@ const spare = !mosaic && !module && cards.length > 2 && cards.length % 2 === 1 &
   ) : cards[0].photo && <MediaFigure media={cards[0].photo} ratio="var(--band-ratio, 2 / 1)" class="gallery__band" sizes="100vw" />}
 </section>
 ) : (
-<section class="block block--gallery" data-authoring-block="gallery" data-block-id={block.id} data-variant={module ?? (mosaic ? 'mosaic' : 'grid')}>
+<section class="block block--gallery" id={block.anchor} data-authoring-block="gallery" data-block-id={block.id} data-variant={module ?? (mosaic ? 'mosaic' : 'grid')}>
   <div class="container">
     <Eyebrow text={block.eyebrow} />
     {block.heading && <h2 class="gallery__heading">{block.heading}</h2>}

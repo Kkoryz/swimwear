@@ -35,7 +35,10 @@ export async function retryCrash(work, onCrash = async () => {}) {
 
 // A full-page shot, taken once more after a moment when the browser could not capture it (the hotel run of 2026-11-13
 // stopped at its design shots on "Unable to capture screenshot", a shot the first pass of the same pages had taken).
-export const fullPageShot = (page, wait = 1500) => retryCrash(() => page.screenshot({ fullPage: true }), () => new Promise((done) => setTimeout(done, wait)));
+// Animations are stopped for the shot (Playwright: a finite one at its end, a running one, the logos marquee, at its
+// start): the same page gives the same pixels, so a review keyed on them is not asked again for a frame of an
+// animation (Strandmill's logos module was reviewed again on every shot of the board, 2026-11-17).
+export const fullPageShot = (page, wait = 1500) => retryCrash(() => page.screenshot({ fullPage: true, animations: 'disabled' }), () => new Promise((done) => setTimeout(done, wait)));
 
 // One run on a site at a time: .pipeline/run.lock holds the running process's id. A lock whose process is gone is
 // taken over. Returns the release function.

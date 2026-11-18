@@ -1,0 +1,88 @@
+{
+  "/": {
+    "splitMedia-1": [
+      {
+        "id": "brief-splitMedia-1-1",
+        "type": "photo",
+        "content": "A Chinese warehouse worker pulls folded, bagged in-stock one-piece swimsuits in several prints from labelled-free shelf bins and places them into an open shipping carton on a picking cart for same-day dispatch.",
+        "setting": "Factory finished-goods stock warehouse, Guangzhou",
+        "caption": "In-stock styles picked and packed to leave within 24 hours"
+      }
+    ],
+    "splitMedia-2": [
+      {
+        "id": "brief-splitMedia-2-1",
+        "type": "photo",
+        "content": "Close-up of a Chinese technician's hands lifting the plate of a heat press off a stock sample bikini top, revealing a fresh plain geometric heat-transfer mark beside an embroidered test patch on the same stretch fabric.",
+        "setting": "Sampling room workbench, close-up",
+        "caption": "Testing logo finishes on a stock sample before choosing one"
+      }
+    ]
+  },
+  "/men-s-swimwear-manufacturer/": {
+    "splitMedia-1": [
+      {
+        "id": "brief-splitMedia-1-1",
+        "type": "photo",
+        "content": "A row of Chinese sewing machine operators at a long production line stitch elastic drawcord waistbands onto navy and printed men's swim trunks, with bundles of cut trunk panels stacked in bins beside each station.",
+        "setting": "Sewing floor of the Guangzhou swimwear factory",
+        "caption": "Men's swim trunks on the sewing line at our Guangzhou factory"
+      }
+    ]
+  },
+  "/modest-swimwear-manufacturer/": {
+    "splitMedia-2": [
+      {
+        "id": "brief-splitMedia-2-1",
+        "type": "photo",
+        "content": "A Chinese quality inspector in a plain smock checks a finished navy long-sleeve burkini tunic under bright lights on the factory inspection table, running her fingers along the flatlock side seam, with folded matching leggings and swim hijabs stacked beside her and rows of sewing machinists at work blurred in the background.",
+        "setting": "Inspection area beside the sewing floor, Guangzhou factory",
+        "caption": "Checking every set in our own Guangzhou factory before it ships"
+      }
+    ]
+  },
+  "/watersports-apparel-manufacturer/": {
+    "splitMedia-2": [
+      {
+        "id": "brief-splitMedia-2-1",
+        "type": "photo",
+        "content": "A Chinese merchandiser at a desk lays the buyer's chosen fabric swatches, a printed rash guard panel and a few swimwear clasps and rings side by side to confirm the materials before the sampling and production schedule is set.",
+        "setting": "Factory development office, Guangzhou",
+        "caption": "Agreeing the materials before sampling begins"
+      }
+    ]
+  },
+  "/resort-wear-manufacturer/": {
+    "splitMedia-2": [
+      {
+        "id": "brief-splitMedia-2-1",
+        "type": "photo",
+        "content": "A Chinese female pattern maker pinches the loose linen at the hip of a sand-coloured midi cover-up dress worn over a navy one-piece swimsuit by a fit model, a tape measure in her other hand to check the ease.",
+        "setting": "Sampling room fitting area, Guangzhou factory",
+        "caption": "Checking the ease of a linen cover-up over a swimsuit before bulk"
+      }
+    ]
+  },
+  "/development/": {
+    "splitMedia-2": [
+      {
+        "id": "brief-splitMedia-2-1",
+        "type": "photo",
+        "content": "A Chinese technical designer leans over a drafting desk and pencils a line-only technical flat of a one-piece swimsuit, front and back views with stitch lines and elastic placement drawn but no lettering, with a roll of swimwear elastic, a hook-and-eye closure and a folded nylon-spandex swatch beside the sheet.",
+        "setting": "Factory development room, Guangzhou",
+        "caption": "Seams, elastic placement and closures drawn into the flats"
+      }
+    ]
+  },
+  "/swimwear-hardware/": {
+    "splitMedia-1": [
+      {
+        "id": "brief-splitMedia-1-1",
+        "type": "photo",
+        "content": "A Chinese female sewing machine operator loops a gold metal slider onto the end of a black swimsuit strap and stitches the folded fabric back on an industrial machine, with bundles of cut swimwear pieces and small trays of rings and sliders beside her.",
+        "setting": "Swimwear sewing floor, Guangzhou factory",
+        "caption": "Fitting sliders onto swimsuit straps on our own sewing floor in Guangzhou"
+      }
+    ]
+  }
+}

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 
 import { validateAuthoringPages } from '../lib/authoring-contract.mjs';
-import { proofBlock, proofSignoffItems, withProofSlots } from '../lib/site-proof.mjs';
+import { pageProofSlots, proofBlock, proofSignoffItems, withProofSlots } from '../lib/site-proof.mjs';
 import { mergeProofItems } from '../proof-signoff.mjs';
 
 const proof = {
@@ -247,6 +247,45 @@ test('a page with its own client case gets no stand-in case studies, and the imp
   assert.equal(silent.length, 3, 'without cases from the package the stand-ins fill the slot');
 });
 
+test("the case studies page shows the site's case studies, a card each, where Site Factory gives it no case of its own (C9, H-2)", async () => {
+  const { placeOwnerSlots, placeCases } = await import('../lib/page-assembly.mjs');
+  const { blueprintPage } = await import('../lib/page-blueprints.mjs');
+  const { standIns } = await import('../design-review.mjs');
+  assert.deepEqual(pageProofSlots('general', 'site:case_studies_portfolio'), ['caseStudies']);
+  assert.deepEqual(pageProofSlots('general', 'site:faq'), [], 'no other general page');
+  assert.deepEqual(pageProofSlots('about', 'site:case_studies_portfolio'), [], 'a page Site Factory types otherwise keeps its own slots');
+  const cases = [{ product: 'Bikinis', text: 'An anonymised order.' }];
+  const many = { ...proof, standIn: true, caseStudies: [1, 2, 3, 4].map((n) => ({ ...proof.caseStudies[0], title: `Case ${n}`, pages: [`/p${n}/`] })) };
+  const blocks = [{ id: 'overview', type: 'intro', heading: 'H', paragraphs: ['P'] }, { id: 'faq', type: 'faq', items: [] }, { id: 'cta', type: 'cta' }];
+  const mapping = [];
+  const planned = { url: '/case-studies/', page_type: 'general', page_id: 'site:case_studies_portfolio' };
+  // The general blueprint has no owner slot: the tree name adds it. Site Factory's own cases take its place (site13 blind
+  // audit H-2: the stand-in cards and the page's cases told different projects).
+  const own = blocks.map((block) => ({ ...block }));
+  const ownMapping = [];
+  placeOwnerSlots(own, ownMapping, { planned, proof: many, blueprints: { general: [{ id: 'overview', block: 'intro', fill: 'copy' }] }, cases });
+  placeCases(own, ownMapping, { source: { cases }, proof: many });
+  assert.deepEqual(own.map((block) => block.type), ['intro', 'orderCase', 'faq', 'cta']);
+  assert.match(ownMapping.find((entry) => entry.sectionId === 'owner.caseStudies').rule, /own client case takes its place/);
+  placeOwnerSlots(blocks, mapping, { planned, proof: many, blueprints: { general: [{ id: 'overview', block: 'intro', fill: 'copy' }] }, cases: null });
+  assert.deepEqual(blocks.map((block) => block.type), ['intro', 'caseStudies', 'faq', 'cta']);
+  const cards = blocks.find((block) => block.type === 'caseStudies');
+  assert.deepEqual(cards.items.map((item) => item.title), ['Case 1', 'Case 2', 'Case 3'], 'a card each, up to the block\'s three');
+  assert.equal(cards.heading, 'Client results');
+  assert.match(mapping.find((entry) => entry.sectionId === 'owner.caseStudies').rule, /owner's proof/);
+  // Stand-in cases carry the stand-in mark: the owner-* block of a standIn proof, listed for replacing before launch.
+  assert.equal(cards.id, 'owner-caseStudies');
+  assert.ok(standIns({ blocks }, { proofStandIn: true }).includes('stand-in proof (src/data/site-proof.json): owner-caseStudies'));
+  assert.ok(proofSignoffItems(many).some((item) => item.id === 'proof-caseStudies'));
+  // Any other general page gets none; the cases' page is built the same while Site Factory has not written it.
+  const faq = [{ id: 'overview', type: 'intro' }, { id: 'faq', type: 'faq' }];
+  placeOwnerSlots(faq, [], { planned: { url: '/faq/', page_type: 'general', page_id: 'site:faq' }, proof: many, blueprints: { general: [] }, cases: null });
+  assert.deepEqual(faq.map((block) => block.type), ['intro', 'faq']);
+  const placeholder = blueprintPage({ page: { page_id: 'site:case_studies_portfolio', page_type: 'general', url: '/case-studies/', label: 'Case studies' }, pagesPlan: { pages: [] }, contactRoute: '/contact/', proof: many });
+  assert.ok(placeholder.blocks.some((block) => block.type === 'caseStudies'));
+  assert.deepEqual(validateAuthoringPages([{ ...placeholder, blocks: placeholder.blocks.filter((block) => block.type === 'caseStudies') }]), []);
+});
+
 test('a why_us list section becomes short selling points; borrowed points and borrowed steps hold release until confirmed', async () => {
   const { planBlocks } = await import('../lib/sf-sections.mjs');
   const { verifySectionFacts } = await import('../lib/sf-structured.mjs');
@@ -337,4 +376,36 @@ test("the trust bar's unconfirmed figures and Site Factory's items hold release,
   const built = new Map([['/', '<p>Call +1 (416) 555-0142</p>'], ['/about-us/', '<p>Call +1 (416) 555-2042, hello@motelpilot.com</p>']]);
   const standIn = runChecks({ ...ctx, built }, SITE_CHECKS.filter((check) => check.code === 'contact_details_stand_in')).holds;
   assert.deepEqual(standIn.map((hold) => hold.items), [['/']]);
+});
+
+test('each site\'s stand-in clients are its own: made from the trade\'s name parts by the site\'s name, kept while made for it', async () => {
+  const { demoProof, standInClients, withFacts } = await import('../scaffold-site-proof.mjs');
+  const { readFile: read } = await import('node:fs/promises');
+  // Owner 2026-11-17: the motel, hotel-rm and Staylumen sites showed the same six clients, plainly made up.
+  const service = JSON.parse(await read(new URL('../../config/demo-proof.service.json', import.meta.url), 'utf8'));
+  const sites = ['MotelPilot', 'RateHarbor', 'Staylumen'].map((seed) => standInClients(service.clientNames, 6, seed));
+  for (const clients of sites) assert.equal(new Set(clients.map((client) => client.name)).size, 6);
+  for (const [index, clients] of sites.entries()) for (const other of sites.slice(index + 1)) assert.ok(clients.filter((client) => other.some((item) => item.name === client.name)).length <= 1, 'two sites share one client at most');
+  assert.deepEqual(standInClients(service.clientNames, 6, 'RateHarbor'), sites[1], 'the same site, the same clients');
+  const apparel = JSON.parse(await read(new URL('../../config/demo-proof.json', import.meta.url), 'utf8'));
+  const facts = new Map();
+  const products = [{ product: 'bikini', route: '/bikini/' }];
+  const made = demoProof({ demo: apparel, facts, products, line: 'swimwear', seed: 'Strandmill' });
+  assert.equal(made.clientsFor, 'Strandmill');
+  assert.ok(made.testimonials.every((item) => made.clients.some((client) => client.name === item.company)));
+  // A stand-in made before (no clientsFor: the trade's fixed six) takes the site's own, its testimonials with them.
+  const old = { ...demoProof({ demo: apparel, facts, products, line: 'swimwear' }), clientsFor: undefined };
+  const next = withFacts(old, made, new Set(['/bikini/']));
+  assert.deepEqual([next.clients, next.clientsFor, next.testimonials], [made.clients, 'Strandmill', made.testimonials]);
+  // Made for this site and edited by hand: kept.
+  const edited = { ...made, clients: [{ name: 'Maré Studio', note: 'Swimwear, Portugal' }, ...made.clients.slice(1)] };
+  assert.equal(withFacts(edited, made, new Set(['/bikini/'])).clients[0].name, 'Maré Studio');
+});
+
+test('a stand-in team kept with the site\'s own clients takes its roles\' page types from the trade\'s config (aloha L-13, 2026-11-18)', async () => {
+  const { withFacts } = await import('../scaffold-site-proof.mjs');
+  const made = { factory: [], team: [{ name: 'A', role: 'Founder', reviews: ['solution'] }, { name: 'B', role: 'Head of development', reviews: ['product_manufacturer'] }], clients: [{ name: 'X', note: 'Swimwear, UK' }] };
+  const existing = { standIn: true, factory: [], clientsFor: 'site', clients: [{ name: 'Own', note: 'Resort, US' }], team: [{ name: 'Wenjie', role: 'Founder', reviews: ['service'] }, { name: 'Huimin', role: 'Head of development', reviews: ['product_manufacturer', 'solution'] }] };
+  const team = withFacts(existing, made).team;
+  assert.deepEqual(team.map((person) => [person.role, person.reviews]), [['Founder', ['solution']], ['Head of development', ['product_manufacturer']]]);
 });

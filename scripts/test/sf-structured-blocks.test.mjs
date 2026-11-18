@@ -106,3 +106,11 @@ test('figures, price cards, swatches and a photo group become valid blocks, ever
   assert.throws(() => planKindBlocks(page([{ section_id: 't', kind: 'materials', presentation: 'photos', heading: 'Trims', items: [{ title: 'Rings', text: 'Gold-plated brass.' }, { title: 'Sliders' }] }])), /a photo is captioned by its title/);
   assert.throws(() => planKindBlocks(page([{ section_id: 'c', kind: 'terms', presentation: 'prices', heading: 'Prices', items: [{ title: 'Sample', price: {}, text: 'x' }, { title: 'Bulk', price: { amount: 'USD 1' }, text: 'y' }] }])), /item 1 needs price\.amount/);
 });
+
+test('a related link to a page held out of the index is not copy to place: the block does not show it (site13 blind audit H-4)', async () => {
+  const { pageCopy } = await import('../lib/site-pages.mjs');
+  const related = { id: 'related', type: 'relatedPages', heading: 'More', links: [{ label: 'Blog', href: '/blog/' }, { label: 'About us', href: '/about/' }] };
+  const built = new Set(['/', '/blog/', '/about/']);
+  assert.deepEqual(pageCopy({ blocks: [related] }, built, null, new Set(['/', '/about/'])), ['More', 'About us']);
+  assert.deepEqual(pageCopy({ blocks: [related] }, built), ['More', 'Blog', 'About us']);
+});

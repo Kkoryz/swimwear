@@ -9,9 +9,9 @@ import { siteFactoryIssues } from '../sf-report.mjs';
 test('each audit failure has an owner: the stylesheet, Site Factory, or a template rule', () => {
   assert.equal(ownerOf('low_contrast'), 'site-css');
   assert.equal(ownerOf('unplaced_copy'), 'site-factory');
-  assert.equal(ownerOf('heavy_crop'), 'template');
+  assert.equal(ownerOf('h1_below_fold'), 'template');
   assert.ok(SITE_CSS_ISSUES.includes('template_rule_overridden'), 'the run hands the repair agent what the table gives the stylesheet');
-  assert.deepEqual(byOwner(['unplaced_copy', 'heavy_crop', 'unplaced_copy']), ["2 failure(s) for Site Factory's copy or plan (08 does not rewrite copy; docs/research/sf-report.md) (unplaced_copy)", '1 failure(s) for a rule of the template (heavy_crop)']);
+  assert.deepEqual(byOwner(['unplaced_copy', 'h1_below_fold', 'unplaced_copy']), ["2 failure(s) for Site Factory's copy or plan (08 does not rewrite copy; docs/research/sf-report.md) (unplaced_copy)", '1 failure(s) for a rule of the template (h1_below_fold)']);
 });
 
 test("08's report back to Site Factory gathers what is Site Factory's to fix, from every report that finds it", async () => {

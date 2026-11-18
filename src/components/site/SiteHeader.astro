@@ -1,8 +1,11 @@
 ---
 // Header patterns: layout stacked (brand row above the nav row) or inline (brand and nav in one bar),
 // optional announcement bar, mega or list dropdowns, optional carets, and a nav item promoted to a CTA pill.
-import { siteIdentity, siteNav, siteRuntime, variants, type NavNode } from '../../lib/authoring';
+import { chromeCta } from '../../../scripts/lib/primary-cta.mjs';
+import { isBuilt, pages, siteIdentity, siteNav, siteRuntime, variants, type AuthoringPage, type NavNode } from '../../lib/authoring';
 import SmartLink from './SmartLink.astro';
+
+interface Props { page?: AuthoringPage }
 
 const nav = siteNav as { brand?: { name?: string; logo?: string } | null; announcement?: string | null };
 const brand = nav.brand ?? null;
@@ -10,6 +13,12 @@ const options = { layout: 'stacked', topBar: false, dropdown: 'mega', carets: fa
 const announcement = nav.announcement ?? siteRuntime?.site?.announcement ?? null;
 const ctaItem = siteNav.header.find((item) => item.route === options.ctaRoute && item.children.length === 0) ?? null;
 const menuItems = siteNav.header.filter((item) => item !== ctaItem);
+// Without a nav item promoted to the button, a desktop header shows the site's call to action (the home page's words and
+// link, scripts/lib/primary-cta.mjs chromeCta): a photo hero's button can sit below a desktop's first screen, and the
+// call stays in it (four-site audit 2026-11-17: the hotel site's title at y=904 of a 768px screen, under a full-screen
+// photo; owner 2026-11-17, after claude-seo). Below the header's desktop width the enquiry bar carries it (EnquiryBar.astro).
+const pageCta = !ctaItem && Astro.props.page ? chromeCta(Astro.props.page, pages) : null;
+const fallbackCta = pageCta && isBuilt(pageCta.href) ? pageCta : null;
 const flatten = (nodes: NavNode[], depth = 0): { node: NavNode; depth: number }[] =>
   nodes.flatMap((node) => [{ node, depth }, ...flatten(node.children, depth + 1)]);
 ---
@@ -35,10 +44,18 @@ const flatten = (nodes: NavNode[], depth = 0): { node: NavNode; depth: number }[
       <ul class="site-nav__list">
         {menuItems.map((item) => (
           <li class:list={['site-nav__item', { 'has-panel': item.children.length > 0 }]}>
-            <SmartLink href={item.route} class="site-nav__link">
-              {item.label}
-              {options.carets && item.children.length > 0 && <svg class="site-nav__caret" viewBox="0 0 10 6" width="9" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>}
-            </SmartLink>
+            {/* A menu heading with no page of its own opens its menu as a button: as text it took no focus, and its hidden
+                links none either, so a keyboard never reached them (RateHarbor claude-seo audit 2026-11-17, M-5). Focus on
+                it opens the menu (:focus-within), and the links follow in the tab order. */}
+            {item.children.length > 0 && !(item.route && isBuilt(item.route))
+              ? <button type="button" class="site-nav__link" aria-haspopup="true">
+                  {item.label}
+                  {options.carets && <svg class="site-nav__caret" viewBox="0 0 10 6" width="9" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>}
+                </button>
+              : <SmartLink href={item.route} class="site-nav__link">
+                  {item.label}
+                  {options.carets && item.children.length > 0 && <svg class="site-nav__caret" viewBox="0 0 10 6" width="9" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>}
+                </SmartLink>}
             {item.children.length > 0 && options.dropdown === 'list' && (
               <ul class="site-nav__dropdown">
                 {flatten(item.children).map(({ node, depth }) => (
@@ -69,6 +86,7 @@ const flatten = (nodes: NavNode[], depth = 0): { node: NavNode; depth: number }[
       </ul>
     </nav>
     {ctaItem && <SmartLink href={ctaItem.route} class="site-header__cta">{ctaItem.label}</SmartLink>}
+    {fallbackCta && <a href={fallbackCta.href} class="site-header__cta" data-primary-cta>{fallbackCta.label}</a>}
     <details class="site-menu">
       <summary class="site-menu__toggle" aria-label="Menu">
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" /></svg>

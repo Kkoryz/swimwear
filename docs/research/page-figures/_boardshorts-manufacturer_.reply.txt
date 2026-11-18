@@ -1,3 +1,0 @@
-```json
-{"figures": [{"value": "50 pieces", "label": "Minimum per style"}, {"value": "10 to 15 days", "label": "Sample time"}, {"value": "35 to 40 days", "label": "Production time"}, {"value": "28 to 44 inches", "label": "Men's waist sizes"}, {"value": "10 to 22 inches", "label": "Custom outseam range"}, {"value": "120 GSM", "label": "Microfiber twill weight"}]}
-```

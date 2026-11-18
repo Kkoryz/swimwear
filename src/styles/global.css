@@ -55,15 +55,6 @@
    docs/research/raw/design-lock.json; the font families come from the fonts step (src/styles/fonts.css, generated
    from docs/research/installed-fonts.json). Components only read tokens. */
 :root {
-  --surface-primary: #ffffff;
-  --surface-secondary: #f6f3ed;
-  --surface-dark: #171717;
-  --text-primary: #171717;
-  --text-inverse: #ffffff;
-  --text-muted: #5f5f5f;
-  --border-color: #e5e5e5;
-  --accent: #235347;
-  --accent-contrast: #ffffff;
 
   --font-body: Inter, ui-sans-serif, system-ui, sans-serif;
   --font-hero: var(--font-body);
@@ -71,24 +62,9 @@
   --font-subheading: var(--font-body);
   --font-ui: var(--font-body);
 
-  --size-hero: clamp(2.25rem, 5vw, 3.5rem);
-  --size-display: clamp(1.75rem, 3vw, 2.25rem);
-  --size-card-heading: 1.375rem;
-  --size-subheading: 1.125rem;
-  --size-body: 1rem;
-  --line-body: 1.7;
-  --weight-heading: 700;
 
-  --radius-card: 8px;
-  --radius-media: 8px;
-  --radius-button: 4px;
-  --shadow-card: none;
 
-  --container-max: 72rem;
-  --gutter: 1.25rem;
-  --section-space: clamp(2.5rem, 5vw, 4.5rem);
   --grid-gap: 1.5rem;
-  --header-height: 72px;
   /* Largest allowed gap between the visible content of two consecutive authoring blocks. */
   --authoring-max-boundary-gap: 176px;
 

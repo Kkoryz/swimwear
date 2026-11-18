@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "seo-site-stand-in-lexicon-v1",
+  "note": "Product and service names that no longer exist (or that a site borrowed from somewhere they no longer apply), which copy should not name as current (four-site audit 2026-11-17: the swimwear site's privacy page offered Skype). The stage 10 SEO audit warns stand_in_lexicon for each one a page's text uses, for Site Factory to reword; it never rewrites copy. Each term is matched as a whole word in the case it is written (a proper name; a term that is also a common word, such as Vine, is left out).",
+  "terms": [
+    { "term": "Skype", "why": "Microsoft retired Skype in May 2025 (Teams replaced it)" },
+    { "term": "Google+", "why": "Google+ closed to consumers in April 2019" },
+    { "term": "Google Hangouts", "why": "Google Hangouts was retired in 2022 (Google Chat and Meet replaced it)" },
+    { "term": "Google My Business", "why": "renamed Google Business Profile in 2021" },
+    { "term": "Universal Analytics", "why": "Google Universal Analytics stopped processing data in July 2023 (GA4 replaced it)" },
+    { "term": "Internet Explorer", "why": "Microsoft retired Internet Explorer 11 in June 2022" },
+    { "term": "Flash Player", "why": "Adobe ended Flash Player in December 2020" },
+    { "term": "Yahoo Messenger", "why": "Yahoo Messenger closed in July 2018" },
+    { "term": "Windows Live Messenger", "why": "Microsoft closed Windows Live Messenger in 2013-2014" },
+    { "term": "MSN Messenger", "why": "Microsoft closed MSN Messenger in 2013-2014" },
+    { "term": "Google Reader", "why": "Google Reader closed in July 2013" },
+    { "term": "Google Stadia", "why": "Google closed Stadia in January 2023" },
+    { "term": "Twitter Blue", "why": "renamed X Premium in 2023" }
+  ]
+}

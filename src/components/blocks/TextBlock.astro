@@ -9,7 +9,7 @@ interface Props { block: IntroBlock | ProofBlock; media?: Media[]; variant?: str
 const { block, media = [], variant } = Astro.props;
 ---
 
-<section class:list={['block', `block--${block.type}`]} data-authoring-block={block.type} data-block-id={block.id} data-continues={block.continues} data-variant={variant}>
+<section class:list={['block', `block--${block.type}`]} id={block.anchor} data-authoring-block={block.type} data-block-id={block.id} data-continues={block.continues} data-variant={variant}>
   <div class="container">
     <div class="text-block" data-layout={block.type === 'proof' && media.length ? 'split' : 'text'} data-density={density(block.wordCount)}>
       <div class="text-block__copy">

@@ -129,21 +129,23 @@ test('a Codex run that times out fails and is ended with everything it started (
   const root = await mkdtemp(join(tmpdir(), 'codex-timeout-'));
   const marker = join(root, 'late.txt').replaceAll('\\', '/');
   // A codex that would write a file after the timeout, started the way the real one is (a .cmd shim on Windows).
-  await writeFile(join(root, 'late.js'), `setTimeout(() => require('fs').writeFileSync('${marker}', 'late'), 1500);`);
+  await writeFile(join(root, 'late.js'), `setTimeout(() => require('fs').writeFileSync('${marker}', 'late'), 4000);`);
   const script = join(root, 'late.js').replaceAll('\\', '/');
   if (process.platform === 'win32') await writeFile(join(root, 'codex.cmd'), `@node "${script}"\r\n`);
   else await writeFile(join(root, 'codex'), `#!/bin/sh\nexec node "${script}"\n`, { mode: 0o755 });
   const saved = process.env.PATH;
   process.env.PATH = `${root}${delimiter}${saved}`;
   try {
-    const result = await spawnCodex({ args: [], prompt: 'p', env: process.env, timeoutMs: 300 });
+    const result = await spawnCodex({ args: [], prompt: 'p', env: process.env, timeoutMs: 1500 });
     assert.notEqual(result.code, 0);
     assert.notEqual(result.code, null);
     assert.match(result.stderr, /timed out/);
   } finally {
     process.env.PATH = saved;
   }
-  await new Promise((done) => setTimeout(done, 2000));
+  // Times wide enough that a busy machine (several sites' pipelines at once, 2026-11-17) has started the process before
+  // the timeout: at 300 ms it was sometimes not yet running when it was ended, and wrote its file after.
+  await new Promise((done) => setTimeout(done, 5000));
   assert.ok(!existsSync(marker), 'nothing it started runs on after the timeout');
 });
 

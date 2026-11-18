@@ -8,5 +8,5 @@ const { media, ratio = '4 / 3', class: className, loading = 'lazy', sizes = '(mi
 <figure class:list={['media-box', className, { 'media-box--slot': media.slot }]} style={`--media-ratio: ${ratio}`} data-media-slot={media.slot}>
   {media.slot
     ? <span class="media-box__slot-label" aria-hidden="true">Image slot · {media.slot}</span>
-    : <img src={media.src} srcset={media.srcset} sizes={media.srcset ? sizes : undefined} alt={media.alt} width={media.width} height={media.height} loading={media.priority ? 'eager' : loading} decoding="async" style={focusStyle(media.src)} />}
+    : <img src={media.src} srcset={media.srcset} sizes={media.srcset ? sizes : undefined} alt={media.alt} width={media.width} height={media.height} loading={media.priority ? 'eager' : loading} fetchpriority={media.priority ? 'high' : undefined} decoding="async" style={focusStyle(media.src)} />}
 </figure>

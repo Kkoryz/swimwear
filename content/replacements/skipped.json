@@ -1,0 +1,16 @@
+{
+  "02-swim_1117d_fix2.json#85": "SF names it in the photo briefs; the site's photo plan no longer has this sentence (re-planned since): nothing to replace (08, 2026-11-18)",
+  "02-swim_1117d_fix2.json#10": "the toddler page is not built: merged into the children's page (SF swim_1117d_fix4, owner 2026-11-18; content/package-patches/swim_1117d_fix4.json removes it)",
+  "02-swim_1117d_fix2.json#11": "the toddler page is not built: merged into the children's page (SF swim_1117d_fix4, owner 2026-11-18; content/package-patches/swim_1117d_fix4.json removes it)",
+  "02-swim_1117d_fix2.json#21": "the toddler page is not built: merged into the children's page (SF swim_1117d_fix4, owner 2026-11-18; content/package-patches/swim_1117d_fix4.json removes it)",
+  "02-swim_1117d_fix2.json#34": "the teen page is not built: merged into the children's page (SF swim_1117d_fix4, owner 2026-11-18; content/package-patches/swim_1117d_fix4.json removes it)",
+  "03-swim_1117d_fix3.json#5": "the toddler page is not built: merged into the children's page (SF swim_1117d_fix4, owner 2026-11-18; content/package-patches/swim_1117d_fix4.json removes it)",
+  "03-swim_1117d_fix3.json#6": "the toddler page is not built: merged into the children's page (SF swim_1117d_fix4, owner 2026-11-18; content/package-patches/swim_1117d_fix4.json removes it)",
+  "03-swim_1117d_fix3.json#7": "the toddler page is not built: merged into the children's page (SF swim_1117d_fix4, owner 2026-11-18; content/package-patches/swim_1117d_fix4.json removes it)",
+  "03-swim_1117d_fix3.json#9": "the teen page is not built: merged into the children's page (SF swim_1117d_fix4, owner 2026-11-18; content/package-patches/swim_1117d_fix4.json removes it)",
+  "03-swim_1117d_fix3.json#25": "the teen page is not built: merged into the children's page (SF swim_1117d_fix4, owner 2026-11-18; content/package-patches/swim_1117d_fix4.json removes it)",
+  "04-swim_1117d_fix4.json#4": "an addition, not a replacement: section m4_2 (Toddler Swimwear Sizes 2T–4T) is added to the children's page in the package by content/package-patches/swim_1117d_fix4.json, so the import lays it out",
+  "04-swim_1117d_fix4.json#5": "an addition, not a replacement: section m4_3 (Tween and Teen Swimwear Sizes) is added to the children's page in the package by content/package-patches/swim_1117d_fix4.json, so the import lays it out",
+  "04-swim_1117d_fix4.json#6": "an addition, not a replacement: the FAQ question on swim-nappy fits (with the FAQPage) is added to the children's page in the package by content/package-patches/swim_1117d_fix4.json, so the import lays it out",
+  "04-swim_1117d_fix4.json#7": "an addition, not a replacement: the FAQ question on tween and teen coverage (with the FAQPage) is added to the children's page in the package by content/package-patches/swim_1117d_fix4.json, so the import lays it out"
+}

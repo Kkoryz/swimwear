@@ -11,7 +11,7 @@ const { block, variant = 'checks' } = Astro.props;
 const { hasIntro, layout, listed, notes, columns } = iconListLayout(block);
 ---
 
-<section class="block block--icon-list" data-authoring-block="iconList" data-block-id={block.id} data-variant={variant}>
+<section class="block block--icon-list" id={block.anchor} data-authoring-block="iconList" data-block-id={block.id} data-variant={variant}>
   <div class="container icon-list" data-layout={layout}>
     {hasIntro && (
       <div class="icon-list__intro">

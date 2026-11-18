@@ -17,6 +17,7 @@ import { existsSync } from 'node:fs';
 import { appendFile, mkdir, writeFile } from 'node:fs/promises';
 import { homedir } from 'node:os';
 import { delimiter, dirname, join, resolve } from 'node:path';
+import { noteModelCall } from './model-calls.mjs';
 
 const CLAUDE_TIMEOUT_MS = 12 * 60 * 1000;
 // The model and effort Site Factory's judgments use (site.json agentModel or CLAUDE_JUDGE_MODEL names another model).
@@ -39,9 +40,10 @@ export function claudeCommand(platform = process.platform, path = process.env.PA
 }
 const quoteForCmd = (arg) => `"${String(arg).replace(/"/g, '""')}"`;
 
-export function claudeArgs({ sandbox = 'workspace-write', model = null, effort = JUDGE_EFFORT } = {}) {
+// stream: every message as an event line (stream-json), the run's result the last line as with json.
+export function claudeArgs({ sandbox = 'workspace-write', model = null, effort = JUDGE_EFFORT, stream = false } = {}) {
   const tools = sandbox === 'read-only' ? READ_TOOLS : WRITE_TOOLS;
-  return ['-p', '--safe-mode', '--setting-sources', '', '--strict-mcp-config', '--disable-slash-commands', '--no-session-persistence', '--output-format', 'json', '--model', model || JUDGE_MODEL, '--effort', effort, '--permission-mode', sandbox === 'read-only' ? 'default' : 'acceptEdits', '--allowedTools', ...tools];
+  return ['-p', '--safe-mode', '--setting-sources', '', '--strict-mcp-config', '--disable-slash-commands', '--no-session-persistence', '--output-format', ...(stream ? ['stream-json', '--verbose'] : ['json']), '--model', model || JUDGE_MODEL, '--effort', effort, '--permission-mode', sandbox === 'read-only' ? 'default' : 'acceptEdits', '--allowedTools', ...tools];
 }
 
 // The judge directories, in order (SITE_CLAUDE_CONFIG_DIRS, a JSON list; else .claude-judge08 beside the site's folder).
@@ -81,10 +83,12 @@ export function spawnClaude({ args, prompt, cwd, env, timeoutMs }) {
   });
 }
 
-export async function runClaude({ root, prompt, images = [], lastMessage, sandbox = 'workspace-write', timeoutMs = CLAUDE_TIMEOUT_MS, model = process.env.CLAUDE_JUDGE_MODEL || null, tokenLog = null, label = '', spawnRun = spawnClaude, env = process.env }) {
+export async function runClaude({ root, prompt, images = [], lastMessage, sandbox = 'workspace-write', timeoutMs = CLAUDE_TIMEOUT_MS, model = process.env.CLAUDE_JUDGE_MODEL || null, tokenLog = null, label = '', spawnRun = spawnClaude, env = process.env, earlierJson = false }) {
+  // Every call is counted for the run's summary, and refused in an iteration run (lib/model-calls.mjs).
+  await noteModelCall(root, { label }, env);
   const passed = [];
   for (const dir of judgeDirs(root, env).filter((item) => !setAside.has(item))) {
-    const result = await runIn({ dir, root, prompt, images, lastMessage, sandbox, timeoutMs, model, tokenLog, label, spawnRun, env });
+    const result = await runIn({ dir, root, prompt, images, lastMessage, sandbox, timeoutMs, model, tokenLog, label, spawnRun, env, earlierJson });
     // At its limit or without a sign-in: set aside for the process, and the next directory takes the run.
     if (result.code !== 0 && result.unavailable) { setAside.add(dir); passed.push(`${dir}: ${result.stderr}`); continue; }
     return { code: result.code, stderr: result.stderr };
@@ -92,12 +96,27 @@ export async function runClaude({ root, prompt, images = [], lastMessage, sandbo
   return { code: 1, stderr: `usage limit reached: no Claude judge directory can answer (${passed.join('; ') || 'all set aside in this run'}); sign in with CLAUDE_CONFIG_DIR=<dir> claude, then /login` };
 }
 
-async function runIn({ dir, root, prompt, images, lastMessage, sandbox, timeoutMs, model, tokenLog, label, spawnRun, env }) {
-  const started = Date.now();
-  const result = await spawnRun({ args: claudeArgs({ sandbox, model }), prompt: withImages(prompt, images), cwd: root, env: judgeEnv(dir, env), timeoutMs });
+// The run's reply from its output: the result event (the last line), and with earlierJson (a judge whose answer is a
+// JSON object) the last of its messages that holds one when the final message does not (aloha 2026-11-18: two of three
+// auditors gave the JSON, then closed on a note, "the final JSON is my previous reply").
+const holdsJson = (text) => /```json|^\s*\{/m.test(String(text ?? ''));
+export function replyOf(stdout, { earlierJson = false } = {}) {
+  const lines = String(stdout ?? '').trim().split(/\r?\n/).filter(Boolean);
   let reply = null;
-  try { reply = JSON.parse(result.stdout.trim().split(/\r?\n/).filter(Boolean).at(-1) ?? ''); } catch { reply = null; }
-  const text = reply?.result ?? '';
+  try { reply = JSON.parse(lines.at(-1) ?? ''); } catch { reply = null; }
+  let text = reply?.result ?? '';
+  if (earlierJson && reply && !holdsJson(text)) {
+    const said = lines.flatMap((line) => { try { const event = JSON.parse(line); return event.type === 'assistant' ? (event.message?.content ?? []).filter((part) => part.type === 'text').map((part) => part.text) : []; } catch { return []; } });
+    const earlier = said.filter(holdsJson).at(-1);
+    if (earlier) text = earlier;
+  }
+  return { reply, text };
+}
+
+async function runIn({ dir, root, prompt, images, lastMessage, sandbox, timeoutMs, model, tokenLog, label, spawnRun, env, earlierJson = false }) {
+  const started = Date.now();
+  const result = await spawnRun({ args: claudeArgs({ sandbox, model, stream: earlierJson }), prompt: withImages(prompt, images), cwd: root, env: judgeEnv(dir, env), timeoutMs });
+  const { reply, text } = replyOf(result.stdout, { earlierJson });
   const failed = result.code !== 0 || !reply || reply.is_error;
   if (lastMessage && reply && !reply.is_error) {
     await mkdir(dirname(lastMessage), { recursive: true });

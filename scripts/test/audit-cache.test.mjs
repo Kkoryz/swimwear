@@ -55,6 +55,63 @@ test('the layout audit measures again only pages whose built output changed; a f
   assert.equal(fresh.length, 6);
 });
 
+test('the layout audit fails a page whose title or call to action is under the first screen of a phone or a 1366×768 desktop (four-site audit 2026-11-17)', async () => {
+  const root = await site();
+  const pages = [{ ...pageDefinition('/a/'), hero: { heading: 'H', cta: { label: 'Get a quote', href: '/b/' } } }, pageDefinition('/b/')];
+  await writeFile(join(root, 'src/data/authoring-pages.json'), JSON.stringify(pages));
+  const clean = fakeMeasure([]);
+  const measure = async (definition, viewport) => {
+    const result = await clean(definition, viewport);
+    const below = { width: 1366, height: 768, h1: { top: 904, bottom: 1072, text: 'H' }, ctas: [{ top: 1180, bottom: 1244, label: 'Get a quote', where: 'hero', fixed: false }], bar: null };
+    return { ...result, fold: viewport.id === 'desktop' ? [below] : [] };
+  };
+  await assert.rejects(auditAuthoringLayout({ baseUrl: 'http://x.test/', rootDir: root, measure, fresh: true }), /failed with 3 issue/);
+  const report = JSON.parse(await readFile(join(root, 'docs/research/authoring-layout-audit.json'), 'utf8'));
+  assert.deepEqual(report.failures.map((failure) => `${failure.route} ${failure.screen} ${failure.issue}`), ['/a/ 1366x768 h1_below_fold', '/a/ 1366x768 cta_below_fold', '/b/ 1366x768 h1_below_fold']);
+  // A page whose copy has no call to action (/b/) is reported, not held to one.
+  assert.ok(report.warnings.some((warning) => warning.route === '/b/' && warning.issue === 'no_primary_cta'));
+  // A page held out of the index (a blog hub with no post, site12 2026-11-17) is not held to one either.
+  await writeFile(join(root, 'src/data/authoring-pages.json'), JSON.stringify([{ ...pages[0], status: 'hold' }, pages[1]]));
+  await assert.rejects(auditAuthoringLayout({ baseUrl: 'http://x.test/', rootDir: root, measure, fresh: true }), /failed with 2 issue/);
+  const held = JSON.parse(await readFile(join(root, 'docs/research/authoring-layout-audit.json'), 'utf8'));
+  assert.equal(held.failures.some((failure) => failure.route === '/a/' && failure.issue === 'cta_below_fold'), false);
+});
+
+test('the layout audit fails a page on its agent tree, its enquiry bar and its throttled phone LCP, and keeps each with the page it measured (four-site audit 2026-11-17, A4, A8, P3)', async () => {
+  const root = await site();
+  const clean = fakeMeasure([]);
+  const broken = new Set(['/b/']);
+  const measure = async (definition, viewport) => {
+    const result = await clean(definition, viewport);
+    if (viewport.id !== 'mobile' || !broken.has(definition.route)) return result;
+    return { ...result, agentTree: [{ rule: 'button-name', impact: 'critical', help: 'Buttons must have discernible text', nodes: [{ target: 'button', html: '<button></button>' }] }, { rule: 'tabindex', impact: 'serious', help: 't', nodes: [] }, { rule: 'aria-allowed-role', impact: 'minor', help: 'r', nodes: [] }], barCover: { bar: { top: 783, height: 61 }, controls: [{ block: 'form', control: 'input', text: 'email', focused: true, covered: 20 }, { block: 'form', control: 'input', text: 'name', focused: true, covered: 0 }] } };
+  };
+  // Both pages are of one type: only the first is loaded for its LCP, once a run it is measured in.
+  const lcpCalls = [];
+  let lcpMs = 4500;
+  const measureLcp = async (definition) => { lcpCalls.push(definition.route); return { ms: lcpMs, element: 'img', url: '/hero.webp' }; };
+  const run = () => auditAuthoringLayout({ baseUrl: 'http://x.test/', rootDir: root, measure, measureLcp }).then(() => 'passed', (error) => error.message);
+  assert.match(await run(), /failed with 4 issue/);
+  const report = JSON.parse(await readFile(join(root, 'docs/research/authoring-layout-audit.json'), 'utf8'));
+  assert.deepEqual(report.failures.map((failure) => `${failure.route} ${failure.viewport} ${failure.issue} ${failure.rule ?? failure.text ?? failure.ms}`), ['/a/ mobile lcp_slow 4500', '/b/ mobile agent_tree button-name', '/b/ mobile agent_tree tabindex', '/b/ mobile enquiry_bar_covers email']);
+  assert.deepEqual(report.warnings.filter((warning) => warning.issue.startsWith('agent_tree')).map((warning) => warning.rule), ['aria-allowed-role']);
+  assert.deepEqual(lcpCalls, ['/a/']);
+  assert.equal(report.lcpMeasured, 1);
+  // Both pages failed: both measured again; the LCP now under the failure line but over Google's "good" is a warning.
+  broken.clear();
+  lcpMs = 3000;
+  assert.equal(await run(), 'passed');
+  const warned = JSON.parse(await readFile(join(root, 'docs/research/authoring-layout-audit.json'), 'utf8'));
+  assert.deepEqual(warned.warnings.filter((warning) => warning.issue === 'lcp_slow').map((warning) => `${warning.route} ${warning.ms} ${warning.limit}`), ['/a/ 3000 2500']);
+  assert.deepEqual(lcpCalls, ['/a/', '/a/']);
+  // Nothing changed: the kept page keeps its LCP (still reported), nothing is loaded again.
+  assert.equal(await run(), 'passed');
+  const kept = JSON.parse(await readFile(join(root, 'docs/research/authoring-layout-audit.json'), 'utf8'));
+  assert.deepEqual(lcpCalls, ['/a/', '/a/']);
+  assert.equal(kept.lcpMeasured, 0);
+  assert.ok(kept.warnings.some((warning) => warning.issue === 'lcp_slow' && warning.route === '/a/'));
+});
+
 test('design shots are taken again only for a page type whose built page or competitor page changed, and reviewed again only where they look different', async () => {
   const { default: sharp } = await import('sharp');
   const { prepareDesignReview } = await import('../design-review.mjs');

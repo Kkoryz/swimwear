@@ -26,8 +26,8 @@ export async function installFonts({ root = process.cwd(), fetch = globalThis.fe
   if (!fontLock) throw new Error('fonts: docs/research/raw/font-lock.json is missing (the capture step writes it)');
   const plan = fontPlan({ fontRoles, fontLock });
   // Everything is downloaded before anything is written: a failure leaves the site's fonts as they were.
-  const { faces, requests, downloads } = await downloadFaces({ plan, cacheDir, fetch });
-  const lock = installedFonts({ plan, faces, requests });
+  const { faces, requests, downloads, synthesized } = await downloadFaces({ plan, cacheDir, fetch });
+  const lock = installedFonts({ plan, faces, requests, synthesized });
 
   const dir = resolve(root, FONTS_DIR);
   await mkdir(dir, { recursive: true });
@@ -50,7 +50,7 @@ export async function installFonts({ root = process.cwd(), fetch = globalThis.fe
 
   return {
     roles: Object.fromEntries(Object.entries(lock.roles).map(([role, item]) => [role, item.substituteFor ? `${item.family} (for ${item.substituteFor})` : item.family])),
-    families: lock.families.map((family) => `${family.family} ${family.weights.join('/')}${family.styles.includes('italic') ? ' +italic' : ''} (${family.source})`),
+    families: lock.families.map((family) => `${family.family} ${family.weights.join('/')}${family.styles.includes('italic') ? ' +italic' : ''} (${family.source})${family.synthesized ? `, ${family.synthesized.join('/')} synthesized by the browser` : ''}`),
     files: files.size,
     downloads,
     removed,

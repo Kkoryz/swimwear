@@ -1,16 +1,32 @@
 // Stage 10 gate: checks the built site (dist/) against the technical SEO rules the template serialises
-// (scripts/lib/seo-head.mjs): head tags, structured data, breadcrumbs, images, orphans, sitemap, robots.txt, 404.
+// (scripts/lib/seo-head.mjs): head tags, structured data, breadcrumbs, images, orphans, sitemap, robots.txt, 404; then
+// the four-site audit's checks (2026-11-17, lib/seo-site-checks.mjs and the data checks of lib/site-data-checks.mjs).
+// Every finding names who clears it (owner: lib/issue-owners.mjs), so the launch checklist and Site Factory's report
+// can route it.
 
 import { resolve } from 'node:path';
-import { decode, internalLinks, isDecorative, parsePage, readBuiltPages } from './built-site.mjs';
+import { attribute, decode, internalLinks, isDecorative, parsePage, readBuiltPages } from './built-site.mjs';
 import { readJson, readText, writeJson } from './json-io.mjs';
-import { absoluteUrl, breadcrumbTrail, isIndexable, robotsAllows } from './seo-head.mjs';
+import { absoluteUrl, breadcrumbTrail, isIndexable, robotsAllows, SERVICE_PAGE_TYPES } from './seo-head.mjs';
+import { assetRefProblems } from './asset-refs.mjs';
+import { homeCategoryProblems } from './home-categories.mjs';
+import { requiredBlocks } from './page-blueprints.mjs';
 import { schemaProblems } from './schema-rules.mjs';
 import { mainKeywords, loadSitePages } from './site-pages.mjs';
 import { pageAltProblems } from './alt-text.mjs';
+import { imageBudgetProblems, imagePriorityProblems } from './image-budgets.mjs';
+import { ownerOf } from './issue-owners.mjs';
+import { companyFacts } from './facts.mjs';
+import { proofProblems, readProof } from './proof-consistency.mjs';
+import { emptyBlogProblems, templatedDescriptions, trustValueProblems } from './site-data-checks.mjs';
+import { builtPromiseProblems, channelHandleProblems, controlNameProblems, firstImageOnScreen, imageWeightProblems, inboundLinkProblems, lastmodProblems, lcpPriorityProblems, lexiconProblems, napProblems, heroReuseProblems, navNoindexProblems, offscreenEagerProblems, photoReuseProblems, privacyContradictionProblems, thinPageProblems, unreferencedAssets } from './seo-site-checks.mjs';
+
+export { emptyBlogProblems };
 
 // Pure checks for one built page: errors { issue, detail } and warnings { level: 'warning', issue, detail }.
-export function pageProblems({ html, page, identity, nav, builtRoutes = null, keyword = null }) {
+// company: the company behind the site (src/data/site-company.json): once it states a service area, every Organization
+// and Service states it too.
+export function pageProblems({ html, page, identity, nav, builtRoutes = null, keyword = null, company = null }) {
   const problems = [];
   const add = (issue, detail = '') => problems.push({ issue, detail });
   const warn = (issue, detail = '') => problems.push({ level: 'warning', issue, detail });
@@ -43,9 +59,13 @@ export function pageProblems({ html, page, identity, nav, builtRoutes = null, ke
     if (organization.url && !String(organization.url).startsWith(identity.origin)) add('organization_url', organization.url);
     if (typeof organization.logo === 'string' && !organization.logo.startsWith(identity.origin)) add('organization_logo', organization.logo);
   }
+  // A page that offers a service carries a Service (T-2 of the four-site audit 2026-11-17: product, service and city
+  // pages had none).
+  if (identity && SERVICE_PAGE_TYPES.includes(page.pageType) && !types.includes('Service')) add('service_schema_missing', page.pageType);
   // Google's required (error) and recommended (warning) properties per type (scripts/lib/schema-rules.mjs).
+  const serviceArea = Boolean(company?.serviceArea?.length);
   for (const schema of schemas) {
-    for (const problem of schemaProblems(schema)) {
+    for (const problem of schemaProblems(schema, { serviceArea })) {
       if (problem.issue === 'json_ld_placeholder' && !isIndexable(page)) continue;
       if (problem.level === 'warning') warn(problem.issue, problem.detail); else add(problem.issue, problem.detail);
     }
@@ -63,12 +83,13 @@ export function pageProblems({ html, page, identity, nav, builtRoutes = null, ke
   if (description && (description.length < 70 || description.length > 165)) warn('description_length', `${description.length} characters`);
   // Placeholder text must never reach an indexable page.
   if (isIndexable(page) && /\[Placeholder\]/.test(html.split('<main')[1] ?? '')) add('placeholder_text_on_indexable');
-  // Link text: descriptive, never empty (an image link carries its alt) or generic.
+  // Link text: descriptive, never generic; every link, button and form control has an accessible name (an image link
+  // carries its alt): control_without_name, a failure since the four-site audit (it was link_text_empty, a warning).
   for (const link of built.links) {
     const text = link.text.toLowerCase();
-    if (!text && !link.ariaLabel && !link.imageAlt) warn('link_text_empty', link.href ?? '');
-    else if (['click here', 'here', 'read more', 'learn more', 'more'].includes(text)) warn('link_text_generic', `"${text}" -> ${link.href}`);
+    if (['click here', 'here', 'read more', 'learn more', 'more'].includes(text)) warn('link_text_generic', `"${text}" -> ${link.href}`);
   }
+  for (const { issue, detail } of controlNameProblems(html)) add(issue, detail);
   // A structured-data link on this site must point at a page that is built.
   if (identity && builtRoutes) {
     const links = JSON.stringify(schemas).match(new RegExp(`"(?:url|item)":"${identity.origin.replace(/[.]/g, '[.]')}(/[^"#?]*)"`, 'g')) || [];
@@ -83,10 +104,61 @@ export function pageProblems({ html, page, identity, nav, builtRoutes = null, ke
     if (image.alt === null) add('image_alt_missing', image.src);
     if (!image.width || !image.height) add('image_size_missing', image.src);
   }
-  if (images[0]?.loading === 'lazy') add('first_image_lazy', images[0].src);
+  // A first image below the first section (a closing photo on a page without a hero photo) stays lazy (L-5).
+  if (images[0]?.loading === 'lazy' && firstImageOnScreen(html)) add('first_image_lazy', images[0].src);
+  for (const { issue, detail } of [...lcpPriorityProblems(html), ...offscreenEagerProblems(html)]) warn(issue, detail);
+  // Modern Web Guidance's image rules: one or two images fetched first, sizes with every srcset (lib/image-budgets.mjs).
+  for (const { issue, detail } of imagePriorityProblems(html)) add(issue, detail);
   // Alt text rules (lib/alt-text.mjs): warnings here, a hold at launch (preflight image_alt_rules).
   for (const { src, problem } of pageAltProblems(images.filter((image) => image.alt !== null).map((image) => ({ src: image.src, alt: image.alt, decorative: isDecorative(image) })), { keyword })) warn(`alt_${problem}`, src);
   return problems;
+}
+
+// Every way in to an enquiry lands on a form (Strandmill audit 2026-11-17: three of four sites' "Request a quote" page
+// had none): a page that must carry the enquiry form (REQUIRED_BLOCKS: the contact and the inquiry page) has a <form>,
+// and so does the target of every button on the site that asks for a quote or an enquiry. One failure per target page,
+// with the pages whose links lead there.
+const ENQUIRY_LABEL = /\b(quote|quotation|enquir\w*|inquir\w*)\b/i;
+const BUTTON_CLASS = /(^|\s)(button|[\w-]+__cta)(\s|$)/;
+export function formLandingProblems(pages, built) {
+  // An enquiry form: the resource request form (data-request="resource") is no landing for "Request a quote".
+  const hasForm = (route) => /<form\b(?![^>]*\sdata-request="resource")/i.test(built.get(route) ?? '');
+  const formPages = new Set(pages.filter((page) => requiredBlocks(page.pageType, page.id).includes('form')).map((page) => page.route));
+  const sources = new Map([...formPages].map((route) => [route, new Set()]));
+  for (const page of pages) {
+    const html = built.get(page.route);
+    if (!html) continue;
+    for (const [, open, inner] of html.matchAll(/(<a\b[^>]*>)([\s\S]*?)<\/a>/g)) {
+      const route = attribute(open, 'href')?.match(/^(\/[^#?]*)/)?.[1];
+      if (!route || !built.has(route)) continue;
+      const asks = BUTTON_CLASS.test(attribute(open, 'class') ?? '') && ENQUIRY_LABEL.test(decode(inner.replace(/<[^>]+>/g, ' ')));
+      if (formPages.has(route) || asks) (sources.get(route) ?? sources.set(route, new Set()).get(route)).add(page.route);
+    }
+  }
+  return [...sources].filter(([route]) => built.get(route) && !hasForm(route)).map(([route, from]) => ({ route, issue: 'cta_target_without_form', detail: from.size ? `no <form>; linked from ${[...from].slice(0, 5).join(' ')}${from.size > 5 ? ` and ${from.size - 5} more` : ''}` : `no <form> on a ${formPages.has(route) ? 'page that must carry the enquiry form' : 'page'}` }));
+}
+
+// The four-site audit's checks across the site (lib/seo-site-checks.mjs) and on its data (lib/site-data-checks.mjs):
+// [{ route, issue, detail, level }]. lexicon: config/stand-in-lexicon.json; released: an accepted SEO baseline exists.
+export async function siteWideProblems({ root, pages, built, identity = null, keywords = new Map(), trust = null, pageFigures = null, lexicon = null, sitemap = '', released = false, proof = null, demo = null, facts = new Map(), contact = null, runtime = null }) {
+  return [
+    ...navNoindexProblems(pages, built),
+    ...await imageWeightProblems(root, pages, built),
+    ...napProblems(pages, built, { allowedEmails: [proof?.privacy?.contact] }),
+    ...channelHandleProblems(pages, built, { contact, runtime }),
+    ...builtPromiseProblems(pages, built),
+    ...trustValueProblems({ trust, pageFigures }),
+    ...templatedDescriptions(pages, { keywords, siteName: identity?.siteName ?? '' }),
+    ...inboundLinkProblems(pages, built),
+    ...lastmodProblems(sitemap, { released }),
+    ...thinPageProblems(pages, built),
+    ...lexiconProblems(pages, built, lexicon),
+    ...privacyContradictionProblems(pages, built),
+    ...heroReuseProblems(pages, built),
+    ...photoReuseProblems(pages, built),
+    ...proofProblems({ proof, demo, pages, facts }),
+    ...await unreferencedAssets(root),
+  ];
 }
 
 // pages and built (html by route, readBuiltPages) may be passed in by a caller that has already read them.
@@ -95,6 +167,7 @@ export async function auditSeo({ root = process.cwd(), pages = null, built = nul
   built ??= await readBuiltPages(root, pages);
   const identity = await readJson(resolve(root, 'src/data/site-identity.json'), null);
   const nav = await readJson(resolve(root, 'src/data/site-nav.json'), { header: [], footer: [] });
+  const company = await readJson(resolve(root, 'src/data/site-company.json'), null);
   const failures = [];
   const warnings = [];
   const inbound = new Map(pages.map((page) => [page.route, 0]));
@@ -105,13 +178,16 @@ export async function auditSeo({ root = process.cwd(), pages = null, built = nul
   for (const page of pages) {
     const html = built.get(page.route);
     if (!html) { failures.push({ route: page.route, issue: 'not_built' }); continue; }
-    for (const { level, ...problem } of pageProblems({ html, page, identity, nav, builtRoutes: routes, keyword: keywords.get(page.route) })) (level === 'warning' ? warnings : failures).push({ route: page.route, ...problem });
+    for (const { level, ...problem } of pageProblems({ html, page, identity, nav, builtRoutes: routes, keyword: keywords.get(page.route), company })) (level === 'warning' ? warnings : failures).push({ route: page.route, ...problem });
     const links = [...new Set(internalLinks(html))].filter((href) => href !== page.route && inbound.has(href));
     outlinks.set(page.route, links);
     for (const href of links) inbound.set(href, inbound.get(href) + 1);
     // An indexable page should not send readers (and link equity) to a placeholder page.
     if (isIndexable(page)) for (const href of links) if (!isIndexable(byRoute.get(href))) warnings.push({ route: page.route, issue: 'links_to_placeholder', detail: href });
   }
+  failures.push(...formLandingProblems(pages, built), ...emptyBlogProblems(pages));
+  // The home page's body links every category (lib/home-categories.mjs; site13 blind audit M8).
+  failures.push(...homeCategoryProblems(pages, built, nav, isIndexable));
   // Duplicate titles and descriptions among indexable pages.
   for (const field of ['title', 'description']) {
     const seen = new Map();
@@ -138,8 +214,35 @@ export async function auditSeo({ root = process.cwd(), pages = null, built = nul
   // The owner's crawler policy (config/crawler-policy.json): every listed crawler may fetch the site.
   const policy = await readJson(resolve(root, 'config/crawler-policy.json'), { allow: [] });
   if (identity) for (const crawler of policy.allow) if (!robotsAllows(robots, crawler.token)) failures.push({ route: '/robots.txt', issue: 'crawler_blocked', detail: `${crawler.token} (${crawler.purpose})` });
+  // Each listed crawler is named in its purpose's own group (G1/A2 of the four-site audit 2026-11-17), not only by "*".
+  const named = new Set([...robots.matchAll(/^user-agent:\s*(\S+)/gim)].map((match) => match[1].toLowerCase()));
+  const unnamed = identity && policy.groups?.length ? policy.allow.filter((crawler) => !named.has(crawler.token.toLowerCase())).map((crawler) => crawler.token) : [];
+  if (unnamed.length) failures.push({ route: '/robots.txt', issue: 'robots_groups_missing', detail: `no group names ${unnamed.join(', ')} (config/crawler-policy.json groups)` });
+  // llms.txt lists every indexable page (A6; lib/seo-head.mjs llmsTxt).
+  const llms = await readText(resolve(root, 'dist/llms.txt'), '');
+  const unlisted = identity ? indexable.filter((url) => !llms.includes(`](${url})`)) : [];
+  if (unlisted.length) failures.push({ route: '/llms.txt', issue: 'llms_txt_mismatch', detail: `${unlisted.length} indexable page(s) not listed: ${unlisted.slice(0, 3).join(' ')}` });
+  // The header logo every page loads and the phone crops of the hero photos, by weight (four-site audit 2026-11-17).
+  failures.push(...await imageBudgetProblems(root, identity));
+  // Every url() and src of the built CSS and HTML names a file of the build (lib/asset-refs.mjs; site13 blind audit M3).
+  failures.push(...await assetRefProblems(root));
   const notFound = await readText(resolve(root, 'dist/404.html'), '');
   if (!notFound.includes('noindex')) failures.push({ route: '/404.html', issue: 'not_found_page' });
+  // The four-site audit's checks (2026-11-17).
+  const sitewide = await siteWideProblems({
+    root, pages, built, identity, keywords, sitemap,
+    trust: await readJson(resolve(root, 'src/data/site-trust.json'), null),
+    pageFigures: await readJson(resolve(root, 'src/data/page-figures.json'), null),
+    lexicon: await readJson(resolve(root, 'config/stand-in-lexicon.json'), null),
+    released: Boolean(await readJson(resolve(root, 'docs/research/seo-baseline.json'), null)),
+    ...await readProof(root),
+    facts: await companyFacts(root).catch(() => new Map()),
+    contact: await readJson(resolve(root, 'src/data/site-contact.json'), null),
+    runtime: await readJson(resolve(root, 'src/data/site-runtime.json'), null),
+  });
+  for (const { level, ...problem } of sitewide) (level === 'warning' ? warnings : failures).push(problem);
+  // Who clears each finding (lib/issue-owners.mjs): the launch checklist and Site Factory's report route by it.
+  for (const entry of [...failures, ...warnings]) entry.owner = ownerOf(entry.issue);
   const report = { schemaVersion: 'seo-site-seo-audit-v1', pages: pages.length, indexable: indexable.length, identity: Boolean(identity), failures, warnings };
   await writeJson(resolve(root, 'docs/research/seo-audit.json'), report);
   if (failures.length) throw new Error(`SEO audit failed with ${failures.length} issue(s): ${failures.slice(0, 5).map((failure) => `${failure.route} ${failure.issue} ${failure.detail ?? ''}`).join('; ')}`);

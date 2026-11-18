@@ -79,6 +79,28 @@ test('the post: the hero visual is the featured image, the first paragraph the o
   assert.equal(again.post.slug, 'kept');
 });
 
+test('a hero the writer placed in the opening, before the first H2, is the featured image; another visual there opens the first section', () => {
+  const opening = `# How to Choose a Swimwear Manufacturer
+
+A plan connects the customer and the shipment.
+
+![Collection journey from brief to shipment](visuals/V1.png)
+
+![Sample before and after the lining revision](visuals/V2.png)
+
+## Plan your first collection
+
+We make swimwear in our own factory.
+`;
+  const { post, missing } = articlePost(parseArticle(opening), { visuals: VISUALS, images: { V1: image('V1'), V2: image('V2') } });
+  assert.deepEqual(missing, []);
+  assert.deepEqual(post.image, { src: '/media/blog/x/V1-1536.webp', alt: 'Collection journey from brief to shipment', width: 1536, height: 1024 });
+  assert.deepEqual(post.lead, ['A plan connects the customer and the shipment.']);
+  assert.deepEqual(post.sections[0].body.map((item) => Object.keys(item)[0]), ['figure', 'text']);
+  assert.equal(post.sections[0].body[0].figure.src, '/media/blog/x/V2-960.webp');
+  assert.deepEqual(articlePost(parseArticle(opening), { visuals: VISUALS, images: {} }).missing, ['V1', 'V2']);
+});
+
 test('picture density: words per picture in the text (the hero not counted), and the sections long enough for one that have too few', () => {
   const words = (count) => Array.from({ length: count }, () => 'word').join(' ');
   const article = parseArticle(`# T\n\n## Short\n\n${words(60)}\n\n![h](visuals/V1.png)\n\n## Long\n\n${words(520)}\n\n![p](visuals/V2.png)\n\n## Plain\n\n${words(200)}\n`);

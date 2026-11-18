@@ -25,6 +25,25 @@
       "title": "BlockKindsFingerprint",
       "type": "object"
     },
+    "Company": {
+      "additionalProperties": true,
+      "properties": {
+        "service_area": {
+          "title": "Service Area",
+          "type": "string"
+        },
+        "seo_market": {
+          "title": "Seo Market",
+          "type": "string"
+        }
+      },
+      "required": [
+        "service_area",
+        "seo_market"
+      ],
+      "title": "Company",
+      "type": "object"
+    },
     "Contracts": {
       "additionalProperties": true,
       "properties": {
@@ -547,6 +566,17 @@
     },
     "site": {
       "$ref": "#/$defs/Site"
+    },
+    "company": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Company"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
     },
     "source": {
       "$ref": "#/$defs/Source"

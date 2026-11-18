@@ -1,0 +1,93 @@
+[
+ {
+  "n": 1,
+  "page_id": "c-3d3fc0c8dc39:product",
+  "url": "/children-s-swimwear-manufacturer/",
+  "section": "m4",
+  "old": "- **Tween and teen shaping**: For tweens and young teens who need room at the bust, waist and hips, our [teen swimwear](/teen-swimwear-manufacturer/) range is drafted on its own teen block.",
+  "new": "",
+  "reason": "merge: the teen page is merged into this page; its shaped fits are the new section after m4 (m4_3)",
+  "hits_in_last_package": 0,
+  "hits_in_structured_data": 0,
+  "script": "hand_07_merge_kids_1118.py",
+  "delete_if_present": true
+ },
+ {
+  "n": 2,
+  "page_id": "inferred:product:7",
+  "url": "/baby-swimwear-manufacturer/",
+  "section": "m2",
+  "old": "- **Toddler sizes**: After 24 months, sizes move to our 2T to 4T toddler chart, set out by height and weight on our [toddler swimwear](/toddler-swimwear-manufacturer/) page.",
+  "new": "- **Toddler sizes**: After 24 months, sizes move to our [2T to 4T toddler size chart](/children-s-swimwear-manufacturer/), set out by height and weight.",
+  "reason": "merge: the toddler chart is now on the children's page (m4_2); the link points there",
+  "hits_in_last_package": 0,
+  "hits_in_structured_data": 0,
+  "script": "hand_07_merge_kids_1118.py",
+  "delete_if_present": false
+ },
+ {
+  "n": 3,
+  "page_id": "inferred:product:7",
+  "url": "/baby-swimwear-manufacturer/",
+  "section": "m3",
+  "old": "For weekly toddler lessons, our [toddler swimwear](/toddler-swimwear-manufacturer/) page sets out the firmer pool fabrics we specify.",
+  "new": "For weekly toddler lessons, we specify the firmer [chlorine-resistant swim-school fabrics](/children-s-swimwear-manufacturer/) used in our children's range.",
+  "reason": "merge: the toddler page is not built; the children's page m2 sets out the pool and swim-school fabrics (PBT, chlorine-resistant elastane)",
+  "hits_in_last_package": 0,
+  "hits_in_structured_data": 0,
+  "script": "hand_07_merge_kids_1118.py",
+  "delete_if_present": false
+ },
+ {
+  "n": 4,
+  "page_id": "c-3d3fc0c8dc39:product",
+  "url": "/children-s-swimwear-manufacturer/",
+  "section": "m4_2 (new section after m4)",
+  "old": "",
+  "new": "## Toddler Swimwear Sizes 2T–4T for Active Play\n\nFrom 2T to 4T, toddlers crawl, sit and climb around in wet suits. We line the front and seat to cope with that friction, and a 3-snap crotch or a front or back entry zip makes changes and toilet trips at the pool quicker.\n\nChoose the standard chart below or send your own before the first sample; we cut and grade to whichever sizing your labels carry.\n\n| Size | Age | Height | Weight |\n|---|---|---|---|\n| 2T | About 2 years | 88 to 94 cm | 12 to 14 kg |\n| 3T | About 3 years | 94 to 100 cm | 14 to 16 kg |\n| 4T | About 4 years | 100 to 106 cm | 16 to 18 kg |",
+  "reason": "merge: the toddler page's own content (2T-4T in active play, its m3 openings card, its m5 chart, C6 / g9); the \"your own chart\" row said in the text",
+  "hits_in_last_package": 0,
+  "hits_in_structured_data": 0,
+  "script": "hand_07_merge_kids_1118.py",
+  "delete_if_present": false
+ },
+ {
+  "n": 5,
+  "page_id": "c-3d3fc0c8dc39:product",
+  "url": "/children-s-swimwear-manufacturer/",
+  "section": "m4_3 (new section after m4)",
+  "old": "",
+  "new": "## Tween and Teen Swimwear Sizes and Shaped Fits\n\nFor tween and young teen styles that need room at the bust, waist and hips, choose a shaped teen fit instead of our proportional children's grading.\n\n- **Sizes by age or height**: Order tween and young teen sizes by age, from 8-10 to 12-14, or by height up to 164 cm, the chart we recommend for European markets.\n- **A separate teen block**: Each shaped style is drafted on its own teen block, allowing for a developing bust, a defined waist, fuller hips and a longer torso.\n- **Graded area by area**: We grade the bust, waist and hips separately, so proportions, coverage, support and tension stay right from the smallest teen size to the largest.\n- **Fit checked in movement**: As well as checking fit standing, we check every teen sample in movement, where riding up and gaping show.\n- **Support for older sizes**: Sewn-in or removable foam padding and cup pockets suit teen tops and one-pieces, while underwire channels and moulded cups go only into the older sizes.",
+  "reason": "merge: the teen page's own content (C19 sizes, overview_2 teen block and grading, m4 padding and underwire); its two-size fit approval not taken (this page's middle-then-ends sequence kept)",
+  "hits_in_last_package": 0,
+  "hits_in_structured_data": 0,
+  "script": "hand_07_merge_kids_1118.py",
+  "delete_if_present": false
+ },
+ {
+  "n": 6,
+  "page_id": "c-3d3fc0c8dc39:product",
+  "url": "/children-s-swimwear-manufacturer/",
+  "section": "faq (add question)",
+  "old": "",
+  "new": "Can you make separate fits for toddlers in swim nappies and for toilet-trained toddlers?\n\nYes, we cut separate patterns. The swim-nappy fit adds 2 to 3 cm to the standard seat and rise and widens the leg openings, while the toilet-trained fit keeps the standard seat, rise and leg openings. We sample both for your approval before bulk, because a nappy layer added to a standard pattern changes the fit and the suit leaks or pulls.",
+  "reason": "merge: the toddler page's FAQ 3, the question cut to 08's 16 words",
+  "hits_in_last_package": 0,
+  "hits_in_structured_data": 0,
+  "script": "hand_07_merge_kids_1118.py",
+  "delete_if_present": false
+ },
+ {
+  "n": 7,
+  "page_id": "c-3d3fc0c8dc39:product",
+  "url": "/children-s-swimwear-manufacturer/",
+  "section": "faq (add question)",
+  "old": "",
+  "new": "Can you make tween and teen bikinis and tankinis with more coverage?\n\nYes. We make tankinis with more coverage, including cross-strap tops with swim shorts, as well as age-appropriate bikinis. Tops come high-neck or as sporty crops, and bottoms come full-coverage or mid-rise, or as swim shorts or skirted bottoms.",
+  "reason": "merge: the teen page's FAQ 4, the question cut to 08's 16 words; \"modest\" said as \"more coverage\" (the Modest Swimwear page's name word)",
+  "hits_in_last_package": 0,
+  "hits_in_structured_data": 0,
+  "script": "hand_07_merge_kids_1118.py",
+  "delete_if_present": false
+ }
+]

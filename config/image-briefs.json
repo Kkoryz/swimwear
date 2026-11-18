@@ -2,6 +2,15 @@
   "schemaVersion": "seo-site-image-briefs-v1",
   "note": "What each generated photograph shows, per photography class; how it looks comes from the reference site alone (analyze:image-style: its photos, its written profile, its shot list of framings and poses, its product language), so these subjects name content only, never framing, pose or setting (owner 2026-10-28: our own camera and pose lists contradicted the reference and put site10's models small in wide scenes). {category} is the page's product (or the line's product for site-wide pages). placeholderKinds depict the manufacturer's own factory, staff or process, which must be real photos: the site's own photos of them (site-media.json) fill them; a site with none gets generated stand-ins, which the pre-launch handoff lists as 必须实拍替换 (owner 2026-10-24, 2026-10-25). siteKind names what the site is in the image prompts; set it per product line. garmentColours and casting rotate across the library so photos differ in colour and person; the colour is the main or ground colour of a design in the reference's product language. itemSubjects take their place for what nobody wears (a service page's packaging or hardware, analyze:image-types worn false): a hanger or a mannequin made site10's packaging photos garments. productOnlySubjects show a product without a person: for products made for children (childCategoryWords, a word of the category name with its plural s dropped; owner 2026-10-27) and when the image model refuses one worn after trying the reference's other shots. They are product shots on the plain settings of the reference's own photos, taken in turn (analyze:image-style productSettings), lit, coloured and rendered like the reference but never in its scenery, and no reference photo is attached to them (owner 2026-10-27, 2026-10-28). productionSceneWords mark a reference photo or style profile as the production floor (English and Chinese words: the reference analysis describes photos in either), where no photo of a model is staged. prompts hold the product-specific wording of the generation and review prompts; {name} slots are filled from the photo's entry.",
   "siteKind": "a B2B clothing manufacturer",
+  "planFromCopy": true,
+  "photoScope": "Its photos are new photographs made for it of its own products and work: its garments worn by models (or shown on their own when nobody wears them, such as packaging, labels, buttons, trims or fabric), and its own factory in China at work, its workers Chinese.",
+  "scopeRule": "Show only this manufacturer's own products, materials and factory work, and the buyers it makes them for: nothing from another trade. A section about a process (development, sampling, cutting, sewing, printing, inspection, packing, shipping) shows that process being done in the factory, not a product posed for a shoot; a section about one product shows that product.",
+  "photoClassesNote": "Which of the owner's photo classes each photo is in, decided when the image plan is made, before any photo (lib/photo-class.mjs; owner 2026-11-17, via Site Factory: the key is how to avoid such problems in future: four sites audited after they were built showed photos off their pages and the libraries were made again in batches): goods (实物类: the product, its materials, trims or packaging, worn or on its own as the reference shows it), process (工厂流程类: the factory and its work, every one of them on the owner's 必须实拍替换 list), and, for a service business, service (线上服务类). A photo is process when it is of a process class (placeholderKinds, rules.mjs REAL_ONLY_KINDS) or what it shows names processWords, or its setting does and it shows nobody wearing the product (wearWords); every other photo is goods. A portrait (a client quoted) is its own. The class is recorded on each entry of docs/research/image-plan.json and read by the text check before the photos are made (check-photo-text.mjs), by the sample of each class made first (generate-images.mjs --samples) and by the handoff.",
+  "photoClasses": {
+    "default": "goods",
+    "processWords": ["factory", "workshop", "sewing", "sewn", "stitching", "seamstress", "machinist", "cutting table", "cutting floor", "cutter", "pattern maker", "pattern making", "grading", "inspector", "inspection", "quality control", "QC", "technician", "worker", "operator", "packing", "packer", "printing", "printer", "embroidery machine", "production line", "warehouse", "dispatch", "loading dock", "sample room", "sampling room", "fit session", "strike-off", "wash test", "pull test"],
+    "wearWords": ["wear", "wears", "wearing", "worn", "model", "dressed"]
+  },
   "childCategoryWords": [
     "baby",
     "babie",
@@ -18,6 +27,18 @@
     "girl",
     "boy"
   ],
+  "pageThemesNote": "Who and what a page's photos are for past its category (scripts/lib/page-theme.mjs; site13 claude-seo audit 2026-11-17, M-13), read from its category and the menu items above it, the first theme that matches leading (a product for children, childCategoryWords, always first). words: a word of the names, plural s dropped (a two-word entry needs both). name: put before a product its own name does not place (boardshorts under Men's Swimwear are men's boardshorts). wearer: who the model is (the image prompt's model line, prompts.modelWearer). needs: the audiences (theme ids) a photo's alt must show, by default the theme itself. placeWords: a photo of a person is set where one of them is. A themed page's factory and process photos are its theme's own set (shared by the theme's pages), never the line's general set.",
+  "pageThemes": [
+    { "id": "couples", "words": ["couple", "pair"], "name": "couples'", "wearer": "one adult man and one adult woman together, both wearing the coordinating designs", "needs": ["men", "women"] },
+    { "id": "men", "words": ["men", "man", "male", "menswear", "gentlemen"], "name": "men's", "wearer": "one adult man" },
+    { "id": "women", "words": ["women", "woman", "female", "ladies", "lady", "womenswear"], "name": "women's", "wearer": "one adult woman" },
+    { "id": "modest", "words": ["modest", "burkini", "hijab"], "name": "modest" },
+    { "id": "watersports", "words": ["watersport", "surf", "rash guard", "paddle", "wetsuit", "dive"], "name": "watersports", "placeWords": ["water", "sea", "surf", "cove", "beach", "shore", "pool", "wave", "bay", "lake", "river"] }
+  ],
+  "serviceSubjectsNote": "A service page's opening photo shows the service itself (site13 claude-seo audit 2026-11-17, M-13: the embroidery, printing, launch and consulting pages opened on a model in swimwear): planned as the hero's own ask (image-plan.mjs serviceHeroes) on every solution or place page without photos of its own. {category} is the service's name from its route, {line} the line's product; the page's title goes with it, which names the service's own work.",
+  "serviceSubjects": {
+    "hero": "the work of {category} itself, shown close while it is done on our {line} in the manufacturer's own workshop or studio: the machine, tool, sample or hands that do it, the result clearly visible, with some open space on one side for a headline"
+  },
   "productionSceneWords": [
     "factory",
     "workshop",
@@ -45,15 +66,17 @@
     "reviewCriteria": "Report: (1) lookAlike: groups of photos so similar in setting, composition and pose that a visitor would see them as the same shot; (2) samePerson: groups of photos showing the same person; (3) wrongColour: photos whose main garment is clearly not the planned colour; (4) factoryScene: photos staged in a factory, workshop, sewing room or warehouse; (5) weakSubject: photos that do not do their job: the garment is small, hidden or absent, or most of the frame is an empty room, hall, floor or wall (a material photo does its job when it shows fabric up close; a portrait does its job when it shows one person's face and shoulders clearly, no product needed).",
     "design": "a new design of our own in the reference site's product language, never a copy of one of its garments, cut with standard coverage",
     "model": "Model: one adult {casting}, of the gender that wears it.",
+    "modelWearer": "Model: {wearer}, {casting}.",
     "portrait": "Show one real-looking adult whose age, look and styling fit the name, role and country given; natural expression, looking at the camera.",
     "realism": "Photorealistic: a real photograph someone could have taken in the moment on a real camera, not a render, an illustration or an advertisement. The light comes from the place itself and falls the same way on the subject and the background; natural depth of field, slight film grain, nothing oversharpened.",
     "realismPerson": "The person looks like a real person, not a retouched model: skin dry and matte, with visible pores, fine lines, faint freckles and natural unevenness, no shine on the face; hair with loose strands; a relaxed, unposed expression; natural hands and proportions. No airbrushing or glamour retouching.",
     "realismPlace": "The place is real and in use: surfaces weathered and uneven (worn paint, weather stains, sand, dust, small cracks), things left where they are, a little haze in the distance; no studio or cinematic lighting.",
     "realismFabric": "Fabric with real weave, stitching, slight creases and the way it sits on the body or surface; small everyday imperfections left in.",
     "worker": "Person: a Chinese factory worker in everyday work clothes, busy with the task and not posing; nobody wears the garment.",
+    "workerLook": "This worker: {worker}. Not the person in any attached photo: another face, age, hairstyle and clothes, at another moment of the task.",
     "childPrints": "for children: florals, plain colours or simple graphics",
     "prop": "Prop: {prop}, used naturally where it belongs in the scene (held, worn or set nearby), never posed for show.",
-    "modestCut":"A more covering version of the same garment, its print and colours unchanged: a higher neckline, wider straps or sleeves and more length.",
+    "modestCut": "A more covering version of the same garment, its print and colours unchanged: a higher neckline, wider straps or sleeves and more length.",
     "coverUp": "Styled with a loose open-front overshirt or wrap in a coordinating print or colour over it, the garment still clearly visible."
   },
   "placeholderKinds": [
@@ -166,6 +189,13 @@
     "forest green",
     "cream",
     "coral"
+  ],
+  "workerCastingNote": "The few workers the factory photos show, in turn (owner 2026-11-18: site13's factory photos were one woman in one pose a dozen times, copied from the reference's one worker; a few workers is enough, each right for a Chinese swimwear factory).",
+  "workerCasting": [
+    "a woman in her forties with short permed black hair, a navy work smock over a grey cardigan and cloth sleeve covers",
+    "a man in his thirties with short black hair, in a dark blue factory jacket",
+    "a woman in her twenties with long black hair in a low ponytail, a pale blue work shirt and white sleeve covers",
+    "a woman in her fifties with greying hair tied back, a flowered blouse under a white apron"
   ],
   "casting": [
     "in their twenties, Black, with a deep brown complexion and short natural hair",

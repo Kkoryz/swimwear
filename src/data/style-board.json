@@ -6,7 +6,7 @@
       "key": "intro:text",
       "type": "intro",
       "variant": "text",
-      "uses": 36,
+      "uses": 35,
       "names": [
         "intro/proof"
       ],
@@ -55,11 +55,11 @@
       "samples": [
         {
           "role": "longest",
-          "route": "/",
-          "pageType": "home",
+          "route": "/watersports-apparel-manufacturer/",
+          "pageType": "product_manufacturer",
           "blockId": "overview",
           "splitIndex": 0,
-          "words": 104,
+          "words": 105,
           "slots": 0,
           "block": {
             "id": "overview",
@@ -67,47 +67,37 @@
             "sourceSectionIds": [
               "overview"
             ],
-            "heading": "Our Own Swimwear Factory in China",
+            "heading": "Watersports Apparel Made in Our Own Guangzhou Factory",
             "paragraphs": [
-              "We make your swimwear in our own single factory in Guangzhou, Guangdong, China. Production and export sit within one company, so quality, cost and delivery stay under our direct control.",
-              "[Our factory has been running since 2011](/about-us/). We check quality throughout each order and sell B2B only, through this website and our team. You agree every order directly with us, never through online shops or third-party marketplaces.",
-              "[Our production certifications](/sustainability/) include OEKO-TEX Standard 100 for tested fabrics and trims, GRS and RCS for recycled fabrics, bluesign for chemistry, ISO 9001 for quality management and WRAP for social compliance."
+              "We let you order from 50 pieces per style in each colour. We set that starting quantity for small and growing labels. We make your watersports apparel ourselves in our single factory in Guangzhou, Guangdong, China. We agree the quantities for your first trial run case by case, within our production limits.",
+              "A standard sample is ready in 10 to 15 days. Bulk production takes 35 to 40 days after you approve the sample and we receive your deposit, depending on order size and season. We also make [rash guards for surfing, swimming, watersports and swim camps](/rash-guard-manufacturer/)."
             ],
-            "wordCount": 98,
+            "wordCount": 97,
             "visuals": [
               {
-                "id": "overview_qc_steps",
+                "id": "overview_lead_times",
                 "type": "data",
-                "purpose": "Shows the reader every quality check an order goes through, in order.",
-                "caption": "Quality checks at every stage of an order",
+                "purpose": "Shows the reader how long sampling and bulk production usually take.",
+                "caption": "Typical lead times: sample, then bulk production after approval and deposit.",
                 "data": {
-                  "shape": "sequence",
+                  "shape": "periods",
                   "items": [
                     {
-                      "label": "Fabric on arrival",
-                      "detail": "Incoming fabric is checked when it arrives"
+                      "label": "Standard sample",
+                      "min": 10,
+                      "max": 15,
+                      "unit": "days"
                     },
                     {
-                      "label": "Cutting",
-                      "detail": "Cut pieces are checked"
-                    },
-                    {
-                      "label": "Sewing",
-                      "detail": "Sewing is checked"
-                    },
-                    {
-                      "label": "Random checks",
-                      "detail": "Random checks during production"
-                    },
-                    {
-                      "label": "Full final inspection",
-                      "detail": "Every order gets a full final inspection"
+                      "label": "Bulk production",
+                      "min": 35,
+                      "max": 40,
+                      "unit": "days"
                     }
                   ]
                 }
               }
-            ],
-            "stepsKeepPhoto": true
+            ]
           }
         },
         {
@@ -124,9 +114,9 @@
             "sourceSectionIds": [
               "overview"
             ],
-            "heading": "OEM One-Piece Swimsuits and ODM Programs",
+            "heading": "OEM One-Piece Swimsuits and ODM Programmes",
             "paragraphs": [
-              "We build custom one-piece swimsuits for you in two ways. OEM programs are made from your own designs, and ODM programs are developed from our styles. Whether you start from your design or one of ours, your range can include monokinis and cut-out designs."
+              "We build custom one-piece swimsuits for you in two ways. OEM programmes are made from your own designs, and ODM programmes are developed from our styles. Whether you start from your design or one of ours, your range can include monokinis and cut-out designs."
             ],
             "wordCount": 44
           }
@@ -137,7 +127,7 @@
       "key": "gallery:band",
       "type": "gallery",
       "variant": "band",
-      "uses": 47,
+      "uses": 58,
       "names": [
         "gallery:band",
         "figure"
@@ -164,12 +154,12 @@
           "role": "longest",
           "route": "/",
           "pageType": "home",
-          "blockId": "media-module-budget-4",
+          "blockId": "media-module-budget-6",
           "splitIndex": 0,
           "words": 0,
           "slots": 1,
           "block": {
-            "id": "media-module-budget-4",
+            "id": "media-module-budget-6",
             "type": "gallery",
             "variant": "band",
             "items": [
@@ -185,7 +175,7 @@
       "key": "process:list",
       "type": "process",
       "variant": "list",
-      "uses": 33,
+      "uses": 38,
       "names": [
         "process:list"
       ],
@@ -237,7 +227,7 @@
               },
               {
                 "heading": "Development service timing",
-                "text": "With [Development](/development/), fabric and trims take 1 to 3 days, cards and swatches reach you within 10 days, and fit approval takes 3 to 7 days. Digital samples add about one week, and revisions add more time.",
+                "text": "With [Development](/development/), confirming fabric and trims takes 1 to 3 days, cards and swatches reach you within 10 days, and fit approval takes 3 to 7 days. Digital samples add about one week, and revisions add time.",
                 "placeholder": true
               }
             ],
@@ -256,9 +246,7 @@
           "block": {
             "id": "overview-steps",
             "type": "process",
-            "paragraphs": [
-              "Quality checks at every stage of an order"
-            ],
+            "heading": "Quality checks at every stage of an order",
             "steps": [
               {
                 "heading": "Fabric on arrival",
@@ -291,7 +279,7 @@
       "key": "iconList:checks",
       "type": "iconList",
       "variant": "checks",
-      "uses": 75,
+      "uses": 73,
       "names": [
         "iconList:checks"
       ],
@@ -303,7 +291,7 @@
           "pageType": "general",
           "blockId": "m3",
           "splitIndex": 0,
-          "words": 281,
+          "words": 283,
           "slots": 0,
           "block": {
             "id": "m3",
@@ -338,7 +326,7 @@
               },
               {
                 "heading": "Certificate Copies",
-                "text": "Our factory is BSCI certified. When you ask, we email you certificate copies within 1 business day, each showing the certificate number and validity date."
+                "text": "Our factory is audited under amfori BSCI. When you ask, we email you certificate copies within 1 business day, each showing the certificate number and validity date."
               },
               {
                 "heading": "Buyer-appointed Factory Audits",
@@ -387,94 +375,120 @@
       ]
     },
     {
-      "key": "featureGrid:outline-numbered",
+      "key": "featureGrid:bullets",
       "type": "featureGrid",
-      "variant": "outline-numbered",
-      "uses": 15,
+      "variant": "bullets",
+      "uses": 26,
       "names": [
-        "featureGrid:outline-numbered"
+        "featureGrid:bullets"
       ],
-      "evidence": [
-        {
-          "pageType": "home",
-          "index": 7,
-          "module": "featureGrid:outline-numbered"
-        }
-      ],
+      "evidence": [],
       "samples": [
         {
           "role": "longest",
-          "route": "/",
-          "pageType": "home",
-          "blockId": "featureGrid-1",
+          "route": "/sustainability/",
+          "pageType": "general",
+          "blockId": "m2",
           "splitIndex": 0,
-          "words": 143,
+          "words": 346,
           "slots": 0,
           "block": {
-            "id": "featureGrid-1",
-            "type": "featureGrid",
-            "sourceSectionIds": [
-              "m2_2"
-            ],
-            "paragraphs": [
-              "You can choose from triangle, bandeau, halter and underwire bikinis, tankinis and monokinis, through to burkinis and high-cut one-pieces."
-            ],
-            "items": [
-              {
-                "heading": "Custom fit and construction",
-                "paragraphs": [
-                  "We build made-to-order styles on your patterns and customise the silhouettes, panels, coverage, colours, prints, embroidery, hardware, cups and performance features. During sampling we refine bikini straps, linings and closures, along with the stretch, support and shape retention of one-pieces."
-                ]
-              },
-              {
-                "heading": "Plus-size and larger cups",
-                "paragraphs": [
-                  "We fit these samples on a body in the target size. Cup depth, strap angle and coverage all change between sizes, so scaling alone leads to gaping, digging or too little support. The extra sampling round adds time before bulk production."
-                ]
-              },
-              {
-                "heading": "Tankini and bandeau fit",
-                "paragraphs": [
-                  "We develop tankini tops that pair with several bottoms and choose the coverage, breathability and stretch. For bandeaus, extra-stretch fabrics, the right linings and sample adjustments give a secure, comfortable grip."
-                ]
-              }
-            ],
-            "variant": "outline-numbered",
-            "mediaKind": "product",
-            "continues": "m2"
-          }
-        },
-        {
-          "role": "shortest",
-          "route": "/",
-          "pageType": "home",
-          "blockId": "m2-3",
-          "splitIndex": 0,
-          "words": 48,
-          "slots": 0,
-          "block": {
-            "id": "m2-3",
+            "id": "m2",
             "type": "featureGrid",
             "sourceSectionIds": [
               "m2"
             ],
-            "continues": "m2",
+            "heading": "Recycled Fabrics and Low-Impact Production",
+            "paragraphs": [
+              "We start by matching recycled fabrics to the stretch, hand feel, print and colour your swimwear needs. Then we source options that suit your design and budget."
+            ],
             "items": [
               {
-                "heading": "Resort clothing and accessories",
+                "heading": "Regenerated Fibre Performance",
                 "paragraphs": [
-                  "You can add headbands, dresses, blouses, tops, skirts and pants to your range. We make them alongside the swimwear, so you get a complete resort collection."
+                  "Waste such as plastic items and old carpets is cleaned, sorted, liquefied and reformed, then made into fabric. Regenerated fibre performs much like new fibre. Any difference in performance comes from the fibre type and the way the fabric is constructed, not from the fibre being recycled."
                 ]
               },
               {
-                "heading": "Crochet and knits",
+                "heading": "Sustainable Fabric Choices",
                 "paragraphs": [
-                  "For beachwear collections, we also make hand-made crochet pieces and space-dyed knits in 100% cotton."
+                  "On request, we source ECONYL regenerated nylon, including Italian Carvico ECONYL fabrics, REPREVE recycled polyester and 84/16 recycled polyester-spandex. For cotton pieces, we also offer organic cotton from GOTS- or OCS-certified mills."
+                ]
+              },
+              {
+                "heading": "Requested Fabrics And Trade-offs",
+                "paragraphs": [
+                  "If you ask, we source imported GRS- or OEKO-TEX-certified recycled fabrics, regenerated Lycra, and waste-regenerated fabrics coloured with OEKO-TEX-certified dyes. Branded or imported certified options cost more and come in fewer colours with less stock, so a tight budget or deadline narrows your choice."
+                ]
+              },
+              {
+                "heading": "Swimwear Fabric Construction",
+                "paragraphs": [
+                  "We make your swimwear in nylon or polyester blended with spandex, such as 80% nylon 20% spandex, with matching linings. Chlorine-resistant LYCRA Xtra Life is available if you ask for it."
+                ]
+              },
+              {
+                "heading": "Production And Waste",
+                "paragraphs": [
+                  "We manage production waste strictly, and leftover fabric and components stay in our warehouse for your next run. Choosing recycled polyester helps your line cut plastic waste."
+                ]
+              },
+              {
+                "heading": "Animal-free Production",
+                "paragraphs": [
+                  "Our process involves no animal testing, and on request we make vegan swimwear your brand can submit for PETA's 'Cruelty Free' and 'PETA-Approved Vegan' logos."
+                ]
+              },
+              {
+                "heading": "Retail-ready Packaging Service",
+                "paragraphs": [
+                  "Through our [Swimwear Packaging & Custom Brand Labels](/swimwear-packaging-custom-brand-labels/) service, you get retail-ready, industrially compostable packaging, branded accessories and logos heat-pressed inside, plus optional cardboard tags, connectors and individual hand-wrapping. We source labels and packaging through our trim suppliers."
+                ]
+              },
+              {
+                "heading": "Sample Development Costs",
+                "paragraphs": [
+                  "A standard [development sample](/development/) is ready in 10 to 15 days and costs USD 50 each. On top of that, you pay USD 50 per design, meaning each pattern or print, with all its colourways included. Neither fee is refunded or credited against your bulk order."
                 ]
               }
             ],
-            "variant": "outline-numbered",
-            "mediaKind": "product"
+            "mediaKind": "material",
+            "variant": "bullets",
+            "planned": true
+          }
+        },
+        {
+          "role": "shortest",
+          "route": "/plus-size-swimwear-manufacturer/",
+          "pageType": "product_manufacturer",
+          "blockId": "featureGrid-6",
+          "splitIndex": 0,
+          "words": 60,
+          "slots": 0,
+          "block": {
+            "id": "featureGrid-6",
+            "type": "featureGrid",
+            "sourceSectionIds": [
+              "m3_2"
+            ],
+            "heading": "Ready-to-Brand Curvy Collections and Low-MOQ Trend Drops",
+            "items": [
+              {
+                "heading": "Test market demand",
+                "paragraphs": [
+                  "Our low-MOQ, ready-to-brand trend drops let you test what sells in your market before you commit to larger orders and to full-custom pattern and sampling costs."
+                ]
+              },
+              {
+                "heading": "Know the trade-off",
+                "paragraphs": [
+                  "Ready-to-brand styles aren't exclusive to your label, and they give you less control over fit and fabric than custom development does."
+                ]
+              }
+            ],
+            "mediaKind": "product",
+            "variant": "bullets",
+            "planned": true
           }
         }
       ]
@@ -507,6 +521,96 @@
               {}
             ],
             "competitor": true
+          }
+        }
+      ]
+    },
+    {
+      "key": "featureGrid:outline-numbered",
+      "type": "featureGrid",
+      "variant": "outline-numbered",
+      "uses": 4,
+      "names": [
+        "featureGrid:outline-numbered"
+      ],
+      "evidence": [
+        {
+          "pageType": "home",
+          "index": 7,
+          "module": "featureGrid:outline-numbered"
+        }
+      ],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/",
+          "pageType": "home",
+          "blockId": "featureGrid-6",
+          "splitIndex": 0,
+          "words": 121,
+          "slots": 0,
+          "block": {
+            "id": "featureGrid-6",
+            "type": "featureGrid",
+            "sourceSectionIds": [
+              "m3_3"
+            ],
+            "heading": "From Brief to Sample to Shipment",
+            "items": [
+              {
+                "heading": "Free quotation",
+                "paragraphs": [
+                  "For a [free quote](/request-a-quote/), email or WhatsApp us your tech pack or design, or coded front and back drawings or screenshots. Include your fabrics, colours, prints, quantities, sizing and packing needs. We assess feasibility and quote you an estimated price and timing. Then we agree the specifications, minimums and availability with you before you order."
+                ]
+              },
+              {
+                "heading": "Brief and specifications",
+                "paragraphs": [
+                  "We go through your brief with you in a consultation and confirm the technical requirements, including fabric and stretch. Then we send you digital mockups to approve."
+                ]
+              },
+              {
+                "heading": "Sampling before commitment",
+                "paragraphs": [
+                  "We source and prepare the materials, then revise and fit-test development samples. That way you can judge the product before you commit to bulk manufacturing."
+                ]
+              }
+            ],
+            "variant": "outline-numbered",
+            "mediaKind": "product"
+          }
+        },
+        {
+          "role": "shortest",
+          "route": "/",
+          "pageType": "home",
+          "blockId": "m3-2",
+          "splitIndex": 0,
+          "words": 62,
+          "slots": 0,
+          "block": {
+            "id": "m3-2",
+            "type": "featureGrid",
+            "sourceSectionIds": [
+              "m3"
+            ],
+            "continues": "m3",
+            "items": [
+              {
+                "heading": "ODM design development",
+                "paragraphs": [
+                  "If you have a brand concept but no developed designs yet, ODM is your route. It includes the design development needed to create exclusive styles for your brand."
+                ]
+              },
+              {
+                "heading": "In-house design team",
+                "paragraphs": [
+                  "You can start with a design, a picture or just an idea. Our team handles the patterns, grading and fit development, which means less design back-and-forth for you."
+                ]
+              }
+            ],
+            "variant": "outline-numbered",
+            "mediaKind": "product"
           }
         }
       ]
@@ -570,7 +674,7 @@
           "pageType": "home",
           "blockId": "splitMedia-2",
           "splitIndex": 2,
-          "words": 86,
+          "words": 87,
           "slots": 1,
           "block": {
             "id": "splitMedia-2",
@@ -580,13 +684,22 @@
             ],
             "paragraphs": [
               "We keep steady stock of selected wholesale styles, so you can place repeat orders. Ask us for our design catalogue. Once you've sent your enquiry, we send you line sheets with the available styles and their wholesale prices.",
-              "We arrange stock samples within 1 to 2 days. Order one before you decide between screen printing, heat transfers, embroidery or fabric logo labels, so you match the technique to the actual fabric. The fabric's texture and stretch affect how the finish looks and how long it lasts."
+              "We arrange stock samples within 1 to 2 business days. Order one before you decide between screen printing, heat transfers, embroidery or fabric logo labels, so you match the technique to the actual fabric. The fabric's texture and stretch affect how the finish looks and how long it lasts."
             ],
             "wordCount": 86,
             "media": null,
             "variant": "tinted",
             "mediaKind": "product",
-            "continues": "m4"
+            "continues": "m4",
+            "visuals": [
+              {
+                "id": "brief-splitMedia-2-1",
+                "type": "photo",
+                "content": "Close-up of a Chinese technician's hands lifting the plate of a heat press off a stock sample bikini top, revealing a fresh plain geometric heat-transfer mark beside an embroidered test patch on the same stretch fabric.",
+                "setting": "Sampling room workbench, close-up",
+                "caption": "Testing logo finishes on a stock sample before choosing one"
+              }
+            ]
           }
         }
       ]
@@ -595,7 +708,7 @@
       "key": "splitMedia:single",
       "type": "splitMedia",
       "variant": "single",
-      "uses": 46,
+      "uses": 41,
       "names": [
         "splitMedia:single"
       ],
@@ -629,7 +742,7 @@
           "route": "/watersports-apparel-manufacturer/",
           "pageType": "product_manufacturer",
           "blockId": "splitMedia-1",
-          "splitIndex": 0,
+          "splitIndex": 1,
           "words": 159,
           "slots": 0,
           "block": {
@@ -640,8 +753,8 @@
             ],
             "heading": "Custom Watersports Apparel: Sample Fees, Payment and Shipping",
             "paragraphs": [
-              "Each sample costs USD 50, and the design fee is USD 50 per design, covering its pattern or print in all colourways; neither fee is refunded or credited against bulk. You pay a 50% deposit when you confirm the order and the other 50% before shipment. We ship FOB, CIF or DDP, where one all-in price covers delivery to your door.",
-              "Our [factory-owning production and export company](/about-us/) has run since 2011. [Development](/development/) takes your design, picture or idea through in-house patterns, grading and fit. Our [swimwear fabric sourcing](/swimwear-fabrics-sourcing/) covers 80/20 nylon-spandex, with LYCRA Xtra Life, ECONYL and REPREVE on request, and our [production certifications](/sustainability/) include OEKO-TEX Standard 100, GRS and bluesign. [Custom Printing](/custom-swimwear-printing/) sublimates polyester and pigment-prints nylon, and [Swimwear Hardware](/swimwear-hardware/) tests clasps and rings for chlorine, salt spray and UV. We arrange market lab tests at cost, welcome [independent inspection](/faq/) and [reply to every enquiry](/contact-us/) within one business day."
+              "Each sample costs USD 50, and the design fee is USD 50 per design, covering its pattern or print in all colourways; neither fee is refunded or credited against bulk. You pay a 50% deposit when you confirm the order and the other 50% before shipment. We ship FOB, CIF or all-in DDP, delivered to your door by our forwarding partners.",
+              "Our [factory-owning production and export company](/about-us/) has run since 2011. [Development](/development/) takes your design, picture or idea through in-house patterns, grading and fit. Our [swimwear fabric sourcing](/swimwear-fabrics-sourcing/) covers 80/20 nylon-spandex, with LYCRA Xtra Life, ECONYL and REPREVE on request, and our [production certifications](/sustainability/) include OEKO-TEX Standard 100, GRS and bluesign. [Custom Printing](/custom-swimwear-printing/) sublimates polyester and pigment-prints nylon, and [Swimwear Hardware](/swimwear-hardware/) lab-tests clasps and rings for chlorine, salt spray and UV. We arrange market lab tests at cost, welcome [independent inspection](/faq/) and [reply to every enquiry](/contact-us/) within one business day."
             ],
             "wordCount": 150,
             "media": null,
@@ -717,69 +830,10 @@
       ]
     },
     {
-      "key": "logos:marquee",
-      "type": "logos",
-      "variant": "marquee",
-      "uses": 2,
-      "names": [
-        "owner:logos",
-        "logos:marquee"
-      ],
-      "evidence": [
-        {
-          "pageType": "home",
-          "index": 5,
-          "module": "owner:logos"
-        }
-      ],
-      "samples": [
-        {
-          "role": "longest",
-          "route": "/",
-          "pageType": "home",
-          "blockId": "owner-logos",
-          "splitIndex": 0,
-          "words": 27,
-          "slots": 0,
-          "block": {
-            "id": "owner-logos",
-            "type": "logos",
-            "heading": "Brands we make for",
-            "items": [
-              {
-                "name": "Northfold Basics",
-                "note": "Swimwear, UK"
-              },
-              {
-                "name": "Lune & Lark",
-                "note": "Swimwear, France"
-              },
-              {
-                "name": "Softmere",
-                "note": "Swimwear, USA"
-              },
-              {
-                "name": "Kiri Studio",
-                "note": "Swimwear, Japan"
-              },
-              {
-                "name": "Harbour Knit Co.",
-                "note": "Swimwear, Australia"
-              },
-              {
-                "name": "Velda",
-                "note": "Swimwear, Germany"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
       "key": "testimonials:carousel",
       "type": "testimonials",
       "variant": "carousel",
-      "uses": 28,
+      "uses": 11,
       "names": [
         "owner:testimonials",
         "testimonials:carousel"
@@ -794,42 +848,11 @@
       "samples": [
         {
           "role": "longest",
-          "route": "/resort-wear-manufacturer/",
-          "pageType": "product_manufacturer",
+          "route": "/swimwear-launch-services/",
+          "pageType": "solution",
           "blockId": "owner-testimonials",
           "splitIndex": 0,
-          "words": 154,
-          "slots": 3,
-          "block": {
-            "id": "owner-testimonials",
-            "type": "testimonials",
-            "heading": "What buyers say",
-            "items": [
-              {
-                "quote": "We came to the team for samples ahead of our first launch. They sourced recycled ECONYL nylon for us and had the first piece ready within 15 days. The fit and lining felt right from the start, which gave us real confidence going forward.",
-                "author": "Founder, women's swimwear start-up, United Kingdom",
-                "placeholder": true
-              },
-              {
-                "quote": "Quick answers and genuinely helpful people, so what more could we want? They answered every question within one business day, and their DDP shipping meant duties and customs were taken care of for us. Working with them has been easy from day one.",
-                "author": "Store Owner, beachwear boutique, Australia",
-                "placeholder": true
-              },
-              {
-                "quote": "Our first bulk run of 50 pieces per style in each colour just arrived, and it looks stunning! Every garment passed their full final inspection before it left the factory. The stitching is clean, the fabric feels premium, and the team kept us informed at every step.",
-                "author": "Buying Manager, resort apparel retailer, Canada",
-                "placeholder": true
-              }
-            ]
-          }
-        },
-        {
-          "role": "shortest",
-          "route": "/about-us/",
-          "pageType": "about",
-          "blockId": "owner-testimonials",
-          "splitIndex": 0,
-          "words": 92,
+          "words": 170,
           "slots": 2,
           "block": {
             "id": "owner-testimonials",
@@ -837,14 +860,36 @@
             "heading": "What buyers say",
             "items": [
               {
-                "quote": "Working with them was simple from day one: they quoted first, and once we agreed on price they went straight on to the sample. The whole project stayed clear and on track.",
-                "author": "Sourcing Manager, beachwear retail, United Kingdom",
+                "quote": "We were nervous about ordering our very first bikinis, but the team made the whole thing feel manageable. They gave us a clear quote before anything else, then made a sample so we could check the fit and feel before committing. Starting at 50 pieces per style in each colour meant we didn't have to gamble on a mountain of stock. The fabric feels soft but supportive, and the stitching is really neat. We'd happily recommend them to anyone just getting started!",
+                "author": "Founder, independent bikini label, Australia",
                 "placeholder": true
               },
               {
-                "quote": "Before we found them, a properly structured D–DD+ top seemed out of reach for a label our size. Their in-house design team took care of the pattern, grading and fit development, and for the first time our samples fit the way we had pictured them.",
-                "author": "Founder, independent swimwear startup, Australia",
+                "quote": "Building our first swimwear collection went far more smoothly than we expected. We sent rough front and back sketches, and their in-house design team took care of the patterns and graded every style from XS to 2X. Whenever a detail needed our input, they followed up quickly by email or phone. We never felt our ideas were being watered down. The finished pieces hold their shape beautifully, and the workmanship is consistent across the whole range.",
+                "author": "Co-founder, resortwear brand, Canada",
                 "placeholder": true
+              }
+            ]
+          }
+        },
+        {
+          "role": "shortest",
+          "route": "/one-piece-swimsuit-manufacturer/",
+          "pageType": "product_manufacturer",
+          "blockId": "owner-testimonials",
+          "splitIndex": 0,
+          "words": 33,
+          "slots": 1,
+          "block": {
+            "id": "owner-testimonials",
+            "type": "testimonials",
+            "heading": "What buyers say",
+            "items": [
+              {
+                "headline": "Clear on price, clear on dates",
+                "quote": "Every quote listed the sample, pattern and bulk costs separately, and our one-piece swimsuits order shipped inside the agreed window.",
+                "author": "Head of product",
+                "country": "France"
               }
             ]
           }
@@ -855,7 +900,7 @@
       "key": "relatedPages:links",
       "type": "relatedPages",
       "variant": "links",
-      "uses": 32,
+      "uses": 28,
       "names": [
         "relatedPages:links"
       ],
@@ -863,25 +908,17 @@
       "samples": [
         {
           "role": "longest",
-          "route": "/children-s-swimwear-manufacturer/",
-          "pageType": "product_manufacturer",
-          "blockId": "related",
+          "route": "/",
+          "pageType": "home",
+          "blockId": "categories",
           "splitIndex": 0,
-          "words": 23,
+          "words": 36,
           "slots": 0,
           "block": {
-            "id": "related",
+            "id": "categories",
             "type": "relatedPages",
-            "heading": "Related products and services",
+            "heading": "Products and Solutions",
             "links": [
-              {
-                "label": "Teen Swimwear",
-                "href": "/teen-swimwear-manufacturer/"
-              },
-              {
-                "label": "Toddler Swimwear",
-                "href": "/toddler-swimwear-manufacturer/"
-              },
               {
                 "label": "Women's Swimwear",
                 "href": "/women-s-swimwear-manufacturer/"
@@ -889,6 +926,10 @@
               {
                 "label": "Men's Swimwear",
                 "href": "/men-s-swimwear-manufacturer/"
+              },
+              {
+                "label": "Children's Swimwear",
+                "href": "/children-s-swimwear-manufacturer/"
               },
               {
                 "label": "Modest Swimwear",
@@ -909,26 +950,58 @@
               {
                 "label": "Couples Matching Swimsuits",
                 "href": "/couples-matching-swimsuit-manufacturer/"
+              },
+              {
+                "label": "Embroidery",
+                "href": "/swimwear-embroidery/"
+              },
+              {
+                "label": "Consulting",
+                "href": "/swimwear-consulting/"
+              },
+              {
+                "label": "Development",
+                "href": "/development/"
+              },
+              {
+                "label": "Swimwear Packaging & Custom Brand Labels",
+                "href": "/swimwear-packaging-custom-brand-labels/"
+              },
+              {
+                "label": "Custom Printing",
+                "href": "/custom-swimwear-printing/"
+              },
+              {
+                "label": "Swimwear Hardware",
+                "href": "/swimwear-hardware/"
+              },
+              {
+                "label": "Swimwear Fabrics & Sourcing",
+                "href": "/swimwear-fabrics-sourcing/"
+              },
+              {
+                "label": "Launch",
+                "href": "/swimwear-launch-services/"
               }
             ]
           }
         },
         {
           "role": "shortest",
-          "route": "/one-piece-swimsuit-manufacturer/",
-          "pageType": "product_manufacturer",
+          "route": "/faq/",
+          "pageType": "general",
           "blockId": "related",
           "splitIndex": 0,
-          "words": 5,
+          "words": 4,
           "slots": 0,
           "block": {
             "id": "related",
             "type": "relatedPages",
-            "heading": "Related products and services",
+            "heading": "Related pages",
             "links": [
               {
-                "label": "Bikinis",
-                "href": "/bikini-manufacturer/"
+                "label": "Case Studies",
+                "href": "/case-studies/"
               }
             ]
           }
@@ -939,7 +1012,7 @@
       "key": "faq:two-column",
       "type": "faq",
       "variant": "two-column",
-      "uses": 25,
+      "uses": 44,
       "names": [
         "faq:two-column"
       ],
@@ -969,7 +1042,7 @@
             "items": [
               {
                 "question": "Can you show examples of swimwear you've made for brands selling in Europe or North America?",
-                "answer": "Yes. Every year we make samples and bulk orders for more than 350 brands, and some of those labels sell in Europe and North America. Here are three recent projects, with client names kept private. A start-up bikini label in the United States came to us with sketches and a mood board for its first collection. Our in-house design team turned them into patterns graded from XS to XL, and the fit samples were ready in 10 to 15 days. The label launched six styles at our 50-piece minimum per style in each colour, shipped them DDP to its warehouse and reordered its two best sellers the next season. A swim school in Canada needed chlorine-resistant training suits in its club colours, with its logo printed and sizes from children's to adult. We matched the club colours to its Pantone references, sublimated the logo on chlorine-resistant polyester and packed mixed sizes in each carton at no extra cost. Bulk took 35 to 40 days after sample approval, and the approved style now repeats without a new sample. A plus-size swimwear label in Germany moved a range to us after cups gaped and straps dug in on its previous factory's run. We redrafted the styles on a 2XL base, wet-tested the samples on a 2XL fit model and graded them up to 5XL. An SGS inspector checked the bulk before shipment, and the label relaunched the range the following season. For those markets, our production is certified to OEKO-TEX Standard 100, GRS, RCS, bluesign, ISO 9001, WRAP and BSCI. We ship on FOB, CIF or DDP terms. If your market requires test reports for the styles you order, we have those styles tested at an accredited lab, and the lab fees go on your balance invoice at cost."
+                "answer": "Yes. Every year we make samples and bulk orders for more than 350 brands, and some of those labels sell in Europe and North America. Here are three recent projects, with client names kept private. A start-up bikini label in the United States came to us with sketches and a mood board for its first collection. Our in-house design team turned them into patterns graded from XS to XL, and the fit samples were ready in 10 to 15 days. The label launched six styles at our 50-piece minimum per style in each colour, shipped them DDP to its warehouse and reordered its two best sellers the next season. A swim school in Canada needed chlorine-resistant training suits in its club colours, with its logo printed and sizes from children's to adult. We matched the club colours to its Pantone references, sublimated the logo on chlorine-resistant polyester and packed mixed sizes in each carton at no extra cost. Bulk took 35 to 40 days after sample approval, and the approved style now repeats without a new sample. A plus-size swimwear label in Germany moved a range to us after cups gaped and straps dug in on its previous factory's run. We redrafted the styles on a 2XL base, wet-tested the samples on a 2XL fit model and graded them up to 5XL. An SGS inspector checked the bulk before shipment, and the label relaunched the range the following season. For those markets, we hold OEKO-TEX Standard 100, GRS, RCS, bluesign, ISO 9001 and WRAP, with amfori BSCI audits. Our forwarding partners ship FOB, CIF or DDP. If your market requires test reports for the styles you order, we have those styles tested at an accredited lab, and the lab fees go on your balance invoice at cost."
               },
               {
                 "question": "Have you ever taken over a production that went wrong at another factory, and what did you do?",
@@ -1018,33 +1091,25 @@
         },
         {
           "role": "shortest",
-          "route": "/men-s-swimwear-manufacturer/",
-          "pageType": "product_manufacturer",
-          "blockId": "faq",
+          "route": "/faq/",
+          "pageType": "general",
+          "blockId": "faq-7",
           "splitIndex": 0,
-          "words": 210,
+          "words": 52,
           "slots": 0,
           "block": {
-            "id": "faq",
+            "id": "faq-7",
             "type": "faq",
             "sourceSectionIds": [
-              "faq"
+              "m11_2"
             ],
-            "heading": "Frequently Asked Questions",
             "items": [
               {
-                "question": "Are any of your men's jammers or racing suits World Aquatics-approved for competition, or are they supplied only as training and recreational styles?",
-                "answer": "We don't hold World Aquatics approval, so our jammers and racing suits are training and recreational styles and aren't labelled as competition-approved. If you apply for approval for your own design, we supply the samples and fabric data the application needs."
-              },
-              {
-                "question": "How do you construct swim-short liners to prevent inner-thigh chafing and liner ride-up during prolonged swimming or walking?",
-                "answer": "We keep flat-lock seams away from the inner thigh and secure the leg openings with soft elastic or a 1 cm silicone gripper. We also tack the liner to the shell's side seams so it can't twist or ride up. For casual shorts we use soft four-way-stretch sport mesh, and for active wear we use brief-style compression liners with a 2 to 3 inch leg."
-              },
-              {
-                "question": "Can you build contoured support pouches or separate front-support panels into men's briefs, jammers and swim-short liners?",
-                "answer": "Yes. In briefs and jammers we sew double-lined front pouches shaped with 2 to 3 seams, or we add separate support panels in powernet or compression fabric. Swim-short liners get the same pouch construction, in brief or boxer-brief cuts made to your measurements."
+                "question": "Which shipping terms do you offer, and is DDP available worldwide?",
+                "answer": "We ship on FOB, CIF or DDP terms, and our DDP service covers destinations worldwide. Under DDP, you pay one all-in price for delivery to your door, and we handle the duties, customs and freight for you through our forwarding partners."
               }
-            ]
+            ],
+            "continues": "m11"
           }
         }
       ]
@@ -1053,7 +1118,7 @@
       "key": "cta:image-band",
       "type": "cta",
       "variant": "image-band",
-      "uses": 17,
+      "uses": 18,
       "names": [
         "cta:image-band"
       ],
@@ -1081,7 +1146,7 @@
             ],
             "heading": "Start Your Packaging and Label Project with Strandmill",
             "paragraphs": [
-              "Send Strandmill your enquiry with your label artwork and packaging requirements. We review your request and return a label quotation within one business day; cut-and-sew or sublimation projects take up to 3 business days."
+              "Send Strandmill your enquiry with your label artwork and packaging requirements. We review your request and return a label quotation within one business day; cut-and-sew or sublimation projects take 2 to 3 working days."
             ],
             "cta": {
               "label": "Talk to us about swimwear packaging & custom brand labels",
@@ -1121,7 +1186,7 @@
       "key": "featureGrid:cards",
       "type": "featureGrid",
       "variant": "cards",
-      "uses": 101,
+      "uses": 99,
       "names": [
         "featureGrid:cards"
       ],
@@ -1142,49 +1207,49 @@
       "samples": [
         {
           "role": "longest",
-          "route": "/rash-guard-manufacturer/",
+          "route": "/plus-size-swimwear-manufacturer/",
           "pageType": "product_manufacturer",
-          "blockId": "m2",
+          "blockId": "featureGrid-3",
           "splitIndex": 0,
-          "words": 165,
+          "words": 167,
           "slots": 0,
           "block": {
-            "id": "m2",
+            "id": "featureGrid-3",
             "type": "featureGrid",
             "sourceSectionIds": [
-              "m2"
+              "overview_2_2"
             ],
-            "heading": "Rash Guard Fabrics, UPF Ratings and Certifications",
+            "heading": "China Factory Terms: Samples, Lead Times, Payment and Shipping",
             "paragraphs": [
-              "Through [Swimwear Fabrics & Sourcing](/swimwear-fabrics-sourcing/), we source 80/20 nylon-spandex with matching linings, and we supply AS/NZS 4399 UPF 50+ documentation; extra lab testing is charged at cost."
+              "We make swimwear in our own factory, our only one, in Guangzhou, Guangdong, China."
             ],
             "items": [
               {
-                "heading": "Performance fabric range",
+                "heading": "Sample terms",
                 "paragraphs": [
-                  "Our four-way-stretch, UV-protective polyester-spandex weighs 180gsm to 320gsm. Water temperature and activity decide the weight first. Board contact and sun exposure decide the fibre."
+                  "A standard sample takes 10 to 15 days and costs USD 50. Design fees are USD 50 per pattern or print and cover all colourways. We don't refund or credit either fee."
                 ]
               },
               {
-                "heading": "Lightweight warm-water fabrics",
+                "heading": "Production and payment",
                 "paragraphs": [
-                  "At 180 to 200gsm, these fabrics hold little heat and air-dry in about 30 minutes. They suit warm-water surfing, swim lessons and long days in the sun."
+                  "Once you approve the sample and we receive your 50% confirmation deposit, bulk production takes 35 to 40 days, depending on order size and season. A full final inspection follows, and the remaining 50% is due before shipment."
                 ]
               },
               {
-                "heading": "Heavier supportive fabrics",
+                "heading": "Shipping terms",
                 "paragraphs": [
-                  "At 260 to 320gsm, these fabrics keep wearers warmer in cooler water and give firmer compression and muscle support for training and watersports. The trade-off is that they take about 60 minutes to dry."
+                  "We ship on FOB, CIF or DDP terms. With worldwide DDP, we handle door delivery, duties, customs and freight through our forwarding partners for one all-in price."
                 ]
               },
               {
-                "heading": "Repeated board contact",
+                "heading": "Delivery and packing",
                 "paragraphs": [
-                  "For repeated board contact, we recommend tightly knitted 200–240 GSM polyester-spandex or 80/20 nylon-spandex. Nylon stands up to rubbing best, and polyester holds its colour better in sun and salt water."
+                  "Under our [sample delivery and packing terms](/faq/), courier cost adds USD 50. You can mix sizes and colours, mixed-ratio cartons are free, and for larger sizes we recommend 4 each of L, XL and 2XL per carton."
                 ]
               }
             ],
-            "mediaKind": "material"
+            "mediaKind": "product"
           }
         },
         {
@@ -1222,129 +1287,10 @@
       ]
     },
     {
-      "key": "featureGrid:bullets",
-      "type": "featureGrid",
-      "variant": "bullets",
-      "uses": 20,
-      "names": [
-        "featureGrid:bullets"
-      ],
-      "evidence": [],
-      "samples": [
-        {
-          "role": "longest",
-          "route": "/sustainability/",
-          "pageType": "general",
-          "blockId": "m2",
-          "splitIndex": 0,
-          "words": 340,
-          "slots": 0,
-          "block": {
-            "id": "m2",
-            "type": "featureGrid",
-            "sourceSectionIds": [
-              "m2"
-            ],
-            "heading": "Recycled Fabrics and Low-Impact Production",
-            "paragraphs": [
-              "We start by matching recycled fabrics to the stretch, hand feel, print and colour your swimwear needs. Then we source options that suit your design and budget."
-            ],
-            "items": [
-              {
-                "heading": "Regenerated Fibre Performance",
-                "paragraphs": [
-                  "Waste such as plastic items and old carpets is cleaned, sorted, liquefied and reformed, then made into fabric. Regenerated fibre performs much like new fibre. Any difference in performance comes from the fibre type and the way the fabric is constructed, not from the fibre being recycled."
-                ]
-              },
-              {
-                "heading": "Sustainable Fabric Choices",
-                "paragraphs": [
-                  "On request, we source ECONYL regenerated nylon, including Italian Carvico ECONYL fabrics, REPREVE recycled polyester and 84/16 recycled polyester-spandex. We also offer organic and other sustainable fabrics, and we source these only from certified material suppliers."
-                ]
-              },
-              {
-                "heading": "Requested Fabrics And Trade-offs",
-                "paragraphs": [
-                  "If you ask, we source imported GRS- or OEKO-TEX-certified recycled fabrics, regenerated Lycra, and waste-regenerated fabrics coloured with OEKO-TEX-certified dyes. Branded or imported certified options cost more and come in fewer colours with less stock, so a tight budget or deadline narrows your choice."
-                ]
-              },
-              {
-                "heading": "Swimwear Fabric Construction",
-                "paragraphs": [
-                  "We make your swimwear in nylon or polyester blended with spandex, such as 80% nylon 20% spandex, with matching linings. Chlorine-resistant LYCRA Xtra Life is available if you ask for it."
-                ]
-              },
-              {
-                "heading": "Production And Waste",
-                "paragraphs": [
-                  "We use water-saving, low-carbon production processes, manage production waste strictly and follow carbon-neutral packaging strategies. Choosing recycled polyester helps your line cut plastic waste."
-                ]
-              },
-              {
-                "heading": "Animal-free Production",
-                "paragraphs": [
-                  "Our production carries PETA's 'Cruelty Free' stamp and the 'PETA-Approved Vegan' logo, and our process involves no animal testing."
-                ]
-              },
-              {
-                "heading": "Retail-ready Packaging Service",
-                "paragraphs": [
-                  "Through our [Swimwear Packaging & Custom Brand Labels](/swimwear-packaging-custom-brand-labels/) service, you get retail-ready biodegradable packaging, branded accessories and logos heat-pressed inside, plus optional cardboard tags, connectors and individual hand-wrapping. We make labels and packaging in-house wherever we can."
-                ]
-              },
-              {
-                "heading": "Sample Development Costs",
-                "paragraphs": [
-                  "A standard [development sample](/development/) is ready in 10 to 15 days and costs USD 50 each. On top of that, you pay USD 50 per design, meaning each pattern or print, with all its colourways included. Neither fee is refunded or credited against your bulk order."
-                ]
-              }
-            ],
-            "mediaKind": "material",
-            "variant": "bullets",
-            "planned": true
-          }
-        },
-        {
-          "role": "shortest",
-          "route": "/plus-size-swimwear-manufacturer/",
-          "pageType": "product_manufacturer",
-          "blockId": "featureGrid-6",
-          "splitIndex": 0,
-          "words": 60,
-          "slots": 0,
-          "block": {
-            "id": "featureGrid-6",
-            "type": "featureGrid",
-            "sourceSectionIds": [
-              "m3_2"
-            ],
-            "heading": "Ready-to-Brand Curvy Collections and Low-MOQ Trend Drops",
-            "items": [
-              {
-                "heading": "Test market demand",
-                "paragraphs": [
-                  "Our low-MOQ, ready-to-brand trend drops let you test what sells in your market before you commit to larger orders and to full-custom pattern and sampling costs."
-                ]
-              },
-              {
-                "heading": "Know the trade-off",
-                "paragraphs": [
-                  "Ready-to-brand styles aren't exclusive to your label, and they give you less control over fit and fabric than custom development does."
-                ]
-              }
-            ],
-            "mediaKind": "product",
-            "variant": "bullets",
-            "planned": true
-          }
-        }
-      ]
-    },
-    {
       "key": "table:grid",
       "type": "table",
       "variant": "grid",
-      "uses": 23,
+      "uses": 21,
       "names": [
         "table:grid"
       ],
@@ -1356,7 +1302,7 @@
           "pageType": "solution",
           "blockId": "m9",
           "splitIndex": 0,
-          "words": 315,
+          "words": 320,
           "slots": 0,
           "block": {
             "id": "m9",
@@ -1366,7 +1312,7 @@
             ],
             "heading": "Kraft Paper, Plastic and Recycled-Content Hygiene Liners",
             "paragraphs": [
-              "We choose your hygiene liners based on how long they'll be stored and how humid it is. During sampling, we peel-test the liner you pick on your own lining."
+              "We choose your hygiene liners, made by our trim suppliers, based on how long they'll be stored and how humid it is. During sampling, we peel-test the liner you pick on your own lining."
             ],
             "columns": [
               "Detail",
@@ -1411,52 +1357,43 @@
         },
         {
           "role": "shortest",
-          "route": "/toddler-swimwear-manufacturer/",
-          "pageType": "product_manufacturer",
-          "blockId": "m5",
+          "route": "/development/",
+          "pageType": "solution",
+          "blockId": "table-1",
           "splitIndex": 0,
-          "words": 95,
+          "words": 105,
           "slots": 0,
           "block": {
-            "id": "m5",
+            "id": "table-1",
             "type": "table",
             "sourceSectionIds": [
-              "m5"
+              "m3_2"
             ],
-            "heading": "Toddler Sizes and Custom Size Runs",
-            "paragraphs": [
-              "Before your first sample, choose our standard 2T to 4T chart or send us your own. That way we cut and grade to the sizing your labels promise."
-            ],
+            "heading": "Size Ranges and Grading for Every Style",
             "columns": [
-              "Size option",
-              "Age",
-              "Height",
-              "Weight"
+              "Sizing option",
+              "What we provide"
             ],
             "rows": [
               [
-                "2T",
-                "About 2 years",
-                "88 to 94 cm",
-                "12 to 14 kg"
+                "Standard grading",
+                "We grade from XS to 3XL using internationally recognised body measurements, and we shift sizes up or down to suit your customers."
               ],
               [
-                "3T",
-                "About 3 years",
-                "94 to 100 cm",
-                "14 to 16 kg"
+                "Plus-size grading",
+                "Our Plus Size Swimwear range takes grading up to 5XL."
               ],
               [
-                "4T",
-                "About 4 years",
-                "100 to 106 cm",
-                "16 to 18 kg"
+                "Band-and-cup grading",
+                "For cup-sized women's swimwear, one-pieces, bikinis and plus-size styles, we work to your chart, including 32B–38DD. Each combination counts as one size."
               ],
               [
-                "Your own chart",
-                "We grade to your chart",
-                "Your specified measurements",
-                "Any size run across our infant and children’s range"
+                "Size breakdown",
+                "The breakdown we see most often is 2-S, 4-M, 4-L, 2-XL."
+              ],
+              [
+                "Launch size selection",
+                "Your core run serves your main customer base. Extended sizes follow once your sales establish demand."
               ]
             ],
             "mediaKind": "product"
@@ -1468,7 +1405,7 @@
       "key": "cta:inline",
       "type": "cta",
       "variant": "inline",
-      "uses": 19,
+      "uses": 17,
       "names": [
         "cta:inline"
       ],
@@ -1560,7 +1497,7 @@
             ],
             "heading": "OEM Bikini Sampling, Lead Times, Payment and Shipping",
             "paragraphs": [
-              "Since 2011 we've kept [production and export under our control](/about-us/). We ship FOB, CIF or worldwide DDP, where one price covers delivery to your door."
+              "Since 2011 we've kept [production and export under our control](/about-us/). We ship FOB, CIF or all-in DDP, delivered to your door by our forwarding partners."
             ],
             "steps": [
               {
@@ -1632,7 +1569,7 @@
       "key": "proof:band",
       "type": "proof",
       "variant": "band",
-      "uses": 17,
+      "uses": 7,
       "names": [
         "intro/proof"
       ],
@@ -1743,24 +1680,24 @@
         },
         {
           "role": "shortest",
-          "route": "/faq/",
-          "pageType": "general",
-          "blockId": "proof-5",
+          "route": "/custom-swimwear-printing/",
+          "pageType": "solution",
+          "blockId": "m12",
           "splitIndex": 0,
-          "words": 34,
+          "words": 49,
           "slots": 0,
           "block": {
-            "id": "proof-5",
+            "id": "m12",
             "type": "proof",
             "sourceSectionIds": [
-              "m11_2"
+              "m12"
             ],
+            "heading": "Minimum Order Quantities and Trial Runs",
             "paragraphs": [
-              "We ship on FOB, CIF or DDP terms. Our DDP service covers destinations worldwide: you pay one all-in price for delivery to your door, and we handle the duties, customs and freight for you."
+              "Orders start at 50 pieces per style in each colour, so small and growing labels have a quantity they can start with. We agree your first trial run case by case, and we can flex on quantity only as far as production allows."
             ],
-            "wordCount": 34,
-            "mediaKind": "material",
-            "continues": "m11"
+            "wordCount": 43,
+            "mediaKind": "material"
           }
         }
       ]
@@ -1837,7 +1774,7 @@
           "pageType": "product_manufacturer",
           "blockId": "m7",
           "splitIndex": 1,
-          "words": 71,
+          "words": 76,
           "slots": 1,
           "block": {
             "id": "m7",
@@ -1847,7 +1784,7 @@
             ],
             "heading": "Hygienic Liners Printed with Your Logo",
             "paragraphs": [
-              "We make your hygienic liners from skin-friendly adhesive materials in a range of shapes and colours, and we match the shape and adhesive to your gusset and fabric. We keep your logo or brand message simple and easy to read. Branded liners are quoted on request. Liners peel off cleanly for up to 12 months in normal storage, and sampling includes an 8-hour wear peel-test."
+              "Our trim suppliers make your hygienic liners from skin-friendly adhesive materials in a range of shapes and colours, and we match the shape and adhesive to your gusset and fabric. We keep your logo or brand message simple and easy to read. Branded liners need an order above 3,000 units. Liners peel off cleanly for up to 12 months in normal storage, and sampling includes an 8-hour wear peel-test."
             ],
             "wordCount": 65,
             "media": null,
@@ -1878,9 +1815,7 @@
           "block": {
             "id": "m7-steps",
             "type": "process",
-            "paragraphs": [
-              "Care steps from our rash guard labels."
-            ],
+            "heading": "Care steps from our rash guard labels.",
             "steps": [
               {
                 "heading": "Rinse in fresh water",
@@ -1910,9 +1845,7 @@
           "block": {
             "id": "m3-steps",
             "type": "process",
-            "paragraphs": [
-              "How size-by-size print placement works"
-            ],
+            "heading": "How size-by-size print placement works",
             "steps": [
               {
                 "heading": "Position artwork digitally",
@@ -1937,7 +1870,7 @@
       "key": "splitMedia:wide",
       "type": "splitMedia",
       "variant": "wide",
-      "uses": 8,
+      "uses": 9,
       "names": [
         "splitMedia:wide"
       ],
@@ -1949,7 +1882,7 @@
           "pageType": "solution",
           "blockId": "splitMedia-1",
           "splitIndex": 0,
-          "words": 121,
+          "words": 124,
           "slots": 1,
           "block": {
             "id": "splitMedia-1",
@@ -1959,16 +1892,16 @@
             ],
             "heading": "Packed and Labelled in Our Own Guangzhou Factory",
             "paragraphs": [
-              "We make and pack your swimwear in our own single factory in Guangzhou, Guangdong, China. Our [Launch service](/swimwear-launch-services/) takes your custom bikinis and one-pieces from your brief through fully customisable development, production and worldwide delivery, and on to after-sales support. We've run our [factory-owned production and export operation](/about-us/) since 2011. That keeps quality, cost and delivery under our direct control, and we check your order from incoming fabric through to final inspection. Our [sustainability work](/sustainability/) covers OEKO-TEX Standard 100 for tested fabrics and trims, GRS and RCS for recycled fabrics, bluesign for chemistry, ISO 9001 for quality management and WRAP for social compliance. It also includes water-saving, low-carbon production and carbon-neutral packaging strategies."
+              "We make and pack your swimwear in our own single factory in Guangzhou, Guangdong, China. Our [Launch service](/swimwear-launch-services/) takes your custom bikinis and one-pieces from your brief through fully customisable development, production and worldwide delivery, and on to after-sales support. We've run our [factory-owned production and export operation](/about-us/) since 2011. That keeps quality, cost and delivery under our direct control, and we check your order from incoming fabric through to final inspection. Our [sustainability work](/sustainability/) covers OEKO-TEX Standard 100 for tested fabrics and trims, GRS and RCS for recycled fabrics, bluesign for chemistry, ISO 9001 for quality management and WRAP for social compliance. It also covers corn-starch bags for industrial composting and reusable eco zip-lock bags."
             ],
-            "wordCount": 113,
+            "wordCount": 116,
             "media": null,
             "mediaKind": "process",
             "visuals": [
               {
                 "id": "overview_2_2_sequence",
                 "type": "data",
-                "purpose": "Shows how the full-package service runs from the first brief to shipping, with labels and packaging done in-house near the end.",
+                "purpose": "Shows how the full-package service runs from the first brief to shipping, with labels and packaging from our trim suppliers applied in our factory near the end.",
                 "caption": "Our full-package service, from brief to shipment.",
                 "data": {
                   "shape": "sequence",
@@ -1999,7 +1932,7 @@
                     },
                     {
                       "label": "Shipping",
-                      "detail": "Shipping to any destination, with logistics arranged by our in-house team."
+                      "detail": "Shipping worldwide, booked by our team through our forwarding partners."
                     }
                   ]
                 }
@@ -2029,109 +1962,6 @@
             "wordCount": 43,
             "media": null,
             "mediaKind": "product"
-          }
-        }
-      ]
-    },
-    {
-      "key": "process:band",
-      "type": "process",
-      "variant": "band",
-      "uses": 6,
-      "names": [
-        "process:band"
-      ],
-      "evidence": [
-        {
-          "pageType": "solution",
-          "index": 5,
-          "module": "process:band"
-        }
-      ],
-      "samples": [
-        {
-          "role": "longest",
-          "route": "/swimwear-packaging-custom-brand-labels/",
-          "pageType": "solution",
-          "blockId": "splitMedia-1-steps",
-          "splitIndex": 0,
-          "words": 101,
-          "slots": 0,
-          "block": {
-            "id": "splitMedia-1-steps",
-            "type": "process",
-            "paragraphs": [
-              "Our full-package service, from brief to shipment."
-            ],
-            "steps": [
-              {
-                "heading": "Consultation and design",
-                "text": "A consultation and design development start the project."
-              },
-              {
-                "heading": "Tech pack and patterns",
-                "text": "Tech pack and pattern creation, pattern adjustments, and print development and placement."
-              },
-              {
-                "heading": "Fabric and trim sourcing",
-                "text": "Fabrics and trims sourced from suppliers worldwide, with our technical advice."
-              },
-              {
-                "heading": "Samples and fit",
-                "text": "Prototypes and full samples, a fit review, grading and pre-production samples."
-              },
-              {
-                "heading": "Bulk production",
-                "text": "Precise cutting, sewing, printing or embroidery, washing, finishing and trimming."
-              },
-              {
-                "heading": "Labels, QC and packaging",
-                "text": "Label printing and private-label branding, quality control and retail-ready packaging."
-              },
-              {
-                "heading": "Shipping",
-                "text": "Shipping to any destination, with logistics arranged by our in-house team."
-              }
-            ],
-            "variant": "band",
-            "continues": "splitMedia-1"
-          }
-        },
-        {
-          "role": "shortest",
-          "route": "/swimwear-consulting/",
-          "pageType": "solution",
-          "blockId": "faq-steps",
-          "splitIndex": 0,
-          "words": 44,
-          "slots": 0,
-          "block": {
-            "id": "faq-steps",
-            "type": "process",
-            "steps": [
-              {
-                "heading": "Start consulting",
-                "text": "6 to 9 months before your collection launch"
-              },
-              {
-                "heading": "Receive recommendations",
-                "text": "A fixed-scope project typically delivers within 6 to 8 weeks"
-              },
-              {
-                "heading": "Sampling",
-                "text": "10 to 15 days"
-              },
-              {
-                "heading": "Bulk production",
-                "text": "35 to 40 days"
-              },
-              {
-                "heading": "Shipping before selling season",
-                "text": "Goods ship before your selling season begins"
-              }
-            ],
-            "variant": "band",
-            "continues": "faq"
           }
         }
       ]
@@ -2199,7 +2029,7 @@
       "key": "faq:bars",
       "type": "faq",
       "variant": "bars",
-      "uses": 7,
+      "uses": 8,
       "names": [
         "faq:bars"
       ],
@@ -2213,11 +2043,11 @@
       "samples": [
         {
           "role": "longest",
-          "route": "/swimwear-embroidery/",
+          "route": "/swimwear-launch-services/",
           "pageType": "solution",
           "blockId": "faq",
           "splitIndex": 0,
-          "words": 509,
+          "words": 587,
           "slots": 0,
           "block": {
             "id": "faq",
@@ -2228,53 +2058,68 @@
             "heading": "Frequently Asked Questions",
             "items": [
               {
-                "question": "How do you attach embroidered patches to stretch swim fabric, and can I order the patches by themselves?",
-                "answer": "We sew patches on around the edge with a zigzag stitch or coverstitch, so the seam stretches with your suit. We don't use heat-seal glue backings because they lift in chlorine and salt water. Yes, you can order patches on their own, starting at 50 pieces per design."
+                "question": "Can you shoot or build a store for swimwear I already have from another supplier, or only for styles you manufacture?",
+                "answer": "We work with swimwear from other suppliers as well as the styles we make. You can book photography, film, branding or a store build on its own, with no package or garment order needed. Send us the service you want and the materials you already have, and we'll explain what the project needs. If we manufacture your collection, we build the store around your styles, your identity and your campaign images."
               },
               {
-                "question": "What is the smallest lettering, the largest embroidery size and the most thread colours you can stitch in one design on swimwear?",
-                "answer": "We can stitch lettering as small as 5 mm high with lines at least 1 mm thick. For 3D puff, the minimum is 10 mm high. One hooping fits a design up to 30 x 30 cm, and each design can use up to 12 thread colours."
+                "question": "What revision rounds are included for the photos and films, and which changes would require a new shoot rather than an edit?",
+                "answer": "Photo retouching comes with 2 revision rounds, and so does every film or video edit. These rounds cover colour, image selection, crops, cut order, timing, captions and music. Please put your team's feedback together in one list for each round. New models, new locations, new styling, styles that weren't in the shoot and fresh angles all need a new shoot. Branding comes with 2 logo concepts and 1 revision round on the concept you pick. Store builds come with 2 rounds of changes before handover."
               },
               {
-                "question": "Can you embroider on top of a printed swimsuit fabric or combine embroidery with sequins and appliqué in one design?",
-                "answer": "Yes. We combine embroidery with sequins, appliqué, printing, laser cutting or embossing. Once your sublimation or digital print is set, we stitch over it and match the thread to your print colours. Beads and sequins go on after the embroidery, away from seams and straps, so they don't rub or snag."
+                "question": "What usage rights do I receive for the photos and videos, including model releases and any music licences, across my store, advertising and retailer channels?",
+                "answer": "Once you've paid, you get unlimited commercial rights to the final photos and videos. You can use them in your store, on your social channels, in paid advertising and with retail or wholesale partners, with no time or territory limits. Before every shoot, our partner photography team collects signed model releases that cover all of these uses. The only music we use is royalty-free and licensed for commercial and paid social use."
               },
               {
-                "question": "What drives the embroidery cost on my order: stitch count, colours, size, technique or number of logo positions?",
-                "answer": "Stitch count affects cost the most, and fill density drives stitch count more than size does. A solid fill costs more than an outline of the same size. Each logo position needs its own hooping and machine run. Extra colours, 3D puff, appliqué and patches add setup and handling time, and digitising adds a one-off setup charge per design. If you choose outline or open-fill designs with fewer positions and colours, you keep your cost down and the suit stays comfortable."
+                "question": "Is the launch service meant for new founders only, or can an established label use it for a new swim line?",
+                "answer": "It's for both new founders and established labels. Founders without assets can book the full package, from brief to launch. Established labels adding swimwear can pick individual services. Either way, one team runs your development, sampling and production and coordinates your launch."
               },
               {
-                "question": "Can you scale the same embroidered logo across children's and adult sizes while keeping its lettering and detail readable?",
-                "answer": "Yes. We make 2 to 3 size versions, for example about 4 cm wide for children's sizes and 7 cm wide for adult sizes. We redigitise each version instead of shrinking the file, so the lettering stays at least 5 mm high and fine detail stays readable."
+                "question": "Does the launch step include advertising setup, campaign management or social publishing, or does your service end with delivering the assets and store?",
+                "answer": "Our service ends when we hand over your finished assets and your store is ready to take orders. We don't do advertising setup, campaign management or social publishing. You or your marketing team handle those with the files we deliver."
               },
               {
-                "question": "Can you embroider fabric or pre-cut swimwear panels supplied by us, rather than only your own production or finished garments?",
-                "answer": "Yes. We embroider fabric or pre-cut swimwear panels that you supply, from 50 pieces per design. 3% spare panels are added to cover setup and machine loss."
+                "question": "What decides how much a full launch costs, and which choices make it more or less expensive?",
+                "answer": "Each shoot, film, branding and store package is priced per project, and the total moves with your number of styles, shoot locations and models, photos and film edits, video length, branding scope, packaging items and store complexity. Production costs follow design complexity, fabric choice, quantity and whether you choose custom designs or catalogue styles. Send us your styles and the services you want, and we quote production within 2 to 3 working days, with launch services quoted separately."
               },
               {
-                "question": "Which appliqué fabrics do you offer that remain compatible with the base fabric's stretch and wet-use requirements?",
-                "answer": "We use a stretch swim fabric similar to your base fabric, so both layers stretch and dry together. The options are 80% nylon 20% spandex and polyester spandex, and on request chlorine-resistant LYCRA Xtra Life, recycled ECONYL nylon and REPREVE polyester. We also offer metallic foil spandex, swim-grade sequin fabric and stretch mesh. We edge them with a stretch satin stitch and back them with a soft facing for wet use."
+                "question": "Will one person manage my whole launch across production, the shoot and the store?",
+                "answer": "When you enquire, we assign you a dedicated swimwear specialist. That person is your one contact for production, photography, branding and the store. A merchandiser tracks sampling and bulk production and sends you photo updates at every stage. You also deal directly with our design and production teams, with no agents in between."
               }
             ],
             "variant": "bars",
             "visuals": [
               {
-                "id": "faq_amounts",
+                "id": "faq-revisions",
                 "type": "data",
-                "purpose": "Shows example logo widths when one logo is scaled across children's and adult sizes.",
-                "caption": "Example logo widths by size range",
+                "purpose": "Shows how many concepts and revision rounds come with each launch service.",
+                "caption": "Revision rounds included with each launch service",
                 "data": {
                   "shape": "amounts",
                   "items": [
                     {
-                      "label": "Children's sizes",
-                      "value": 4,
-                      "unit": "cm"
+                      "label": "Photo retouching revisions",
+                      "value": 2,
+                      "unit": "rounds"
                     },
                     {
-                      "label": "Adult sizes",
-                      "value": 7,
-                      "unit": "cm"
+                      "label": "Film or video edit revisions",
+                      "value": 2,
+                      "unit": "rounds"
+                    },
+                    {
+                      "label": "Logo concepts",
+                      "value": 2,
+                      "unit": "concepts"
+                    },
+                    {
+                      "label": "Chosen logo revisions",
+                      "value": 1,
+                      "unit": "round"
+                    },
+                    {
+                      "label": "Store build changes",
+                      "value": 2,
+                      "unit": "rounds"
                     }
                   ]
                 }
@@ -2353,10 +2198,70 @@
       ]
     },
     {
+      "key": "team:default",
+      "type": "team",
+      "variant": null,
+      "uses": 1,
+      "names": [
+        "team"
+      ],
+      "evidence": [],
+      "samples": [
+        {
+          "role": "only",
+          "route": "/about-us/",
+          "pageType": "about",
+          "blockId": "owner-team",
+          "splitIndex": 0,
+          "words": 70,
+          "slots": 0,
+          "block": {
+            "id": "owner-team",
+            "type": "team",
+            "heading": "Meet the team",
+            "items": [
+              {
+                "anchor": "team-junhao-liang",
+                "name": "Junhao Liang",
+                "role": "Founder",
+                "years": 20,
+                "bio": "Runs the factory and agrees prices, capacity and delivery dates with each brand.",
+                "reviews": [
+                  "solution",
+                  "service",
+                  "place",
+                  "location"
+                ]
+              },
+              {
+                "anchor": "team-wenjie-deng",
+                "name": "Wenjie Deng",
+                "role": "Head of development",
+                "years": 14,
+                "bio": "Leads pattern making and sampling, from your tech pack to the approved swimwear sample.",
+                "blogAuthor": true,
+                "reviews": [
+                  "product_manufacturer",
+                  "product_wholesale"
+                ]
+              },
+              {
+                "anchor": "team-yanling-peng",
+                "name": "Yanling Peng",
+                "role": "Quality control lead",
+                "years": 11,
+                "bio": "Runs the fabric checks, the in-line inspection and the final check before each swimwear order ships."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
       "key": "form:media",
       "type": "form",
       "variant": "media",
-      "uses": 1,
+      "uses": 2,
       "names": [
         "form",
         "form:media"
@@ -2370,12 +2275,12 @@
       ],
       "samples": [
         {
-          "role": "only",
+          "role": "longest",
           "route": "/contact-us/",
           "pageType": "contact",
           "blockId": "form",
           "splitIndex": 0,
-          "words": 46,
+          "words": 119,
           "slots": 1,
           "block": {
             "id": "form",
@@ -2387,34 +2292,39 @@
                 "label": "Name",
                 "kind": "text",
                 "required": true,
-                "autocomplete": "name"
+                "autocomplete": "name",
+                "purpose": "So we know whom we are answering."
               },
               {
                 "name": "email",
                 "label": "Email",
                 "kind": "email",
                 "required": true,
-                "autocomplete": "email"
+                "autocomplete": "email",
+                "purpose": "Where we send our reply."
               },
               {
                 "name": "company",
                 "label": "Company",
                 "kind": "text",
                 "required": false,
-                "autocomplete": "organization"
+                "autocomplete": "organization",
+                "purpose": "Optional: helps us answer for your business."
               },
               {
                 "name": "phone",
                 "label": "Phone",
                 "kind": "tel",
                 "required": false,
-                "autocomplete": "tel"
+                "autocomplete": "tel",
+                "purpose": "Optional: only if you would like a call back."
               },
               {
                 "name": "message",
                 "label": "Message",
                 "kind": "textarea",
-                "required": true
+                "required": true,
+                "purpose": "What you would like to know or order."
               }
             ],
             "consent": {
@@ -2423,8 +2333,15 @@
             },
             "honeypot": "website",
             "endpoint": "/api/leads",
-            "status": "not-connected",
-            "submitLabel": "Send enquiry"
+            "status": "ready",
+            "submitLabel": "Send enquiry",
+            "requiredNote": "Fields marked * are required.",
+            "messages": {
+              "invalid": "Please check the highlighted fields.",
+              "sending": "Sending…",
+              "sent": "Thank you: your message has been sent. We will reply by email.",
+              "failed": "Your message could not be sent. Please try again, or write to us by email."
+            }
           }
         }
       ]
@@ -2477,7 +2394,7 @@
           "pageType": "general",
           "blockId": "m3",
           "splitIndex": 0,
-          "words": 237,
+          "words": 239,
           "slots": 0,
           "block": {
             "id": "m3",
@@ -2504,7 +2421,7 @@
               },
               {
                 "heading": "Check service response times",
-                "text": "For screen printing, embroidery and labels, we answer within one business day. Cut-and-sew or sublimation quotations take up to 3 business days. Multi-colourway team programmes get a separate quotation for each configuration."
+                "text": "For logo work such as screen printing, embroidery or labels, we answer within one business day. Cut-and-sew swimwear or sublimation quotes take 2 to 3 working days. Multi-colourway styles get a quotation per colourway."
               },
               {
                 "heading": "Review the details together",
@@ -2529,9 +2446,7 @@
           "block": {
             "id": "m8-steps",
             "type": "process",
-            "paragraphs": [
-              "From sign-off to bulk production"
-            ],
+            "heading": "From sign-off to bulk production",
             "steps": [
               {
                 "heading": "Sign off sample and specs",
@@ -2557,77 +2472,118 @@
       ]
     },
     {
-      "key": "table:cards",
-      "type": "table",
-      "variant": "cards",
+      "key": "dataPractices:default",
+      "type": "dataPractices",
+      "variant": null,
       "uses": 1,
       "names": [
-        "table:cards"
+        "dataPractices"
       ],
       "evidence": [],
       "samples": [
         {
           "role": "only",
-          "route": "/blog/",
-          "pageType": "blog_hub",
-          "blockId": "table-1",
+          "route": "/privacy-policy/",
+          "pageType": "privacy",
+          "blockId": "data-practices",
           "splitIndex": 0,
-          "words": 333,
+          "words": 101,
           "slots": 0,
           "block": {
-            "id": "table-1",
-            "type": "table",
-            "sourceSectionIds": [
-              "overview_2"
-            ],
-            "heading": "Certifications, Fabrics and Design at Our Factory",
-            "columns": [
-              "Topic",
-              "What this means for you"
-            ],
-            "rows": [
-              [
-                "Certifications",
-                "Our [production certifications](/sustainability/) are OEKO-TEX Standard 100 for tested fabrics and trims, GRS and RCS for recycled fabrics, bluesign for chemistry, ISO 9001 for quality management and WRAP for social compliance."
+            "id": "data-practices",
+            "type": "dataPractices",
+            "heading": "What this site collects",
+            "practices": {
+              "rows": [
+                {
+                  "id": "enquiry-form",
+                  "what": "The enquiry form",
+                  "recorded": "Your name, email and message; your company and phone if you give them, and that you agreed to this use",
+                  "why": "To answer your enquiry"
+                },
+                {
+                  "id": "enquiry-context",
+                  "what": "With each enquiry",
+                  "recorded": "The page you sent it from, the page that linked you here (referrer) and any campaign tags in the link you followed (UTM)",
+                  "why": "To know which pages and campaigns bring enquiries"
+                },
+                {
+                  "id": "analytics",
+                  "what": "Visit statistics (Umami)",
+                  "recorded": "Pages viewed, the site you came from, browser, device type and country, and when a form is sent; counted without cookies and without identifying you",
+                  "why": "To see which pages help visitors"
+                }
               ],
-              [
-                "Fabrics",
-                "Our [swimwear fabrics and sourcing](/swimwear-fabrics-sourcing/) include nylon and polyester blended with spandex, such as 80% nylon 20% spandex, with matching linings. If you ask, we source chlorine-resistant LYCRA Xtra Life, recycled nylon such as ECONYL, recycled polyester such as REPREVE, and Italian Carvico fabrics."
-              ],
-              [
-                "Design and samples",
-                "Our [OEM and ODM development](/development/) can start from your design, a picture or just an idea. We do pattern design, grading and fit development in-house, which cuts down the back-and-forth. A standard sample is ready in 10 to 15 days, so you can judge the quality before you approve bulk production."
-              ],
-              [
-                "Samples and fees",
-                "Each sample costs USD 50, and design costs USD 50 per design, covering its pattern or print and all its colourways. Neither fee is refunded or credited against bulk orders, and sample courier delivery is a separate USD 50."
-              ],
-              [
-                "Minimums and trial runs",
-                "Orders start at 50 pieces per style in each colour, for small and growing labels, and we agree first-trial quantities case by case within our production limits. We also keep some styles in stock for wholesale buyers."
-              ],
-              [
-                "Lead times",
-                "Bulk production takes 35 to 40 days from sample approval and receipt of your deposit, depending on order size and season."
-              ],
-              [
-                "Payment and shipping",
-                "You pay 50% when you confirm the order and the other 50% before shipment. We ship FOB, CIF or DDP; with worldwide DDP, one all-in price covers duties, customs and freight to your door."
-              ],
-              [
-                "Inspection",
-                "Under our [ordering, inspection and delivery terms](/faq/), independent inspectors such as SGS or BV can check your goods before shipment."
-              ],
-              [
-                "Quotation",
-                "We [quote first](/request-a-quote/), and we make your sample once you agree to the price."
-              ],
-              [
-                "Enquiries",
-                "We [reply to every enquiry](/contact-us/) within one business day."
-              ]
-            ],
-            "mediaKind": "material"
+              "retention": "",
+              "contact": "sales@strandmill.com",
+              "placeholder": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "sources:default",
+      "type": "sources",
+      "variant": null,
+      "uses": 2,
+      "names": [
+        "sources"
+      ],
+      "evidence": [],
+      "samples": [
+        {
+          "role": "longest",
+          "route": "/blog/which-is-better-oem-odm/",
+          "pageType": "blog_post",
+          "blockId": "sources",
+          "splitIndex": 0,
+          "words": 34,
+          "slots": 0,
+          "block": {
+            "id": "sources",
+            "type": "sources",
+            "items": [
+              {
+                "title": "SEACOMP's manufacturing comparison",
+                "url": "https://www.seacomp.com/resources/oem-vs-odm-manufacturing"
+              },
+              {
+                "title": "Brightpearl's OEM vs ODM guide",
+                "url": "https://www.brightpearl.com/blog/oem-vs-odm-explained"
+              },
+              {
+                "title": "JLCCNC's OEM vs ODM comparison",
+                "url": "https://jlccnc.com/blog/oem-vs-odm"
+              },
+              {
+                "title": "inFlow's OEM vs ODM guide",
+                "url": "https://www.inflowinventory.com/blog/difference-between-oem-vs-odm/"
+              }
+            ]
+          }
+        },
+        {
+          "role": "shortest",
+          "route": "/blog/cost-to-start-clothing-line/",
+          "pageType": "blog_post",
+          "blockId": "sources",
+          "splitIndex": 0,
+          "words": 26,
+          "slots": 0,
+          "block": {
+            "id": "sources",
+            "type": "sources",
+            "items": [
+              {
+                "title": "Erply's 2025 guide to clothing line startup costs",
+                "url": "https://erply.com/how-much-does-it-cost-to-start-a-clothing-line-complete-2025-guide"
+              },
+              {
+                "title": "VistaPrint's How Much Does It Cost to Start a Clothing Brand?",
+                "url": "https://www.vistaprint.com/hub/how-much-does-it-cost-to-start-a-clothing-brand"
+              }
+            ]
           }
         }
       ]
@@ -2635,15 +2591,17 @@
   ],
   "unbacked": [
     "iconList:checks",
+    "featureGrid:bullets",
     "gallery:mosaic",
     "relatedPages:links",
-    "featureGrid:bullets",
     "table:grid",
     "process:circles",
     "process:photo-cards",
     "splitMedia:wide",
     "orderCase:default",
+    "team:default",
     "process:timeline",
-    "table:cards"
+    "dataPractices:default",
+    "sources:default"
   ]
 }

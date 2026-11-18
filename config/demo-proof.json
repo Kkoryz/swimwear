@@ -9,8 +9,11 @@
     "testimonials": "What buyers say",
     "history": "Our story",
     "terms": "Order terms at a glance",
-    "orderRoutes": "Ways to start your order"
+    "orderRoutes": "Ways to start your order",
+    "team": "Meet the team"
   },
+  "team": {"note": "Stand-in team, made per site (scripts/scaffold-site-proof.mjs standInTeam; owner 2026-11-17, four-site audit: no named person anywhere): one invented person per role, a given name and a family name picked by the site's name. The factory's staff are Chinese (owner 2026-10-30: the factories are in China). A role, years of experience and what they do; never a credential, a certificate number or a photo; reviews: the page types whose pages name them as reviewer (lib/site-people.mjs pageReviewer; four-site audit 2026-11-17, C10). Listed for replacement before launch.", "names": {"first": ["Yuting", "Haoran", "Minghui", "Jiaqi", "Zhiwei", "Xinyi", "Shuyan", "Wenjie", "Ruoxi", "Jianfeng", "Yanling", "Zihan", "Huimin", "Kaiwen", "Mengyao", "Qiaoling", "Junhao", "Siyu", "Weiqiang", "Yifan"], "second": ["Chen", "Liang", "Zhou", "Huang", "Lin", "Xu", "He", "Guo", "Luo", "Zheng", "Xie", "Tang", "Feng", "Deng", "Cao", "Peng", "Zeng", "Xiao", "Pan", "Cai"]}, "members": [{"role": "Founder", "years": 20, "bio": "Runs the factory and agrees prices, capacity and delivery dates with each brand.", "reviews": ["solution", "service", "place", "location"]}, {"role": "Head of development", "years": 14, "bio": "Leads pattern making and sampling, from your tech pack to the approved {line} sample.", "blogAuthor": true, "reviews": ["product_manufacturer", "product_wholesale"]}, {"role": "Quality control lead", "years": 11, "bio": "Runs the fabric checks, the in-line inspection and the final check before each {line} order ships."}]},
+  "privacy": {"note": "Stand-in privacy facts for the privacy page's \"what this site collects\" (lib/data-practices.mjs): how long enquiries are kept; the contact is privacy@ the site's domain. The owner gives the real ones before launch (listed for sign-off).", "retention": "24 months after our last exchange, then deleted"},
   "certificates": [
     "OEKO-TEX Standard 100",
     "GOTS",
@@ -23,6 +26,7 @@
     "bluesign",
     "Sedex"
   ],
+  "clientNames": {"note": "Stand-in clients are made per site (scripts/scaffold-site-proof.mjs standInClients): a name, perhaps a second word, and a country, picked by the site's name, so no two sites show the same brands (owner 2026-11-17). Invented, no real brand; listed for replacement before launch.", "first": ["Northfold", "Lune", "Softmere", "Kiri", "Harbour Knit", "Velda", "Maré", "Saltline", "Tidewell", "Coral Cove", "Isla Nord", "Palma Rosa", "Brisa", "Calla", "Dunemoor", "Ebbline", "Fjordline", "Hallow Bay", "Inlet", "Juno Shore", "Kelpie", "Lagoa", "Marisol", "Nerine", "Oyster Bay", "Pebbleworks", "Quayside", "Seafern", "Tamarind", "Undertow", "Vela Sol", "Wavecrest", "Yarrow", "Zephyrine", "Ardenne", "Bellwether", "Cove & Kin", "Driftline", "Estuary", "Floe", "Gullwing", "Halcyra", "Isola Bay", "Larkmoor", "Mistral Bay", "Noon Tide", "Ostra", "Pinnacle Knit"], "second": ["", "Studio", "Label", "Collective", "& Co.", "Atelier", "Basics", "Supply", "Club"], "places": ["UK", "France", "USA", "Japan", "Australia", "Germany", "Portugal", "Sweden", "Spain", "Canada", "Italy", "Netherlands", "Denmark", "New Zealand", "South Korea", "Brazil"]},
   "certificateAliases": {
     "BCI": "Better Cotton (BCI)",
     "BSCI": "amfori BSCI",
@@ -43,7 +47,7 @@
     {
       "value": "280",
       "label": "staff, 18 in design and patterns",
-      "measure": "([\\d,]+) (?:staff|people|employees|workers)\\b"
+      "measure": "([\\d,]+) (?:staff|people|employees|workers)\\b(?![^.,;]{0,30}\\baddress)"
     }
   ],
   "history": [

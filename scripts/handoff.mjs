@@ -9,12 +9,17 @@
 // history, capabilities, real reviews), the contact details, placeholder prices and reviews in structured data, and
 // one row per image position of the built site with what real photo should replace it. Operations this pipeline
 // clears itself (analytics, registry, form delivery, alt text) are not rows.
+// After launch, the entity-building rows (实体建设, four-site audit 2026-11-17, Fable's plan P-4): the public profiles
+// that tell search engines and AI assistants the company exists (LinkedIn company page, Bing Places, the trade's
+// directories); each one the owner has is in sameAs (src/data/site-company.json), added with --same-as <https URL>.
 // Usage: node scripts/handoff.mjs [--real <json list of Site Factory media file names the owner supplied as real>]
+//        node scripts/handoff.mjs --same-as https://www.linkedin.com/company/<name>
 
 import { resolve } from 'node:path';
 import { readBuiltPage } from './lib/built-site.mjs';
 import { cliArgs, runMain } from './lib/cli.mjs';
 import { readJson, writeJson } from './lib/json-io.mjs';
+import { COMPANY_SCHEMA } from './lib/site-company.mjs';
 import { HANDOFF_SCHEMA, photoSources, realPhotoSrcs, standInForReal } from './lib/photo-sources.mjs';
 import { placeholderProperties } from './lib/review-markup.mjs';
 import { loadSitePages } from './lib/site-pages.mjs';
@@ -37,6 +42,9 @@ const SIGNOFF_ROWS = [
   [/^proof-testimonials$|^placeholder-testimonials$/, 'proof:testimonials', '评价与案例', '客户评价', '提供真实买家的评价原文、署名（职位和公司）和公开授权', false],
   [/^proof-caseStudies$|^placeholder-cases$/, 'proof:cases', '评价与案例', '客户案例', '提供真实订单案例：客户（经授权）、产品、数量、周期', false],
   [/^proof-history$/, 'proof:history', '公司证明', '发展历程', '填写真实的年份和事件；当前是示范值', false],
+  // Four-site audit 2026-11-17: the named people and the privacy facts the privacy page states.
+  [/^proof-team$/, 'people:team', '人员', '团队成员（关于页的团队、博文作者）', '填写允许公开的真实姓名、职位、从业年限和一句简介；当前是虚构的示范人员。不公开也可以（删掉 team），但会拉低 E-E-A-T', false],
+  [/^proof-privacy$/, 'privacy:facts', '隐私', '询盘保存期限和隐私联系邮箱（隐私页"本站收集什么"）', '填写真实的保存期限和处理隐私问题的邮箱；当前是示范值', false],
   [/^site-photos$/, 'photos:factory-team', '图片', '工厂、车间和团队实拍', '提供实拍照片（见图片行）', false],
   [/^review-source$/, 'review:source', '评价与案例', '结构化数据里的评价', '确认这些评价和评分都来自真实买家', false],
   [/^placeholder-/, null, '公司证明', '借用的内容', '换成自己的做法，或确认可以使用', false],
@@ -47,6 +55,42 @@ const CERTIFICATE_NUMBERS = { field_id: 'company:certificate-numbers', category:
 // street and number (a city alone is not one).
 const CONTACT_FIELDS = [['email', '询盘邮箱'], ['phone', '电话（含国家区号）'], ['address', '公司完整地址（含街道门牌）'], ['hours', '营业时间（含时区）'], ['same_as', '社交媒体主页链接（LinkedIn、Instagram、Facebook 等）']];
 const contactHas = (key, value) => (key === 'address' ? /\d/.test(value) : Boolean(value));
+
+// The profiles the owner builds after launch (claude-seo seo-local and seo-geo: citations, a company profile, sameAs):
+// [id, purpose, instructions, hosts whose URL in sameAs shows the profile exists]. Bing Places and directory listings
+// have no profile URL of their own to put in sameAs: the owner marks them done in the sheet.
+export const ENTITY_PROFILES = Object.freeze([
+  ['linkedin', 'LinkedIn 公司主页', '用公司名建 LinkedIn 公司页（Company Page），简介、网址、地址与网站一致；建好后把网址加进 sameAs（pnpm handoff -- --same-as <网址>）', ['linkedin.com']],
+  ['bing-places', 'Bing Places for Business 商家信息', '在 Bing Places 登记公司（可从 Google 商家资料导入）；名称、电话、网址与网站一致；建好后在本行填"已建"', []],
+  ['google-business-profile', 'Google 商家资料（Business Profile）', '只有客户可以上门的地址、或你上门服务客户时才建（纯远程服务不符合 Google 的资格）；建好后把地图链接加进 sameAs', ['g.page', 'maps.app.goo.gl', 'business.google.com']],
+  ['industry-directories', '行业目录与协会会员页', '挑 2–5 个本行业买家会查的可信目录或协会，登记公司；有公司主页网址的加进 sameAs，只要名称、网址、电话一致，不买链接', []],
+  ['youtube', 'YouTube 频道（可选）', '有真实的工厂、流程或案例视频时建频道；建好后把频道网址加进 sameAs', ['youtube.com']],
+]);
+const hostOf = (url) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; } };
+// One row per profile: "have" with the URL when sameAs holds one on its host, else optional and to do.
+export function entityRows(company) {
+  const sameAs = (company?.standIns ?? []).includes('sameAs') ? [] : company?.sameAs ?? [];
+  return ENTITY_PROFILES.map(([id, purpose, instructions, hosts]) => {
+    const url = sameAs.find((entry) => hosts.some((host) => hostOf(entry) === host || hostOf(entry).endsWith(`.${host}`)));
+    return { field_id: `entity:${id}`, category: '实体建设', purpose, pages: '全站（Organization sameAs）', current_placeholder: url ?? '', required: '选填', instructions, owner_value: url ?? '', source: '08', status: url ? STATUS.have : STATUS.missing };
+  });
+}
+
+// Adds an owner's profile URL to the company's sameAs (src/data/site-company.json), as the owner's own value: the
+// next scaffold keeps it (lib/site-company.mjs keeps a field marked source "owner" and not in standIns).
+export async function addSameAs(root, url) {
+  let parsed = null;
+  try { parsed = new URL(url); } catch { parsed = null; }
+  if (parsed?.protocol !== 'https:' || /["\s<>]/.test(url)) throw new Error(`a profile URL must be an https URL: ${url}`);
+  const path = resolve(root, 'src/data/site-company.json');
+  const company = await readJson(path, null);
+  if (company?.schemaVersion !== COMPANY_SCHEMA) throw new Error('no src/data/site-company.json to add the profile to (run the import first)');
+  const stood = (company.standIns ?? []).includes('sameAs');
+  const sameAs = [...new Set([...(stood ? [] : company.sameAs ?? []), parsed.href])];
+  const next = { ...company, sameAs, standIns: (company.standIns ?? []).filter((field) => field !== 'sameAs'), sources: { ...(company.sources ?? {}), sameAs: 'owner' } };
+  await writeJson(path, next);
+  return sameAs;
+}
 
 // The real photo to shoot for an image position: by its photography class, sharpened by what its section is about.
 const PHOTO_OF_CLASS = {
@@ -99,7 +143,7 @@ const SOURCE_NOW = { library: 'AI 生成图', site: 'Site Factory 提供的图�
 // The handoff rows. sourceOf(src) -> { source, kind } (lib/photo-sources.mjs); realSrcs: the owner's real photos;
 // wording: a trade's own words for the sign-off rows (config/demo-proof.<trade>.json signoff: field id -> [purpose,
 // instructions]) and the photos to shoot (photoToShoot).
-export function handoffRows({ pages, signoff, contact, built, sourceOf, realSrcs = new Set(), identity = null, wording = {} }) {
+export function handoffRows({ pages, signoff, contact, built, sourceOf, realSrcs = new Set(), identity = null, wording = {}, company = null }) {
   const rows = [];
   const row = (values) => rows.push(Object.fromEntries(COLUMNS.map((column) => [column, values[column] ?? (column === 'owner_value' ? '' : column === 'source' ? '08' : null)])));
   const asked = (have) => (have ? { required: '选填', status: STATUS.have } : { required: '必填', status: STATUS.missing });
@@ -127,7 +171,7 @@ export function handoffRows({ pages, signoff, contact, built, sourceOf, realSrcs
       const real = position.src && realSrcs.has(position.src);
       if (real) return;
       const kind = photo.kind ?? 'product';
-      const mustBeReal = standInForReal({ kind }, position.src ?? '', realSrcs);
+      const mustBeReal = standInForReal({ kind, photoClass: photo.photoClass }, position.src ?? '', realSrcs);
       row({
         field_id: `image:${page.route}:${position.block}:${index + 1}`, category: '图片', purpose: `${position.block}${position.heading ? `「${position.heading}」` : ''}的${kind === 'hero' ? '头图' : '配图'}`,
         pages: page.route, current_placeholder: `${SOURCE_NOW[photo.source] ?? photo.source}${position.src ? ` ${position.src}` : ''}${position.alt ? ` (${position.alt})` : ''}`,
@@ -136,6 +180,8 @@ export function handoffRows({ pages, signoff, contact, built, sourceOf, realSrcs
       });
     });
   }
+  // After launch: the entity-building checklist (P-4).
+  rows.push(...entityRows(company));
   return rows;
 }
 
@@ -153,6 +199,7 @@ export async function writeHandoff({ root = process.cwd(), realFiles = [] } = {}
     sourceOf: photoSources({ plan: await readJson(resolve(root, 'docs/research/image-plan.json'), null), siteMedia }),
     realSrcs: new Set(realSrcs),
     identity: await readJson(resolve(root, 'src/data/site-identity.json'), null),
+    company: await readJson(resolve(root, 'src/data/site-company.json'), null),
     wording: { signoff: (await readJson(tradeConfigPath('demo-proof', (await siteTrade(root)).trade))).signoff, photoToShoot: (await imageBriefs(root)).photoToShoot },
   });
   const data = { schemaVersion: HANDOFF_SCHEMA, madeAt: new Date().toISOString(), columns: COLUMNS, rows, realPhotos: realSrcs };
@@ -161,7 +208,11 @@ export async function writeHandoff({ root = process.cwd(), realFiles = [] } = {}
 }
 
 runMain(import.meta.url, async () => {
-  const { values } = cliArgs({ real: { type: 'string' } });
+  const { values } = cliArgs({ real: { type: 'string' }, 'same-as': { type: 'string' } });
+  if (values['same-as']) {
+    const sameAs = await addSameAs(process.cwd(), values['same-as']);
+    console.log(`sameAs (src/data/site-company.json): ${sameAs.join(', ')}; rebuild to put it in the Organization markup`);
+  }
   const realFiles = values.real ? await readJson(resolve(values.real)) : [];
   const { rows, realPhotos } = await writeHandoff({ realFiles });
   const by = rows.reduce((counts, row) => ({ ...counts, [row.category]: (counts[row.category] ?? 0) + 1 }), {});

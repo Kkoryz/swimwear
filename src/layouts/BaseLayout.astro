@@ -1,10 +1,12 @@
 ---
 import '../styles/global.css';
-import { absoluteJsonLd, absoluteUrl, pageSchemas, robotsDirective, serializeJsonLd, socialMeta } from '../../scripts/lib/seo-head.mjs';
+import { fontPreloads } from '../lib/font-preload';
+import { absoluteJsonLd, absoluteUrl, pageSchemas, robotsDirective, serializeJsonLd, socialMeta, withheldCompanyDetails } from '../../scripts/lib/seo-head.mjs';
 import ChatLauncher from '../components/site/ChatLauncher.astro';
+import EnquiryBar from '../components/site/EnquiryBar.astro';
 import SiteFooter from '../components/site/SiteFooter.astro';
 import SiteHeader from '../components/site/SiteHeader.astro';
-import { builtRoutes, pageHero, siteContact, siteIdentity, siteNav, siteRuntime, variants, type AuthoringPage } from '../lib/authoring';
+import { builtRoutes, pageDates, pageHero, people, siteCompany, siteContact, siteIdentity, siteNav, siteRuntime, variants, type AuthoringPage } from '../lib/authoring';
 
 interface Props {
   title: string;
@@ -22,12 +24,13 @@ const { title, description, lang = 'en', canonical = Astro.props.page?.seo.canon
 const robots = Astro.props.robots ?? (page ? robotsDirective(page) : null);
 // Without a site identity the canonical stays a root-relative route; it is never guessed.
 const canonicalHref = canonical ? absoluteUrl(siteIdentity, canonical) : undefined;
-const schemas: Record<string, unknown>[] = page ? pageSchemas({ page, identity: siteIdentity, nav: siteNav, builtRoutes, contact: siteContact }) : absoluteJsonLd(jsonLd, siteIdentity);
+const schemas: Record<string, unknown>[] = page ? pageSchemas({ page, identity: siteIdentity, nav: siteNav, builtRoutes, contact: siteContact, company: siteCompany, dates: pageDates, team: people }) : withheldCompanyDetails(absoluteJsonLd(jsonLd, siteIdentity));
 // The page's own photo for sharing: the article's, else the hero's.
 const shareImage = page ? (page.article?.image ?? (pageHero(page).showsImage ? pageHero(page).media : null)) : null;
 const social = page ? socialMeta({ page, identity: siteIdentity, image: shareImage }) : [];
 // body data-heading-align: how the reference sets its section headings (start or centre, scaffold-placeholder-pages),
-// which every section heading and lead follows (patterns.css).
+// which every section heading and lead follows (patterns.css); data-secondary-ink: the parts on the secondary surface
+// take its own text colour (template.css, apply-reference-analysis.mjs).
 ---
 
 <!doctype html>
@@ -38,6 +41,7 @@ const social = page ? socialMeta({ page, identity: siteIdentity, image: shareIma
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    {fontPreloads().map((file) => <link rel="preload" href={file} as="font" type="font/woff2" crossorigin />)}
     {canonicalHref && <link rel="canonical" href={canonicalHref} />}
     {robots && <meta name="robots" content={robots} />}
     {social.map((tag) => (tag.attribute === 'property' ? <meta property={tag.key} content={tag.content} /> : <meta name={tag.key} content={tag.content} />))}
@@ -46,13 +50,16 @@ const social = page ? socialMeta({ page, identity: siteIdentity, image: shareIma
     {siteRuntime?.analytics && <script is:inline defer src={siteRuntime.analytics.scriptSrc} data-website-id={siteRuntime.analytics.websiteId} />}
     {schemas.map((item) => <script is:inline type="application/ld+json" set:html={serializeJsonLd(item)} />)}
   </head>
-  <body data-heading-align={variants.headingAlign}>
+  <body data-heading-align={variants.headingAlign} data-secondary-ink={variants.secondaryInk === true ? '' : undefined}>
     <a class="skip-link" href="#main">Skip to content</a>
     {/* A paused site stays online and says why (registry site_notice); kept out of search snippets. */}
     {siteRuntime?.site?.status === 'paused' && siteRuntime.site.notice && <p class="site-notice" role="status" data-nosnippet>{siteRuntime.site.notice}</p>}
-    {shell && <SiteHeader />}
+    {shell && <SiteHeader page={page} />}
     <slot />
     {shell && <SiteFooter />}
-    {shell && page && <ChatLauncher page={page} />}
+    {shell && page && <EnquiryBar page={page} />}
+    {/* The chat only where the site runs one (site-runtime.json chat): rendered without it, the component drew nothing
+        and still loaded its script on every page (site13 claude-seo audit 2026-11-17, L-5). */}
+    {shell && page && siteRuntime?.chat && <ChatLauncher page={page} />}
   </body>
 </html>

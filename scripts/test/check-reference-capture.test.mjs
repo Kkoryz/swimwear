@@ -115,6 +115,34 @@ test('the section list follows the browser rule of reference-anatomy.mjs extract
   assert.equal(sectionList(captureTree(extraction)).length, 2);
 });
 
+test('a Duda page (hometeamluxuryrentals.com): its body carries an id, its header and footer are divs with Duda\'s markers, its sections plain divs', () => {
+  const row = (y, heading) => el('div', box(0, y, 1440, 600), { attrs: { class: 'dmRespRow' }, children: [el('h2', box(80, y + 60, 800, 40), { text: heading, styles: { 'font-size': '32px' } }), el('p', box(80, y + 120, 600, 200), { text: LONG })] });
+  const spec = el('html', box(0, 0, 1440, 1000), {
+    children: [
+      el('head', box(0, 0, 0, 0)),
+      el('body', box(0, 0, 1440, 2100), {
+        id: 'dmRoot',
+        children: [
+          // The phone header first, 0×0 at this width, as Duda's markup has it.
+          el('div', box(0, 0, 0, 0), { attrs: { class: 'hamburger-header-container showOnMedium' }, styles: { position: 'fixed' } }),
+          el('div', box(0, 0, 1440, 100), { attrs: { class: 'dmHeaderContainer fHeader' }, styles: { position: 'fixed' }, children: [el('a', box(400, 30, 80, 20), { text: 'Home' })] }),
+          row(100, 'Luxury homes'), row(700, 'Where we perform'), row(1300, 'Owner stories'),
+          // Its footer menu's closed sub-menus sit at opacity 0: shut menus, not content faded in on scroll.
+          el('div', box(0, 1900, 1440, 200), { attrs: { class: 'dmFooterContainer' }, children: [el('p', box(80, 1950, 300, 20), { text: '© 2026' }), el('nav', box(400, 2005, 600, 90), { children: [el('ul', box(400, 2005, 300, 90), { styles: { opacity: '0' }, children: ['Arizona', 'Florida', 'Texas', 'Utah'].map((state, index) => el('li', box(400, 2005 + index * 20, 300, 20), { text: state })) })] })] }),
+        ],
+      }),
+    ],
+  });
+  const { extraction, html } = capture(spec);
+  const tree = captureTree(extraction, { html });
+  assert.equal(tree.body?.selector, 'body#dmRoot');
+  assert.match(tree.header?.attributes.class ?? '', /dmHeaderContainer/);
+  assert.match(tree.footer?.attributes.class ?? '', /dmFooterContainer/);
+  assert.equal(sectionList(tree).length, 3);
+  const result = checkReferenceCapture(evidence({ spec }));
+  assert.equal(checksOf(result).filter((check) => ['section-list', 'fixed-overlay', 'faded-content'].includes(check)).length, 0, JSON.stringify(result.problems));
+});
+
 test('the density estimate counts photos, words and the longest text-only run as lib/density.mjs does', () => {
   const { extraction, html } = capture(hotelPage());
   const metrics = domDensity(captureTree(extraction, { html }));

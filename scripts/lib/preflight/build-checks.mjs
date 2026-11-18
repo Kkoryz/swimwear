@@ -36,15 +36,17 @@ export const BUILD_CHECKS = [
       ...parsed.images.filter((image) => CJK.test(image.alt ?? '')).map((image) => `${page.route} alt ${image.src?.split('/').at(-1)}: ${around(image.alt)}`),
     ];
   })) },
-  // A photo judged not to show its page's subject (judge-image-fit.mjs) never ships.
-  { code: 'image_wrong_subject', level: 'hold', run: (ctx) => found('photos that do not show their page\'s subject (docs/research/image-fit.json)', (ctx.imageFit?.pages ?? []).flatMap((page) => page.images.filter((image) => image.fit === 'wrong_subject').map((image) => `${page.route} ${image.src.split('/').at(-1)}`))) },
+  // A photo judged not to show its page's subject (judge-image-fit.mjs) is reported, it does not hold the launch (owner
+  // 2026-11-18: "不要硬卡这些图了", image problems are reported, never holding a run or a launch).
+  { code: 'image_wrong_subject', level: 'notice', run: (ctx) => found('photos that do not show their page\'s subject (docs/research/image-fit.json)', (ctx.imageFit?.pages ?? []).flatMap((page) => page.images.filter((image) => image.fit === 'wrong_subject').map((image) => `${page.route} ${image.src.split('/').at(-1)}`))) },
   { code: 'image_register_missing', level: 'hold', run: (ctx) => !ctx.plan && found('generated photos in use but no docs/research/image-plan.json: their review and approval cannot be checked', routesWhere(ctx, (html) => html.includes(`/${LIBRARY_PATH}/`) || html.includes(`/${LEGACY_LIBRARY_PATH}/`))) },
   { code: 'reference_photo_in_use', level: 'hold', run: (ctx) => found('pages still show competitor placeholder photos', routesWhere(ctx, (html) => html.includes('/media/reference/'))) },
   // The pre-launch handoff (scripts/handoff.mjs) lists what the owner replaces before launch, factory, staff and client
   // photos included; the owner replaces them, so it is a reminder, not a hold (owner, 2026-10-24).
   { code: 'handoff_missing', level: 'notice', run: (ctx) => !ctx.handoff && { detail: 'no pre-launch handoff (docs/research/handoff.json): run pnpm handoff before launch' } },
   { code: 'image_slot_present', level: 'hold', run: (ctx) => found('indexable pages still show image slots (supply real or approved photos)', routesWhere(ctx, (html, page) => isIndexable(page) && html.includes('data-media-slot='))) },
-  { code: 'image_not_approved', level: 'hold', run: (ctx) => {
+  // Reported only, as above (owner 2026-11-18).
+  { code: 'image_not_approved', level: 'notice', run: (ctx) => {
     const bySrc = planBySrc(ctx);
     return found('AI images in use without review approval (pnpm approve:images)', acrossPages(ctx, (page) => page.images.map((image) => bySrc.get(image.src)).filter((entry) => entry && entry.review !== 'approved').map((entry) => `${entry.id} (${entry.review ?? entry.status})`)));
   } },

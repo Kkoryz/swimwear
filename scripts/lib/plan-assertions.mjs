@@ -11,6 +11,7 @@
 // rule of the owner's is an assertion here, a pure function and a test.
 
 import { SECTION_HEADING_MAX_LINES } from './heading-fit.mjs';
+import { PICTURE_BAND_TOLERANCE, pictureBand } from './rules.mjs';
 
 // What a photo-steps block may run to on a phone, and the widest phone frame a framed hero may keep (lib/layout-plan.mjs
 // planPage estimates both).
@@ -20,7 +21,7 @@ export const MAX_CARDS_LONG = 3;
 export const LONG_CARD_WORDS = 40;
 // A row of short items (lib/visual-budget.mjs varyItemRows' itemRow).
 const itemRow = (block) => (block.type === 'featureGrid' && block.pattern !== 'bullets') || (block.type === 'process' && block.variant !== 'list') || block.type === 'stats';
-const PROOF = new Set(['certifications', 'testimonials', 'caseStudies', 'logos', 'stats', 'table', 'orderCase', 'orderRoutes', 'styleGrid', 'relatedPages', 'sources', 'trustBar', 'gallery', 'pricing', 'swatches']);
+const PROOF = new Set(['certifications', 'testimonials', 'caseStudies', 'logos', 'stats', 'table', 'orderCase', 'orderRoutes', 'styleGrid', 'relatedPages', 'sources', 'trustBar', 'gallery', 'pricing', 'swatches', 'team', 'dataPractices']);
 const SERVICE_TYPES = new Set(['solution', 'service', 'solutions_hub', 'services_hub']);
 const PLAIN = new Set(['white', 'tinted']);
 const sameSection = (a, b) => b.continues != null && [a.id, a.continues].includes(b.continues);
@@ -83,9 +84,11 @@ export const PLAN_ASSERTIONS = Object.freeze([
     check: (page) => {
       if (!page.band || !page.feasibility || page.feasibility.verdict === 'does_not_fit') return [];
       const { estimate: now, band } = page;
+      // Within a fifth either way of the band (lib/rules.mjs pictureBand).
+      const passes = pictureBand(band.visualAreaPct);
       const out = [];
-      if (!page.floorExempt && band.visualAreaPct?.min != null && now.visualAreaPct < band.visualAreaPct.min) out.push(`pictures ${now.visualAreaPct}% under ${band.visualAreaPct.min}%`);
-      if (band.visualAreaPct?.max != null && now.visualAreaPct > band.visualAreaPct.max) out.push(`pictures ${now.visualAreaPct}% over ${band.visualAreaPct.max}%`);
+      if (!page.floorExempt && passes.min != null && now.visualAreaPct < passes.min) out.push(`pictures ${now.visualAreaPct}% under ${passes.min}% (${band.visualAreaPct.min}% - ${PICTURE_BAND_TOLERANCE * 100}%)`);
+      if (passes.max != null && now.visualAreaPct > passes.max) out.push(`pictures ${now.visualAreaPct}% over ${passes.max}% (${band.visualAreaPct.max}% + ${PICTURE_BAND_TOLERANCE * 100}%)`);
       return out.length ? [{ block: 'page', detail: `${out.join('; ')} (planned ${page.budgetWalls} wall(s); the arithmetic says ${page.feasibility.walls})` }] : [];
     },
   },

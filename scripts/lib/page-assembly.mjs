@@ -4,10 +4,12 @@
 // mapping what it placed, and every Site Factory section must be used exactly once.
 
 import { indexBefore, openingEnd } from './block-position.mjs';
+import { dataPracticesBlock, isPrivacyPolicy } from './data-practices.mjs';
 import { leadFormBlock } from './lead-form.mjs';
-import { BLUEPRINTS, VARIANT_BLOCKS } from './page-blueprints.mjs';
+import { BLUEPRINTS, REQUIRED_BLOCKS, requiredBlocks, VARIANT_BLOCKS } from './page-blueprints.mjs';
 import { childCards, childPages, relatedPages } from './site-plan.mjs';
-import { proofBlock } from './site-proof.mjs';
+import { ownerSlotsOf, proofBlock } from './site-proof.mjs';
+import { placeResourceForm } from './resource-promise.mjs';
 import { slotBlockId, slotOfBlockId } from './slot-blocks.mjs';
 
 // The blueprint's slot order is the page's block order, and each block renders with its slot's module (the competitor
@@ -20,7 +22,8 @@ export function orderBySlots(blocks, mapping, slots = []) {
     const named = slotOfBlockId(block.id);
     if (named) return named;
     if (block.sourceSectionIds?.length && bySection.has(block.sourceSectionIds[0])) return bySection.get(block.sourceSectionIds[0]);
-    if (block.type === 'cta' || block.type === 'form') return slots.find((slot) => slot.block === block.type)?.id;
+    // A resource request form is no enquiry form: it keeps its place by the copy that lists the resources.
+    if (block.type === 'cta' || (block.type === 'form' && block.request !== 'resource')) return slots.find((slot) => slot.block === block.type)?.id;
     if (['stats', 'table', 'process'].includes(block.type) && !block.sourceSectionIds?.length) return structuredSlot(block.type);
     return undefined;
   };
@@ -69,17 +72,33 @@ export function placePlanSlots(blocks, mapping, { planned, pagesPlan, blueprints
   });
 }
 
-// What a page type cannot do without, whatever its copy holds (a page written by kind has no form section): the contact
-// page's enquiry form and its ways to reach the company, before the closing call (the hotel site's contact page said
-// "the form below" over neither).
-export const REQUIRED_BLOCKS = Object.freeze({ contact: ['form', 'contactChannels'] });
+// What a page cannot do without (lib/page-blueprints.mjs REQUIRED_BLOCKS), before the closing call.
+export { REQUIRED_BLOCKS };
 export const CHANNELS_HEADING = 'Contact details';
-export function placeRequiredBlocks(blocks, mapping, { planned }) {
-  for (const type of REQUIRED_BLOCKS[planned.page_type] ?? []) {
-    if (blocks.some((block) => block.type === type)) continue;
+// practices: the privacy page's table as the package gives it (AuthoredPage.data_practices), or null.
+export function placeRequiredBlocks(blocks, mapping, { planned, hero = null, practices = null }) {
+  for (const type of requiredBlocks(planned.page_type, planned.page_id)) {
+    // The enquiry form is required; a resource request form on the page is not one.
+    if (blocks.some((block) => block.type === type && block.request !== 'resource')) continue;
     const block = type === 'form' ? leadFormBlock(freeBlockId(blocks, 'form')) : { id: freeBlockId(blocks, 'channels'), type: 'contactChannels', heading: CHANNELS_HEADING };
     blocks.splice(indexBefore(blocks, ['cta']), 0, block);
     mapping.push({ sectionId: `required.${type}`, blockType: type, rule: `a ${planned.page_type} page needs its ${type}` });
+  }
+  // A page offering guides, templates or downloads with no file to take carries the resource request form
+  // (lib/resource-promise.mjs; owner 2026-11-17), the enquiry form's endpoint with request_type=resource.
+  const resource = placeResourceForm(blocks, { id: planned.page_id, pageType: planned.page_type, hero });
+  if (resource) mapping.push({ sectionId: 'required.resourceForm', blockType: 'form', rule: `a page that offers resources carries the resource request form (${resource.fields.find((field) => field.name === 'resource').kind === 'select' ? `${resource.fields.find((field) => field.name === 'resource').options.length - 1} resources named` : 'the visitor names the resource'})` });
+  // The privacy policy says what the site collects (lib/data-practices.mjs), after Site Factory's text (four-site audit
+  // 2026-11-17); the terms, a privacy-type page too, do not. The package's table (Site Factory's data_practices, on its
+  // privacy page only) is the one shown when it gives one. A page holding a table already gets no second one (Site
+  // Factory integ deb67119, 2026-11-17: the privacy page has one table).
+  if (planned.page_type === 'privacy' && (practices || isPrivacyPolicy({ route: planned.url, label: planned.label })) && !blocks.some((block) => block.type === 'dataPractices')) {
+    if (blocks.some((block) => block.type === 'table')) {
+      mapping.push({ sectionId: 'required.dataPractices', blockType: null, rule: `the privacy policy holds a table already: no second one${practices ? ' (the package\'s data_practices is not shown)' : ''}` });
+    } else {
+      blocks.splice(indexBefore(blocks, ['cta']), 0, dataPracticesBlock(freeBlockId(blocks, 'data-practices'), practices));
+      mapping.push({ sectionId: 'required.dataPractices', blockType: 'dataPractices', rule: practices ? 'the privacy policy says what this site collects (the package\'s data_practices)' : 'the privacy policy says what this site collects (its configuration)' });
+    }
   }
 }
 
@@ -95,11 +114,14 @@ export function placeSiteSlots(blocks, mapping, { planned, blueprints = BLUEPRIN
 // the closing call to action (the order routes: after the page's opening); the blueprint's order places them when every
 // section names its slot. A page's own client case (07 cases, placeCases) takes the place of the stand-in case studies.
 export function placeOwnerSlots(blocks, mapping, { planned, proof, blueprints = BLUEPRINTS, trust = null, testimonials = null, cases = null }) {
-  for (const slot of (blueprints[planned.page_type] || []).filter((item) => item.fill === 'owner')) {
+  // The slots the page's tree name adds (site-proof.mjs PAGE_PROOF_SLOTS: the case studies page's case cards) fill a page
+  // Site Factory gives no case of its own; one it gives cases shows those alone (site13 blind audit 2026-11-17 H-2: the
+  // stand-in cards and the page's own cases told different projects).
+  for (const slot of ownerSlotsOf(blueprints[planned.page_type] || [], planned.page_type, planned.page_id)) {
     if (slot.id === 'caseStudies' && cases?.length) { mapping.push({ sectionId: `owner.${slot.id}`, blockType: null, rule: `slot ${slot.id}: the page's own client case takes its place` }); continue; }
     // A package that gives the page its cases and gives none (cases: []) means none here: no stand-in case studies take
     // the slot (Site Factory 1113d took the hotel home's cases off; the stand-ins would have come back in their place).
-    if (slot.id === 'caseStudies' && Array.isArray(cases)) { mapping.push({ sectionId: `owner.${slot.id}`, blockType: null, rule: `slot ${slot.id}: the package gives this page no client case` }); continue; }
+    if (slot.id === 'caseStudies' && Array.isArray(cases) && !slot.page) { mapping.push({ sectionId: `owner.${slot.id}`, blockType: null, rule: `slot ${slot.id}: the package gives this page no client case` }); continue; }
     const block = proofBlock(slot.id, proof, { route: planned.url, trust, testimonials });
     if (!block) { mapping.push({ sectionId: `owner.${slot.id}`, blockType: null, rule: `slot ${slot.id}: no owner data in src/data/site-proof.json` }); continue; }
     blocks.splice(block.type === 'orderRoutes' ? openingEnd(blocks) : afterKinds(blocks, mapping, AFTER_KINDS[slot.id]) ?? indexBefore(blocks, ['faq', 'cta']), 0, block);
@@ -118,7 +140,7 @@ function afterKinds(blocks, mapping, kinds = []) {
 }
 
 // Sources (07 AuthoredPage.knowledge: the industry knowledge cards whose facts the sections were given): one list of
-// the cards' sources, each url once, before the closing CTA. A source without a title or an http(s) url fails the import.
+// the cards' sources, each url once, before the closing CTA. A source without an http(s) url fails the import.
 // The id of a block 08 adds (sources, styles, cases, related pages): its own name, or with a number after it when a
 // Site Factory section already has that id (a section may be called "related"), so block ids stay unique.
 export function freeBlockId(blocks, id) {
@@ -128,18 +150,43 @@ export function freeBlockId(blocks, id) {
   return free;
 }
 
+// A cited source (the package's CitedSource) as the list shows it. Since Site Factory integ deb67119 (2026-11-17) a
+// researched row's source has no title (none is read) and its publisher is the page's host, with when it was read and
+// the words it rests on (retrieved, quote: not shown): an empty title shows the publisher, else the url's host; a
+// publisher that is the title already is not repeated.
+export function sourceItem(source) {
+  const host = new URL(source.url).hostname.replace(/^www\./, '');
+  const publisher = String(source.publisher ?? '').trim();
+  const title = String(source.title ?? '').trim() || publisher || host;
+  // When the source was read (retrieved, a date): the list states it (Site Factory 2026-11-17: a regulation's figure on a
+  // city page is the figure on the day it was read).
+  const retrieved = String(source.retrieved ?? '').trim().match(/^\d{4}-\d{2}-\d{2}/)?.[0];
+  return { title, url: source.url, ...(publisher && publisher !== title ? { publisher } : {}), ...(retrieved ? { retrieved } : {}) };
+}
+
 export function placeSources(blocks, mapping, page) {
   const cards = page.knowledge || [];
   const items = new Map();
   for (const card of cards) {
     for (const [index, source] of (card.sources || []).entries()) {
-      if (!source?.title?.trim() || !/^https?:\/\//.test(source?.url ?? '')) throw new Error(`${page.page_id}: knowledge card ${card.card_id} source ${index + 1} needs a title and an http(s) url`);
-      if (!items.has(source.url)) items.set(source.url, { title: source.title, url: source.url, ...(source.publisher ? { publisher: source.publisher } : {}) });
+      if (!/^https?:\/\//.test(source?.url ?? '')) throw new Error(`${page.page_id}: knowledge card ${card.card_id} source ${index + 1} needs an http(s) url`);
+      if (!items.has(source.url)) items.set(source.url, sourceItem(source));
     }
+  }
+  // The page's own researched sources its footnotes cite (07 AuthoredPage.footnotes, refs: 1-based into
+  // AuthoredPage.sources; Site Factory integ deb67119 2026-11-17: only public or authority research rows, never a
+  // competitor's page, owner 2026-10-01): the same list, each url once. A source no footnote cites is not shown.
+  const own = page.sources || [];
+  const cited = [...new Set((page.footnotes || []).flatMap((note) => note.refs || []))].sort((a, b) => a - b);
+  for (const ref of cited) {
+    const source = own[ref - 1];
+    if (!source) throw new Error(`${page.page_id}: a footnote cites source ${ref}, the page lists ${own.length}`);
+    if (!/^https?:\/\//.test(source.url ?? '')) throw new Error(`${page.page_id}: source ${ref} needs an http(s) url`);
+    if (!items.has(source.url)) items.set(source.url, sourceItem(source));
   }
   if (!items.size) return;
   blocks.splice(indexBefore(blocks, ['cta']), 0, { id: freeBlockId(blocks, 'sources'), type: 'sources', sourceSectionIds: [], items: [...items.values()], cardIds: cards.map((card) => card.card_id) });
-  mapping.push({ sectionId: 'knowledge.sources', blockType: 'sources', rule: `sources of ${cards.length} knowledge cards (${items.size} urls)` });
+  mapping.push({ sectionId: 'knowledge.sources', blockType: 'sources', rule: `sources of ${cards.length} knowledge cards and ${cited.length} footnoted page sources (${items.size} urls)` });
 }
 
 // A line page's style grid (07 style_cards: name and one sentence each): after the section that names the styles
@@ -180,9 +227,16 @@ export function placeCases(blocks, mapping, { source, proof = null, heading = nu
 // counterpart, its hub and its sibling products.
 export const MAX_RELATED = 12;
 export const RELATED_HEADING = 'Related products and services';
+// A block whose links are not all offers (a product, a service or their hubs) is named for what it holds: the home's
+// "Related products and services" listed Contact Us and Privacy Policy, RateHarbor's "Related services" Careers and
+// Resources (claude-seo audits 2026-11-17/18: aloha L-8, Strandmill M-13, RateHarbor L-2). The legal pages are in every
+// page's footer and are not listed here.
+export const RELATED_PAGES_HEADING = 'Related pages';
+const OFFER_TYPES = new Set(['product_manufacturer', 'product_wholesale', 'products_hub', 'solution', 'solutions_hub']);
 // The routes a page's copy links inline ([label](/route/)).
 export const linkedInCopy = (blocks) => new Set([...JSON.stringify(blocks).matchAll(/\]\((\/[^)\s"]*)\)/g)].map((match) => match[1]));
-export function placeRelated(blocks, { planned, pagesPlan, built, links = [], variant = null, heading = RELATED_HEADING }) {
+export function placeRelated(blocks, { planned, pagesPlan, built, links = [], variant = null, heading = RELATED_HEADING, pagesHeading = RELATED_PAGES_HEADING }) {
+  const typeOf = new Map(pagesPlan.pages.map((page) => [page.url, page.page_type]));
   const cta = blocks.find((block) => block.type === 'cta');
   const inCopy = linkedInCopy(blocks);
   const have = new Set([planned.url, ...(cta ? [cta.cta.href] : []), ...inCopy]);
@@ -190,7 +244,7 @@ export function placeRelated(blocks, { planned, pagesPlan, built, links = [], va
   // A link to a page not built yet stays in the data but is not shown (RelatedPagesBlock): only shown ones count.
   let shown = 0;
   const add = (label, href) => {
-    if (have.has(href) || shown >= MAX_RELATED) return false;
+    if (have.has(href) || shown >= MAX_RELATED || typeOf.get(href) === 'privacy') return false;
     have.add(href);
     list.push({ label, href });
     if (!href.startsWith('/') || built.has(href)) shown += 1;
@@ -201,7 +255,8 @@ export function placeRelated(blocks, { planned, pagesPlan, built, links = [], va
   for (const page of relatedPages(planned, pagesPlan)) if (built.has(page.url) && add(page.label, page.url)) added += 1;
   // Only pages that exist are shown: with none built yet there is no block.
   if (shown > 0) {
-    blocks.splice(indexBefore(blocks, ['faq', 'cta']), 0, { id: freeBlockId(blocks, 'related'), type: 'relatedPages', heading: heading ?? RELATED_HEADING, links: list, ...(variant ? { variant } : {}) });
+    const offers = list.filter((link) => !link.href.startsWith('/') || built.has(link.href)).every((link) => OFFER_TYPES.has(typeOf.get(link.href)));
+    blocks.splice(indexBefore(blocks, ['faq', 'cta']), 0, { id: freeBlockId(blocks, 'related'), type: 'relatedPages', heading: offers ? heading ?? RELATED_HEADING : pagesHeading ?? RELATED_PAGES_HEADING, links: list, ...(variant ? { variant } : {}) });
   }
   return { fromPage, added, inCopy: links.filter((link) => inCopy.has(link.url)).length };
 }

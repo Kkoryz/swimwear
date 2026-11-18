@@ -58,16 +58,18 @@ test('the brand step brings in the project\'s own logo kit, else draws the site 
   const calls = [];
   const importer = async () => { calls.push('import'); return { source: 'stage-00' }; };
   const typeset = async ({ name, domain }) => { calls.push(`typeset ${name} ${domain}`); return { source: 'build-brand-kit' }; };
+  // The header logo is fitted after each (fit-header-logo.mjs); without an identity it has nothing to fit.
+  const fit = async () => { calls.push('fit'); return null; };
   // No logo in the kit: a wordmark is drawn; none passes: typeset.
-  assert.equal((await siteBrand({ project, root, importer, typeset, wordmark: async () => ({ chosen: null }) })).source, 'build-brand-kit');
+  assert.equal((await siteBrand({ project, root, importer, typeset, fit, wordmark: async () => ({ chosen: null }) })).source, 'build-brand-kit');
   // The image tool is unavailable: typeset too.
-  assert.equal((await siteBrand({ project, root, importer, typeset, wordmark: async () => { throw new Error('usage limit'); } })).source, 'build-brand-kit');
+  assert.equal((await siteBrand({ project, root, importer, typeset, fit, wordmark: async () => { throw new Error('usage limit'); } })).source, 'build-brand-kit');
   // A drawn wordmark: its identity.
   await mkdir(join(root, 'src/data'), { recursive: true });
   await writeFile(join(root, 'src/data/site-identity.json'), JSON.stringify({ source: 'make-wordmark' }));
-  assert.equal((await siteBrand({ project, root, importer, typeset, wordmark: async ({ name, domain }) => { calls.push(`draw ${name} ${domain}`); return { chosen: 'docs/research/brand/wordmark-1.png' }; } })).source, 'make-wordmark');
+  assert.equal((await siteBrand({ project, root, importer, typeset, fit, wordmark: async ({ name, domain }) => { calls.push(`draw ${name} ${domain}`); return { chosen: 'docs/research/brand/wordmark-1.png' }; } })).source, 'make-wordmark');
   // The owner's or Site Factory's own logo: brought in, nothing drawn.
   await writeFile(join(project, 'brand/logo.png'), 'x');
-  assert.equal((await siteBrand({ project, root, importer, typeset, wordmark: async () => assert.fail('no drawing') })).source, 'stage-00');
-  assert.deepEqual(calls, ['typeset Strandmill strandmill.com', 'typeset Strandmill strandmill.com', 'draw Strandmill strandmill.com', 'import']);
+  assert.equal((await siteBrand({ project, root, importer, typeset, fit, wordmark: async () => assert.fail('no drawing') })).source, 'stage-00');
+  assert.deepEqual(calls, ['typeset Strandmill strandmill.com', 'fit', 'typeset Strandmill strandmill.com', 'fit', 'draw Strandmill strandmill.com', 'fit', 'import', 'fit']);
 });

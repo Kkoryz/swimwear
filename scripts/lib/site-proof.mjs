@@ -1,30 +1,48 @@
 // The site's proof (src/data/site-proof.json, the owner's data): factory figures, certificates, clients, testimonials,
-// case studies, history, and the order terms (MOQ, sampling and lead times as one table, from the approved facts).
+// case studies, history, the team (lib/site-people.mjs), the privacy facts (retention and contact, lib/data-practices.mjs)
+// and the order terms (MOQ, sampling and lead times as one table, from the approved facts).
 // Owner slots of the page blueprints render it; Site Factory never writes it. Values the owner states now and replaces
 // before launch (every group but the terms) are listed in docs/research/release-signoff.json (pnpm proof:signoff).
 
 import { CARDINALITY } from './authoring-contract.mjs';
 import { indexBefore, openingEnd } from './block-position.mjs';
+import { TEAM_HEADING, teamItems } from './site-people.mjs';
 import { slotBlockId } from './slot-blocks.mjs';
 
 export const PROOF_SCHEMA = 'seo-site-proof-v1';
-export const PROOF_GROUPS = Object.freeze(['factory', 'certifications', 'clients', 'testimonials', 'caseStudies', 'history']);
+// The privacy facts' source when they are Site Factory's (its package's data_practices: scaffold-site-proof.mjs packagePrivacy).
+export const PRIVACY_FROM_PACKAGE = 'site-factory';
+export const PROOF_GROUPS = Object.freeze(['factory', 'certifications', 'clients', 'testimonials', 'caseStudies', 'history', 'team']);
 
 // Owner slots each page type carries whatever its competitor page shows, after the SEO-strong manufacturer sites
 // (Thygesen, Arcus, Apparel Production NY, Appareify): the home page proves the factory, its certificates, clients and
 // results; the about page its figures and history; product and service pages the certificates, a case and a client's
 // words. A slot is left out of a page while the site has no data for it. The case studies (with product photos) come
 // last, right before the FAQ, so the text-only proof above them and the FAQ and sources below are not one long run.
+// The about page names its people last (four-site audit 2026-11-17: no named person anywhere): the team section whose
+// anchors the blog's bylines link to.
 // The order routes (Site Factory's order_routes, lib/site-trust.mjs) open the ordering page and follow the home page's
 // introduction, after swimwearbali.com and baliswim.com: two route cards, the other ways to start as a short list.
 export const PROOF_SLOTS = Object.freeze({
   home: ['orderRoutes', 'factory', 'certifications', 'logos', 'testimonials', 'caseStudies'],
-  about: ['factory', 'history', 'certifications', 'logos', 'testimonials'],
+  about: ['factory', 'history', 'certifications', 'logos', 'testimonials', 'team'],
   product_manufacturer: ['orderTerms', 'certifications', 'testimonials', 'caseStudies'],
   product_wholesale: ['orderTerms', 'testimonials'],
   solution: ['testimonials', 'caseStudies'],
   ordering: ['orderRoutes'],
 });
+// Owner slots a general page of the site tree carries by its tree name (site:<name>), as page-blueprints.mjs
+// REQUIRED_BLOCKS does: the case studies page shows the site's case studies, a card each (four-site audit 2026-11-17,
+// Fable's plan C9: every site's site:case_studies_portfolio, a "general" page, showed Site Factory's anonymised orders
+// only while the caseStudies slot stood unused). A page type's PROOF_SLOTS would put them on every general page.
+export const PAGE_PROOF_SLOTS = Object.freeze({ case_studies_portfolio: ['caseStudies'] });
+export const pageProofSlots = (pageType, pageId = null) => (pageType === 'general' && pageId?.startsWith('site:') ? PAGE_PROOF_SLOTS[pageId.slice(5)] ?? [] : []);
+// The owner slots of a page: its blueprint's, then the ones its tree name adds.
+export function ownerSlotsOf(slots = [], pageType = null, pageId = null) {
+  const own = slots.filter((slot) => slot.fill === 'owner');
+  const added = pageProofSlots(pageType, pageId).filter((id) => !own.some((slot) => slot.id === id)).map((id) => ({ id, block: id, fill: 'owner', required: false, purpose: PURPOSE[id], page: true }));
+  return [...own, ...added];
+}
 const PURPOSE = {
   factory: 'Factory figures the owner can state (capacity, lines, staff, floor area, founding year)',
   certifications: 'Certificates the production holds: name, issuer, scope, number, validity',
@@ -34,6 +52,7 @@ const PURPOSE = {
   history: 'Milestones of the company, year by year',
   orderTerms: 'Order terms from the approved facts as one table: MOQ, sampling, lead times, fees',
   orderRoutes: 'How an order starts (Site Factory order_routes): two route cards, the other ways as a list',
+  team: 'The people behind the company: name, role, years of experience, what they do (no photos of invented people)',
 };
 
 // The page type's slots with its proof slots added: one already placed (from the competitor page) stays where it is;
@@ -58,7 +77,7 @@ const most = (type) => CARDINALITY[type][1];
 
 export const ORDER_ROUTES_HEADING = 'Ways to start your order';
 // The group of site-proof.json each owner slot shows (also the key of its heading in `headings`).
-const SLOT_GROUP = Object.freeze({ factory: 'factory', certifications: 'certifications', logos: 'clients', testimonials: 'testimonials', caseStudies: 'caseStudies', history: 'history', orderTerms: 'terms', orderRoutes: 'orderRoutes' });
+const SLOT_GROUP = Object.freeze({ factory: 'factory', certifications: 'certifications', logos: 'clients', testimonials: 'testimonials', caseStudies: 'caseStudies', history: 'history', orderTerms: 'terms', orderRoutes: 'orderRoutes', team: 'team' });
 // The id of the block that shows a proof group on a page.
 export const proofGroupBlockId = (group) => slotBlockId('owner', Object.keys(SLOT_GROUP).find((slot) => SLOT_GROUP[slot] === group));
 
@@ -89,8 +108,13 @@ export function proofBlock(slotId, proof, { route = null, trust = null, testimon
       return proof.certifications?.length ? block('certifications', { items: proof.certifications.slice(0, most('certifications')) }) : null;
     case 'logos':
       return proof.clients?.length >= 2 ? block('logos', { items: proof.clients.slice(0, most('logos')).map(({ name, note, media }) => ({ name, ...(note ? { note } : {}), ...(media ? { media } : {}) })) }) : null;
-    case 'testimonials':
-      return proof.testimonials?.length ? block('testimonials', { items: forPage(proof.testimonials, route, 3).map(({ pages, ...item }) => item) }) : null;
+    case 'testimonials': {
+      // A testimonial shows only on the pages it is assigned to (its `pages`; one with none, anywhere): the same three
+      // about women's swimwear, one-pieces and bikinis stood on 19 unrelated pages (four-site audit 2026-11-17, C3;
+      // site13 blind audit H2). A page with none of its own shows no testimonials section.
+      const items = (proof.testimonials ?? []).filter((item) => !item.pages?.length || item.pages.includes(route)).slice(0, 3);
+      return items.length ? block('testimonials', { items: items.map(({ pages, ...item }) => item) }) : null;
+    }
     case 'caseStudies': {
       // A page with cases of its own shows only those; any other page the first few.
       const own = proof.caseStudies?.filter((item) => item.pages?.includes(route)) ?? [];
@@ -101,6 +125,10 @@ export function proofBlock(slotId, proof, { route = null, trust = null, testimon
       return proof.terms?.rows?.length ? block('table', { columns: proof.terms.columns, rows: proof.terms.rows }) : null;
     case 'history':
       return proof.history?.length >= 2 ? block('process', { variant: 'photo-cards', steps: proof.history.map(({ year, event }) => ({ heading: String(year), text: event })) }) : null;
+    case 'team': {
+      const items = teamItems(proof.team).slice(0, most('team'));
+      return items.length ? block('team', { heading: heading ?? TEAM_HEADING, items }) : null;
+    }
     default:
       return null;
   }
@@ -129,6 +157,13 @@ export function proofSignoffItems(proof) {
     testimonials: (items) => `testimonials: ${list(items, (item) => `${item.author}, ${item.company ?? ''}`)}`,
     caseStudies: (items) => `case studies: ${list(items, (item) => `${item.client}: ${item.title}`)}`,
     history: (items) => `history: ${list(items, (item) => `${item.year} ${item.event}`)}`,
+    team: (items) => `team members: ${list(items, (item) => `${item.name}, ${item.role}${item.years ? `, ${item.years} years` : ''}`)}`,
   };
-  return PROOF_GROUPS.filter((group) => proof?.[group]?.length).map((group) => ({ id: `proof-${group}`, description: `Replace the stated ${describe[group](proof[group])} with real, permitted values (src/data/site-proof.json)`, status: 'pending' }));
+  const groups = PROOF_GROUPS.filter((group) => proof?.[group]?.length).map((group) => ({ id: `proof-${group}`, description: `Replace the stated ${describe[group](proof[group])} with real, permitted values (src/data/site-proof.json)`, status: 'pending' }));
+  // The privacy facts the privacy page's "what this site collects" shows (lib/data-practices.mjs). Site Factory's
+  // (scaffold-site-proof.mjs packagePrivacy, source site-factory) are the owner's project.yaml privacy: listed until the
+  // owner has confirmed them (placeholder false), and corrected there, not here.
+  const fromPackage = proof?.privacy?.source === PRIVACY_FROM_PACKAGE;
+  const privacy = fromPackage && proof.privacy.placeholder === false ? [] : [proof?.privacy?.retention && `retention: ${proof.privacy.retention}`, proof?.privacy?.contact && `privacy contact: ${proof.privacy.contact}`].filter(Boolean);
+  return [...groups, ...(privacy.length ? [{ id: 'proof-privacy', description: fromPackage ? `Confirm the stated privacy facts (${privacy.join('; ')}) or give the real ones (Site Factory project.yaml privacy)` : `Replace the stated privacy facts (${privacy.join('; ')}) with the owner's real ones (src/data/site-proof.json privacy)`, status: 'pending' }] : [])];
 }

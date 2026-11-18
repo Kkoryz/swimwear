@@ -9,7 +9,7 @@ interface Props { block: FigureBlock; media?: Media | null }
 const { block, media = null } = Astro.props;
 ---
 
-<section class="block block--figure" data-authoring-block="figure" data-block-id={block.id}>
+<section class="block block--figure" id={block.anchor} data-authoring-block="figure" data-block-id={block.id}>
   <div class="container figure-block" data-layout="figure">
     <Eyebrow text={block.eyebrow} />
     {block.heading && <h2>{block.heading}</h2>}

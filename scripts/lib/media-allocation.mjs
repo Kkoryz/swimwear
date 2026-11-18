@@ -12,8 +12,16 @@ import { SHARED_KINDS, SITE_WIDE_KINDS } from './rules.mjs';
 
 // The key of a photo made for one section's visual: its page and the visual's id.
 export const intentKey = (route, id) => `${route}#${id}`;
+// The id of a service page's own opening photo (image-plan.mjs serviceHeroes), as its intent names it.
+export const SERVICE_HERO = 'service-hero';
 
 export const GENERAL = 'general';
+// The set a themed page's shared classes take in place of the site-wide one (lib/page-theme.mjs; site13 claude-seo
+// audit 2026-11-17, M-13: the men's and couples pages showed a women's swimsuit on the factory table, the children's
+// and modest pages adult bikinis): the theme's own, shared by the theme's pages (media.routeThemes), never the line's.
+const THEME_PREFIX = 'theme:';
+export const themeCategory = (id) => `${THEME_PREFIX}${id}`;
+export const isThemeCategory = (category) => String(category ?? '').startsWith(THEME_PREFIX);
 
 const STOP = new Set(['and', 'or', 'the', 'a', 'an', 'of', 'for', 'to', 'in', 'on', 'with', 'our', 'your', 'we', 'you', 'by', 'from', 'at', 'is', 'are', 'how', 'what', 'why']);
 // Words of a heading or description, plural "s" dropped ("socks" matches "sock"; "dress" stays).
@@ -47,6 +55,7 @@ export function templateLibrary(media = {}) {
   for (const [route, pools] of Object.entries(media.routePools ?? {})) for (const [kind, items] of Object.entries(pools)) for (const item of items) add(item, kind, media.routeCategories?.[route] ?? route);
   const shared = media.pools ?? { process: media.pool ?? [] };
   for (const [kind, items] of Object.entries(shared)) for (const item of items) add(item, kind, GENERAL);
+  for (const [category, pools] of Object.entries(media.themePools ?? {})) for (const [kind, items] of Object.entries(pools)) for (const item of items) add(item, kind, category);
   return library;
 }
 
@@ -63,7 +72,7 @@ export function allocateSite({ pages, components, sitePhotos = [], isBuilt = () 
   const media = components.media ?? {};
   const library = templateLibrary(media);
   const placeholders = new Set(media.placeholders ?? []);
-  const categories = [...new Set([...library.map((photo) => photo.category), ...Object.values(media.routeCategories ?? {})])].filter((category) => category !== GENERAL && !category.startsWith('/'));
+  const categories = [...new Set([...library.map((photo) => photo.category), ...Object.values(media.routeCategories ?? {})])].filter((category) => category !== GENERAL && !category.startsWith('/') && !isThemeCategory(category));
   const siteUse = new Map();
   const byRoute = {};
   const unfilled = [];
@@ -103,6 +112,10 @@ export function allocateSite({ pages, components, sitePhotos = [], isBuilt = () 
     // linked: the category of the page a card links to. intent: the photo the section asks for (Site Factory's visual:
     // what it shows, where), made for this position alone (image-plan.mjs) and found by its key.
     const take = (kind, topic, blockId, linked = null, frames = null, intent = null) => {
+      // A position the site names a photo for (site.json pagePhotos[route][block id]: a photo wall the budget added has no
+      // section visual of its own) asks for that photo, as a section's visual does.
+      const named = !intent && typeof media.pagePhotos?.[page.route]?.[blockId] === 'string' ? media.pagePhotos[page.route][blockId] : null;
+      if (named) intent = { id: `page-photo-${blockId}`, type: 'photo', content: named, setting: null, caption: null, purpose: 'the photo the site names for this position', section: topic ?? null };
       if (intent && !placeholders.has(kind)) {
         const key = intentKey(page.route, intent.id);
         const own = library.find((photo) => photo.intent === key);
@@ -136,8 +149,9 @@ export function allocateSite({ pages, components, sitePhotos = [], isBuilt = () 
         unfilled.push({ route: page.route, status: page.status, blockId, kind, category: GENERAL, topic });
         return { src: '', alt: '', slot: kind };
       }
-      // A shared class (rules.mjs SHARED_KINDS) shows the site's own set on every page.
-      const category = SHARED_KINDS.includes(kind) ? GENERAL : linked ?? namedCategory(topic, categories) ?? pageCategory;
+      // A shared class (rules.mjs SHARED_KINDS) shows the site's own set on every page, its theme's on a themed page.
+      const theme = media.routeThemes?.[page.route];
+      const category = SHARED_KINDS.includes(kind) ? (theme ? themeCategory(theme) : GENERAL) : linked ?? namedCategory(topic, categories) ?? pageCategory;
       for (const candidateKind of FALLBACK[kind].filter((name) => !placeholders.has(name))) {
         // A photo made for one section's visual is that section's alone.
         const own = library.filter((photo) => !photo.intent && photo.kind === candidateKind && photo.category === category);

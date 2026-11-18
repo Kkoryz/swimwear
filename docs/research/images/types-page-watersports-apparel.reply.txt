@@ -1,1 +1,0 @@
-{"slots":[{"id":"watersports-apparel-hero-1","kind":5},{"id":"watersports-apparel-product-1","kind":2},{"id":"watersports-apparel-lifestyle-1","kind":1}]}
