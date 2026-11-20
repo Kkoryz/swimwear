@@ -15,9 +15,10 @@ import { cliArgs, listOption, runMain, usage } from './lib/cli.mjs';
 import { factsFromFile } from './lib/facts.mjs';
 import { DEFAULT_TRADE, siteTrade, tradeConfigPath } from './lib/trade.mjs';
 import { readJson, readText, writeJson } from './lib/json-io.mjs';
-import { assertSectionsUsedOnce, orderBySlots, placeCases, placeOwnerSlots, placePlanSlots, placeRelated, placeRequiredBlocks, placeSiteSlots, placeSources, placeStyleGrid } from './lib/page-assembly.mjs';
+import { assertQuickViewPlaced, assertSectionsUsedOnce, orderBySlots, placeCases, placeOwnerSlots, placePlanSlots, placeRelated, placeRequiredBlocks, placeSiteSlots, placeSources, placeStyleGrid } from './lib/page-assembly.mjs';
 import { BLUEPRINTS, blueprintsFrom, legalText } from './lib/page-blueprints.mjs';
 import { siteNavFromPlan } from './lib/site-plan.mjs';
+import { withClientWall } from './lib/site-proof.mjs';
 import { competitorStyles, isKindPage, overLength, planKindBlocks, verifyKindFacts, withSiteModules } from './lib/sf-kinds.mjs';
 import { LONG_SECTION_WORDS, MIN_PROOF_NUMBERS, pageBlockIds, paragraphsOf, planBlocks, varyLongRuns } from './lib/sf-sections.mjs';
 import { referenceRuns } from './lib/visual-checks.mjs';
@@ -89,7 +90,6 @@ export function importSiteFactory({ authoringPackage: given, pagesPlan, only = n
   if (given?.schema_version !== SUPPORTED_PACKAGE_SCHEMA) throw new Error(`unsupported authoring package schema: ${given?.schema_version}`);
   // The site-wide flows in the sections that use them (lib/sf-kinds.mjs withSiteModules).
   const authoringPackage = withSiteModules(given);
-  const byId = new Map(pagesPlan.pages.map((item) => [item.page_id, item]));
   const byUrl = new Map(pagesPlan.pages.map((item) => [item.url, item]));
   // One page per id and per route, and a page that replaces another (a curated page: replaces <page_id>) never beside
   // it: two versions of a page are never published together.
@@ -181,7 +181,7 @@ export function importSiteFactory({ authoringPackage: given, pagesPlan, only = n
     placeSiteSlots(blocks, mapping, { planned, blueprints });
     // The privacy page's table, when the package gives it (Site Factory integ deb67119, 2026-11-17; an older one does not).
     placeRequiredBlocks(blocks, mapping, { planned, hero: { heading: source.h1, lead: source.hero_lead ? [source.hero_lead] : [] }, practices: source.data_practices ?? null });
-    placeOwnerSlots(blocks, mapping, { planned, proof, blueprints, trust, testimonials: source.testimonials ?? null, cases: source.cases ?? null });
+    placeOwnerSlots(blocks, mapping, { planned, proof, blueprints, trust, testimonials: source.testimonials ?? null, cases: source.cases ?? null, quickView: source.quick_view ?? null });
     // A case card's link in the trade's words (a service has no product to see).
     for (const block of blocks) if (block.type === 'caseStudies' && wording?.caseLink) block.linkLabel = wording.caseLink;
     placeStyleGrid(blocks, mapping, { source, planned });
@@ -194,6 +194,7 @@ export function importSiteFactory({ authoringPackage: given, pagesPlan, only = n
     if (!byKind && source.sections.every((item) => item.slot != null)) blocks = orderBySlots(blocks, mapping, blueprints[planned.page_type] || []);
     // No module repeated in a longer run than the competitor's page of this type shows (moduleRuns).
     blocks = legalText(planned.page_type, pageBlockIds(varyLongRuns(blocks, moduleRuns[planned.page_type]?.splitMedia ?? 2)));
+    assertQuickViewPlaced(source, blocks);
     report.overLength.push(...overLength(source));
     const jsonLd = plainJsonLd(source.structured_data || []);
     if (JSON.stringify(jsonLd) !== JSON.stringify(source.structured_data || [])) report.jsonLdMarkdown.push(source.url);
@@ -250,8 +251,9 @@ export async function runImport({ packagePath, pagesPlanPath, only = null, struc
   let facts = null;
   for (const path of factsPaths) facts = new Map([...(facts || []), ...factsFromFile(path, await readText(resolve(path)))]);
   const blueprints = blueprintsPath ? blueprintsFrom(await read(blueprintsPath)) : BLUEPRINTS;
-  // The owner's proof fills the owner slots (none while the site has no src/data/site-proof.json).
-  const proof = await readJson(resolve(root, 'src/data/site-proof.json'), null);
+  // The owner's proof fills the owner slots (none while the site has no src/data/site-proof.json); its client wall only
+  // where site.json switches it on (lib/site-proof.mjs clientWallOn).
+  const proof = withClientWall(await readJson(resolve(root, 'src/data/site-proof.json'), null), await readJson(resolve(root, 'site.json'), null));
   // The competitor's longest run of each module per page type (the reference analysis' section modules).
   const sectionModules = await readJson(resolve(root, 'docs/research/analysis/section-modules.json'), []);
   const pagesPlan = await read(pagesPlanPath);

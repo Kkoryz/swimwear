@@ -51,6 +51,52 @@ test("narrow bands stacked within one screen fail from BAND_STACK_MAX: Staylumen
   assert.equal(BAND_STACK_MAX, 3);
 });
 
+test("only strips that start in the first screen count: MotelPilot's tablet service pages, one strip under the hero (2026-11-20)", () => {
+  const tablet = 1024;
+  // /human-resources/ at 768x1024: the overlay hero, the breadcrumb and figures on white, the contents box, a 32px gap
+  // between two grey sections, a white section of the second screen, a photo.
+  const humanResources = [band(0, 520, 'photo'), band(520, 200, 'rgb(255,255,255)'), band(720, 328, 'rgb(248,249,249)'), band(1048, 32, 'rgb(255,255,255)'), band(1080, 436, 'rgb(248,249,249)'), band(1516, 244, 'rgb(255,255,255)'), band(1760, 288, 'photo')];
+  const accounting = [band(0, 520, 'photo'), band(520, 200, 'rgb(255,255,255)'), band(720, 344, 'rgb(248,249,249)'), band(1064, 32, 'rgb(255,255,255)'), band(1096, 244, 'rgb(248,249,249)'), band(1340, 708, 'rgb(255,255,255)')];
+  const page = { route: '/human-resources/', pageType: 'solution', blocks: [] };
+  for (const bands of [humanResources, accounting]) {
+    assert.equal(stackedStrips(bands, tablet), 1);
+    assert.deepEqual(usabilityProblems({ ...evidence({ bands }), viewportHeight: tablet }, { page }), []);
+  }
+  // Three strips that start in the first screen still fail, though the stack runs on under it.
+  const stacked = [band(0, 84, 'rgb(0,0,0)'), band(84, 600, 'photo'), band(684, 40, 'rgb(0,0,0)'), band(724, 200, 'rgb(213,213,213)'), band(924, 400, 'rgb(0,0,0)'), band(1324, 60, 'rgb(1,1,1)')];
+  assert.equal(stackedStrips(stacked, tablet), 3);
+  const [problem] = usabilityProblems({ ...evidence({ bands: stacked }), viewportHeight: tablet }, { page });
+  assert.equal(problem.issue, 'band_stack');
+  assert.doesNotMatch(problem.detail, /at 1324/, 'the detail names the first screen\'s strips only');
+});
+
+test("a strip counts by what shows over the enquiry bar: under it, or under STRIP_MIN_PX of it in the screen, it is none (Strandmill 2026-11-20)", () => {
+  const tablet = 1024;
+  const bar = 61;
+  // /couples-matching-swimsuit-manufacturer/ at 768x1024 as the audit measured it: the blue header and breadcrumb row,
+  // the hero, the lead, the chart card across the screen, the white gap under it (52px from 1020: 4px in the screen,
+  // under the bar at 963-1024), the next section.
+  const couples = [band(0, 120, 'rgb(48,97,128)'), band(120, 284, 'photo'), band(404, 436, 'rgb(255,255,255)'), band(840, 180, 'rgb(244,238,230)'), band(1020, 52, 'rgb(255,255,255)'), band(1072, 564, 'rgb(244,238,230)'), band(1636, 412, 'rgb(255,255,255)')];
+  const page = { route: '/couples-matching-swimsuit-manufacturer/', pageType: 'solution', blocks: [] };
+  const evidence = (bands) => ({ viewportHeight: tablet, heroFields: 0, faqs: [], openQuestions: 0, bands, heroShape: { top: 118, height: 285, form: false, bar, photo: true, sized: true } });
+  assert.equal(stackedStrips(couples, tablet, { bar }), 2, 'the header row and the chart card');
+  assert.equal(stackedStrips(couples, tablet), 2, 'without a bar its 4px in the screen are under STRIP_MIN_PX still');
+  assert.deepEqual(usabilityProblems(evidence(couples), { page }), []);
+  // A strip counts by what shows over the bar (963): 33px of it counts, 23px or none does not.
+  const two = [band(0, 80, 'a'), band(300, 40, 'b')];
+  assert.equal(stackedStrips([...two, band(930, 60, 'c')], tablet, { bar }), 3);
+  assert.equal(stackedStrips([...two, band(940, 60, 'c')], tablet, { bar }), 2);
+  assert.equal(stackedStrips([...two, band(970, 40, 'c')], tablet, { bar }), 2);
+  assert.equal(stackedStrips([...two, band(970, 40, 'c')], tablet), 3, 'no bar: 40px in the screen');
+  // A page without a .page-hero (a blog post, the blog hub) has the bar too: the page's own measure of it is read.
+  const post = { viewportHeight: tablet, heroFields: 0, faqs: [], openQuestions: 0, bands: [...two, band(970, 40, 'c')], heroShape: null };
+  assert.deepEqual(usabilityProblems({ ...post, bar }, { page }), []);
+  assert.deepEqual(usabilityProblems(post, { page }).map((item) => item.issue), ['band_stack'], 'no bar measured: the whole screen');
+  // The chart card counts as Staylumen's figures strip did: with a third strip over the bar the page fails.
+  const stacked = couples.map((item) => (item.top === 404 ? band(404, 200, 'rgb(255,255,255)') : item)).toSpliced(3, 0, band(604, 236, 'rgb(250,250,250)'));
+  assert.deepEqual(usabilityProblems(evidence(stacked), { page }).map((item) => item.issue), ['band_stack']);
+});
+
 test("the home page's opening photo on another page fails; two pages of one type sharing one is a warning; different types pass", () => {
   assert.equal(photoName('/media/photos/general-hero-1-960.webp?x=1'), 'general-hero-1');
   const found = heroShareProblems([

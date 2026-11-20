@@ -370,6 +370,17 @@
             }
           ],
           "default": null
+        },
+        "quick_view": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/QuickViewTable"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
         }
       },
       "required": [
@@ -1083,6 +1094,46 @@
         "answer"
       ],
       "title": "QuestionAnswer",
+      "type": "object"
+    },
+    "QuickViewTable": {
+      "additionalProperties": false,
+      "description": "A product or service page's quick-view table (06_1 quick_view.json, LLM search view B.3): the domain's columns,\none [row name, value] a slot with a value, and the owner fact or 05_9 condition ids each value rests on (row_sources,\nnever 08's cited fact_ids: a condition id is no facts.yaml fact).",
+      "properties": {
+        "columns": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Columns",
+          "type": "array"
+        },
+        "rows": {
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Rows",
+          "type": "array"
+        },
+        "row_sources": {
+          "default": [],
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Row Sources",
+          "type": "array"
+        }
+      },
+      "required": [
+        "columns",
+        "rows"
+      ],
+      "title": "QuickViewTable",
       "type": "object"
     },
     "SiteModule": {

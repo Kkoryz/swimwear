@@ -15,7 +15,7 @@ import { runMain } from './lib/cli.mjs';
 import { revealDeferredContent } from './lib/reveal.mjs';
 import { DENSITY_SCHEMA, DENSITY_TOLERANCE, measureDensity, pageTypeBands, textRunWords } from './lib/density.mjs';
 import { readJson, writeJson } from './lib/json-io.mjs';
-import { BLOCKED_STATUSES } from './lib/reference-access.mjs';
+import { BLOCKED_STATUSES, captureStamp, measuredBeside } from './lib/reference-access.mjs';
 
 // A command-line URL: <page type>=<url> for a page type's own band, else a URL of the benchmark.
 export function densityTarget(arg) {
@@ -26,13 +26,22 @@ export function densityTarget(arg) {
 export async function measureReferenceDensity({ urls, root = process.cwd() }) {
   if (!urls.length) throw new Error('pass at least one reference URL');
   const targets = urls.map((item) => (typeof item === 'string' ? densityTarget(item) : item));
-  const { chromium } = await import('playwright');
-  const browser = await chromium.launch({ headless: true });
+  // The browser opens for the first page measured live: a run that keeps every measure visits nothing.
+  let opened = null;
   const pages = [];
   const previous = await readJson(resolve(root, 'docs/research/raw/reference-density.json'), null);
+  // The pages are measured once a capture (lib/reference-access.mjs): a page measured beside this capture keeps its
+  // measure, unvisited; one never measured, or any page beside another capture, is measured live.
+  const stamp = await captureStamp(root);
+  const beside = measuredBeside(previous, stamp);
+  let live = 0;
   try {
     for (const { url: given, pageType } of targets) {
       const url = normalizeReferenceUrl(given);
+      const earlier = beside ? previous.pages?.find((item) => item.url === url && (item.pageType ?? null) === (pageType ?? null)) : null;
+      if (earlier) { pages.push(earlier); continue; }
+      live += 1;
+      const browser = await (opened ??= import('playwright').then(({ chromium }) => chromium.launch({ headless: true })));
       const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
       const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
       if (!response?.ok()) {
@@ -52,9 +61,9 @@ export async function measureReferenceDensity({ urls, root = process.cwd() }) {
       await page.close();
     }
   } finally {
-    await browser.close();
+    await (await opened)?.close();
   }
-  const report = { schemaVersion: DENSITY_SCHEMA, measuredAt: new Date().toISOString(), viewport: { width: 1440, height: 1000 }, tolerance: DENSITY_TOLERANCE, pages, bands: pageTypeBands(pages) };
+  const report = { schemaVersion: DENSITY_SCHEMA, measuredAt: live || !previous?.measuredAt ? new Date().toISOString() : previous.measuredAt, ...(stamp ? { capture: stamp } : {}), viewport: { width: 1440, height: 1000 }, tolerance: DENSITY_TOLERANCE, pages, bands: pageTypeBands(pages) };
   await mkdir(resolve(root, 'docs/research/raw'), { recursive: true });
   await writeJson(resolve(root, 'docs/research/raw/reference-density.json'), report);
   const variantsPath = resolve(root, 'src/data/template-variants.json');

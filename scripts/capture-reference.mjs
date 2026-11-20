@@ -10,8 +10,13 @@ import { writeJson } from './lib/json-io.mjs';
 export const REFERENCE_VIEWPORTS = Object.freeze([
   { id: 'desktop-1440', width: 1440, height: 1000 },
   { id: 'tablet-768', width: 768, height: 1024 },
-  { id: 'mobile-390', width: 390, height: 844 },
+  { id: 'mobile-390', width: 390, height: 844, phone: true },
 ]);
+// The phone's capture is a phone's visit: a site that serves its phone layout by the browser it sees (Duda: the
+// reference of Staylumen laid its 768px tablet page out in a 390px window, so its "phone" shots and section heights
+// were the tablet's, 2026-11-18) shows it to a phone's browser only. One CSS pixel a pixel, as our shots are.
+export const PHONE_DEVICE = Object.freeze({ userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1', isMobile: true, hasTouch: true, deviceScaleFactor: 1 });
+export const contextFor = (viewport) => ({ viewport: { width: viewport.width, height: viewport.height }, ...(viewport.phone ? PHONE_DEVICE : {}) });
 
 const STYLE_PROPERTIES = Object.freeze([
   'display', 'position', 'inset', 'top', 'right', 'bottom', 'left', 'z-index',
@@ -203,7 +208,7 @@ export async function captureReference({ sourceUrl, root = process.cwd() }) {
 
   try {
     for (const viewport of REFERENCE_VIEWPORTS) {
-      const context = await browser.newContext({ viewport });
+      const context = await browser.newContext(contextFor(viewport));
       const page = await context.newPage();
       const pendingAssets = [];
       if (viewport.id === 'desktop-1440') {
@@ -241,11 +246,17 @@ export async function captureReference({ sourceUrl, root = process.cwd() }) {
       await Promise.allSettled(pendingAssets);
       const extraction = await extractPage(page, viewport);
       if (viewport.id === 'desktop-1440') desktopExtraction = extraction;
-      await page.screenshot({ path: resolve(referenceDir, `${viewport.id}.png`), fullPage: true, animations: 'disabled' });
+      const shot = await page.screenshot({ path: resolve(referenceDir, `${viewport.id}.png`), fullPage: true, animations: 'disabled' });
       await writeJson(resolve(rawDir, `${viewport.id}.json`), extraction);
       if (viewport.id === 'desktop-1440') await writeFile(resolve(rawDir, 'rendered.html'), await page.content());
+      // The phone's visit may be another DOM (lib/capture-hero.mjs reads its parents from it).
+      if (viewport.phone) await writeFile(resolve(rawDir, `rendered-${viewport.id}.html`), await page.content());
+      // The shot this DOM goes with (its hash, PNG size and visit), so the capture check can tell a shot and a DOM of
+      // two captures apart: the shots are not in git, the DOM is, and a restore of one leaves the other (Staylumen
+      // 2026-11-18, check-reference-capture.mjs stale-capture).
       results.push({ id: viewport.id, url: extraction.url, elementCount: extraction.elements.length,
-        controlCount: extraction.controls.length, screenshot: `docs/design-references/${viewport.id}.png` });
+        controlCount: extraction.controls.length, screenshot: `docs/design-references/${viewport.id}.png`,
+        shotSha256: createHash('sha256').update(shot).digest('hex'), shotWidth: shot.readUInt32BE(16), shotHeight: shot.readUInt32BE(20), phone: Boolean(viewport.phone) });
       await context.close();
     }
   } finally {

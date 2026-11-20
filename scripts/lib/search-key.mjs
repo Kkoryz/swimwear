@@ -24,6 +24,9 @@ function singularWords(word) {
   return [word.endsWith('s') ? word.slice(0, -1) : word];
 }
 
+// A word's first singular (the one form a name or a match needs: shirts shirt, dresses dress, accessories accessory).
+export const singularOf = (word) => singularWords(word)[0];
+
 // Every grouping form of a phrase (sitefactory.core.text.singular): hyphens as spaces, apostrophes dropped, "&" as
 // "and", each word singular; [[words]] for each combination of the words' singulars.
 function singularForms(phrase) {

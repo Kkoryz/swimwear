@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import test from 'node:test';
 
-import { auditAuthoringLayout } from '../audit-authoring-layout.mjs';
+import { auditAuthoringLayout, ownSchemaCount } from '../audit-authoring-layout.mjs';
 
 const pageDefinition = (route) => ({ id: route, route, pageType: 'about', status: 'placeholder', seo: { title: 'T', description: 'D', canonical: route }, jsonLd: [], hero: { heading: 'H' }, blocks: [] });
 
@@ -86,7 +86,8 @@ test('the layout audit fails a page on its agent tree, its enquiry bar and its t
     if (viewport.id !== 'mobile' || !broken.has(definition.route)) return result;
     return { ...result, agentTree: [{ rule: 'button-name', impact: 'critical', help: 'Buttons must have discernible text', nodes: [{ target: 'button', html: '<button></button>' }] }, { rule: 'tabindex', impact: 'serious', help: 't', nodes: [] }, { rule: 'aria-allowed-role', impact: 'minor', help: 'r', nodes: [] }], barCover: { bar: { top: 783, height: 61 }, controls: [{ block: 'form', control: 'input', text: 'email', focused: true, covered: 20 }, { block: 'form', control: 'input', text: 'name', focused: true, covered: 0 }] } };
   };
-  // Both pages are of one type: only the first is loaded for its LCP, once a run it is measured in.
+  // Both pages are of one type: only the first is loaded for its LCP, once a run it is measured in (twice when over the
+  // fail limit: lib/lab-lcp.mjs judgedLcp).
   const lcpCalls = [];
   let lcpMs = 4500;
   const measureLcp = async (definition) => { lcpCalls.push(definition.route); return { ms: lcpMs, element: 'img', url: '/hero.webp' }; };
@@ -95,7 +96,8 @@ test('the layout audit fails a page on its agent tree, its enquiry bar and its t
   const report = JSON.parse(await readFile(join(root, 'docs/research/authoring-layout-audit.json'), 'utf8'));
   assert.deepEqual(report.failures.map((failure) => `${failure.route} ${failure.viewport} ${failure.issue} ${failure.rule ?? failure.text ?? failure.ms}`), ['/a/ mobile lcp_slow 4500', '/b/ mobile agent_tree button-name', '/b/ mobile agent_tree tabindex', '/b/ mobile enquiry_bar_covers email']);
   assert.deepEqual(report.warnings.filter((warning) => warning.issue.startsWith('agent_tree')).map((warning) => warning.rule), ['aria-allowed-role']);
-  assert.deepEqual(lcpCalls, ['/a/']);
+  assert.deepEqual(lcpCalls, ['/a/', '/a/'], 'over 4 s: loaded once more');
+  assert.deepEqual(report.failures[0].runs, [4500, 4500]);
   assert.equal(report.lcpMeasured, 1);
   // Both pages failed: both measured again; the LCP now under the failure line but over Google's "good" is a warning.
   broken.clear();
@@ -103,11 +105,11 @@ test('the layout audit fails a page on its agent tree, its enquiry bar and its t
   assert.equal(await run(), 'passed');
   const warned = JSON.parse(await readFile(join(root, 'docs/research/authoring-layout-audit.json'), 'utf8'));
   assert.deepEqual(warned.warnings.filter((warning) => warning.issue === 'lcp_slow').map((warning) => `${warning.route} ${warning.ms} ${warning.limit}`), ['/a/ 3000 2500']);
-  assert.deepEqual(lcpCalls, ['/a/', '/a/']);
+  assert.deepEqual(lcpCalls, ['/a/', '/a/', '/a/'], 'under 4 s: one load');
   // Nothing changed: the kept page keeps its LCP (still reported), nothing is loaded again.
   assert.equal(await run(), 'passed');
   const kept = JSON.parse(await readFile(join(root, 'docs/research/authoring-layout-audit.json'), 'utf8'));
-  assert.deepEqual(lcpCalls, ['/a/', '/a/']);
+  assert.deepEqual(lcpCalls, ['/a/', '/a/', '/a/']);
   assert.equal(kept.lcpMeasured, 0);
   assert.ok(kept.warnings.some((warning) => warning.issue === 'lcp_slow' && warning.route === '/a/'));
 });
@@ -188,4 +190,12 @@ test('the built site is served for the audits by a plain static server; a taken 
   } finally {
     await server.close();
   }
+});
+
+test('the JSON-LD count is of the page own blocks: the ImageObject the build adds per content photo is left out, any other extra block still counts', () => {
+  const own = ['Organization', 'WebSite', 'BreadcrumbList', 'Service'];
+  assert.equal(ownSchemaCount([...own, 'ImageObject', 'ImageObject', 'ImageObject']), 4);
+  // A block more than the page's own (a second Organization, a typed list, one that is not JSON) is still one too many.
+  assert.equal(ownSchemaCount([...own, 'Organization', 'ImageObject']), 5);
+  assert.equal(ownSchemaCount([...own, ['Product', 'ImageObject'], null]), 6);
 });

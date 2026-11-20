@@ -4,6 +4,13 @@
 import { factApproved, factConfirmed } from './facts.mjs';
 
 export const normalizeFact = (text) => text.toLowerCase().replace(/[’‘]/g, "'").replace(/\s+/g, ' ').trim();
+// A value is stated in a fact where the fact holds it verbatim and no digit runs on at either end: "5" is not stated in
+// "50 sewing lines", nor "500" in "1,500 pieces" (fact and value both normalised by the caller).
+export function statedIn(fact, value) {
+  if (!value) return false;
+  const escaped = value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp((/^\d/.test(value) ? '(?<!\\d|\\d[.,])' : '') + escaped + (/\d$/.test(value) ? '(?!\\d|[.,]\\d)' : '')).test(fact);
+}
 
 // A page may carry facts of its own (a page-level fact such as the offer its site-plan line states).
 export const pageFactsOf = (source, facts) => (Array.isArray(source.facts) && source.facts.length
@@ -30,7 +37,7 @@ export function verifyStructured(pageId, structured, facts) {
     const fact = facts.get(figure.fact_id);
     if (!fact) throw new Error(`${pageId}: key_figures[${index}] cites unknown fact ${figure.fact_id}`);
     if (!fact.approved) throw new Error(`${pageId}: key_figures[${index}] cites fact ${figure.fact_id}, which is not approved for public use`);
-    if (!normalizeFact(fact.text).includes(normalizeFact(figure.value))) throw new Error(`${pageId}: key figure "${figure.value}" is not stated in fact ${figure.fact_id}`);
+    if (!statedIn(normalizeFact(fact.text), normalizeFact(figure.value))) throw new Error(`${pageId}: key figure "${figure.value}" is not stated in fact ${figure.fact_id}`);
   }
   // Every other cited fact must exist and be approved for public use too.
   const cited = [

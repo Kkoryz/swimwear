@@ -47,7 +47,7 @@ test('the page node states the reviewer as reviewedBy, the Person by their team 
 test('the line shows at the page foot with the date, and the home page is dated', async () => {
   const view = await source('src/components/blocks/PageView.astro');
   assert.match(view, /const reviewer = pageReviewer\(page, people\);/);
-  assert.match(view, /Reviewed by <a href=\{reviewer\.href\}>\{reviewer\.name\}<\/a>, \{reviewer\.role\}/);
+  assert.match(view, /Reviewed by <a class=\"inline-link\" href=\{reviewer\.href\}>\{reviewer\.name\}<\/a>, \{reviewer\.role\}/);
   assert.match(await source('src/layouts/BaseLayout.astro'), /dates: pageDates, team: people \}\)/);
   const { UNDATED_PAGE_TYPES } = await import('../lib/page-dates.mjs');
   assert.ok(!UNDATED_PAGE_TYPES.includes('home'));

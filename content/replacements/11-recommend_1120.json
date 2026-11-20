@@ -1,0 +1,9 @@
+[
+ {
+  "n": 1,
+  "url": "/",
+  "old": "Orders start at 50 pieces per style in each colour, so small and growing labels can place production orders.",
+  "new": "Orders start at 50 pieces per style in each colour, so small and growing labels can place production orders. Those 50 pieces are split over 3 to 4 sizes. A bikini top sold with its bottom counts as one piece, while tops and bottoms sold separately are counted separately.",
+  "reason": "recommend_1120: the home page lost the MOQ term to its 05_4 benchmark (Opus, both orders); the library's F0037 (size split) and F0038 (a set counts as one piece) added, no fact new"
+ }
+]

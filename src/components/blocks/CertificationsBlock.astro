@@ -2,8 +2,9 @@
 // Certificates the production holds (the owner's proof, src/data/site-proof.json), as the SEO-strong manufacturer sites
 // show them: a wall of logos, each with the certificate's name as text (buyers and search engines read the name, not
 // only an image). The certifier's logo is added once the certificate is held; until then a seal mark stands in.
-// Issuer, scope, number and validity show when the owner gives them; no link or button to verify a certificate, even
-// when its data has a URL (owner 2026-11-17: "认证暂时不要核验按钮"). Variant grid (the cards in rows) or strip (one
+// Issuer, scope and validity show when the owner gives them; a certificate's number never shows, and nothing links
+// or verifies a certificate, even when its data has a URL (owner 2026-11-17: "认证暂时不要核验按钮"; 2026-11-19, the
+// LLM search view sample's look-up link withdrawn: "不显示不要编号"). Variant grid (the cards in rows) or strip (one
 // sliding row with controls, Track.astro, as a competitor's certificate slider).
 import type { CertificationsBlock } from '../../lib/authoring';
 import BlockSection from './BlockSection.astro';
@@ -41,10 +42,9 @@ const SEAL = '<svg class="certification__seal" viewBox="0 0 24 24" width="44" he
           <p class="certification__name">{item.name}</p>
           {item.issuer && <p class="certification__issuer">{item.issuer}</p>}
           {item.scope && <p class="certification__scope">{item.scope}</p>}
-          {(item.number || item.validUntil) && (
+          {item.validUntil && (
             <dl class="certification__facts">
-              {item.number && <><dt>No.</dt><dd>{item.number}</dd></>}
-              {item.validUntil && <><dt>Valid until</dt><dd>{item.validUntil}</dd></>}
+              <dt>Valid until</dt><dd>{item.validUntil}</dd>
             </dl>
           )}
         </li>

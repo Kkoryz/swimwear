@@ -444,12 +444,17 @@ export function heroReuseProblems(pages, built) {
 // photos enough, so a site planned (and its photos made) again clears it. A photo is its library id: the file name
 // without its width (general-process-1-960.webp is general-process-1).
 const libraryPhoto = new RegExp(`^/${LIBRARY_PATH}/(${GENERAL}-(${REUSE_CAPPED_KINDS.join('|')})-[\\w-]+?)-\\d+\\.\\w+$`);
-export function photoReuseProblems(pages, built) {
+// A photo named for what it shows (lib/image-seo.mjs) is found by its file in the image register (plan:
+// docs/research/image-plan.json): its id and class are its entry's.
+export function photoReuseProblems(pages, built, plan = null) {
+  const registered = new Map((plan?.entries ?? []).filter((entry) => entry.web && entry.category === GENERAL && REUSE_CAPPED_KINDS.includes(entry.kind))
+    .flatMap((entry) => String(entry.web.srcset ?? entry.web.src).split(',').map((part) => [part.trim().split(/\s+/)[0], [null, entry.id, entry.kind]])));
+  const photoOf = (file) => file.match(libraryPhoto) ?? registered.get(file) ?? null;
   const byPhoto = new Map();
   for (const page of pages.filter(isIndexable)) {
     const html = built.get(page.route);
     if (!html) continue;
-    const photos = new Map(mainImages(html).flatMap((image) => image.files).map((file) => file.match(libraryPhoto)).filter(Boolean).map((match) => [match[1], match[2]]));
+    const photos = new Map(mainImages(html).flatMap((image) => image.files).map(photoOf).filter(Boolean).map((match) => [match[1], match[2]]));
     for (const [id, kind] of photos) (byPhoto.get(id) ?? byPhoto.set(id, { kind, routes: [] }).get(id)).routes.push(page.route);
   }
   return [...byPhoto].filter(([, { routes }]) => routes.length > PHOTO_MAX_PAGES).map(([id, { kind, routes }]) => warning(`/${LIBRARY_PATH}/${id}`, `${kind}_reused`, `one ${kind} photo shows on ${routes.length} pages (${listed(routes, 4)}), at most ${PHOTO_MAX_PAGES}: plan the images again (pnpm plan:images) for photos of their own`));

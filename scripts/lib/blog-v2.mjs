@@ -9,6 +9,8 @@
 //   approveUsd / cloudUsd / topicsApproveUsd   what an article, its cloud pages and a topic list may spend
 //   topicRoutes / topicTop   the topic list's routes (bucket, ai) and each route's first searches read on Google
 //   claudeBin    Claude Code's executable (else SF_CLAUDE_BIN); python: the interpreter (default python)
+//   modelProfile Site Factory's model profile (SF_MODEL_PROFILE, e.g. domain/model_profiles/default_1116.yaml): which
+//                model answers each task (fact_check_topic on astra, fact_resolve on Opus); unset, the project's params
 // geoBlog.audience ("a property owner in the United States") is who the engines are asked to answer for, geoBlog.exclude
 // the searches not to write (earlier runs kept elsewhere). One run: the next topics (site_run pick: the topic list,
 // held once against the site's pages and posts), each article researched and written to its final check (site_run
@@ -72,11 +74,18 @@ export async function blogSiteProfile(root, site, env = process.env) {
   };
 }
 
+// site_run's environment: Site Factory's code on the path, the model profile geoBlog.v2.modelProfile names (over any
+// SF_MODEL_PROFILE already set).
+export function siteRunEnv(site, env = process.env) {
+  const v2 = site.geoBlog?.v2 ?? {};
+  return { ...env, PYTHONPATH: resolve(v2.siteFactory, 'src'), PYTHONUTF8: '1', ...(v2.modelProfile ? { SF_MODEL_PROFILE: v2.modelProfile } : {}) };
+}
+
 // One site_run command: its stderr and stdout passed through, its result the JSON of its last stdout line.
 export function siteRun(site, args, { profile = PROFILE_V2, root = process.cwd() } = {}) {
   const v2 = site.geoBlog?.v2 ?? {};
   return new Promise((done, fail) => {
-    const env = { ...process.env, PYTHONPATH: resolve(v2.siteFactory, 'src'), PYTHONUTF8: '1' };
+    const env = siteRunEnv(site);
     const child = spawn(v2.python ?? 'python', ['-m', 'sitefactory.blog.site_run', ...args, '--profile', resolve(root, profile)], { cwd: v2.siteFactory, env, stdio: ['ignore', 'pipe', 'inherit'] });
     let out = '';
     child.stdout.setEncoding('utf8');

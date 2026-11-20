@@ -26,5 +26,12 @@ export function cliArgs(options = {}, args = process.argv.slice(2)) {
   return { values, positionals };
 }
 
+// A count option (--limit 3): a whole number of at least 1, else the run stops ("--limit abc" was NaN, and no count
+// is ever reached against NaN: every approved article was published).
+export function wholeNumber(name, value) {
+  if (!/^[1-9]\d*$/.test(String(value).trim())) throw new Error(`${name} takes a whole number of at least 1, not "${value}"`);
+  return Number(value);
+}
+
 // A comma-separated list option (--only a,b), or null.
 export const listOption = (value) => value?.split(',').map((item) => item.trim()).filter(Boolean) ?? null;

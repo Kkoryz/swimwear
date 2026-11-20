@@ -42,6 +42,9 @@ export function aliasRoutes(value, aliases) {
 }
 
 const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
+// config/block-kinds.json as Site Factory names it (handoff contracts.block_kinds.sha256): its text with LF line endings,
+// whatever the checkout wrote (core.autocrlf). One statement for the handoff check and the report back (sf-report.mjs).
+export const blockKindsSha256 = async (root) => sha256((await readFile(resolve(root, 'config/block-kinds.json'), 'utf8')).replace(/\r\n/g, '\n'));
 
 // Earlier contract versions 08 keeps beside the current copies (config/sf-contracts/versions/<file stem>/<sha256>.json):
 // packages made by Site Factory's older code name them (2026-11-17: swim_1117c came from integ deb67119 while
@@ -77,7 +80,7 @@ export async function handoffProblems({ handoff, authoringPackage, root = proces
     const given = await readFile(resolve(dir, identity.project_yaml)).then(sha256, () => null);
     if (given !== identity.project_yaml_sha256) problems.push(`${identity.project_yaml} ${given ? 'is not the file the handoff names' : 'is missing'}`);
   }
-  const kinds = sha256((await readFile(resolve(root, 'config/block-kinds.json'), 'utf8')).replace(/\r\n/g, '\n'));
+  const kinds = await blockKindsSha256(root);
   if (handoff.contracts?.block_kinds?.sha256 && handoff.contracts.block_kinds.sha256 !== kinds) problems.push(`Site Factory planned with block-kinds ${handoff.contracts.block_kinds.sha256.slice(0, 12)}… (08 ${handoff.contracts.block_kinds.commit ?? '?'}), 08 holds ${kinds.slice(0, 12)}…`);
   // The collection contract the privacy page's table was built from (Site Factory integ deb67119, 2026-11-17:
   // contracts.site_collection_sha256, its copy of config/site-collection.json, LF line endings) must be 08's own

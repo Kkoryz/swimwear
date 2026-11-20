@@ -14,7 +14,13 @@
 //    hotel site (scaffold-placeholder-pages.mjs measureHeroText, lib/heading-fit.mjs);
 //  - section-list: "could not find the section list on https://www.hhmhotels.com/contact-us" stopped the patterns
 //    step of hotel-rm's fourth run (scaffold-placeholder-pages.mjs, lib/reference-anatomy.mjs extractSectionShapes);
-//  - missing-capture: a capture file that is not there is a problem, never a skipped check.
+//  - missing-capture: a capture file that is not there is a problem, never a skipped check;
+//  - stale-capture: a shot and a DOM of two captures (Staylumen 2026-11-18: a restore put back the tracked DOM of an
+//    earlier capture, a tablet layout in a 390px window, beside the untracked shot of the phone's visit; the shot's
+//    unpainted iframe was read against the old DOM's text as a blank band). The shot's size must be the DOM's scroll
+//    size, and where the capture summary records the shot (capture-reference.mjs: its sha256 and size, and whether it
+//    was the phone's visit) the shot must be that one and the DOM of the same visit; else the shot is not compared
+//    band by band with the DOM.
 // The table gives each reference page's words, photos, visual share and longest text-only run (the density measure
 // where the page was measured, else the capture's own estimate).
 //
@@ -23,7 +29,8 @@
 // Usage: node scripts/check-reference-capture.mjs [siteRoot] [--out <dir>]
 //        (writes <out>/capture-check.json and capture-check.md, default <siteRoot>/docs/research; exit 1 on a problem)
 
-import { access, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { access, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { REFERENCE_VIEWPORTS } from './capture-reference.mjs';
 import { cliArgs, runMain } from './lib/cli.mjs';
@@ -32,7 +39,7 @@ import { readJson, readText, writeJson } from './lib/json-io.mjs';
 import { captureFolder } from './lib/rules.mjs';
 
 export const CAPTURE_CHECK_SCHEMA = 'seo-site-capture-check-v1';
-export const CAPTURE_CHECKS = Object.freeze(['missing-capture', 'blank-segment', 'faded-content', 'fixed-overlay', 'hero-photo-area', 'title-missed', 'section-list']);
+export const CAPTURE_CHECKS = Object.freeze(['missing-capture', 'stale-capture', 'blank-segment', 'faded-content', 'fixed-overlay', 'hero-photo-area', 'title-missed', 'section-list']);
 // The page type the site-wide capture (capture-reference.mjs on the origin: docs/research/raw, docs/design-references)
 // is listed under, and the one of files of no single page (the density measure).
 export const ORIGIN = 'origin';
@@ -64,7 +71,26 @@ export const CAPTURE_LIMITS = Object.freeze({
   heroPhotoGapShare: 0.2,
   // The patterns step needs at least this many sections (scaffold-placeholder-pages.mjs shapes.length < 2).
   minSections: 2,
+  // A shot and its DOM are one capture within this many pixels of the DOM's scroll width and height (the sites'
+  // captures to 2026-11-20: equal, but for one desktop shot 17px short of its page; Staylumen's stale pair was
+  // 390x12243 against 768x13318).
+  staleShotPx: 40,
 });
+
+// Why a viewport's shot and DOM are not one capture, or null (view: { extraction, shot: { width, height, sha256 },
+// recorded: its capture-summary.json entry }; without a shot or a DOM there is nothing to tell).
+export function staleCapture(view, limits = CAPTURE_LIMITS) {
+  const { extraction, shot, recorded } = view ?? {};
+  if (!extraction || !shot) return null;
+  const reasons = [];
+  if (recorded?.shotSha256 && shot.sha256 && recorded.shotSha256 !== shot.sha256) reasons.push('the shot is not the one its capture summary records');
+  const phone = Boolean(extraction.viewport?.phone);
+  if (typeof recorded?.phone === 'boolean' && recorded.phone !== phone) reasons.push(`the shot was ${recorded.phone ? '' : 'not '}a phone's visit, the DOM ${phone ? '' : 'not '}one`);
+  const dom = extraction.document ?? {};
+  const off = (shown, page) => Number.isFinite(shown) && Number.isFinite(page) && Math.abs(shown - page) > limits.staleShotPx;
+  if (off(shot.width, dom.scrollWidth) || off(shot.height, dom.scrollHeight)) reasons.push(`the shot is ${shot.width}x${shot.height}px, the DOM's page ${dom.scrollWidth}x${dom.scrollHeight}px`);
+  return reasons.length ? reasons.join('; ') : null;
+}
 
 // The ink share of each band of a decoded screenshot ({ data, width, height, channels }, rows of RGB(A) bytes): the
 // share of pixels that differ from the band's most common colour (16 levels a channel) by more than inkDiff.
@@ -190,7 +216,10 @@ function checkPage(page, density, limits) {
     if (!view?.extraction) continue;
     const tree = captureTree(view.extraction, { html: page.html });
     if (viewportId === DESKTOP) desktopTree = tree;
-    problems.push(...viewportProblems(tree, view.bands, viewportId, limits));
+    // A shot of another capture is not read band by band against this DOM (no blank-segment from it).
+    const stale = staleCapture(view, limits);
+    if (stale) problems.push({ check: 'stale-capture', detail: `${viewportId}: the shot and the captured DOM are not one capture (${stale}${view.extraction.capturedAt ? `; the DOM captured ${view.extraction.capturedAt}` : ''}): capture the page again` });
+    problems.push(...viewportProblems(tree, stale ? null : view.bands, viewportId, limits));
   }
   const row = { pageType: page.pageType, folder: page.folder, url: page.url, source: null, words: null, images: null, visualAreaPct: null, longestTextOnlyPx: null, photoAreaPct: null, sections: null, title: null, capture: null };
   if (desktopTree) {
@@ -239,19 +268,24 @@ async function decodePng(path) {
   const { data, info } = await sharp(path, { limitInputPixels: false }).removeAlpha().raw().toBuffer({ resolveWithObject: true });
   return { data, width: info.width, height: info.height, channels: info.channels };
 }
+const sha256 = async (path) => createHash('sha256').update(await readFile(path)).digest('hex');
 
 // One captured page: its viewports' DOM and shot bands, rendered.html and font-lock.json; what is missing.
 async function loadPage({ siteRoot, pageType, folder, url, rawDir, shotDir }) {
   const page = { pageType, folder, url, html: null, fontLock: null, missing: [], viewports: {} };
   const relative = (path) => path.slice(siteRoot.length + 1).replace(/\\/g, '/');
+  // What the capture recorded of each shot (capture-reference.mjs; a capture before 2026-11-20 recorded none).
+  const recorded = (await readJson(resolve(rawDir, 'capture-summary.json'), null))?.captures ?? [];
   for (const { id } of REFERENCE_VIEWPORTS) {
     const jsonPath = resolve(rawDir, `${id}.json`);
     const pngPath = resolve(shotDir, `${id}.png`);
     const extraction = (await exists(jsonPath)) ? await readJson(jsonPath) : null;
     if (!extraction) page.missing.push(relative(jsonPath));
-    const bands = (await exists(pngPath)) ? screenshotBands(await decodePng(pngPath)) : null;
+    const image = (await exists(pngPath)) ? await decodePng(pngPath) : null;
+    const bands = image ? screenshotBands(image) : null;
     if (!bands) page.missing.push(relative(pngPath));
-    page.viewports[id] = { extraction, bands };
+    const shot = image ? { width: image.width, height: image.height, sha256: await sha256(pngPath) } : null;
+    page.viewports[id] = { extraction, bands, shot, recorded: recorded.find((item) => item.id === id) ?? null };
   }
   const htmlPath = resolve(rawDir, 'rendered.html');
   page.html = await readText(htmlPath, null);
@@ -286,6 +320,7 @@ const cell = (value) => (value === null || value === undefined ? '—' : String(
 const SOURCE_LABEL = { density: '密度测量', capture: '采集估算' };
 const CHECK_LABEL = {
   'missing-capture': '采集文件缺失',
+  'stale-capture': '截图与 DOM 不是同一次采集',
   'blank-segment': '截图分段空白',
   'faded-content': 'DOM 内容透明',
   'fixed-overlay': '固定元素遮挡',

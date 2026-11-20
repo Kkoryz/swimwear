@@ -48,6 +48,33 @@ test('a scene is made from its subject with the trade\'s people and no product o
   assert.match(articleVisualPrompt({ type: 'photo', title: 't', content: 'a worker cutting fabric', purpose: 'p', section: 's' }, { master: 'm.png', profile, briefs: apparel, article: 'a' }), /Chinese factory worker/);
 });
 
+test("a scene carries its class's profile whole: place, framing, who appears, what to avoid; an empty class's photos show the place (owner 2026-11-18)", () => {
+  const profile = { settings: 'coastal houses and desert patios', background: 'detailed surroundings', framing: 'broad establishing views', lighting: 'daylight', colour: 'turquoise and rust', rendering: 'deep focus', casting: 'Spaces are unoccupied, no foreground people.', people: 'none', avoid: 'posed staff or guest groups' };
+  const entry = { id: 'general-hero-1', category: 'general', kind: 'hero', size: '1536x1024', subject: 'a guest couple arriving with their bags at the front door of a vacation rental at dusk' };
+  const prompt = scenePrompt(entry, { master: 'm.png', profile, briefs: service, line: 'rentals' });
+  assert.match(prompt, /People as on the company's website: Spaces are unoccupied, no foreground people\./);
+  assert.match(prompt, /Kind of place and framing as on the company's website: detailed surroundings broad establishing views/);
+  assert.match(prompt, /Avoid: posed staff or guest groups/);
+  assert.match(prompt, /What it shows: a guest couple arriving with their bags at the front door of a vacation rental at dusk, shown as the place alone, unoccupied\./);
+  assert.match(prompt, /\nNo person in the image\.\n/);
+  assert.doesNotMatch(prompt, new RegExp(service.prompts.worker.slice(0, 30)), 'no person of the trade is asked for');
+  // A room a person word names keeps its own subject (review 2026-11-18: "guest bedroom" and "styled for guests" were
+  // each made "one of the places", every such photo the same ask), and the trade's people never join it.
+  const bedroom = scenePrompt({ ...entry, kind: 'product', subject: 'a freshly made guest bedroom in a vacation rental home, styled for guests' }, { master: 'm.png', profile, briefs: service, line: 'rentals' });
+  assert.match(bedroom, /What it shows: a freshly made guest bedroom in a vacation rental home, styled for guests, shown as the place alone, unoccupied\./);
+  assert.doesNotMatch(bedroom, new RegExp(service.prompts.worker.slice(0, 30)));
+  // People only far off: said once, in place of the trade's people line.
+  const far = scenePrompt(entry, { master: 'm.png', profile: { ...profile, people: 'background' }, briefs: service, line: 'rentals' });
+  assert.equal(far.match(/No person in the foreground; anyone shown is small and far off\./g)?.length, 1);
+  assert.doesNotMatch(far, /No person in the image\./);
+  // The place and framing line needs no settings field.
+  assert.match(scenePrompt(entry, { master: 'm.png', profile: { ...profile, settings: '' }, briefs: service, line: 'rentals' }), /Kind of place and framing as on the company's website: detailed surroundings broad establishing views/);
+  // A profile written before the people field keeps its photo's subject, its casting now said.
+  const older = scenePrompt(entry, { master: 'm.png', profile: { ...profile, people: undefined }, briefs: service, line: 'rentals' });
+  assert.match(older, /What it shows: a guest couple arriving/);
+  assert.match(older, /People as on the company's website:/);
+});
+
 const components = { featureGrid: 'media', pageTypes: {}, cta: 'image-band', hero: 'media-overlay' };
 const pages = [
   { route: '/', pageType: 'home', status: 'placeholder', blocks: [

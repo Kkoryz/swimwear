@@ -100,10 +100,10 @@ main .page-hero[data-variant="media-overlay"] .page-hero__inner { min-height: 10
 test('the template keeps the title, its lead and the call in the first screen: the photo heroes give way in height to their copy, the header and the bar carry the site\'s call', async () => {
   const css = await source('src/styles/template.css');
   // The screen under the hero's own top (PageHero's script: --fold-top) and over the bar.
-  assert.match(css, /\.page-hero \{ --fold-screen: calc\(100svh - var\(--fold-top, var\(--header-height\)\) - var\(--fold-bar, 0px\)\); \}/);
+  assert.match(css, /\.page-hero \{[^}]* --fold-screen: calc\(100svh - var\(--fold-top, var\(--header-height\)\) - var\(--fold-bar, 0px\)\); \}/);
   // An overlay hero is at most that screen; a banner photo is what the screen leaves over the copy (--hero-copy), between
   // half its photo shown (heavy_crop) and its cap.
-  assert.match(css, /\.page-hero\[data-variant="media-overlay"\] \.page-hero__inner \{ min-height: min\(var\(--hero-min-height, clamp\(360px, 42vw, 560px\)\), var\(--fold-screen\)\); \}/);
+  assert.match(css, /\.page-hero\[data-variant="media-overlay"\] \.page-hero__inner \{[^}]* min-height: min\(var\(--hero-measured, var\(--hero-min-height, clamp\(360px, 42vw, 560px\)\)\), var\(--fold-screen\)\); \}/);
   assert.match(css, /--banner-floor: min\(var\(--banner-cap\), calc\(var\(--banner-full\) \* 0\.5\)\)/);
   assert.match(css, /--banner-cap: min\(var\(--hero-banner-height, clamp\(220px, 26vw, 372px\)\), calc\(var\(--banner-full\) \/ 0\.6\)\)/);
   assert.match(css, /height: clamp\(var\(--banner-floor\), calc\(var\(--fold-screen\) - var\(--hero-copy, var\(--fold-room\)\) - var\(--fold-gap\)\), var\(--banner-cap\)\)/);

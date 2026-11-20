@@ -83,7 +83,7 @@ const comparison = chart.kind === 'comparison' ? chart : null;
     </ul>
   )}
   {chart.kind === 'shares' && (
-    <div class="chart-shares" aria-label={chart.alt}>
+    <div class="chart-shares" role="group" aria-label={chart.alt}>
       <div class="chart-shares__bar">{shares.map((item, index) => <span class="chart-shares__part" data-part={index % 4} style={`width: ${item.percent}%`}></span>)}</div>
       <ul class="chart-shares__legend">{shares.map((item, index) => <li><span class="chart-shares__key" data-part={index % 4}></span>{item.label} {item.percent}%</li>)}</ul>
     </div>

@@ -1,5 +1,6 @@
 // Preflight checks on the release build: competitor files, placeholder and AI photos, alt text, the LCP image.
 import { pageAltProblems } from '../alt-text.mjs';
+import { altProductReport, imageSeoOn } from '../image-seo.mjs';
 import { decode, isDecorative, parsePage } from '../built-site.mjs';
 import { LEGACY_LIBRARY_PATH, LIBRARY_PATH, REFERENCE_PATHS } from '../release-guard.mjs';
 import { REVIEW_SIGNOFF, reviewMarkup } from '../review-markup.mjs';
@@ -57,6 +58,17 @@ export const BUILD_CHECKS = [
   // Alt text of the images that ship (lib/alt-text.mjs): what the image shows, 10-125 characters, no "image of", no
   // claims, each once on its page, the page's main keyword in at most one.
   { code: 'image_alt_rules', level: 'hold', run: (ctx) => found('images whose alt text breaks the alt rules (lib/alt-text.mjs)', acrossPages(ctx, (parsed, page) => pageAltProblems(parsed.images.filter((image) => image.inMain).map((image) => ({ src: image.src, alt: image.alt, decorative: isDecorative(image) })), { keyword: ctx.keywords?.get(page.route) }).map(({ src, problem }) => `${page.route} ${src.split('/').at(-1)}: ${problem}`))) },
+  // How many content photos name their page's product in the alt (lib/image-seo.mjs altProductReport; Google's image
+  // SEO: alt text in the page's words, the product once), and an alt naming it more than once: reported, never held
+  // (owner 2026-11-20).
+  { code: 'image_alt_product', level: 'notice', run: (ctx) => {
+    const report = altProductReport(builtPages(ctx).filter(([page]) => isIndexable(page)));
+    const share = report.images ? Math.round((100 * report.named) / report.images) : 100;
+    return found(`${report.named} of ${report.images} content photo alts (${share}%) name the page's product; ${report.repeated.length} name it more than once`, [...report.repeated.map((where) => `${where}: repeated`), ...report.unnamed.map((where) => `${where}: no product`)]);
+  } },
+  // Google Images SEO is off (site.json imageSeo is not true): no image sitemap, no ImageObject, photos published under
+  // their ids. Said so that a new site whose site.json lost the line, or a finished site not hand-fixed yet, is seen.
+  { code: 'image_seo_off', level: 'notice', run: (ctx) => Boolean(ctx.site) && !imageSeoOn(ctx.site) && { detail: 'site.json imageSeo is not true' } },
   // Image library diversity (check:image-diversity). A library less diverse than the reference's is the owner's call
   // from the contact sheet (look-alikes are sent back).
   { code: 'image_library_less_diverse_than_reference', level: 'notice', run: (ctx) => ctx.diversity && ctx.diversity.vendi < ctx.diversity.minVendi && { detail: `Vendi ${ctx.diversity.vendi} below ${ctx.diversity.minVendi} for ${ctx.diversity.photos} photos` } },

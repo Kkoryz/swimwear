@@ -6,7 +6,9 @@
 // Types Google retired from rich results or never shows for sites like these: valid markup, no rich result.
 export const RETIRED_TYPES = Object.freeze(['FAQPage', 'HowTo', 'SpecialAnnouncement', 'CourseInfo', 'EstimatedSalary', 'LearningVideo', 'ClaimReview', 'VehicleListing']);
 // Unfilled template values that must never reach a published page.
-export const PLACEHOLDER_PATTERN = /\[Placeholder\]|\[(?:[A-Z][A-Za-z ]{2,40})\]|REPLACE_[A-Z_]+|lorem ipsum/i;
+// "[Placeholder]" and "lorem ipsum" in any case; a bracketed stand-in ("[Company Name]") and REPLACE_X only as written:
+// under one i flag "[see note]" and "[sic]" in an FAQ answer read as stand-ins (audit 2026-11-21).
+export const PLACEHOLDER_PATTERN = /\[(?i:placeholder)\]|\[(?:[A-Z][A-Za-z ]{2,40})\]|REPLACE_[A-Z_]+|(?i:lorem ipsum)/;
 
 const has = (value) => value !== undefined && value !== null && !(typeof value === 'string' && !value.trim()) && !(Array.isArray(value) && !value.length);
 
@@ -28,6 +30,10 @@ const RULES = {
   },
   BreadcrumbList: { required: ['itemListElement'], recommended: [] },
   FAQPage: { required: ['mainEntity'], recommended: [] },
+  // Google's image metadata (developers.google.com/search/docs/appearance/structured-data/image-license-metadata):
+  // contentUrl and one of creator, creditText, copyrightNotice, license; once one is there the others are recommended
+  // (license only for the Licensable badge: a site that licenses no photo has no license page to name).
+  ImageObject: { required: ['contentUrl'], anyOf: [['creator', 'creditText', 'copyrightNotice', 'license']], recommended: ['creator', 'creditText', 'copyrightNotice'] },
 };
 
 // ISO 8601 dates (claude-seo: "Invalid date formats"): a year, a date, or a date and time with its zone.

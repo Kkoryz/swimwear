@@ -1,0 +1,1570 @@
+{
+  "$defs": {
+    "AuthoredCta": {
+      "additionalProperties": false,
+      "properties": {
+        "target_url": {
+          "title": "Target Url",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_url",
+        "label"
+      ],
+      "title": "AuthoredCta",
+      "type": "object"
+    },
+    "AuthoredItem": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "default": "",
+          "title": "Title",
+          "type": "string"
+        },
+        "text": {
+          "default": "",
+          "title": "Text",
+          "type": "string"
+        },
+        "fact_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Fact Ids",
+          "type": "array"
+        },
+        "placeholder": {
+          "default": false,
+          "title": "Placeholder",
+          "type": "boolean"
+        },
+        "value": {
+          "default": "",
+          "title": "Value",
+          "type": "string"
+        },
+        "unit": {
+          "default": "",
+          "title": "Unit",
+          "type": "string"
+        },
+        "label": {
+          "default": "",
+          "title": "Label",
+          "type": "string"
+        },
+        "note": {
+          "default": "",
+          "title": "Note",
+          "type": "string"
+        },
+        "price": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ItemPrice"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "name": {
+          "default": "",
+          "title": "Name",
+          "type": "string"
+        },
+        "colour": {
+          "default": "",
+          "title": "Colour",
+          "type": "string"
+        },
+        "composition": {
+          "default": "",
+          "title": "Composition",
+          "type": "string"
+        }
+      },
+      "title": "AuthoredItem",
+      "type": "object"
+    },
+    "AuthoredLink": {
+      "additionalProperties": false,
+      "properties": {
+        "link_id": {
+          "title": "Link Id",
+          "type": "string"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "anchor_text": {
+          "title": "Anchor Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "link_id",
+        "url",
+        "anchor_text"
+      ],
+      "title": "AuthoredLink",
+      "type": "object"
+    },
+    "AuthoredPage": {
+      "additionalProperties": false,
+      "properties": {
+        "origin": {
+          "default": "native",
+          "enum": [
+            "native",
+            "curated"
+          ],
+          "title": "Origin",
+          "type": "string"
+        },
+        "replaces": {
+          "default": "",
+          "title": "Replaces",
+          "type": "string"
+        },
+        "page_type": {
+          "default": "",
+          "title": "Page Type",
+          "type": "string"
+        },
+        "page_id": {
+          "title": "Page Id",
+          "type": "string"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "meta_description": {
+          "title": "Meta Description",
+          "type": "string"
+        },
+        "h1": {
+          "title": "H1",
+          "type": "string"
+        },
+        "hero_lead": {
+          "default": "",
+          "title": "Hero Lead",
+          "type": "string"
+        },
+        "sections": {
+          "items": {
+            "$ref": "#/$defs/AuthoredSection"
+          },
+          "title": "Sections",
+          "type": "array"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/$defs/AuthoredLink"
+          },
+          "title": "Links",
+          "type": "array"
+        },
+        "structural_links": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/StructuralLink"
+          },
+          "title": "Structural Links",
+          "type": "array"
+        },
+        "breadcrumb": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Breadcrumb"
+          },
+          "title": "Breadcrumb",
+          "type": "array"
+        },
+        "home_product_navigation": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Home Product Navigation",
+          "type": "array"
+        },
+        "cta": {
+          "$ref": "#/$defs/AuthoredCta"
+        },
+        "structured_data": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Structured Data",
+          "type": "array"
+        },
+        "structured": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Structured"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "release_status": {
+          "enum": [
+            "ready_for_template",
+            "hold"
+          ],
+          "title": "Release Status",
+          "type": "string"
+        },
+        "hold_reasons": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Hold Reasons",
+          "type": "array"
+        },
+        "notes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Notes",
+          "type": "array"
+        },
+        "unsupported_claims": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/UnsupportedClaim"
+          },
+          "title": "Unsupported Claims",
+          "type": "array"
+        },
+        "sibling_similarity": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sibling Similarity"
+        },
+        "facts": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Fact"
+          },
+          "title": "Facts",
+          "type": "array"
+        },
+        "knowledge": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/CitedCard"
+          },
+          "title": "Knowledge",
+          "type": "array"
+        },
+        "sources": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/CitedSource"
+          },
+          "title": "Sources",
+          "type": "array"
+        },
+        "footnotes": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Footnote"
+          },
+          "title": "Footnotes",
+          "type": "array"
+        },
+        "evidence_wanted": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Wanted",
+          "type": "array"
+        },
+        "open_hard_info": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Open Hard Info",
+          "type": "array"
+        },
+        "question_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Question Ids",
+          "type": "array"
+        },
+        "testimonials": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Testimonial"
+          },
+          "title": "Testimonials",
+          "type": "array"
+        },
+        "cases": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/CaseStudy"
+          },
+          "title": "Cases",
+          "type": "array"
+        },
+        "style_cards": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/StyleCard"
+          },
+          "title": "Style Cards",
+          "type": "array"
+        },
+        "held_mentions": {
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "default": {},
+          "title": "Held Mentions",
+          "type": "object"
+        },
+        "data_practices": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DataPractices"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "page_id",
+        "url",
+        "title",
+        "meta_description",
+        "h1",
+        "sections",
+        "links",
+        "cta",
+        "release_status"
+      ],
+      "title": "AuthoredPage",
+      "type": "object"
+    },
+    "AuthoredSection": {
+      "additionalProperties": false,
+      "properties": {
+        "section_id": {
+          "title": "Section Id",
+          "type": "string"
+        },
+        "heading": {
+          "default": "",
+          "title": "Heading",
+          "type": "string"
+        },
+        "continuation_of": {
+          "default": "",
+          "title": "Continuation Of",
+          "type": "string"
+        },
+        "body": {
+          "title": "Body",
+          "type": "string"
+        },
+        "fact_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Fact Ids",
+          "type": "array"
+        },
+        "key_facts": {
+          "default": false,
+          "title": "Key Facts",
+          "type": "boolean"
+        },
+        "slot": {
+          "default": "",
+          "title": "Slot",
+          "type": "string"
+        },
+        "kind": {
+          "default": "",
+          "title": "Kind",
+          "type": "string"
+        },
+        "presentation": {
+          "default": "",
+          "title": "Presentation",
+          "type": "string"
+        },
+        "items": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/AuthoredItem"
+          },
+          "title": "Items",
+          "type": "array"
+        },
+        "qa": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/QuestionAnswer"
+          },
+          "title": "Qa",
+          "type": "array"
+        },
+        "image_alt": {
+          "default": "",
+          "title": "Image Alt",
+          "type": "string"
+        },
+        "visuals": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Visual"
+          },
+          "title": "Visuals",
+          "type": "array"
+        },
+        "steps": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/FlowStep"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Steps"
+        },
+        "uses": {
+          "default": "",
+          "title": "Uses",
+          "type": "string"
+        },
+        "note": {
+          "default": "",
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "section_id",
+        "body"
+      ],
+      "title": "AuthoredSection",
+      "type": "object"
+    },
+    "Breadcrumb": {
+      "additionalProperties": false,
+      "properties": {
+        "page_id": {
+          "title": "Page Id",
+          "type": "string"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "anchor": {
+          "title": "Anchor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "page_id",
+        "url",
+        "anchor"
+      ],
+      "title": "Breadcrumb",
+      "type": "object"
+    },
+    "CaseStudy": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "title": "Case Id",
+          "type": "string"
+        },
+        "product": {
+          "title": "Product",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "placeholder": {
+          "default": true,
+          "title": "Placeholder",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "case_id",
+        "product",
+        "text"
+      ],
+      "title": "CaseStudy",
+      "type": "object"
+    },
+    "CitedCard": {
+      "additionalProperties": false,
+      "description": "An industry knowledge card a page's sections were given: what its industry statements rest on.",
+      "properties": {
+        "card_id": {
+          "title": "Card Id",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "sources": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/CitedSource"
+          },
+          "title": "Sources",
+          "type": "array"
+        }
+      },
+      "required": [
+        "card_id",
+        "title"
+      ],
+      "title": "CitedCard",
+      "type": "object"
+    },
+    "CitedSource": {
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "publisher": {
+          "title": "Publisher",
+          "type": "string"
+        },
+        "retrieved": {
+          "default": "",
+          "title": "Retrieved",
+          "type": "string"
+        },
+        "quote": {
+          "default": "",
+          "title": "Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "title",
+        "publisher"
+      ],
+      "title": "CitedSource",
+      "type": "object"
+    },
+    "Comparison": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "default": "",
+          "title": "Title",
+          "type": "string"
+        },
+        "columns": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Columns",
+          "type": "array"
+        },
+        "rows": {
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Rows",
+          "type": "array"
+        },
+        "fact_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Fact Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "columns",
+        "rows"
+      ],
+      "title": "Comparison",
+      "type": "object"
+    },
+    "Contact": {
+      "additionalProperties": false,
+      "description": "How buyers reach the company: the contact page and the Organization markup (stage 08, 2026-09-25: none was\ngiven). Never prose facts: facts.yaml leaves contact details out on purpose. `placeholder` until the owner's own\nvalues replace them (docs/pre-launch-replacements.md).",
+      "properties": {
+        "email": {
+          "default": "",
+          "title": "Email",
+          "type": "string"
+        },
+        "phone": {
+          "default": "",
+          "title": "Phone",
+          "type": "string"
+        },
+        "address": {
+          "default": "",
+          "title": "Address",
+          "type": "string"
+        },
+        "hours": {
+          "default": "",
+          "title": "Hours",
+          "type": "string"
+        },
+        "same_as": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Same As",
+          "type": "array"
+        },
+        "placeholder": {
+          "default": true,
+          "title": "Placeholder",
+          "type": "boolean"
+        }
+      },
+      "title": "Contact",
+      "type": "object"
+    },
+    "DataPracticeRow": {
+      "additionalProperties": false,
+      "description": "One thing the site collects, in the collection contract's three columns (08's config/site-collection.json, copied\nbyte for byte to domain/site-collection.json): what, what is recorded, why.",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "what": {
+          "title": "What",
+          "type": "string"
+        },
+        "recorded": {
+          "title": "Recorded",
+          "type": "string"
+        },
+        "why": {
+          "title": "Why",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "what",
+        "recorded",
+        "why"
+      ],
+      "title": "DataPracticeRow",
+      "type": "object"
+    },
+    "DataPractices": {
+      "additionalProperties": false,
+      "description": "The privacy page's table of what the site collects (自查自修方案 11-17 §3.4): the collection items the site has\non, word for word the contract's, put in by code and never by a model; how long enquiries are kept and whom to ask,\nthe project's `privacy` (an empty retention: none stated). 08 renders it and checks the rows against its own\nconfiguration.",
+      "properties": {
+        "rows": {
+          "items": {
+            "$ref": "#/$defs/DataPracticeRow"
+          },
+          "title": "Rows",
+          "type": "array"
+        },
+        "retention": {
+          "default": "",
+          "title": "Retention",
+          "type": "string"
+        },
+        "contact": {
+          "default": "",
+          "title": "Contact",
+          "type": "string"
+        },
+        "placeholder": {
+          "default": true,
+          "title": "Placeholder",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "rows"
+      ],
+      "title": "DataPractices",
+      "type": "object"
+    },
+    "DensityStandard": {
+      "additionalProperties": false,
+      "properties": {
+        "words_per_visual_block": {
+          "title": "Words Per Visual Block",
+          "type": "integer"
+        },
+        "longest_text_run_words": {
+          "title": "Longest Text Run Words",
+          "type": "integer"
+        },
+        "source": {
+          "default": "",
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "words_per_visual_block",
+        "longest_text_run_words"
+      ],
+      "title": "DensityStandard",
+      "type": "object"
+    },
+    "Fact": {
+      "additionalProperties": false,
+      "properties": {
+        "fact_id": {
+          "title": "Fact Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "verification_status": {
+          "enum": [
+            "verified",
+            "user_provided",
+            "competitor_derived",
+            "site_plan",
+            "unverified"
+          ],
+          "title": "Verification Status",
+          "type": "string"
+        },
+        "approved_public": {
+          "title": "Approved Public",
+          "type": "boolean"
+        },
+        "fact_type": {
+          "default": "",
+          "title": "Fact Type",
+          "type": "string"
+        },
+        "capability": {
+          "default": false,
+          "title": "Capability",
+          "type": "boolean"
+        },
+        "pages": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Pages",
+          "type": "array"
+        },
+        "proof": {
+          "default": false,
+          "title": "Proof",
+          "type": "boolean"
+        },
+        "route": {
+          "default": false,
+          "title": "Route",
+          "type": "boolean"
+        },
+        "source_page": {
+          "default": "",
+          "title": "Source Page",
+          "type": "string"
+        },
+        "kind": {
+          "default": "",
+          "title": "Kind",
+          "type": "string"
+        },
+        "mentions": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Mentions",
+          "type": "array"
+        },
+        "sources": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/CitedSource"
+          },
+          "title": "Sources",
+          "type": "array"
+        }
+      },
+      "required": [
+        "fact_id",
+        "text",
+        "verification_status",
+        "approved_public"
+      ],
+      "title": "Fact",
+      "type": "object"
+    },
+    "FlowStep": {
+      "additionalProperties": false,
+      "description": "One step of a flow (08 df1bd44): a section's own `steps` or a site module's; 3-6 steps; a duration's numbers\nstated in a fact the step cites.",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "we_do": {
+          "title": "We Do",
+          "type": "string"
+        },
+        "client_provides": {
+          "default": "",
+          "title": "Client Provides",
+          "type": "string"
+        },
+        "duration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/StepDuration"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "fact_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Fact Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "we_do"
+      ],
+      "title": "FlowStep",
+      "type": "object"
+    },
+    "Footnote": {
+      "additionalProperties": false,
+      "description": "A sentence stating an industry figure a knowledge card gives, and the sources of that figure (owner 2026-10-01:\nnumbers with their sources, as footnotes; the sentence reads as site copy and names no source).",
+      "properties": {
+        "section_id": {
+          "title": "Section Id",
+          "type": "string"
+        },
+        "sentence": {
+          "title": "Sentence",
+          "type": "string"
+        },
+        "refs": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "section_id",
+        "sentence",
+        "refs"
+      ],
+      "title": "Footnote",
+      "type": "object"
+    },
+    "ItemPrice": {
+      "additionalProperties": false,
+      "description": "A price card's price (08 integ/hotel-1111 df1bd44): `amount` word for word in a fact the item cites.",
+      "properties": {
+        "amount": {
+          "title": "Amount",
+          "type": "string"
+        },
+        "unit": {
+          "default": "",
+          "title": "Unit",
+          "type": "string"
+        },
+        "note": {
+          "default": "",
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "amount"
+      ],
+      "title": "ItemPrice",
+      "type": "object"
+    },
+    "KeyFigure": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "fact_id": {
+          "title": "Fact Id",
+          "type": "string"
+        },
+        "note": {
+          "default": "",
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "label",
+        "fact_id"
+      ],
+      "title": "KeyFigure",
+      "type": "object"
+    },
+    "PageDensity": {
+      "additionalProperties": false,
+      "description": "One page by words: body words (sections' text, list entries, answers; headings left out), visual blocks (a\ndata visual 08 draws - every shape but ranges - and a section shown other than as prose or qa, one each), words per\nblock (null without a block), the longest run of plain-text words between blocks in page order, and whether both\nmeet the standard.",
+      "properties": {
+        "words": {
+          "title": "Words",
+          "type": "integer"
+        },
+        "visual_blocks": {
+          "title": "Visual Blocks",
+          "type": "integer"
+        },
+        "words_per_visual_block": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Words Per Visual Block"
+        },
+        "longest_text_run_words": {
+          "title": "Longest Text Run Words",
+          "type": "integer"
+        },
+        "within_standard": {
+          "title": "Within Standard",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "words",
+        "visual_blocks",
+        "words_per_visual_block",
+        "longest_text_run_words",
+        "within_standard"
+      ],
+      "title": "PageDensity",
+      "type": "object"
+    },
+    "ProcessStep": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "default": "",
+          "title": "Title",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "fact_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Fact Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "ProcessStep",
+      "type": "object"
+    },
+    "QuestionAnswer": {
+      "additionalProperties": false,
+      "properties": {
+        "question": {
+          "title": "Question",
+          "type": "string"
+        },
+        "answer": {
+          "title": "Answer",
+          "type": "string"
+        }
+      },
+      "required": [
+        "question",
+        "answer"
+      ],
+      "title": "QuestionAnswer",
+      "type": "object"
+    },
+    "SiteModule": {
+      "additionalProperties": false,
+      "description": "A site-wide flow written once (package `site_modules`) and used by the sections naming it (`uses`).",
+      "properties": {
+        "heading": {
+          "default": "",
+          "title": "Heading",
+          "type": "string"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/$defs/FlowStep"
+          },
+          "title": "Steps",
+          "type": "array"
+        }
+      },
+      "required": [
+        "steps"
+      ],
+      "title": "SiteModule",
+      "type": "object"
+    },
+    "StepDuration": {
+      "additionalProperties": false,
+      "properties": {
+        "min": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Min"
+        },
+        "max": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Max"
+        },
+        "unit": {
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "min",
+        "max",
+        "unit"
+      ],
+      "title": "StepDuration",
+      "type": "object"
+    },
+    "StructuralLink": {
+      "additionalProperties": false,
+      "properties": {
+        "page_id": {
+          "title": "Page Id",
+          "type": "string"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "anchor": {
+          "title": "Anchor",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "parent",
+            "child",
+            "sibling"
+          ],
+          "title": "Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "page_id",
+        "url",
+        "anchor",
+        "role"
+      ],
+      "title": "StructuralLink",
+      "type": "object"
+    },
+    "Structured": {
+      "additionalProperties": false,
+      "description": "What a template renders beside the prose: key-figure rows, a process timeline, a comparison table\n(sf/structured/v1, agreed with stage 08 on 2026-09-24). Every part is optional; code keeps only what holds.",
+      "properties": {
+        "key_figures_title": {
+          "default": "",
+          "title": "Key Figures Title",
+          "type": "string"
+        },
+        "key_figures": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/KeyFigure"
+          },
+          "title": "Key Figures",
+          "type": "array"
+        },
+        "process_title": {
+          "default": "",
+          "title": "Process Title",
+          "type": "string"
+        },
+        "process_steps": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ProcessStep"
+          },
+          "title": "Process Steps",
+          "type": "array"
+        },
+        "comparison": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Comparison"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "Structured",
+      "type": "object"
+    },
+    "StyleCard": {
+      "additionalProperties": false,
+      "description": "One style of the page's line in its style grid: the template shows a photo placeholder, the name, the intro and\na quote link (strong wholesale pages: a grid of 10-20 styles, image, name, request-a-quote, 2026-09-28).",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "intro": {
+          "title": "Intro",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "intro"
+      ],
+      "title": "StyleCard",
+      "type": "object"
+    },
+    "Testimonial": {
+      "additionalProperties": false,
+      "properties": {
+        "review_id": {
+          "title": "Review Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "reviewer": {
+          "title": "Reviewer",
+          "type": "string"
+        },
+        "placeholder": {
+          "default": true,
+          "title": "Placeholder",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "review_id",
+        "text",
+        "reviewer"
+      ],
+      "title": "Testimonial",
+      "type": "object"
+    },
+    "UnsupportedClaim": {
+      "additionalProperties": false,
+      "description": "A sentence that states something specific about the company which no approved fact states.",
+      "properties": {
+        "section_id": {
+          "title": "Section Id",
+          "type": "string"
+        },
+        "sentence": {
+          "title": "Sentence",
+          "type": "string"
+        }
+      },
+      "required": [
+        "section_id",
+        "sentence"
+      ],
+      "title": "UnsupportedClaim",
+      "type": "object"
+    },
+    "Visual": {
+      "additionalProperties": false,
+      "description": "One planned picture of a section (owner 10-30, Fable 方案_规划展示与配图_1030 V1): a photo intent (content,\nsetting) or a data intent (data); 08 draws it, chooses the slots and the density. Empty fields are left out.",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "photo",
+            "data"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "purpose": {
+          "title": "Purpose",
+          "type": "string"
+        },
+        "caption": {
+          "default": "",
+          "title": "Caption",
+          "type": "string"
+        },
+        "content": {
+          "default": "",
+          "title": "Content",
+          "type": "string"
+        },
+        "setting": {
+          "default": "",
+          "title": "Setting",
+          "type": "string"
+        },
+        "data": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/VisualData"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "purpose"
+      ],
+      "title": "Visual",
+      "type": "object"
+    },
+    "VisualComparison": {
+      "additionalProperties": false,
+      "properties": {
+        "options": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Options",
+          "type": "array"
+        },
+        "rows": {
+          "items": {
+            "$ref": "#/$defs/VisualRow"
+          },
+          "title": "Rows",
+          "type": "array"
+        }
+      },
+      "required": [
+        "options",
+        "rows"
+      ],
+      "title": "VisualComparison",
+      "type": "object"
+    },
+    "VisualData": {
+      "additionalProperties": false,
+      "description": "What a data visual shows (stage 08's structure, gate/visuals_spec_08_1030; owner 10-30): `items` a list of the\nshape's fields - sequence {label, detail}, amounts {label, value, unit}, periods {label, start, end} or {label, min,\nmax, unit}, ranges {label, min, max, unit}, shares {label, percent} - or a comparison's {options, rows}.",
+      "properties": {
+        "shape": {
+          "enum": [
+            "sequence",
+            "amounts",
+            "periods",
+            "ranges",
+            "shares",
+            "comparison"
+          ],
+          "title": "Shape",
+          "type": "string"
+        },
+        "items": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "#/$defs/VisualComparison"
+            }
+          ],
+          "title": "Items"
+        }
+      },
+      "required": [
+        "shape",
+        "items"
+      ],
+      "title": "VisualData",
+      "type": "object"
+    },
+    "VisualDensity": {
+      "additionalProperties": false,
+      "properties": {
+        "standard": {
+          "$ref": "#/$defs/DensityStandard"
+        },
+        "pages": {
+          "additionalProperties": {
+            "$ref": "#/$defs/PageDensity"
+          },
+          "title": "Pages",
+          "type": "object"
+        }
+      },
+      "required": [
+        "standard",
+        "pages"
+      ],
+      "title": "VisualDensity",
+      "type": "object"
+    },
+    "VisualRow": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "values": {
+          "items": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "label",
+        "values"
+      ],
+      "title": "VisualRow",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "sf/authoring/v1",
+      "default": "sf/authoring/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "project": {
+      "title": "Project",
+      "type": "string"
+    },
+    "pages": {
+      "items": {
+        "$ref": "#/$defs/AuthoredPage"
+      },
+      "title": "Pages",
+      "type": "array"
+    },
+    "contact": {
+      "$ref": "#/$defs/Contact",
+      "default": {
+        "email": "",
+        "phone": "",
+        "address": "",
+        "hours": "",
+        "same_as": [],
+        "placeholder": true
+      }
+    },
+    "facts": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Fact"
+      },
+      "title": "Facts",
+      "type": "array"
+    },
+    "trust_bar": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/KeyFigure"
+      },
+      "title": "Trust Bar",
+      "type": "array"
+    },
+    "order_routes": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/KeyFigure"
+      },
+      "title": "Order Routes",
+      "type": "array"
+    },
+    "site_modules": {
+      "additionalProperties": {
+        "$ref": "#/$defs/SiteModule"
+      },
+      "default": {},
+      "title": "Site Modules",
+      "type": "object"
+    },
+    "photo_constraints": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Photo Constraints",
+      "type": "array"
+    },
+    "visual_density": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/VisualDensity"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "project",
+    "pages"
+  ],
+  "title": "AuthoringPackage",
+  "type": "object"
+}

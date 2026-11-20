@@ -43,6 +43,11 @@ main[data-authoring-page] img { display: block; max-width: 100%; }
 .placeholder-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 /* A page that is not built yet is named as plain text: it must not look like a link a site treatment styled. */
 [data-route-status="planned"] { cursor: default; color: inherit !important; text-decoration: none !important; }
+/* A link in running text (InlineText.astro, the reviewed-by line, the form's consent) is underlined: its colour alone
+   does not set it apart from the words around it (WCAG 1.4.1; site audit 2026-11-19: MotelPilot's "Reviewed by" link
+   at 1.89:1 to its line, table links on four sites). A phone number keeps to one line. */
+a.inline-link { text-decoration: underline; text-underline-offset: 3px; }
+a[href^="tel:"] { white-space: nowrap; }
 
 /* Buttons */
 .button {
@@ -72,7 +77,7 @@ main[data-authoring-page] img { display: block; max-width: 100%; }
 .site-header__bar { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: var(--header-height); }
 .site-header__cta { display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; border-radius: var(--radius-pill, 999px); background: var(--accent); color: var(--accent-contrast); font-family: var(--font-ui); font-weight: 500; text-decoration: none; white-space: nowrap; }
 @media (max-width: 1023px) { .site-header__cta { display: none; } }
-.site-header__brand { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--text-primary); text-decoration: none; white-space: nowrap; }
+.site-header__brand { display: inline-flex; align-items: center; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--text-primary); text-decoration: none; white-space: nowrap; }
 .site-header__brand img { display: block; height: 40px; width: auto; }
 .site-nav__list { display: flex; gap: 0.25rem; margin: 0; padding: 0; list-style: none; }
 .site-nav__item { position: static; }
@@ -143,7 +148,7 @@ button.site-nav__link { border: 0; background: none; line-height: inherit; curso
 }
 
 /* Hero */
-.page-hero { position: relative; overflow: hidden; background: var(--surface-secondary); }
+.page-hero { position: relative; overflow: hidden; background: var(--surface-secondary); --fold-screen: calc(100svh - var(--fold-top, var(--header-height)) - var(--fold-bar, 0px)); }
 /* --hero-align (start, center): where the copy sits over the photo (a competitor's centred title strip); --size-lead:
    the lead's size; --hero-min-height: the overlay hero's height (a compact inner-page strip: 188px). */
 .page-hero__inner { position: relative; display: grid; gap: 2.5rem; align-items: center; justify-items: var(--hero-align, stretch); padding-block: clamp(3rem, 7vw, 6rem); }
@@ -189,16 +194,24 @@ main [data-block-id][id] { scroll-margin-top: 6rem; }
    by PageHero.astro's script: the header, a breadcrumb trail or nothing where the header lies over the photo; else the
    header's height) and over the enquiry bar (--fold-bar); --hero-copy: the copy's height, set by the same script (else
    --fold-room); --fold-gap: the room kept under the button. The layout audit measures it (lib/visual-checks.mjs
-   foldProblems, HERO_FOLD). */
-:root { --fold-room: clamp(11rem, 30svh, 15rem); --fold-gap: 1rem; }
-.page-hero { --fold-screen: calc(100svh - var(--fold-top, var(--header-height)) - var(--fold-bar, 0px)); }
+   foldProblems, HERO_FOLD). --fold-screen is set on .page-hero (above), --fold-room and --fold-gap on :root (below,
+   with the page's ink tokens). */
 .page-hero[data-variant="media-overlay"] { color: var(--text-inverse); background: var(--surface-dark); }
-.page-hero[data-variant="media-overlay"] .page-hero__inner { min-height: min(var(--hero-min-height, clamp(360px, 42vw, 560px)), var(--fold-screen)); }
+.page-hero[data-variant="media-overlay"] .page-hero__inner { z-index: 2; min-height: min(var(--hero-measured, var(--hero-min-height, clamp(360px, 42vw, 560px))), var(--fold-screen)); }
+/* The reference's first screen for the page's type, at each width (PageHero.astro, lib/hero-heights.mjs; owner
+   2026-11-18: every Staylumen hero sat at the default 360 to 560px against the reference's 412 to 1000): measured, so
+   it comes before a treatment's own value; the screen still caps it (--fold-screen). In a variable of its own, read
+   first, so no treatment rule outweighs it by its selector or its place in the cascade (2026-11-20: Strandmill's
+   reference.css set --hero-min-height at the same specificity after this sheet, and its heroes stood at 420 to 560px
+   against the reference's 646 to 1110). Without a fallback: a width with no measure leaves --hero-measured invalid and
+   takes the treatment's --hero-min-height, else the default. Sites do not set either (lib/protected-rules.mjs). */
+main[data-page-type] .page-hero[data-hero-height] { --hero-measured: var(--hero-h-desktop); }
+@media (max-width: 1023px) { main[data-page-type] .page-hero[data-hero-height] { --hero-measured: var(--hero-h-tablet); } }
+@media (max-width: 767px) { main[data-page-type] .page-hero[data-hero-height] { --hero-measured: var(--hero-h-phone); } }
 .page-hero__backdrop { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--hero-focal, center); }
 .page-hero[data-variant="media-overlay"]::before { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--hero-overlay, rgb(0 0 0 / 0.45)); }
-.page-hero[data-variant="media-overlay"] .page-hero__inner { z-index: 2; }
 @media (min-width: 900px) { .page-hero[data-variant="media-split"] .page-hero__inner { grid-template-columns: 1.1fr 1fr; } }
-.page-hero[data-variant="media-banner"] { background: var(--surface-primary); }
+.page-hero[data-variant="media-banner"] { background: var(--surface-primary); --banner-align: var(--hero-align, center); }
 /* A banner's height: what the screen leaves over its copy, between half its photo shown (--banner-floor, the audit's
    heavy_crop) and its cap (--banner-cap: the treatment's height, never more than still shows 60% of the photo; a
    phone photo of its own, art-directed to the competitor's phone hero shape, its whole shape on a phone). */
@@ -210,8 +223,8 @@ main [data-block-id][id] { scroll-margin-top: 6rem; }
 .page-hero__banner img { width: 100%; height: 100%; object-fit: cover; object-position: var(--hero-focal, center); }
 /* The copy under the banner is set one way, box and text alike: centred, or on the content's left edge on a site whose
    section headings start there (hotel-rm 2026-11-14: the box centred and the text flush put the title 18px off its lead
-   and the button under the middle of left-set text). */
-.page-hero[data-variant="media-banner"] { --banner-align: var(--hero-align, center); }
+   and the button under the middle of left-set text): --banner-align, centred by default (.page-hero[data-variant="media-banner"]
+   above). */
 body[data-heading-align="start"] .page-hero[data-variant="media-banner"] { --banner-align: var(--hero-align, start); }
 /* Under a banner the copy's room follows the screen's height, and so does the title, down to its floor (--fit-min):
    at 1366×768 a 3:2 banner photo takes at least 455px, and the hotel site's 56px two-line title, its lead and its
@@ -272,13 +285,12 @@ body[data-heading-align="start"] .page-hero[data-variant="media-banner"] { --ban
   .block--split[data-variant="panel"] .split[data-layout="split"] > .split__copy { align-self: stretch; display: grid; align-content: center; }
 }
 
-.feature-grid { display: grid; gap: var(--grid-gap); grid-template-columns: 1fr; }
+.feature-grid { display: grid; gap: var(--grid-gap); grid-template-columns: 1fr; margin: 0; padding: 0; list-style: none; }
 @media (min-width: 768px) { .feature-grid { grid-template-columns: repeat(var(--grid-columns, 2), minmax(0, 1fr)); } }
 .feature-grid[data-columns="3"] { --grid-columns: 3; }
 .feature-grid[data-columns="4"] { --grid-columns: 2; }
 @media (min-width: 1200px) { .feature-grid[data-columns="4"] { --grid-columns: 4; } }
 .feature-card { display: grid; align-content: start; gap: 0.875rem; padding: clamp(1.25rem, 2.5vw, 2rem); border-radius: var(--radius-card); }
-.feature-grid { margin: 0; padding: 0; list-style: none; }
 .feature-card__title { font-size: var(--size-card-heading); }
 /* A card title fits its card at every width: a long word ("Construction") is hyphenated at a proper break, never cut
    at an arbitrary letter or widening the page. (No container query here: its containment would switch off the
@@ -380,7 +392,14 @@ body[data-heading-align="start"] .page-hero[data-variant="media-banner"] { --ban
 .cta__content { position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 2rem; }
 [data-variant="image-band"] .related-links__link { color: var(--text-inverse); }
 
-:root { --text-ink: var(--text-primary); --heading-ink: var(--heading-color, var(--text-primary)); --muted-ink: var(--text-muted); }
+/* The page's own tokens, on :root before any surface changes them: the first screen's room (--fold-room, --fold-gap:
+   the hero above), the page's ink (--text-ink, --heading-ink, --muted-ink: a form card on a dark surface, patterns.css)
+   and the page's link, accent and focus colours (--page-link, --page-accent, --page-focus: the secondary ink below). */
+:root {
+  --fold-room: clamp(11rem, 30svh, 15rem); --fold-gap: 1rem;
+  --text-ink: var(--text-primary); --heading-ink: var(--heading-color, var(--text-primary)); --muted-ink: var(--text-muted);
+  --page-link: var(--link, var(--accent-text, var(--text-primary))); --page-accent: var(--accent-text, var(--accent)); --page-focus: var(--focus-ring, var(--accent));
+}
 
 /* Dark and photo surfaces: the text tokens switch to their inverse, and the text on them takes the inverse colour
    over a site treatment's light-surface text colours (.block p, .block h2). A treatment that paints one of these
@@ -401,7 +420,6 @@ body[data-heading-align="start"] .page-hero[data-variant="media-banner"] { --ban
    --surface-secondary is the page's (lib/section-surfaces.mjs tintStyle sets --secondary-ink and the rest there). A
    treatment that paints the secondary surface another colour in one section sets --secondary-ink (and
    --secondary-muted, --secondary-link, --secondary-accent) there too. */
-:root { --page-link: var(--link, var(--accent-text, var(--text-primary))); --page-accent: var(--accent-text, var(--accent)); --page-focus: var(--focus-ring, var(--accent)); }
 :where(body[data-secondary-ink]) :where([data-variant="outlined"] .feature-card, [data-pattern="outline-numbered"] .feature-card, .faq__item, .logos__item[data-wordmark], .certification, .track__button, .contact-channels[data-variant="cards"] .contact-channel, .post-card, .pricing-card, main[data-post-layout="paper"] .post-article) {
   color: var(--text-ink);
   --text-primary: var(--text-ink);
@@ -456,7 +474,6 @@ img { height: auto; }
 
 /* Brand: the site logo (site-identity.json) at the header's logo height, never wider than --logo-max-width (a widely
    spaced wordmark fits inside that box at its own proportions, so it never crowds the menu). */
-.site-header__brand { display: inline-flex; align-items: center; }
 .site-header__brand .site-header__logo { height: var(--logo-height, 40px); width: auto; max-width: var(--logo-max-width, min(16rem, 55vw)); object-fit: contain; object-position: left center; filter: var(--logo-filter, none); }
 
 /* Breadcrumbs: a slim trail above the hero. */

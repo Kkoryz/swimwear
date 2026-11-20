@@ -35,6 +35,7 @@ import { differenceHash, hamming } from './lib/image-hash.mjs';
 import { finishPhoto, finishTarget } from './lib/photo-finish.mjs';
 import { loadSitePages } from './lib/site-pages.mjs';
 import { writeResponsiveWebp } from './lib/web-image.mjs';
+import { articleNamer, publishedStem, siteXmp } from './lib/image-seo.mjs';
 import { fitLabel } from './judge-image-fit.mjs';
 import { DEFAULT_TRADE, imageBriefs } from './lib/trade.mjs';
 
@@ -136,6 +137,12 @@ async function importArticle({ root = process.cwd(), runDir, only = null, run = 
   const { default: sharp } = await import('sharp');
   sharp.cache(false);
   const toward = await finishTarget(sharp, style.productRefs?.length ? style.productRefs : style.kinds[SITE_STYLE].refs);
+  // Each picture's file name (lib/image-seo.mjs): what its alt says it shows and the site's product while site.json
+  // imageSeo is on, else its id; a picture published before keeps its name.
+  const nameOf = await articleNamer(root);
+  // The XMP each published file carries while the switch is on (a picture the image model made), else none.
+  const xmpOf = await siteXmp(root);
+  const altOf = new Map(placed.map((item) => [item.id, item.alt]));
 
   const judge = async (visual, master, tries) => {
     const prompt = fitTemplate.replace('{{pageSubject}}', article.title).replace('{{section}}', visual.section || '(none)').replace('{{alt}}', visual.content);
@@ -169,7 +176,7 @@ async function importArticle({ root = process.cwd(), runDir, only = null, run = 
     }
     // A photo is finished toward the site's photos (lib/photo-finish.mjs); an illustration is published as made.
     const published = photo ? await finishPhoto(sharp, masterPath, resolve(root, dir, `${visual.id}.finished.png`), { toward, seed: `${slug}-${visual.id}` }) : masterPath;
-    const web = await writeResponsiveWebp(sharp, published, { root, dir: `media/blog/${slug}`, name: visual.id });
+    const web = await writeResponsiveWebp(sharp, published, { root, dir: `media/blog/${slug}`, name: nameOf(visual.id, altOf.get(visual.id)), xmp: xmpOf('trainedAlgorithmicMedia') });
     const widest = web.srcset.split(', ').map((item) => item.split(' ')).at(-1);
     const wideMeta = await sharp(resolve(root, 'public', widest[0].slice(1))).metadata();
     made[visual.id] = {
@@ -203,7 +210,7 @@ async function importArticle({ root = process.cwd(), runDir, only = null, run = 
   for (const [id, item] of Object.entries(made)) {
     if (item.web.src.startsWith(`/media/blog/${slug}/`)) continue;
     const finished = resolve(root, dir, `${id}.finished.png`);
-    const web = await writeResponsiveWebp(sharp, item.type === 'photo' && existsSync(finished) ? finished : resolve(root, item.master), { root, dir: `media/blog/${slug}`, name: id });
+    const web = await writeResponsiveWebp(sharp, item.type === 'photo' && existsSync(finished) ? finished : resolve(root, item.master), { root, dir: `media/blog/${slug}`, name: publishedStem(item.web.src) || id, xmp: xmpOf(item.origin?.digitalSourceType) });
     const widest = web.srcset.split(', ').at(-1).split(' ')[0];
     const wideMeta = await sharp(resolve(root, 'public', widest.slice(1))).metadata();
     Object.assign(item, { web, wide: { src: widest, width: wideMeta.width, height: wideMeta.height } });

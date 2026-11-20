@@ -2,19 +2,20 @@
 // The shell every content block shares: the section with its evidence attributes (data-authoring-block, the block's id
 // for the layout audit), the container, the eyebrow and the block's heading. The block's own markup is the slot.
 // name: the block's class (block--<name>); headingClass: its heading's class, kept per block for the reference styles;
-// variant: the variant it renders with (the layout audit's block metrics key on it).
+// variant: the variant it renders with (the layout audit's block metrics key on it); headingId: its heading's id, for a
+// part of the block named by it (RelatedLinks labelledBy).
 import type { Block } from '../../lib/authoring';
 import Eyebrow from './Eyebrow.astro';
 
-interface Props { block: Block; name: string; headingClass: string; variant?: string }
-const { block, name, headingClass, variant } = Astro.props;
+interface Props { block: Block; name: string; headingClass: string; variant?: string; headingId?: string | null }
+const { block, name, headingClass, variant, headingId = null } = Astro.props;
 const heading = 'heading' in block ? block.heading : undefined;
 ---
 
 <section class={`block block--${name}`} id={block.anchor} data-authoring-block={block.type} data-block-id={block.id} data-variant={variant}>
   <div class="container">
     <Eyebrow text={block.eyebrow} />
-    {heading && <h2 class={headingClass}>{heading}</h2>}
+    {heading && <h2 class={headingClass} id={headingId ?? undefined}>{heading}</h2>}
     <slot />
   </div>
 </section>

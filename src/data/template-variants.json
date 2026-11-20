@@ -1392,15 +1392,15 @@
         "after": 0.22
       },
       "featureGrid:*": {
-        "base": 133,
+        "base": 132,
         "perWord": 2.39,
         "visual": 0.45,
         "before": 0.52,
         "after": 0.43
       },
       "featureGrid:bullets": {
-        "base": 213,
-        "perWord": 2.11,
+        "base": 208,
+        "perWord": 2.13,
         "visual": 0,
         "before": 1,
         "after": 1
@@ -1448,15 +1448,15 @@
         "after": 0.07
       },
       "hero:*": {
-        "base": 541,
-        "perWord": 1.13,
+        "base": 472,
+        "perWord": 2.98,
         "visual": 1,
         "before": 0,
         "after": 0
       },
       "hero:media-overlay": {
-        "base": 541,
-        "perWord": 1.13,
+        "base": 472,
+        "perWord": 2.98,
         "visual": 1,
         "before": 0,
         "after": 0
@@ -1513,7 +1513,7 @@
       "process:circles": {
         "base": 183,
         "perWord": 2.27,
-        "visual": 0.64,
+        "visual": 0.65,
         "before": 0.29,
         "after": 0.09
       },
@@ -1749,22 +1749,22 @@
         "after": 1
       },
       "faq:two-column": {
-        "base": 265,
-        "perWord": 2.91,
+        "base": 138,
+        "perWord": 6.13,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "faq:*": {
-        "base": 252,
-        "perWord": 3.24,
+        "base": 120,
+        "perWord": 6.8,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "faq:two-column@product_manufacturer": {
-        "base": 407,
-        "perWord": 2.64,
+        "base": 189,
+        "perWord": 5.51,
         "visual": 0,
         "before": 1,
         "after": 1
@@ -1877,21 +1877,21 @@
       "splitMedia:tinted": {
         "base": 728,
         "perWord": 0,
-        "visual": 0.44,
+        "visual": 0.45,
         "before": 0.04,
         "after": 0.04
       },
       "splitMedia:tinted@home": {
         "base": 728,
         "perWord": 0,
-        "visual": 0.44,
+        "visual": 0.45,
         "before": 0.04,
         "after": 0.04
       },
       "splitMedia:single@home": {
         "base": 699,
         "perWord": 0,
-        "visual": 0.46,
+        "visual": 0.47,
         "before": 0.02,
         "after": 0.02
       },
@@ -2078,15 +2078,15 @@
         "after": 1
       },
       "faq:bars": {
-        "base": 445,
-        "perWord": 3.12,
+        "base": 255,
+        "perWord": 6.39,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "faq:bars@solution": {
-        "base": 445,
-        "perWord": 3.12,
+        "base": 255,
+        "perWord": 6.39,
         "visual": 0,
         "before": 1,
         "after": 1
@@ -2094,7 +2094,7 @@
       "charts:@solution": {
         "base": 192,
         "perWord": 5.32,
-        "visual": 0.88,
+        "visual": 0.87,
         "before": 0,
         "after": 0.19
       },
@@ -2190,7 +2190,7 @@
         "after": 0.07
       },
       "hero:media-overlay@general": {
-        "base": 560,
+        "base": 521,
         "perWord": 0,
         "visual": 1,
         "before": 0,
@@ -2232,8 +2232,8 @@
         "after": 1
       },
       "faq:two-column@general": {
-        "base": 157,
-        "perWord": 3.29,
+        "base": 103,
+        "perWord": 7.41,
         "visual": 0,
         "before": 1,
         "after": 1
@@ -2241,7 +2241,7 @@
       "cta:image-band+photo@general": {
         "base": 648,
         "perWord": 0,
-        "visual": 0.97,
+        "visual": 0.96,
         "before": 0,
         "after": 0.07
       },
@@ -2283,7 +2283,7 @@
       "charts:@general": {
         "base": 154,
         "perWord": 9.56,
-        "visual": 0.83,
+        "visual": 0.85,
         "before": 0,
         "after": 0.24
       },
@@ -2316,8 +2316,8 @@
         "after": 0.5
       },
       "featureGrid:bullets@home": {
-        "base": 346,
-        "perWord": 1.73,
+        "base": 304,
+        "perWord": 1.9,
         "visual": 0,
         "before": 1,
         "after": 1
@@ -2374,47 +2374,47 @@
       "form:": {
         "base": 1079,
         "perWord": 0,
-        "visual": 0.17,
+        "visual": 0.16,
         "before": 0.12,
         "after": 0.49
       },
       "form:*": {
         "base": 1079,
         "perWord": 0,
-        "visual": 0.17,
+        "visual": 0.16,
         "before": 0.12,
         "after": 0.49
       },
       "form:@general": {
         "base": 1079,
         "perWord": 0,
-        "visual": 0.17,
+        "visual": 0.16,
         "before": 0.12,
         "after": 0.49
       },
       "page-toc:": {
-        "base": 331,
+        "base": 333,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "page-toc:*": {
-        "base": 331,
+        "base": 333,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "page-toc:@product_manufacturer": {
-        "base": 325,
+        "base": 327,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "page-toc:@solution": {
-        "base": 341,
+        "base": 343,
         "perWord": 0,
         "visual": 0,
         "before": 1,
@@ -2428,19 +2428,86 @@
         "after": 0.46
       },
       "page-toc:@general": {
-        "base": 350,
+        "base": 352,
         "perWord": 0,
         "visual": 0,
         "before": 1,
         "after": 1
       },
       "hero:media-overlay@product_manufacturer": {
-        "base": 560,
+        "base": 518,
         "perWord": 0,
         "visual": 1,
         "before": 0,
         "after": 0
       }
+    },
+    "heroHeights": {
+      "home": {
+        "desktop": {
+          "height": 894,
+          "share": 0.894
+        },
+        "tablet": {
+          "height": 1110,
+          "share": 1.084
+        },
+        "phone": {
+          "height": 717,
+          "share": 0.85
+        }
+      },
+      "about": {
+        "desktop": {
+          "height": 518,
+          "share": 0.518
+        },
+        "tablet": {
+          "height": 276,
+          "share": 0.27
+        },
+        "phone": {
+          "height": 550,
+          "share": 0.652
+        }
+      },
+      "contact": {
+        "phone": {
+          "height": 178,
+          "share": 0.211
+        }
+      },
+      "product_manufacturer": {
+        "desktop": {
+          "height": 518,
+          "share": 0.518
+        },
+        "tablet": {
+          "height": 276,
+          "share": 0.27
+        },
+        "phone": {
+          "height": 557,
+          "share": 0.66
+        }
+      },
+      "solution": {
+        "desktop": {
+          "height": 562,
+          "share": 0.562
+        },
+        "tablet": {
+          "height": 646,
+          "share": 0.631
+        },
+        "phone": {
+          "height": 860,
+          "share": 1.019
+        }
+      }
+    },
+    "photoWall": {
+      "fit": "full"
     }
   }
 }

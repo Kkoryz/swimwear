@@ -35,6 +35,10 @@ const COLUMNS = 6;
 const FACTORY_WORDS = /\b(factory|workshop|sewing|cutting|printing|print room|press|warehouse|inspection|inspector|production|packing|pattern|sample room|studio|mill|dye)\b/i;
 const WORN_WORDS = /\b(wears?|wearing|worn|model|models)\b/i;
 const intentText = (entry) => `${entry?.intent?.content ?? ''} ${entry?.intent?.setting ?? ''}`;
+// Whether a page's image is a register entry's photo: one of its published files (a photo named for what it shows,
+// lib/image-seo.mjs), or a file named after its id.
+const showsEntry = (entry, src) => Boolean(entry) && (String(entry.web?.srcset ?? '').split(',').some((part) => part.trim().split(' ')[0] === src) || String(src).includes(`/${entry.id}-`));
+
 export const plannedInFactory = (entry, placeholderKinds = []) => placeholderKinds.includes(entry?.kind) || (Boolean(entry?.intent) && FACTORY_WORDS.test(intentText(entry)));
 export const colourPlanned = (entry) => !entry?.intent || WORN_WORDS.test(intentText(entry));
 
@@ -98,7 +102,7 @@ export async function reviewLibrary({ root = process.cwd(), dryRun = false, send
   const review = JSON.parse(line);
   // The pages each photo shows on, as the built site placed it (judge-image-fit.mjs's record).
   const fit = await readJson(resolve(root, 'docs/research/image-fit.json'), null);
-  const pagesOf = fit?.pages ? (entry) => new Set(fit.pages.filter((page) => (page.images ?? []).some((image) => String(image.src).includes(`/${entry?.id}-`))).map((page) => page.route)) : null;
+  const pagesOf = fit?.pages ? (entry) => new Set(fit.pages.filter((page) => (page.images ?? []).some((image) => showsEntry(entry, image.src))).map((page) => page.route)) : null;
   const rejected = reviewRejections(review, entries, { placeholderKinds, pagesOf });
   if (!dryRun) {
     const at = new Date().toISOString();
@@ -143,7 +147,7 @@ runMain(import.meta.url, async () => {
     const record = await readJson(resolve(root, 'docs/research/images/library-review.json'));
     const { placeholderKinds = [] } = await imageBriefs(root);
     const fit = await readJson(resolve(root, 'docs/research/image-fit.json'), null);
-    const pagesOf = fit?.pages ? (entry) => new Set(fit.pages.filter((page) => (page.images ?? []).some((image) => String(image.src).includes(`/${entry?.id}-`))).map((page) => page.route)) : null;
+    const pagesOf = fit?.pages ? (entry) => new Set(fit.pages.filter((page) => (page.images ?? []).some((image) => showsEntry(entry, image.src))).map((page) => page.route)) : null;
     const { restored } = reappliedReview(plan, record, { placeholderKinds, pagesOf });
     if (restored.length) {
       await writeJson(planPath, plan);

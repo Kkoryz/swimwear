@@ -46,7 +46,7 @@ export interface TableBlock extends BaseBlock { type: 'table'; heading?: string;
 export interface LogosBlock extends BaseBlock { type: 'logos'; heading?: string; items: { name: string; note?: string; media?: Media | null }[] }
 export interface TestimonialsBlock extends BaseBlock { type: 'testimonials'; heading?: string; items: { quote: string; author: string; headline?: string; role?: string; company?: string; country?: string; placeholder?: boolean }[] }
 // The owner's proof (scripts/lib/site-proof.mjs): certificates with their issuer and number, and client case studies.
-export interface CertificationsBlock extends BaseBlock { type: 'certifications'; heading?: string; items: { name: string; logo?: Media | null; issuer?: string; scope?: string; number?: string; validUntil?: string; url?: string }[] }
+export interface CertificationsBlock extends BaseBlock { type: 'certifications'; heading?: string; items: { name: string; logo?: Media | null; issuer?: string; scope?: string; validUntil?: string; url?: string }[] }
 export interface CaseStudiesBlock extends BaseBlock { type: 'caseStudies'; heading?: string; linkLabel?: string; items: { client: string; title: string; summary: string; market?: string; results: { value: string; label: string }[]; href?: string }[] }
 // How an order starts (Site Factory order_routes): the first two as route cards, the rest as a list; placeholder marks
 // one borrowed from a competitor until the owner's facts hold it.
@@ -168,6 +168,11 @@ export interface TemplateVariants {
   heroText?: { family?: string; textTransform?: string; charEm?: number; chars?: number; leadWords?: number; leadWordsByPageType?: Record<string, number> };
   // breadcrumbs: the trail above the hero (top, the default) or under it, where the header lies over the hero photo.
   breadcrumbs?: 'top' | 'after-hero';
+  // heroHeights: each reference page type's first screen at a desktop, a tablet and a phone (the patterns step's
+  // measure, lib/hero-heights.mjs; { band: false }: its capture opens on no band); photoWall: the photo walls' shape
+  // from the reference's photos.
+  heroHeights?: Record<string, Partial<Record<'desktop' | 'tablet' | 'phone', { height: number; share: number }>> | { band: false }>;
+  photoWall?: { fit: 'full' | 'container'; ratio?: string; height?: number };
   // testimonials: the cards side by side (grid, the default) or one sliding row with previous/next controls and dots
   // (carousel, as a competitor's slider); per page type in pageTypes.
   testimonials?: 'grid' | 'carousel';

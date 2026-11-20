@@ -7,7 +7,7 @@
 // refuses takes a cover-up, then the reference's next shots, then shows the product alone. Each result: rejected when it
 // is a near-copy of a reference photo or a near-duplicate of another library photo (both retried on the next run);
 // checked against the references' measured style range (outside it: review "style-drift"); otherwise finished
-// (lib/photo-finish.mjs) and saved as responsive WebP without metadata; that it is AI-generated (IPTC digital source type), its hash, alt and status
+// (lib/photo-finish.mjs) and saved as responsive WebP (carrying its XMP while site.json imageSeo is on, lib/web-image.mjs xmpPacket; else no metadata); that it is AI-generated (IPTC digital source type), its hash, alt and status
 // are recorded in the image register, docs/research/image-plan.json. Resumable: only entries not yet generated are run.
 // A run makes again at most MAX_BATCH photos the plan already made unless --max says more: a larger queue (a plan gone
 // wrong) waits for a person (exit 2) with the list, docs/research/images/remake-hold.md: each photo, what it shows and
@@ -34,6 +34,7 @@ import { altProblems } from './lib/alt-text.mjs';
 import { PERSON_KINDS } from './lib/rules.mjs';
 import { LIBRARY_PATH } from './lib/release-guard.mjs';
 import { writeResponsiveWebp } from './lib/web-image.mjs';
+import { libraryNamer, libraryProducts, publishedStem, removePublished, siteXmp } from './lib/image-seo.mjs';
 import { imageBriefs } from './lib/trade.mjs';
 import { SAMPLES_PATH, SampleHold, UNSAMPLED_CLASSES, classOf, openClasses, recordSamples, samplesMarkdown, samplesToMake } from './lib/photo-samples.mjs';
 
@@ -124,6 +125,12 @@ export async function generateImages({ root = process.cwd(), limit = Infinity, c
   const finishFor = (entry) => (styleKind(entry, briefs) === 'process' ? towardMaking : toward);
   await mkdir(resolve(root, 'docs/research/images/masters'), { recursive: true });
   await mkdir(resolve(root, 'public', LIBRARY_PATH), { recursive: true });
+  // Each photo's file name (lib/image-seo.mjs): what it shows and its page's product while site.json imageSeo is on,
+  // else its id; and, while it is on, the product name the image maker is given for the alt of a photo of the goods.
+  const nameOf = await libraryNamer(root, plan);
+  // The XMP each published file carries while the switch is on (lib/web-image.mjs xmpPacket), else none.
+  const xmpOf = await siteXmp(root);
+  const productOf = await libraryProducts(root, plan);
   // Every reference photo is a near-copy candidate, not only the entry's own style references: the images the kinds were
   // read from too (charts and boards among them).
   const referenceHashes = [];
@@ -251,13 +258,14 @@ export async function generateImages({ root = process.cwd(), limit = Infinity, c
       // check by itself); the written profile still carries the look. A product on its own is shot on a plain setting,
       // so the reference scenes are not attached to it. A kind attaches two of its own reference photos.
       const images = refusals || entry.productOnly || entry.intent || scenes ? [] : type ? type.refs.slice(0, TYPE_REFS) : entry.styleRefs;
+      const product = productOf(entry);
       prompt = entry.intent
-        ? intentPrompt(entry, { master, profile: entry.intent.setting ? style.kinds[SITE_STYLE].profile : classStyle.profile, briefs, garments: style.garments ?? null, line: plan.line, others })
+        ? intentPrompt(entry, { master, profile: entry.intent.setting ? style.kinds[SITE_STYLE].profile : classStyle.profile, briefs, garments: style.garments ?? null, line: plan.line, others, product })
         : scenes
         ? scenePrompt(entry, { master, profile: classStyle.profile, briefs, line: plan.line })
         : type
-        ? typedPrompt(entry, { type, master, briefs, garments: style.garments ?? null, line: plan.line, attached: images.length })
-        : imagePrompt(entry, { master, profile: classStyle.profile, briefs, shot: entry.shot, garments: style.garments ?? null, productOnlySubjects: imageTypes?.products?.worn?.[entry.category] === false && briefs.itemSubjects ? briefs.itemSubjects : plan.productOnlySubjects, line: plan.line, attached: images.length });
+        ? typedPrompt(entry, { type, master, briefs, garments: style.garments ?? null, line: plan.line, attached: images.length, product })
+        : imagePrompt(entry, { master, profile: classStyle.profile, briefs, shot: entry.shot, garments: style.garments ?? null, productOnlySubjects: imageTypes?.products?.worn?.[entry.category] === false && briefs.itemSubjects ? briefs.itemSubjects : plan.productOnlySubjects, line: plan.line, attached: images.length, product });
       run = await codex({ root, prompt, images, lastMessage, image: true });
       const reply = await readText(lastMessage, '');
       // The image model's safety check refuses some products worn by a person (site10's bikinis: five of six refused three
@@ -312,8 +320,11 @@ export async function generateImages({ root = process.cwd(), limit = Infinity, c
     // The range is checked on what is published (the finish moves a photo's colour toward the reference: site10's masters
     // were all paler than its range); a chart is not a photograph and is not held to it.
     entry.styleCheck = chart ? { ...entry.styleCheck, inRange: true, off: [] } : styleCheck(await imageStats(sharp, published), classStyle.range);
-    const web = await writeResponsiveWebp(sharp, published, { root, dir: LIBRARY_PATH, name: entry.id });
     const alt = typeof reply.alt === 'string' ? reply.alt.trim() : '';
+    const name = nameOf(entry, alt);
+    // A photo made again under another name (what it now shows) leaves no file of its earlier name.
+    if (entry.web?.src && publishedStem(entry.web.src) !== name) await removePublished(root, entry.web.src);
+    const web = await writeResponsiveWebp(sharp, published, { root, dir: LIBRARY_PATH, name, xmp: xmpOf(entry.origin?.digitalSourceType) });
     // The alt rules (lib/alt-text.mjs), in plain ASCII: otherwise a person reviews the alt with the image.
     const altIssues = [...altProblems(alt), ...(/^[\x20-\x7E]*$/.test(alt) ? [] : ['not_ascii'])];
     Object.assign(entry, {

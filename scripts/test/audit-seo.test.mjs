@@ -4,6 +4,7 @@ import test from 'node:test';
 import { internalLinks } from '../lib/built-site.mjs';
 import { emptyBlogProblems, formLandingProblems, pageProblems } from '../lib/seo-audit.mjs';
 import { schemaProblems } from '../lib/schema-rules.mjs';
+import { ownerOf } from '../lib/issue-owners.mjs';
 
 const identity = { siteName: 'Knit Pace', origin: 'https://knitpace.com', schemaLogo: { src: '/icon-512.png' } };
 const nav = { header: [{ label: 'Leggings', route: '/leggings/', children: [] }], footer: [] };
@@ -44,6 +45,28 @@ test('one h1, a document language and no placeholder text on an indexable page',
 test('skipped heading levels, numeric headings and generic link text are warnings, never failures', () => {
   assert.deepEqual(warnings({ body: '<h1>Leggings</h1><h3>Fabrics</h3><h2>300+</h2><a href="/x/">Read more</a>' }), ['heading_level_skipped', 'heading_empty_or_numeric', 'link_text_generic']);
   assert.deepEqual(errors({ body: '<h1>Leggings</h1><h3>Fabrics</h3>' }), []);
+});
+
+test('a title over 60 characters as a reader sees it fails; one wider than a result shows is a warning (owner 2026-11-19)', () => {
+  const at = (text) => pageProblems({ html: html().replace(`<title>${title}</title>`, `<title>${text}</title>`), page, identity, nav });
+  const issues = (text) => at(text).map((problem) => `${problem.level ?? 'error'}:${problem.issue}`);
+  // 56 characters with its entities decoded (64 raw): holds; the MotelPilot title of 72 fails, owned by Site Factory
+  assert.deepEqual(issues('Motel Project Management &amp; FF&amp;E Procurement | MotelPilot'), []);
+  assert.deepEqual(issues('Motel Digital Marketing: Google Hotel Ads &amp; Direct Bookings | MotelPilot'), ['error:title_too_long']);
+  assert.equal(ownerOf('title_too_long'), 'site-factory');
+  assert.deepEqual(issues('Kids&#39; Hawaiian Top Manufacturer | Fit Options | Tapa Works'), []);
+  // exactly 60 holds, 61 fails; numeric entities (decimal, hex) are one character each, and each is decoded once
+  assert.deepEqual(issues(`${'x'.repeat(48)} | Knit Pace`), []);
+  assert.deepEqual(issues(`${'x'.repeat(49)} | Knit Pace`), ['error:title_too_long']);
+  assert.deepEqual(issues('Kids&#x27; Motel Project Management &#38; FF&#x26;E Purchases | MotelPilot'), []);
+  assert.match(at(`${'x'.repeat(57)}&amp;lt;`).find((problem) => problem.issue === 'title_too_long').detail, /^61 characters/);
+  // page 2 of the blog list: its title is the list's (60 here, checked on page 1) plus the template's own " – Page 2"
+  const paged = `${'x'.repeat(48)} | Knit Pace – Page 2`;
+  const second = { ...page, blocks: [{ id: 'posts', type: 'postList', items: [], pagination: { page: 2, pages: 2, base: '/blog/' } }] };
+  assert.deepEqual(pageProblems({ html: html().replace(`<title>${title}</title>`, `<title>${paged}</title>`), page: second, identity, nav }).filter((problem) => problem.issue.startsWith('title')), []);
+  assert.deepEqual(issues(paged), ['error:title_too_long']);
+  assert.deepEqual(issues('WWWW MMMM WWWW MMMM WWWW MMMM WWWW MMMM WW | Knit Pace'), ['warning:title_too_wide']);
+  assert.deepEqual(issues('Leggings | Knit Pace'), ['warning:title_length']);
 });
 
 test('internal links are root-relative hrefs without query or fragment', () => {

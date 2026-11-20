@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { COLUMNS, handoffRows, imagePositions, photoToShoot } from '../handoff.mjs';
+import { CERTIFICATE_PROOF, COLUMNS, handoffRows, imagePositions, photoToShoot } from '../handoff.mjs';
 import { photoSources, realPhotoSrcs } from '../lib/photo-sources.mjs';
 
 // A built page carries no mark of how a photo was made: only srcs, alts and the sections they sit in.
@@ -93,4 +93,13 @@ test('after launch: the entity-building rows, done once sameAs holds the profile
   const company = JSON.parse(await readFile(join(root, 'src/data/site-company.json'), 'utf8'));
   assert.deepEqual([company.standIns, company.sources.sameAs], [['address'], 'owner']);
   await assert.rejects(addSameAs(root, 'http://linkedin.com/x'), /https URL/);
+});
+
+test("with certificates the handoff asks for each certificate's validity and a scan, for checking only, never its number", () => {
+  const rows = handoffRows({ pages: [], built: new Map(), sourceOf: () => null, signoff: { items: [{ id: 'proof-certifications', description: 'Replace the stated certificates', status: 'pending' }] } });
+  const asked = rows.find((row) => row.field_id === CERTIFICATE_PROOF.field_id);
+  assert.ok(asked, 'the certificates row brings the validity-and-scan request');
+  assert.ok(/有效期/.test(asked.instructions) && /扫描件/.test(asked.instructions) && /仅供核对/.test(asked.purpose));
+  assert.ok(!rows.some((row) => /编号/.test(`${row.purpose} ${row.instructions}`.replace('网站不显示证书编号', ''))));
+  assert.ok(!rows.some((row) => row.field_id === 'company:certificate-numbers'));
 });

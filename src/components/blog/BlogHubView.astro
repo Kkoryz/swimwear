@@ -6,6 +6,7 @@ import { cardSet, cardSetColumns } from '../../../scripts/lib/block-layout.mjs';
 import { headingFitStyle, wrapEmFor } from '../../../scripts/lib/heading-fit.mjs';
 import { markFirstViewportImage, withMediaModules } from '../../../scripts/lib/media-slots.mjs';
 import { tintedSections, tintStyle } from '../../../scripts/lib/section-surfaces.mjs';
+import { photoSrcset, publishedSrcset } from '../../../scripts/lib/web-image.mjs';
 import { blockVariant, blogVariants, focusStyle, isBuilt, pageMedia, variants, type AuthoringPage, type PostListBlock } from '../../lib/authoring';
 import { BLOCKS, type BlockEntry } from '../blocks/registry';
 import Breadcrumbs from '../site/Breadcrumbs.astro';
@@ -39,6 +40,12 @@ const photo = variants.media.heroByRoute?.[page.route] ?? newest?.image ?? null;
 // The featured header shows the newest post itself on the first page; the list below starts after it.
 const featured = list && header === 'featured' && list.pagination.page === 1 && list.items.length > 1 ? newest : null;
 const rest = list && featured ? { ...list, items: list.items.slice(1) } : list;
+// The featured post's photo from the sizes built for it, as the cards' (lib/web-image.mjs publishedSrcset): it spans
+// the hub's content, the screen's width on a phone.
+const featuredSrcset = featured?.image ? (featured.image as { srcset?: string }).srcset ?? publishedSrcset(featured.image.src) ?? undefined : undefined;
+// The header photo the same way (photoSrcset): the hub's own hero keeps its srcset; the newest post's image, standing
+// in for it, has its built sizes read back. Beside the copy from 900px (patterns.css), else the screen's width.
+const photoSet = photo ? photoSrcset(photo as { src: string; srcset?: string }) : undefined;
 // Neighbouring plain sections alternate white and tinted here too, the post list one of them (lib/section-surfaces.mjs;
 // 2026-11-15: swimwear's hub ran its overview, steps and table on white one under another, motel's its lead, posts and
 // overview).
@@ -54,7 +61,7 @@ if (!((['banner', 'hero'].includes(header) && photo) || featured?.image)) markFi
   {tintCss && <style is:inline set:html={tintCss} />}
   {header !== 'banner' && <Breadcrumbs page={page} />}
   <section class="blog-hub-hero" data-authoring-block="hero" data-layout="hero" data-header={header} data-boundary-anchor={header === 'banner' ? 'box' : undefined}>
-    {header === 'banner' && photo && <img class="blog-hub-hero__backdrop" src={photo.src} srcset={photo.srcset} sizes={photo.srcset ? '100vw' : undefined} alt="" data-decorative width={photo.width} height={photo.height} loading="eager" fetchpriority="high" decoding="async" style={focusStyle(photo.src)} />}
+    {header === 'banner' && photo && <img class="blog-hub-hero__backdrop" src={photo.src} srcset={photoSet} sizes={photoSet ? '100vw' : undefined} alt="" data-decorative width={photo.width} height={photo.height} loading="eager" fetchpriority="high" decoding="async" style={focusStyle(photo.src)} />}
     <div class="container blog-hub-hero__inner">
       <div class="blog-hub-hero__copy" data-heading-fit={hubFit ? '' : undefined} style={hubFit}>
         {page.status === 'placeholder' && <p class="placeholder-badge">Placeholder copy</p>}
@@ -62,10 +69,10 @@ if (!((['banner', 'hero'].includes(header) && photo) || featured?.image)) markFi
         {/* The lead under the title in the first screen, as on every hero (PageHero.astro; site13 claude-seo audit 2026-11-17, M-10). */}
         {page.hero.lead?.map((paragraph) => <p class="blog-hub-hero__lead">{paragraph}</p>)}
       </div>
-      {header === 'hero' && photo && <figure class="blog-hub-hero__media media-box" style="--media-ratio: 4 / 3"><img src={photo.src} alt="" data-decorative width={photo.width} height={photo.height} loading="eager" fetchpriority="high" decoding="async" style={focusStyle(photo.src)} /></figure>}
+      {header === 'hero' && photo && <figure class="blog-hub-hero__media media-box" style="--media-ratio: 4 / 3"><img src={photo.src} srcset={photoSet} sizes={photoSet ? '(min-width: 900px) 50vw, 100vw' : undefined} alt="" data-decorative width={photo.width} height={photo.height} loading="eager" fetchpriority="high" decoding="async" style={focusStyle(photo.src)} /></figure>}
       {featured && (
         <a class="blog-featured" href={featured.href}>
-          {featured.image && <img class="blog-featured__image" src={featured.image.src} alt="" data-decorative width={featured.image.width} height={featured.image.height} loading="eager" decoding="async" style={focusStyle(featured.image.src)} />}
+          {featured.image && <img class="blog-featured__image" src={featured.image.src} srcset={featuredSrcset} sizes={featuredSrcset ? '100vw' : undefined} alt="" data-decorative width={featured.image.width} height={featured.image.height} loading="eager" decoding="async" style={focusStyle(featured.image.src)} />}
           <span class="blog-featured__copy">
             <span class="blog-featured__title">{featured.title}</span>
             <PostDate value={featured.date} />

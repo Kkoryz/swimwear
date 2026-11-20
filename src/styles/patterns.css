@@ -54,11 +54,10 @@
 .block--split[data-variant="tinted"] { background: var(--surface-secondary); }
 
 /* Band: full-bleed photo with copy on top */
-.block--band { position: relative; overflow: hidden; padding-block: clamp(4rem, 9vw, 8rem) !important; color: var(--text-inverse); background: var(--surface-dark); }
+.block--band { position: relative; display: grid; align-items: center; min-height: var(--band-min-height, auto); overflow: hidden; padding-block: clamp(4rem, 9vw, 8rem) !important; color: var(--text-inverse); background: var(--surface-dark); }
 .band__backdrop { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--band-focal, center); }
 .block--band::after { content: ""; position: absolute; inset: 0; background: var(--band-overlay, rgb(0 0 0 / 0.35)); }
 .band__inner { position: relative; z-index: 1; }
-.block--band { display: grid; align-items: center; min-height: var(--band-min-height, auto); }
 .band__copy { display: grid; gap: 1rem; justify-items: start; max-width: 40rem; }
 .block--band[data-variant="center"] .band__copy { margin-inline: auto; justify-items: center; text-align: center; }
 .block--band h2, .block--band p, .block--band .eyebrow { color: var(--text-inverse) !important; }
@@ -566,13 +565,12 @@ main[data-authoring-page] .block--prose p { margin: 0 0 var(--article-paragraph-
 .chart-bars__track, .chart-timeline__track { position: relative; height: 0.9rem; background: var(--surface-primary); }
 .chart-bars__bar { position: absolute; inset: 0 auto 0 0; background: var(--accent); }
 .chart-timeline__span { position: absolute; top: 0; bottom: 0; background: var(--accent); }
-.chart-bars__value, .chart-timeline__dates { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.chart-bars__value, .chart-timeline__dates { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
 .chart-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); gap: 1rem; counter-reset: step; }
 .chart-steps__step { display: grid; gap: 0.35rem; align-content: start; padding-top: 0.75rem; border-top: 3px solid var(--accent); counter-increment: step; }
 .chart-steps__label::before { content: counter(step) ". "; }
 .chart-steps__label { font-weight: 700; }
 .chart-steps__detail { font-size: 0.875rem; line-height: 1.5; }
-.chart-bars__value, .chart-timeline__dates { text-align: right; }
 .chart-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem; }
 .chart-stats__item { display: grid; gap: 0.25rem; padding-top: 0.75rem; border-top: 3px solid var(--accent); }
 .chart-stats__value { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.1; font-variant-numeric: tabular-nums; }
@@ -624,7 +622,7 @@ main[data-authoring-page] .block--prose p { margin: 0 0 var(--article-paragraph-
 @media (max-width: 599px) {
   :is(.prose__table, .table-block__scroll)[data-columns="2"] { overflow: visible; background: none; }
   :is(.prose__table, .table-block__scroll)[data-columns="2"] :is(table, tbody, tr, th, td) { display: block; }
-  :is(.prose__table, .table-block__scroll)[data-columns="2"] thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  :is(.prose__table, .table-block__scroll)[data-columns="2"] thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   :is(.prose__table, .table-block__scroll)[data-columns="2"] tr { padding-block: 0.75rem; border-bottom: 1px solid var(--border-table, var(--border-color)); }
   :is(.prose__table, .table-block__scroll)[data-columns="2"] td { padding: 0; border: 0; text-align: left; }
   :is(.prose__table, .table-block__scroll)[data-columns="2"] td:first-child { margin-bottom: 0.25rem; font-weight: 600; }
@@ -931,6 +929,11 @@ main[data-page-type="privacy"] .block--intro :is(h2, h3, p, li) { text-align: le
 /* Photo band (gallery band): one photo across the whole page, white space above and below (the reference's figure). */
 .block--gallery[data-variant="band"] .gallery__band { width: 100%; margin: 0; border-radius: 0; }
 @media (max-width: 767px) { .block--gallery[data-variant="band"] { --band-ratio: 4 / 3; } }
+/* A photo wall where the reference shows no photo across its pages (GalleryBlock.astro data-wall): in the content's
+   width, between the page's gutters, at the reference's photo shape (--wall-ratio); a phone keeps 4:3. */
+.block--gallery[data-wall="container"] { --band-ratio: var(--wall-ratio, 5 / 2); padding-inline: var(--gutter); }
+.block--gallery[data-wall="container"] .gallery__band { max-width: var(--container-max); margin-inline: auto; }
+@media (max-width: 767px) { .block--gallery[data-wall="container"] { --band-ratio: 4 / 3; } }
 /* A band that leads on (bandLink): its button on the photo's lower edge, half on the photo, at the content's end edge
    (the reference's EXPLORE on its full-width photo). */
 .gallery__band-frame { position: relative; padding-bottom: 1.5rem; }

@@ -57,3 +57,4 @@ docs/research/images/masters/
 docs/research/reference-pages/
 docs/research/pattern-sections/
 docs/design-references/
+.pipeline/run.lock

@@ -2,11 +2,11 @@
   "note": "Site Factory's handoff contracts, copied byte for byte (Site Factory produces them, 08 copies; block-kinds.json goes the other way). Re-copy when a handoff names other sha256s. Earlier versions packages still name are kept in versions/<file stem>/<sha256>.json (lib/sf-handoff.mjs contractBytes).",
   "source": {
     "repo": "site-factory",
-    "branch": "integ",
-    "commit": "deb67119138dc1561c6b4fc2dba801e621290345"
+    "branch": "integ/r11-1113",
+    "commit": "fe683de9 (merge of feat/llm-view-sample-1119: contracts/authoring.schema.json with QuickViewTable)"
   },
   "files": {
-    "authoring.schema.json": "15148d02e19734acb7814b48e0070bb361896d64a2800ef6252958e85d054bc4",
+    "authoring.schema.json": "056c024192a6fb2d24dc0d927c04666217c54504d0360227c4a68f38ca330ca0",
     "handoff-owner-todo.schema.json": "26b3309b97f6a0f98a8c93faad83283c78f48a98c5d1c11edd4e467ff413d5c9",
     "handoff-report.schema.json": "320df2dddd897f2500ea306e9c3722d1a64bef4d8d6b0d9f427234ae7eea809e",
     "handoff-requires.schema.json": "ac44952c6521783bfecafb87eb30ee2dec6ab16a34615f2cc385d5cc25a90afe",
@@ -14,7 +14,8 @@
   },
   "versions": {
     "authoring.schema.json": {
-      "35ab40678795d9e7f8cb59e6c70ccc67fdb52c2c976e5f4281510e255fc3313e": "site-factory integ/r11-1113 16408acb (packages *_1117a, rm_1117b, swim_1117b)"
+      "35ab40678795d9e7f8cb59e6c70ccc67fdb52c2c976e5f4281510e255fc3313e": "site-factory integ/r11-1113 16408acb (packages *_1117a, rm_1117b, swim_1117b)",
+      "15148d02e19734acb7814b48e0070bb361896d64a2800ef6252958e85d054bc4": "site-factory integ deb67119 (before the LLM search view sample's quick_view)"
     }
   }
 }

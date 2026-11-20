@@ -39,6 +39,8 @@ export async function createWorkspace({ source, destination, sourceUrl, repo = t
       if (!rel) return true;
       // docs/superpowers holds this repository's own planning notes, not template material.
       if (rel.replaceAll('\\', '/').startsWith('docs/superpowers')) return false;
+      // Other checkouts of this repository (git worktrees under .claude/worktrees) are not template material either.
+      if (rel.replaceAll('\\', '/').startsWith('.claude/worktrees')) return false;
       return !rel.split(/[\\/]/).some((segment) => EXCLUDED_SEGMENTS.has(segment));
     },
   });
@@ -50,6 +52,10 @@ export async function createWorkspace({ source, destination, sourceUrl, repo = t
   delete manifest.starter;
   await writeJson(manifestPath, manifest);
   await writeCoreManifest({ repoRoot: sourceRoot, workspaceRoot: destinationRoot });
+  // A new site starts with Google Images SEO on (lib/image-seo.mjs; owner 2026-11-20): its site.json begins here and
+  // the site's other inputs are added to it. A site built before has no imageSeo and stays as built.
+  const sitePath = resolve(destinationRoot, 'site.json');
+  await writeJson(sitePath, { ...(await readJson(sitePath, {})), imageSeo: true });
   if (repo) await ensureSiteRepo(destinationRoot);
   return destinationRoot;
 }

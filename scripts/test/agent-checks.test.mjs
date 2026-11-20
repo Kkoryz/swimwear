@@ -4,9 +4,9 @@ import { createServer } from 'node:http';
 import test from 'node:test';
 import { readFile } from 'node:fs/promises';
 
-import { AGENT_TREE_RULES, axeProblems, measureToolForms, scanAgentTree, toolFormProblems } from '../lib/axe-scan.mjs';
+import { AGENT_TREE_RULES, axeProblems, FULL_SCAN_TAGS, measureToolForms, scanAccessibility, scanAgentTree, toolFormProblems } from '../lib/axe-scan.mjs';
 import { formTool, leadFormBlock, resourceFormBlock } from '../lib/lead-form.mjs';
-import { LCP_FAIL_MS, LCP_WARN_MS, lcpPages, lcpProblems, measureLcp } from '../lib/lab-lcp.mjs';
+import { firstScreenPhoto, judgedLcp, LCP_FAIL_MS, LCP_WARN_MS, lcpPages, lcpProblems, measureLcp } from '../lib/lab-lcp.mjs';
 import { BAR_CONTROLS_MAX, barCovers, measureBarCover } from '../lib/visual-checks.mjs';
 
 // The template's enquiry bar rules (template.css .enquiry-bar) on a phone page with a form under a long section.
@@ -78,6 +78,48 @@ test('the agent tree scan runs Lighthouse\'s 33 rules only and fails what axe ra
   assert.deepEqual(axeProblems([{ rule: 'tabindex', impact: 'moderate', help: 'h', nodes: [{ target: 'a', html: '<a>' }] }]).warnings.map((item) => item.issue), ['agent_tree_minor']);
 });
 
+test('the full scan checks WCAG 2.2 A/AA and best practices besides the 33 rules, contrast left out: a serious WCAG violation fails, the rest and what axe cannot decide are reported (site audit 2026-11-19)', async () => {
+  const axe = (await import('axe-core')).default;
+  const tagged = new Set(axe.getRules(FULL_SCAN_TAGS).map((rule) => rule.ruleId));
+  assert.deepEqual(AGENT_TREE_RULES.filter((rule) => !tagged.has(rule)), [], 'the 33 rules are in the full set as well');
+  const { chromium } = await import('playwright');
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    // The audit's four template findings as they were built: a link named unlike its words, a link in a sentence told
+    // apart by colour alone, two navigations of one name, an aria-label on a div of no role; and faint text.
+    await page.setContent(`<!doctype html><html lang="en"><head><title>T</title></head><body><main>
+      <h1>Posts</h1><p style="color:#555">Reviewed by <a href="/team/" style="color:#666;text-decoration:none">Ann Lee</a>, editor of the guides on this site.</p>
+      <a href="/blog/a/" aria-label="Read: A post">Read more →</a>
+      <div aria-label="Shares of bookings"><span>Direct 60%</span></div>
+      <p style="color:#eee;background:#fff">faint</p>
+      <nav aria-label="Related pages"><a href="/a/" style="display:inline-block;min-height:24px">Page A</a></nav><nav aria-label="Related pages"><a href="/b/" style="display:inline-block;min-height:24px">Page B</a></nav></main></body></html>`);
+    const scan = await scanAccessibility(page);
+    const rules = (items) => items.map((item) => item.rule).sort();
+    assert.deepEqual(rules(scan.violations), ['label-content-name-mismatch', 'landmark-unique', 'link-in-text-block']);
+    assert.ok(rules(scan.incomplete).includes('aria-prohibited-attr'), JSON.stringify(rules(scan.incomplete)));
+    assert.ok(![...scan.violations, ...scan.incomplete].some((item) => item.rule === 'color-contrast'), 'contrast is the audit\'s own measure');
+    const { failures, warnings } = axeProblems(scan);
+    assert.deepEqual(failures.map((item) => [item.issue, item.rule]).sort(), [['axe_wcag', 'label-content-name-mismatch'], ['axe_wcag', 'link-in-text-block']]);
+    assert.deepEqual(warnings.filter((item) => item.issue === 'axe_best_practice').map((item) => item.rule), ['landmark-unique']);
+    assert.ok(warnings.some((item) => item.issue === 'axe_incomplete' && item.rule === 'aria-prohibited-attr'));
+    // The template's markup after the fix: the name starts with the words, the link underlined, each navigation named by
+    // its section's heading, the chart a group.
+    await page.setContent(`<!doctype html><html lang="en"><head><title>T</title></head><body><main>
+      <h1>Posts</h1><p style="color:#555">Reviewed by <a class="inline-link" href="/team/" style="color:#666;text-decoration:underline">Ann Lee</a>, editor of the guides on this site.</p>
+      <a href="/blog/a/" aria-label="Read more: A post">Read more<span aria-hidden="true"> →</span></a>
+      <div role="group" aria-label="Shares of bookings"><span>Direct 60%</span></div>
+      <section><h2 id="r1">Related pages</h2><nav aria-labelledby="r1"><a href="/a/" style="display:inline-block;min-height:24px">Page A</a></nav></section>
+      <section><h2 id="r2">Ready to start?</h2><nav aria-labelledby="r2"><a href="/b/" style="display:inline-block;min-height:24px">Page B</a></nav></section></main></body></html>`);
+    const after = await scanAccessibility(page);
+    assert.deepEqual(after.violations, []);
+    assert.deepEqual(after.incomplete.filter((item) => ['aria-prohibited-attr', 'link-in-text-block', 'label-content-name-mismatch'].includes(item.rule)), []);
+    assert.deepEqual(await scanAgentTree(page), [], 'the 33 rules alone, as before');
+  } finally {
+    await browser.close();
+  }
+});
+
 test('the phone LCP is measured on one page of each page type, warned over 2.5 s and failed over 4 s (P3)', () => {
   const pages = [
     { route: '/', pageType: 'home', status: 'authored' },
@@ -87,11 +129,46 @@ test('the phone LCP is measured on one page of each page type, warned over 2.5 s
     { route: '/d/', pageType: 'privacy', status: 'placeholder' },
   ];
   assert.deepEqual(lcpPages(pages).map((page) => page.route), ['/', '/b/', '/d/'], 'the first authored page of each type, else its first');
+  assert.deepEqual(lcpPages(pages, { photo: (page) => ['/a/', '/c/'].includes(page.route) }).map((page) => page.route), ['/', '/a/', '/b/', '/c/', '/d/'], 'and every page with a photo in its first screen (site audit 2026-11-19)');
   assert.deepEqual(lcpProblems({ ms: LCP_WARN_MS, element: 'img' }), { failures: [], warnings: [] });
   assert.deepEqual(lcpProblems({ ms: LCP_WARN_MS + 1, element: 'img' }).warnings.map((item) => item.issue), ['lcp_slow']);
   assert.deepEqual(lcpProblems({ ms: LCP_FAIL_MS + 1, element: 'h1' }).failures.map((item) => [item.issue, item.limit]), [['lcp_slow', LCP_FAIL_MS]]);
   assert.deepEqual(lcpProblems({ ms: null, error: 'timeout' }).warnings.map((item) => item.issue), ['lcp_not_measured']);
   assert.deepEqual(lcpProblems(null), { failures: [], warnings: [] }, 'a page not measured for its type');
+});
+
+test('a load over the fail limit is loaded once more and judged on the lower of the two runs (Fable review 2026-11-19)', async () => {
+  const loads = (...values) => { const calls = []; return { calls, load: async () => { calls.push(1); return { ms: values[calls.length - 1], element: 'img' }; } }; };
+  const flip = loads(LCP_FAIL_MS + 100, LCP_FAIL_MS - 150);
+  const kept = await judgedLcp(flip.load);
+  assert.equal(flip.calls.length, 2);
+  assert.deepEqual([kept.ms, kept.runs], [LCP_FAIL_MS - 150, [LCP_FAIL_MS + 100, LCP_FAIL_MS - 150]]);
+  assert.deepEqual(lcpProblems(kept).failures, [], 'the second run under the limit: no failure');
+  const slow = loads(LCP_FAIL_MS + 300, LCP_FAIL_MS + 500);
+  const failed = await judgedLcp(slow.load);
+  assert.deepEqual([failed.ms, failed.runs], [LCP_FAIL_MS + 300, [LCP_FAIL_MS + 300, LCP_FAIL_MS + 500]]);
+  assert.deepEqual(lcpProblems(failed).failures.map((item) => [item.issue, item.ms, item.runs]), [['lcp_slow', LCP_FAIL_MS + 300, [LCP_FAIL_MS + 300, LCP_FAIL_MS + 500]]]);
+  const fast = loads(LCP_FAIL_MS - 1);
+  assert.equal((await judgedLcp(fast.load)).runs, undefined);
+  assert.equal(fast.calls.length, 1, 'under the limit: one load');
+  const missing = loads(null);
+  assert.deepEqual(await judgedLcp(missing.load), { ms: null, element: 'img' });
+  assert.equal(missing.calls.length, 1, 'not measured: not loaded again');
+});
+
+test('the first screen\'s photo is the widest image of main at least half the screen wide that starts in the screen', async () => {
+  const { chromium } = await import('playwright');
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    const img = (width, height, src) => `<img src="${src}" width="${width}" height="${height}" style="display:block;width:${width}px;height:${height}px">`;
+    await page.setContent(`<!doctype html><html><body style="margin:0"><main>${img(100, 100, '/icon.png')}${img(390, 260, '/hero.webp')}<div style="height:2000px"></div>${img(390, 260, '/late.webp')}</main></body></html>`);
+    assert.deepEqual(await page.evaluate(firstScreenPhoto), { src: '/hero.webp', width: 390 });
+    await page.setContent(`<!doctype html><html><body style="margin:0"><main><h1>Text</h1>${img(120, 120, '/icon.png')}<div style="height:2000px"></div>${img(390, 260, '/late.webp')}</main></body></html>`);
+    assert.equal(await page.evaluate(firstScreenPhoto), null, 'a small icon or a photo further down is no first-screen photo');
+  } finally {
+    await browser.close();
+  }
 });
 
 test('the LCP load is throttled as Lighthouse\'s phone: a 95 KB photo over the local server takes over a second', async () => {

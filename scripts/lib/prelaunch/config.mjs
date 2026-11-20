@@ -1,12 +1,13 @@
 // The prelaunch checks' switches (owner 2026-11-18: every check can be turned off at any time; the owner's materials
-// list only stands in, it never holds a release). site.json prelaunch: { links, cannibal, near, owner_list, tech,
+// list only stands in, it never holds a release). site.json prelaunch: { links, cannibal, near, owner_list, tech, html,
 // conflicts }, each false (off), true or "report" (reported, never holds), or "block" (its issues hold the release:
 // the release step waits, the preflight holds, the release workflow stops). A check site.json does not name takes its
 // default: all on as reports. The site-wide conflict check is part of the launch flow (owner 2026-11-18) and reports
 // too: a site whose Site Factory check has not run on this machine is reported as needing that run, never passed.
 
-export const CHECK_IDS = Object.freeze(['links', 'cannibal', 'near', 'owner_list', 'tech', 'conflicts']);
-export const DEFAULT_MODES = Object.freeze({ links: 'report', cannibal: 'report', near: 'report', owner_list: 'report', tech: 'report', conflicts: 'report' });
+export const CHECK_IDS = Object.freeze(['links', 'cannibal', 'near', 'owner_list', 'tech', 'html', 'conflicts']);
+// html (html-validate, site audit 2026-11-19) reports until the sites' errors are cleared; then a site may set "block".
+export const DEFAULT_MODES = Object.freeze({ links: 'report', cannibal: 'report', near: 'report', owner_list: 'report', tech: 'report', html: 'report', conflicts: 'report' });
 // The checks that never hold: the owner's list only reports what is still a stand-in.
 export const NEVER_BLOCKS = Object.freeze(['owner_list']);
 

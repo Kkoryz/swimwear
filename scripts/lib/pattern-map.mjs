@@ -70,8 +70,8 @@ export function coverage(sections) {
 export function inventory(shapes, options = {}) {
   return shapes.map((shape, index) => {
     const pattern = classifyPattern(shape, index, options);
-    // phone: the section's shape at a phone's width (measurePhoneSections), when the capture measured it.
-    return { index: index + 1, pattern, decision: PATTERN_DECISIONS[pattern], height: shape.height, words: shape.words, largeImages: shape.largeImages, firstHeading: shape.firstHeading, ...(shape.phone ? { phone: shape.phone } : {}), shape };
+    // phone, tablet: the section's shape at a phone's and a tablet's width (measurePhoneSections), when measured.
+    return { index: index + 1, pattern, decision: PATTERN_DECISIONS[pattern], height: shape.height, words: shape.words, largeImages: shape.largeImages, firstHeading: shape.firstHeading, ...(shape.phone ? { phone: shape.phone } : {}), ...(shape.tablet ? { tablet: { height: shape.tablet.height } } : {}), shape };
   });
 }
 

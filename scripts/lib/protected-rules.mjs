@@ -63,6 +63,10 @@ export const PROTECTED_RULES = Object.freeze([
   // hotel site's title at y=904 under a full-screen photo; owner 2026-11-17, after claude-seo): a hero's height is set
   // through --hero-min-height and --hero-banner-height, which the template caps; a height on the hero itself would not be.
   { part: /\.page-hero(?:__inner|__banner)?(?:\[[^\]]*\]|:[\w-]+(?:\([^)]*\))?)*\s*(,|$)/, properties: ['height', 'min-height', 'max-height'], rule: 'a photo hero gives way in height so the page title shows in the first screen of a phone and a desktop: its height is set through --hero-min-height and --hero-banner-height, which the template caps (template.css --fold-room)' },
+  // The reference's measured first screen (template.css --hero-measured, PageHero.astro --hero-h-*) is the template's,
+  // read before a treatment's --hero-min-height (2026-11-20, Strandmill): a site sets --hero-min-height, never these.
+  // Under the same rule as the one above, so the site's rules the reviews and repairs are given read as before.
+  { part: /[\s\S]/, properties: ['--hero-measured', '--hero-h-desktop', '--hero-h-tablet', '--hero-h-phone'], rule: 'a photo hero gives way in height so the page title shows in the first screen of a phone and a desktop: its height is set through --hero-min-height and --hero-banner-height, which the template caps (template.css --fold-room)' },
 ]);
 
 // The rules of a stylesheet as { selector, properties: [name], values: { name: value } }, innermost blocks only (media

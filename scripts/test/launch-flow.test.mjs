@@ -95,7 +95,7 @@ test('the conflict step runs Site Factory\'s command on this machine and records
   assert.ok(existsSync(join(root, SOURCE_PATH)));
   assert.match(await readFile(join(root, 'docs/research/prelaunch/conflicts.md'), 'utf8'), /We answer in a week/);
   const summary = JSON.parse(await readFile(join(root, 'docs/research/prelaunch/summary.json'), 'utf8'));
-  assert.equal(summary.checks.length, 6, 'the summary is of every check');
+  assert.equal(summary.checks.length, 7, 'the summary is of every check');
   await write(root, { 'site.json': { siteConflicts: config, prelaunch: { conflicts: 'block' } } });
   assert.equal((await siteConflicts({ root, env: {}, spawn: writing })).check.status, 'blocked');
   // In GitHub Actions, the pages changed since this machine's run: it needs a local run, and with "block" that holds.

@@ -76,8 +76,13 @@ export function serviceHeroes(pages, components, briefs, ownRoutes = null, line 
 }
 
 export function ownPhotoRoutes(pages, imageFit, briefs, previous = null) {
-  const placeholder = (src) => (briefs.placeholderKinds ?? []).some((kind) => src.includes(`-${kind}-`));
-  const misfit = new Set((imageFit?.pages ?? []).filter((page) => page.images.some((image) => image.fit === 'wrong_subject' && image.src.includes(`/${GENERAL}-`) && !placeholder(image.src))).map((page) => page.route));
+  // A photo is its register entry (previous.entries, by its published files: a photo named for what it shows,
+  // lib/image-seo.mjs, carries neither its category nor its kind in its name); a file the register does not have is
+  // read by its name, as photos named after their id are.
+  const registered = new Map((previous?.entries ?? []).filter((entry) => entry.web).flatMap((entry) => String(entry.web.srcset ?? entry.web.src).split(',').map((part) => [part.trim().split(/\s+/)[0], entry])));
+  const general = (src) => (registered.has(src) ? registered.get(src).category === GENERAL : src.includes(`/${GENERAL}-`));
+  const placeholder = (src) => (briefs.placeholderKinds ?? []).some((kind) => (registered.has(src) ? registered.get(src).kind === kind : src.includes(`-${kind}-`)));
+  const misfit = new Set((imageFit?.pages ?? []).filter((page) => page.images.some((image) => image.fit === 'wrong_subject' && general(image.src) && !placeholder(image.src))).map((page) => page.route));
   return new Set(pages.filter((page) => SERVICE_PAGE_TYPES.has(page.pageType) && (misfit.has(page.route) || (previous?.routes?.[page.route] ?? GENERAL) !== GENERAL)).map((page) => page.route));
 }
 

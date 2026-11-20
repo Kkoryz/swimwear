@@ -6,7 +6,7 @@ import { join, resolve } from 'node:path';
 import test from 'node:test';
 
 import { captureTree, domDensity, heroTitles, htmlParents, sectionList } from '../lib/capture-dom.mjs';
-import { checkReferenceCapture, screenshotBands } from '../check-reference-capture.mjs';
+import { CAPTURE_CHECKS, CAPTURE_LIMITS, checkReferenceCapture, screenshotBands, staleCapture } from '../check-reference-capture.mjs';
 
 // A fake capture: a nested spec becomes the preorder element list capture-reference.mjs extractPage writes (selectors
 // as its selectorFor builds them) and the rendered.html it saves next to it.
@@ -289,6 +289,13 @@ test('the CLI writes capture-check.json and capture-check.md to --out and exits 
     const report = JSON.parse(await readFile(join(out, 'capture-check.json'), 'utf8'));
     assert.deepEqual(report.problems, []);
     assert.match(await readFile(join(out, 'capture-check.md'), 'utf8'), /采集验收/);
+    // The capture summary records another phone shot than the one on disk: a stale pair, read from the files.
+    await writeFile(join(folder, 'raw/capture-summary.json'), JSON.stringify({ captures: [{ id: 'mobile-390', shotSha256: '0'.repeat(64) }] }));
+    const stale = spawnSync(process.execPath, [script, site, '--out', out], { encoding: 'utf8' });
+    assert.equal(stale.status, 1);
+    assert.match(stale.stdout, /\[stale-capture\] home: mobile-390: the shot and the captured DOM are not one capture/);
+    assert.deepEqual(JSON.parse(await readFile(join(out, 'capture-check.json'), 'utf8')).problems.map((problem) => problem.check), ['stale-capture']);
+    await rm(join(folder, 'raw/capture-summary.json'));
     await rm(join(folder, 'design-references/mobile-390.png'));
     const failed = spawnSync(process.execPath, [script, site, '--out', out], { encoding: 'utf8' });
     assert.equal(failed.status, 1);
@@ -296,4 +303,30 @@ test('the CLI writes capture-check.json and capture-check.md to --out and exits 
   } finally {
     await rm(root, { recursive: true, force: true });
   }
+});
+
+test("a shot and a DOM of two captures are reported stale and not read band by band (Staylumen origin, 2026-11-20)", async () => {
+  // The shot blank in a band where the DOM shows text: a blank-segment while both are one capture.
+  const blank = evidence({ pixels: shot({ ink: [SHOWN[0]] }) });
+  const view = blank.pages[0].viewports[DESKTOP];
+  view.shot = { width: 1440, height: 2100, sha256: 'a'.repeat(64) };
+  assert.deepEqual(checksOf(checkReferenceCapture(blank)), ['blank-segment']);
+  assert.equal(staleCapture({ ...view, shot: { ...view.shot, height: 2100 + CAPTURE_LIMITS.staleShotPx } }), null, 'within the tolerance');
+  // Staylumen's pair: the phone's shot 390x12243, the DOM of an earlier capture 768x13318.
+  view.shot = { width: 390, height: 12243, sha256: 'a'.repeat(64) };
+  view.extraction = { ...view.extraction, document: { scrollWidth: 768, scrollHeight: 13318 }, capturedAt: '2026-11-18T03:40:37.482Z' };
+  const stale = checkReferenceCapture(blank);
+  assert.deepEqual(checksOf(stale), ['stale-capture']);
+  assert.match(stale.problems[0].detail, /the shot is 390x12243px, the DOM's page 768x13318px; the DOM captured 2026-11-18T03:40:37\.482Z\): capture the page again/);
+  // The capture summary's own record of the shot: its hash and its visit.
+  const same = { extraction: { viewport: { phone: true }, document: { scrollWidth: 390, scrollHeight: 12243 } }, shot: { width: 390, height: 12243, sha256: 'b'.repeat(64) } };
+  assert.equal(staleCapture({ ...same, recorded: { id: 'mobile-390', shotSha256: 'b'.repeat(64), phone: true } }), null);
+  assert.match(staleCapture({ ...same, recorded: { id: 'mobile-390', shotSha256: 'c'.repeat(64), phone: true } }), /not the one its capture summary records/);
+  assert.match(staleCapture({ ...same, extraction: { ...same.extraction, viewport: {} }, recorded: { id: 'mobile-390', phone: true } }), /the shot was a phone's visit, the DOM not one/);
+  // A capture that recorded nothing of its shots (before 2026-11-20) is held by the sizes only.
+  assert.equal(staleCapture({ ...same, extraction: { ...same.extraction, viewport: {} }, recorded: null }), null);
+  assert.ok(CAPTURE_CHECKS.includes('stale-capture'));
+  // The capture records each shot beside its DOM.
+  const capture = await readFile(new URL('../capture-reference.mjs', import.meta.url), 'utf8');
+  assert.match(capture, /shotSha256: createHash\('sha256'\)\.update\(shot\)\.digest\('hex'\), shotWidth: shot\.readUInt32BE\(16\), shotHeight: shot\.readUInt32BE\(20\), phone: Boolean\(viewport\.phone\)/);
 });

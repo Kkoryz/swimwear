@@ -119,7 +119,7 @@ const mainStyle = titleFit ? `--title-ems-phone: ${titleFit['--fit-ems-phone']};
   })}
   {(reviewer || updated) && (
     <p class="container page-updated">
-      {reviewer && <span class="page-reviewer">Reviewed by <a href={reviewer.href}>{reviewer.name}</a>, {reviewer.role}</span>}
+      {reviewer && <span class="page-reviewer">Reviewed by <a class="inline-link" href={reviewer.href}>{reviewer.name}</a>, {reviewer.role}</span>}
       {reviewer && updated && <span aria-hidden="true"> · </span>}
       {updated && <PostDate value={updated} label="Last updated" />}
     </p>

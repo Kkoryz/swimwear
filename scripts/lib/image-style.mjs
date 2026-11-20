@@ -6,7 +6,10 @@
 export const IMAGE_STYLE_SCHEMA = 'seo-site-image-style-v1';
 // Classes without reference photos of their own are written against every reference photo together.
 export const SITE_STYLE = 'site';
-export const PROFILE_FIELDS = ['summary', 'settings', 'background', 'colour', 'lighting', 'rendering', 'casting', 'poseAndEnergy', 'framing', 'avoid'];
+export const PROFILE_FIELDS = ['summary', 'settings', 'background', 'colour', 'lighting', 'rendering', 'casting', 'people', 'poseAndEnergy', 'framing', 'avoid'];
+// What the profile's people field may say (the scene photos follow it: lib/image-prompt.mjs scenePrompt). A profile
+// written before it has none and keeps its photos' subjects.
+export const PEOPLE = Object.freeze(['none', 'background', 'foreground']);
 // How far outside the references' measured range a result may fall, as a share of the value, before it is flagged.
 const RANGE_MARGIN = 0.1;
 const METRICS = ['colourfulness', 'brightness', 'contrast'];
@@ -55,7 +58,7 @@ export function styleProfilePrompt(kind, count, siteKind) {
     'Describe the photographic style they share, concretely enough that a new photograph can match it. Name colours, surfaces and places; do not describe individual people or products. Write what is visible, without praise words (polished, glamorous, luxurious, flawless, stunning): they push a new photo toward a retouched look. Leave out wet or oiled skin and water on bodies: described, they come back as an oily sheen.',
     'Do not generate or edit any image and do not change any file.',
     `Reply with only this JSON on one line, English strings: {${PROFILE_FIELDS.map((field) => `"${field}": "..."`).join(', ')}}`,
-    'summary: one sentence; settings: the kinds of places shown; background: backdrop treatment; colour: saturation and palette; lighting; rendering: how the camera renders them (lens look, depth of field, grain or noise, sharpness, how much skin and surfaces are retouched, skin texture); casting: who appears and how many; poseAndEnergy: still or in motion, mood; framing: crop, lens, subject placement; avoid: looks these photos clearly do not have.',
+    'summary: one sentence; settings: the kinds of places shown; background: backdrop treatment; colour: saturation and palette; lighting; rendering: how the camera renders them (lens look, depth of field, grain or noise, sharpness, how much skin and surfaces are retouched, skin texture); casting: who appears and how many; people: one word, none (no person), background (people only small and far off) or foreground (people as a subject); poseAndEnergy: still or in motion, mood; framing: crop, lens, subject placement; avoid: looks these photos clearly do not have.',
   ].join('\n');
 }
 

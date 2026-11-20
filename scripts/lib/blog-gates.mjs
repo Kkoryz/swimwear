@@ -6,8 +6,8 @@
 import { NEAR_DUPLICATE, minhash, similarity, shingles, textWords } from './content-fingerprint.mjs';
 import { inlineLinks, plainText, postWords, sectionTexts, validatePost } from './blog.mjs';
 import { cannibalHits, searchIndex } from './search-key.mjs';
+import { TITLE_MAX, titleChars } from './title-limits.mjs';
 
-const TITLE_MAX = 60;
 const DESCRIPTION = [70, 160];
 const LEAD_WORDS = 60;
 const PARAGRAPH_WORDS = 150;
@@ -59,7 +59,7 @@ export function blogGates(post, { facts = new Map(), pages = [], today = new Dat
   // 2026-11-18: an article with stand-ins is published; the package keeps its list for the real values later).
   const standIns = post.placeholders ?? [];
   if (standIns.length) warnings.push(`${standIns.length} placeholder(s) still the writer's stand-in for our own claim: ${standIns.map((item) => `${item.id} (${item.kind})`).join(', ')}`);
-  if (post.seo.title.length > TITLE_MAX) failures.push(`title is ${post.seo.title.length} characters (at most ${TITLE_MAX})`);
+  if (titleChars(post.seo.title) > TITLE_MAX) failures.push(`title is ${titleChars(post.seo.title)} characters (at most ${TITLE_MAX})`);
   if (post.seo.description.length < DESCRIPTION[0] || post.seo.description.length > DESCRIPTION[1]) failures.push(`description is ${post.seo.description.length} characters (${DESCRIPTION[0]}–${DESCRIPTION[1]})`);
   if (/(^|-)(19|20)\d{2}(-|$)/.test(post.slug)) failures.push('slug contains a year (the URL must outlive updates)');
   if (Date.parse(post.datePublished) > today.getTime() || Date.parse(post.dateModified) > today.getTime()) failures.push('a date is in the future');

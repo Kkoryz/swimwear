@@ -3,8 +3,11 @@
 import type { Link } from '../../lib/authoring';
 import SmartLink from '../site/SmartLink.astro';
 
-interface Props { links: Link[]; grid?: boolean }
-const { links, grid = false } = Astro.props;
+// labelledBy: the id of the heading of the block it closes, so two of them on one page are told apart (site audit
+// 2026-11-19: two navigations both named "Related pages" on four home pages, axe landmark-unique); without one, the
+// generic name.
+interface Props { links: Link[]; grid?: boolean; labelledBy?: string | null }
+const { links, grid = false, labelledBy = null } = Astro.props;
 // A grid's columns on wide screens: all cards in one row up to four, else rows of four or three, whichever leaves
 // no lone card on the last row, full rows first (5 -> 3 + 2, 6 -> 3 + 3, 7 -> 4 + 3, 8 -> 4 + 4, 10 -> 4 + 4 + 2).
 const count = links.length;
@@ -12,7 +15,7 @@ const fit = (columns: number) => (count % columns === 0 ? 2 : count % columns !=
 const columns = count <= 4 ? count : fit(3) > fit(4) ? 3 : 4;
 ---
 
-<nav class:list={['related-pages', { 'related-pages--grid': grid }]} aria-label="Related pages" style={grid ? `--related-columns: ${columns}` : undefined}>
+<nav class:list={['related-pages', { 'related-pages--grid': grid }]} aria-labelledby={labelledBy ?? undefined} aria-label={labelledBy ? undefined : 'Related pages'} style={grid ? `--related-columns: ${columns}` : undefined}>
   <ul class="related-links">
     {links.map((link) => <li><SmartLink href={link.href} class="related-links__link"><span class="related-links__label">{link.label}</span></SmartLink></li>)}
   </ul>

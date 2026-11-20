@@ -8,7 +8,7 @@ import { CARDINALITY } from './authoring-contract.mjs';
 import { markdownTable } from './markdown-table.mjs';
 import { cardGridMax } from './rules.mjs';
 import { chunkCards, closingBlock, leadOf, listBlock, listItems, paragraphsOf, parseFaq, splitVisuals, textBlock } from './sf-sections.mjs';
-import { normalizeFact, verifyCited } from './sf-structured.mjs';
+import { normalizeFact, statedIn, verifyCited } from './sf-structured.mjs';
 
 export { BLOCK_KINDS };
 
@@ -90,7 +90,7 @@ export function verifyKindFacts(page, facts, table = BLOCK_KINDS) {
     if (!claim.ids.length) throw new Error(`${page.page_id}: ${claim.where}: a ${claim.what} cites no fact (fact_ids)`);
     const stated = claim.ids.map((id) => plain(facts.get(id).text));
     const found = claim.texts
-      ? claim.texts.every((text) => stated.some((fact) => fact.includes(plain(text))))
+      ? claim.texts.every((text) => stated.some((fact) => statedIn(fact, plain(text))))
       : claim.numbers.every((number) => stated.some((fact) => new RegExp(`(?<![\\d.])${String(number).replace('.', '\\.')}(?![\\d.])`).test(fact)));
     if (!found) throw new Error(`${page.page_id}: ${claim.where}: the ${claim.what} ${claim.texts ? `"${claim.texts.join(' ')}"` : claim.numbers.join('–')} is not stated in ${claim.ids.join(', ')}`);
   }

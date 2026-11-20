@@ -268,7 +268,9 @@ function checkBlock(errors, where, block) {
       checkCount(errors, `${where}.items`, block.items, CARDINALITY.certifications);
       for (const [index, item] of (block.items || []).entries()) {
         if (!isText(item?.name)) errors.push(`${where}.items[${index}].name is required`);
-        for (const field of ['issuer', 'scope', 'number', 'validUntil']) optionalText(errors, `${where}.items[${index}]`, item?.[field], field);
+        for (const field of ['issuer', 'scope', 'validUntil']) optionalText(errors, `${where}.items[${index}]`, item?.[field], field);
+        // a certificate's number and a look-up link are never on a page (owner 2026-11-19: "不显示不要编号")
+        for (const field of ['number', 'lookupUrl']) if (item?.[field] != null) errors.push(`${where}.items[${index}].${field} is never shown on a page (owner 2026-11-19)`);
         checkMedia(errors, `${where}.items[${index}]`, item?.logo);
         if (item?.url != null && !isHref(item.url)) errors.push(`${where}.items[${index}].url must be a route or an http(s) url`);
       }

@@ -13,7 +13,7 @@
 
 import { resolve } from 'node:path';
 import { BATCH_LOG, appendBatchLog, batchDue, isV2, writePosts, writeSchedule } from './lib/blog-v2.mjs';
-import { cliArgs, runMain } from './lib/cli.mjs';
+import { cliArgs, runMain, wholeNumber } from './lib/cli.mjs';
 import { readJson } from './lib/json-io.mjs';
 
 const WAITS = 2;
@@ -38,6 +38,6 @@ runMain(import.meta.url, async () => {
   const { values } = cliArgs({ site: { type: 'string' }, count: { type: 'string' }, scheduled: { type: 'boolean' }, publish: { type: 'boolean' } });
   const root = resolve(values.site ?? '.');
   process.chdir(root);
-  const { code } = await blogBatch({ root, count: values.count ? Number(values.count) : null, scheduled: Boolean(values.scheduled), publish: Boolean(values.publish) });
+  const { code } = await blogBatch({ root, count: values.count ? wholeNumber('--count', values.count) : null, scheduled: Boolean(values.scheduled), publish: Boolean(values.publish) });
   process.exitCode = code;
 }, { stack: true });

@@ -27,12 +27,21 @@ export async function builtHtmlFiles(root) {
 
 export const attribute = (tag, name) => tag.match(new RegExp(`\\s${name}="([^"]*)"`))?.[1] ?? null;
 export const tags = (html, name) => html.match(new RegExp(`<${name}\\b[^>]*>`, 'g')) || [];
-export const decode = (text) => text.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+// Text as a reader sees it: the named entities a build writes and every numeric one (&#39;, &#x27;), each decoded once
+// (&amp;lt; is the five characters "&lt;", never "<").
+const NAMED = { amp: '&', quot: '"', apos: "'", lt: '<', gt: '>', nbsp: ' ' };
+export const decode = (text) => text.replace(/&(?:(amp|quot|apos|lt|gt|nbsp)|#(\d{1,7})|#x([0-9a-f]{1,6}));/gi, (entity, name, decimal, hex) => {
+  if (name) return NAMED[name.toLowerCase()];
+  const code = decimal ? Number(decimal) : parseInt(hex, 16);
+  return code > 0 && code <= 0x10ffff ? String.fromCodePoint(code) : entity;
+});
 const plain = (html) => decode(html.replace(/<[^>]+>/g, '').trim());
 
 // A backdrop under text (hero, band, CTA) or a photo marked data-decorative (a card photo beside its own title) is
 // decorative: an empty alt is right for it.
-export const isDecorative = (image) => /__backdrop\b/.test(image.class ?? '') || image.decorative;
+// The photo under an overlay hero's copy is the page's main photo (PageHero.astro): with an alt it is a content photo
+// and its alt keeps the alt rules; without one it is the backdrop it was.
+export const isDecorative = (image) => Boolean(image.decorative) || (/__backdrop\b/.test(image.class ?? '') && !(/\bpage-hero__backdrop\b/.test(image.class) && (image.alt ?? '').trim()));
 
 // Root-relative link targets without query or fragment.
 export const internalLinks = (html) => [...html.matchAll(/<a\b[^>]*\shref="(\/[^"#?]*)/g)].map((match) => match[1]);

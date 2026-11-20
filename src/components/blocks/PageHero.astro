@@ -6,6 +6,7 @@ import treatmentCss from '../../styles/reference.css?raw';
 import { leadFormBlock } from '../../../scripts/lib/lead-form.mjs';
 import { contactChannels } from '../../../scripts/lib/site-contact.mjs';
 import { heroSizes } from '../../../scripts/lib/web-image.mjs';
+import { SIZED_HERO_VARIANTS, heroHeightStyle, heroHeightsFor } from '../../../scripts/lib/hero-heights.mjs';
 import { pageHero, siteContact, siteRuntime, variants, type AuthoringPage, type FormBlock, type Media } from '../../lib/authoring';
 import LeadForm from './LeadForm.astro';
 import Picture from './Picture.astro';
@@ -44,6 +45,10 @@ const fitStyle = headingFitStyle(page.hero.heading, { charEm: titleEm, ...(varia
 // A title too long for its column beside the form (two lines at the floor) takes the hero's whole row, the form under
 // the copy (patterns.css [data-title-row]).
 const titleRow = Boolean(form) && titleNeedsRow(page.hero.heading, { charEm: titleEm });
+// The first screen at the reference's height for this page type, at each width (lib/hero-heights.mjs; template.css),
+// on the variants template.css sizes by it only (SIZED_HERO_VARIANTS): the layout audit holds a hero marked
+// data-hero-height, and only it, to the reference's height.
+const heightStyle = SIZED_HERO_VARIANTS.includes(variant) ? heroHeightStyle(heroHeightsFor(page.pageType, variants)) : null;
 const bannerRatios = (photo: Media) => [ratio(photo.width, photo.height) && `--hero-photo-ratio: ${ratio(photo.width, photo.height)}`, photo.sources?.[0] && ratio(photo.sources[0].width, photo.sources[0].height) && `--hero-phone-ratio: ${ratio(photo.sources[0].width, photo.sources[0].height)}`].filter(Boolean).join('; ') || undefined;
 ---
 
@@ -55,6 +60,8 @@ const bannerRatios = (photo: Media) => [ratio(photo.width, photo.height) && `--h
   data-boundary-anchor={variant === 'media-overlay' || variant === 'media-split' ? 'box' : undefined}
   data-hero-form={form ? 'true' : undefined}
   data-title-row={titleRow ? '' : undefined}
+  data-hero-height={heightStyle ? '' : undefined}
+  style={heightStyle ?? undefined}
 >
   {/* The photo under the copy is the page's main photo, and its alt says what it shows (aloha audit 2026-11-18 L-1: an
       empty alt on every overlay hero, the LCP image, its og:image:alt described). */}

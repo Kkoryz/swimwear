@@ -14,6 +14,16 @@ export const PROOF_SCHEMA = 'seo-site-proof-v1';
 export const PRIVACY_FROM_PACKAGE = 'site-factory';
 export const PROOF_GROUPS = Object.freeze(['factory', 'certifications', 'clients', 'testimonials', 'caseStudies', 'history', 'team']);
 
+// The client wall (the logos slot: the named clients of site-proof.json) shows only where site.json says
+// clientWall: true (owner 2026-11-20: "客户名单是指logo墙？这个可以做的开关关闭但是保留一键打开的选项"; the stand-in's six
+// invented names stood beside copy calling its cases anonymised, three-site prelaunch review P2). Off (the default,
+// new and earlier sites alike), the clients stay in site-proof.json and nothing shows or checks them: no logos block,
+// no sign-off item, no proof check; clientWall: true and a rebuild bring the wall back as it was (site-run's patterns,
+// import and data-checks steps take site.json#clientWall as an input, so the switch alone runs them again).
+export const clientWallOn = (site) => site?.clientWall === true;
+// The proof the pages are built and checked from: without its clients while the wall is off.
+export const withClientWall = (proof, site) => (!proof || clientWallOn(site) ? proof : { ...proof, clients: [] });
+
 // Owner slots each page type carries whatever its competitor page shows, after the SEO-strong manufacturer sites
 // (Thygesen, Arcus, Apparel Production NY, Appareify): the home page proves the factory, its certificates, clients and
 // results; the about page its figures and history; product and service pages the certificates, a case and a client's
@@ -28,7 +38,8 @@ export const PROOF_SLOTS = Object.freeze({
   about: ['factory', 'history', 'certifications', 'logos', 'testimonials', 'team'],
   product_manufacturer: ['orderTerms', 'certifications', 'testimonials', 'caseStudies'],
   product_wholesale: ['orderTerms', 'testimonials'],
-  solution: ['testimonials', 'caseStudies'],
+  // a service page's order terms only as its own quick-view table (no site table on a service page; proofBlock siteTerms)
+  solution: ['orderTerms', 'testimonials', 'caseStudies'],
   ordering: ['orderRoutes'],
 });
 // Owner slots a general page of the site tree carries by its tree name (site:<name>), as page-blueprints.mjs
@@ -85,9 +96,14 @@ export const proofGroupBlockId = (group) => slotBlockId('owner', Object.keys(SLO
 // first: the order routes, and the testimonials of the page (borrowed and anonymised until the owner replaces them)
 // in place of the stand-in ones. The company's size facts (lib/site-trust.mjs) show in the trust bar on every page, so
 // then the factory figures block (stand-in figures) is left out.
-export function proofBlock(slotId, proof, { route = null, trust = null, testimonials = null } = {}) {
+// quickView: the page's own quick-view table from Site Factory (its package page's quick_view, LLM search view B.3, owner
+// 11-19 sample): the order terms of this page, one fixed row a term, in place of the site's terms table.
+// siteTerms false (a service page): no site terms table in the slot, only the page's own quick view.
+export function proofBlock(slotId, proof, { route = null, trust = null, testimonials = null, quickView = null, siteTerms = true } = {}) {
   const heading = proof?.headings?.[SLOT_GROUP[slotId]];
   const block = (type, fields) => ({ id: slotBlockId('owner', slotId), type, ...(heading ? { heading } : {}), ...fields });
+  if (slotId === 'orderTerms' && quickView?.rows?.length) return block('table', { columns: quickView.columns, rows: quickView.rows });
+  if (slotId === 'orderTerms' && !siteTerms) return null;
   const placeholder = (item) => (item.placeholder === false ? {} : { placeholder: true });
   if (slotId === 'orderRoutes') {
     return trust?.routes?.length ? block('orderRoutes', { heading: heading ?? ORDER_ROUTES_HEADING, items: trust.routes.slice(0, most('orderRoutes')).map((item) => ({ heading: item.heading, text: item.text, ...(item.placeholder ? { placeholder: true } : {}) })) }) : null;
@@ -105,7 +121,9 @@ export function proofBlock(slotId, proof, { route = null, trust = null, testimon
     case 'factory':
       return figures.length >= 3 ? block('stats', { items: figures.slice(0, most('stats')).map(({ value, label, note }) => ({ value, label, ...(note ? { note } : {}) })) }) : null;
     case 'certifications':
-      return proof.certifications?.length ? block('certifications', { items: proof.certifications.slice(0, most('certifications')) }) : null;
+      // A certificate's number and any look-up never reach the page (owner 2026-11-19: "不显示不要编号"); the number
+      // stays in site-proof.json for the owner's sign-off list (proofSignoffItems)
+      return proof.certifications?.length ? block('certifications', { items: proof.certifications.slice(0, most('certifications')).map(({ number, lookupUrl, ...item }) => item) }) : null;
     case 'logos':
       return proof.clients?.length >= 2 ? block('logos', { items: proof.clients.slice(0, most('logos')).map(({ name, note, media }) => ({ name, ...(note ? { note } : {}), ...(media ? { media } : {}) })) }) : null;
     case 'testimonials': {

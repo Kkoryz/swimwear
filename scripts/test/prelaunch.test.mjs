@@ -11,6 +11,7 @@ import { conflictFindings, contentKey, sfConflictFindings, SOURCE_PATH, SOURCE_S
 import { externalProblem, linkFindings } from '../lib/prelaunch/links.mjs';
 import { nearFindings, paragraphsOf } from '../lib/prelaunch/near.mjs';
 import { ownerListRows, signoffCategory } from '../lib/prelaunch/owner-list.mjs';
+import { htmlFindings } from '../lib/prelaunch/html.mjs';
 import { formFindings, launchFindings, phoneFindings, structuredDataFindings } from '../lib/prelaunch/tech.mjs';
 import { mainText } from '../lib/content-fingerprint.mjs';
 import { RELEASE_CHECKS } from '../lib/preflight/release-checks.mjs';
@@ -21,9 +22,9 @@ const page = (route, extra = {}) => ({ route, pageType: 'solution', status: 'aut
 const html = ({ main = '', header = '', footer = '', head = '' } = {}) => `<html lang="en"><head>${head}</head><body><header data-site-header>${header}</header><main>${main}</main><footer data-site-footer>${footer}</footer></body></html>`;
 
 test('switches: each check off, report (the default) or block; the owner list never blocks; the conflict check reports by default', () => {
-  assert.deepEqual(prelaunchModes({}).modes, { links: 'report', cannibal: 'report', near: 'report', owner_list: 'report', tech: 'report', conflicts: 'report' });
+  assert.deepEqual(prelaunchModes({}).modes, { links: 'report', cannibal: 'report', near: 'report', owner_list: 'report', tech: 'report', html: 'report', conflicts: 'report' });
   const { modes, notes } = prelaunchModes({ prelaunch: { links: 'block', cannibal: false, near: true, owner_list: 'block', conflicts: 'report' } });
-  assert.deepEqual(modes, { links: 'block', cannibal: 'off', near: 'report', owner_list: 'report', tech: 'report', conflicts: 'report' });
+  assert.deepEqual(modes, { links: 'block', cannibal: 'off', near: 'report', owner_list: 'report', tech: 'report', html: 'report', conflicts: 'report' });
   assert.match(notes.join(), /owner_list: "block" is read as "report"/);
   assert.throws(() => prelaunchModes({ prelaunch: { link: true } }), /unknown check/);
   assert.throws(() => prelaunchModes({ prelaunch: { links: 'hold' } }), /not a mode/);
@@ -97,7 +98,18 @@ test('the owner list: every stand-in as a row, to be supplied, by category; conf
     posts: [{ slug: 'p', status: 'published', placeholders: [{ id: 'R1', kind: 'number', needed: 'the fee' }] }],
     imagePlan: { entries: [{ kind: 'hero', status: 'generated' }] },
   });
-  assert.deepEqual(rows.map((row) => [row.label, row.status]), [['电话', '待业主提供'], ['地址', '待业主提供'], ['评价', '已确认'], ['证书编号', '待业主提供'], ['占位数字', '待业主提供'], ['占位数字', '待业主提供'], ['占位图', '待业主提供']]);
+  assert.deepEqual(rows.map((row) => [row.label, row.status]), [['电话', '待业主提供'], ['地址', '待业主提供'], ['评价', '已确认'], ['证书', '待业主提供'], ['占位数字', '待业主提供'], ['占位数字', '待业主提供'], ['占位图', '待业主提供']]);
+});
+
+test('the owner list asks to confirm a certificate is held and current, never for its number (owner 2026-11-19)', () => {
+  const certs = (certifications) => ownerListRows({ proof: { certifications } }).filter((row) => row.category === 'certificates');
+  const [asked] = certs([{ name: 'GRS', issuer: 'Control Union', scope: 'Recycled fabrics', validUntil: '2027-03' }]);
+  assert.equal(asked.item, 'GRS：确认确实持有且在有效期内（发证机构、范围、有效期）');
+  assert.equal(asked.value, '发证机构 Control Union；范围 Recycled fabrics；有效期至 2027-03');
+  assert.ok(!/编号/.test(asked.item + asked.label));
+  assert.deepEqual(certs([{ name: 'GRS', confirmed: true }]), []);                      // confirmed: off the list
+  assert.deepEqual(certs([{ name: 'GRS', number: 'CU-1' }]), []);                        // given with its number, as before
+  assert.equal(certs([{ name: 'OEKO-TEX Standard 100' }])[0].value, '');                 // nothing given yet: still asked
 });
 
 test('technical: structured data parses and has its required fields; the form posts to the endpoint; phone LCP', () => {
@@ -175,7 +187,7 @@ test('the run: a report per check and a summary; a "block" check with issues blo
   await assert.rejects(site({ 'site.json': {} }).then((empty) => prelaunch({ root: empty, env: {} })), /no page of the site is built/, 'nothing built is not a pass');
   const summary = await prelaunch({ root, env: {}, now: new Date('2026-11-18T00:00:00Z') });
   assert.equal(summary.status, 'reported', 'report by default');
-  assert.deepEqual(summary.checks.map((check) => [check.check, check.status]), [['links', 'reported'], ['cannibal', 'reported'], ['near', 'passed'], ['owner_list', 'passed'], ['tech', 'passed'], ['conflicts', 'needs_local']], 'the conflict check never run on this machine is not a pass');
+  assert.deepEqual(summary.checks.map((check) => [check.check, check.status]), [['links', 'reported'], ['cannibal', 'reported'], ['near', 'passed'], ['owner_list', 'passed'], ['tech', 'passed'], ['html', 'reported'], ['conflicts', 'needs_local']], 'the conflict check never run on this machine is not a pass');
   const links = JSON.parse(await readFile(join(root, 'docs/research/prelaunch/links.json'), 'utf8'));
   assert.deepEqual(links.findings.map((finding) => finding.target), ['/gone/']);
   assert.match(await readFile(join(root, 'docs/research/prelaunch/summary.md'), 'utf8'), /\| 链接验收 \| 只报告 \| 有问题（只报告） \| 1 \|/);
@@ -198,4 +210,18 @@ test('site-run checks before the design review and again on the release build, b
   assert.equal(ids[ids.indexOf('audits') + 1], 'prelaunch');
   const release = list.find((step) => step.id === 'release').run.map((command) => command.join(' '));
   assert.ok(release.findIndex((command) => command.includes('prelaunch.mjs')) === release.findIndex((command) => command.includes('preflight.mjs')) - 1);
+});
+
+test('html: the built pages through html-validate (standard + document), require-sri off; errors are issues (site audit 2026-11-19)', async () => {
+  const doc = (body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>T</title><link rel="stylesheet" href="/_astro/a.css"></head><body>${body}</body></html>`;
+  const pages = [page('/'), page('/fixed/'), page('/unbuilt/')];
+  const built = new Map([
+    ['/', doc('<main><h1>T</h1><div class="chart-shares" aria-label="Shares"><span>Direct 60%</span></div><p id="x">a</p><p id="x">b</p></main>')],
+    ['/fixed/', doc('<main><h1>T</h1><div class="chart-shares" role="group" aria-label="Shares"><span>Direct 60%</span></div></main>')],
+    ['/unbuilt/', null],
+  ]);
+  const findings = await htmlFindings(pages, built);
+  assert.deepEqual(findings.filter((finding) => finding.level === 'issue').map((finding) => [finding.route, finding.problem]).sort(), [['/', 'aria-label-misuse'], ['/', 'no-dup-id']]);
+  assert.ok(findings.every((finding) => finding.kind === 'html' && finding.problem !== 'require-sri'), 'same-origin stylesheets need no SRI');
+  assert.match(findings.find((finding) => finding.problem === 'aria-label-misuse').detail, /line 1/);
 });

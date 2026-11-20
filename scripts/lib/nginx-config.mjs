@@ -8,6 +8,19 @@
 // owner 2026-11-17), passed to it in the X-Lead-Recipient header: the address stays on the server, never in a page.
 // csp: the Content-Security-Policy made from the release build (lib/csp.mjs); without one the snippet sets the
 // build-independent part only (default-src 'self' and the frame, object and base rules, no inline script).
+
+// The compression the server gives (gzip on, gzip_vary on): written into the config below, and given the same way by
+// the audits' own server (lib/static-server.mjs), so a lab load is compressed as the live one is (2026-11-20:
+// MotelPilot's /blog/ measured 4.0s on a phone with its 151KB stylesheet sent whole, 2.6s gzipped as Nginx sends it).
+// Nginx compresses text/html besides gzip_types. JavaScript is listed under both its types: Nginx's mime.types gives
+// .js application/javascript or text/javascript by version.
+export const GZIP = Object.freeze({ level: 5, minLength: 1024, types: Object.freeze(['text/plain', 'text/css', 'text/xml', 'application/javascript', 'text/javascript', 'application/json', 'application/xml', 'image/svg+xml', 'application/manifest+json']) });
+// Whether the server compresses a response of this content type (its parameters, such as the charset, aside).
+export function gzipsType(contentType) {
+  const type = String(contentType ?? '').split(';')[0].trim().toLowerCase();
+  return type === 'text/html' || GZIP.types.includes(type);
+}
+
 export function nginxConfig({ host, root, apiUpstream = 'http://127.0.0.1:3001', certDir = `/etc/letsencrypt/live/${host}`, redirects = [], previousHosts = [], leadRecipient = null, csp = null }) {
   const isHost = (value) => /^[a-z0-9-]+(\.[a-z0-9-]+)+$/.test(value);
   if (!isHost(host)) throw new Error(`not a host: ${host}`);
@@ -73,10 +86,10 @@ ${tls}
     include ${headers};
 
     gzip on;
-    gzip_comp_level 5;
-    gzip_min_length 1024;
+    gzip_comp_level ${GZIP.level};
+    gzip_min_length ${GZIP.minLength};
     gzip_vary on;
-    gzip_types text/plain text/css text/xml application/javascript application/json application/xml image/svg+xml application/manifest+json;
+    gzip_types ${GZIP.types.join(' ')};
     # With the ngx_brotli module installed: brotli on; brotli_types <same types>;
 
 ${rules.length ? `    # Moved and removed pages (src/data/redirects.json).\n${rules.join('\n')}\n\n` : ''}    # Directory URLs end in a slash (/path -> 301 /path/), matching the canonical URLs.

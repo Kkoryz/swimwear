@@ -28,6 +28,8 @@ const photo = backdrop && (resolved === 'image-band' || resolved === 'form');
 const phoneShape = photo && backdrop.sources?.[0]?.width && backdrop.sources[0].height ? `--cta-phone-ratio: ${Math.round((backdrop.sources[0].width / backdrop.sources[0].height) * 1000) / 1000}` : undefined;
 // Related pages: the link band's own large links; under any other band, a grid of page links of their own.
 const linkBand = resolved === 'link-band';
+// The related pages' navigation is named by the band's heading (RelatedLinks labelledBy).
+const headingId = block.heading ? `${block.id}-heading` : null;
 const form = resolved === 'form' ? (leadFormBlock(`${block.id}-form`) as FormBlock) : null;
 ---
 
@@ -38,14 +40,14 @@ const form = resolved === 'form' ? (leadFormBlock(`${block.id}-form`) as FormBlo
       {photo && <Picture media={backdrop} class="cta__backdrop" alt="" sizes="100vw" loading={backdrop.priority ? 'eager' : 'lazy'} />}
       <div class="cta__content">
         <Eyebrow text={block.eyebrow} />
-        {block.heading && <h2 class="cta__heading">{block.heading}</h2>}
+        {block.heading && <h2 class="cta__heading" id={headingId}>{block.heading}</h2>}
         {block.paragraphs?.map((paragraph) => <p class="cta__text"><InlineText text={paragraph} /></p>)}
         {!form && primary && <SmartLink href={primary} class="button button--primary">{block.cta.label}</SmartLink>}
         {!form && block.secondaryCta && <SmartLink href={block.secondaryCta.href} class="button button--secondary">{block.secondaryCta.label}</SmartLink>}
-        {related.length > 0 && linkBand && <RelatedLinks links={related} />}
+        {related.length > 0 && linkBand && <RelatedLinks links={related} labelledBy={headingId} />}
       </div>
       {form && <div class="cta__form"><LeadForm block={form} /></div>}
     </div>
-    {related.length > 0 && !linkBand && <RelatedLinks links={related} grid />}
+    {related.length > 0 && !linkBand && <RelatedLinks links={related} grid labelledBy={headingId} />}
   </div>
 </section>

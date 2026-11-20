@@ -94,6 +94,19 @@ test('two rows of short items never stand together: the card grid of the pair be
   const more = (id, count) => [{ ...grid(id), items: cards(4) }, ...Array.from({ length: count - 1 }, (_, index) => ({ id: `${id}-${index + 2}`, type: 'featureGrid', continues: id, items: cards(4) }))];
   assert.deepEqual(varyItemRows([...more('a', 2), ...more('b', 3)], variantOf).map((block) => block.id), ['a', 'b', 'b-2', 'b-3']);
   assert.equal(varyItemRows([...more('a', 3), ...more('b', 3)], variantOf).length, 6);
+  // The later set would be a third list in a row (two icon lists follow it): the earlier set is the list (Strandmill
+  // 2026-11-20, /watersports-apparel-manufacturer/: m2, m2-2 then m3, m3-2 before two icon lists, the band that stood
+  // between the sets gone with the competitor's redesigned page).
+  const beforeLists = [{ id: 'overview', type: 'intro' }, { ...grid('m2'), items: cards(3) }, { id: 'm2-2', type: 'featureGrid', continues: 'm2', items: cards(3) }, { ...grid('m3'), items: cards(3) }, { id: 'm3-2', type: 'featureGrid', continues: 'm3', items: cards(2) }, { id: 'm4', type: 'iconList' }, { id: 'm5', type: 'iconList' }];
+  assert.deepEqual(varyItemRows(beforeLists, variantOf).map((block) => [block.id, variantOf(block) ?? block.type]), [['overview', 'intro'], ['m2', 'bullets'], ['m3', 'icons'], ['m3-2', 'icons'], ['m4', 'iconList'], ['m5', 'iconList']]);
+  // The same where the grid that cannot be a list is one grid: the set beside it is the list, before it or after it.
+  const ids = (list) => varyItemRows(list, variantOf).map((block) => [block.id, variantOf(block) ?? block.type]);
+  assert.deepEqual(ids([{ id: 'overview', type: 'intro' }, { ...grid('a'), items: cards(3) }, { id: 'a-2', type: 'featureGrid', continues: 'a', items: cards(3) }, grid('b'), { id: 'l1', type: 'iconList' }, { id: 'l2', type: 'iconList' }]), [['overview', 'intro'], ['a', 'bullets'], ['b', 'icons'], ['l1', 'iconList'], ['l2', 'iconList']]);
+  assert.deepEqual(ids([{ id: 'l1', type: 'iconList' }, { id: 'l2', type: 'iconList' }, grid('a'), { ...grid('b'), items: cards(3) }, { id: 'b-2', type: 'featureGrid', continues: 'b', items: cards(3) }]), [['l1', 'iconList'], ['l2', 'iconList'], ['a', 'icons'], ['b', 'bullets']]);
+  // Lists on both sides of the two sets: neither can be a list, both stay cards (the plan gate names the pair).
+  assert.equal(varyItemRows([{ id: 'l1', type: 'iconList' }, { id: 'l2', type: 'iconList' }, ...more('m2', 2), ...more('m3', 2), { id: 'm4', type: 'iconList' }, { id: 'm5', type: 'iconList' }], variantOf).filter((block) => variantOf(block) === 'bullets').length, 0);
+  // The pair after a set joined before it is looked at too: a grid, then steps.
+  assert.deepEqual(ids([{ ...grid('a'), items: cards(2) }, { id: 'a-2', type: 'featureGrid', continues: 'a', items: cards(2) }, { id: 'a-3', type: 'featureGrid', continues: 'a', items: cards(2) }, { id: 'n', type: 'featureGrid' }, { id: 's', type: 'process' }]), [['a', 'bullets'], ['n', 'icons'], ['s', 'list']]);
 });
 
 test('a page short of pictures gets walls wherever a run takes one, and a section too long for the band takes one where its module changes', () => {

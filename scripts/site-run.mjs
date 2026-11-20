@@ -17,6 +17,10 @@
 // images: "generate" (the default) makes the site's own library (Codex, at most 12 photos a run) once the style board
 // has passed on grey frames. The competitor's photos are never shown on a site (owner 2026-11-12: "因为你盲目的塞了竞品的
 // 图 这个必须避免"): "reference", which showed them as placeholders, is refused.
+// imageSeo (true on a new site: create-workspace.mjs writes it; a site.json without it is a site built before, which
+// stays as built): Google Images SEO (lib/image-seo.mjs): photos published under names of what they show and their
+// product, their alt naming the product, the image sitemap and an ImageObject per content photo; a site built before
+// it takes it through scripts/handfix-image-seo.mjs, not a run.
 // trade (default "apparel"): a service business names "service" (lib/trade.mjs): its photos are scenes of its work,
 // each section's planned from the page's copy (the photo-briefs step), its stand-in proof and placeholder purposes in its
 // words; siteKind says what the site is in the image prompts and imageSubjects (by class) the scenes of its trade.
@@ -163,7 +167,8 @@ export function steps(site, { coreSource = null } = {}) {
     // adopt: a site captured before site:run tracked it keeps its capture (no second visit to the competitor's site).
     { id: 'capture', kind: 'auto', inputs: ['site.json#reference'], adopt: ['docs/research/raw/capture-summary.json'], run: [node('capture-reference.mjs', site.reference.origin), node('capture-reference-pages.mjs', site.reference.origin, ...captures)] },
     // The competitor's density right after its capture: it needs nothing but the competitor's pages, and the capture's
-    // check reads it.
+    // check reads it. Measured live once a capture (lib/reference-access.mjs): a run for new code beside the same
+    // capture keeps the measure and visits nothing; site-run --from capture --to capture-check takes all of it again.
     { id: 'density', kind: 'auto', inputs: ['site.json#reference,densityPages,densityPageTypes', 'code:scripts/measure-reference-density.mjs'], run: [node('measure-reference-density.mjs', ...densityUrls)] },
     // The capture checked before any model looks at it (check-reference-capture.mjs): a screenshot band left blank by
     // content that fades in on scroll, a fixed banner over the page, a hero photo the density measure missed, a title it
@@ -180,7 +185,11 @@ export function steps(site, { coreSource = null } = {}) {
     // The brand once the site's colours and type are set: the project's own logo kit, else a wordmark drawn for the site.
     { id: 'brand', kind: 'auto', models: true, inputs: [site.identity, 'src/styles/global.css', 'code:scripts/site-brand.mjs'], run: [node('site-brand.mjs', '--project', site.identity)] },
     // The competitor's sections, one crop each (pattern-inventory.json), and first placeholder pages.
-    { id: 'patterns', kind: 'auto', inputs: ['site.json#reference,designPeers', `${snap}/pages.json`, ...(tradeInputs.length ? [`config/blueprint-wording.${site.trade}.json`, tradeInputs[1]] : []), 'code:scripts/scaffold-placeholder-pages.mjs'], run: [node('scaffold-placeholder-pages.mjs', '--pages-plan', `${snap}/pages.json`, ...references)] },
+    // The capture's own rects give each page type's first screen and the photo walls' shape (lib/capture-hero.mjs,
+    // photoWallOf): a new capture measures them again. The sections, their crops and the hero samples are the live
+    // pages', measured once a capture too (lib/reference-access.mjs; Strandmill 2026-11-20: a run for new code took a
+    // redesigned competitor page's patterns over a finished site); the placeholder pages are made every run.
+    { id: 'patterns', kind: 'auto', inputs: ['site.json#reference,designPeers', 'site.json#clientWall', 'docs/research/reference-pages', `${snap}/pages.json`, ...(tradeInputs.length ? [`config/blueprint-wording.${site.trade}.json`, tradeInputs[1]] : []), 'code:scripts/scaffold-placeholder-pages.mjs'], run: [node('scaffold-placeholder-pages.mjs', '--pages-plan', `${snap}/pages.json`, ...references)] },
     { id: 'modules', kind: 'agent', prompt: 'modules', writes: WRITES.modules, reads: READS.modules, runs: crops, reply: moduleReply, join: (root) => joinSectionModules(root, pageTypes), done: ['docs/research/analysis/section-modules.json'], current: (root) => modulesCurrent(root, pageTypes), waits: 'the module of every competitor section (docs/research/analysis/section-modules.json, skill stage 08 step 3): read each section crop and name the template module that renders it' },
     // What the template cannot render (collect-template-gaps.mjs: the section modules' gaps, the reviews' template
     // findings, notes.md's "Template gaps"), listed in docs/research/TEMPLATE_GAPS.md every time one of them changes. A
@@ -201,11 +210,11 @@ export function steps(site, { coreSource = null } = {}) {
     // The blueprint follows the named modules; the pages are imported on it (again when the template's import code changes).
     // Then the company behind the site from the package, the identity and the facts, stand-ins for the rest
     // (scaffold-site-company.mjs, four-site audit 2026-11-17), listed for sign-off with the proof.
-    { id: 'import', kind: 'auto', inputs: ['content/replacements', 'code:scripts/apply-replacements.mjs', `${snap}/authoring_package.json`, `${snap}/pages.json`, ...facts.filter((arg) => arg !== '--facts'), 'docs/research/analysis/section-modules.json', 'docs/research/pattern-inventory.json', 'docs/research/slot-manifest.json', 'src/data/site-proof.json', 'config/page-blueprints.default.json', ...(tradeInputs.length ? [`config/blueprint-wording.${site.trade}.json`, tradeInputs[1]] : []), 'config/block-kinds.json', site.identity, 'src/data/site-company.json', 'code:scripts/import-site-factory.mjs', 'code:scripts/competitor-blueprint.mjs', 'code:scripts/scaffold-site-company.mjs', 'code:scripts/proof-signoff.mjs'], run: [node('competitor-blueprint.mjs', '--pages-plan', `${snap}/pages.json`), node('import-site-factory.mjs', ...importArgs, '--blueprints', 'docs/research/slot-manifest.json'), node('apply-replacements.mjs'), node('competitor-blueprint.mjs'), node('scaffold-site-company.mjs', '--package', `${snap}/authoring_package.json`, ...facts), node('proof-signoff.mjs', ...ownerTodo)] },
+    { id: 'import', kind: 'auto', inputs: ['content/replacements', 'site.json#clientWall', 'code:scripts/apply-replacements.mjs', `${snap}/authoring_package.json`, `${snap}/pages.json`, ...facts.filter((arg) => arg !== '--facts'), 'docs/research/analysis/section-modules.json', 'docs/research/pattern-inventory.json', 'docs/research/slot-manifest.json', 'src/data/site-proof.json', 'config/page-blueprints.default.json', ...(tradeInputs.length ? [`config/blueprint-wording.${site.trade}.json`, tradeInputs[1]] : []), 'config/block-kinds.json', site.identity, 'src/data/site-company.json', 'code:scripts/import-site-factory.mjs', 'code:scripts/competitor-blueprint.mjs', 'code:scripts/scaffold-site-company.mjs', 'code:scripts/proof-signoff.mjs'], run: [node('competitor-blueprint.mjs', '--pages-plan', `${snap}/pages.json`), node('import-site-factory.mjs', ...importArgs, '--blueprints', 'docs/research/slot-manifest.json'), node('apply-replacements.mjs'), node('competitor-blueprint.mjs'), node('scaffold-site-company.mjs', '--package', `${snap}/authoring_package.json`, ...facts), node('proof-signoff.mjs', ...ownerTodo)] },
     // The site's data checked before any photo or model call (check-site-data.mjs, Fable's plan V-5, four-site audit
     // 2026-11-17): the enquiry form on the inquiry page, posts on an indexable blog hub, trust figures that read, no
     // promised file without a way to get it; a failure stops the run here, named with who clears it.
-    { id: 'data-checks', kind: 'auto', inputs: ['src/data/authoring-pages.json', 'src/data/placeholder-pages.json', 'src/data/blog-posts.json', 'src/data/site-trust.json', 'src/data/site-identity.json', 'code:scripts/check-site-data.mjs'], run: [node('check-site-data.mjs', '.')] },
+    { id: 'data-checks', kind: 'auto', inputs: ['site.json#clientWall', 'src/data/authoring-pages.json', 'src/data/placeholder-pages.json', 'src/data/blog-posts.json', 'src/data/site-trust.json', 'src/data/site-identity.json', 'code:scripts/check-site-data.mjs'], run: [node('check-site-data.mjs', '.')] },
     { id: 'site-media', kind: 'auto', inputs: [site.identity], run: [node('import-site-media.mjs', '--project', site.identity)] },
     // Whether each page's copy fits the competitor's density band, with how many photo walls (at most three, owner
     // 2026-11-14), or not at all and by how much (plan-layout.mjs --feasibility, arithmetic only): what does not fit goes
@@ -808,7 +817,7 @@ async function runSteps({ root = process.cwd(), from = null, to = null, runner =
   if (repo && await ensureSiteRepo(root)) commitSite(root, 'site-run: changes made outside the run');
   const first = from ? list.findIndex((step) => step.id === from) : 0;
   const last = to ? list.findIndex((step) => step.id === to) : list.length - 1;
-  if (first < 0 || last < 0) throw new Error(`unknown step: ${from ?? to} (steps: ${list.map((step) => step.id).join(', ')})`);
+  if (first < 0 || last < 0) throw new Error(`unknown step: ${first < 0 ? from : to} (steps: ${list.map((step) => step.id).join(', ')})`);
   // What this run will spend, as far as the inputs say now (a real run; a test's runner runs nothing).
   if (runner === run && !iterate) {
     const paid = await pendingPaidSteps(root, list.slice(first, last + 1), state);

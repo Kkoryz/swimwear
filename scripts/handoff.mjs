@@ -49,8 +49,9 @@ const SIGNOFF_ROWS = [
   [/^review-source$/, 'review:source', '评价与案例', '结构化数据里的评价', '确认这些评价和评分都来自真实买家', false],
   [/^placeholder-/, null, '公司证明', '借用的内容', '换成自己的做法，或确认可以使用', false],
 ];
-// Always asked when the site has certificates: their numbers and scans are never in the project.
-const CERTIFICATE_NUMBERS = { field_id: 'company:certificate-numbers', category: '公司证明', purpose: '证书编号和扫描件', instructions: '每张证书的编号、有效期和扫描件' };
+// Always asked when the site has certificates: each one's validity and a scan, for checking it is held and current
+// only. No page shows a certificate's number or scan (owner 2026-11-19: "不显示不要编号"), so no number is asked.
+export const CERTIFICATE_PROOF = { field_id: 'company:certificate-scans', category: '公司证明', purpose: '证书有效期和扫描件（仅供核对，不在网站显示）', instructions: '每张证书的有效期和扫描件，只用于核对证书确实持有且在有效期内；网站不显示证书编号和扫描件' };
 // Contact details: a value the project has is shown and optional; an empty one is required. A street address needs its
 // street and number (a city alone is not one).
 const CONTACT_FIELDS = [['email', '询盘邮箱'], ['phone', '电话（含国家区号）'], ['address', '公司完整地址（含街道门牌）'], ['hours', '营业时间（含时区）'], ['same_as', '社交媒体主页链接（LinkedIn、Instagram、Facebook 等）']];
@@ -153,7 +154,7 @@ export function handoffRows({ pages, signoff, contact, built, sourceOf, realSrcs
     const [purpose, instructions] = wording.signoff?.[field_id] ?? [ownPurpose, ownInstructions];
     if (rows.some((existing) => existing.field_id === field_id)) continue;
     row({ field_id, category, purpose, pages: '', current_placeholder: item.description, instructions, ...asked(have) });
-    if (field_id === 'company:certificates') row({ ...CERTIFICATE_NUMBERS, pages: '', current_placeholder: '', ...asked(false) });
+    if (field_id === 'company:certificates') row({ ...CERTIFICATE_PROOF, pages: '', current_placeholder: '', ...asked(false) });
   }
   // A logo the site made for itself (a drawn or typeset wordmark, site-brand.mjs) is the owner's to replace.
   if (identity && identity.source !== 'stage-00') row({ field_id: 'brand:logo', category: '品牌', purpose: '网站 logo 与图标（页头、浏览器标签、收藏图标）', pages: '全站', current_placeholder: identity.source === 'make-wordmark' ? 'AI 生成的纯文字标' : '按网站字体排的纯文字标', instructions: '有正式 logo 时提供（SVG 或大尺寸 PNG），没有就保留', ...asked(true) });

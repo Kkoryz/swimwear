@@ -8,6 +8,7 @@ import { countMatches } from './figure-reads.mjs';
 import { resolve } from 'node:path';
 import { siteTrade, tradeConfigPath } from './trade.mjs';
 import { readJson } from './json-io.mjs';
+import { withClientWall } from './site-proof.mjs';
 
 // Copy that keeps the clients' names private ("with client names kept private", "We keep our private-label clients
 // anonymous": site13's case page, blind audit 2026-11-17 H-1, beside a stand-in wall of six named brands).
@@ -71,9 +72,10 @@ export function proofProblems({ proof, demo = null, pages = [], facts = new Map(
   return found;
 }
 
-// The site's stand-in proof and its trade's config, for the checks that read them (null without a stand-in).
+// The site's stand-in proof and its trade's config, for the checks that read them (null without a stand-in); the client
+// wall's names only where site.json switches it on (lib/site-proof.mjs clientWallOn): off, no page shows them.
 export async function readProof(root) {
-  const proof = await readJson(resolve(root, PROOF_FILE), null);
+  const proof = withClientWall(await readJson(resolve(root, PROOF_FILE), null), await readJson(resolve(root, 'site.json'), null));
   if (proof?.standIn !== true) return { proof, demo: null };
   return { proof, demo: await readJson(tradeConfigPath('demo-proof', proof.trade ?? (await siteTrade(root)).trade), null) };
 }

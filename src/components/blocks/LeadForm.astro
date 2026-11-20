@@ -68,7 +68,7 @@ const param = (name: string) => (tool?.params[name] ? { toolparamdescription: to
   {block.consent && (
     <label class="form-block__consent form-block__field--wide">
       <input type="checkbox" name="consent" value="yes" required disabled={disabled} aria-invalid="false" {...param('consent')} />
-      <span>{block.consent.label} <SmartLink href={privacyRouteOf(pages, { consent: block.consent })}>Privacy policy</SmartLink></span>
+      <span>{block.consent.label} <SmartLink href={privacyRouteOf(pages, { consent: block.consent })} class="inline-link">Privacy policy</SmartLink></span>
     </label>
   )}
   <button type={live ? 'submit' : 'button'} class="button button--primary" disabled={disabled} data-umami-event={block.request === 'resource' ? 'resource-request-submit' : 'form-submit'}>{block.submitLabel}</button>

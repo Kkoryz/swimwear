@@ -30,6 +30,8 @@ import { allocateSite } from './lib/media-allocation.mjs';
 import { MIN_SHOWN } from './lib/media-ratio.mjs';
 import { heroPhoto, heroShowsPhoto, resolveVariant, withMediaModules } from './lib/media-slots.mjs';
 import { focusPath, photosInUse } from './lib/photo-focus.mjs';
+import { imageSources, siteXmp } from './lib/image-seo.mjs';
+import { withXmp } from './lib/web-image.mjs';
 import { loadSitePages } from './lib/site-pages.mjs';
 
 // Widest crop written: twice a phone's width.
@@ -156,6 +158,9 @@ export async function derivePhoneHeroes({ root = process.cwd() } = {}) {
   const sitePhotos = (await readJson(resolve(root, 'src/data/site-media.json'), { photos: [] })).photos ?? [];
   const pages = await loadSitePages(root);
   const frames = phoneFrames(await readJson(resolve(root, 'docs/research/pattern-inventory.json'), null), await readJson(resolve(root, 'docs/research/analysis/section-modules.json'), []), [...new Set(pages.map((page) => page.pageType))].filter((type) => FRAMED_HEROES.has(components.heroByPageType?.[type] ?? components.hero)));
+  // A crop carries its photo's XMP while site.json imageSeo is on (its record's digital source type), else none.
+  const xmpOf = await siteXmp(root);
+  const sources = xmpOf() ? await imageSources(root) : new Map();
   const crops = {};
   const soft = [];
   const unfocused = [];
@@ -180,7 +185,7 @@ export async function derivePhoneHeroes({ root = process.cwd() } = {}) {
         const image = focus
           ? sharp(source).extract(cropBox(cut, ratio, focus)).resize({ width, height, fit: 'fill' })
           : sharp(source).resize({ width, height, fit: 'cover', position: sharp.strategy.attention });
-        return image.webp({ quality }).toBuffer();
+        return withXmp(image.webp({ quality }), xmpOf(sources.get(photo.src) ?? null)).toBuffer();
       };
       const encoded = await encodeWithin(render, Math.min(cut.width, Math.round(cut.height * ratio), MAX_WIDTH), budget);
       if (!encoded) {

@@ -48,7 +48,10 @@ function productDesign(entry, subject, { name, garments, briefs, fabricOnly = fa
 // Luma's realistic prompts: a real photograph taken in the moment, light from the place itself, real skin, a used place
 // and real fabric, named concretely rather than with "ultra-realistic" words): the lines for what the photo shows
 // (person: a person is in it; fabric: a garment is), then the constraints and the output. A chart has no realism lines.
-function closing(entry, master, prompts, { person = false, fabric = false, modelled = false, chart = false, orientation }) {
+// product: the page's name for the product the photo is made to show (lib/image-seo.mjs libraryProducts; Google's
+// image SEO, owner 2026-11-20: the alt names the product in the page's words, once, where the photo shows it); without
+// one the alt sentence is as it was.
+function closing(entry, master, prompts, { person = false, fabric = false, modelled = false, chart = false, orientation, product = null }) {
   return [
     chart ? '' : prompts.realism,
     person ? prompts.realismPerson : '',
@@ -57,7 +60,7 @@ function closing(entry, master, prompts, { person = false, fabric = false, model
     // A board or diagram draws no counts or labels either (site10's assortment diagrams carried "x40" under each part).
     `Constraints: ${chart ? 'no words, numbers or quantity marks anywhere in the image; ' : 'photorealistic; '}${orientation} ${entry.size}; ${modelled ? 'tasteful and non-suggestive; ' : ''}${prompts.constraints}${modelled ? `; ${prompts.notInProduction}` : ''}.`,
     `Save the final image into this workspace as ${master} (copy it there from the generated_images folder).`,
-    `Finish by replying with only this JSON on one line, alt text in English: {"file": "${master}", "alt": "<one factual English sentence of ${ALT_MIN_CHARS} to ${ALT_MAX_CHARS} characters describing only what is visible; no 'image of' or 'photo of', no brand, price, quantity, lead time or other claim>"}`,
+    `Finish by replying with only this JSON on one line, alt text in English: {"file": "${master}", "alt": "<one factual English sentence of ${ALT_MIN_CHARS} to ${ALT_MAX_CHARS} characters describing only what is visible${product ? `, calling the product "${product}" once if the photo shows it` : ''}; no 'image of' or 'photo of', no brand, price, quantity, lead time or other claim>"}`,
   ];
 }
 
@@ -70,7 +73,7 @@ const orientationOf = (size) => {
 // reference photos of that kind for their light, colour and camera language only, our place or plain setting, pose and
 // design. A kind that shows making is shown by a worker, never a model (a model in a workshop came out of site10's
 // production slot); a photo of it is a stand-in a real photo replaces.
-export function typedPrompt(entry, { type, master, briefs, garments = null, line = '', attached = 0 }) {
+export function typedPrompt(entry, { type, master, briefs, garments = null, line = '', attached = 0, product = null }) {
   const { prompts } = briefs;
   const name = entry.category === GENERAL ? line : entry.category;
   const worn = type.shows === 'worn';
@@ -99,7 +102,7 @@ export function typedPrompt(entry, { type, master, briefs, garments = null, line
     worn && entry.coverUp ? prompts.coverUp : '',
     making ? workerLine(entry.worker, prompts) : '',
     !worn && !making && !chart ? 'No person in the image.' : '',
-    ...closing(entry, master, prompts, { person: worn || making, fabric: true, modelled: worn, chart, orientation }),
+    ...closing(entry, master, prompts, { person: worn || making, fabric: true, modelled: worn, chart, orientation, product }),
   ].filter(Boolean).join('\n');
 }
 
@@ -112,14 +115,16 @@ export function typedPrompt(entry, { type, master, briefs, garments = null, line
 // pictures of one article were mostly one navy swimsuit on one pool deck).
 // source: what the picture is for ('article', or 'page' for a page section's photo); extra: lines on what it shows
 // (a worn product and its model, intentPrompt); modelled: a person wears the product.
-export function articleVisualPrompt(visual, { master, profile, briefs, article, size = '1536x1024', others = [], source = 'article', extra = [], modelled = false, worker = null }) {
+// peopleLine: who is in the photo, said by the caller in place of the line the description's people words give
+// (scenePrompt: a class whose photos show no one).
+export function articleVisualPrompt(visual, { master, profile, briefs, article, size = '1536x1024', others = [], source = 'article', extra = [], modelled = false, worker = null, peopleLine = null, product = null }) {
   const { prompts } = briefs;
   const orientation = orientationOf(size);
   const photo = visual.type === 'photo';
   // Who counts as a person in the description: the trade's words (briefs.personWords: a service's staff, owners and
   // guests), else a manufacturer's.
   const people = briefs.personWords ? new RegExp(`\\b(${briefs.personWords.join('|')})\\b`, 'i') : /\b(person|people|worker|workers|hands?|model|buyer|team|operator|technician|exhibitor)\b/i;
-  const person = !modelled && people.test(`${visual.content} ${visual.setting ?? ''}`);
+  const person = !modelled && !peopleLine && people.test(`${visual.content} ${visual.setting ?? ''}`);
   return [
     TOOL,
     photo
@@ -138,15 +143,15 @@ export function articleVisualPrompt(visual, { master, profile, briefs, article, 
     // outdoor sun moved a sampling room's bench onto a stone terrace); only the site's camera rendering stays.
     photo && visual.setting ? `The light and colours are the setting's own. Rendering as on the company's website: ${profile.rendering}`
       : photo ? `Light, colour and rendering as on the company's website: ${sentence(profile.lighting, profile.colour, profile.rendering)}` : `Colour as on the company's website: ${profile.colour}`,
-    person ? workerLine(worker, prompts) : photo && !modelled ? 'No person in the image.' : '',
-    ...closing({ size }, master, prompts, { person: photo && (person || modelled), fabric: photo, modelled, chart: !photo, orientation }),
+    peopleLine ?? (person ? workerLine(worker, prompts) : photo && !modelled ? 'No person in the image.' : ''),
+    ...closing({ size }, master, prompts, { person: photo && (person || modelled), fabric: photo, modelled, chart: !photo, orientation, product }),
   ].filter(Boolean).join('\n');
 }
 
 // The photo a page section asks for (Site Factory's visuals, entry.intent: what it shows and where), made as an
 // article's photo is: the section's subject in its own setting, unlike the page's other photos (others). Where someone
 // wears the product, it is our product of the page (its design, print and colour) on a model of the casting.
-export function intentPrompt(entry, { master, profile, briefs, garments = null, line = '', others = [] }) {
+export function intentPrompt(entry, { master, profile, briefs, garments = null, line = '', others = [], product = null }) {
   const { intent } = entry;
   const name = entry.category === GENERAL ? line : entry.category;
   // A trade whose photos are scenes (briefs.photos) has no product worn by a model.
@@ -157,21 +162,36 @@ export function intentPrompt(entry, { master, profile, briefs, garments = null, 
     entry.casting ? modelLine(entry, briefs.prompts) : '',
   ] : [];
   const visual = { type: 'photo', title: intent.caption ?? intent.content, content: intent.content, setting: intent.setting ?? undefined, purpose: intent.purpose ?? intent.caption ?? '', section: intent.section ?? name };
-  return articleVisualPrompt(visual, { master, profile, briefs, article: name, size: entry.size, others, source: 'page', extra, modelled: worn, worker: entry.worker });
+  return articleVisualPrompt(visual, { master, profile, briefs, article: name, size: entry.size, others, source: 'page', extra, modelled: worn, worker: entry.worker, product });
 }
 
 // A photo of a trade whose photos are scenes of its work (briefs.photos "scenes": a service business), not a product on
 // a model: its subject made as a page section's photo is (articleVisualPrompt), in its class's light and rendering.
+// The class's profile goes with it whole (owner 2026-11-18: Staylumen's opening photos were people at desks and guests at
+// doors where the reference's show unoccupied houses and landscapes, "no foreground people": the prompt carried the
+// profile's light, colour and rendering only): its kind of place and framing, who appears, what to avoid. Where the
+// profile says no person or people only far off (profile.people), a subject that names a person is shown as its own
+// place, unoccupied ("a guest bedroom" and "styled for guests" name a person word and a room: each photo keeps its
+// subject), and the trade's people line never joins it ("for guests" called the staff and clients in).
 export function scenePrompt(entry, { master, profile, briefs, line = '' }) {
   const name = entry.category === GENERAL ? line : entry.category;
   const purpose = entry.kind === 'hero' ? "the page's opening photo, under or beside its headline" : entry.topic ? `the page section "${entry.topic}"` : `a photo of the ${name} business's work`;
-  const visual = { type: 'photo', title: entry.subject, content: entry.subject, purpose, section: entry.topic ?? name };
-  return articleVisualPrompt(visual, { master, profile, briefs, article: name, size: entry.size, source: 'page' });
+  const people = briefs.personWords ? new RegExp(`\\b(${briefs.personWords.join('|')})\\b`, 'i') : null;
+  const empty = ['none', 'background'].includes(profile.people);
+  const subject = empty && people?.test(entry.subject) ? `${entry.subject.replace(/[.\s]+$/, '')}, shown as the place alone, unoccupied` : entry.subject;
+  const extra = [
+    profile.background || profile.framing ? `Kind of place and framing as on the company's website: ${sentence(profile.background, profile.framing)}` : '',
+    profile.casting ? `People as on the company's website: ${profile.casting}` : '',
+    profile.avoid ? `Avoid: ${profile.avoid}` : '',
+  ];
+  const peopleLine = { none: 'No person in the image.', background: 'No person in the foreground; anyone shown is small and far off.' }[profile.people] ?? null;
+  const visual = { type: 'photo', title: subject, content: subject, purpose, section: entry.topic ?? name };
+  return articleVisualPrompt(visual, { master, profile, briefs, article: name, size: entry.size, source: 'page', extra, peopleLine });
 }
 
 // The prompt for one entry. shot: the framing and pose taken from the reference's shot list (photos of a model);
 // attached: how many reference photos go with the prompt.
-export function imagePrompt(entry, { master, profile, briefs, shot = null, garments = null, productOnlySubjects = null, line = '', attached = entry.styleRefs?.length ?? 0 }) {
+export function imagePrompt(entry, { master, profile, briefs, shot = null, garments = null, productOnlySubjects = null, line = '', attached = entry.styleRefs?.length ?? 0, product = null }) {
   if (!profile) throw new Error(`no style profile for ${entry.kind} photos (run analyze:image-style)`);
   const { prompts, productionSceneWords } = briefs;
   const orientation = orientationOf(entry.size);
@@ -182,7 +202,7 @@ export function imagePrompt(entry, { master, profile, briefs, shot = null, garme
   // The manufacturer's own factory is shown only in real photos, so a photo of a model is never staged there, even
   // when the reference's profile was read from its factory photos.
   const place = (field) => (withModel && mentionsAny(productionSceneWords, profile[field] ?? '') ? prompts.productionSceneReplaced : profile[field]);
-  const finish = closing(entry, master, prompts, { person: withModel || (['portrait', 'process'].includes(entry.kind) && !entry.productOnly), fabric: entry.kind !== 'portrait', modelled: withModel, orientation });
+  const finish = closing(entry, master, prompts, { person: withModel || (['portrait', 'process'].includes(entry.kind) && !entry.productOnly), fabric: entry.kind !== 'portrait', modelled: withModel, orientation, product });
   // A product on its own: a product shot on one of the reference's plain settings (analyze:image-style productSettings),
   // lit, coloured and rendered like the reference, never in its scenery (site10's product-only photos all stood by the
   // sea, then all on one wall).

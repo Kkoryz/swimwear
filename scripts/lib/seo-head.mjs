@@ -274,13 +274,34 @@ export function socialMeta({ page, identity, image: given = null }) {
 
 // sitemap.xml: canonical, indexable pages only, with lastmod when the page's content date is recorded and still matches
 // (scripts/lib/page-dates.mjs); never the build time, since Google uses lastmod only when it is accurate.
-/** @param {any[]} pages @param {any} identity @param {Record<string, { hash: string, modified: string }> | null} [dates] */
-export function sitemapXml(pages, identity, dates = null) {
+// images (lib/image-seo.mjs, while site.json imageSeo is on): page URL -> its content photos' URLs, each an
+// <image:image> of its <url> (Google's image sitemap extension, in the sitemap the site has); without it the sitemap is
+// as before.
+/** @param {any[]} pages @param {any} identity @param {Record<string, { hash: string, modified: string }> | null} [dates] @param {Map<string, string[]> | null} [images] */
+export function sitemapXml(pages, identity, dates = null, images = null) {
   const urls = pages.filter(isIndexable).map((page) => {
     const modified = lastModified(page, dates);
-    return `  <url><loc>${absoluteUrl(identity, page.seo.canonical)}</loc>${modified ? `<lastmod>${modified}</lastmod>` : ''}</url>`;
+    const loc = absoluteUrl(identity, page.seo.canonical);
+    return `  <url><loc>${loc}</loc>${modified ? `<lastmod>${modified}</lastmod>` : ''}${sitemapImageTags(images?.get(loc))}</url>`;
   });
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"${images?.size ? ` xmlns:image="${SITEMAP_IMAGE_NS}"` : ''}>\n${urls.join('\n')}\n</urlset>\n`;
+}
+
+export const SITEMAP_IMAGE_NS = 'http://www.google.com/schemas/sitemap-image/1.1';
+const xmlText = (text) => String(text).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+const sitemapImageTags = (urls) => (urls ?? []).map((url) => `<image:image><image:loc>${xmlText(url)}</image:loc></image:image>`).join('');
+
+// The built sitemap with each listed page's content photos added (the build knows a page's photos only once it is
+// built: lib/image-seo.mjs writeImageSeo): byLoc page URL -> photo URLs, as sitemapXml's images.
+export function withSitemapImages(xml, byLoc) {
+  let added = 0;
+  const out = xml.replace(/<url><loc>([^<]+)<\/loc>(.*?)<\/url>/g, (whole, loc, rest) => {
+    const tags = sitemapImageTags(byLoc.get(loc));
+    if (!tags) return whole;
+    added += 1;
+    return `<url><loc>${loc}</loc>${rest}${tags}</url>`;
+  });
+  return added && !out.includes('xmlns:image=') ? out.replace('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"', `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="${SITEMAP_IMAGE_NS}"`) : out;
 }
 
 // robots.txt: open with the sitemap once the site has its identity (origin); closed while it has none. The owner's

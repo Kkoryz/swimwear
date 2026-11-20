@@ -8,7 +8,7 @@ import test from 'node:test';
 import { blogBatch } from '../blog-batch.mjs';
 import { runV2 } from '../geo-blogs.mjs';
 import { flowFinal, flowHeld } from '../import-geo-article.mjs';
-import { BATCH_LOG, PROFILE_V2, batchDue, blogSiteProfile, isV2, writePosts, writeSchedule } from '../lib/blog-v2.mjs';
+import { BATCH_LOG, PROFILE_V2, batchDue, blogSiteProfile, isV2, siteRunEnv, writePosts, writeSchedule } from '../lib/blog-v2.mjs';
 
 const v2 = (work) => ({ siteFactory: 'D:/sf', project: 'D:/w/project', cache: 'D:/w/cache.sqlite3', work, geoDir: 'D:/geo-v2', claudeBin: 'C:/claude.exe' });
 
@@ -28,6 +28,16 @@ test('geoBlog.flow "v2" picks the new flow; anything else keeps the earlier one'
   assert.equal(isV2({ geoBlog: { flow: 'v2' } }), true);
   assert.equal(isV2({ geoBlog: { dir: 'D:/geo' } }), false);
   assert.equal(isV2({}), false);
+});
+
+test("site_run runs under the model profile geoBlog.v2.modelProfile names, else the environment's", () => {
+  const site = (extra = {}) => ({ geoBlog: { flow: 'v2', v2: { ...v2('D:/w'), ...extra } } });
+  const env = siteRunEnv(site({ modelProfile: 'domain/model_profiles/default_1116.yaml' }), { SF_MODEL_PROFILE: 'other.yaml', KEEP: '1' });
+  assert.equal(env.SF_MODEL_PROFILE, 'domain/model_profiles/default_1116.yaml');
+  assert.equal(env.KEEP, '1');
+  assert.match(env.PYTHONPATH, /sf[\\/]src$/);
+  assert.equal(siteRunEnv(site(), { SF_MODEL_PROFILE: 'other.yaml' }).SF_MODEL_PROFILE, 'other.yaml');
+  assert.equal('SF_MODEL_PROFILE' in siteRunEnv(site(), {}), false);
 });
 
 test('the v2 profile names the site, its Site Factory copy, its work folder, its writer and its limits', async () => {

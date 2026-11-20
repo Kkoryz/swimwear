@@ -1,6 +1,8 @@
-// The phone's Largest Contentful Paint under a slow network and CPU, measured once per page type by the layout audit
+// The phone's Largest Contentful Paint under a slow network and CPU, measured by the layout audit on every page whose
+// first screen shows a photo and on one page of each page type
 // (audit-authoring-layout.mjs; four-site audit 2026-11-17, Fable's plan P3: the lab number seen at build time, not
-// first after launch). The throttling and the screen are Lighthouse's mobile defaults (lighthouse core/config/
+// first after launch; site audit 2026-11-19: the slow pages were ten pages of four sites whose LCP was their opening
+// photo, most of them not the one page of their type measured). The throttling and the screen are Lighthouse's mobile defaults (lighthouse core/config/
 // constants.js: throttling.mobileSlow4G as DevTools applies it, screenEmulationMetrics.mobile, the Moto G Power), set
 // through the Chrome DevTools Protocol. Google's "good" LCP is 2.5 s, "poor" over 4 s (web.dev/articles/lcp): over the
 // first the audit warns, over the second it fails. A lab number from one load on this machine: Google's page
@@ -18,15 +20,26 @@ const LOAD_TIMEOUT_MS = 60000;
 // Milliseconds waited after two frames past the load for its last paint.
 const SETTLE_MS = 500;
 
-// The page measured for each page type: its first authored page in the site's order, else its first page. The same
-// page each run while the site's pages stay the same, so its measurement is kept with the page's other results.
-export function lcpPages(pages) {
+// The pages measured: every page with a photo in its first screen (photo(page) true: the phone audit's
+// firstScreenPhoto), and for each page type its first authored page in the site's order, else its first page. The same
+// pages each run while the site's pages stay the same, so a measurement is kept with the page's other results.
+export function lcpPages(pages, { photo = () => false } = {}) {
   const chosen = new Map();
   for (const page of pages) {
     const held = chosen.get(page.pageType);
     if (!held || (held.status !== 'authored' && page.status === 'authored')) chosen.set(page.pageType, page);
   }
-  return pages.filter((page) => chosen.get(page.pageType) === page);
+  return pages.filter((page) => chosen.get(page.pageType) === page || photo(page));
+}
+
+// In the page, at its top: the photo of the first screen, the largest image by area of <main> at least half the screen
+// wide whose box starts inside the screen ({ src, width }), or null.
+export function firstScreenPhoto() {
+  const screen = { width: window.innerWidth, height: window.innerHeight };
+  const shown = [...document.querySelectorAll('main img')].map((image) => ({ image, box: image.getBoundingClientRect(), style: getComputedStyle(image) }))
+    .filter(({ box, style }) => box.width >= screen.width / 2 && box.height > 0 && box.top + window.scrollY < screen.height && box.bottom + window.scrollY > 0 && style.display !== 'none' && style.visibility !== 'hidden');
+  const widest = shown.sort((a, b) => b.box.width * b.box.height - a.box.width * a.box.height)[0];
+  return widest ? { src: widest.image.currentSrc || widest.image.getAttribute('src'), width: Math.round(widest.box.width) } : null;
 }
 
 // One cold throttled load of url in its own browser context: { ms, element, url, size } of the last LCP candidate,
@@ -59,11 +72,23 @@ export async function measureLcp(browser, url, { throttling = LCP_THROTTLING, sc
   }
 }
 
+// One page's measurement as the audit judges it: load() is one cold throttled load ({ ms, ... }). A load over
+// LCP_FAIL_MS is loaded once more and the lower of the two stands, both kept as runs (Fable's review 2026-11-19:
+// MotelPilot's blog posts at 3752-3956 ms sit within the 0.3 s two runs differ by, so one run flipped them over the
+// limit); a load under it, or one not measured, is kept as it is.
+export async function judgedLcp(load) {
+  const first = await load();
+  if (!(Number.isFinite(first?.ms) && first.ms > LCP_FAIL_MS)) return first;
+  const second = await load();
+  const lower = Number.isFinite(second?.ms) && second.ms < first.ms ? second : first;
+  return { ...lower, runs: [first.ms, Number.isFinite(second?.ms) ? second.ms : null] };
+}
+
 // The audit's findings of one measurement: { failures, warnings }, each { issue: 'lcp_slow' | 'lcp_not_measured', ... }.
 export function lcpProblems(lcp) {
   if (!lcp) return { failures: [], warnings: [] };
   if (!Number.isFinite(lcp.ms)) return { failures: [], warnings: [{ issue: 'lcp_not_measured', value: lcp.error ?? null }] };
-  const finding = { issue: 'lcp_slow', ms: lcp.ms, element: lcp.element ?? null, ...(lcp.url ? { url: lcp.url } : {}) };
+  const finding = { issue: 'lcp_slow', ms: lcp.ms, element: lcp.element ?? null, ...(lcp.url ? { url: lcp.url } : {}), ...(lcp.runs ? { runs: lcp.runs } : {}) };
   if (lcp.ms > LCP_FAIL_MS) return { failures: [{ ...finding, limit: LCP_FAIL_MS }], warnings: [] };
   if (lcp.ms > LCP_WARN_MS) return { failures: [], warnings: [{ ...finding, limit: LCP_WARN_MS }] };
   return { failures: [], warnings: [] };

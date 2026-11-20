@@ -15,6 +15,7 @@ import { resolve } from 'node:path';
 import { runMain } from './lib/cli.mjs';
 import { ownerOf } from './lib/issue-owners.mjs';
 import { readJson, writeJson } from './lib/json-io.mjs';
+import { blockKindsSha256 } from './lib/sf-handoff.mjs';
 import { loadSitePages } from './lib/site-pages.mjs';
 
 export const SF_REPORT_SCHEMA = 'sf/handoff-report/v1';
@@ -30,7 +31,7 @@ export function siteFactoryIssues({ content = null, review = null, imported = nu
     ...(imported?.overLength ?? []).map((item) => ({ source: 'import', route: item.route, section: item.sectionId, kind: 'over_length', detail: `${item.kind} in ${item.component}: ${item.words} words, the module holds ${item.maximum}` })),
     // A trust bar value whose word after the number is no unit ("65 that"): 08 shows the number alone (lib/site-trust.mjs).
     ...(imported?.trustValueTrimmed ?? []).map((item) => ({ source: 'import', route: null, section: 'trust_bar', kind: 'trust_value_not_a_unit', detail: `${item.label}: "${item.value}" shows as "${item.kept}" ("${item.dropped}" is not a unit of config/trust-units.json; fact ${item.factId ?? 'none'})` })),
-    ...(imported?.jsonLdMarkdown ?? []).map((item) => ({ source: 'import', route: item.route ?? null, kind: 'json_ld_markdown', detail: JSON.stringify(item).slice(0, 200) })),
+    ...(imported?.jsonLdMarkdown ?? []).map((item) => ({ source: 'import', route: typeof item === 'string' ? item : item.route ?? null, kind: 'json_ld_markdown', detail: JSON.stringify(item).slice(0, 200) })),
     ...(layout?.failures ?? []).filter((failure) => ownerOf(failure.issue) === 'site-factory').map((failure) => ({ source: 'layout-audit', route: failure.route, kind: failure.issue, detail: failure.detail ?? failure.message ?? '' })),
     ...[...(seo?.failures ?? []), ...(seo?.warnings ?? [])].filter((finding) => ownerOf(finding.issue) === 'site-factory').map((finding) => ({ source: 'seo-audit', route: finding.route, kind: finding.issue, detail: finding.detail ?? '' })),
     ...(plan?.gate?.items ?? []).filter((item) => item.owner === 'site-factory').map((item) => ({ source: 'layout-plan', route: item.route, ...(item.block && item.block !== 'page' ? { section: item.block } : {}), kind: item.assertion, detail: [item.viewport, item.detail].filter(Boolean).join(': ') })),
@@ -53,7 +54,7 @@ export async function sfReport({ root = process.cwd(), at = new Date().toISOStri
     schema_version: SF_REPORT_SCHEMA,
     handoff_sha256: handoff ?? '0'.repeat(64),
     made_at: at,
-    template: { commit: core?.commit ?? 'unknown', block_kinds_sha256: (await sha256(resolve(root, 'config/block-kinds.json'))) ?? '0'.repeat(64) },
+    template: { commit: core?.commit ?? 'unknown', block_kinds_sha256: await blockKindsSha256(root).catch(() => '0'.repeat(64)) },
     pages: pages.filter((page) => page.pageType !== 'blog_post').map((page) => ({ page_id: page.id, route: page.route, rendered: existsSync(resolve(root, 'dist', routeFile(page.route))), status: page.status ?? 'authored', components: [...new Set((page.blocks ?? []).map((block) => block.type))], missing_components: [] })),
     owner_items: (todo?.items ?? []).map((item) => ({ id: item.id, status: signoff?.items?.find((entry) => entry.id === `sf-${item.id}`)?.status ?? (item.blocking ? 'pending' : 'not_held') })),
     issues,

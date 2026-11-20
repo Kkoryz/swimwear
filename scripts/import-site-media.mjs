@@ -13,6 +13,7 @@ import { basename, extname, resolve } from 'node:path';
 import { cliArgs, runMain, usage } from './lib/cli.mjs';
 import { readJson, writeJson } from './lib/json-io.mjs';
 import { writeResponsiveWebp } from './lib/web-image.mjs';
+import { siteXmp } from './lib/image-seo.mjs';
 
 export const SITE_MEDIA_SCHEMA = 'seo-site-media-v1';
 // Site Factory photo kinds -> the template's photography class they fill.
@@ -24,6 +25,9 @@ export async function importSiteMedia({ project, root = process.cwd() }) {
   const source = await readJson(resolve(project, 'media/media.json'), { schema_version: 'sf/media/v1', photos: [] });
   if (source.schema_version !== 'sf/media/v1') throw new Error(`unsupported media schema: ${source.schema_version}`);
   await mkdir(resolve(root, 'public/media/site'), { recursive: true });
+  // The XMP each file carries while site.json imageSeo is on: the site as creator, its copyright, the digital source
+  // type only where the photo's record states one (lib/image-seo.mjs siteXmp).
+  const xmpOf = await siteXmp(root);
   const photos = [];
   for (const photo of source.photos || []) {
     const mediaClass = KIND_TO_CLASS[photo.kind];
@@ -31,8 +35,8 @@ export async function importSiteMedia({ project, root = process.cwd() }) {
     if (!photo.alt?.trim()) throw new Error(`${photo.file}: alt text is required`);
     if (photo.pages != null && !(Array.isArray(photo.pages) && photo.pages.every((route) => /^\/.*\/$|^\/$/.test(route)))) throw new Error(`${photo.file}: pages must list routes like /bikini/`);
     const file = resolve(project, 'media', photo.file);
-    const web = await writeResponsiveWebp(sharp, file, { root, dir: 'media/site', name: basename(photo.file, extname(photo.file)) });
-    photos.push({ class: mediaClass, kind: photo.kind, ...web, alt: photo.alt.trim(), sourceFile: photo.file, ...(photo.pages?.length ? { pages: photo.pages } : {}) });
+    const web = await writeResponsiveWebp(sharp, file, { root, dir: 'media/site', name: basename(photo.file, extname(photo.file)), xmp: xmpOf(photo.digitalSourceType ?? null) });
+    photos.push({ class: mediaClass, kind: photo.kind, ...web, alt: photo.alt.trim(), sourceFile: photo.file, ...(photo.pages?.length ? { pages: photo.pages } : {}), ...(photo.digitalSourceType ? { digitalSourceType: photo.digitalSourceType } : {}) });
   }
   const data = { schemaVersion: SITE_MEDIA_SCHEMA, source: resolve(project, 'media/media.json'), photos };
   await mkdir(resolve(root, 'src/data'), { recursive: true });

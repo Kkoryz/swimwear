@@ -6,6 +6,7 @@
 // (owner 2026-10-30).
 import { headingFitStyle, POST_TITLE_FIT, wrapEmFor } from '../../../scripts/lib/heading-fit.mjs';
 import { experience } from '../../../scripts/lib/site-people.mjs';
+import { photoSrcset } from '../../../scripts/lib/web-image.mjs';
 import { articleRhythmStyle, blogVariants, builtRoutes, focusStyle, pages, siteIdentity, variants, type AuthoringPage, type ProseBlock } from '../../lib/authoring';
 import CtaBlock from '../blocks/CtaBlock.astro';
 import FaqBlock from '../blocks/FaqBlock.astro';
@@ -36,6 +37,11 @@ const others = pages.filter((other) => other.pageType === 'blog_post' && other.r
   .sort((left, right) => Date.parse(right.article!.dateModified) - Date.parse(left.article!.dateModified)).slice(0, 3);
 const sidebar = layout === 'sidebar-start' || layout === 'sidebar-end';
 const image = article.image;
+// The post's photo from the sizes built for it, as the hub's cards' (lib/web-image.mjs photoSrcset: the post's image
+// keeps its widest file only; 2026-11-20, MotelPilot's posts loaded the 1536px file first on a phone, LCP 4.0s): the
+// screen's width over the title, the article's column (at most the container) inside it.
+const imageSrcset = image ? photoSrcset(image) : undefined;
+const ARTICLE_IMAGE_SIZES = '(min-width: 1280px) 1200px, 100vw';
 const toc = sections.length >= 3;
 // The title sized to its words as a page hero's is (scripts/lib/heading-fit.mjs), on the post title's own scale.
 const fitStyle = headingFitStyle(page.hero.heading, { charEm: wrapEmFor(variants.heroText), fit: POST_TITLE_FIT });
@@ -44,7 +50,7 @@ const fitStyle = headingFitStyle(page.hero.heading, { charEm: wrapEmFor(variants
 <main id="main" data-authoring-page={page.id} data-page-type={page.pageType} data-page-status={page.status} data-post-layout={layout} style={articleRhythmStyle}>
   <Breadcrumbs page={page} />
   <header class="post-header" data-authoring-block="hero" data-layout="hero" data-boundary-anchor="box">
-    {(layout === 'narrow' || layout === 'sidebar-end') && image && <figure class="post-header__image"><img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="eager" fetchpriority="high" decoding="async" style={focusStyle(image.src)} /></figure>}
+    {(layout === 'narrow' || layout === 'sidebar-end') && image && <figure class="post-header__image"><img src={image.src} srcset={imageSrcset} sizes={imageSrcset ? '100vw' : undefined} alt={image.alt} width={image.width} height={image.height} loading="eager" fetchpriority="high" decoding="async" style={focusStyle(image.src)} /></figure>}
     <div class="container post-header__inner" data-heading-fit={fitStyle ? '' : undefined} style={fitStyle}>
       {page.status === 'placeholder' && <p class="placeholder-badge">Placeholder copy</p>}
       {article.category && <p class="post-header__category">{article.category}</p>}
@@ -65,7 +71,7 @@ const fitStyle = headingFitStyle(page.hero.heading, { charEm: wrapEmFor(variants
       </aside>
     )}
     <article class="post-article">
-      {(layout === 'sidebar-start' || layout === 'paper') && image && <figure class="post-article__image"><img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="eager" decoding="async" style={focusStyle(image.src)} /></figure>}
+      {(layout === 'sidebar-start' || layout === 'paper') && image && <figure class="post-article__image"><img src={image.src} srcset={imageSrcset} sizes={imageSrcset ? ARTICLE_IMAGE_SIZES : undefined} alt={image.alt} width={image.width} height={image.height} loading="eager" decoding="async" style={focusStyle(image.src)} /></figure>}
       <div class="post-intro">
         {page.hero.lead?.map((paragraph) => <p class="post-lead"><InlineText text={paragraph} /></p>)}
         {article.takeaways.length > 0 && (

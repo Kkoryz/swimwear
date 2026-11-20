@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // The prelaunch checks (owner 2026-11-18): links, cannibalisation, near-duplicate content, the owner's materials list,
-// technical checks and the site-wide conflict check (Site Factory's, run on this machine by scripts/site-conflicts.mjs
+// technical checks, the markup's validity (html-validate) and the site-wide conflict check (Site Factory's, run on this machine by scripts/site-conflicts.mjs
 // and read here), each switched in site.json prelaunch
 // (lib/prelaunch/config.mjs): off, "report" (the default: reported, never holds) or "block" (its issues hold the
 // release). No model call and no request: the built site (dist) and the site's data only. Each check writes
@@ -28,6 +28,7 @@ import { linkFindings } from './lib/prelaunch/links.mjs';
 import { nearFindings, PAGE_NEAR, PARAGRAPH_NEAR } from './lib/prelaunch/near.mjs';
 import { ownerListRows } from './lib/prelaunch/owner-list.mjs';
 import { checkMarkdown, summaryMarkdown } from './lib/prelaunch/report.mjs';
+import { htmlFindings, HTML_VALIDATE_CONFIG } from './lib/prelaunch/html.mjs';
 import { formFindings, launchFindings, phoneFindings, structuredDataFindings } from './lib/prelaunch/tech.mjs';
 import { pageSearches, postSearches, sitePath } from './lib/site-keywords.mjs';
 import { loadSitePages } from './lib/site-pages.mjs';
@@ -99,6 +100,7 @@ export const CHECKS = {
     ],
     notes: [ctx.launch ? 'a launch build: noindex, robots.txt and the sitemap checked' : 'not a launch build (no --launch, SITE_LAUNCH unset): noindex, robots.txt and the sitemap not checked; a preview stays noindex'],
   }),
+  html: async (ctx) => ({ findings: await htmlFindings(ctx.pages, ctx.built), notes: [`html-validate presets ${HTML_VALIDATE_CONFIG.extends.map((preset) => preset.replace('html-validate:', '')).join(' + ')}, require-sri off (the build's own stylesheets); errors are issues, warnings information`] }),
   conflicts: (ctx) => conflictFindings({ root: ctx.root, env: ctx.env }),
 };
 

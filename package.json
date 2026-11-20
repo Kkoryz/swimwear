@@ -6,7 +6,7 @@
   "license": "MIT",
   "packageManager": "pnpm@11.16.0",
   "engines": {
-    "node": ">=24"
+    "node": ">=24.8.0"
   },
   "scripts": {
     "dev": "astro dev",
@@ -23,6 +23,7 @@
     "scaffold:placeholder-pages": "node scripts/scaffold-placeholder-pages.mjs",
     "apply:reference-analysis": "node scripts/apply-reference-analysis.mjs",
     "compare:sections": "node scripts/compare-sections.mjs",
+    "check:reference-shape": "node scripts/check-reference-shape.mjs",
     "sync:template-core": "node scripts/sync-template-core.mjs",
     "list:css-hooks": "node scripts/list-css-hooks.mjs",
     "export:site-collection": "node scripts/export-site-collection.mjs",
@@ -87,6 +88,7 @@
     "@astrojs/check": "^0.9.10",
     "@huggingface/transformers": "^4.3.0",
     "axe-core": "4.14.0",
+    "html-validate": "11.19.0",
     "playwright": "^1.62.1",
     "sharp": "0.35.3",
     "typescript": "^5.9.3"

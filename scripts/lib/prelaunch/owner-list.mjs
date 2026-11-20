@@ -2,11 +2,11 @@
 // site still shows as a stand-in, gathered in one table, each row "待业主提供" (to be supplied by the owner) until
 // the owner's sign-off confirms it. Sources: the release sign-off (docs/research/release-signoff.json: Site Factory's
 // owner to-do, the stand-in proof, the company's stand-ins), the contact details' stand-ins (src/data/site-contact.json),
-// the proof's certificates without a number and its stand-in figures (src/data/site-proof.json), the articles' stand-in
+// the proof's certificates the owner has not confirmed and its stand-in figures (src/data/site-proof.json), the articles' stand-in
 // claims (blog-posts.json placeholders), the photo slots and the generated photos (docs/research/image-slots.json,
 // image-plan.json). Nothing is judged; each row says where its value is kept.
 
-export const CATEGORIES = Object.freeze({ phone: '电话', email: '邮箱', address: '地址', hours: '营业时间', reviews: '评价', certificates: '证书编号', figures: '占位数字', evidence: '案例与记录', images: '占位图', company: '公司资料', facts: '业主事实', other: '其他' });
+export const CATEGORIES = Object.freeze({ phone: '电话', email: '邮箱', address: '地址', hours: '营业时间', reviews: '评价', certificates: '证书', figures: '占位数字', evidence: '案例与记录', images: '占位图', company: '公司资料', facts: '业主事实', other: '其他' });
 export const PENDING = '待业主提供';
 export const CONFIRMED = '已确认';
 
@@ -40,7 +40,14 @@ export function ownerListRows({ signoff = null, contact = null, proof = null, po
     const category = { phone: 'phone', email: 'email', address: 'address', hours: 'hours', whatsapp: 'phone' }[field] ?? 'other';
     rows.push(row(category, `联系方式 ${field}`, 'src/data/site-contact.json', { value: String(contact[field] ?? '') }));
   }
-  for (const item of proof?.certifications ?? []) if (!item.number) rows.push(row('certificates', `${item.name ?? '证书'}${item.issuer ? `（${item.issuer}）` : ''}：证书编号`, 'src/data/site-proof.json certifications'));
+  // A certificate is confirmed by the owner (confirmed: true) or given with its number, as before; any other one stays on
+  // the list, asking the owner to confirm it is held and current - its issuer, scope and validity, what the page shows.
+  // Its number is not asked for: no page shows a certificate's number (owner 2026-11-19: "不显示不要编号").
+  for (const item of proof?.certifications ?? []) {
+    if (item.number || item.confirmed === true) continue;
+    const given = [item.issuer && `发证机构 ${item.issuer}`, item.scope && `范围 ${item.scope}`, item.validUntil && `有效期至 ${item.validUntil}`].filter(Boolean).join('；');
+    rows.push(row('certificates', `${item.name ?? '证书'}：确认确实持有且在有效期内（发证机构、范围、有效期）`, 'src/data/site-proof.json certifications', { value: given }));
+  }
   for (const item of proof?.standIn ? proof.factory ?? [] : []) rows.push(row('figures', `${item.label}`, 'src/data/site-proof.json factory', { value: String(item.value ?? '') }));
   for (const item of proof?.standIn ? proof.testimonials ?? [] : []) rows.push(row('reviews', `评价：${item.author ?? item.name ?? ''}`, 'src/data/site-proof.json testimonials', { value: String(item.quote ?? '').slice(0, 80) }));
   for (const post of posts.filter((entry) => entry.status !== 'placeholder')) {

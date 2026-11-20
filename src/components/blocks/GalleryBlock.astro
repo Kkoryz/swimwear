@@ -47,11 +47,15 @@ const sparse = cards.length < 3 && cards.some(({ item }) => item.href) ? cards.l
 // A wall of photos alone shows the photos that fill its rows: where it is two columns, an odd last photo is left out
 // (spare), so no row stands half empty and no photo outweighs the rest (site10's three-photo walls on phones: a lone
 // centred photo, then one across the row above two, were each a design finding). Captions and page cards are all shown.
+// A photo wall (a media module the plan placed, media-module-*) takes the reference's photo shape: across the page, or
+// in the content's width at its ratio (components.photoWall, scaffold-placeholder-pages.mjs photoWallOf).
+const contained = String(block.id).startsWith('media-module-') && variants.photoWall?.fit === 'container';
+const wallStyle = contained && variants.photoWall?.ratio ? `--wall-ratio: ${variants.photoWall.ratio}` : undefined;
 const spare = !mosaic && !module && cards.length > 2 && cards.length % 2 === 1 && !cards.some(({ item }) => item.href || item.caption);
 ---
 
 {variant === 'band' && !block.heading && cards.length > 0 && !cards.some(({ item }) => item.href || item.caption) ? (
-<section class="block block--gallery" id={block.anchor} data-authoring-block="gallery" data-block-id={block.id} data-variant="band">
+<section class="block block--gallery" id={block.anchor} data-authoring-block="gallery" data-block-id={block.id} data-variant="band" data-wall={contained ? 'container' : undefined} style={wallStyle}>
   {block.bandLink && cards[0].photo ? (
     <div class="gallery__band-frame">
       <MediaFigure media={cards[0].photo} ratio="var(--band-ratio, 2 / 1)" class="gallery__band" sizes="100vw" />

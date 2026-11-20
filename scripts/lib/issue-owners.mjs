@@ -16,12 +16,12 @@ export const AUDIT_OWNERS = Object.freeze({
   // a frame the site's rules stretch (site13 2026-11-17: its form photo held to the height of a longer form, 41%).
   // The usability checks (lib/usability-checks.mjs; owner 2026-11-18): a form hero, an FAQ open in full, a first screen of
   // stacked bars are the site's variants and stylesheet (template-variants.json heroByPageType, faq; reference.css).
-  'site-css': ['hero_form', 'faq_unfolded', 'band_stack', 'heavy_crop', 'centred_running_text', 'mixed_text_alignment', 'gutter_mismatch', 'h1_lines', 'text_edge_offset','low_contrast', 'heavy_overlay', 'off_palette_color', 'horizontal_overflow', 'sideways_scroll', 'text_overlap', 'long_measure', 'boundary_gap', 'missing_boundary_gap_token', 'tap_target', 'heading_off_axis', 'misaligned_row', 'split_edges', 'action_detached', 'template_rule_overridden', 'heading_scale_inverted'],
+  'site-css': ['hero_form', 'faq_unfolded', 'band_stack', 'hero_height', 'wall_shape', 'heavy_crop', 'centred_running_text', 'mixed_text_alignment', 'gutter_mismatch', 'h1_lines', 'text_edge_offset','low_contrast', 'heavy_overlay', 'off_palette_color', 'horizontal_overflow', 'sideways_scroll', 'text_overlap', 'long_measure', 'boundary_gap', 'missing_boundary_gap_token', 'tap_target', 'heading_off_axis', 'misaligned_row', 'split_edges', 'action_detached', 'template_rule_overridden', 'heading_scale_inverted'],
   // Copy the template has no place for, a link to a page the plan does not build; and what the SEO audit and the early
   // data checks find in the copy (four-site audit 2026-11-17): descriptions from one skeleton, a trust figure that does
   // not read, a promised file with no way to get it, a page few others link to, a page much thinner than its kind, a
   // product name that no longer exists, a way to talk the copy offers with no number or link for it (C6).
-  'site-factory': ['unplaced_copy', 'unresolved_internal_link', 'description_templated', 'trust_value_malformed', 'promise_without_asset', 'inbound_links_low', 'thin_vs_siblings', 'stand_in_lexicon', 'privacy_contradiction', 'channel_without_handle'],
+  'site-factory': ['unplaced_copy', 'unresolved_internal_link', 'description_templated', 'trust_value_malformed', 'promise_without_asset', 'inbound_links_low', 'thin_vs_siblings', 'stand_in_lexicon', 'privacy_contradiction', 'channel_without_handle', 'title_too_long', 'title_too_wide'],
   // The owner's own facts: the phone or address the pages show is not the one the structured data states.
   owner: ['nap_mismatch'],
   // A page outside its density band: what the plan put on it (photo walls, variants), or a page the plan found does not

@@ -20,9 +20,9 @@ import { protectedOverrides } from "./lib/protected-rules.mjs";
 import { assertServesDist, retryCrash } from "./lib/audit-runtime.mjs";
 import { TRIAL_TOLERANCE } from "./lib/trial-build.mjs";
 import { chromeCta, primaryCta } from "./lib/primary-cta.mjs";
-import { axeProblems, measureToolForms, scanAgentTree, toolFormProblems } from "./lib/axe-scan.mjs";
-import { lcpPages, lcpProblems, measureLcp as labLcp } from "./lib/lab-lcp.mjs";
-import { heroShareProblems, measureUsability, usabilityProblems } from "./lib/usability-checks.mjs";
+import { axeProblems, measureToolForms, scanAccessibility, toolFormProblems } from "./lib/axe-scan.mjs";
+import { firstScreenPhoto, judgedLcp, lcpPages, lcpProblems, measureLcp as labLcp } from "./lib/lab-lcp.mjs";
+import { heroShareProblems, measureUsability, referenceShapeProblems, usabilityProblems } from "./lib/usability-checks.mjs";
 
 // Pages measured at the same time, each in its own browser page.
 export const AUDIT_CONCURRENCY = 4;
@@ -37,13 +37,19 @@ export function densityOffPlan(results, plan) {
     .map((result) => ({ route: result.route, viewport: result.viewport, issue: 'density_off_plan', value: result.density.visualAreaPct, planned: planned.get(result.route), tolerance: TRIAL_TOLERANCE.visualPts }));
 }
 
+// How many of a page's JSON-LD blocks (their @type) are its own structured data (lib/seo-head.mjs pageSchemas): the
+// build's ImageObject per content photo (lib/image-seo.mjs, while site.json imageSeo is on) is not one of them. A block
+// that is not JSON counts.
+export const ownSchemaCount = (types) => types.filter((type) => type !== "ImageObject").length;
+
 export const VIEWPORTS = Object.freeze([{ id: "desktop", width: 1440, height: 1000 }, { id: "tablet", width: 768, height: 1024 }, { id: "mobile", width: 390, height: 844 }]);
 
 // measure(definition, viewport) -> one result (a test passes its own; the default opens the page in Chromium).
 // routes: only these pages are measured (site-check.mjs): the report is partial, written to .pipeline/check/, and the
 // cache is left alone, so it never stands for the full audit the gate reads (lib/verified-build.mjs).
-// measureLcp(definition) -> { ms, element, url } | { ms: null, error }: the throttled phone load of one page of each
-// page type (lib/lab-lcp.mjs); a test passes its own, and a test's own measure without one measures none.
+// measureLcp(definition) -> { ms, element, url } | { ms: null, error }: the throttled phone load of every page with a
+// photo in its first screen and of one page of each page type (lib/lab-lcp.mjs); a test passes its own, and a test's
+// own measure without one measures none.
 export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), measure = null, measureLcp = null, fresh = process.env.SITE_RUN_FRESH === "audits", routes = null }) {
   const root = resolve(rootDir);
   // The pages measured are this site's build, or nothing is cached as ours (lib/audit-runtime.mjs).
@@ -59,7 +65,7 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
   const shown = (block) => block.type !== "contactChannels" || channels.length > 0;
   const routeSet = new Set(pages.map((page) => page.route));
   const linkableSet = new Set(pages.filter((page) => isIndexable(page)).map((page) => page.route));
-  const expectedSchemas = (page) => pageSchemas({ page, identity, nav, builtRoutes: routeSet }).length;
+  const expectedSchemas = (page) => ownSchemaCount(pageSchemas({ page, identity, nav, builtRoutes: routeSet }).map((item) => item['@type']));
   const builtRoutes = pages.map((definition) => definition.route);
   const template = await readJson(resolve(root, "site-template.json"), {});
   // A reference measured by an earlier rule (a v1 file: photos only) is no band for this one: measured anew.
@@ -69,7 +75,7 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
   // measurements (.pipeline/audits/authoring-layout.json, lib/page-keys.mjs); a page that failed is always measured
   // again. SITE_RUN_FRESH=audits measures every page.
   const cachePath = resolve(root, ".pipeline/audits/authoring-layout.json");
-  const shared = await sharedPageKey(root, { code: ["scripts/audit-authoring-layout.mjs", "scripts/lib/usability-checks.mjs", "scripts/lib/density.mjs", "scripts/lib/heading-fit.mjs", "scripts/lib/visual-checks.mjs", "scripts/lib/contrast.mjs"], files: ["src/data/template-variants.json", "src/data/site-identity.json", "src/data/site-contact.json", "src/data/site-nav.json", "site-template.json", "docs/research/raw/reference-density.json", INSTALLED_FONTS, "node_modules/axe-core/package.json"], routes: builtRoutes });
+  const shared = await sharedPageKey(root, { code: ["scripts/audit-authoring-layout.mjs", "scripts/lib/usability-checks.mjs", "scripts/lib/hero-heights.mjs", "scripts/lib/density.mjs", "scripts/lib/heading-fit.mjs", "scripts/lib/visual-checks.mjs", "scripts/lib/contrast.mjs", "scripts/lib/axe-scan.mjs", "scripts/lib/lab-lcp.mjs"], files: ["src/data/template-variants.json", "src/data/site-identity.json", "src/data/site-contact.json", "src/data/site-nav.json", "site-template.json", "docs/research/raw/reference-density.json", INSTALLED_FONTS, "node_modules/axe-core/package.json"], routes: builtRoutes });
   const cache = fresh ? null : await readJson(cachePath, null);
   const cached = cache?.shared === shared ? cache.pages ?? {} : {};
   const keys = {};
@@ -98,15 +104,19 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
             .map((url) => url.pathname);
           return {
             canonical: document.querySelector('link[rel="canonical"]')?.getAttribute("href") || null,
-            jsonLdCount: document.querySelectorAll('script[type="application/ld+json"]').length,
+            // The @type of each JSON-LD block (null: not JSON), counted by ownSchemaCount.
+            jsonLdCount: [...document.querySelectorAll('script[type="application/ld+json"]')].map((script) => { try { return JSON.parse(script.textContent)["@type"] ?? null; } catch { return null; } }),
             unplacedCopy: copy.filter((value) => !mainText.includes(value)),
             unresolvedLinks: [...new Set(internal.filter((path) => !builtRoutes.includes(path)))],
             // The site's brand link home must be visible at every width (mobile-first: same content as desktop).
             brandVisible: [...document.querySelectorAll('header a[href="/"]')].some((anchor) => { const box = anchor.getBoundingClientRect(); return box.width > 0 && box.height > 0 && getComputedStyle(anchor).visibility !== "hidden"; }),
           };
         }, { copy: pageCopy(definition, routeSet, (block) => resolveVariant(block, definition.pageType, 0, components) ?? (block.type === "cta" ? components.cta : undefined), linkableSet).map((value) => normalizeText(value).replace(/\s+/g, "")), builtRoutes });
-        // The accessibility tree an agent reads, once a page at the phone width Lighthouse tests (lib/axe-scan.mjs).
-        const agentTree = viewport.id === "mobile" ? await timed("agentTree", () => scanAgentTree(page)) : null;
+        // The accessibility tree an agent reads and the page against WCAG 2.2 A/AA and axe's best practices, once a page
+        // at the phone width Lighthouse tests (lib/axe-scan.mjs); the photo of its first screen (lib/lab-lcp.mjs), the
+        // pages whose LCP is measured.
+        const agentTree = viewport.id === "mobile" ? await timed("agentTree", () => scanAccessibility(page)) : null;
+        const heroPhoto = viewport.id === "mobile" ? await page.evaluate(firstScreenPhoto) : undefined;
         // Its forms as WebMCP tools, each annotated whole or not at all (lib/axe-scan.mjs measureToolForms).
         const toolForms = viewport.id === "mobile" ? await page.evaluate(measureToolForms) : null;
         const evidence = await page.evaluate(() => {
@@ -265,7 +275,7 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
         await page.evaluate(() => window.scrollTo(0, 0));
         const usability = await page.evaluate(measureUsability);
         await page.close();
-        return { route: definition.route, viewport: viewport.id, usability, status: response?.status() || 0, expectedBlocks: withMediaModules(definition, components, { isBuilt: (href) => !href.startsWith("/") || routeSet.has(href) }).filter(shown).length + 1, expectedJsonLd: expectedSchemas(definition), expectedCanonical: definition.seo?.canonical || null, ...pageFacts, ...evidence, headingLines, density, blockMetrics, lowContrast, textOverlaps, visual, fonts, fold, ...(agentTree ? { agentTree } : {}), ...(toolForms?.length ? { toolForms } : {}), ...(barCover ? { barCover } : {}) };
+        return { route: definition.route, viewport: viewport.id, usability, status: response?.status() || 0, expectedBlocks: withMediaModules(definition, components, { isBuilt: (href) => !href.startsWith("/") || routeSet.has(href) }).filter(shown).length + 1, expectedJsonLd: expectedSchemas(definition), expectedCanonical: definition.seo?.canonical || null, ...pageFacts, jsonLdCount: ownSchemaCount(pageFacts.jsonLdCount), ...evidence, headingLines, density, blockMetrics, lowContrast, textOverlaps, visual, fonts, fold, ...(agentTree ? { agentTree } : {}), ...(heroPhoto !== undefined ? { heroPhoto } : {}), ...(toolForms?.length ? { toolForms } : {}), ...(barCover ? { barCover } : {}) };
   });
   // AUDIT_CONCURRENCY pages at a time; the results keep the pages' order.
   let next = 0;
@@ -288,11 +298,13 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
       }));
     }
   };
-  // The phone's LCP under Lighthouse's throttling, one page of each page type (lib/lab-lcp.mjs), after the other
+  // The phone's LCP under Lighthouse's throttling, every page with a photo in its first screen and one page of each
+  // page type (lib/lab-lcp.mjs), after the other
   // measurements, AUDIT_CONCURRENCY loads at a time: each runs in its own renderer with its own network and CPU
   // throttling (site13's eight page types 2026-11-17: 49 s one at a time, 13 s four at a time, every value within the
-  // 0.3 s two serial runs differ by). A page kept from the last run keeps its measurement with its other results; only
-  // a page measured again (or one kept without it) is loaded.
+  // 0.3 s two serial runs differ by; a load over the fail limit is loaded once more, lib/lab-lcp.mjs judgedLcp). A page
+  // kept from the last run keeps its measurement with its other results; only a page measured again (or one kept
+  // without it) is loaded.
   const lcpRoute = measureLcp ?? (measure ? null : async (definition) => {
     browser ??= chromium.launch({ headless: true });
     return labLcp(await browser, new URL(definition.route, baseUrl).href);
@@ -300,11 +312,12 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
   let lcpMeasured = 0;
   try {
     await Promise.all(Array.from({ length: Math.min(AUDIT_CONCURRENCY, measured.length) }, worker));
-    const lcpDue = lcpRoute ? lcpPages(measured).map((definition) => ({ definition, mobile: byPage[measured.indexOf(definition)]?.find((result) => result.viewport === "mobile") })).filter(({ mobile }) => mobile && mobile.lcp === undefined) : [];
+    const mobileOf = (definition) => byPage[measured.indexOf(definition)]?.find((result) => result.viewport === "mobile");
+    const lcpDue = lcpRoute ? lcpPages(measured, { photo: (definition) => Boolean(mobileOf(definition)?.heroPhoto) }).map((definition) => ({ definition, mobile: mobileOf(definition) })).filter(({ mobile }) => mobile && mobile.lcp === undefined) : [];
     const lcpWorker = async () => {
       while (lcpDue.length) {
         const { definition, mobile } = lcpDue.shift();
-        mobile.lcp = await retryCrash(() => lcpRoute(definition), async () => { const current = await browser?.catch(() => null); if (current?.isConnected()) return; browser = null; await current?.close().catch(() => null); });
+        mobile.lcp = await retryCrash(() => judgedLcp(() => lcpRoute(definition)), async () => { const current = await browser?.catch(() => null); if (current?.isConnected()) return; browser = null; await current?.close().catch(() => null); });
         lcpMeasured += 1;
       }
     };
@@ -394,8 +407,9 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
     if (result.expectedCanonical && !(result.canonical && new URL(result.canonical, baseUrl).pathname === result.expectedCanonical)) failures.push({ route: result.route, viewport: result.viewport, issue: "canonical", expected: result.expectedCanonical, actual: result.canonical });
     for (const run of result.lowContrast) failures.push({ route: result.route, viewport: result.viewport, issue: "low_contrast", ...run });
     for (const pair of result.textOverlaps ?? []) failures.push({ route: result.route, viewport: result.viewport, issue: "text_overlap", ...pair });
-    // The agent's accessibility tree (Lighthouse's 33 axe rules), the controls under the phone's enquiry bar, and the
-    // throttled phone LCP of the page measured for its type (four-site audit 2026-11-17, Fable's plan A4, A8, P3).
+    // The agent's accessibility tree (Lighthouse's 33 axe rules) and axe's WCAG 2.2 A/AA and best-practice scan, the
+    // controls under the phone's enquiry bar, and the throttled phone LCP (four-site audit 2026-11-17, Fable's plan A4,
+    // A8, P3; site audit 2026-11-19).
     const at = { route: result.route, viewport: result.viewport };
     for (const problems of [axeProblems(result.agentTree), lcpProblems(result.lcp)]) {
       failures.push(...problems.failures.map((problem) => ({ ...at, ...problem })));
@@ -404,6 +418,8 @@ export async function auditAuthoringLayout({ baseUrl, rootDir = process.cwd(), m
     for (const cover of barCovers(result.barCover)) failures.push({ ...at, issue: "enquiry_bar_covers", ...cover });
     for (const form of toolFormProblems(result.toolForms)) failures.push({ ...at, ...form });
     if (definition) for (const problem of usabilityProblems(result.usability, { page: definition, components })) failures.push({ ...at, ...problem });
+    // The first screen and the photo walls against the reference's measure at this width: failures, no waiver.
+    if (definition) for (const problem of referenceShapeProblems(result.usability, { page: definition, components, viewport: result.viewport })) failures.push({ ...at, ...problem });
     for (const value of result.unplacedCopy) failures.push({ route: result.route, viewport: result.viewport, issue: "unplaced_copy", value: value.slice(0, 120) });
     for (const path of result.unresolvedLinks) failures.push({ route: result.route, viewport: result.viewport, issue: "unresolved_internal_link", value: path });
     if (!Number.isFinite(result.maxGap) || result.maxGap <= 0) failures.push({ route: result.route, viewport: result.viewport, issue: "missing_boundary_gap_token" });

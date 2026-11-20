@@ -12,6 +12,7 @@ import { assetRefProblems } from './asset-refs.mjs';
 import { homeCategoryProblems } from './home-categories.mjs';
 import { requiredBlocks } from './page-blueprints.mjs';
 import { schemaProblems } from './schema-rules.mjs';
+import { TITLE_MAX, TITLE_PX_MAX, titleChars, titlePx } from './title-limits.mjs';
 import { mainKeywords, loadSitePages } from './site-pages.mjs';
 import { pageAltProblems } from './alt-text.mjs';
 import { imageBudgetProblems, imagePriorityProblems } from './image-budgets.mjs';
@@ -78,9 +79,19 @@ export function pageProblems({ html, page, identity, nav, builtRoutes = null, ke
     if (index > 0 && heading.level > headings[index - 1].level + 1) warn('heading_level_skipped', `h${headings[index - 1].level} to h${heading.level}: ${heading.text.slice(0, 40)}`);
     if (!heading.text || /^[\d\s.,%+-]*$/.test(heading.text)) warn('heading_empty_or_numeric', `h${heading.level}: "${heading.text}"`);
   });
-  // Title and description lengths (what results usually show): a warning back to the copy owner, never a rewrite.
-  if (titles[0] && (titles[0].length < 30 || titles[0].length > 65)) warn('title_length', `${titles[0].length} characters`);
-  if (description && (description.length < 70 || description.length > 165)) warn('description_length', `${description.length} characters`);
+  // Title and description lengths (what results usually show), back to the copy owner, never a rewrite. The title as a
+  // reader sees it (entities decoded: &amp; is one character): over TITLE_MAX fails, Site Factory's rule (lib/title-limits.mjs;
+  // a replacement list fixes it); under 30 characters, or wider than a desktop result shows, is a warning.
+  const shown = decode(titles[0] ?? '');
+  const chars = titleChars(shown);
+  // A later page of the blog list carries the list's title plus the " – Page N" this template adds (lib/blog.mjs): the
+  // title Site Factory wrote is checked on the first page, never again with our own suffix counted against it.
+  const laterPage = (page.blocks ?? []).some((block) => block.pagination?.page > 1);
+  if (chars > TITLE_MAX && !laterPage) add('title_too_long', `${chars} characters (at most ${TITLE_MAX}): ${shown}`);
+  else if (shown && chars < 30) warn('title_length', `${chars} characters`);
+  if (shown && chars <= TITLE_MAX && titlePx(shown) > TITLE_PX_MAX) warn('title_too_wide', `about ${titlePx(shown)}px at 20px Arial (about ${TITLE_PX_MAX}px shown): ${shown}`);
+  const descriptionChars = titleChars(decode(description ?? ''));
+  if (description && (descriptionChars < 70 || descriptionChars > 165)) warn('description_length', `${descriptionChars} characters`);
   // Placeholder text must never reach an indexable page.
   if (isIndexable(page) && /\[Placeholder\]/.test(html.split('<main')[1] ?? '')) add('placeholder_text_on_indexable');
   // Link text: descriptive, never generic; every link, button and form control has an accessible name (an image link
@@ -155,7 +166,7 @@ export async function siteWideProblems({ root, pages, built, identity = null, ke
     ...lexiconProblems(pages, built, lexicon),
     ...privacyContradictionProblems(pages, built),
     ...heroReuseProblems(pages, built),
-    ...photoReuseProblems(pages, built),
+    ...photoReuseProblems(pages, built, await readJson(resolve(root, 'docs/research/image-plan.json'), null)),
     ...proofProblems({ proof, demo, pages, facts }),
     ...await unreferencedAssets(root),
   ];

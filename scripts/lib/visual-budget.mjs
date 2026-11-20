@@ -175,28 +175,37 @@ export function varyItemRows(blocks, variantOf) {
   // Nor does a grid other blocks go on from: its first grid alone as a list left a list over three rows of cards (the
   // hotel hub's thirteen entry cards in grids of four).
   const listable = (at) => blocks[at].type === 'featureGrid' && Boolean(blocks[at].heading) && blocks[at].continues == null && !blocks.some((item) => item.continues === blocks[at].id);
+  // Of the pair meeting at index, a card set joined into one list beside its heading, the later set first, the earlier
+  // where the later cannot be one. Counted with the set as the one list it becomes, from its first grid to its last
+  // (Staylumen 2026-11-17: /airbnb-booking-management/'s three grids joined into a list before two icon lists, counted
+  // from its first alone). Returns the blocks gone from before index (the earlier set's other grids), which the walk
+  // steps back by: the pair after the joined set is looked at too.
+  const joinSet = (index) => {
+    const gridsOf = (start) => blocks.filter((item, at) => at > start && item.continues === blocks[start].id);
+    const start = [index, setStart(blocks, index - 1)].find((at) => joinable(blocks, at) && listRun(at, at + gridsOf(at).length) <= 2);
+    if (start == null) return 0;
+    const grids = gridsOf(start);
+    blocks.splice(start, grids.length + 1, { ...blocks[start], items: [blocks[start], ...grids].flatMap((item) => item.items ?? []), variant: 'bullets', planned: true });
+    return start < index ? grids.length : 0;
+  };
   for (let index = 1; index < blocks.length; index += 1) {
     const [before, block] = [blocks[index - 1], blocks[index]];
     if (block.continues === before.id || before.continues === block.id) continue;
     if (!itemRow(before, variantOf(before)) || !itemRow(block, variantOf(block))) continue;
     if (listable(index) && toList(index)) continue;
     if (listable(index - 1) && !(index >= 2 && blocks[index - 2].type === 'featureGrid' && variantOf(blocks[index - 2]) === 'bullets') && toList(index - 1)) continue;
-    // Neither grid could become a list without making three lists in a row: the pair stays cards.
-    if ([index, index - 1].some((at) => listable(at)) && [index, index - 1].every((at) => !listable(at) || listRun(at) > 2)) continue;
+    // Neither grid could become a list without making three lists in a row: the other of the pair, a card set in grids
+    // of its own, is the list where it can be one (a set before a grid that stands before two icon lists, or after a grid
+    // that stands after two: the same pair the gate fails, plan-assertions.mjs item_rows_adjacent); else the pair stays cards.
+    if ([index, index - 1].some((at) => listable(at)) && [index, index - 1].every((at) => !listable(at) || listRun(at) > 2)) { index -= joinSet(index); continue; }
     // Neither grid can be a list (one goes on from another, or has no heading of its own): the pair's steps are
     // (hotel-rm's pricing page, motel's process page, 2026-11-14: a grid going on from another over a row of steps).
     else if ([index, index - 1].some((at) => blocks[at].type === 'process')) { const at = blocks[index].type === 'process' ? index : index - 1; blocks[at] = { ...blocks[at], variant: 'list', planned: true }; }
     // No steps either: two card sets in grids of their own (Strandmill 2026-11-14, four pages: m4, m4-2 then m5, m5-2).
-    // A whole set becomes one list beside its heading, all its cards in it, the later set first.
-    else {
-      const start = [index, setStart(blocks, index - 1)].find((at) => joinable(blocks, at));
-      // Counted with the set as the one list it becomes, from its first grid to its last (Staylumen 2026-11-17:
-      // /airbnb-booking-management/'s three grids joined into a list before two icon lists, counted from its first alone).
-      const grids = start == null ? [] : blocks.filter((item, at) => at > start && item.continues === blocks[start].id);
-      if (start != null && listRun(start, start + grids.length) <= 2) {
-        blocks.splice(start, grids.length + 1, { ...blocks[start], items: [blocks[start], ...grids].flatMap((item) => item.items ?? []), variant: 'bullets', planned: true });
-      }
-    }
+    // A whole set becomes one list beside its heading, all its cards in it, the later set first; the earlier where the
+    // later cannot be one (too long, or a third list in a row: Strandmill 2026-11-20, /watersports-apparel-manufacturer/'s
+    // later set stood before two icon lists and the earlier, free, stayed cards).
+    else index -= joinSet(index);
   }
   // A grid the reference's pattern alone sets out as a list (its own variant cards) that is then the third list in a
   // row keeps its cards (keepCards, read by designedVariant; Staylumen 2026-11-17: /airbnb-booking-management/'s first

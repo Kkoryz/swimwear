@@ -17,7 +17,7 @@ import { resolve } from 'node:path';
 import { withSiteLock } from './lib/audit-runtime.mjs';
 import { blogGates } from './lib/blog-gates.mjs';
 import { blogSchedule, dueToday } from './lib/blog-schedule.mjs';
-import { cliArgs, runMain } from './lib/cli.mjs';
+import { cliArgs, runMain, wholeNumber } from './lib/cli.mjs';
 import { companyFacts } from './lib/facts.mjs';
 import { readJson, writeJson } from './lib/json-io.mjs';
 import { blogCannibalMode } from './lib/prelaunch/config.mjs';
@@ -84,7 +84,7 @@ export async function publishDue({ root = process.cwd(), now = new Date(), sched
 
 runMain(import.meta.url, async () => {
   const { limit, scheduled, now } = cliArgs({ limit: { type: 'string' }, scheduled: { type: 'boolean' }, now: { type: 'string' } }).values;
-  const { published, report, skipped } = await publishDue({ scheduled: Boolean(scheduled), limit: limit ? Number(limit) : null, ...(now ? { now: new Date(now) } : {}) });
+  const { published, report, skipped } = await publishDue({ scheduled: Boolean(scheduled), limit: limit ? wholeNumber('--limit', limit) : null, ...(now ? { now: new Date(now) } : {}) });
   if (skipped) console.log(skipped);
   for (const item of report) console.log(`${item.slug}: ${item.failures.length ? `held (${item.failures.join('; ')})` : 'published'}${item.warnings.length ? ` — warnings: ${item.warnings.join('; ')}` : ''}`);
   console.log(`${published} article(s) published`);

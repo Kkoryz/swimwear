@@ -113,7 +113,8 @@ export function placeSiteSlots(blocks, mapping, { planned, blueprints = BLUEPRIN
 // Owner slots: the site's proof (src/data/site-proof.json, the owner's data, never Site Factory's), before the FAQ or
 // the closing call to action (the order routes: after the page's opening); the blueprint's order places them when every
 // section names its slot. A page's own client case (07 cases, placeCases) takes the place of the stand-in case studies.
-export function placeOwnerSlots(blocks, mapping, { planned, proof, blueprints = BLUEPRINTS, trust = null, testimonials = null, cases = null }) {
+// quickView: the page's own quick-view table (the package page's quick_view), shown in the orderTerms slot.
+export function placeOwnerSlots(blocks, mapping, { planned, proof, blueprints = BLUEPRINTS, trust = null, testimonials = null, cases = null, quickView = null }) {
   // The slots the page's tree name adds (site-proof.mjs PAGE_PROOF_SLOTS: the case studies page's case cards) fill a page
   // Site Factory gives no case of its own; one it gives cases shows those alone (site13 blind audit 2026-11-17 H-2: the
   // stand-in cards and the page's own cases told different projects).
@@ -122,10 +123,18 @@ export function placeOwnerSlots(blocks, mapping, { planned, proof, blueprints = 
     // A package that gives the page its cases and gives none (cases: []) means none here: no stand-in case studies take
     // the slot (Site Factory 1113d took the hotel home's cases off; the stand-ins would have come back in their place).
     if (slot.id === 'caseStudies' && Array.isArray(cases) && !slot.page) { mapping.push({ sectionId: `owner.${slot.id}`, blockType: null, rule: `slot ${slot.id}: the package gives this page no client case` }); continue; }
-    const block = proofBlock(slot.id, proof, { route: planned.url, trust, testimonials });
+    const block = proofBlock(slot.id, proof, { route: planned.url, trust, testimonials, quickView, siteTerms: planned.page_type !== 'solution' });
     if (!block) { mapping.push({ sectionId: `owner.${slot.id}`, blockType: null, rule: `slot ${slot.id}: no owner data in src/data/site-proof.json` }); continue; }
     blocks.splice(block.type === 'orderRoutes' ? openingEnd(blocks) : afterKinds(blocks, mapping, AFTER_KINDS[slot.id]) ?? indexBefore(blocks, ['faq', 'cta']), 0, block);
     mapping.push({ sectionId: `owner.${slot.id}`, blockType: block.type, rule: block.type === 'orderRoutes' ? `slot ${slot.id}: the package's order_routes` : `slot ${slot.id}: the owner's proof (src/data/site-proof.json)` });
+  }
+}
+
+// A page whose package carries a quick view (Site Factory 06_1 narrowed its owner briefs for it) must show it: no
+// orderTerms table on the assembled page stops the import (Fable's merge review T2).
+export function assertQuickViewPlaced(source, blocks) {
+  if (source?.quick_view?.rows?.length && !blocks.some((block) => block.id === 'owner-orderTerms' && block.type === 'table')) {
+    throw new Error(`${source.page_id}: the package gives this page a quick view and the page shows no order terms table (its blueprint has no orderTerms slot: make docs/research/slot-manifest.json again)`);
   }
 }
 

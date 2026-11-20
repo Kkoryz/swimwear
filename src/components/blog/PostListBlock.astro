@@ -3,6 +3,7 @@
 // wide (wide photo, serif title, excerpt, arrow link), bordered (bordered, large title, excerpt, date), meta (photo,
 // date row, excerpt, solid button). Numbered pages link as plain <a href> so every page can be crawled.
 import { blogVariants, focusStyle, gridPlan, type PostListBlock } from '../../lib/authoring';
+import { publishedSrcset } from '../../../scripts/lib/web-image.mjs';
 import PostDate from './PostDate.astro';
 
 interface Props { block: PostListBlock }
@@ -22,6 +23,11 @@ const itemStyle = (index: number) => [start(columns, index) && `--start: ${start
 const categories = card !== 'title' && block.items.some((item) => item.category);
 const bodyRows = 1 + (categories ? 1 : 0) + (card !== 'title' ? 2 : 0) + (card === 'wide' || card === 'meta' ? 1 : 0);
 const href = (number: number) => (number === 1 ? base : `${base}page/${number}/`);
+// A card's photo at the size its column shows it (patterns.css .post-grid: one column on a phone, two from 768px,
+// `columns` from 1100px), from the sizes built for it (lib/web-image.mjs publishedSrcset: a post's image keeps its
+// widest file only; 2026-11-20, MotelPilot's /blog/ loaded the 1536px file first on a phone, the 960 one built).
+const srcset = (image: { src: string; srcset?: string }) => image.srcset ?? publishedSrcset(image.src) ?? undefined;
+const cardSizes = `(min-width: 1100px) ${Math.ceil(100 / columns)}vw, (min-width: 768px) 50vw, 100vw`;
 ---
 
 <section class="block block--posts" data-authoring-block="postList" data-block-id={block.id} data-card={card}>
@@ -31,7 +37,7 @@ const href = (number: number) => (number === 1 ? base : `${base}page/${number}/`
         <li class="post-card" style={[`--card-rows: ${bodyRows + (item.image ? 1 : 0)}`, itemStyle(index)].filter(Boolean).join('; ')}>
           {item.image && (
             <a class="post-card__media" href={item.href} tabindex="-1" aria-hidden="true">
-              <img src={item.image.src} alt="" data-decorative width={item.image.width} height={item.image.height} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" style={focusStyle(item.image.src)} />
+              <img src={item.image.src} srcset={srcset(item.image)} sizes={srcset(item.image) ? cardSizes : undefined} alt="" data-decorative width={item.image.width} height={item.image.height} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" style={focusStyle(item.image.src)} />
             </a>
           )}
           <div class="post-card__body">
@@ -39,8 +45,10 @@ const href = (number: number) => (number === 1 ? base : `${base}page/${number}/`
             <h2 class="post-card__title"><a href={item.href}>{item.title}</a></h2>
             {card !== 'title' && <p class="post-card__meta"><PostDate value={item.date} /></p>}
             {card !== 'title' && <p class="post-card__excerpt">{item.excerpt}</p>}
-            {card === 'wide' && <a class="post-card__more" href={item.href} aria-label={`Read: ${item.title}`}>Read more →</a>}
-            {card === 'meta' && <a class="button button--primary post-card__button" href={item.href} aria-label={`Read: ${item.title}`}>Read more</a>}
+            {/* The link's name starts with its visible words (WCAG 2.5.3 label in name: a voice user says "Read more"); the
+                post's title follows so each link is told apart (site audit 2026-11-19: "Read: title" on 13 links). */}
+            {card === 'wide' && <a class="post-card__more" href={item.href} aria-label={`Read more: ${item.title}`}>Read more<span aria-hidden="true"> →</span></a>}
+            {card === 'meta' && <a class="button button--primary post-card__button" href={item.href} aria-label={`Read more: ${item.title}`}>Read more</a>}
           </div>
         </li>
       ))}
